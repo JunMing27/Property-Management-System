@@ -1,0 +1,4 @@
+A1,Aname,LGender,15Age,0192123292,Aname@gmail.com
+A2,Bname,FGender,16Age,0192123392,Bname@gmail.com
+A3,Cname,LGender,17Age,0192123492,Cname@gmail.com
+A4,Dname,LGender,17Age,0192123492,Cname@gmail.com

@@ -8,7 +8,6 @@
  * @author Jun Ming
  */
 package com.mycompany.mavenproject1;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -85,9 +84,20 @@ public class LoginPage {
     panel.getRootPane().setDefaultButton(loginBtn);
     panel.add(loginBtn);
     
+    // login button
+    JButton visitorBtn = new JButton("Visitor Pass");
+    visitorBtn.setBounds(280, 330, 250, 25);
+    visitorBtn.setBackground(new java.awt.Color(255,255,255));
+    visitorBtn.setFont(new java.awt.Font("Times New Roman", Font.PLAIN, 12)); 
+    visitorBtn.setForeground(new java.awt.Color(0, 0, 0));
+    visitorBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, false));
+    visitorBtn.setFocusPainted(false);
+    visitorBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    panel.add(visitorBtn);
+    
     // warning label
     JLabel warningLabel = new JLabel();
-    warningLabel.setBounds(280, 330, 250, 40);
+    warningLabel.setBounds(280, 360, 250, 40);
     warningLabel.setForeground(new java.awt.Color(255,0,0));
     warningLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255,0,0), 1, false));
     panel.add(warningLabel);
