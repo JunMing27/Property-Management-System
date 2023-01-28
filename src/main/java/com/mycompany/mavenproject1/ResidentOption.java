@@ -4,9 +4,12 @@
  */
 package com.mycompany.mavenproject1;
 
+import javax.swing.JFrame;
+
+
 /**
  *
- * @author user
+ * @author Hoi Yi
  */
 public class ResidentOption extends javax.swing.JFrame {
 
@@ -26,21 +29,163 @@ public class ResidentOption extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        profileBtn = new javax.swing.JButton();
+        exitBtn = new javax.swing.JButton();
+        paymentBtn = new javax.swing.JButton();
+        topLabel = new javax.swing.JLabel();
+        facilityBookBtn = new javax.swing.JButton();
+        visitorPassBtn = new javax.swing.JButton();
+        complaintBtn = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(233, 233, 233));
+        jPanel1.setPreferredSize(new java.awt.Dimension(377, 412));
+
+        profileBtn.setBackground(new java.awt.Color(255, 255, 255));
+        profileBtn.setForeground(new java.awt.Color(0, 0, 0));
+        profileBtn.setText("Profile");
+        profileBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileBtnActionPerformed(evt);
+            }
+        });
+
+        exitBtn.setBackground(new java.awt.Color(255, 255, 255));
+        exitBtn.setForeground(new java.awt.Color(0, 0, 0));
+        exitBtn.setText("Log Out");
+        exitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBtnActionPerformed(evt);
+            }
+        });
+
+        paymentBtn.setBackground(new java.awt.Color(255, 255, 255));
+        paymentBtn.setForeground(new java.awt.Color(0, 0, 0));
+        paymentBtn.setText("Payment");
+        paymentBtn.setMaximumSize(new java.awt.Dimension(72, 22));
+        paymentBtn.setMinimumSize(new java.awt.Dimension(72, 22));
+        paymentBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paymentBtnActionPerformed(evt);
+            }
+        });
+
+        topLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        topLabel.setForeground(new java.awt.Color(0, 0, 0));
+        topLabel.setText("Welcome Resident !");
+
+        facilityBookBtn.setBackground(new java.awt.Color(255, 255, 255));
+        facilityBookBtn.setForeground(new java.awt.Color(0, 0, 0));
+        facilityBookBtn.setText("Facility Booking");
+        facilityBookBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                facilityBookBtnActionPerformed(evt);
+            }
+        });
+
+        visitorPassBtn.setBackground(new java.awt.Color(255, 255, 255));
+        visitorPassBtn.setForeground(new java.awt.Color(0, 0, 0));
+        visitorPassBtn.setText("Visitor Pass");
+        visitorPassBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visitorPassBtnActionPerformed(evt);
+            }
+        });
+
+        complaintBtn.setBackground(new java.awt.Color(255, 255, 255));
+        complaintBtn.setForeground(new java.awt.Color(0, 0, 0));
+        complaintBtn.setText("Complaint");
+        complaintBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                complaintBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(topLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(58, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(complaintBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(visitorPassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(facilityBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(topLabel)
+                .addGap(26, 26, 26)
+                .addComponent(profileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(facilityBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(visitorPassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(complaintBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
+        // Direct to Profile Page
+    }//GEN-LAST:event_profileBtnActionPerformed
+
+    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
+        // Direct to Login Page
+        this.dispose();
+        LoginPage loginPage = new LoginPage();
+        loginPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        loginPage.pack();
+        loginPage.setResizable(false);
+        loginPage.setLocationRelativeTo(null);
+        loginPage.setVisible(true);
+    }//GEN-LAST:event_exitBtnActionPerformed
+
+    private void paymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBtnActionPerformed
+        // Direct to Payment Page
+    }//GEN-LAST:event_paymentBtnActionPerformed
+
+    private void facilityBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityBookBtnActionPerformed
+        // Direct to Facility Booking Page
+    }//GEN-LAST:event_facilityBookBtnActionPerformed
+
+    private void visitorPassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorPassBtnActionPerformed
+        // Direct to Visitor Pass Page
+    }//GEN-LAST:event_visitorPassBtnActionPerformed
+
+    private void complaintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintBtnActionPerformed
+        // Direct to Complaint Page
+    }//GEN-LAST:event_complaintBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +223,13 @@ public class ResidentOption extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton complaintBtn;
+    private javax.swing.JButton exitBtn;
+    private javax.swing.JButton facilityBookBtn;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton paymentBtn;
+    private javax.swing.JButton profileBtn;
+    private javax.swing.JLabel topLabel;
+    private javax.swing.JButton visitorPassBtn;
     // End of variables declaration//GEN-END:variables
 }
