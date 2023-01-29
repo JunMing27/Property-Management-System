@@ -1,3 +1,4 @@
-B1,Aname,LGender,18Age,0192123292,Aname@gmail.com
-B2,Bname,FGender,19Age,0192123392,Bname@gmail.com
-B3,Cname,LGender,21Age,0192123492,Cname@gmail.com
+B1,Aname,LGender,18Age,0192123292,ngan.jpg
+B2,Bname,FGender,19Age,0192123392,blue.png
+B3,Cname,LGender,21Age,0192123492,ngan.jpg
+B4,s,male,2,s,amber.jpg

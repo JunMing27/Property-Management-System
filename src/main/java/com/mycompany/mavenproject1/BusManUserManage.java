@@ -4,9 +4,14 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -281,35 +286,60 @@ public class BusManUserManage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.UserID = (jLabel3.getText().trim()).substring(10);
+        goToEditPage();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        this.UserID = (jLabel3.getText().trim()).substring(10);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        this.UserID = (jLabel5.getText().trim()).substring(10);
+        goToEditPage();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        this.UserID = (jLabel5.getText().trim()).substring(10);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    //jButton2 and jButton4 edit function
+    public void goToEditPage(){
+        this.dispose();
+        // main method in main file (BusinessManagerMain) ** this method will get ID from this class and display data on BusManUserManageAddEdit page
+        BusinessManagerMain main = new BusinessManagerMain();
+        main.chooseTxtFile(this.GetUserType);
+        main.EditAdminOrBuildingUser(this.GetUserType,this.UserID);
+    }
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        BusManUserManageAddEdit BusManUserAdd = new BusManUserManageAddEdit();
+        BusManUserAdd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        BusManUserAdd.pack();
+        BusManUserAdd.setResizable(false);
+        BusManUserAdd.setLocationRelativeTo(null);
+        BusManUserAdd.setVisible(true);
+        BusManUserAdd.addUserToggle(this.GetUserType);
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         backButtonFunction();
-        setAdminOrBuildingExecutiveData(GetUserType);
+            setAdminOrBuildingExecutiveData(GetUserType);
         jButton8.setEnabled(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         jButton7.setEnabled(true);
-        setAdminOrBuildingExecutiveData(GetUserType);
+            setAdminOrBuildingExecutiveData(GetUserType);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private Integer PageLine=-1;
@@ -318,13 +348,23 @@ public class BusManUserManage extends javax.swing.JFrame {
         PageLine=PageLine+1;
     }
     
-    
+    // set variable to get UserType from BusinessManagerMain
     private String GetUserType;
     
     public void setUserType(String UserType){
         GetUserType = UserType;
     }
     
+    public String getUserType(){
+        return GetUserType;
+    }
+    
+    //set UserID variable to set and get UserID for edit/delete purposes
+    private String UserID;
+    
+    public String getUserID(){
+        return UserID;
+    }
     
     public void setAdminOrBuildingExecutiveData(String UserType){
         BusinessManagerMain main = new BusinessManagerMain();
@@ -341,6 +381,16 @@ public class BusManUserManage extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if(main.getAdminOrBuildingUserImage() != null){
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getAdminOrBuildingUserImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                jLabel2.setIcon(new ImageIcon(resizedImage));
+            }
+            catch(Exception e){}
+        } else {
+            jLabel2.setIcon(null);
+        }
         jLabel3.setText("User ID : " + main.getAdminOrBuildingUserId());
         jLabel4.setText("Name : " + main.getAdminOrBuildingUserName());
         try {
@@ -353,6 +403,16 @@ public class BusManUserManage extends javax.swing.JFrame {
 
         } catch (IOException ex) {
             Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(main.getAdminOrBuildingUserImage() != null){
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getAdminOrBuildingUserImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                jLabel7.setIcon(new ImageIcon(resizedImage));
+            }
+            catch(Exception e){}
+        }else {
+            jLabel7.setIcon(null);
         }
         jLabel5.setText("User ID : " + main.getAdminOrBuildingUserId());
         jLabel6.setText("Name : " + main.getAdminOrBuildingUserName());
