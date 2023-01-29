@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -375,7 +377,6 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                 ID = ID.substring(1);
                 Integer IDnumber = Integer.parseInt(ID)+1;
                 ID = firstchar+ (IDnumber).toString();
-                System.out.println(ID);
             }
             catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -417,7 +418,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                 if(this.AddOrEdit=="add"){
                     addDataMethod();
                 }else if(this.AddOrEdit=="edit"){
-                    
+                    editDataMethod();
                 }
             }
             
@@ -438,7 +439,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         jTextField2.setText(getName);
         jTextField4.setText(getAge);
         jTextField5.setText(getPhoneNo);
-        System.out.println(getName);
+        this.ImageName=getImage;
         try{
                 BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+getImage));
                 Image resizedImage = UserImage.getScaledInstance(165, 130, Image.SCALE_SMOOTH);
@@ -450,19 +451,17 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     public void addDataMethod(){
         try {
             BufferedWriter itemtofile;
-            System.out.println(file);
             FileWriter AddNewItem = new FileWriter("src/main/java/com/mycompany/mavenproject1/"+file,true);
             itemtofile = new BufferedWriter(AddNewItem);
-            itemtofile.newLine();
             itemtofile.write(ID+",");
             itemtofile.write(Name+",");
             itemtofile.write(Gender+",");
             itemtofile.write(Age+",");
             itemtofile.write(PhoneNumber+",");
             itemtofile.write(this.ImageName);
+            itemtofile.newLine();
             itemtofile.close();
             AddNewItem.close();
-            System.out.println(Name);
             JOptionPane.showMessageDialog(null, "Added "+this.UserType+" Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
             dest = new File("src/main/java/com/mycompany/image/" + this.ImageName);
             source = sourceFile;
@@ -479,7 +478,34 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     }
     
     public void editDataMethod(){
-        
+        try {
+            BusinessManagerMain main = new BusinessManagerMain();
+            String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
+            ArrayList<ArrayList<String>> allUsers = main.UserInfo(fileName);
+            for (ArrayList<String> user : allUsers) {
+                if (user.get(0).equals(jTextField1.getText())) {
+                    user.set(1, String.valueOf(Name));
+                    user.set(2, String.valueOf(Gender));
+                    user.set(3, String.valueOf(Age));
+                    user.set(4, String.valueOf(PhoneNumber));
+                    user.set(5, String.valueOf(this.ImageName));
+                    break;
+                }
+            }
+            new FileWriter(fileName, false).close();
+            for (ArrayList<String> user : allUsers) {
+                try {
+                    main.appendUserManage(user.get(0),user.get(1),user.get(2),user.get(3),user.get(4),user.get(5), file);
+                }
+                catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Edited Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+        } 
+        catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Problem Occured, Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     /**

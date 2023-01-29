@@ -7,12 +7,16 @@ package com.mycompany.mavenproject1;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -294,6 +298,7 @@ public class BusManUserManage extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.UserID = (jLabel3.getText().trim()).substring(10);
+        deleteUser();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -305,6 +310,7 @@ public class BusManUserManage extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         this.UserID = (jLabel5.getText().trim()).substring(10);
+        deleteUser();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     //jButton2 and jButton4 edit function
@@ -313,7 +319,54 @@ public class BusManUserManage extends javax.swing.JFrame {
         // main method in main file (BusinessManagerMain) ** this method will get ID from this class and display data on BusManUserManageAddEdit page
         BusinessManagerMain main = new BusinessManagerMain();
         main.chooseTxtFile(this.GetUserType);
-        main.EditAdminOrBuildingUser(this.GetUserType,this.UserID);
+        main.displayAdminOrBuildingUser(this.GetUserType,this.UserID);
+    }
+    
+    //jButton3 and jButton5 delete function
+    public void deleteUser(){
+        try {
+            chooseTxtFile(GetUserType);
+            BusinessManagerMain main = new BusinessManagerMain();
+            String fileName = "src/main/java/com/mycompany/mavenproject1/"+this.file;
+            ArrayList<ArrayList<String>> allUsers = main.UserInfo(fileName);
+            for (ArrayList<String> user : allUsers) {
+                if (user.get(0).equals(this.UserID)) {
+                    user.set(1, String.valueOf(""));
+                    user.set(2, String.valueOf(""));
+                    user.set(3, String.valueOf(""));
+                    user.set(4, String.valueOf(""));
+                    user.set(5, String.valueOf(""));
+                    break;
+                }
+            }
+            new FileWriter(fileName, false).close();
+            for (ArrayList<String> user : allUsers) {
+                if (!user.get(1).equals("")) {
+                    try {
+                        main.appendUserManage(user.get(0),user.get(1),user.get(2),user.get(3),user.get(4),user.get(5), this.file);
+                    }
+                    catch (IOException e) {
+                        JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+        } 
+        catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Problem Occured, Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+        this.dispose();
+        String UserType =GetUserType;
+        BusManUserManage BusManUserManage = new BusManUserManage();
+        BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        BusManUserManage.pack();
+        BusManUserManage.setResizable(false);
+        BusManUserManage.setLocationRelativeTo(null);
+        BusManUserManage.setVisible(true);
+        BusManUserManage.backButtonToggle();
+        //Run Method in BusManUserManage to set UserType and Data
+        BusManUserManage.setAdminOrBuildingExecutiveData(UserType);
+        BusManUserManage.setUserType(UserType);
     }
     
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -364,6 +417,16 @@ public class BusManUserManage extends javax.swing.JFrame {
     
     public String getUserID(){
         return UserID;
+    }
+    
+    private String file;
+    
+    public void chooseTxtFile(String UserType){
+        if(UserType=="Admin Executive"){
+            file ="AdminExecutive.txt";
+        }else if (UserType=="Building Executive"){
+            file ="BuildingExecutive.txt";
+        }
     }
     
     public void setAdminOrBuildingExecutiveData(String UserType){

@@ -4,9 +4,12 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -15,6 +18,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileFilter;
 
@@ -127,13 +131,12 @@ public class BusinessManagerMain {
         }else if (UserType=="Building Executive"){
             file ="BuildingExecutive.txt";
         }
-        System.out.println(UserType);
     }
     
     // Method to add User data
     // method is set in BusManUserManageAddEdit file : insertDataToFile()
     //Method to edit User data
-    public void EditAdminOrBuildingUser(String GetUserType, String UserID){
+    public void displayAdminOrBuildingUser(String GetUserType, String UserID){
         File userData = new File("src/main/java/com/mycompany/mavenproject1/"+this.file);
         try{
             Scanner userDataReader = new Scanner(userData);
@@ -145,7 +148,6 @@ public class BusinessManagerMain {
                 this.age = userDataReader.next().trim();
                 this.phoneNumber = userDataReader.next().trim();
                 this.UserImage = userDataReader.next().trim();
-                System.out.println(UserID);
                 // loop through the txt file, if user id matches with the userID in parameter, call method to display data in edit page
                 if(this.id.equals(UserID)){
                     BusManUserManageAddEdit edit = new BusManUserManageAddEdit();
@@ -156,7 +158,6 @@ public class BusinessManagerMain {
                     edit.setVisible(true);
                     edit.editUserToggle(GetUserType);
                     edit.editDataToFileDisplay(this.id, this.name, this.gender, this.age, this.phoneNumber, this.UserImage);
-                    System.out.println(this.id);
                     break;
                 }
             }
@@ -164,7 +165,40 @@ public class BusinessManagerMain {
         catch(Exception e){}
     }
     
-        // Method to store uploaded image to a specific location
+    
+    //- Methods to edit/ delete specific line in txt file (CRUD)
+    //- appendItem method is to append the item array that gotten from the ItemsInfo method into the txt file 
+    public void appendUserManage(String userID ,String userName,String Gender,String Age,String phoneNumber, String ImageName,String filename) throws IOException {
+        File userData = new File("src/main/java/com/mycompany/mavenproject1/"+filename);
+        FileWriter fw = new FileWriter(userData,true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.append(userID+",").append(userName+",").append(Gender+",").append(Age+",").append(phoneNumber+",").append(ImageName+"\n");
+        bw.close();
+    }
+    
+    //- store the current items from txt file to a 2d array 
+    public  ArrayList<ArrayList<String>> UserInfo(String textFile) throws FileNotFoundException {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); // id;name;gender;age;phoneNumber;UserImage
+                itemArray = oneUserInfo.split(","); // [id,name,gender,age,phoneNumber,UserImage]
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } else {
+        }
+        return allUserInfo;
+    }
+    
+    //+ File method
+    //+ Method to store uploaded image to a specific location
     public static void transferImage(File source, File destination) throws IOException {
         InputStream is = null;
         OutputStream os = null;
@@ -182,7 +216,7 @@ public class BusinessManagerMain {
         }
     }
     
-    // Method to restrict image upload function to only accept specific file type (IMAGE FOR EXAMPLE)
+    //+ Method to restrict image upload function to only accept specific file type (IMAGE FOR EXAMPLE)
     class ImageFilter extends FileFilter {
    public final static String JPEG = "jpeg";
    public final static String JPG = "jpg";
