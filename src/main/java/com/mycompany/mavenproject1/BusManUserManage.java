@@ -431,7 +431,6 @@ public class BusManUserManage extends javax.swing.JFrame {
         // TODO add your handling code here:
             this.searchTxt = jTextField1.getText();
             this.PageLine=-1;
-            System.out.println(PageLine);
             jButton7.setEnabled(false);
             jButton8.setEnabled(true);
             BusinessManagerMain main = new BusinessManagerMain();
@@ -484,8 +483,6 @@ public class BusManUserManage extends javax.swing.JFrame {
         return searchTxt;
     }
     
-    // create a variable to build logic
-    private Boolean Status=true;
     
     
     public void setAdminOrBuildingExecutiveData(String UserType){
@@ -493,9 +490,9 @@ public class BusManUserManage extends javax.swing.JFrame {
         main.chooseTxtFile(GetUserType);
             try {
                 setPagination();
-                main.displayDataView(PageLine,searchTxt);
+                main.displayDataView(PageLine,searchTxt,"user");
 //                main.setAdminOrBuildingUser(UserType, PageLine, searchTxt) ;
-                boolean boo = main.getAdminOrBuildingUserStatus();
+                boolean boo = main.getStatus();
                 if(boo==false){
                     jButton8.setEnabled(false);
                 }
@@ -517,9 +514,9 @@ public class BusManUserManage extends javax.swing.JFrame {
             jLabel4.setText("Name : " + main.getAdminOrBuildingUserName());
             try {
                     setPagination();
-                main.displayDataView(PageLine,searchTxt);
+                main.displayDataView(PageLine,searchTxt,"user");
 //                main.setAdminOrBuildingUser(UserType, PageLine, searchTxt) ;
-                boolean boo = main.getAdminOrBuildingUserStatus();
+                boolean boo = main.getStatus();
                 if(boo==false){
                     jButton8.setEnabled(false);
                 }

@@ -165,6 +165,16 @@ public class BusManOption extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        BusManBudgetPlanningManage budget = new BusManBudgetPlanningManage();
+        budget.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        budget.pack();
+        budget.setResizable(false);
+        budget.setLocationRelativeTo(null);
+        budget.setVisible(true);
+        budget.backButtonToggle();
+        //Run Method in BusManUserManage to set UserType and Data
+        budget.setBudgetPlanningData();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

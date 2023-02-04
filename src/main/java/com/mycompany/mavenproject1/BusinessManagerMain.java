@@ -26,8 +26,9 @@ import javax.swing.filechooser.FileFilter;
  *
  * @author Jun Ming
  */
-//VARIABLESSS
+
 public class BusinessManagerMain {
+    //VARIABLESSS FOR BUSINESS MANAGER FUNCTIONALITY : USER MANAGEMENT
     private String id;
     private String name;
     private String gender;
@@ -36,6 +37,14 @@ public class BusinessManagerMain {
     private String UserImage;
     private Boolean Status;
         
+    //VARIABLESSS FOR BUSINESS MANAGER FUNCTIONALITY : BUDGET PLANNING
+    private String budgetId;
+    private String projectName;
+    private String projectBudget;
+    private String projectStartDate;
+    private String projectEndDate;
+    
+    //GET FOR BUSINESS MANAGER FUNCTIONALITY : USER MANAGEMENT
     public String getAdminOrBuildingUserId(){
         return id;
     }
@@ -55,18 +64,36 @@ public class BusinessManagerMain {
         return UserImage;
     }
     
-    public boolean getAdminOrBuildingUserStatus(){
+    public boolean getStatus(){
         return Status;
     }
     
+    //GET FOR BUSINESS MANAGER FUNCTIONALITY : BUDGET PLANNING
+    public String getBudgetId(){
+        return budgetId;
+    }
+    public String getBudgetProjectName(){
+        return projectName;
+    }
+    public String getBudgetProjectBudget(){
+        return projectBudget;
+    }
+    public String getBudgetProjectStartDate(){
+        return projectStartDate;
+    }
+    public String getBudgetProjectEndDate(){
+        return projectEndDate;
+    }
     //Method to choose correct txt file based on userType, so no need to redundant code
     private String file="";
     
-    public void chooseTxtFile(String UserType){
-        if(UserType=="Admin Executive"){
+    public void chooseTxtFile(String Type){
+        if(Type=="Admin Executive"){
             file ="AdminExecutive.txt";
-        }else if (UserType=="Building Executive"){
+        }else if (Type=="Building Executive"){
             file ="BuildingExecutive.txt";
+        }else if (Type=="budgetPlanning"){
+            file = "BudgetPlanning.txt";
         }
     }
     
@@ -102,46 +129,50 @@ public class BusinessManagerMain {
     
     // Method to display User Data
     //- store the current items from txt file to a 2d array, then loop to display user data at BusManuserManage
-    public  void displayDataView(Integer dataLine,String searchTxt) throws FileNotFoundException, IOException{
+    public  void displayDataView(Integer dataLine,String searchTxt,String type) throws FileNotFoundException, IOException{
         BusinessManagerMain main = new BusinessManagerMain();
         String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
-        ArrayList<ArrayList<String>> allUsers = main.UserInfo(fileName);
+        ArrayList<ArrayList<String>> allData = main.UserInfo(fileName);
         int i =0;
-        int fixedSize = allUsers.size();
-        int changedSize = allUsers.size();
+        int fixedSize = allData.size();
+        int changedSize = allData.size();
         if(!searchTxt.equals("")){
             System.out.println("can run searchTxt got value");
             for (int x=0;x<fixedSize+1;x++) {
                 if(i ==changedSize){
-                    System.out.println("break");
-                    System.out.println(allUsers);
                     break;
                 }
                 // user.get(0) is userID, user.get(1) is username
-                if(!(allUsers.get(i)).contains(searchTxt)){
-                    allUsers.remove(i);
+                if(!(allData.get(i)).contains(searchTxt)){
+                    allData.remove(i);
                     changedSize=changedSize-1;
                     i=i-1;
                 }
                 i=i+1;
             }
         }
-        int newSize = allUsers.size();
+        int newSize = allData.size();
         try{
-            allUsers.get(dataLine);
-            this.id=allUsers.get(dataLine).get(0);
-            this.name = allUsers.get(dataLine).get(1);
-            this.gender = allUsers.get(dataLine).get(2);
-            this.age = allUsers.get(dataLine).get(3);
-            this.phoneNumber = allUsers.get(dataLine).get(4);
-            this.UserImage = allUsers.get(dataLine).get(5);
-            this.Status = true;
-            System.out.println("error 1");
+            if(type=="user"){
+                allData.get(dataLine);
+                this.id=allData.get(dataLine).get(0);
+                this.name = allData.get(dataLine).get(1);
+                this.gender = allData.get(dataLine).get(2);
+                this.age = allData.get(dataLine).get(3);
+                this.phoneNumber = allData.get(dataLine).get(4);
+                this.UserImage = allData.get(dataLine).get(5);
+                this.Status = true;
+            }else if(type=="budget"){
+                this.budgetId=allData.get(dataLine).get(0);
+                this.projectName=allData.get(dataLine).get(1);
+                this.projectBudget=allData.get(dataLine).get(2);
+                this.projectStartDate=allData.get(dataLine).get(3);
+                this.projectEndDate=allData.get(dataLine).get(4);
+                this.Status=true;
+            }
         }catch(Exception e){
-            System.out.println("error 2");
-            setDataNull();
+            setDataNull(type);
             this.Status = false;
-            System.out.println("error 3");
         }
         if(dataLine.equals(newSize-1)){
             this.Status = false;
@@ -150,13 +181,21 @@ public class BusinessManagerMain {
             
     
     // Method to display User Data : if txt file no user record, it will display data as null 
-    public void setDataNull(){
-        this.id = null;
-        this.name =  null;
-        this.gender = null;
-        this.age =  null;
-        this.phoneNumber =  null;
-        this.UserImage = null;
+    public void setDataNull(String type){
+        if(type=="user"){
+            this.id = null;
+            this.name =  null;
+            this.gender = null;
+            this.age =  null;
+            this.phoneNumber =  null;
+            this.UserImage = null;
+        }else if(type=="budget"){
+            this.budgetId=null;
+            this.projectName=null;
+            this.projectBudget=null;
+            this.projectStartDate=null;
+            this.projectEndDate=null;
+        }
     }
     
     
@@ -193,6 +232,25 @@ public class BusinessManagerMain {
         catch(Exception e){}
     }
     
+    
+    // Method to getData based on ID
+    public void getDataViewSingle(String id, String file,String type) throws FileNotFoundException{
+        BusinessManagerMain main = new BusinessManagerMain();
+        String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
+        ArrayList<ArrayList<String>> allData = main.UserInfo(fileName);
+        for (ArrayList<String> singleData : allData) {
+                if (singleData.get(0).equals(id)) {
+                    if(type=="budget"){
+                        this.budgetId=singleData.get(0);
+                        this.projectName=singleData.get(1);
+                        this.projectBudget=singleData.get(2);
+                        this.projectStartDate=singleData.get(3);
+                        this.projectEndDate=singleData.get(4);
+                    }
+                    break;
+                }
+            }
+    }
     
     //- Methods to edit/ delete specific line in txt file (CRUD)
     //- appendItem method is to append the item array that gotten from the ItemsInfo method into the txt file 

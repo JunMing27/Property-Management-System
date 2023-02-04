@@ -425,6 +425,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         }
     }
     
+    // display the specific data which user clicked to edit
     public void editDataToFileDisplay(String getID, String getName, String getGender, String getAge, String getPhoneNo, String getImage){
         // if statement to find user gender because cant directly print the data as it is check box
         if(getGender.equals("male")){
@@ -489,6 +490,9 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                     user.set(3, String.valueOf(Age));
                     user.set(4, String.valueOf(PhoneNumber));
                     user.set(5, String.valueOf(this.ImageName));
+                    dest = new File("src/main/java/com/mycompany/image/" + this.ImageName);
+                    source = sourceFile;
+                    main.transferImage(source,dest);
                     break;
                 }
             }
