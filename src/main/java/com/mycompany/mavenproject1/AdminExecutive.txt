@@ -1,8 +1,4 @@
 A1,Aname,LGender,15Age,0192123292,blue.png
 A2,Bname,FGender,16Age,0192123392,blue.png
 A3,Cname,LGender,17Age,0192123492,ngan.jpg
-A4,Dname,LGender,17Age,0192123492,blue.png
 A5,sa,male,2,02,amber.jpg
-A6,s,female,2,5,amber.jpg
-A7,a,male,1,s,girlyelling.png
-A8,sa,male,23,sf3w,01-camera-11.jpg

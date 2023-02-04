@@ -134,8 +134,8 @@ public class BusManUserManageOption extends javax.swing.JFrame {
         BusManUserManage.setVisible(true);
         BusManUserManage.backButtonToggle();
         //Run Method in BusManUserManage to set UserType and Data
-        BusManUserManage.setAdminOrBuildingExecutiveData(UserType);
         BusManUserManage.setUserType(UserType);
+        BusManUserManage.setAdminOrBuildingExecutiveData(UserType);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -161,8 +161,8 @@ public class BusManUserManageOption extends javax.swing.JFrame {
         BusManUserManage.setVisible(true);
         BusManUserManage.backButtonToggle();
         //Run Method in BusManUserManage to set UserType and Data
-        BusManUserManage.setAdminOrBuildingExecutiveData(UserType);
         BusManUserManage.setUserType(UserType);
+        BusManUserManage.setAdminOrBuildingExecutiveData(UserType);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

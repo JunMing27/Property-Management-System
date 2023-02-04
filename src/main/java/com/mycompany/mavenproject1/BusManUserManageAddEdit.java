@@ -252,8 +252,8 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         BusManUserManage.setVisible(true);
         BusManUserManage.backButtonToggle();
         //Run Method in BusManUserManage to set UserType and Data
-        BusManUserManage.setAdminOrBuildingExecutiveData(this.UserType);
         BusManUserManage.setUserType(this.UserType);
+        BusManUserManage.setAdminOrBuildingExecutiveData(this.UserType);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
