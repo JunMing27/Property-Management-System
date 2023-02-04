@@ -417,27 +417,26 @@ public class BusManUserManage extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         backButtonFunction();
-        this.Status=true;
-            setAdminOrBuildingExecutiveData(GetUserType);
+        setAdminOrBuildingExecutiveData(GetUserType);
         jButton8.setEnabled(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         jButton7.setEnabled(true);
-        this.Status =true;
-            setAdminOrBuildingExecutiveData(GetUserType);
+        setAdminOrBuildingExecutiveData(GetUserType);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        this.searchTxt = jTextField1.getText();
-        if(this.searchTxt !=null){
-            this.Status = false;
-        } else {
-            this.Status =true;
-        }        
-        setAdminOrBuildingExecutiveData(GetUserType);
+            this.searchTxt = jTextField1.getText();
+            this.PageLine=-1;
+            System.out.println(PageLine);
+            jButton7.setEnabled(false);
+            jButton8.setEnabled(true);
+            BusinessManagerMain main = new BusinessManagerMain();
+            main.chooseTxtFile(GetUserType);   
+            setAdminOrBuildingExecutiveData(GetUserType);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -492,12 +491,10 @@ public class BusManUserManage extends javax.swing.JFrame {
     public void setAdminOrBuildingExecutiveData(String UserType){
         BusinessManagerMain main = new BusinessManagerMain();
         main.chooseTxtFile(GetUserType);
-        if(Status.equals(true)){
             try {
-                if(this.Status.equals(true)){
-                    setPagination();
-                }
-                main.setAdminOrBuildingUser(UserType, PageLine, searchTxt) ;
+                setPagination();
+                main.displayDataView(PageLine,searchTxt);
+//                main.setAdminOrBuildingUser(UserType, PageLine, searchTxt) ;
                 boolean boo = main.getAdminOrBuildingUserStatus();
                 if(boo==false){
                     jButton8.setEnabled(false);
@@ -519,10 +516,9 @@ public class BusManUserManage extends javax.swing.JFrame {
             jLabel3.setText("User ID : " + main.getAdminOrBuildingUserId());
             jLabel4.setText("Name : " + main.getAdminOrBuildingUserName());
             try {
-                if(this.Status.equals(true)){
                     setPagination();
-                }
-                main.setAdminOrBuildingUser(UserType, PageLine,searchTxt) ;
+                main.displayDataView(PageLine,searchTxt);
+//                main.setAdminOrBuildingUser(UserType, PageLine, searchTxt) ;
                 boolean boo = main.getAdminOrBuildingUserStatus();
                 if(boo==false){
                     jButton8.setEnabled(false);
@@ -543,10 +539,6 @@ public class BusManUserManage extends javax.swing.JFrame {
             }
             jLabel5.setText("User ID : " + main.getAdminOrBuildingUserId());
             jLabel6.setText("Name : " + main.getAdminOrBuildingUserName());
-        }
-        else{
-            ;
-        }
     }
     
     public void backButtonToggle(){

@@ -100,81 +100,54 @@ public class BusinessManagerMain {
     }
     
     
+    // Method to display User Data
     //- store the current items from txt file to a 2d array, then loop to display user data at BusManuserManage
-    public  void displayDataView(Integer pageSize, Integer pageNum,String userName) throws FileNotFoundException{
-        int startIndex = (pageNum - 1) * pageSize; 
-        int endIndex = startIndex + pageSize; 
-        System.out.println(startIndex);
-        System.out.println(endIndex);
+    public  void displayDataView(Integer dataLine,String searchTxt) throws FileNotFoundException, IOException{
         BusinessManagerMain main = new BusinessManagerMain();
         String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
         ArrayList<ArrayList<String>> allUsers = main.UserInfo(fileName);
-        for (ArrayList<String> user : allUsers) {
-            int lineCount = 0;
-            if (lineCount >= startIndex && lineCount < endIndex) {
-
-                    this.id = user.get(0);
-                    this.name = user.get(1);
-                    this.gender = user.get(2);
-                    this.age = user.get(3);
-                    this.phoneNumber = user.get(4);
-                    this.UserImage = user.get(5);
-                    this.Status = true;
-
-
-            lineCount++;
+        int i =0;
+        int fixedSize = allUsers.size();
+        int changedSize = allUsers.size();
+        if(!searchTxt.equals("")){
+            System.out.println("can run searchTxt got value");
+            for (int x=0;x<fixedSize+1;x++) {
+                if(i ==changedSize){
+                    System.out.println("break");
+                    System.out.println(allUsers);
+                    break;
+                }
+                // user.get(0) is userID, user.get(1) is username
+                if(!(allUsers.get(i)).contains(searchTxt)){
+                    allUsers.remove(i);
+                    changedSize=changedSize-1;
+                    i=i-1;
+                }
+                i=i+1;
             }
-            if (lineCount >= endIndex) {
-                break;
-            }
+        }
+        int newSize = allUsers.size();
+        try{
+            allUsers.get(dataLine);
+            this.id=allUsers.get(dataLine).get(0);
+            this.name = allUsers.get(dataLine).get(1);
+            this.gender = allUsers.get(dataLine).get(2);
+            this.age = allUsers.get(dataLine).get(3);
+            this.phoneNumber = allUsers.get(dataLine).get(4);
+            this.UserImage = allUsers.get(dataLine).get(5);
+            this.Status = true;
+            System.out.println("error 1");
+        }catch(Exception e){
+            System.out.println("error 2");
+            setDataNull();
+            this.Status = false;
+            System.out.println("error 3");
+        }
+        if(dataLine.equals(newSize-1)){
+            this.Status = false;
         }
     }
             
-    
-    
-    // Business Manager Functionality : User Management (Admin and Building Executive)
-    // Method to display User Data
-    public void setAdminOrBuildingUser(String UserType,Integer PageLine,String searchTxt) throws IOException{ 
-            String listOfString=null;
-            List <String> getLineNumber = new ArrayList<String>();
-            Integer lineNumber=0;
-            
-            if(searchTxt.equals("")){
-                    try{
-                        listOfString = Files.readAllLines(Paths.get("src/main/java/com/mycompany/mavenproject1/"+file)).get(PageLine);
-                        getLineNumber= Files.readAllLines(Paths.get("src/main/java/com/mycompany/mavenproject1/"+file));
-                    }
-                    catch(Exception e){
-                        setDataNull();
-                    }
-                if (listOfString != null){
-                    Scanner ScanEachString = new Scanner(listOfString);
-                    ScanEachString.useDelimiter("[,\n]");
-                    while (ScanEachString.hasNextLine()) {
-                        this.id = ScanEachString.next().trim();
-                        this.name = ScanEachString.next().trim();
-                        this.gender = ScanEachString.next().trim();
-                        this.age = ScanEachString.next().trim();
-                        this.phoneNumber = ScanEachString.next().trim();
-                        this.UserImage = ScanEachString.next().trim();
-                        this.Status = true;
-                    }
-                }
-                else {
-                    setDataNull();
-                    this.Status = false;
-                }
-
-                for (String  StringlineNumber : getLineNumber){
-                    lineNumber= lineNumber +1;
-                }
-                if (PageLine.equals(lineNumber-1)){
-                    this.Status= false;
-
-                }
-            }
-          
-        }
     
     // Method to display User Data : if txt file no user record, it will display data as null 
     public void setDataNull(){
