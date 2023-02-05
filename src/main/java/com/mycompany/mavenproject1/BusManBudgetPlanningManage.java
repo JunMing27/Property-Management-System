@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -439,22 +440,38 @@ public class BusManBudgetPlanningManage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        BusManBudgetPlanningView budgetView = new BusManBudgetPlanningView();
-        budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        budgetView.pack();
-        budgetView.setResizable(false);
-        budgetView.setLocationRelativeTo(null);
-        budgetView.setVisible(true);
-        try {
-            budgetView.setDataViewSingle(jLabel4.getText());
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
+        if(!jLabel4.getText().equals("no data")){
+            this.dispose();
+            BusManBudgetPlanningView budgetView = new BusManBudgetPlanningView();
+            budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            budgetView.pack();
+            budgetView.setResizable(false);
+            budgetView.setLocationRelativeTo(null);
+            budgetView.setVisible(true);
+            try {
+                budgetView.setDataViewSingle(jLabel4.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        BusManBudgetPlanningAddEdit budgetAddEdit = new BusManBudgetPlanningAddEdit();
+        budgetAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        budgetAddEdit.pack();
+        budgetAddEdit.setResizable(false);
+        budgetAddEdit.setLocationRelativeTo(null);
+        budgetAddEdit.setVisible(true);
+        try {
+            budgetAddEdit.addEditDetect("add","");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -472,33 +489,41 @@ public class BusManBudgetPlanningManage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        BusManBudgetPlanningView budgetView = new BusManBudgetPlanningView();
-        budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        budgetView.pack();
-        budgetView.setResizable(false);
-        budgetView.setLocationRelativeTo(null);
-        budgetView.setVisible(true);
-        try {
-            budgetView.setDataViewSingle(jLabel10.getText());
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
+        if(!jLabel10.getText().equals("no data")){
+            this.dispose();
+            BusManBudgetPlanningView budgetView = new BusManBudgetPlanningView();
+            budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            budgetView.pack();
+            budgetView.setResizable(false);
+            budgetView.setLocationRelativeTo(null);
+            budgetView.setVisible(true);
+            try {
+                budgetView.setDataViewSingle(jLabel10.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        BusManBudgetPlanningView budgetView = new BusManBudgetPlanningView();
-        budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        budgetView.pack();
-        budgetView.setResizable(false);
-        budgetView.setLocationRelativeTo(null);
-        budgetView.setVisible(true);
-        try {
-            budgetView.setDataViewSingle(jLabel16.getText());
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
+        if(!jLabel16.getText().equals("no data")){
+            this.dispose();
+            BusManBudgetPlanningView budgetView = new BusManBudgetPlanningView();
+            budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            budgetView.pack();
+            budgetView.setResizable(false);
+            budgetView.setLocationRelativeTo(null);
+            budgetView.setVisible(true);
+            try {
+                budgetView.setDataViewSingle(jLabel16.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 

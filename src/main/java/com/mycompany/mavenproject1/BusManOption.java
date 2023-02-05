@@ -173,7 +173,6 @@ public class BusManOption extends javax.swing.JFrame {
         budget.setLocationRelativeTo(null);
         budget.setVisible(true);
         budget.backButtonToggle();
-        //Run Method in BusManUserManage to set UserType and Data
         budget.setBudgetPlanningData();
     }//GEN-LAST:event_jButton4ActionPerformed
 

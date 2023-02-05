@@ -4,11 +4,13 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +22,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 
 /**
@@ -115,7 +118,22 @@ public class BusinessManagerMain {
             for (ArrayList<String> user : allUsers) {
                 if (!user.get(1).equals("")) {
                     try {
-                        appendUserManage(user.get(0),user.get(1),user.get(2),user.get(3),user.get(4),user.get(5), this.file);
+                        if(file=="AdminExecutive.txt" || file=="BuildingExecutive.txt" ){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/mavenproject1/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
+                            bw.close();
+                        }
+                        else if (file=="BudgetPlanning.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/mavenproject1/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
+                            bw.close();
+                        }
                     }
                     catch (IOException e) {
                     }
@@ -252,6 +270,102 @@ public class BusinessManagerMain {
             }
     }
     
+    //GLOBAL USE EDIT OR ADD DATA METHOD
+    public void editOrAddData(ArrayList<String> dataList, String type, String file,String functionType){
+        if(functionType=="edit"){
+            try {
+                BusinessManagerMain main = new BusinessManagerMain();
+                String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
+                ArrayList<ArrayList<String>> allData = main.UserInfo(fileName);
+                for (ArrayList<String> user : allData) {
+                    if (user.get(0).equals(dataList.get(0))) {
+                        if(type=="budget"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            break;
+                        }
+                    }
+                }
+                new FileWriter(fileName, false).close();
+                for (ArrayList<String> user : allData) {
+                    try {
+                        if(type=="budget"){
+                            File userData = new File("src/main/java/com/mycompany/mavenproject1/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
+                            bw.close();
+                        }
+                    }
+                    catch (IOException e) {
+                        JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                JOptionPane.showMessageDialog(null, "Edited Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+            } 
+            catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Problem Occured, Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
+            }
+        }else if (functionType=="add"){
+            try {
+                BufferedWriter AddDataToFile;
+                FileWriter AddNewItem = new FileWriter("src/main/java/com/mycompany/mavenproject1/"+file,true);
+                AddDataToFile = new BufferedWriter(AddNewItem);
+                if(type=="budget"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4));
+                }
+                AddDataToFile.newLine();
+                AddDataToFile.close();
+                AddNewItem.close();
+                JOptionPane.showMessageDialog(null, "Added new data Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+                
+            } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Failed to add new data", "Message", JOptionPane.INFORMATION_MESSAGE);
+        }
+        }
+    }
+    
+    //GLOBAL USE METHOD TO INCREASE ID NUMBER 
+    public void getIncreasedID(String file,String type){
+         BufferedReader input;
+        try {
+            input = new BufferedReader(new FileReader("src/main/java/com/mycompany/mavenproject1/"+file));
+            String last="";
+            String line="";
+            String ID="";
+            try {
+                while ((line = input.readLine()) != null) {
+                    last = line;
+                }
+                Scanner ScanEachString = new Scanner(last);
+                ScanEachString.useDelimiter("[,\n]");
+                while (ScanEachString.hasNextLine()) {
+                    // First character of a string
+                    ID = (ScanEachString.next().trim());
+                    break;
+                }
+                if(type=="budget"){
+                    String IDchar = ID.substring(0,2);
+                    ID = ID.substring(2);
+                    Integer IDnumber = Integer.parseInt(ID)+1;
+                    ID = IDchar+ (IDnumber).toString();
+                    this.budgetId=ID;
+                }
+            }
+            catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     //- Methods to edit/ delete specific line in txt file (CRUD)
     //- appendItem method is to append the item array that gotten from the ItemsInfo method into the txt file 
     public void appendUserManage(String userID ,String userName,String Gender,String Age,String phoneNumber, String ImageName,String filename) throws IOException {
@@ -273,8 +387,8 @@ public class BusinessManagerMain {
             ArrayList<String> itemArrayList;
             allUserInfo = new ArrayList<>();
             while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); // id;name;gender;age;phoneNumber;UserImage
-                itemArray = oneUserInfo.split(","); // [id,name,gender,age,phoneNumber,UserImage]
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
                 itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
                 allUserInfo.add(itemArrayList);
             }

@@ -5,7 +5,10 @@
 package com.mycompany.mavenproject1;
 
 import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -90,10 +93,20 @@ public class BusManBudgetPlanningView extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Delete");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -202,9 +215,41 @@ public class BusManBudgetPlanningView extends javax.swing.JFrame {
         budget.setLocationRelativeTo(null);
         budget.setVisible(true);
         budget.backButtonToggle();
-        //Run Method in BusManUserManage to set UserType and Data
         budget.setBudgetPlanningData();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        BusManBudgetPlanningAddEdit budgetAddEdit = new BusManBudgetPlanningAddEdit();
+        budgetAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        budgetAddEdit.pack();
+        budgetAddEdit.setResizable(false);
+        budgetAddEdit.setLocationRelativeTo(null);
+        budgetAddEdit.setVisible(true);
+        try {
+            budgetAddEdit.addEditDetect("edit",jLabel9.getText());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        BusinessManagerMain main = new BusinessManagerMain();
+        main.chooseTxtFile("budgetPlanning");
+        main.deleteFunction(jLabel9.getText());
+        JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+        BusManBudgetPlanningManage budget = new BusManBudgetPlanningManage();
+        budget.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        budget.pack();
+        budget.setResizable(false);
+        budget.setLocationRelativeTo(null);
+        budget.setVisible(true);
+        budget.backButtonToggle();
+        budget.setBudgetPlanningData();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public void setDataViewSingle(String id) throws FileNotFoundException{
         BusinessManagerMain main = new BusinessManagerMain();

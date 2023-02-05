@@ -4,6 +4,10 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -78,7 +82,13 @@ public class BusManBudgetPlanningAddEdit extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("UPDATE/ADD");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
+        jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -169,18 +179,79 @@ public class BusManBudgetPlanningAddEdit extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        BusManBudgetPlanningManage budget = new BusManBudgetPlanningManage();
-        budget.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        budget.pack();
-        budget.setResizable(false);
-        budget.setLocationRelativeTo(null);
-        budget.setVisible(true);
-        budget.backButtonToggle();
-        //Run Method in BusManUserManage to set UserType and Data
-        budget.setBudgetPlanningData();
+        if(!jTextField1.isVisible()){
+            this.dispose();
+            BusManBudgetPlanningManage budget = new BusManBudgetPlanningManage();
+            budget.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            budget.pack();
+            budget.setResizable(false);
+            budget.setLocationRelativeTo(null);
+            budget.setVisible(true);
+            budget.backButtonToggle();
+            //Run Method set UserType and Data
+            budget.setBudgetPlanningData();
+        }else{
+            this.dispose();
+            BusManBudgetPlanningView budgetView = new BusManBudgetPlanningView();
+            budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            budgetView.pack();
+            budgetView.setResizable(false);
+            budgetView.setLocationRelativeTo(null);
+            budgetView.setVisible(true);
+            try {
+                budgetView.setDataViewSingle(jTextField1.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        if(addEditDetector=="edit"){
+            BusinessManagerMain main = new BusinessManagerMain();
+            ArrayList<String> dataList = new ArrayList<String>();
+            dataList.add(jTextField1.getText());
+            dataList.add(jTextField2.getText());
+            dataList.add(jTextField3.getText());
+            dataList.add(jTextField4.getText());
+            dataList.add(jTextField5.getText());
+            main.editOrAddData(dataList, "budget","BudgetPlanning.txt","edit");
+        }else if(addEditDetector=="add"){
+            BusinessManagerMain main = new BusinessManagerMain();
+            ArrayList<String> dataList = new ArrayList<String>();
+            main.getIncreasedID("BudgetPlanning.txt","budget");
+            dataList.add(main.getBudgetId());
+            dataList.add(jTextField2.getText());
+            dataList.add(jTextField3.getText());
+            dataList.add(jTextField4.getText());
+            dataList.add(jTextField5.getText());
+            main.editOrAddData(dataList, "budget","BudgetPlanning.txt","add");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private String addEditDetector;
+    
+    
+    public void addEditDetect(String functionType,String id) throws FileNotFoundException{
+        if(functionType=="edit"){
+            this.addEditDetector="edit";
+            BusinessManagerMain main = new BusinessManagerMain();
+            main.getDataViewSingle(id, "BudgetPlanning.txt","budget");
+            jButton3.setText("Update");
+            jTextField1.setText(main.getBudgetId());
+            jTextField2.setText(main.getBudgetProjectName());
+            jTextField3.setText(main.getBudgetProjectBudget());
+            jTextField4.setText(main.getBudgetProjectStartDate());
+            jTextField5.setText(main.getBudgetProjectEndDate());
+        }else if (functionType=="add"){
+            this.addEditDetector="add";
+            jButton3.setText("Add");
+            jTextField1.setVisible(false);
+            jLabel8.setVisible(false);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
