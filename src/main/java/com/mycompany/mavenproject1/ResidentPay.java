@@ -26,21 +26,337 @@ public class ResidentPay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        backBtn = new javax.swing.JButton();
+        topLabel = new javax.swing.JLabel();
+        payToLabel = new javax.swing.JTextField();
+        payAmountLabel = new javax.swing.JTextField();
+        dueDateLabel = new javax.swing.JTextField();
+        payToTxt = new javax.swing.JTextField();
+        payAmountTxt = new javax.swing.JTextField();
+        dueDateTxt = new javax.swing.JTextField();
+        selectBtn = new javax.swing.JButton();
+        payToLabel1 = new javax.swing.JTextField();
+        payAmountLabel1 = new javax.swing.JTextField();
+        dueDateLabel1 = new javax.swing.JTextField();
+        payToTxt1 = new javax.swing.JTextField();
+        payAmountTxt1 = new javax.swing.JTextField();
+        dueDateTxt1 = new javax.swing.JTextField();
+        selectBtn1 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        searchTextField = new javax.swing.JTextField();
+        searchBtn = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        nextPageBtn = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(233, 233, 233));
+
+        backBtn.setBackground(new java.awt.Color(255, 255, 255));
+        backBtn.setForeground(new java.awt.Color(0, 0, 0));
+        backBtn.setText("Back");
+        backBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
+        topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topLabel.setForeground(new java.awt.Color(0, 0, 0));
+        topLabel.setText("PAY");
+
+        payToLabel.setBackground(new java.awt.Color(233, 233, 233));
+        payToLabel.setForeground(new java.awt.Color(0, 0, 0));
+        payToLabel.setText("Payment To :");
+        payToLabel.setBorder(null);
+        payToLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        payAmountLabel.setBackground(new java.awt.Color(233, 233, 233));
+        payAmountLabel.setForeground(new java.awt.Color(0, 0, 0));
+        payAmountLabel.setText("Payment Amount :");
+        payAmountLabel.setBorder(null);
+        payAmountLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        dueDateLabel.setBackground(new java.awt.Color(233, 233, 233));
+        dueDateLabel.setForeground(new java.awt.Color(0, 0, 0));
+        dueDateLabel.setText("Due Date :");
+        dueDateLabel.setBorder(null);
+        dueDateLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        payToTxt.setBackground(new java.awt.Color(233, 233, 233));
+        payToTxt.setForeground(new java.awt.Color(0, 0, 0));
+        payToTxt.setText("Example Sdn Bhd");
+        payToTxt.setBorder(null);
+        payToTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        payAmountTxt.setBackground(new java.awt.Color(233, 233, 233));
+        payAmountTxt.setForeground(new java.awt.Color(0, 0, 0));
+        payAmountTxt.setText("RM 1000");
+        payAmountTxt.setBorder(null);
+        payAmountTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        dueDateTxt.setBackground(new java.awt.Color(233, 233, 233));
+        dueDateTxt.setForeground(new java.awt.Color(0, 0, 0));
+        dueDateTxt.setText("10/04/2023");
+        dueDateTxt.setBorder(null);
+        dueDateTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        selectBtn.setBackground(new java.awt.Color(255, 255, 255));
+        selectBtn.setForeground(new java.awt.Color(0, 0, 0));
+        selectBtn.setText("SELECT");
+        selectBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        selectBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectBtnActionPerformed(evt);
+            }
+        });
+
+        payToLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        payToLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        payToLabel1.setText("Payment To :");
+        payToLabel1.setBorder(null);
+        payToLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        payAmountLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        payAmountLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        payAmountLabel1.setText("Payment Amount :");
+        payAmountLabel1.setBorder(null);
+        payAmountLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        dueDateLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        dueDateLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        dueDateLabel1.setText("Due Date :");
+        dueDateLabel1.setBorder(null);
+        dueDateLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        payToTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        payToTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        payToTxt1.setText("Example Sdn Bhd");
+        payToTxt1.setBorder(null);
+        payToTxt1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        payAmountTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        payAmountTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        payAmountTxt1.setText("RM 1000");
+        payAmountTxt1.setBorder(null);
+        payAmountTxt1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        dueDateTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        dueDateTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        dueDateTxt1.setText("10/04/2023");
+        dueDateTxt1.setBorder(null);
+        dueDateTxt1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        selectBtn1.setBackground(new java.awt.Color(255, 255, 255));
+        selectBtn1.setForeground(new java.awt.Color(0, 0, 0));
+        selectBtn1.setText("SELECT");
+        selectBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        selectBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectBtn1ActionPerformed(evt);
+            }
+        });
+
+        searchTextField.setBackground(new java.awt.Color(255, 255, 255));
+        searchTextField.setForeground(new java.awt.Color(0, 0, 0));
+        searchTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchTextField.setCaretColor(new java.awt.Color(0, 0, 0));
+        searchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTextFieldActionPerformed(evt);
+            }
+        });
+
+        searchBtn.setBackground(new java.awt.Color(255, 255, 255));
+        searchBtn.setForeground(new java.awt.Color(0, 0, 0));
+        searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setForeground(new java.awt.Color(0, 0, 0));
+        jButton7.setText("Back");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        nextPageBtn.setBackground(new java.awt.Color(255, 255, 255));
+        nextPageBtn.setForeground(new java.awt.Color(0, 0, 0));
+        nextPageBtn.setText("Next");
+        nextPageBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextPageBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(259, 259, 259)
+                .addComponent(topLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nextPageBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(payToLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(payToTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(dueDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(dueDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(payAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(payAmountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(selectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(138, 138, 138)
+                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(169, 169, 169)
+                                .addComponent(payToLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dueDateLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(payAmountLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dueDateTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(payToTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(payAmountTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(221, 221, 221)
+                .addComponent(selectBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBtn))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nextPageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payToLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(payToTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payAmountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(payAmountTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dueDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dueDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(selectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payToLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(payToTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payAmountTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(payAmountLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dueDateLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dueDateTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(selectBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        this.dispose();
+        ResidentOption residentOption = new ResidentOption();
+        residentOption.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void selectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectBtnActionPerformed
+
+    private void selectBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectBtn1ActionPerformed
+
+    private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTextFieldActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+        this.searchTxt = searchTextField.getText();
+        this.PageLine=-1;
+        jButton7.setEnabled(false);
+        nextPageBtn.setEnabled(true);
+        BusinessManagerMain main = new BusinessManagerMain();
+        main.chooseTxtFile(GetUserType);
+        setAdminOrBuildingExecutiveData(GetUserType);
+    }//GEN-LAST:event_searchBtnActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        backButtonFunction();
+        setAdminOrBuildingExecutiveData(GetUserType);
+        nextPageBtn.setEnabled(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
+        // TODO add your handling code here:
+        jButton7.setEnabled(true);
+        setAdminOrBuildingExecutiveData(GetUserType);
+    }//GEN-LAST:event_nextPageBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +394,27 @@ public class ResidentPay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
+    private javax.swing.JTextField dueDateLabel;
+    private javax.swing.JTextField dueDateLabel1;
+    private javax.swing.JTextField dueDateTxt;
+    private javax.swing.JTextField dueDateTxt1;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton nextPageBtn;
+    private javax.swing.JTextField payAmountLabel;
+    private javax.swing.JTextField payAmountLabel1;
+    private javax.swing.JTextField payAmountTxt;
+    private javax.swing.JTextField payAmountTxt1;
+    private javax.swing.JTextField payToLabel;
+    private javax.swing.JTextField payToLabel1;
+    private javax.swing.JTextField payToTxt;
+    private javax.swing.JTextField payToTxt1;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JTextField searchTextField;
+    private javax.swing.JButton selectBtn;
+    private javax.swing.JButton selectBtn1;
+    private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 }
