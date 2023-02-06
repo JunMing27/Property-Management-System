@@ -15,6 +15,8 @@ public class ResidentPay extends javax.swing.JFrame {
      */
     public ResidentPay() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -288,8 +290,8 @@ public class ResidentPay extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        ResidentOption residentOption = new ResidentOption();
-        residentOption.setVisible(true);
+        ResidentPaymentOption residentPaymentOption = new ResidentPaymentOption();
+        residentPaymentOption.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void selectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtnActionPerformed

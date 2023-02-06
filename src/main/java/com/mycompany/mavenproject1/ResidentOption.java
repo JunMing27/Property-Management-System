@@ -170,6 +170,9 @@ public class ResidentOption extends javax.swing.JFrame {
 
     private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
         // Direct to Profile Page
+        this.dispose();
+        ResidentProfile residentProfile = new ResidentProfile();
+        residentProfile.setVisible(true);
     }//GEN-LAST:event_profileBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
