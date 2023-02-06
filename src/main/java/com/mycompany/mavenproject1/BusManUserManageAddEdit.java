@@ -63,6 +63,10 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,18 +108,23 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("ID ");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Name ");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Gender ");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Age ");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Phone Number");
 
@@ -138,21 +147,56 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("User Name");
+
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Password");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(131, 131, 131)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextField4)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -171,20 +215,6 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                                         .addComponent(jCheckBox2)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(188, 188, 188))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,14 +247,22 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(50, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)
-                        .addGap(60, 60, 60))))
+                        .addGap(60, 60, 60))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,6 +349,10 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
     private String UserType;
     private String ImageName;
     private String AddOrEdit;
@@ -345,6 +387,8 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     String PhoneNumber =null;
     String CurrentImageName = null;
     String file ="";
+    String userName=null;
+    String password=null;
     File source;
     File dest;
     //method to add/edit user data into txt file
@@ -411,7 +455,11 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         //get ImageName
         ImageName = this.ImageName;
         
-        if(Name == null || Gender == null || Age == null || PhoneNumber == null || ImageName == null){
+        //get username and password 
+        userName=jTextField6.getText().trim();
+        password=jTextField7.getText().trim();
+        
+        if(Name == null || Gender == null || Age == null || PhoneNumber == null || ImageName == null || userName ==null || password == null){
             JOptionPane.showMessageDialog(null, "Please enter all fields", "Warning", JOptionPane.ERROR_MESSAGE);
         }else{
             if(file != ""){
@@ -426,7 +474,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     }
     
     // display the specific data which user clicked to edit
-    public void editDataToFileDisplay(String getID, String getName, String getGender, String getAge, String getPhoneNo, String getImage){
+    public void editDataToFileDisplay(String getID, String getName, String getGender, String getAge, String getPhoneNo, String getImage, String getUserName, String getPass){
         // if statement to find user gender because cant directly print the data as it is check box
         if(getGender.equals("male")){
             jCheckBox1.setSelected(true);
@@ -440,6 +488,8 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         jTextField2.setText(getName);
         jTextField4.setText(getAge);
         jTextField5.setText(getPhoneNo);
+        jTextField6.setText(getUserName);
+        jTextField7.setText(getPass);
         this.ImageName=getImage;
         try{
                 BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+getImage));
@@ -463,15 +513,28 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
             itemtofile.newLine();
             itemtofile.close();
             AddNewItem.close();
+            BufferedWriter credentialToFile;
+            FileWriter AddNewCredential = new FileWriter("src/main/java/com/mycompany/mavenproject1/loginCredential.txt",true);
+            credentialToFile = new BufferedWriter(AddNewCredential);
+            credentialToFile.write(ID+",");
+            credentialToFile.write(userName+",");
+            credentialToFile.write(password+",");
+            credentialToFile.write(UserType);
+            credentialToFile.newLine();
+            credentialToFile.close();
+            AddNewCredential.close();
+            
             JOptionPane.showMessageDialog(null, "Added "+this.UserType+" Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
             dest = new File("src/main/java/com/mycompany/image/" + this.ImageName);
             source = sourceFile;
             BusinessManagerMain main = new BusinessManagerMain();
             main.transferImage(source,dest);
 
+            
+            
             //set text field and variable to null after inserting new user data to file
             this.ImageName=null;
-            jCheckBox1.setSelected(false); jCheckBox2.setSelected(false); jTextField2.setText(null); jTextField4.setText(null); jTextField5.setText(null);jLabel2.setIcon(null);
+            jCheckBox1.setSelected(false); jCheckBox2.setSelected(false); jTextField2.setText(null); jTextField4.setText(null); jTextField5.setText(null);jLabel2.setIcon(null);jTextField6.setText(null);jTextField7.setText(null);
             Name=null; Gender= null; Age = null; PhoneNumber = null; ImageName = null;
         } catch (IOException ex) {
         JOptionPane.showMessageDialog(null, "Failed to add new user", "Message", JOptionPane.INFORMATION_MESSAGE);
@@ -505,6 +568,29 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
                 }
             }
+            fileName="src/main/java/com/mycompany/mavenproject1/loginCredential.txt";
+            ArrayList<ArrayList<String>> allCredential = main.UserInfo(fileName);
+            for (ArrayList<String> credential : allCredential) {
+                if((credential.get(0).equals(jTextField1.getText()))){
+                    credential.set(1, String.valueOf(userName));
+                    credential.set(1, String.valueOf(password));
+                    break;
+                }
+            }
+            new FileWriter(fileName, false).close();
+            for (ArrayList<String> credential : allCredential) {
+                try {
+                    File userData = new File("src/main/java/com/mycompany/mavenproject1/loginCredential.txt");
+                    FileWriter fw = new FileWriter(userData,true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.append(credential.get(0)+",").append(credential.get(1)+",").append(credential.get(2)+",").append(Age+",").append(credential.get(3)+"\n");
+                    bw.close();
+                }
+                catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            
             JOptionPane.showMessageDialog(null, "Edited Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
         } 
         catch (Exception ex) {
@@ -561,10 +647,14 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

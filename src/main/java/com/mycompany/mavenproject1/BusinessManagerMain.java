@@ -15,9 +15,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -125,6 +122,7 @@ public class BusinessManagerMain {
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
                             bw.close();
+                            deleteCredential(userID);
                         }
                         else if (file=="BudgetPlanning.txt"){
                             System.out.println(file);
@@ -144,6 +142,37 @@ public class BusinessManagerMain {
         }
     }
     
+    public void deleteCredential(String userID){
+        try {
+            int i =0;
+            String fileName = "src/main/java/com/mycompany/mavenproject1/loginCredential.txt";
+            ArrayList<ArrayList<String>> allUsers = UserInfo(fileName);
+            for (ArrayList<String> user : allUsers) {
+                
+                if (user.get(0).equals(userID)) {
+                    allUsers.remove(i);
+                    break;
+                }
+                
+                i=i+1;
+            }
+            new FileWriter(fileName, false).close();
+            for (ArrayList<String> user : allUsers) {
+                try {
+                    File userData = new File("src/main/java/com/mycompany/mavenproject1/loginCredential.txt");
+                    FileWriter fw = new FileWriter(userData,true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
+                    bw.close();
+                }
+                catch (IOException e) {
+                }
+
+            }
+        } 
+        catch (Exception ex) {
+        }
+    }
     
     // Method to display User Data
     //- store the current items from txt file to a 2d array, then loop to display user data at BusManuserManage
@@ -223,6 +252,7 @@ public class BusinessManagerMain {
     //Method to edit User data
     public void displayAdminOrBuildingUser(String GetUserType, String UserID){
         File userData = new File("src/main/java/com/mycompany/mavenproject1/"+this.file);
+        File userCredential = new File("src/main/java/com/mycompany/mavenproject1/loginCredential.txt");
         try{
             Scanner userDataReader = new Scanner(userData);
             userDataReader.useDelimiter("[,\n]");
@@ -235,15 +265,26 @@ public class BusinessManagerMain {
                 this.UserImage = userDataReader.next().trim();
                 // loop through the txt file, if user id matches with the userID in parameter, call method to display data in edit page
                 if(this.id.equals(UserID)){
-                    BusManUserManageAddEdit edit = new BusManUserManageAddEdit();
-                    edit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    edit.pack();
-                    edit.setResizable(false);
-                    edit.setLocationRelativeTo(null);
-                    edit.setVisible(true);
-                    edit.editUserToggle(GetUserType);
-                    edit.editDataToFileDisplay(this.id, this.name, this.gender, this.age, this.phoneNumber, this.UserImage);
-                    break;
+                    Scanner userCredentialReader = new Scanner(userCredential);
+                    userCredentialReader.useDelimiter("[,\n]");
+                    while (userCredentialReader.hasNextLine()) {
+                        String refId=userCredentialReader.next().trim();
+                        String userName=userCredentialReader.next().trim();
+                        String userPass=userCredentialReader.next().trim();
+                        String userRole=userCredentialReader.next().trim();
+                        if(refId.equals(this.id)){
+                            BusManUserManageAddEdit edit = new BusManUserManageAddEdit();
+                            edit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                            edit.pack();
+                            edit.setResizable(false);
+                            edit.setLocationRelativeTo(null);
+                            edit.setVisible(true);
+                            edit.editUserToggle(GetUserType);
+                            edit.editDataToFileDisplay(this.id, this.name, this.gender, this.age, this.phoneNumber, this.UserImage,userName,userPass);
+                            break;
+                        }
+                    }
+                        
                 }
             }
         }
