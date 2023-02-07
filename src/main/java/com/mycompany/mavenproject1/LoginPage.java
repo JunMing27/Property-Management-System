@@ -120,7 +120,7 @@ public class LoginPage {
         else{
             // if not empty then do a while loop to get all credential from loginCredential.txt
             try{
-                File loginCredential = new File("src/main/java/com/mycompany/mavenproject1/loginCredential.txt");
+                File loginCredential = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
                 Scanner credentialReader = new Scanner(loginCredential);
                 credentialReader.useDelimiter("[,\n]");
                 while (credentialReader.hasNextLine()) {

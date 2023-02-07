@@ -100,7 +100,7 @@ public class BusinessManagerMain {
     public void deleteFunction(String userID){
         try {
             int i =0;
-            String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
+            String fileName = "src/main/java/com/mycompany/textFile/"+file;
             ArrayList<ArrayList<String>> allUsers = UserInfo(fileName);
             for (ArrayList<String> user : allUsers) {
                 
@@ -117,7 +117,7 @@ public class BusinessManagerMain {
                     try {
                         if(file=="AdminExecutive.txt" || file=="BuildingExecutive.txt" ){
                             System.out.println(file);
-                            File userData = new File("src/main/java/com/mycompany/mavenproject1/"+file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
@@ -126,7 +126,7 @@ public class BusinessManagerMain {
                         }
                         else if (file=="BudgetPlanning.txt"){
                             System.out.println(file);
-                            File userData = new File("src/main/java/com/mycompany/mavenproject1/"+file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
@@ -145,7 +145,7 @@ public class BusinessManagerMain {
     public void deleteCredential(String userID){
         try {
             int i =0;
-            String fileName = "src/main/java/com/mycompany/mavenproject1/loginCredential.txt";
+            String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
             ArrayList<ArrayList<String>> allUsers = UserInfo(fileName);
             for (ArrayList<String> user : allUsers) {
                 
@@ -159,7 +159,7 @@ public class BusinessManagerMain {
             new FileWriter(fileName, false).close();
             for (ArrayList<String> user : allUsers) {
                 try {
-                    File userData = new File("src/main/java/com/mycompany/mavenproject1/loginCredential.txt");
+                    File userData = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
                     FileWriter fw = new FileWriter(userData,true);
                     BufferedWriter bw = new BufferedWriter(fw);
                     bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
@@ -178,7 +178,7 @@ public class BusinessManagerMain {
     //- store the current items from txt file to a 2d array, then loop to display user data at BusManuserManage
     public  void displayDataView(Integer dataLine,String searchTxt,String type) throws FileNotFoundException, IOException{
         BusinessManagerMain main = new BusinessManagerMain();
-        String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
         ArrayList<ArrayList<String>> allData = main.UserInfo(fileName);
         int i =0;
         int fixedSize = allData.size();
@@ -251,8 +251,8 @@ public class BusinessManagerMain {
     // method is set in BusManUserManageAddEdit file : insertDataToFile()
     //Method to edit User data
     public void displayAdminOrBuildingUser(String GetUserType, String UserID){
-        File userData = new File("src/main/java/com/mycompany/mavenproject1/"+this.file);
-        File userCredential = new File("src/main/java/com/mycompany/mavenproject1/loginCredential.txt");
+        File userData = new File("src/main/java/com/mycompany/textFile/"+this.file);
+        File userCredential = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
         try{
             Scanner userDataReader = new Scanner(userData);
             userDataReader.useDelimiter("[,\n]");
@@ -295,7 +295,7 @@ public class BusinessManagerMain {
     // Method to getData based on ID
     public void getDataViewSingle(String id, String file,String type) throws FileNotFoundException{
         BusinessManagerMain main = new BusinessManagerMain();
-        String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
         ArrayList<ArrayList<String>> allData = main.UserInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
@@ -316,7 +316,7 @@ public class BusinessManagerMain {
         if(functionType=="edit"){
             try {
                 BusinessManagerMain main = new BusinessManagerMain();
-                String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
+                String fileName = "src/main/java/com/mycompany/textFile/"+file;
                 ArrayList<ArrayList<String>> allData = main.UserInfo(fileName);
                 for (ArrayList<String> user : allData) {
                     if (user.get(0).equals(dataList.get(0))) {
@@ -333,7 +333,7 @@ public class BusinessManagerMain {
                 for (ArrayList<String> user : allData) {
                     try {
                         if(type=="budget"){
-                            File userData = new File("src/main/java/com/mycompany/mavenproject1/"+file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
@@ -352,7 +352,7 @@ public class BusinessManagerMain {
         }else if (functionType=="add"){
             try {
                 BufferedWriter AddDataToFile;
-                FileWriter AddNewItem = new FileWriter("src/main/java/com/mycompany/mavenproject1/"+file,true);
+                FileWriter AddNewItem = new FileWriter("src/main/java/com/mycompany/textFile/"+file,true);
                 AddDataToFile = new BufferedWriter(AddNewItem);
                 if(type=="budget"){
                     AddDataToFile.write(dataList.get(0)+",");
@@ -376,7 +376,7 @@ public class BusinessManagerMain {
     public void getIncreasedID(String file,String type){
          BufferedReader input;
         try {
-            input = new BufferedReader(new FileReader("src/main/java/com/mycompany/mavenproject1/"+file));
+            input = new BufferedReader(new FileReader("src/main/java/com/mycompany/textFile/"+file));
             String last="";
             String line="";
             String ID="";
@@ -410,7 +410,7 @@ public class BusinessManagerMain {
     //- Methods to edit/ delete specific line in txt file (CRUD)
     //- appendItem method is to append the item array that gotten from the ItemsInfo method into the txt file 
     public void appendUserManage(String userID ,String userName,String Gender,String Age,String phoneNumber, String ImageName,String filename) throws IOException {
-        File userData = new File("src/main/java/com/mycompany/mavenproject1/"+filename);
+        File userData = new File("src/main/java/com/mycompany/textFile/"+filename);
         FileWriter fw = new FileWriter(userData,true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.append(userID+",").append(userName+",").append(Gender+",").append(Age+",").append(phoneNumber+",").append(ImageName+"\n");

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -167,23 +168,31 @@ public class AdminExecFacilityAddEdit extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            AdminExecutiveMain main = new AdminExecutiveMain();
-            ArrayList<String> dataList = new ArrayList<String>();
-            dataList.add(jTextField1.getText());
-            dataList.add(jTextField2.getText());
-            dataList.add(jTextField3.getText());
-            main.editOrAddData(dataList, "facility","Facility.txt","edit");
+            if((jTextField2.getText()).equals("") ||(jTextField3.getText()).equals("") ){
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                AdminExecutiveMain main = new AdminExecutiveMain();
+                ArrayList<String> dataList = new ArrayList<String>();
+                dataList.add(jTextField1.getText());
+                dataList.add(jTextField2.getText());
+                dataList.add(jTextField3.getText());
+                main.editOrAddData(dataList, "facility","Facility.txt","edit");
+            }
         }else if(addEditDetector=="add"){
-            AdminExecutiveMain main = new AdminExecutiveMain();
-            ArrayList<String> dataList = new ArrayList<String>();
-            main.getIncreasedID("Facility.txt","facility");
-            dataList.add(main.getFacilityId());
-            dataList.add(jTextField2.getText());
-            dataList.add(jTextField3.getText());
-            main.editOrAddData(dataList, "facility","Facility.txt","add");
-            jTextField1.setText("");
-            jTextField2.setText("");
-            jTextField3.setText("");
+            if((jTextField2.getText()).equals("") ||(jTextField3.getText()).equals("") ){
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                AdminExecutiveMain main = new AdminExecutiveMain();
+                ArrayList<String> dataList = new ArrayList<String>();
+                main.getIncreasedID("Facility.txt","facility");
+                dataList.add(main.getFacilityId());
+                dataList.add(jTextField2.getText());
+                dataList.add(jTextField3.getText());
+                main.editOrAddData(dataList, "facility","Facility.txt","add");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField3.setText("");
+            }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

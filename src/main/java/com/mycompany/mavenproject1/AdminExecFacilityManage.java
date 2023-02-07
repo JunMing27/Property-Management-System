@@ -535,6 +535,7 @@ public class AdminExecFacilityManage extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+    if(!(jLabel4.getText()).equals("no data")){
         this.dispose();
         AdminExecFacilityAddEdit facilityAddEdit = new AdminExecFacilityAddEdit();
         facilityAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -547,21 +548,28 @@ public class AdminExecFacilityManage extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        AdminExecFacilityAddEdit facilityAddEdit = new AdminExecFacilityAddEdit();
-        facilityAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        facilityAddEdit.pack();
-        facilityAddEdit.setResizable(false);
-        facilityAddEdit.setLocationRelativeTo(null);
-        facilityAddEdit.setVisible(true);
-        try {
-            facilityAddEdit.addEditDetect("edit",jLabel10.getText());
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+        if(!(jLabel10.getText()).equals("no data")){
+            this.dispose();
+            AdminExecFacilityAddEdit facilityAddEdit = new AdminExecFacilityAddEdit();
+            facilityAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            facilityAddEdit.pack();
+            facilityAddEdit.setResizable(false);
+            facilityAddEdit.setLocationRelativeTo(null);
+            facilityAddEdit.setVisible(true);
+            try {
+                facilityAddEdit.addEditDetect("edit",jLabel10.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -572,17 +580,21 @@ public class AdminExecFacilityManage extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        AdminExecFacilityAddEdit facilityAddEdit = new AdminExecFacilityAddEdit();
-        facilityAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        facilityAddEdit.pack();
-        facilityAddEdit.setResizable(false);
-        facilityAddEdit.setLocationRelativeTo(null);
-        facilityAddEdit.setVisible(true);
-        try {
-            facilityAddEdit.addEditDetect("edit",jLabel16.getText());
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+        if(!(jLabel16.getText()).equals("no data")){
+            this.dispose();
+            AdminExecFacilityAddEdit facilityAddEdit = new AdminExecFacilityAddEdit();
+            facilityAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            facilityAddEdit.pack();
+            facilityAddEdit.setResizable(false);
+            facilityAddEdit.setLocationRelativeTo(null);
+            facilityAddEdit.setVisible(true);
+            try {
+                facilityAddEdit.addEditDetect("edit",jLabel16.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 

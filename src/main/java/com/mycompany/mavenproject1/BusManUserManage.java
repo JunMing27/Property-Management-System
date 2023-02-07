@@ -372,11 +372,11 @@ public class BusManUserManage extends javax.swing.JFrame {
 
     //jButton2 and jButton4 edit function
     public void goToEditPage(){
-        this.dispose();
         // main method in main file (BusinessManagerMain) ** this method will get ID from this class and display data on BusManUserManageAddEdit page
         BusinessManagerMain main = new BusinessManagerMain();
         main.chooseTxtFile(this.GetUserType);
         main.displayAdminOrBuildingUser(this.GetUserType,this.UserID);
+        this.dispose();
     }
     
     //jButton3 and jButton5 delete function

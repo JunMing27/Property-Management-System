@@ -66,7 +66,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,7 +138,6 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox2.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBox2.setText("Female");
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -182,21 +181,10 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                 .addGap(131, 131, 131)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -213,7 +201,17 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                                         .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jCheckBox2)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextField4)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                    .addComponent(jTextField7))))
                         .addGap(188, 188, 188))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -257,10 +255,10 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))))
         );
@@ -402,7 +400,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         //get ID
          BufferedReader input;
         try {
-            input = new BufferedReader(new FileReader("src/main/java/com/mycompany/mavenproject1/"+file));
+            input = new BufferedReader(new FileReader("src/main/java/com/mycompany/textFile/"+file));
             String last="";
             String line="";
 
@@ -457,7 +455,8 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         
         //get username and password 
         userName=jTextField6.getText().trim();
-        password=jTextField7.getText().trim();
+        char[] enterPasswordChar = jTextField7.getPassword();
+        password=new String(enterPasswordChar);
         
         if(Name == null || Gender == null || Age == null || PhoneNumber == null || ImageName == null || userName ==null || password == null){
             JOptionPane.showMessageDialog(null, "Please enter all fields", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -502,7 +501,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     public void addDataMethod(){
         try {
             BufferedWriter itemtofile;
-            FileWriter AddNewItem = new FileWriter("src/main/java/com/mycompany/mavenproject1/"+file,true);
+            FileWriter AddNewItem = new FileWriter("src/main/java/com/mycompany/textFile/"+file,true);
             itemtofile = new BufferedWriter(AddNewItem);
             itemtofile.write(ID+",");
             itemtofile.write(Name+",");
@@ -514,7 +513,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
             itemtofile.close();
             AddNewItem.close();
             BufferedWriter credentialToFile;
-            FileWriter AddNewCredential = new FileWriter("src/main/java/com/mycompany/mavenproject1/loginCredential.txt",true);
+            FileWriter AddNewCredential = new FileWriter("src/main/java/com/mycompany/textFile/loginCredential.txt",true);
             credentialToFile = new BufferedWriter(AddNewCredential);
             credentialToFile.write(ID+",");
             credentialToFile.write(userName+",");
@@ -544,7 +543,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     public void editDataMethod(){
         try {
             BusinessManagerMain main = new BusinessManagerMain();
-            String fileName = "src/main/java/com/mycompany/mavenproject1/"+file;
+            String fileName = "src/main/java/com/mycompany/textFile/"+file;
             ArrayList<ArrayList<String>> allUsers = main.UserInfo(fileName);
             for (ArrayList<String> user : allUsers) {
                 if (user.get(0).equals(jTextField1.getText())) {
@@ -555,7 +554,9 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                     user.set(5, String.valueOf(this.ImageName));
                     dest = new File("src/main/java/com/mycompany/image/" + this.ImageName);
                     source = sourceFile;
-                    main.transferImage(source,dest);
+                    if(source!=null){
+                        main.transferImage(source,dest);
+                    }
                     break;
                 }
             }
@@ -568,22 +569,24 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            fileName="src/main/java/com/mycompany/mavenproject1/loginCredential.txt";
+            
+            fileName="src/main/java/com/mycompany/textFile/loginCredential.txt";
             ArrayList<ArrayList<String>> allCredential = main.UserInfo(fileName);
             for (ArrayList<String> credential : allCredential) {
                 if((credential.get(0).equals(jTextField1.getText()))){
+                    
                     credential.set(1, String.valueOf(userName));
-                    credential.set(1, String.valueOf(password));
+                    credential.set(2, String.valueOf(password));
                     break;
                 }
             }
             new FileWriter(fileName, false).close();
             for (ArrayList<String> credential : allCredential) {
                 try {
-                    File userData = new File("src/main/java/com/mycompany/mavenproject1/loginCredential.txt");
+                    File userData = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
                     FileWriter fw = new FileWriter(userData,true);
                     BufferedWriter bw = new BufferedWriter(fw);
-                    bw.append(credential.get(0)+",").append(credential.get(1)+",").append(credential.get(2)+",").append(Age+",").append(credential.get(3)+"\n");
+                    bw.append(credential.get(0)+",").append(credential.get(1)+",").append(credential.get(2)+",").append(credential.get(3)+"\n");
                     bw.close();
                 }
                 catch (IOException e) {
@@ -655,6 +658,6 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JPasswordField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

@@ -168,7 +168,15 @@ public class AdminExecOption extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-
+        this.dispose();
+        AdminExecUnitManage unit = new AdminExecUnitManage();
+        unit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        unit.pack();
+        unit.setResizable(false);
+        unit.setLocationRelativeTo(null);
+        unit.setVisible(true);
+        unit.backButtonToggle();
+        unit.setUnitData();
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
