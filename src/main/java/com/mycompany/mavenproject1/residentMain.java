@@ -45,6 +45,14 @@ public class residentMain {
         return image;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
