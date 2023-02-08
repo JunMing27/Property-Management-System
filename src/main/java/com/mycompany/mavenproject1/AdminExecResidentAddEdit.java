@@ -60,8 +60,8 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,11 +157,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Unit No.");
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
+        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -213,8 +209,8 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                                     .addComponent(jTextField4)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                                     .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING))))
+                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(191, 191, 191))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -250,7 +246,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -298,7 +294,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            if((jTextField2.getText()).equals("") ||(jTextField4.getText()).equals("") ||(jTextField5.getText()).equals("") || (jTextField6.getText()).equals("") || (jTextField7.getText()).equals("") || (jPasswordField1.getPassword()).equals("") || this.imageName==null) {
+            if((jTextField2.getText()).equals("") ||(jTextField4.getText()).equals("") ||(jTextField5.getText()).equals("")  || (jTextField7.getText()).equals("") || (jPasswordField1.getPassword()).equals("") || this.imageName==null) {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 AdminExecutiveMain main = new AdminExecutiveMain();
@@ -312,7 +308,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 }
                 dataList.add(jTextField4.getText());
                 dataList.add(jTextField5.getText());
-                dataList.add(jTextField6.getText());
+                dataList.add((String)jComboBox1.getSelectedItem());
                 dataList.add(imageName);
                 dataList.add(jTextField7.getText());
                 char[] i = jPasswordField1.getPassword();
@@ -329,7 +325,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 }
             }
         }else if(addEditDetector=="add"){
-            if((jTextField2.getText()).equals("") ||(jTextField4.getText()).equals("") ||(jTextField5.getText()).equals("") || (jTextField6.getText()).equals("") || (jTextField7.getText()).equals("") || (jPasswordField1.getPassword()).equals("")|| this.imageName==null) {
+            if((jTextField2.getText()).equals("") ||(jTextField4.getText()).equals("") ||(jTextField5.getText()).equals("") || (jTextField7.getText()).equals("") || (jPasswordField1.getPassword()).equals("")|| this.imageName==null) {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 AdminExecutiveMain main = new AdminExecutiveMain();
@@ -344,7 +340,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 }
                 dataList.add(jTextField4.getText());
                 dataList.add(jTextField5.getText());
-                dataList.add(jTextField6.getText());
+                dataList.add((String)jComboBox1.getSelectedItem());
                 dataList.add(imageName);
                 dataList.add(jTextField7.getText());
                 char[] i = jPasswordField1.getPassword();
@@ -367,7 +363,6 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 jCheckBox2.setSelected(false);
                 jTextField4.setText("");
                 jTextField5.setText("");
-                jTextField6.setText("");
                 jTextField7.setText("");
                 jPasswordField1.setText("");
                 jLabel2.setIcon(null);
@@ -426,10 +421,6 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
     private String addEditDetector;
     
     
@@ -438,6 +429,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
             this.addEditDetector="edit";
             AdminExecutiveMain main = new AdminExecutiveMain();
             main.getDataViewSingle(id, "ResidentProfile.txt","resident");
+            main.getDropDownData("Unit.txt","resident");
             jButton2.setText("Update");
             jTextField1.setText(main.getResidentId());
             jTextField2.setText(main.getResidentName());
@@ -448,7 +440,12 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
             }
             jTextField4.setText(main.getResidentAge());
             jTextField5.setText(main.getResidentContact());
-            jTextField6.setText(main.getResidentUnit());
+            int i=0;
+            for (String x : main.getDropDownData()) {
+                jComboBox1.addItem((main.getDropDownData()).get(i));
+                i++;
+            }
+            jComboBox1.setSelectedItem(main.getResidentUnit());
             this.imageName=main.getResidentImage();
             jTextField7.setText(main.getUserName());
             jPasswordField1.setText(main.getUserPass());
@@ -459,9 +456,16 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 }catch(Exception e){}
         }else if (functionType=="add"){
             this.addEditDetector="add";
+            AdminExecutiveMain main = new AdminExecutiveMain();
             jButton2.setText("Add");
             jTextField1.setVisible(false);
             jLabel1.setVisible(false);
+            main.getDropDownData("Unit.txt","resident");
+            int i=0;
+            for (String x : main.getDropDownData()) {
+                jComboBox1.addItem((main.getDropDownData()).get(i));
+                i++;
+            }
         }
     }
     
@@ -507,6 +511,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -522,7 +527,6 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

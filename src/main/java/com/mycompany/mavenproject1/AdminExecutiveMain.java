@@ -358,9 +358,10 @@ public class AdminExecutiveMain {
         
         for (ArrayList<String> singleData : allData) {
             if(type=="complaint"){
-                System.out.println(singleData.get(0));
                 dropDownDatas.add(singleData.get(0));
-                
+            }
+            if(type=="resident"){
+                dropDownDatas.add(singleData.get(0));
             }
         }
     }

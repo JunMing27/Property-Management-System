@@ -18,3 +18,6 @@ Employee ID, Employee Name, Employee Gender,Employee Age,Employee contact number
 
 Complaint.txt
 Complaint ID, Complaint Details, Complaint reply, Resident ID
+
+ResidentProfile.txt
+Resident ID, Resident Name, Resident Gender, Resident Age, Resident Contact, Resident Unit ID, Resident Image
