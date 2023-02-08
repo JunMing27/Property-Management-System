@@ -4,6 +4,8 @@
  */
 package com.mycompany.mavenproject1;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author user
@@ -17,6 +19,7 @@ public class ResidentProfile extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        displayData();
     }
 
     /**
@@ -89,7 +92,7 @@ public class ResidentProfile extends javax.swing.JFrame {
         residentIdTxt.setEditable(false);
         residentIdTxt.setBackground(new java.awt.Color(233, 233, 233));
         residentIdTxt.setForeground(new java.awt.Color(0, 0, 0));
-        residentIdTxt.setText("R1");
+        residentIdTxt.setText("HALO");
         residentIdTxt.setBorder(null);
         residentIdTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -270,6 +273,20 @@ public class ResidentProfile extends javax.swing.JFrame {
         residentProfileEdit.setVisible(true);
     }//GEN-LAST:event_updateBtnActionPerformed
 
+    private void displayData()
+    {
+        residentMain residentMain = new residentMain();
+        residentIdTxt.setText(residentMain.getId());
+        residentNameTxt.setText(residentMain.getName());
+        residentGenderTxt.setText(residentMain.getGender());
+        residentAgeTxt.setText(residentMain.getAge());
+        residentPhoneTxt.setText(residentMain.getPhone());
+        residentUnitTxt.setText(residentMain.getUnit());
+    }
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
