@@ -3,3 +3,4 @@ E3,Jun Ming3,male,20,01923228832,technician,girlyelling.png
 E4,Jun Ming4,male,20,01923228832,cleaner,ngan.jpg
 E5,Jun Ming5,female,20,01923228832,cleaner,dominos.png
 E6,Jun Ming6,female,20,01923228832,technician,dominos.png
+E7,jane,female,21,09878686878,blow jm,800px-Dont_Be.jpg

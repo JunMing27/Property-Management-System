@@ -202,12 +202,14 @@ public class AdminExecOption extends javax.swing.JFrame {
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        BusManBudgetPlanningManage budget = new BusManBudgetPlanningManage();
-        budget.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        budget.pack();
-        budget.setResizable(false);
-        budget.setLocationRelativeTo(null);
-        budget.setVisible(true);
+        AdminExecComManage complaint = new AdminExecComManage();
+        complaint.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        complaint.pack();
+        complaint.setResizable(false);
+        complaint.setLocationRelativeTo(null);
+        complaint.setVisible(true);
+        complaint.backButtonToggle();
+        complaint.setComplaintData();
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed

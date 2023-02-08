@@ -15,3 +15,6 @@ Unit ID, Unit Number, Unit Block, Unit Availability
 
 Employee.txt
 Employee ID, Employee Name, Employee Gender,Employee Age,Employee contact number,Employee jobscope,Employee image
+
+Complaint.txt
+Complaint ID, Complaint Details, Complaint reply, Resident ID

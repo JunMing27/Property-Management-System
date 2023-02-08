@@ -31,6 +31,8 @@ public class AdminExecutiveMain {
     private Boolean Status;
     private String userName;
     private String password;
+    private ArrayList<String> dropDownDatas = new ArrayList<String>();;
+    
     //FACILITY VARIABLES
     private String facilityId;
     private String facilityName;
@@ -56,7 +58,11 @@ public class AdminExecutiveMain {
     private String residentContact;
     private String residentUnit;
     private String residentImage;
-    
+    //COMPLAINT VARIABLES
+    private String complaintId;
+    private String complaintDetail;
+    private String complaintReply="-";
+    private String complaintUserId;
     
     //GET METHODS
      public boolean getStatus(){
@@ -68,6 +74,9 @@ public class AdminExecutiveMain {
     public String getUserPass(){
        return password;
    }
+    public ArrayList<String>  getDropDownData(){
+        return dropDownDatas;
+    }
      
     //GET FACILITY
     public String getFacilityId(){
@@ -138,6 +147,20 @@ public class AdminExecutiveMain {
     }
     public String getResidentImage(){
         return residentImage;
+    }
+    
+    //GET COMPLAINT
+    public String getComplaintId(){
+        return complaintId;
+    }
+    public String getComplaintDetail(){
+        return complaintDetail;
+    }
+    public String getComplaintReply(){
+        return complaintReply;
+    }
+    public String getComplaintUserId(){
+        return complaintUserId;
     }
     
     //SET DATA
@@ -217,7 +240,6 @@ public class AdminExecutiveMain {
                 this.employeeImage= allData.get(dataLine).get(6);
                 this.Status=true;
             }else if(type=="resident"){
-                System.out.println("can run resident "+allData.get(dataLine).get(0));
                 this.residentId=allData.get(dataLine).get(0);
                 this.residentName= allData.get(dataLine).get(1);
                 this.residentGender= allData.get(dataLine).get(2);
@@ -225,6 +247,12 @@ public class AdminExecutiveMain {
                 this.residentContact= allData.get(dataLine).get(4);
                 this.residentUnit= allData.get(dataLine).get(5);
                 this.residentImage= allData.get(dataLine).get(6);
+                this.Status=true;
+            }else if(type=="complaint"){
+                this.complaintId=allData.get(dataLine).get(0);
+                this.complaintDetail= allData.get(dataLine).get(1);
+                this.complaintReply= allData.get(dataLine).get(2);
+                this.complaintUserId= allData.get(dataLine).get(3);
                 this.Status=true;
             }
         }catch(Exception e){
@@ -264,6 +292,11 @@ public class AdminExecutiveMain {
             this.residentContact=null;
             this.residentUnit=null;
             this.residentImage=null;
+        }else if(type=="complaint"){
+            this.complaintId=null;
+            this.complaintDetail= null;
+            this.complaintReply= null;
+            this.complaintUserId= null;
         }
     }
     
@@ -306,9 +339,30 @@ public class AdminExecutiveMain {
                         this.residentImage= singleData.get(6);
                         getCredentialData(residentId);
                     }
+                    if(type=="complaint"){
+                        this.complaintId=singleData.get(0);
+                        this.complaintDetail= singleData.get(1);
+                        this.complaintReply= singleData.get(2);
+                        this.complaintUserId= singleData.get(3);
+                    }
                     break;
                 }
             }
+    }
+    
+    //Method to retrieve data to build jcombo box (dropdown)
+    public void getDropDownData(String file,String type) throws FileNotFoundException{
+        AdminExecutiveMain main = new AdminExecutiveMain();
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
+        ArrayList<ArrayList<String>> allData = main.dataInfo(fileName);
+        
+        for (ArrayList<String> singleData : allData) {
+            if(type=="complaint"){
+                System.out.println(singleData.get(0));
+                dropDownDatas.add(singleData.get(0));
+                
+            }
+        }
     }
     
     //GLOBAL USE Method to get credential if data need login credential
@@ -365,6 +419,13 @@ public class AdminExecutiveMain {
                             editCredential(dataList.get(0), dataList.get(7), dataList.get(8));
                             break;
                         }
+                        if(type=="complaint"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            System.out.println("here can");
+                            break;
+                        }
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -398,6 +459,13 @@ public class AdminExecutiveMain {
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
+                            bw.close();
+                        }
+                        if(type=="complaint"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
                             bw.close();
                         }
                     }
@@ -446,6 +514,12 @@ public class AdminExecutiveMain {
                     AddDataToFile.write(dataList.get(5)+",");
                     AddDataToFile.write(dataList.get(6));
                     addCredential(dataList.get(0),dataList.get(7),dataList.get(8),"resident");
+                }
+                if(type=="complaint"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3));
                 }
                 AddDataToFile.newLine();
                 AddDataToFile.close();
@@ -556,6 +630,14 @@ public class AdminExecutiveMain {
                             bw.close();
                             deleteUserCredential(employeeId);
                         }
+                        else if(file=="Complaint.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(data.get(0)+",").append(data.get(1)+",").append(data.get(2)+",").append(data.get(3)+"\n");
+                            bw.close();
+                        }
                     }
                     catch (IOException e) {
                     }
@@ -648,6 +730,15 @@ public class AdminExecutiveMain {
                     ID = IDchar+ (IDnumber).toString();
                     System.out.println(ID);
                     this.residentId=ID;
+                }
+                if(type=="complaint"){
+                    System.out.println(ID);
+                    String IDchar = ID.substring(0,1);
+                    ID = ID.substring(1);
+                    Integer IDnumber = Integer.parseInt(ID)+1;
+                    ID = IDchar+ (IDnumber).toString();
+                    System.out.println(ID);
+                    this.complaintId=ID;
                 }
             }
             catch (IOException ex) {
