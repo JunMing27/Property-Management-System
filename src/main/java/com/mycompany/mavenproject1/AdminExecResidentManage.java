@@ -314,16 +314,16 @@ public class AdminExecResidentManage extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        if(!(jLabel3.getText()).equals("no data")){
+        if(!(jLabel10.getText()).equals("no data")){
             this.dispose();
-            AdminExecEmployeeAddEdit employeeAddEdit = new AdminExecEmployeeAddEdit();
-            employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            employeeAddEdit.pack();
-            employeeAddEdit.setResizable(false);
-            employeeAddEdit.setLocationRelativeTo(null);
-            employeeAddEdit.setVisible(true);
+            AdminExecResidentAddEdit residentAddEdit = new AdminExecResidentAddEdit();
+            residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            residentAddEdit.pack();
+            residentAddEdit.setResizable(false);
+            residentAddEdit.setLocationRelativeTo(null);
+            residentAddEdit.setVisible(true);
             try {
-                employeeAddEdit.addEditDetect("edit",jLabel3.getText());
+                residentAddEdit.addEditDetect("edit",jLabel10.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -334,21 +334,21 @@ public class AdminExecResidentManage extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        deleteBtn(jLabel3.getText());
+        deleteBtn(jLabel10.getText());
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        if(!(jLabel5.getText()).equals("no data")){
+        if(!(jLabel12.getText()).equals("no data")){
             this.dispose();
-            AdminExecEmployeeAddEdit employeeAddEdit = new AdminExecEmployeeAddEdit();
-            employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            employeeAddEdit.pack();
-            employeeAddEdit.setResizable(false);
-            employeeAddEdit.setLocationRelativeTo(null);
-            employeeAddEdit.setVisible(true);
+            AdminExecResidentAddEdit residentAddEdit = new AdminExecResidentAddEdit();
+            residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            residentAddEdit.pack();
+            residentAddEdit.setResizable(false);
+            residentAddEdit.setLocationRelativeTo(null);
+            residentAddEdit.setVisible(true);
             try {
-                employeeAddEdit.addEditDetect("edit",jLabel5.getText());
+                residentAddEdit.addEditDetect("edit",jLabel12.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -359,20 +359,20 @@ public class AdminExecResidentManage extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        deleteBtn(jLabel5.getText());
+        deleteBtn(jLabel12.getText());
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        AdminExecEmployeeAddEdit employeeAddEdit = new AdminExecEmployeeAddEdit();
-        employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        employeeAddEdit.pack();
-        employeeAddEdit.setResizable(false);
-        employeeAddEdit.setLocationRelativeTo(null);
-        employeeAddEdit.setVisible(true);
+        AdminExecResidentAddEdit residentAddEdit = new AdminExecResidentAddEdit();
+        residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        residentAddEdit.pack();
+        residentAddEdit.setResizable(false);
+        residentAddEdit.setLocationRelativeTo(null);
+        residentAddEdit.setVisible(true);
         try {
-            employeeAddEdit.addEditDetect("add","");
+            residentAddEdit.addEditDetect("add","");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -386,12 +386,12 @@ public class AdminExecResidentManage extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
         }
-        nextBtn.setEnabled(true);
+        nextBtn1.setEnabled(true);
     }//GEN-LAST:event_backBtn1ActionPerformed
 
     private void nextBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtn1ActionPerformed
         // TODO add your handling code here:
-        backBtn.setEnabled(true);
+        backBtn1.setEnabled(true);
         try {
             setResidentData();
         } catch (IOException ex) {
@@ -401,10 +401,10 @@ public class AdminExecResidentManage extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-        this.searchTxt = jTextField1.getText();
+        this.searchTxt = jTextField2.getText();
         this.PageLine=-1;
-        backBtn.setEnabled(false);
-        nextBtn.setEnabled(true);
+        backBtn1.setEnabled(false);
+        nextBtn1.setEnabled(true);
         AdminExecutiveMain main = new AdminExecutiveMain();
         main.chooseTxtFile("Resident Management");
         try {
@@ -427,13 +427,13 @@ public class AdminExecResidentManage extends javax.swing.JFrame {
     private String searchTxt ="";
     
     public void backButtonToggle(){
-        backBtn.setEnabled(false);
+        backBtn1.setEnabled(false);
 }
     
     public void backButtonFunction(){
         PageLine = PageLine -4;
         if (PageLine==-1){
-            backBtn.setEnabled(false);
+            backBtn1.setEnabled(false);
         }
     }
     
@@ -445,48 +445,48 @@ public class AdminExecResidentManage extends javax.swing.JFrame {
             main.displayDataView(PageLine,searchTxt,"resident");
             boolean boo = main.getStatus();
             if(boo==false){
-                nextBtn.setEnabled(false);
+                nextBtn1.setEnabled(false);
             }
 
         } catch (IOException ex) {
             Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(main.getEmployeeId() !=null){
-            jLabel3.setText(main.getEmployeeId());
-            jLabel4.setText(main.getEmployeeName());
+        if(main.getResidentId() !=null){
+            jLabel10.setText(main.getResidentId());
+            jLabel11.setText(main.getResidentName());
             try{
-                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getEmployeeImage()));
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getResidentImage()));
                 Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
-                jLabel2.setIcon(new ImageIcon(resizedImage));
+                jLabel9.setIcon(new ImageIcon(resizedImage));
                 }catch(Exception e){}
         }else{
-            jLabel3.setText("no data");
-            jLabel4.setText("no data");
-            jLabel2.setIcon(null);
+            jLabel10.setText("no data");
+            jLabel11.setText("no data");
+            jLabel9.setIcon(null);
         }
         try {
             setPagination();
-            main.displayDataView(PageLine,searchTxt,"employee");
+            main.displayDataView(PageLine,searchTxt,"resident");
             boolean boo = main.getStatus();
             if(boo==false){
-                nextBtn.setEnabled(false);
+                nextBtn1.setEnabled(false);
             }
 
         } catch (IOException ex) {
             Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(main.getEmployeeId() !=null){
-            jLabel5.setText(main.getEmployeeId());
-            jLabel6.setText(main.getEmployeeName());
+        if(main.getResidentId() !=null){
+            jLabel12.setText(main.getResidentId());
+            jLabel13.setText(main.getResidentName());
             try{
-                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getEmployeeImage()));
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getResidentImage()));
                 Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
-                jLabel7.setIcon(new ImageIcon(resizedImage));
+                jLabel14.setIcon(new ImageIcon(resizedImage));
                 }catch(Exception e){}
         }else{
-            jLabel5.setText("no data");
-            jLabel6.setText("no data");
-            jLabel7.setIcon(null);
+            jLabel12.setText("no data");
+            jLabel13.setText("no data");
+            jLabel14.setIcon(null);
         }
     }
     
@@ -501,15 +501,15 @@ public class AdminExecResidentManage extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
                 
                 this.dispose();
-                AdminExecEmployeeManage employee = new AdminExecEmployeeManage();
-                employee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                employee.pack();
-                employee.setResizable(false);
-                employee.setLocationRelativeTo(null);
-                employee.setVisible(true);
-                employee.backButtonToggle();
+                AdminExecResidentManage resident = new AdminExecResidentManage();
+                resident.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                resident.pack();
+                resident.setResizable(false);
+                resident.setLocationRelativeTo(null);
+                resident.setVisible(true);
+                resident.backButtonToggle();
                 try {
-                    employee.setEmployeeData();
+                    resident.setResidentData();
                 } catch (IOException ex) {
                     Logger.getLogger(AdminExecOption.class.getName()).log(Level.SEVERE, null, ex);
                 }

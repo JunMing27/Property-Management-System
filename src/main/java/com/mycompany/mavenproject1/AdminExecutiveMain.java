@@ -217,6 +217,7 @@ public class AdminExecutiveMain {
                 this.employeeImage= allData.get(dataLine).get(6);
                 this.Status=true;
             }else if(type=="resident"){
+                System.out.println("can run resident "+allData.get(dataLine).get(0));
                 this.residentId=allData.get(dataLine).get(0);
                 this.residentName= allData.get(dataLine).get(1);
                 this.residentGender= allData.get(dataLine).get(2);
@@ -303,7 +304,7 @@ public class AdminExecutiveMain {
                         this.residentContact= singleData.get(4);
                         this.residentUnit= singleData.get(5);
                         this.residentImage= singleData.get(6);
-                        getCredentialData(employeeId);
+                        getCredentialData(residentId);
                     }
                     break;
                 }
@@ -640,10 +641,12 @@ public class AdminExecutiveMain {
                     this.employeeId=ID;
                 }
                 if(type=="resident"){
+                    System.out.println(ID);
                     String IDchar = ID.substring(0,1);
                     ID = ID.substring(1);
                     Integer IDnumber = Integer.parseInt(ID)+1;
                     ID = IDchar+ (IDnumber).toString();
+                    System.out.println(ID);
                     this.residentId=ID;
                 }
             }

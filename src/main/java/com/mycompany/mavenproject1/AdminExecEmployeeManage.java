@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 public class AdminExecEmployeeManage extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdminExecResidentManage
+     * Creates new form AdminExecEmployeeManage
      */
     public AdminExecEmployeeManage() {
         initComponents();

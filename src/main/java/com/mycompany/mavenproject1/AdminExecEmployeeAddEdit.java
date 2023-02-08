@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
 public class AdminExecEmployeeAddEdit extends javax.swing.JFrame {
 
     /**
-     * Creates new form AdminExecResidentAddEdit
+     * Creates new form AdminExecEmployeeAddEdit
      */
     public AdminExecEmployeeAddEdit() {
         initComponents();

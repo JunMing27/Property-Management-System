@@ -335,7 +335,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 AdminExecutiveMain main = new AdminExecutiveMain();
                 ArrayList<String> dataList = new ArrayList<String>();
                 main.getIncreasedID("ResidentProfile.txt","resident");
-                dataList.add(main.getEmployeeId());
+                dataList.add(main.getResidentId());
                 dataList.add(jTextField2.getText());
                 if(jCheckBox1.isSelected()){
                     dataList.add("male");
