@@ -8,7 +8,7 @@ package com.mycompany.mavenproject1;
  *
  * @author user
  */
-public class residentMain {
+public class ResidentMain {
     private String id;
     private String name;
     private String gender;

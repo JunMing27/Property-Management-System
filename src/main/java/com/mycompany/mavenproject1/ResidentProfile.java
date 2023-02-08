@@ -275,7 +275,7 @@ public class ResidentProfile extends javax.swing.JFrame {
 
     private void displayData()
     {
-        residentMain residentMain = new residentMain();
+        ResidentMain residentMain = new ResidentMain();
         residentIdTxt.setText(residentMain.getId());
         residentNameTxt.setText(residentMain.getName());
         residentGenderTxt.setText(residentMain.getGender());

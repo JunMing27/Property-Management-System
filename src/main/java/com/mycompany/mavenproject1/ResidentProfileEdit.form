@@ -50,38 +50,41 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                          <Component id="backBtn" min="-2" pref="86" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                          <Component id="topLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="residentGenderLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="residentUnitLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="residentPhoneLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="residentAgeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="residentNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="residentIdLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="saveBtn" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="errorMessage" alignment="1" min="-2" pref="286" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="backBtn" min="-2" pref="86" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="topLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="residentGenderTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="residentAgeTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="residentUnitTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="residentPhoneTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="residentNameTxt" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="residentIdTxt" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="cancelBtn" min="-2" pref="86" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="residentGenderLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="residentUnitLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="residentPhoneLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="residentAgeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="residentNameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="residentIdLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="saveBtn" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="residentGenderTxt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="residentAgeTxt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="residentUnitTxt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="residentPhoneTxt" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="residentNameTxt" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Component id="residentIdTxt" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Component id="cancelBtn" min="-2" pref="86" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="138" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="138" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="161" max="32767" attributes="0"/>
@@ -134,12 +137,14 @@
                       <Component id="residentUnitLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="residentUnitTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="errorMessage" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="saveBtn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="cancelBtn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -450,6 +455,20 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelBtnActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="errorMessage">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e9" green="e9" red="e9" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="cc" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
