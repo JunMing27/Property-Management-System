@@ -48,7 +48,14 @@ public class AdminExecutiveMain {
     private String employeeContact;
     private String employeeJob;
     private String employeeImage;
-    
+    //RESIDENT VARIABLES
+    private String residentId;
+    private String residentName;
+    private String residentGender;
+    private String residentAge;
+    private String residentContact;
+    private String residentUnit;
+    private String residentImage;
     
     
     //GET METHODS
@@ -110,6 +117,29 @@ public class AdminExecutiveMain {
         return employeeImage;
     }
 
+    //GET RESIDENT
+    public String getResidentId(){
+        return residentId;
+    }
+    public String getResidentName(){
+        return residentName;
+    }
+    public String getResidentGender(){
+        return residentGender;
+    }
+    public String getResidentAge(){
+        return residentAge;
+    }
+    public String getResidentContact(){
+        return residentContact;
+    }
+    public String getResidentUnit(){
+        return residentUnit;
+    }
+    public String getResidentImage(){
+        return residentImage;
+    }
+    
     //SET DATA
     //SET CREDENTIAL
     public void setUserName(String username){
@@ -126,7 +156,7 @@ public class AdminExecutiveMain {
         if(Type=="Unit Management"){
             file ="Unit.txt";
         }else if (Type=="Resident Management"){
-            file ="Resident.txt";
+            file ="ResidentProfile.txt";
         }else if (Type=="Complaint"){
             file = "Complaint.txt";
         }else if (Type=="Employee"){
@@ -186,6 +216,15 @@ public class AdminExecutiveMain {
                 this.employeeJob= allData.get(dataLine).get(5);
                 this.employeeImage= allData.get(dataLine).get(6);
                 this.Status=true;
+            }else if(type=="resident"){
+                this.residentId=allData.get(dataLine).get(0);
+                this.residentName= allData.get(dataLine).get(1);
+                this.residentGender= allData.get(dataLine).get(2);
+                this.residentAge= allData.get(dataLine).get(3);
+                this.residentContact= allData.get(dataLine).get(4);
+                this.residentUnit= allData.get(dataLine).get(5);
+                this.residentImage= allData.get(dataLine).get(6);
+                this.Status=true;
             }
         }catch(Exception e){
             setDataNull(type);
@@ -216,6 +255,14 @@ public class AdminExecutiveMain {
             this.employeeContact=null;
             this.employeeJob=null;
             this.employeeImage=null;
+        }else if(type=="resident"){
+            this.residentId=null;
+            this.residentName=null;
+            this.residentGender=null;
+            this.residentAge=null;
+            this.residentContact=null;
+            this.residentUnit=null;
+            this.residentImage=null;
         }
     }
     
@@ -246,9 +293,17 @@ public class AdminExecutiveMain {
                         this.employeeContact= singleData.get(4);
                         this.employeeJob= singleData.get(5);
                         this.employeeImage= singleData.get(6);
-                        System.out.println("nromal can");
                         getCredentialData(employeeId);
-                        System.out.println("nromal casan");
+                    }
+                    if(type=="resident"){
+                        this.residentId=singleData.get(0);
+                        this.residentName= singleData.get(1);
+                        this.residentGender= singleData.get(2);
+                        this.residentAge= singleData.get(3);
+                        this.residentContact= singleData.get(4);
+                        this.residentUnit= singleData.get(5);
+                        this.residentImage= singleData.get(6);
+                        getCredentialData(employeeId);
                     }
                     break;
                 }
@@ -299,6 +354,16 @@ public class AdminExecutiveMain {
                             editCredential(dataList.get(0), dataList.get(7), dataList.get(8));
                             break;
                         }
+                        if(type=="resident"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            user.set(6, dataList.get(6));
+                            editCredential(dataList.get(0), dataList.get(7), dataList.get(8));
+                            break;
+                        }
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -319,6 +384,14 @@ public class AdminExecutiveMain {
                             bw.close();
                         }
                         if(type=="employee"){
+                            System.out.println("data go thru in edit");
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
+                            bw.close();
+                        }
+                        if(type=="resident"){
                             System.out.println("data go thru in edit");
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
@@ -353,7 +426,6 @@ public class AdminExecutiveMain {
                     AddDataToFile.write("available");
                 }
                 if(type=="employee"){
-                    System.out.println("wanna see wassup in add");
                     AddDataToFile.write(dataList.get(0)+",");
                     AddDataToFile.write(dataList.get(1)+",");
                     AddDataToFile.write(dataList.get(2)+",");
@@ -361,9 +433,18 @@ public class AdminExecutiveMain {
                     AddDataToFile.write(dataList.get(4)+",");
                     AddDataToFile.write(dataList.get(5)+",");
                     AddDataToFile.write(dataList.get(6));
-                    System.out.println("wanna see wassup in 6th data");
                     System.out.println(dataList.get(0)+" "+dataList.get(7)+" "+dataList.get(8));
                     addCredential(dataList.get(0),dataList.get(7),dataList.get(8),"employee");
+                }
+                if(type=="resident"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4)+",");
+                    AddDataToFile.write(dataList.get(5)+",");
+                    AddDataToFile.write(dataList.get(6));
+                    addCredential(dataList.get(0),dataList.get(7),dataList.get(8),"resident");
                 }
                 AddDataToFile.newLine();
                 AddDataToFile.close();
@@ -465,6 +546,15 @@ public class AdminExecutiveMain {
                             bw.close();
                             deleteUserCredential(employeeId);
                         }
+                        else if(file=="ResidentProfile.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(data.get(0)+",").append(data.get(1)+",").append(data.get(2)+",").append(data.get(3)+",").append(data.get(4)+",").append(data.get(5)+",").append(data.get(6)+"\n");
+                            bw.close();
+                            deleteUserCredential(employeeId);
+                        }
                     }
                     catch (IOException e) {
                     }
@@ -548,6 +638,13 @@ public class AdminExecutiveMain {
                     Integer IDnumber = Integer.parseInt(ID)+1;
                     ID = IDchar+ (IDnumber).toString();
                     this.employeeId=ID;
+                }
+                if(type=="resident"){
+                    String IDchar = ID.substring(0,1);
+                    ID = ID.substring(1);
+                    Integer IDnumber = Integer.parseInt(ID)+1;
+                    ID = IDchar+ (IDnumber).toString();
+                    this.residentId=ID;
                 }
             }
             catch (IOException ex) {

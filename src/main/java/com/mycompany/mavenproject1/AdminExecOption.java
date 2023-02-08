@@ -184,6 +184,19 @@ public class AdminExecOption extends javax.swing.JFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        AdminExecResidentManage resident = new AdminExecResidentManage();
+        resident.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        resident.pack();
+        resident.setResizable(false);
+        resident.setLocationRelativeTo(null);
+        resident.setVisible(true);
+        resident.backButtonToggle();
+        try {
+            resident.setResidentData();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminExecOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
