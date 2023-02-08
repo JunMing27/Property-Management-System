@@ -4,6 +4,18 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jun Ming
@@ -41,8 +53,8 @@ public class AdminExecEmployeeManage extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
+        nextBtn = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
@@ -124,21 +136,21 @@ public class AdminExecEmployeeManage extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setForeground(new java.awt.Color(0, 0, 0));
-        jButton7.setText("back");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        backBtn.setBackground(new java.awt.Color(255, 255, 255));
+        backBtn.setForeground(new java.awt.Color(0, 0, 0));
+        backBtn.setText("back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                backBtnActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setForeground(new java.awt.Color(0, 0, 0));
-        jButton8.setText("next");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        nextBtn.setBackground(new java.awt.Color(255, 255, 255));
+        nextBtn.setForeground(new java.awt.Color(0, 0, 0));
+        nextBtn.setText("next");
+        nextBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                nextBtnActionPerformed(evt);
             }
         });
 
@@ -220,9 +232,9 @@ public class AdminExecEmployeeManage extends javax.swing.JFrame {
                                 .addGap(66, 66, 66)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(346, 346, 346)
-                            .addComponent(jButton7)
+                            .addComponent(backBtn)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton8))))
+                            .addComponent(nextBtn))))
                 .addGap(47, 47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -240,8 +252,8 @@ public class AdminExecEmployeeManage extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -294,103 +306,224 @@ public class AdminExecEmployeeManage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        BusManUserManageOption UserManageOption = new BusManUserManageOption();
-        UserManageOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        UserManageOption.pack();
-        UserManageOption.setResizable(false);
-        UserManageOption.setLocationRelativeTo(null);
-        UserManageOption.setVisible(true);
+        AdminExecOption adminOption = new AdminExecOption();
+        adminOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        adminOption.pack();
+        adminOption.setResizable(false);
+        adminOption.setLocationRelativeTo(null);
+        adminOption.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        if(!(jLabel3.getText()).equals("no data")){
+        this.dispose();
+        AdminExecEmployeeAddEdit employeeAddEdit = new AdminExecEmployeeAddEdit();
+        employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        employeeAddEdit.pack();
+        employeeAddEdit.setResizable(false);
+        employeeAddEdit.setLocationRelativeTo(null);
+        employeeAddEdit.setVisible(true);
         try {
-            this.UserID = (jLabel3.getText().trim()).substring(10);
-            if(!this.UserID.equals("null")){
-                goToEditPage();
-            }else {JOptionPane.showMessageDialog(null, "Can't update this data", "Warning", JOptionPane.ERROR_MESSAGE);}
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Can't go to update page", "Warning", JOptionPane.ERROR_MESSAGE);
+            employeeAddEdit.addEditDetect("edit",jLabel3.getText());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        try{
-            this.UserID = (jLabel3.getText().trim()).substring(10);
-            if(!this.UserID.equals("null")){
-                deleteUser();
-            }else {JOptionPane.showMessageDialog(null, "Can't delete this data", "Warning", JOptionPane.ERROR_MESSAGE);}
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Can't delete this data", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
+        deleteBtn(jLabel3.getText());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        try{
-            this.UserID = (jLabel5.getText().trim()).substring(10);
-            if(!this.UserID.equals("null")){
-                goToEditPage();
-            }else {JOptionPane.showMessageDialog(null, "Can't update this data", "Warning", JOptionPane.ERROR_MESSAGE);}
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Can't go to update page", "Warning", JOptionPane.ERROR_MESSAGE);
+        if(!(jLabel5.getText()).equals("no data")){
+        this.dispose();
+        AdminExecEmployeeAddEdit employeeAddEdit = new AdminExecEmployeeAddEdit();
+        employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        employeeAddEdit.pack();
+        employeeAddEdit.setResizable(false);
+        employeeAddEdit.setLocationRelativeTo(null);
+        employeeAddEdit.setVisible(true);
+        try {
+            employeeAddEdit.addEditDetect("edit",jLabel5.getText());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        try{
-            this.UserID = (jLabel5.getText().trim()).substring(10);
-            if(!this.UserID.equals("null")){
-                deleteUser();
-            }else {JOptionPane.showMessageDialog(null, "Can't delete this data", "Warning", JOptionPane.ERROR_MESSAGE);}
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Can't delete this data", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
+        deleteBtn(jLabel5.getText());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        BusManUserManageAddEdit BusManUserAdd = new BusManUserManageAddEdit();
-        BusManUserAdd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BusManUserAdd.pack();
-        BusManUserAdd.setResizable(false);
-        BusManUserAdd.setLocationRelativeTo(null);
-        BusManUserAdd.setVisible(true);
-        BusManUserAdd.addUserToggle(this.GetUserType);
+        AdminExecEmployeeAddEdit employeeAddEdit = new AdminExecEmployeeAddEdit();
+        employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        employeeAddEdit.pack();
+        employeeAddEdit.setResizable(false);
+        employeeAddEdit.setLocationRelativeTo(null);
+        employeeAddEdit.setVisible(true);
+        try {
+            employeeAddEdit.addEditDetect("add","");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         backButtonFunction();
-        setAdminOrBuildingExecutiveData(GetUserType);
-        jButton8.setEnabled(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
+        try {
+            setEmployeeData();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        nextBtn.setEnabled(true);
+    }//GEN-LAST:event_backBtnActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         // TODO add your handling code here:
-        jButton7.setEnabled(true);
-        setAdminOrBuildingExecutiveData(GetUserType);
-    }//GEN-LAST:event_jButton8ActionPerformed
+        backBtn.setEnabled(true);
+        try {
+            setEmployeeData();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_nextBtnActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         this.searchTxt = jTextField1.getText();
         this.PageLine=-1;
-        jButton7.setEnabled(false);
-        jButton8.setEnabled(true);
-        BusinessManagerMain main = new BusinessManagerMain();
-        main.chooseTxtFile(GetUserType);
-        setAdminOrBuildingExecutiveData(GetUserType);
+        backBtn.setEnabled(false);
+        nextBtn.setEnabled(true);
+        AdminExecutiveMain main = new AdminExecutiveMain();
+        main.chooseTxtFile("Employee");
+        try {
+            setEmployeeData();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    
+    private Integer PageLine=-1;
+    
+    public void setPagination(){
+        PageLine=PageLine+1;
+    }
+    
+    private String searchTxt ="";
+    
+    public void backButtonToggle(){
+        backBtn.setEnabled(false);
+}
+    
+    public void backButtonFunction(){
+        PageLine = PageLine -4;
+        if (PageLine==-1){
+            backBtn.setEnabled(false);
+        }
+    }
+    
+    public void setEmployeeData() throws IOException{
+        AdminExecutiveMain main = new AdminExecutiveMain();
+        main.chooseTxtFile("Employee");
+        try {
+            setPagination();
+            main.displayDataView(PageLine,searchTxt,"employee");
+            boolean boo = main.getStatus();
+            if(boo==false){
+                nextBtn.setEnabled(false);
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(main.getEmployeeId() !=null){
+            jLabel3.setText(main.getEmployeeId());
+            jLabel4.setText(main.getEmployeeName());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getEmployeeImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                jLabel2.setIcon(new ImageIcon(resizedImage));
+                }catch(Exception e){}
+        }else{
+            jLabel3.setText("no data");
+            jLabel4.setText("no data");
+            jLabel2.setIcon(null);
+        }
+        try {
+            setPagination();
+            main.displayDataView(PageLine,searchTxt,"employee");
+            boolean boo = main.getStatus();
+            if(boo==false){
+                nextBtn.setEnabled(false);
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(main.getEmployeeId() !=null){
+            jLabel5.setText(main.getEmployeeId());
+            jLabel6.setText(main.getEmployeeName());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getEmployeeImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                jLabel7.setIcon(new ImageIcon(resizedImage));
+                }catch(Exception e){}
+        }else{
+            jLabel5.setText("no data");
+            jLabel6.setText("no data");
+            jLabel7.setIcon(null);
+        }
+    }
+    
+    //Method for delete button, so no need to be repetitive
+    public void deleteBtn(String getText){
+        if(!getText.equals("no data")){
+            int ques = JOptionPane.showConfirmDialog(null,"confirm to delete this data", "Quit", JOptionPane.YES_NO_OPTION);
+            if (ques == JOptionPane.YES_OPTION){
+                AdminExecutiveMain main = new AdminExecutiveMain();
+                main.chooseTxtFile("Employee");
+                main.deleteFunction(getText);
+                JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+                
+                this.dispose();
+                AdminExecEmployeeManage employee = new AdminExecEmployeeManage();
+                employee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                employee.pack();
+                employee.setResizable(false);
+                employee.setLocationRelativeTo(null);
+                employee.setVisible(true);
+                employee.backButtonToggle();
+                try {
+                    employee.setEmployeeData();
+                } catch (IOException ex) {
+                    Logger.getLogger(AdminExecOption.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -428,14 +561,13 @@ public class AdminExecEmployeeManage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -447,5 +579,6 @@ public class AdminExecEmployeeManage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton nextBtn;
     // End of variables declaration//GEN-END:variables
 }

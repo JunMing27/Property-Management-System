@@ -7,14 +7,19 @@ package com.mycompany.mavenproject1;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
 
 /**
  *
@@ -35,6 +40,14 @@ public class AdminExecutiveMain {
     private String unitNo;
     private String unitBlock;
     private String unitAvailability;
+    //EMPLOYEE VARIABLES
+    private String employeeId;
+    private String employeeName;
+    private String employeeGender;
+    private String employeeAge;
+    private String employeeContact;
+    private String employeeJob;
+    private String employeeImage;
     
     
     
@@ -42,6 +55,12 @@ public class AdminExecutiveMain {
      public boolean getStatus(){
         return Status;
     }
+    public String getUserName(){
+       return userName;
+   }
+    public String getUserPass(){
+       return password;
+   }
      
     //GET FACILITY
     public String getFacilityId(){
@@ -67,7 +86,38 @@ public class AdminExecutiveMain {
     public String getUnitAvail(){
         return unitAvailability;
     }
+    
+    //GET EMPLOYEE
+    public String getEmployeeId(){
+        return employeeId;
+    }
+    public String getEmployeeName(){
+        return employeeName;
+    }
+    public String getEmployeeGender(){
+        return employeeGender;
+    }
+    public String getEmployeeAge(){
+        return employeeAge;
+    }
+    public String getEmployeeContact(){
+        return employeeContact;
+    }
+    public String getEmployeeJob(){
+        return employeeJob;
+    }
+    public String getEmployeeImage(){
+        return employeeImage;
+    }
 
+    //SET DATA
+    //SET CREDENTIAL
+    public void setUserName(String username){
+        this.userName= username;
+    }
+    public void setUserPass(String userPass){
+        this.password= userPass;
+    }
     
     //Method to choose correct txt file based on userType, so no need to redundant code
     private String file="";
@@ -94,6 +144,7 @@ public class AdminExecutiveMain {
     public  void displayDataView(Integer dataLine,String searchTxt,String type) throws FileNotFoundException, IOException{
         AdminExecutiveMain main = new AdminExecutiveMain();
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
+        System.out.println(file);
         ArrayList<ArrayList<String>> allData = main.dataInfo(fileName);
         int i =0;
         int fixedSize = allData.size();
@@ -126,6 +177,15 @@ public class AdminExecutiveMain {
                 this.unitBlock = allData.get(dataLine).get(2);
                 this.unitAvailability = allData.get(dataLine).get(3);
                 this.Status = true;
+            }else if(type=="employee"){
+                this.employeeId=allData.get(dataLine).get(0);
+                this.employeeName= allData.get(dataLine).get(1);
+                this.employeeGender= allData.get(dataLine).get(2);
+                this.employeeAge= allData.get(dataLine).get(3);
+                this.employeeContact= allData.get(dataLine).get(4);
+                this.employeeJob= allData.get(dataLine).get(5);
+                this.employeeImage= allData.get(dataLine).get(6);
+                this.Status=true;
             }
         }catch(Exception e){
             setDataNull(type);
@@ -148,6 +208,14 @@ public class AdminExecutiveMain {
             this.unitNo=null;
             this.unitBlock=null;
             this.unitAvailability=null;
+        }else if(type=="employee"){
+            this.employeeId=null;
+            this.employeeName=null;
+            this.employeeGender=null;
+            this.employeeAge=null;
+            this.employeeContact=null;
+            this.employeeJob=null;
+            this.employeeImage=null;
         }
     }
     
@@ -169,6 +237,18 @@ public class AdminExecutiveMain {
                         this.unitNo=singleData.get(1);
                         this.unitBlock=singleData.get(2);
                         this.unitAvailability=singleData.get(3);
+                    }
+                    if(type=="employee"){
+                        this.employeeId=singleData.get(0);
+                        this.employeeName= singleData.get(1);
+                        this.employeeGender= singleData.get(2);
+                        this.employeeAge= singleData.get(3);
+                        this.employeeContact= singleData.get(4);
+                        this.employeeJob= singleData.get(5);
+                        this.employeeImage= singleData.get(6);
+                        System.out.println("nromal can");
+                        getCredentialData(employeeId);
+                        System.out.println("nromal casan");
                     }
                     break;
                 }
@@ -206,6 +286,18 @@ public class AdminExecutiveMain {
                         if(type=="unit"){
                             user.set(1, dataList.get(1));
                             user.set(2, dataList.get(2));
+                            break;
+                        }
+                        if(type=="employee"){
+                            System.out.println("wanna see wassup in edit");
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            user.set(6, dataList.get(6));
+                            editCredential(dataList.get(0), dataList.get(7), dataList.get(8));
+                            break;
                         }
                     }
                 }
@@ -224,6 +316,14 @@ public class AdminExecutiveMain {
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
+                            bw.close();
+                        }
+                        if(type=="employee"){
+                            System.out.println("data go thru in edit");
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
                             bw.close();
                         }
                     }
@@ -252,6 +352,19 @@ public class AdminExecutiveMain {
                     AddDataToFile.write(dataList.get(2)+",");
                     AddDataToFile.write("available");
                 }
+                if(type=="employee"){
+                    System.out.println("wanna see wassup in add");
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4)+",");
+                    AddDataToFile.write(dataList.get(5)+",");
+                    AddDataToFile.write(dataList.get(6));
+                    System.out.println("wanna see wassup in 6th data");
+                    System.out.println(dataList.get(0)+" "+dataList.get(7)+" "+dataList.get(8));
+                    addCredential(dataList.get(0),dataList.get(7),dataList.get(8),"employee");
+                }
                 AddDataToFile.newLine();
                 AddDataToFile.close();
                 AddNewItem.close();
@@ -265,25 +378,26 @@ public class AdminExecutiveMain {
     
     // EDIT OR ADD DATA METHOD FOR CREDENTIAL
     public void addCredential(String id, String userName, String pass,String role) throws IOException{
+        System.out.println("wanna see wassup in add cred");
         BufferedWriter AddCredentialToFile;
         FileWriter AddNewCredential = new FileWriter("src/main/java/com/mycompany/textFile/loginCredential.txt",true);
         AddCredentialToFile = new BufferedWriter(AddNewCredential);
         AddCredentialToFile.write(id+",");
         AddCredentialToFile.write(userName+",");
         AddCredentialToFile.write(pass+",");
-        AddCredentialToFile.write(role+",");
+        AddCredentialToFile.write(role);
         AddCredentialToFile.newLine();
         AddCredentialToFile.close();
         AddNewCredential.close();
     }
     
-    public void editCredential(ArrayList<String> dataList,String userName, String userPass){
+    public void editCredential(String id ,String userName, String userPass){
         try {
             AdminExecutiveMain main = new AdminExecutiveMain();
             String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
             ArrayList<ArrayList<String>> allData = main.dataInfo(fileName);
             for (ArrayList<String> data : allData) {
-                if (data.get(0).equals(dataList.get(0))) {
+                if (data.get(0).equals(id)) {
                     data.set(1, userName);
                     data.set(2, userPass);
                     }
@@ -315,6 +429,7 @@ public class AdminExecutiveMain {
             for (ArrayList<String> data : allData) {
                 
                 if (data.get(0).equals(itemID)) {
+                    this.employeeId=itemID;
                     allData.remove(i);
                     break;
                 }
@@ -341,6 +456,15 @@ public class AdminExecutiveMain {
                             bw.append(data.get(0)+",").append(data.get(1)+",").append(data.get(2)+",").append(data.get(3)+",").append(data.get(4)+"\n");
                             bw.close();
                         }
+                        else if(file=="Employee.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(data.get(0)+",").append(data.get(1)+",").append(data.get(2)+",").append(data.get(3)+",").append(data.get(4)+",").append(data.get(5)+",").append(data.get(6)+"\n");
+                            bw.close();
+                            deleteUserCredential(employeeId);
+                        }
                     }
                     catch (IOException e) {
                     }
@@ -356,24 +480,24 @@ public class AdminExecutiveMain {
         try {
             int i =0;
             String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
-            ArrayList<ArrayList<String>> allData = dataInfo(fileName);
-            for (ArrayList<String> user : allData) {
+            ArrayList<ArrayList<String>> allCredential = dataInfo(fileName);
+            for (ArrayList<String> credential : allCredential) {
                 
-                if (user.get(0).equals(userID)) {
-                    allData.remove(i);
+                if (credential.get(0).equals(userID)) {
+                    allCredential.remove(i);
                     break;
                 }
                 
                 i=i+1;
             }
             new FileWriter(fileName, false).close();
-            for (ArrayList<String> data : allData) {
+            for (ArrayList<String> credential : allCredential) {
                 try {
                     System.out.println(file);
-                    File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                    File userData = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
                     FileWriter fw = new FileWriter(userData,true);
                     BufferedWriter bw = new BufferedWriter(fw);
-                    bw.append(data.get(0)+",").append(data.get(1)+",").append(data.get(2)+",").append(data.get(3)+"\n");
+                    bw.append(credential.get(0)+",").append(credential.get(1)+",").append(credential.get(2)+",").append(credential.get(3)+"\n");
                     bw.close();
                 }
                 catch (IOException e) {
@@ -418,6 +542,13 @@ public class AdminExecutiveMain {
                     ID = IDchar+ (IDnumber).toString();
                     this.unitId=ID;
                 }
+                if(type=="employee"){
+                    String IDchar = ID.substring(0,1);
+                    ID = ID.substring(1);
+                    Integer IDnumber = Integer.parseInt(ID)+1;
+                    ID = IDchar+ (IDnumber).toString();
+                    this.employeeId=ID;
+                }
             }
             catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "There is a problem with ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -449,4 +580,73 @@ public class AdminExecutiveMain {
         }
         return allDataInfo;
     }
+    
+    //+ File method
+    //+ Method to store uploaded image to a specific location
+    public static void transferImage(File source, File destination) throws IOException {
+        InputStream is = null;
+        OutputStream os = null;
+        try {
+            is = new FileInputStream(source);
+            os = new FileOutputStream(destination);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+        } finally {
+            is.close();
+            os.close();
+        }
+    }
+    
+    //+ Method to restrict image upload function to only accept specific file type (IMAGE FOR EXAMPLE)
+    class ImageFilter extends FileFilter {
+   public final static String JPEG = "jpeg";
+   public final static String JPG = "jpg";
+   public final static String GIF = "gif";
+   public final static String TIFF = "tiff";
+   public final static String TIF = "tif";
+   public final static String PNG = "png";
+   
+   @Override
+   public boolean accept(File f) {
+      if (f.isDirectory()) {
+         return true;
+      }
+
+      String extension = getExtension(f);
+      if (extension != null) {
+         if (extension.equals(TIFF) ||
+            extension.equals(TIF) ||
+            extension.equals(GIF) ||
+            extension.equals(JPEG) ||
+            extension.equals(JPG) ||
+            extension.equals(PNG)) {
+            return true;
+         } else {
+            return false;
+         }
+      }
+      return false;
+   }
+
+   @Override
+   public String getDescription() {
+      return "Image Only";
+   }
+
+   String getExtension(File f) {
+      String ext = null;
+      String s = f.getName();
+      int i = s.lastIndexOf('.');
+   
+      if (i > 0 &&  i < s.length() - 1) {
+         ext = s.substring(i+1).toLowerCase();
+      }
+      return ext;
+   } 
+}
+    
+    
 }

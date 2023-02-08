@@ -4,6 +4,9 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -196,6 +199,19 @@ public class AdminExecOption extends javax.swing.JFrame {
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        AdminExecEmployeeManage employee = new AdminExecEmployeeManage();
+        employee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        employee.pack();
+        employee.setResizable(false);
+        employee.setLocationRelativeTo(null);
+        employee.setVisible(true);
+        employee.backButtonToggle();
+        try {
+            employee.setEmployeeData();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminExecOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
