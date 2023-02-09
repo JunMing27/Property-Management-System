@@ -1,6 +1,6 @@
-U1,D-01-01,Block D,available
+U1,D-01-01,Block D,occupied
 U2,D-0023,C,occupied
-U4,D-01-03,Block D,available
+U4,D-01-03,Block D,occupied
 U5,D-01-04,BlocRGk D,occupied
-U6,YEET,ETTE,available
-U7,TEET,GRFD,available
+U6,YEET,ETTE,occupied
+U7,TEET,GRFD,occupied

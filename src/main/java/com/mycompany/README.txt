@@ -21,3 +21,6 @@ Complaint ID, Complaint Details, Complaint reply, Resident ID
 
 ResidentProfile.txt
 Resident ID, Resident Name, Resident Gender, Resident Age, Resident Contact, Resident Unit ID, Resident Image
+
+VendorProfile.txt
+Vendor ID, Vendor Name, Vendor Gender, Vendor Age, Vendor Contact, Vendor Image

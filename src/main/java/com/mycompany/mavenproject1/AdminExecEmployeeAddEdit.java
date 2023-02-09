@@ -323,9 +323,11 @@ public class AdminExecEmployeeAddEdit extends javax.swing.JFrame {
                 main.editOrAddData(dataList, "employee","Employee.txt","edit"); 
                 //transfer uploaded image to our system image folder 
                 try {
-                    File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
-                    File source = sourceFile;
-                    main.transferImage(source,dest);
+                    if(sourceFile!=null){
+                        File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
+                        File source = sourceFile;
+                        main.transferImage(source,dest);
+                    }
                 } catch (IOException ex) {
                     System.out.println("cant upload image hehe");
                 }
@@ -377,7 +379,7 @@ public class AdminExecEmployeeAddEdit extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
     private String imageName=null;
-    File sourceFile;
+    File sourceFile=null;
     String[] imagePath = new String[1];
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:

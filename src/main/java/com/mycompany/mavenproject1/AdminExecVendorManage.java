@@ -4,6 +4,18 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jun Ming
@@ -61,7 +73,7 @@ public class AdminExecVendorManage extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Employee");
+        jLabel1.setText("Vendor");
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("IMAGE");
@@ -222,7 +234,7 @@ public class AdminExecVendorManage extends javax.swing.JFrame {
                             .addComponent(backBtn)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(nextBtn))))
-                .addGap(47, 47, Short.MAX_VALUE))
+                .addGap(66, 66, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +292,7 @@ public class AdminExecVendorManage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,14 +317,14 @@ public class AdminExecVendorManage extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!(jLabel3.getText()).equals("no data")){
             this.dispose();
-            AdminExecEmployeeAddEdit employeeAddEdit = new AdminExecEmployeeAddEdit();
-            employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            employeeAddEdit.pack();
-            employeeAddEdit.setResizable(false);
-            employeeAddEdit.setLocationRelativeTo(null);
-            employeeAddEdit.setVisible(true);
+            AdminExecVendorAddEdit vendorAddEdit = new AdminExecVendorAddEdit();
+            vendorAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            vendorAddEdit.pack();
+            vendorAddEdit.setResizable(false);
+            vendorAddEdit.setLocationRelativeTo(null);
+            vendorAddEdit.setVisible(true);
             try {
-                employeeAddEdit.addEditDetect("edit",jLabel3.getText());
+                vendorAddEdit.addEditDetect("edit",jLabel3.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -330,14 +342,14 @@ public class AdminExecVendorManage extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!(jLabel5.getText()).equals("no data")){
             this.dispose();
-            AdminExecEmployeeAddEdit employeeAddEdit = new AdminExecEmployeeAddEdit();
-            employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            employeeAddEdit.pack();
-            employeeAddEdit.setResizable(false);
-            employeeAddEdit.setLocationRelativeTo(null);
-            employeeAddEdit.setVisible(true);
+            AdminExecVendorAddEdit vendorAddEdit = new AdminExecVendorAddEdit();
+            vendorAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            vendorAddEdit.pack();
+            vendorAddEdit.setResizable(false);
+            vendorAddEdit.setLocationRelativeTo(null);
+            vendorAddEdit.setVisible(true);
             try {
-                employeeAddEdit.addEditDetect("edit",jLabel5.getText());
+                vendorAddEdit.addEditDetect("edit",jLabel5.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -354,14 +366,14 @@ public class AdminExecVendorManage extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        AdminExecEmployeeAddEdit employeeAddEdit = new AdminExecEmployeeAddEdit();
-        employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        employeeAddEdit.pack();
-        employeeAddEdit.setResizable(false);
-        employeeAddEdit.setLocationRelativeTo(null);
-        employeeAddEdit.setVisible(true);
+        AdminExecVendorAddEdit vendorAddEdit = new AdminExecVendorAddEdit();
+        vendorAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        vendorAddEdit.pack();
+        vendorAddEdit.setResizable(false);
+        vendorAddEdit.setLocationRelativeTo(null);
+        vendorAddEdit.setVisible(true);
         try {
-            employeeAddEdit.addEditDetect("add","");
+            vendorAddEdit.addEditDetect("add","");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -371,7 +383,7 @@ public class AdminExecVendorManage extends javax.swing.JFrame {
         // TODO add your handling code here:
         backButtonFunction();
         try {
-            setEmployeeData();
+            setVendorData();
         } catch (IOException ex) {
             Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -382,7 +394,7 @@ public class AdminExecVendorManage extends javax.swing.JFrame {
         // TODO add your handling code here:
         backBtn.setEnabled(true);
         try {
-            setEmployeeData();
+            setVendorData();
         } catch (IOException ex) {
             Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -395,14 +407,115 @@ public class AdminExecVendorManage extends javax.swing.JFrame {
         backBtn.setEnabled(false);
         nextBtn.setEnabled(true);
         AdminExecutiveMain main = new AdminExecutiveMain();
-        main.chooseTxtFile("Employee");
+        main.chooseTxtFile("Vendor");
         try {
-            setEmployeeData();
+            setVendorData();
         } catch (IOException ex) {
             Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private Integer PageLine=-1;
+    
+    public void setPagination(){
+        PageLine=PageLine+1;
+    }
+    
+    private String searchTxt ="";
+    
+    public void backButtonToggle(){
+        backBtn.setEnabled(false);
+}
+    
+    public void backButtonFunction(){
+        PageLine = PageLine -4;
+        if (PageLine==-1){
+            backBtn.setEnabled(false);
+        }
+    }
+    
+    public void setVendorData() throws IOException{
+        AdminExecutiveMain main = new AdminExecutiveMain();
+        main.chooseTxtFile("Vendor");
+        try {
+            setPagination();
+            main.displayDataView(PageLine,searchTxt,"vendor");
+            boolean boo = main.getStatus();
+            if(boo==false){
+                nextBtn.setEnabled(false);
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(main.getVendorId() !=null){
+            jLabel3.setText(main.getVendorId());
+            jLabel4.setText(main.getVendorName());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getVendorImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                jLabel2.setIcon(new ImageIcon(resizedImage));
+                }catch(Exception e){}
+        }else{
+            jLabel3.setText("no data");
+            jLabel4.setText("no data");
+            jLabel2.setIcon(null);
+        }
+        try {
+            setPagination();
+            main.displayDataView(PageLine,searchTxt,"vendor");
+            boolean boo = main.getStatus();
+            if(boo==false){
+                nextBtn.setEnabled(false);
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(main.getVendorId() !=null){
+            jLabel5.setText(main.getVendorId());
+            jLabel6.setText(main.getVendorName());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getVendorImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                jLabel7.setIcon(new ImageIcon(resizedImage));
+                }catch(Exception e){}
+        }else{
+            jLabel5.setText("no data");
+            jLabel6.setText("no data");
+            jLabel7.setIcon(null);
+        }
+    }
+    
+    //Method for delete button, so no need to be repetitive
+    public void deleteBtn(String getText){
+        if(!getText.equals("no data")){
+            int ques = JOptionPane.showConfirmDialog(null,"confirm to delete this data", "Quit", JOptionPane.YES_NO_OPTION);
+            if (ques == JOptionPane.YES_OPTION){
+                AdminExecutiveMain main = new AdminExecutiveMain();
+                main.chooseTxtFile("Vendor");
+                main.deleteFunction(getText);
+                JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+                
+                this.dispose();
+                AdminExecVendorManage vendor = new AdminExecVendorManage();
+                vendor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                vendor.pack();
+                vendor.setResizable(false);
+                vendor.setLocationRelativeTo(null);
+                vendor.setVisible(true);
+                vendor.backButtonToggle();
+                try {
+                    vendor.setVendorData();
+                } catch (IOException ex) {
+                    Logger.getLogger(AdminExecOption.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed

@@ -298,6 +298,7 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 AdminExecutiveMain main = new AdminExecutiveMain();
+                main.editAvailability(residentUnitId,(String)jComboBox1.getSelectedItem());
                 ArrayList<String> dataList = new ArrayList<String>();
                 dataList.add(jTextField1.getText());
                 dataList.add(jTextField2.getText());
@@ -317,61 +318,83 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 main.editOrAddData(dataList, "resident","ResidentProfile.txt","edit");
                 //transfer uploaded image to our system image folder
                 try {
-                    File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
-                    File source = sourceFile;
-                    main.transferImage(source,dest);
+                    if(sourceFile!=null){
+                        File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
+                        File source = sourceFile;
+                        main.transferImage(source,dest);
+                    }
                 } catch (IOException ex) {
                     System.out.println("cant upload image hehe");
+                }
+                //refresh jFrame after adding data
+                this.dispose();
+                AdminExecResidentAddEdit residentAddEdit = new AdminExecResidentAddEdit();
+                residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                residentAddEdit.pack();
+                residentAddEdit.setResizable(false);
+                residentAddEdit.setLocationRelativeTo(null);
+                residentAddEdit.setVisible(true);
+                try {
+                    residentAddEdit.addEditDetect("edit",jTextField1.getText());
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }else if(addEditDetector=="add"){
             if((jTextField2.getText()).equals("") ||(jTextField4.getText()).equals("") ||(jTextField5.getText()).equals("") || (jTextField7.getText()).equals("") || (jPasswordField1.getPassword()).equals("")|| this.imageName==null) {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
-                AdminExecutiveMain main = new AdminExecutiveMain();
-                ArrayList<String> dataList = new ArrayList<String>();
-                main.getIncreasedID("ResidentProfile.txt","resident");
-                dataList.add(main.getResidentId());
-                dataList.add(jTextField2.getText());
-                if(jCheckBox1.isSelected()){
-                    dataList.add("male");
-                }else{
-                    dataList.add("female");
-                }
-                dataList.add(jTextField4.getText());
-                dataList.add(jTextField5.getText());
-                dataList.add((String)jComboBox1.getSelectedItem());
-                dataList.add(imageName);
-                dataList.add(jTextField7.getText());
-                char[] i = jPasswordField1.getPassword();
-                String stringPassword = new String(i);
-                dataList.add(stringPassword);
-                System.out.println(dataList);
-                main.editOrAddData(dataList, "resident","ResidentProfile.txt","add");
-                //transfer uploaded image to our system image folder
-                try {
-                    File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
-                    File source = sourceFile;
-                    main.transferImage(source,dest);
-                } catch (IOException ex) {
-                    System.out.println("cant upload image hehe");
-                }
-                //set value empty after inserting
-                jTextField1.setText("");
-                jTextField2.setText("");
-                jCheckBox1.setSelected(false);
-                jCheckBox2.setSelected(false);
-                jTextField4.setText("");
-                jTextField5.setText("");
-                jTextField7.setText("");
-                jPasswordField1.setText("");
-                jLabel2.setIcon(null);
+                if(((String)jComboBox1.getSelectedItem())!=null){
+                    AdminExecutiveMain main = new AdminExecutiveMain();
+                    main.editAvailability("",(String)jComboBox1.getSelectedItem());
+                    ArrayList<String> dataList = new ArrayList<String>();
+                    main.getIncreasedID("ResidentProfile.txt","resident");
+                    dataList.add(main.getResidentId());
+                    dataList.add(jTextField2.getText());
+                    if(jCheckBox1.isSelected()){
+                        dataList.add("male");
+                    }else{
+                        dataList.add("female");
+                    }
+                    dataList.add(jTextField4.getText());
+                    dataList.add(jTextField5.getText());
+                    dataList.add((String)jComboBox1.getSelectedItem());
+                    dataList.add(imageName);
+                    dataList.add(jTextField7.getText());
+                    char[] i = jPasswordField1.getPassword();
+                    String stringPassword = new String(i);
+                    dataList.add(stringPassword);
+                    System.out.println(dataList);
+                    main.editOrAddData(dataList, "resident","ResidentProfile.txt","add");
+                    //transfer uploaded image to our system image folder
+                    try {
+                        File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
+                        File source = sourceFile;
+                        main.transferImage(source,dest);
+                    } catch (IOException ex) {
+                        System.out.println("cant upload image hehe");
+                    }
+                    //refresh jFrame after adding data
+                    this.dispose();
+                    AdminExecResidentAddEdit residentAddEdit = new AdminExecResidentAddEdit();
+                    residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    residentAddEdit.pack();
+                    residentAddEdit.setResizable(false);
+                    residentAddEdit.setLocationRelativeTo(null);
+                    residentAddEdit.setVisible(true);
+                    try {
+                        residentAddEdit.addEditDetect("add","");
+                    } catch (FileNotFoundException ex) {
+                        Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            }else{JOptionPane.showMessageDialog(null, "No Unit Left. Please Add Unit", "Warning", JOptionPane.ERROR_MESSAGE);}
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private String imageName=null;
-    File sourceFile;
+    private String residentUnitId;
+    File sourceFile=null;
     String[] imagePath = new String[1];
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -446,6 +469,13 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
                 i++;
             }
             jComboBox1.setSelectedItem(main.getResidentUnit());
+            if(((String)jComboBox1.getSelectedItem()).equals(main.getResidentUnit())){
+                ;
+            }else{
+                jComboBox1.addItem(main.getResidentUnit());
+                jComboBox1.setSelectedItem(main.getResidentUnit());
+            }
+            this.residentUnitId=main.getResidentUnit();
             this.imageName=main.getResidentImage();
             jTextField7.setText(main.getUserName());
             jPasswordField1.setText(main.getUserPass());

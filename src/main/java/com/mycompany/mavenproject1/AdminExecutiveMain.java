@@ -28,6 +28,7 @@ import javax.swing.filechooser.FileFilter;
 public class AdminExecutiveMain {
     //VARIABLES
     //GLOBAL VARIABLES, DIFFERENT FUNCTIONALITY USING SAME VARIABLE
+    private String dataId;
     private Boolean Status;
     private String userName;
     private String password;
@@ -63,6 +64,14 @@ public class AdminExecutiveMain {
     private String complaintDetail;
     private String complaintReply="-";
     private String complaintUserId;
+    //VENDOR VARIABLES
+    private String vendorId;
+    private String vendorName;
+    private String vendorGender;
+    private String vendorAge;
+    private String vendorContact;
+    private String vendorImage;
+    
     
     //GET METHODS
      public boolean getStatus(){
@@ -163,6 +172,26 @@ public class AdminExecutiveMain {
         return complaintUserId;
     }
     
+    //GET VENDOR
+    public String getVendorId(){
+        return vendorId;
+    }
+    public String getVendorName(){
+        return vendorName;
+    }
+    public String getVendorGender(){
+        return vendorGender;
+    }
+    public String getVendorAge(){
+        return vendorAge;
+    }
+    public String getVendorContact(){
+        return vendorContact;
+    }
+    public String getVendorImage(){
+        return vendorImage;
+    }
+    
     //SET DATA
     //SET CREDENTIAL
     public void setUserName(String username){
@@ -188,6 +217,8 @@ public class AdminExecutiveMain {
             file = "Facility.txt";
         }else if (Type=="Facility Booking Management"){
             file = "FacilityBooking.txt";
+        }else if(Type=="Vendor"){
+            file = "VendorProfile.txt";
         }
     }
     
@@ -254,6 +285,14 @@ public class AdminExecutiveMain {
                 this.complaintReply= allData.get(dataLine).get(2);
                 this.complaintUserId= allData.get(dataLine).get(3);
                 this.Status=true;
+            }else if(type=="vendor"){
+                this.vendorId=allData.get(dataLine).get(0);
+                this.vendorName= allData.get(dataLine).get(1);
+                this.vendorGender= allData.get(dataLine).get(2);
+                this.vendorAge= allData.get(dataLine).get(3);
+                this.vendorContact= allData.get(dataLine).get(4);
+                this.vendorImage= allData.get(dataLine).get(5);
+                this.Status=true;
             }
         }catch(Exception e){
             setDataNull(type);
@@ -297,6 +336,13 @@ public class AdminExecutiveMain {
             this.complaintDetail= null;
             this.complaintReply= null;
             this.complaintUserId= null;
+        }else if(type=="vendor"){
+            this.vendorId=null;
+            this.vendorName=null;
+            this.vendorGender=null;
+            this.vendorAge=null;
+            this.vendorContact=null;
+            this.vendorImage=null;
         }
     }
     
@@ -345,6 +391,15 @@ public class AdminExecutiveMain {
                         this.complaintReply= singleData.get(2);
                         this.complaintUserId= singleData.get(3);
                     }
+                    if(type=="vendor"){
+                        this.vendorId=singleData.get(0);
+                        this.vendorName= singleData.get(1);
+                        this.vendorGender= singleData.get(2);
+                        this.vendorAge= singleData.get(3);
+                        this.vendorContact= singleData.get(4);
+                        this.vendorImage= singleData.get(5);
+                        getCredentialData(vendorId);
+                    }
                     break;
                 }
             }
@@ -361,7 +416,9 @@ public class AdminExecutiveMain {
                 dropDownDatas.add(singleData.get(0));
             }
             if(type=="resident"){
+                if(singleData.get(3).equals("available")){
                 dropDownDatas.add(singleData.get(0));
+                }
             }
         }
     }
@@ -427,6 +484,15 @@ public class AdminExecutiveMain {
                             System.out.println("here can");
                             break;
                         }
+                        if(type=="vendor"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            editCredential(dataList.get(0), dataList.get(6), dataList.get(7));
+                            break;
+                        }
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -467,6 +533,13 @@ public class AdminExecutiveMain {
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
+                            bw.close();
+                        }
+                        if(type=="vendor"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
                             bw.close();
                         }
                     }
@@ -521,6 +594,16 @@ public class AdminExecutiveMain {
                     AddDataToFile.write(dataList.get(1)+",");
                     AddDataToFile.write(dataList.get(2)+",");
                     AddDataToFile.write(dataList.get(3));
+                }
+                if(type=="vendor"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4)+",");
+                    AddDataToFile.write(dataList.get(5));
+                    System.out.println(dataList.get(0)+" "+dataList.get(6)+" "+dataList.get(7));
+                    addCredential(dataList.get(0),dataList.get(6),dataList.get(7),"vendor");
                 }
                 AddDataToFile.newLine();
                 AddDataToFile.close();
@@ -586,7 +669,7 @@ public class AdminExecutiveMain {
             for (ArrayList<String> data : allData) {
                 
                 if (data.get(0).equals(itemID)) {
-                    this.employeeId=itemID;
+                    this.dataId=itemID;
                     allData.remove(i);
                     break;
                 }
@@ -598,7 +681,6 @@ public class AdminExecutiveMain {
                 if (!data.get(1).equals("")) {
                     try {
                         if(file=="Facility.txt" ){
-                            System.out.println(file);
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
@@ -606,7 +688,6 @@ public class AdminExecutiveMain {
                             bw.close();
                         }
                         else if (file=="BudgetPlanning.txt"){
-                            System.out.println(file);
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
@@ -614,30 +695,35 @@ public class AdminExecutiveMain {
                             bw.close();
                         }
                         else if(file=="Employee.txt"){
-                            System.out.println(file);
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(data.get(0)+",").append(data.get(1)+",").append(data.get(2)+",").append(data.get(3)+",").append(data.get(4)+",").append(data.get(5)+",").append(data.get(6)+"\n");
                             bw.close();
-                            deleteUserCredential(employeeId);
+                            deleteUserCredential(dataId);
                         }
                         else if(file=="ResidentProfile.txt"){
-                            System.out.println(file);
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(data.get(0)+",").append(data.get(1)+",").append(data.get(2)+",").append(data.get(3)+",").append(data.get(4)+",").append(data.get(5)+",").append(data.get(6)+"\n");
                             bw.close();
-                            deleteUserCredential(employeeId);
+                            deleteUserCredential(dataId);
                         }
                         else if(file=="Complaint.txt"){
-                            System.out.println(file);
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(data.get(0)+",").append(data.get(1)+",").append(data.get(2)+",").append(data.get(3)+"\n");
                             bw.close();
+                        }
+                        else if(file=="VendorProfile.txt"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(data.get(0)+",").append(data.get(1)+",").append(data.get(2)+",").append(data.get(3)+",").append(data.get(4)+",").append(data.get(5)+"\n");
+                            bw.close();
+                            deleteUserCredential(dataId);
                         }
                     }
                     catch (IOException e) {
@@ -741,6 +827,15 @@ public class AdminExecutiveMain {
                     System.out.println(ID);
                     this.complaintId=ID;
                 }
+                if(type=="vendor"){
+                    System.out.println(ID);
+                    String IDchar = ID.substring(0,1);
+                    ID = ID.substring(1);
+                    Integer IDnumber = Integer.parseInt(ID)+1;
+                    ID = IDchar+ (IDnumber).toString();
+                    System.out.println(ID);
+                    this.vendorId=ID;
+                }
             }
             catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "There is a problem with ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -750,7 +845,38 @@ public class AdminExecutiveMain {
         }
     }
     
-    
+    //CHANGE UNIT AVAILABILITY UPON RESIDENT CREATION E.G RESIDENT CREATED LIVING IN UNIT ID U2, U2 availability change to occupied
+    public void editAvailability(String oldUnitId, String newUnitId){
+        if(!oldUnitId.equals(newUnitId)){
+            try {
+                AdminExecutiveMain main = new AdminExecutiveMain();
+                String fileName = "src/main/java/com/mycompany/textFile/Unit.txt";
+                ArrayList<ArrayList<String>> allUnit = main.dataInfo(fileName);
+                for (ArrayList<String> unit : allUnit) {
+                    if (unit.get(0).equals(oldUnitId)) {
+                        unit.set(3, "available");
+                    }
+                    else if(unit.get(0).equals(newUnitId)) {
+                        unit.set(3, "occupied");
+                    }
+                }
+                new FileWriter(fileName, false).close();
+                for (ArrayList<String> unit : allUnit) {
+                    try {
+                        File userData = new File("src/main/java/com/mycompany/textFile/Unit.txt");
+                        FileWriter ufw = new FileWriter(userData,true);
+                        BufferedWriter ubw = new BufferedWriter(ufw);
+                        ubw.append(unit.get(0)+",").append(unit.get(1)+",").append(unit.get(2)+",").append(unit.get(3)+"\n");
+                        ubw.close();
+                    }
+                    catch (IOException e) {
+                    }
+                }
+            } 
+            catch (Exception ex) {
+            }
+        }
+    }
     
     //- store the current items from txt file to a 2d array so we can use the arraylist for CRUD features.
     public  ArrayList<ArrayList<String>> dataInfo(String textFile) throws FileNotFoundException {
