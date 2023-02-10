@@ -6,15 +6,10 @@ package com.mycompany.mavenproject1;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -22,7 +17,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -60,13 +54,12 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JPasswordField();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,11 +103,11 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("ID ");
+        jLabel1.setText("User ID");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Name ");
+        jLabel3.setText("User Name ");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -127,8 +120,6 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Phone Number");
-
-        jLabel7.setText("jLabel3");
 
         jCheckBox1.setForeground(new java.awt.Color(0, 0, 0));
         jCheckBox1.setText("Male");
@@ -150,9 +141,9 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("User Name");
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                jTextField7ActionPerformed(evt);
             }
         });
 
@@ -164,19 +155,6 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(131, 131, 131)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,9 +188,20 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTextField4)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                    .addComponent(jTextField7))))
-                        .addGap(188, 188, 188))))
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addGap(191, 191, 191))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,23 +233,17 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addGap(60, 60, 60))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                    .addComponent(jLabel9)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -280,39 +263,117 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        BusManUserManage BusManUserManage = new BusManUserManage();
-        BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BusManUserManage.pack();
-        BusManUserManage.setResizable(false);
-        BusManUserManage.setLocationRelativeTo(null);
-        BusManUserManage.setVisible(true);
-        BusManUserManage.backButtonToggle();
-        //Run Method in BusManUserManage to set UserType and Data
-        BusManUserManage.setUserType(this.UserType);
-        BusManUserManage.setAdminOrBuildingExecutiveData(this.UserType);
+        BusManUserManage manager = new BusManUserManage();
+        manager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        manager.pack();
+        manager.setResizable(false);
+        manager.setLocationRelativeTo(null);
+        manager.setVisible(true);
+        manager.backButtonToggle();
+        try {
+            manager.setUserType(userType);
+            manager.setUserData();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminExecOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        insertDataToFile();
-        
+        if(addEditDetector=="edit"){
+            if((jTextField2.getText()).equals("") ||(jTextField4.getText()).equals("") ||(jTextField5.getText()).equals("") || (jTextField7.getText()).equals("") || (jPasswordField1.getPassword()).equals("") || this.imageName==null) {
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                BuildingManagerMain main = new BuildingManagerMain();
+                ArrayList<String> dataList = new ArrayList<String>();
+                dataList.add(jTextField1.getText());
+                dataList.add(jTextField2.getText());
+                if(jCheckBox1.isSelected()){
+                    dataList.add("male");
+                }else{
+                    dataList.add("female");
+                }
+                dataList.add(jTextField4.getText());
+                dataList.add(jTextField5.getText());
+                dataList.add(imageName);
+                dataList.add(jTextField7.getText());
+                char[] i = jPasswordField1.getPassword();
+                String stringPassword = new String(i);
+                dataList.add(stringPassword);
+                main.editOrAddData(dataList, userType,fileType,"edit");
+                //transfer uploaded image to our system image folder
+                try {
+                    if(sourceFile!=null){
+                        File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
+                        File source = sourceFile;
+                        main.transferImage(source,dest);
+                    }
+                } catch (IOException ex) {
+                    System.out.println("cant upload image hehe");
+                }
+            }
+        }else if(addEditDetector=="add"){
+            if((jTextField2.getText()).equals("") ||(jTextField4.getText()).equals("") ||(jTextField5.getText()).equals("") || (jTextField7.getText()).equals("") || (jPasswordField1.getPassword()).equals("")|| this.imageName==null) {
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                BuildingManagerMain main = new BuildingManagerMain();
+                ArrayList<String> dataList = new ArrayList<String>();
+                main.getIncreasedID(fileType,userType);
+                dataList.add(main.getUserId());
+                dataList.add(jTextField2.getText());
+                if(jCheckBox1.isSelected()){
+                    dataList.add("male");
+                }else{
+                    dataList.add("female");
+                }
+                dataList.add(jTextField4.getText());
+                dataList.add(jTextField5.getText());
+                dataList.add(imageName);
+                dataList.add(jTextField7.getText());
+                char[] i = jPasswordField1.getPassword();
+                String stringPassword = new String(i);
+                dataList.add(stringPassword);
+                System.out.println(dataList);
+                main.setUserType(userType);
+                main.editOrAddData(dataList, userType,fileType,"add");
+                //transfer uploaded image to our system image folder
+                try {
+                    if(sourceFile!=null){
+                        File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
+                        File source = sourceFile;
+                        main.transferImage(source,dest);
+                    }
+                } catch (IOException ex) {
+                    System.out.println("cant upload image hehe");
+                }
+                //set value empty after inserting
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jCheckBox1.setSelected(false);
+                jCheckBox2.setSelected(false);
+                jTextField4.setText("");
+                jTextField5.setText("");
+                jTextField7.setText("");
+                jPasswordField1.setText("");
+                jLabel2.setIcon(null);
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    File sourceFile;
+    private String imageName=null;
+    File sourceFile=null;
     String[] imagePath = new String[1];
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        // upload image button
-        try{                                         
+        try{
             // TODO add your handling code here:
             JFileChooser filechooser = new JFileChooser();
-            BusinessManagerMain main = new BusinessManagerMain();
+            BuildingManagerMain main = new BuildingManagerMain();
             filechooser.addChoosableFileFilter(main.new ImageFilter());
             filechooser.setAcceptAllFileFilterUsed(false);
             filechooser.showOpenDialog(null);
             sourceFile = filechooser.getSelectedFile();
             String filename = sourceFile.getName();
-            this.ImageName=filename;
+            this.imageName=filename;
             // get image path first so that the staff can add the image into this system's folder after clicking add item button:
             imagePath[0] = sourceFile.getAbsolutePath();
             try{
@@ -325,281 +386,73 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         }
         catch(Exception e){
         }
-                                            
-
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-        if(jCheckBox2.isSelected()){
-            jCheckBox1.setSelected(false); 
-        }
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
-
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
         if(jCheckBox1.isSelected()){
-            jCheckBox2.setSelected(false); 
+            jCheckBox2.setSelected(false);
         }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private String UserType;
-    private String ImageName;
-    private String AddOrEdit;
-    
-    
-    //Method
-    // method to hide ID field if Business Manager want to add User // ID will only be shown when edit user data
-    public void addUserToggle(String getUserType){
-        jTextField1.setVisible(false);
-        jLabel1.setVisible(false);
-        jLabel7.setText(getUserType);
-        jLabel7.setVisible(false);
-        this.UserType = getUserType;
-        jButton2.setText("Add User");
-        this.AddOrEdit="add";
-    }
-    
-    // method for edit function to toggle field and label visibility
-    public void editUserToggle(String getUserType){
-        jLabel7.setText(getUserType);
-        jLabel7.setVisible(false);
-        this.UserType = getUserType;
-        jButton2.setText(" Edit ");
-        this.AddOrEdit="edit";
-    }
-    
-    //global variable for add/edit function
-    String ID=null;
-    String Name=null;
-    String Gender=null;
-    String Age = null;
-    String PhoneNumber =null;
-    String CurrentImageName = null;
-    String file ="";
-    String userName=null;
-    String password=null;
-    File source;
-    File dest;
-    //method to add/edit user data into txt file
-    public void insertDataToFile(){
-        if(this.UserType=="Admin Executive"){
-            file ="AdminExecutive.txt";
-        }else if (this.UserType=="Building Executive"){
-            file ="BuildingExecutive.txt";
-        }
-        
-        //get ID
-         BufferedReader input;
-        try {
-            input = new BufferedReader(new FileReader("src/main/java/com/mycompany/textFile/"+file));
-            String last="";
-            String line="";
-
-            try {
-                while ((line = input.readLine()) != null) {
-                    last = line;
-                }
-                Scanner ScanEachString = new Scanner(last);
-                ScanEachString.useDelimiter("[,\n]");
-                while (ScanEachString.hasNextLine()) {
-                    // First character of a string
-                    ID = (ScanEachString.next().trim());
-                    break;
-                }
-                char firstchar = ID.charAt(0);
-                ID = ID.substring(1);
-                Integer IDnumber = Integer.parseInt(ID)+1;
-                ID = firstchar+ (IDnumber).toString();
-            }
-            catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        
-        //get name
-        Name = jTextField2.getText().trim();
-        
-        //get gender
-        if(jCheckBox1.isSelected()){
-            Gender= "male";
-        }else if (jCheckBox2.isSelected()){
-            Gender= "female";
-        }
-        
-        //get age
-        try{
-            if(Integer.parseInt(jTextField4.getText())>0){
-                Age = (jTextField4.getText().trim()).toString();
-            }
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Only Accept Whole Number in Age Section", "Warning", JOptionPane.ERROR_MESSAGE);
-        };
-        //get phone number
-        PhoneNumber = jTextField5.getText().trim();
-        
-        //get ImageName
-        ImageName = this.ImageName;
-        
-        //get username and password 
-        userName=jTextField6.getText().trim();
-        char[] enterPasswordChar = jTextField7.getPassword();
-        password=new String(enterPasswordChar);
-        
-        if(Name == null || Gender == null || Age == null || PhoneNumber == null || ImageName == null || userName ==null || password == null){
-            JOptionPane.showMessageDialog(null, "Please enter all fields", "Warning", JOptionPane.ERROR_MESSAGE);
-        }else{
-            if(file != ""){
-                if(this.AddOrEdit=="add"){
-                    addDataMethod();
-                }else if(this.AddOrEdit=="edit"){
-                    editDataMethod();
-                }
-            }
-            
-        }
-    }
-    
-    // display the specific data which user clicked to edit
-    public void editDataToFileDisplay(String getID, String getName, String getGender, String getAge, String getPhoneNo, String getImage, String getUserName, String getPass){
-        // if statement to find user gender because cant directly print the data as it is check box
-        if(getGender.equals("male")){
-            jCheckBox1.setSelected(true);
-            jCheckBox2.setSelected(false);
-        }else if (getGender.equals("female")){
+        if(jCheckBox2.isSelected()){
             jCheckBox1.setSelected(false);
-            jCheckBox2.setSelected(true);
-        }else{jCheckBox1.setSelected(false);
-            jCheckBox2.setSelected(false);}
-        jTextField1.setText(getID);
-        jTextField2.setText(getName);
-        jTextField4.setText(getAge);
-        jTextField5.setText(getPhoneNo);
-        jTextField6.setText(getUserName);
-        jTextField7.setText(getPass);
-        this.ImageName=getImage;
-        try{
-                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+getImage));
+        }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private String addEditDetector;
+    private String fileType;
+    private String userType;
+    
+    public void setUserAndFileType(String user){
+        this.userType=user;
+        BuildingManagerMain main = new BuildingManagerMain();
+        main.chooseTxtFile(userType);
+        this.fileType=main.getFileType();
+    }
+    
+    public void addEditDetect(String functionType,String id) throws FileNotFoundException{
+        if(functionType=="edit"){
+            this.addEditDetector="edit";
+            BuildingManagerMain main = new BuildingManagerMain();
+            main.chooseTxtFile(userType);
+            main.getDataViewSingle(id, fileType,userType);
+            jButton2.setText("Update");
+            jTextField1.setText(main.getUserId());
+            jTextField2.setText(main.getUserName());
+            if(main.getUserGender().equals("male")){
+                jCheckBox1.setSelected(true);
+            }else if(main.getUserGender().equals("female")){
+                jCheckBox2.setSelected(true);
+            }
+            jTextField4.setText(main.getUserAge());
+            jTextField5.setText(main.getUserPhone());
+            this.imageName=main.getUserImage();
+            jTextField7.setText(main.getCredentialName());
+            jPasswordField1.setText(main.getPassword());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getUserImage()));
                 Image resizedImage = UserImage.getScaledInstance(165, 130, Image.SCALE_SMOOTH);
                 jLabel2.setIcon(new ImageIcon(resizedImage));
-            }
-            catch(Exception e){}
-    }
-    
-    public void addDataMethod(){
-        try {
-            BufferedWriter itemtofile;
-            FileWriter AddNewItem = new FileWriter("src/main/java/com/mycompany/textFile/"+file,true);
-            itemtofile = new BufferedWriter(AddNewItem);
-            itemtofile.write(ID+",");
-            itemtofile.write(Name+",");
-            itemtofile.write(Gender+",");
-            itemtofile.write(Age+",");
-            itemtofile.write(PhoneNumber+",");
-            itemtofile.write(this.ImageName);
-            itemtofile.newLine();
-            itemtofile.close();
-            AddNewItem.close();
-            BufferedWriter credentialToFile;
-            FileWriter AddNewCredential = new FileWriter("src/main/java/com/mycompany/textFile/loginCredential.txt",true);
-            credentialToFile = new BufferedWriter(AddNewCredential);
-            credentialToFile.write(ID+",");
-            credentialToFile.write(userName+",");
-            credentialToFile.write(password+",");
-            credentialToFile.write(UserType);
-            credentialToFile.newLine();
-            credentialToFile.close();
-            AddNewCredential.close();
-            
-            JOptionPane.showMessageDialog(null, "Added "+this.UserType+" Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
-            dest = new File("src/main/java/com/mycompany/image/" + this.ImageName);
-            source = sourceFile;
-            BusinessManagerMain main = new BusinessManagerMain();
-            main.transferImage(source,dest);
-
-            
-            
-            //set text field and variable to null after inserting new user data to file
-            this.ImageName=null;
-            jCheckBox1.setSelected(false); jCheckBox2.setSelected(false); jTextField2.setText(null); jTextField4.setText(null); jTextField5.setText(null);jLabel2.setIcon(null);jTextField6.setText(null);jTextField7.setText(null);
-            Name=null; Gender= null; Age = null; PhoneNumber = null; ImageName = null;
-        } catch (IOException ex) {
-        JOptionPane.showMessageDialog(null, "Failed to add new user", "Message", JOptionPane.INFORMATION_MESSAGE);
-    }
-    }
-    
-    public void editDataMethod(){
-        try {
-            BusinessManagerMain main = new BusinessManagerMain();
-            String fileName = "src/main/java/com/mycompany/textFile/"+file;
-            ArrayList<ArrayList<String>> allUsers = main.UserInfo(fileName);
-            for (ArrayList<String> user : allUsers) {
-                if (user.get(0).equals(jTextField1.getText())) {
-                    user.set(1, String.valueOf(Name));
-                    user.set(2, String.valueOf(Gender));
-                    user.set(3, String.valueOf(Age));
-                    user.set(4, String.valueOf(PhoneNumber));
-                    user.set(5, String.valueOf(this.ImageName));
-                    dest = new File("src/main/java/com/mycompany/image/" + this.ImageName);
-                    source = sourceFile;
-                    if(source!=null){
-                        main.transferImage(source,dest);
-                    }
-                    break;
-                }
-            }
-            new FileWriter(fileName, false).close();
-            for (ArrayList<String> user : allUsers) {
-                try {
-                    main.appendUserManage(user.get(0),user.get(1),user.get(2),user.get(3),user.get(4),user.get(5), file);
-                }
-                catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-            
-            fileName="src/main/java/com/mycompany/textFile/loginCredential.txt";
-            ArrayList<ArrayList<String>> allCredential = main.UserInfo(fileName);
-            for (ArrayList<String> credential : allCredential) {
-                if((credential.get(0).equals(jTextField1.getText()))){
-                    
-                    credential.set(1, String.valueOf(userName));
-                    credential.set(2, String.valueOf(password));
-                    break;
-                }
-            }
-            new FileWriter(fileName, false).close();
-            for (ArrayList<String> credential : allCredential) {
-                try {
-                    File userData = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
-                    FileWriter fw = new FileWriter(userData,true);
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    bw.append(credential.get(0)+",").append(credential.get(1)+",").append(credential.get(2)+",").append(credential.get(3)+"\n");
-                    bw.close();
-                }
-                catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-            
-            JOptionPane.showMessageDialog(null, "Edited Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
-        } 
-        catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Problem Occured, Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
+                }catch(Exception e){}
+        }else if (functionType=="add"){
+            this.addEditDetector="add";
+            jButton2.setText("Add");
+            jTextField1.setVisible(false);
+            jLabel1.setVisible(false);
         }
     }
+    
     
     /**
      * @param args the command line arguments
@@ -649,15 +502,14 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JPasswordField jTextField7;
+    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

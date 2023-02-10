@@ -7,6 +7,7 @@ package com.mycompany.mavenproject1;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,8 +57,8 @@ public class BusManUserManage extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
+        nextBtn = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
@@ -76,6 +77,7 @@ public class BusManUserManage extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("User");
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -138,21 +140,21 @@ public class BusManUserManage extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setForeground(new java.awt.Color(0, 0, 0));
-        jButton7.setText("back");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        backBtn.setBackground(new java.awt.Color(255, 255, 255));
+        backBtn.setForeground(new java.awt.Color(0, 0, 0));
+        backBtn.setText("back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                backBtnActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setForeground(new java.awt.Color(0, 0, 0));
-        jButton8.setText("next");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        nextBtn.setBackground(new java.awt.Color(255, 255, 255));
+        nextBtn.setForeground(new java.awt.Color(0, 0, 0));
+        nextBtn.setText("next");
+        nextBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                nextBtnActionPerformed(evt);
             }
         });
 
@@ -218,7 +220,6 @@ public class BusManUserManage extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(3, 3, 3)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                                                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -233,10 +234,12 @@ public class BusManUserManage extends javax.swing.JFrame {
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(66, 66, 66)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(346, 346, 346)
-                            .addComponent(jButton7)
+                            .addGap(154, 154, 154)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(40, 40, 40)
+                            .addComponent(backBtn)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton8))))
+                            .addComponent(nextBtn))))
                 .addGap(44, 44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -254,8 +257,8 @@ public class BusManUserManage extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -291,7 +294,7 @@ public class BusManUserManage extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        jButton7.getAccessibleContext().setAccessibleName("BACK");
+        backBtn.getAccessibleContext().setAccessibleName("BACK");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,6 +314,115 @@ public class BusManUserManage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        this.searchTxt = jTextField1.getText();
+        this.PageLine=-1;
+        backBtn.setEnabled(false);
+        nextBtn.setEnabled(true);
+        AdminExecutiveMain main = new AdminExecutiveMain();
+        main.chooseTxtFile(userType);
+        try {
+            setUserData();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
+        // TODO add your handling code here:
+        backBtn.setEnabled(true);
+        try {
+            setUserData();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_nextBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        backButtonFunction();
+        try {
+            setUserData();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminExecEmployeeManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        nextBtn.setEnabled(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        BusManUserManageAddEdit userAddEdit = new BusManUserManageAddEdit();
+        userAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        userAddEdit.pack();
+        userAddEdit.setResizable(false);
+        userAddEdit.setLocationRelativeTo(null);
+        userAddEdit.setVisible(true);
+        try {
+            userAddEdit.setUserAndFileType(userType);
+            userAddEdit.addEditDetect("add","");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        deleteBtn(jLabel5.getText());
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        if(!(jLabel5.getText()).equals("no data")){
+            this.dispose();
+            BusManUserManageAddEdit userAddEdit = new BusManUserManageAddEdit();
+            userAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userAddEdit.pack();
+            userAddEdit.setResizable(false);
+            userAddEdit.setLocationRelativeTo(null);
+            userAddEdit.setVisible(true);
+            try {
+                userAddEdit.setUserAndFileType(userType);
+                userAddEdit.addEditDetect("edit",jLabel5.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        deleteBtn(jLabel3.getText());
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if(!(jLabel3.getText()).equals("no data")){
+            this.dispose();
+            BusManUserManageAddEdit userAddEdit = new BusManUserManageAddEdit();
+            userAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            userAddEdit.pack();
+            userAddEdit.setResizable(false);
+            userAddEdit.setLocationRelativeTo(null);
+            userAddEdit.setVisible(true);
+            try {
+                userAddEdit.setUserAndFileType(userType);
+                userAddEdit.addEditDetect("edit",jLabel3.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -322,233 +434,121 @@ public class BusManUserManage extends javax.swing.JFrame {
         UserManageOption.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        try {
-            this.UserID = (jLabel3.getText().trim()).substring(10);
-            if(!this.UserID.equals("null")){
-                goToEditPage();
-            }else {JOptionPane.showMessageDialog(null, "Can't update this data", "Warning", JOptionPane.ERROR_MESSAGE);}
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Can't go to update page", "Warning", JOptionPane.ERROR_MESSAGE);
-       }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    try{
-        this.UserID = (jLabel3.getText().trim()).substring(10);
-        if(!this.UserID.equals("null")){
-            deleteUser();
-        }else {JOptionPane.showMessageDialog(null, "Can't delete this data", "Warning", JOptionPane.ERROR_MESSAGE);}
-    }catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Can't delete this data", "Warning", JOptionPane.ERROR_MESSAGE);
-    }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    try{
-        this.UserID = (jLabel5.getText().trim()).substring(10);
-        if(!this.UserID.equals("null")){
-            goToEditPage();
-        }else {JOptionPane.showMessageDialog(null, "Can't update this data", "Warning", JOptionPane.ERROR_MESSAGE);}
-    }catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Can't go to update page", "Warning", JOptionPane.ERROR_MESSAGE);
-    }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    try{
-        this.UserID = (jLabel5.getText().trim()).substring(10);
-        if(!this.UserID.equals("null")){
-            deleteUser();
-        }else {JOptionPane.showMessageDialog(null, "Can't delete this data", "Warning", JOptionPane.ERROR_MESSAGE);}
-    }catch (Exception e) {
-        JOptionPane.showMessageDialog(null, "Can't delete this data", "Warning", JOptionPane.ERROR_MESSAGE);
-    } 
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    //jButton2 and jButton4 edit function
-    public void goToEditPage(){
-        // main method in main file (BusinessManagerMain) ** this method will get ID from this class and display data on BusManUserManageAddEdit page
-        BusinessManagerMain main = new BusinessManagerMain();
-        main.chooseTxtFile(this.GetUserType);
-        main.displayAdminOrBuildingUser(this.GetUserType,this.UserID);
-        this.dispose();
-    }
-    
-    //jButton3 and jButton5 delete function
-    public void deleteUser(){
-        BusinessManagerMain main = new BusinessManagerMain();
-        main.chooseTxtFile(this.GetUserType);
-        main.deleteFunction(this.UserID);
-        JOptionPane.showMessageDialog(null,"Deleted Successfully");  
-
-        this.dispose();
-        String UserType =GetUserType;
-        BusManUserManage BusManUserManage = new BusManUserManage();
-        BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BusManUserManage.pack();
-        BusManUserManage.setResizable(false);
-        BusManUserManage.setLocationRelativeTo(null);
-        BusManUserManage.setVisible(true);
-        BusManUserManage.backButtonToggle();
-        //Run Method in BusManUserManage to set UserType and Data
-        BusManUserManage.setUserType(UserType);
-        BusManUserManage.setAdminOrBuildingExecutiveData(UserType);
-        
-    }
-    
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        BusManUserManageAddEdit BusManUserAdd = new BusManUserManageAddEdit();
-        BusManUserAdd.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BusManUserAdd.pack();
-        BusManUserAdd.setResizable(false);
-        BusManUserAdd.setLocationRelativeTo(null);
-        BusManUserAdd.setVisible(true);
-        BusManUserAdd.addUserToggle(this.GetUserType);
-        
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        backButtonFunction();
-        setAdminOrBuildingExecutiveData(GetUserType);
-        jButton8.setEnabled(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-        jButton7.setEnabled(true);
-        setAdminOrBuildingExecutiveData(GetUserType);
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-            this.searchTxt = jTextField1.getText();
-            this.PageLine=-1;
-            jButton7.setEnabled(false);
-            jButton8.setEnabled(true);
-            BusinessManagerMain main = new BusinessManagerMain();
-            main.chooseTxtFile(GetUserType);   
-            setAdminOrBuildingExecutiveData(GetUserType);
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private Integer PageLine=-1;
     
     public void setPagination(){
         PageLine=PageLine+1;
     }
     
-    // set variable to get UserType from BusinessManagerMain
-    private String GetUserType;
+    private String searchTxt ="";
+    private String userType="";
     
-    public void setUserType(String UserType){
-        GetUserType = UserType;
-    }
-    
-    public String getUserType(){
-        return GetUserType;
-    }
-    
-    //set UserID variable to set and get UserID for edit/delete purposes
-    private String UserID;
-    
-    public String getUserID(){
-        return UserID;
-    }
-    
-    private String file;
-    
-    public void chooseTxtFile(String UserType){
-        if(UserType=="Admin Executive"){
-            file ="AdminExecutive.txt";
-        }else if (UserType=="Building Executive"){
-            file ="BuildingExecutive.txt";
-        }
-    }
-    
-    // create a variable to get search value
-    private String searchTxt="";
-    
-    public String getSearchTxt(){
-        return searchTxt;
-    }
-    
-    
-    
-    public void setAdminOrBuildingExecutiveData(String UserType){
-        BusinessManagerMain main = new BusinessManagerMain();
-        main.chooseTxtFile(GetUserType);
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"user");
-//                main.setAdminOrBuildingUser(UserType, PageLine, searchTxt) ;
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    jButton8.setEnabled(false);
-                }
-
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(main.getAdminOrBuildingUserImage() != null){
-                try{
-                    BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getAdminOrBuildingUserImage()));
-                    Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
-                    jLabel2.setIcon(new ImageIcon(resizedImage));
-                }
-                catch(Exception e){}
-            } else {
-                jLabel2.setIcon(null);
-            }
-            jLabel3.setText("User ID : " + main.getAdminOrBuildingUserId());
-            jLabel4.setText("Name : " + main.getAdminOrBuildingUserName());
-            try {
-                    setPagination();
-                main.displayDataView(PageLine,searchTxt,"user");
-//                main.setAdminOrBuildingUser(UserType, PageLine, searchTxt) ;
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    jButton8.setEnabled(false);
-                }
-
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(main.getAdminOrBuildingUserImage() != null){
-                try{
-                    BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getAdminOrBuildingUserImage()));
-                    Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
-                    jLabel7.setIcon(new ImageIcon(resizedImage));
-                }
-                catch(Exception e){}
-            }else {
-                jLabel7.setIcon(null);
-            }
-            jLabel5.setText("User ID : " + main.getAdminOrBuildingUserId());
-            jLabel6.setText("Name : " + main.getAdminOrBuildingUserName());
+    public void setUserType(String type){
+        this.userType=type;
     }
     
     public void backButtonToggle(){
-        jButton7.setEnabled(false);
+        backBtn.setEnabled(false);
 }
     
     public void backButtonFunction(){
         PageLine = PageLine -4;
         if (PageLine==-1){
-            jButton7.setEnabled(false);
+            backBtn.setEnabled(false);
         }
     }
     
+    public void setUserData() throws IOException{
+        BuildingManagerMain main = new BuildingManagerMain();
+        main.chooseTxtFile(userType);
+        if(userType=="Account Executive"){
+            jLabel1.setText("Account Executive");
+        }else if(userType=="Admin Executive"){
+            jLabel1.setText("Admin Executive");
+        }else if(userType=="Building Executive"){
+            jLabel1.setText("Building Executive");
+        }
+        
+        try {
+            setPagination();
+            main.displayDataView(PageLine,searchTxt,userType);
+            boolean boo = main.getStatus();
+            if(boo==false){
+                nextBtn.setEnabled(false);
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(main.getUserId() !=null){
+            jLabel3.setText(main.getUserId());
+            jLabel4.setText(main.getUserName());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getUserImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                jLabel2.setIcon(new ImageIcon(resizedImage));
+                }catch(Exception e){}
+        }else{
+            jLabel3.setText("no data");
+            jLabel4.setText("no data");
+            jLabel2.setIcon(null);
+        }
+        try {
+            setPagination();
+            main.displayDataView(PageLine,searchTxt,userType);
+            boolean boo = main.getStatus();
+            if(boo==false){
+                nextBtn.setEnabled(false);
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(main.getUserId() !=null){
+            jLabel5.setText(main.getUserId());
+            jLabel6.setText(main.getUserName());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getUserImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                jLabel7.setIcon(new ImageIcon(resizedImage));
+                }catch(Exception e){}
+        }else{
+            jLabel5.setText("no data");
+            jLabel6.setText("no data");
+            jLabel7.setIcon(null);
+        }
+    }
+    
+    //Method for delete button, so no need to be repetitive
+    public void deleteBtn(String getText){
+        if(!getText.equals("no data")){
+            int ques = JOptionPane.showConfirmDialog(null,"confirm to delete this data", "Quit", JOptionPane.YES_NO_OPTION);
+            if (ques == JOptionPane.YES_OPTION){
+                BuildingManagerMain main = new BuildingManagerMain();
+                main.chooseTxtFile(userType);
+                main.deleteFunction(getText);
+                JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+                
+                this.dispose();
+                BusManUserManage manager = new BusManUserManage();
+                manager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                manager.pack();
+                manager.setResizable(false);
+                manager.setLocationRelativeTo(null);
+                manager.setVisible(true);
+                manager.backButtonToggle();
+                try {
+                    manager.setUserType(userType);
+                    manager.setUserData();
+                } catch (IOException ex) {
+                    Logger.getLogger(AdminExecOption.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     
     /**
      * @param args the command line arguments
@@ -589,14 +589,13 @@ public class BusManUserManage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -608,5 +607,6 @@ public class BusManUserManage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton nextBtn;
     // End of variables declaration//GEN-END:variables
 }

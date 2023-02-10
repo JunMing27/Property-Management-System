@@ -27,7 +27,7 @@ import javax.swing.filechooser.FileFilter;
  */
 public class AdminExecutiveMain {
     //VARIABLES
-    //GLOBAL VARIABLES, DIFFERENT FUNCTIONALITY USING SAME VARIABLE
+    //COMMON VARIABLES, DIFFERENT FUNCTIONALITY USING SAME VARIABLE
     private String dataId;
     private Boolean Status;
     private String userName;
@@ -222,7 +222,7 @@ public class AdminExecutiveMain {
         }
     }
     
-    // GLOBAL USE Method to display Data from txt file *** PAGINATION WITH SEARCH FEATURE IS ALLOWED
+    // Common USE Method to display Data from txt file *** PAGINATION WITH SEARCH FEATURE IS ALLOWED
     // CREATED BY JUN MING :3
     //- store the current items from txt file to a 2d array, then loop to display user data at BusManuserManage
     public  void displayDataView(Integer dataLine,String searchTxt,String type) throws FileNotFoundException, IOException{
@@ -347,7 +347,7 @@ public class AdminExecutiveMain {
     }
     
     
-    //GLOBAL USE Method to getData based on ID
+    //COMMON USE Method to getData based on ID
     public void getDataViewSingle(String id, String file,String type) throws FileNotFoundException{
         AdminExecutiveMain main = new AdminExecutiveMain();
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
@@ -423,7 +423,7 @@ public class AdminExecutiveMain {
         }
     }
     
-    //GLOBAL USE Method to get credential if data need login credential
+    //COMMON USE Method to get credential if data need login credential
     public void getCredentialData(String userId) throws FileNotFoundException{
         AdminExecutiveMain main = new AdminExecutiveMain();
         String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
@@ -437,7 +437,7 @@ public class AdminExecutiveMain {
             }
     }
     
-    //GLOBAL USE EDIT OR ADD DATA METHOD
+    //COMMON USE EDIT OR ADD DATA METHOD
     public void editOrAddData(ArrayList<String> dataList, String type, String file,String functionType){
         if(functionType=="edit"){
             try {
@@ -660,7 +660,7 @@ public class AdminExecutiveMain {
     }
     
     
-    //GLOBAL USE METHOD TO DELETE DATA FROM FILE
+    //COMMON USE METHOD TO DELETE DATA FROM FILE
     public void deleteFunction(String itemID){
         try {
             int i =0;
@@ -769,7 +769,7 @@ public class AdminExecutiveMain {
     }
     
     
-    //GLOBAL USE METHOD TO GET INCREMENTED ID NUMBER TO AUTO FILL NEXT USER DATA ID 
+    //COMMON USE METHOD TO GET INCREMENTED ID NUMBER TO AUTO FILL NEXT USER DATA ID 
     public void getIncreasedID(String file,String type){
          BufferedReader input;
         try {

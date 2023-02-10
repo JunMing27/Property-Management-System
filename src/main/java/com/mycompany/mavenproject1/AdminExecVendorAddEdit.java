@@ -107,7 +107,7 @@ public class AdminExecVendorAddEdit extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("VendorName ");
+        jLabel3.setText("Vendor Name ");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -366,7 +366,7 @@ public class AdminExecVendorAddEdit extends javax.swing.JFrame {
         try{
             // TODO add your handling code here:
             JFileChooser filechooser = new JFileChooser();
-            BusinessManagerMain main = new BusinessManagerMain();
+            AdminExecutiveMain main = new AdminExecutiveMain();
             filechooser.addChoosableFileFilter(main.new ImageFilter());
             filechooser.setAcceptAllFileFilterUsed(false);
             filechooser.showOpenDialog(null);

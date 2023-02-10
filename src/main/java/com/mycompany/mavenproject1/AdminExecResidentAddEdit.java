@@ -396,12 +396,13 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
     private String residentUnitId;
     File sourceFile=null;
     String[] imagePath = new String[1];
+    private boolean Status=false;
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         try{
             // TODO add your handling code here:
             JFileChooser filechooser = new JFileChooser();
-            BusinessManagerMain main = new BusinessManagerMain();
+            AdminExecutiveMain main = new AdminExecutiveMain();
             filechooser.addChoosableFileFilter(main.new ImageFilter());
             filechooser.setAcceptAllFileFilterUsed(false);
             filechooser.showOpenDialog(null);
@@ -466,12 +467,13 @@ public class AdminExecResidentAddEdit extends javax.swing.JFrame {
             int i=0;
             for (String x : main.getDropDownData()) {
                 jComboBox1.addItem((main.getDropDownData()).get(i));
+                if((main.getDropDownData()).get(i)==main.getResidentUnit()){
+                    Status=true;
+                }
                 i++;
             }
             jComboBox1.setSelectedItem(main.getResidentUnit());
-            if(((String)jComboBox1.getSelectedItem()).equals(main.getResidentUnit())){
-                ;
-            }else{
+            if(Status ==false ){
                 jComboBox1.addItem(main.getResidentUnit());
                 jComboBox1.setSelectedItem(main.getResidentUnit());
             }

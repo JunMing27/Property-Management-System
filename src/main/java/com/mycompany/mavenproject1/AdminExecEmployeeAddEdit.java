@@ -386,7 +386,7 @@ public class AdminExecEmployeeAddEdit extends javax.swing.JFrame {
         try{                                         
             // TODO add your handling code here:
             JFileChooser filechooser = new JFileChooser();
-            BusinessManagerMain main = new BusinessManagerMain();
+            AdminExecutiveMain main = new AdminExecutiveMain();
             filechooser.addChoosableFileFilter(main.new ImageFilter());
             filechooser.setAcceptAllFileFilterUsed(false);
             filechooser.showOpenDialog(null);

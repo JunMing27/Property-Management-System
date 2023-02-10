@@ -27,48 +27,53 @@ import javax.swing.filechooser.FileFilter;
  * @author Jun Ming
  */
 
-public class BusinessManagerMain {
-    //VARIABLESSS FOR BUSINESS MANAGER FUNCTIONALITY : USER MANAGEMENT
-    private String id;
-    private String name;
-    private String gender;
-    private String age;
+public class BuildingManagerMain {
+    //VARIABLESSS FOR BUILDING MANAGER FUNCTIONALITY : USER MANAGEMENT
+    private String userId;
+    private String userName;
+    private String userGender;
+    private String userAge;
     private String phoneNumber;
     private String UserImage;
-    private Boolean Status;
-        
-    //VARIABLESSS FOR BUSINESS MANAGER FUNCTIONALITY : BUDGET PLANNING
+    private String userType;
+    
+    
+    //VARIABLESSS FOR BUILDING MANAGER FUNCTIONALITY : BUDGET PLANNING
     private String budgetId;
     private String projectName;
     private String projectBudget;
     private String projectStartDate;
     private String projectEndDate;
     
-    //GET FOR BUSINESS MANAGER FUNCTIONALITY : USER MANAGEMENT
-    public String getAdminOrBuildingUserId(){
-        return id;
+    //COMMON VARIABLES (USABLE FOR SEVERAL FUNCTION)
+    private String dataId;
+    private Boolean Status;
+    private String credentialName;
+    private String password;
+    
+    
+    //GET FOR BUILDING MANAGER FUNCTIONALITY : USER MANAGEMENT
+    public String getUserId(){
+        return userId;
     }
-    public String getAdminOrBuildingUserName(){
-        return name;
+    public String getUserName(){
+        return userName;
     }
-    public String getAdminOrBuildingUserGender(){
-        return gender;
+    public String getUserGender(){
+        return userGender;
     }
-    public String getAdminOrBuildingUserAge(){
-        return age;
+    public String getUserAge(){
+        return userAge;
     }
-    public String getAdminOrBuildingUserPhone(){
+    public String getUserPhone(){
         return phoneNumber;
     }
-    public String getAdminOrBuildingUserImage(){
+    public String getUserImage(){
         return UserImage;
     }
     
-    public boolean getStatus(){
-        return Status;
-    }
     
-    //GET FOR BUSINESS MANAGER FUNCTIONALITY : BUDGET PLANNING
+    //GET FOR BUILDING MANAGER FUNCTIONALITY : BUDGET PLANNING
     public String getBudgetId(){
         return budgetId;
     }
@@ -84,107 +89,52 @@ public class BusinessManagerMain {
     public String getBudgetProjectEndDate(){
         return projectEndDate;
     }
+    
+    // GET FUNCTION FOR COMMON VARIABLE
+    public boolean getStatus(){
+        return Status;
+    }
+    public String getCredentialName(){
+        return credentialName;
+    }
+    public String getPassword(){
+        return password;
+    }
+    public String getFileType(){
+        return file;
+    }
+    
+    //SET USER TYPE
+    public void setUserType(String userType1){
+        this.userType=userType1;
+    }
+    
     //Method to choose correct txt file based on userType, so no need to redundant code
     private String file="";
     
     public void chooseTxtFile(String Type){
-        if(Type=="Admin Executive"){
-            file ="AdminExecutive.txt";
+        if(Type=="Account Executive"){
+            file ="AccountExecutive.txt";
         }else if (Type=="Building Executive"){
             file ="BuildingExecutive.txt";
+        }else if (Type=="Admin Executive"){
+            file ="AdminExecutive.txt";
         }else if (Type=="budgetPlanning"){
             file = "BudgetPlanning.txt";
         }
     }
     
-    public void deleteFunction(String userID){
-        try {
-            int i =0;
-            String fileName = "src/main/java/com/mycompany/textFile/"+file;
-            ArrayList<ArrayList<String>> allUsers = UserInfo(fileName);
-            for (ArrayList<String> user : allUsers) {
-                
-                if (user.get(0).equals(userID)) {
-                    allUsers.remove(i);
-                    break;
-                }
-                
-                i=i+1;
-            }
-            new FileWriter(fileName, false).close();
-            for (ArrayList<String> user : allUsers) {
-                if (!user.get(1).equals("")) {
-                    try {
-                        if(file=="AdminExecutive.txt" || file=="BuildingExecutive.txt" ){
-                            System.out.println(file);
-                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
-                            FileWriter fw = new FileWriter(userData,true);
-                            BufferedWriter bw = new BufferedWriter(fw);
-                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
-                            bw.close();
-                            deleteCredential(userID);
-                        }
-                        else if (file=="BudgetPlanning.txt"){
-                            System.out.println(file);
-                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
-                            FileWriter fw = new FileWriter(userData,true);
-                            BufferedWriter bw = new BufferedWriter(fw);
-                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
-                            bw.close();
-                        }
-                    }
-                    catch (IOException e) {
-                    }
-                }
-            }
-        } 
-        catch (Exception ex) {
-        }
-    }
-    
-    public void deleteCredential(String userID){
-        try {
-            int i =0;
-            String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
-            ArrayList<ArrayList<String>> allUsers = UserInfo(fileName);
-            for (ArrayList<String> user : allUsers) {
-                
-                if (user.get(0).equals(userID)) {
-                    allUsers.remove(i);
-                    break;
-                }
-                
-                i=i+1;
-            }
-            new FileWriter(fileName, false).close();
-            for (ArrayList<String> user : allUsers) {
-                try {
-                    File userData = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
-                    FileWriter fw = new FileWriter(userData,true);
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
-                    bw.close();
-                }
-                catch (IOException e) {
-                }
-
-            }
-        } 
-        catch (Exception ex) {
-        }
-    }
     
     // Method to display User Data
     //- store the current items from txt file to a 2d array, then loop to display user data at BusManuserManage
     public  void displayDataView(Integer dataLine,String searchTxt,String type) throws FileNotFoundException, IOException{
-        BusinessManagerMain main = new BusinessManagerMain();
+        BuildingManagerMain main = new BuildingManagerMain();
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
-        ArrayList<ArrayList<String>> allData = main.UserInfo(fileName);
+        ArrayList<ArrayList<String>> allData = main.DataInfo(fileName);
         int i =0;
         int fixedSize = allData.size();
         int changedSize = allData.size();
         if(!searchTxt.equals("")){
-            System.out.println("can run searchTxt got value");
             for (int x=0;x<fixedSize+1;x++) {
                 if(i ==changedSize){
                     break;
@@ -200,12 +150,12 @@ public class BusinessManagerMain {
         }
         int newSize = allData.size();
         try{
-            if(type=="user"){
+            if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
                 allData.get(dataLine);
-                this.id=allData.get(dataLine).get(0);
-                this.name = allData.get(dataLine).get(1);
-                this.gender = allData.get(dataLine).get(2);
-                this.age = allData.get(dataLine).get(3);
+                this.userId=allData.get(dataLine).get(0);
+                this.userName = allData.get(dataLine).get(1);
+                this.userGender = allData.get(dataLine).get(2);
+                this.userAge = allData.get(dataLine).get(3);
                 this.phoneNumber = allData.get(dataLine).get(4);
                 this.UserImage = allData.get(dataLine).get(5);
                 this.Status = true;
@@ -229,11 +179,11 @@ public class BusinessManagerMain {
     
     // Method to display User Data : if txt file no user record, it will display data as null 
     public void setDataNull(String type){
-        if(type=="user"){
-            this.id = null;
-            this.name =  null;
-            this.gender = null;
-            this.age =  null;
+        if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
+            this.userId = null;
+            this.userName =  null;
+            this.userGender = null;
+            this.userAge =  null;
             this.phoneNumber =  null;
             this.UserImage = null;
         }else if(type=="budget"){
@@ -247,58 +197,22 @@ public class BusinessManagerMain {
     
     
     
-    // Method to add User data
-    // method is set in BusManUserManageAddEdit file : insertDataToFile()
-    //Method to edit User data
-    public void displayAdminOrBuildingUser(String GetUserType, String UserID){
-        File userData = new File("src/main/java/com/mycompany/textFile/"+this.file);
-        File userCredential = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
-        try{
-            Scanner userDataReader = new Scanner(userData);
-            userDataReader.useDelimiter("[,\n]");
-            while (userDataReader.hasNextLine()) {
-                this.id = userDataReader.next().trim();
-                this.name = userDataReader.next().trim();
-                this.gender = userDataReader.next().trim();
-                this.age = userDataReader.next().trim();
-                this.phoneNumber = userDataReader.next().trim();
-                this.UserImage = userDataReader.next().trim();
-                // loop through the txt file, if user id matches with the userID in parameter, call method to display data in edit page
-                if(this.id.equals(UserID)){
-                    Scanner userCredentialReader = new Scanner(userCredential);
-                    userCredentialReader.useDelimiter("[,\n]");
-                    while (userCredentialReader.hasNextLine()) {
-                        String refId=userCredentialReader.next().trim();
-                        String userName=userCredentialReader.next().trim();
-                        String userPass=userCredentialReader.next().trim();
-                        String userRole=userCredentialReader.next().trim();
-                        if(refId.equals(this.id)){
-                            BusManUserManageAddEdit edit = new BusManUserManageAddEdit();
-                            edit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                            edit.pack();
-                            edit.setResizable(false);
-                            edit.setLocationRelativeTo(null);
-                            edit.setVisible(true);
-                            edit.editUserToggle(GetUserType);
-                            edit.editDataToFileDisplay(this.id, this.name, this.gender, this.age, this.phoneNumber, this.UserImage,userName,userPass);
-                            break;
-                        }
-                    }
-                        
-                }
-            }
-        }
-        catch(Exception e){}
-    }
-    
-    
     // Method to getData based on ID
     public void getDataViewSingle(String id, String file,String type) throws FileNotFoundException{
-        BusinessManagerMain main = new BusinessManagerMain();
+        BuildingManagerMain main = new BuildingManagerMain();
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
-        ArrayList<ArrayList<String>> allData = main.UserInfo(fileName);
+        ArrayList<ArrayList<String>> allData = main.DataInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
+                    if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
+                        this.userId = singleData.get(0);
+                        this.userName = singleData.get(1);
+                        this.userGender = singleData.get(2);
+                        this.userAge = singleData.get(3);
+                        this.phoneNumber = singleData.get(4);
+                        this.UserImage = singleData.get(5);
+                        getCredentialData(userId);
+                    }
                     if(type=="budget"){
                         this.budgetId=singleData.get(0);
                         this.projectName=singleData.get(1);
@@ -311,15 +225,38 @@ public class BusinessManagerMain {
             }
     }
     
-    //GLOBAL USE EDIT OR ADD DATA METHOD
+    //COMMON USE Method to get credential if data need login credential
+    public void getCredentialData(String userId) throws FileNotFoundException{
+        AdminExecutiveMain main = new AdminExecutiveMain();
+        String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
+        ArrayList<ArrayList<String>> allData = main.dataInfo(fileName);
+        for (ArrayList<String> singleData : allData) {
+                if (singleData.get(0).equals(userId)) {
+                    this.credentialName=singleData.get(1);
+                    this.password=singleData.get(2);
+                    break;
+                }
+            }
+    }
+    
+    //COMMON USE EDIT OR ADD DATA METHOD
     public void editOrAddData(ArrayList<String> dataList, String type, String file,String functionType){
         if(functionType=="edit"){
             try {
-                BusinessManagerMain main = new BusinessManagerMain();
+                BuildingManagerMain main = new BuildingManagerMain();
                 String fileName = "src/main/java/com/mycompany/textFile/"+file;
-                ArrayList<ArrayList<String>> allData = main.UserInfo(fileName);
+                ArrayList<ArrayList<String>> allData = main.DataInfo(fileName);
                 for (ArrayList<String> user : allData) {
                     if (user.get(0).equals(dataList.get(0))) {
+                        if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            editCredential(dataList.get(0),dataList.get(6),dataList.get(7));
+                            break;
+                        }
                         if(type=="budget"){
                             user.set(1, dataList.get(1));
                             user.set(2, dataList.get(2));
@@ -332,6 +269,13 @@ public class BusinessManagerMain {
                 new FileWriter(fileName, false).close();
                 for (ArrayList<String> user : allData) {
                     try {
+                        if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
+                            bw.close();
+                        }
                         if(type=="budget"){
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
@@ -354,6 +298,17 @@ public class BusinessManagerMain {
                 BufferedWriter AddDataToFile;
                 FileWriter AddNewItem = new FileWriter("src/main/java/com/mycompany/textFile/"+file,true);
                 AddDataToFile = new BufferedWriter(AddNewItem);
+                if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4)+",");
+                    AddDataToFile.write(dataList.get(5));
+                    System.out.println(dataList.get(0)+" "+dataList.get(6)+" "+dataList.get(7)+" "+userType);
+                    addCredential(dataList.get(0),dataList.get(6),dataList.get(7),userType);
+                   
+                }
                 if(type=="budget"){
                     AddDataToFile.write(dataList.get(0)+",");
                     AddDataToFile.write(dataList.get(1)+",");
@@ -372,7 +327,130 @@ public class BusinessManagerMain {
         }
     }
     
-    //GLOBAL USE METHOD TO INCREASE ID NUMBER 
+    // EDIT OR ADD DATA METHOD FOR CREDENTIAL
+    public void addCredential(String id, String userName, String pass,String role) throws IOException{
+        System.out.println("wanna see wassup in add cred");
+        BufferedWriter AddCredentialToFile;
+        FileWriter AddNewCredential = new FileWriter("src/main/java/com/mycompany/textFile/loginCredential.txt",true);
+        AddCredentialToFile = new BufferedWriter(AddNewCredential);
+        AddCredentialToFile.write(id+",");
+        AddCredentialToFile.write(userName+",");
+        AddCredentialToFile.write(pass+",");
+        AddCredentialToFile.write(role);
+        AddCredentialToFile.newLine();
+        AddCredentialToFile.close();
+        AddNewCredential.close();
+    }
+    
+    public void editCredential(String id ,String userName, String userPass){
+        try {
+            AdminExecutiveMain main = new AdminExecutiveMain();
+            String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
+            ArrayList<ArrayList<String>> allData = main.dataInfo(fileName);
+            for (ArrayList<String> data : allData) {
+                if (data.get(0).equals(id)) {
+                    data.set(1, userName);
+                    data.set(2, userPass);
+                    }
+            }
+            new FileWriter(fileName, false).close();
+            for (ArrayList<String> user : allData) {
+                try {
+                    File userData = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
+                    FileWriter fw = new FileWriter(userData,true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
+                    bw.close();
+                }
+                catch (IOException e) {
+                }
+            }
+        } 
+        catch (Exception ex) {
+        }
+    }
+    
+        public void deleteFunction(String itemID){
+        try {
+            int i =0;
+            String fileName = "src/main/java/com/mycompany/textFile/"+file;
+            ArrayList<ArrayList<String>> allUsers = DataInfo(fileName);
+            for (ArrayList<String> user : allUsers) {
+                
+                if (user.get(0).equals(itemID)) {
+                    this.dataId=itemID;
+                    allUsers.remove(i);
+                    break;
+                }
+                
+                i=i+1;
+            }
+            new FileWriter(fileName, false).close();
+            for (ArrayList<String> user : allUsers) {
+                if (!user.get(1).equals("")) {
+                    try {
+                        if(file=="AccountExecutive.txt" || file=="BuildingExecutive.txt" || file=="AdminExecutive.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
+                            bw.close();
+                            deleteUserCredential(itemID);
+                        }
+                        else if (file=="BudgetPlanning.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
+                            bw.close();
+                        }
+                    }
+                    catch (IOException e) {
+                    }
+                }
+            }
+        } 
+        catch (Exception ex) {
+        }
+    }
+    
+    
+    //delete userCredential when admin delete user data
+    public void deleteUserCredential(String userID){
+        try {
+            int i =0;
+            String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
+            ArrayList<ArrayList<String>> allCredential = DataInfo(fileName);
+            for (ArrayList<String> credential : allCredential) {
+                
+                if (credential.get(0).equals(userID)) {
+                    allCredential.remove(i);
+                    break;
+                }
+                
+                i=i+1;
+            }
+            new FileWriter(fileName, false).close();
+            for (ArrayList<String> credential : allCredential) {
+                try {
+                    System.out.println(file);
+                    File userData = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
+                    FileWriter fw = new FileWriter(userData,true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.append(credential.get(0)+",").append(credential.get(1)+",").append(credential.get(2)+",").append(credential.get(3)+"\n");
+                    bw.close();
+                }
+                catch (IOException e) {
+                }
+            }
+        } 
+        catch (Exception ex) {
+        }
+    }
+    
+    //COMMON USE METHOD TO INCREASE ID NUMBER 
     public void getIncreasedID(String file,String type){
          BufferedReader input;
         try {
@@ -398,6 +476,13 @@ public class BusinessManagerMain {
                     ID = IDchar+ (IDnumber).toString();
                     this.budgetId=ID;
                 }
+                if(type=="Admin Executive" || type=="Account Executive" || type=="Building Executive"){
+                    String IDchar = ID.substring(0,2);
+                    ID = ID.substring(2);
+                    Integer IDnumber = Integer.parseInt(ID)+1;
+                    ID = IDchar+ (IDnumber).toString();
+                    this.userId=ID;
+                }
             }
             catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -407,18 +492,9 @@ public class BusinessManagerMain {
         }
     }
     
-    //- Methods to edit/ delete specific line in txt file (CRUD)
-    //- appendItem method is to append the item array that gotten from the ItemsInfo method into the txt file 
-    public void appendUserManage(String userID ,String userName,String Gender,String Age,String phoneNumber, String ImageName,String filename) throws IOException {
-        File userData = new File("src/main/java/com/mycompany/textFile/"+filename);
-        FileWriter fw = new FileWriter(userData,true);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.append(userID+",").append(userName+",").append(Gender+",").append(Age+",").append(phoneNumber+",").append(ImageName+"\n");
-        bw.close();
-    }
     
     //- store the current items from txt file to a 2d array 
-    public  ArrayList<ArrayList<String>> UserInfo(String textFile) throws FileNotFoundException {
+    public  ArrayList<ArrayList<String>> DataInfo(String textFile) throws FileNotFoundException {
         File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
         if (file.exists()) {
