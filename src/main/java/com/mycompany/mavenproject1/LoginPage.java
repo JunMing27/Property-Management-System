@@ -26,6 +26,7 @@ import javax.swing.*;
 public class LoginPage {
 
   public static void main(String[] args) {
+      setResidentData("R1");
     // create window
     JFrame logInFrame = new JFrame("Login");
     logInFrame.setSize(800, 600);
@@ -164,55 +165,55 @@ public class LoginPage {
 
 private static void setResidentData(String residentId)
 {
-    BufferedReader bf = null;
+    String[] line = null;
+    String fileLine = null;
+    List<String> listOfResidentData = new ArrayList<String>();
+
     try {
         ResidentMain residentMain = new ResidentMain();
         residentMain.setId(residentId);
+        
         File residentFile = new File("src/main/java/com/mycompany/textFile/ResidentProfile.txt");
-        List<String> listOfResidentData = new ArrayList<String>();
-        bf = new BufferedReader(new FileReader(residentFile));
-        String fileLine = bf.readLine();
+        BufferedReader bf = new BufferedReader(new FileReader(residentFile));
 
         //save all data into arraylist
-        while(fileLine != null)
+        while((fileLine = bf.readLine()) != null)
         {
             listOfResidentData.add(fileLine);
-            fileLine = bf.readLine();
+            line = fileLine.trim().split(",");
+            System.out.println(fileLine);
         }
-        bf.close();
+        int rows = listOfResidentData.size();
+        System.out.println("biu " +rows);
+        System.out.println(line);
+        System.out.println(listOfResidentData);
+        String [][] arrayResidentData = new String[rows][7];
+//        bf.close();
 
-        String[] arrayResidentData = listOfResidentData.toArray(new String[0]);
 
-        //search for resident id
-        for(int i=0; i<listOfResidentData.size(); i++)
+        for (int i=0; i<arrayResidentData.length; i++ )
         {
-            String[][] arrayResidentData = {listOfResidentData.toArray()};
-            System.out.println(i + "times -------------------");
-            System.out.println(arrayResidentData[i]);
-            System.out.println(listOfResidentData.get(i));
-            if (listOfResidentData.get(i).equals("R1")) {
-                System.out.println("found!!!!!!!!!!!!");
-                residentMain.setName(listOfResidentData.get(i+1));
-                residentMain.setGender(listOfResidentData.get(i+2));
-                residentMain.setAge(listOfResidentData.get(i+3));
-                residentMain.setPhone(listOfResidentData.get(i+4));
-                residentMain.setUnit(listOfResidentData.get(i+5));
-                residentMain.setImage(listOfResidentData.get(i+6));
+            for (int j=0; j<line.length; j++)
+            {
+                arrayResidentData[i][j] = line[j];
             }
         }
-
-        System.out.println(listOfResidentData);
-        System.out.println(Arrays.toString(arrayResidentData));
-        System.out.println("1" + residentMain.getAge());
+        
+        
 
 
+
+        System.out.println(Arrays.deepToString(arrayResidentData));
+        
+        
+        bf.close();
     } catch (FileNotFoundException e) {
         Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, e);
     } catch (IOException ex) {
         Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
-    
-}
+    }
 
+}
 
 }
 
