@@ -11,8 +11,14 @@ package com.mycompany.mavenproject1;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.*;
 import javax.swing.*;
@@ -135,6 +141,7 @@ public class LoginPage {
                         switch(fileUserRole.trim()) {
                             case "admin" -> System.out.println("admin");
                             case "manager" -> System.out.println("manager");
+                            case "resident" -> setResidentData(fileUserID);
                             default -> System.out.println("cant find page for this role");
                           }
 
@@ -150,8 +157,63 @@ public class LoginPage {
             }
         }
       }
-    }
-    );
-  }}
+    });
+  }
+
+
+
+private static void setResidentData(String residentId)
+{
+    BufferedReader bf = null;
+    try {
+        ResidentMain residentMain = new ResidentMain();
+        residentMain.setId(residentId);
+        File residentFile = new File("src/main/java/com/mycompany/textFile/ResidentProfile.txt");
+        List<String> listOfResidentData = new ArrayList<String>();
+        bf = new BufferedReader(new FileReader(residentFile));
+        String fileLine = bf.readLine();
+
+        //save all data into arraylist
+        while(fileLine != null)
+        {
+            listOfResidentData.add(fileLine);
+            fileLine = bf.readLine();
+        }
+        bf.close();
+
+        String[] arrayResidentData = listOfResidentData.toArray(new String[0]);
+
+        //search for resident id
+        for(int i=0; i<listOfResidentData.size(); i++)
+        {
+            String[][] arrayResidentData = {listOfResidentData.toArray()};
+            System.out.println(i + "times -------------------");
+            System.out.println(arrayResidentData[i]);
+            System.out.println(listOfResidentData.get(i));
+            if (listOfResidentData.get(i).equals("R1")) {
+                System.out.println("found!!!!!!!!!!!!");
+                residentMain.setName(listOfResidentData.get(i+1));
+                residentMain.setGender(listOfResidentData.get(i+2));
+                residentMain.setAge(listOfResidentData.get(i+3));
+                residentMain.setPhone(listOfResidentData.get(i+4));
+                residentMain.setUnit(listOfResidentData.get(i+5));
+                residentMain.setImage(listOfResidentData.get(i+6));
+            }
+        }
+
+        System.out.println(listOfResidentData);
+        System.out.println(Arrays.toString(arrayResidentData));
+        System.out.println("1" + residentMain.getAge());
+
+
+    } catch (FileNotFoundException e) {
+        Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, e);
+    } catch (IOException ex) {
+        Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+    
+}
+
+
+}
 
  

@@ -352,9 +352,9 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         }
         
         //check gender
-        if(!residentGender.equalsIgnoreCase("Male") || !residentGender.equalsIgnoreCase("Female") )
+        if(!residentGender.equals("Male") || !residentGender.equals("Female") )
         {
-            errorMessage.setText("Gender is Invalid !");
+            errorMessage.setText("Gender must be Small Letter !");
             return false;
         }
         
