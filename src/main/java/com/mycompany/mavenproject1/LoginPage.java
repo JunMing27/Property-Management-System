@@ -11,8 +11,14 @@ package com.mycompany.mavenproject1;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.*;
 import javax.swing.*;
@@ -20,6 +26,7 @@ import javax.swing.*;
 public class LoginPage {
 
   public static void main(String[] args) {
+      setResidentData("R1");
     // create window
     JFrame logInFrame = new JFrame("Login");
     logInFrame.setSize(800, 600);
@@ -120,7 +127,7 @@ public class LoginPage {
         else{
             // if not empty then do a while loop to get all credential from loginCredential.txt
             try{
-                File loginCredential = new File("src/main/java/com/mycompany/mavenproject1/loginCredential.txt");
+                File loginCredential = new File("src/main/java/com/mycompany/textFile/loginCredential.txt");
                 Scanner credentialReader = new Scanner(loginCredential);
                 credentialReader.useDelimiter("[,\n]");
                 while (credentialReader.hasNextLine()) {
@@ -135,6 +142,7 @@ public class LoginPage {
                         switch(fileUserRole.trim()) {
                             case "admin" -> System.out.println("admin");
                             case "manager" -> System.out.println("manager");
+                            case "resident" -> setResidentData(fileUserID);
                             default -> System.out.println("cant find page for this role");
                           }
 
@@ -150,8 +158,63 @@ public class LoginPage {
             }
         }
       }
+    });
+  }
+
+
+
+private static void setResidentData(String residentId)
+{
+    String[] line = null;
+    String fileLine = null;
+    List<String> listOfResidentData = new ArrayList<String>();
+
+    try {
+        ResidentMain residentMain = new ResidentMain();
+        residentMain.setId(residentId);
+        
+        File residentFile = new File("src/main/java/com/mycompany/textFile/ResidentProfile.txt");
+        BufferedReader bf = new BufferedReader(new FileReader(residentFile));
+
+        //save all data into arraylist
+        while((fileLine = bf.readLine()) != null)
+        {
+            listOfResidentData.add(fileLine);
+            line = fileLine.trim().split(",");
+            System.out.println(fileLine);
+        }
+        int rows = listOfResidentData.size();
+        System.out.println("biu " +rows);
+        System.out.println(line);
+        System.out.println(listOfResidentData);
+        String [][] arrayResidentData = new String[rows][7];
+//        bf.close();
+
+
+        for (int i=0; i<arrayResidentData.length; i++ )
+        {
+            for (int j=0; j<line.length; j++)
+            {
+                arrayResidentData[i][j] = line[j];
+            }
+        }
+        
+        
+
+
+
+        System.out.println(Arrays.deepToString(arrayResidentData));
+        
+        
+        bf.close();
+    } catch (FileNotFoundException e) {
+        Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, e);
+    } catch (IOException ex) {
+        Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
     }
-    );
-  }}
+
+}
+
+}
 
  

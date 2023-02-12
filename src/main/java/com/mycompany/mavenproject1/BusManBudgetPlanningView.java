@@ -236,7 +236,7 @@ public class BusManBudgetPlanningView extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        BusinessManagerMain main = new BusinessManagerMain();
+        BuildingManagerMain main = new BuildingManagerMain();
         main.chooseTxtFile("budgetPlanning");
         main.deleteFunction(jLabel9.getText());
         JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
@@ -252,7 +252,7 @@ public class BusManBudgetPlanningView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public void setDataViewSingle(String id) throws FileNotFoundException{
-        BusinessManagerMain main = new BusinessManagerMain();
+        BuildingManagerMain main = new BuildingManagerMain();
         main.getDataViewSingle(id, "BudgetPlanning.txt","budget");
         //after getting data, set text value 
         jLabel1.setText(main.getBudgetProjectName());

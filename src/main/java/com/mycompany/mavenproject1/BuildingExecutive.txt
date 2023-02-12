@@ -1,3 +1,0 @@
-B1,Aname,LGender,18Age,0192123292,ngan.jpg
-B2,Bname,female,19,0192123392,dominos.png
-B3,Cnames,female,21,0192123492,ngan.jpg

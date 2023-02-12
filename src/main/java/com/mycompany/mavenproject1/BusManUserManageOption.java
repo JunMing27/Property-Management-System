@@ -5,6 +5,9 @@
 package com.mycompany.mavenproject1;
 
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -34,6 +37,7 @@ public class BusManUserManageOption extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +74,15 @@ public class BusManUserManageOption extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
+        jButton4.setText("Admin Executive");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -80,7 +93,8 @@ public class BusManUserManageOption extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(120, 120, 120))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -99,9 +113,11 @@ public class BusManUserManageOption extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -124,7 +140,6 @@ public class BusManUserManageOption extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String UserType ="Admin Executive";
         this.dispose();
         BusManUserManage BusManUserManage = new BusManUserManage();
         BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -134,8 +149,12 @@ public class BusManUserManageOption extends javax.swing.JFrame {
         BusManUserManage.setVisible(true);
         BusManUserManage.backButtonToggle();
         //Run Method in BusManUserManage to set UserType and Data
-        BusManUserManage.setUserType(UserType);
-        BusManUserManage.setAdminOrBuildingExecutiveData(UserType);
+        try {
+            BusManUserManage.setUserType("Account Executive");
+            BusManUserManage.setUserData();
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -151,7 +170,6 @@ public class BusManUserManageOption extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String UserType ="Building Executive";
         this.dispose();
         BusManUserManage BusManUserManage = new BusManUserManage();
         BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -161,9 +179,33 @@ public class BusManUserManageOption extends javax.swing.JFrame {
         BusManUserManage.setVisible(true);
         BusManUserManage.backButtonToggle();
         //Run Method in BusManUserManage to set UserType and Data
-        BusManUserManage.setUserType(UserType);
-        BusManUserManage.setAdminOrBuildingExecutiveData(UserType);
+        try {
+            BusManUserManage.setUserType("Building Executive");
+            BusManUserManage.setUserData();
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        BusManUserManage BusManUserManage = new BusManUserManage();
+        BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        BusManUserManage.pack();
+        BusManUserManage.setResizable(false);
+        BusManUserManage.setLocationRelativeTo(null);
+        BusManUserManage.setVisible(true);
+        BusManUserManage.backButtonToggle();
+        //Run Method in BusManUserManage to set UserType and Data
+        try {
+            BusManUserManage.setUserType("Admin Executive");
+            BusManUserManage.setUserData();
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,6 +247,7 @@ public class BusManUserManageOption extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
