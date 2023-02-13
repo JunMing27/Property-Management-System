@@ -223,6 +223,7 @@ public class AccExecAddEditInvoice extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!jTextField1.isVisible()){
             this.dispose();
+              
 //            BusManBudgetPlanningManage budget = new BusManBudgetPlanningManage();
 //            budget.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //            budget.pack();
