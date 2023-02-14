@@ -26,7 +26,6 @@ import javax.swing.*;
 public class LoginPage {
 
   public static void main(String[] args) {
-      setResidentData("R1");
     // create window
     JFrame logInFrame = new JFrame("Login");
     logInFrame.setSize(800, 600);
@@ -142,7 +141,7 @@ public class LoginPage {
                         switch(fileUserRole.trim()) {
                             case "admin" -> System.out.println("admin");
                             case "manager" -> System.out.println("manager");
-                            case "resident" -> setResidentData(fileUserID);
+                            case "resident" -> setResidentData(fileUserID, fileUsername);
                             default -> System.out.println("cant find page for this role");
                           }
 
@@ -163,50 +162,58 @@ public class LoginPage {
 
 
 
-private static void setResidentData(String residentId)
+private static void setResidentData(String residentId, String residentName)
 {
-    String[] line = null;
     String fileLine = null;
-    List<String> listOfResidentData = new ArrayList<String>();
-
+    ArrayList<String> listOfResidentData = new ArrayList<String>();
+    String[][] residentArray = new String[7][1];
+    
     try {
         ResidentMain residentMain = new ResidentMain();
         residentMain.setId(residentId);
+        residentMain.setName(residentName);
         
         File residentFile = new File("src/main/java/com/mycompany/textFile/ResidentProfile.txt");
-        BufferedReader bf = new BufferedReader(new FileReader(residentFile));
-
+        BufferedReader br = new BufferedReader(new FileReader(residentFile));
+        
+        
         //save all data into arraylist
-        while((fileLine = bf.readLine()) != null)
+        while((fileLine = br.readLine()) != null)
         {
             listOfResidentData.add(fileLine);
-            line = fileLine.trim().split(",");
-            System.out.println(fileLine);
         }
-        int rows = listOfResidentData.size();
-        System.out.println("biu " +rows);
-        System.out.println(line);
-        System.out.println(listOfResidentData);
-        String [][] arrayResidentData = new String[rows][7];
-//        bf.close();
-
-
-        for (int i=0; i<arrayResidentData.length; i++ )
+        br.close();
+        
+        //convert 1d array to 2d array
+        for (int i=0; i<7; i++ )
         {
-            for (int j=0; j<line.length; j++)
+            for (int j=0; j<1; j++)
             {
-                arrayResidentData[i][j] = line[j];
+                residentArray[i][j] = listOfResidentData.get(i);
             }
         }
         
         
-
-
-
-        System.out.println(Arrays.deepToString(arrayResidentData));
+        //loop to find resident data and set data
+        for (int i=0; i<residentArray.length; i++)
+        {
+            //not only use id because "contain" may find wrong
+            if(residentArray[i][0].contains(residentId)&& residentArray[i][0].contains(residentName))
+            {
+                String[] item = residentArray[i][0].trim().split(",");
+                for (int j=0; j<item.length; j++)
+                {
+                    residentMain.setGender(item[2]);
+                    residentMain.setAge(item[3]);
+                    residentMain.setPhone(item[4]);
+                    residentMain.setUnit(item[5]);
+                    residentMain.setImage(item[6]);
+                }
+                break;
+            }
+        }
         
-        
-        bf.close();
+       
     } catch (FileNotFoundException e) {
         Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, e);
     } catch (IOException ex) {
