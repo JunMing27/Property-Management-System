@@ -4,7 +4,11 @@
  */
 package com.mycompany.mavenproject1;
 
-import javax.swing.JTextField;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -46,7 +50,7 @@ public class ResidentProfile extends javax.swing.JFrame {
         residentAgeTxt = new javax.swing.JTextField();
         residentUnitTxt = new javax.swing.JTextField();
         residentPhoneTxt = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        imageLabel = new javax.swing.JLabel();
         updateBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -152,10 +156,12 @@ public class ResidentProfile extends javax.swing.JFrame {
         residentPhoneTxt.setBorder(null);
         residentPhoneTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setBackground(new java.awt.Color(233, 233, 233));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("IMAGE");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imageLabel.setBackground(new java.awt.Color(233, 233, 233));
+        imageLabel.setForeground(new java.awt.Color(0, 0, 0));
+        imageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imageLabel.setMaximumSize(new java.awt.Dimension(138, 126));
+        imageLabel.setMinimumSize(new java.awt.Dimension(138, 126));
+        imageLabel.setPreferredSize(new java.awt.Dimension(138, 126));
 
         updateBtn.setBackground(new java.awt.Color(255, 255, 255));
         updateBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -176,7 +182,7 @@ public class ResidentProfile extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(119, 119, 119)
+                        .addGap(99, 99, 99)
                         .addComponent(topLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(135, 135, 135)
@@ -200,7 +206,7 @@ public class ResidentProfile extends javax.swing.JFrame {
                         .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(188, 188, 188)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(161, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -215,7 +221,7 @@ public class ResidentProfile extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(residentIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -276,12 +282,25 @@ public class ResidentProfile extends javax.swing.JFrame {
     private void displayData()
     {
         ResidentMain residentMain = new ResidentMain();
+        //text
         residentIdTxt.setText(residentMain.getId());
         residentNameTxt.setText(residentMain.getName());
         residentGenderTxt.setText(residentMain.getGender());
         residentAgeTxt.setText(residentMain.getAge());
         residentPhoneTxt.setText(residentMain.getPhone());
         residentUnitTxt.setText(residentMain.getUnit());
+        
+        //image
+        BufferedImage bufferedImage = null;
+        try {
+            File imageFile = new File("src/main/java/com/mycompany/Image/"+residentMain.getImage());
+            bufferedImage = ImageIO.read(imageFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+        ImageIcon profileIcon = new ImageIcon(profileImage);
+        imageLabel.setIcon(profileIcon);
     }
     
     
@@ -325,7 +344,7 @@ public class ResidentProfile extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField residentAgeLabel;
     private javax.swing.JTextField residentAgeTxt;
