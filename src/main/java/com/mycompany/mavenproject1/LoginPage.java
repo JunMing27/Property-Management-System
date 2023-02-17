@@ -25,7 +25,12 @@ import javax.swing.*;
 
 public class LoginPage {
 
+    
   public static void main(String[] args) {
+      
+    //declare variable
+    boolean residentPass = false;
+    
     // create window
     JFrame logInFrame = new JFrame("Login");
     logInFrame.setSize(800, 600);
@@ -45,7 +50,7 @@ public class LoginPage {
 
   private static void placeComponents(JPanel panel) {
     panel.setLayout(null);
-
+    
     // title label
     // setBounds(x, y, width, height)
     JLabel titleLabel1 = new JLabel("Welcome To");
@@ -113,6 +118,8 @@ public class LoginPage {
     loginBtn.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
+        boolean residentPass = false;
+        
         String enterUsername = "";
         String enterPassword = "";
         enterUsername = usernameField.getText();
@@ -141,7 +148,7 @@ public class LoginPage {
                         switch(fileUserRole.trim()) {
                             case "admin" -> System.out.println("admin");
                             case "manager" -> System.out.println("manager");
-                            case "resident" -> setResidentData(fileUserID, fileUsername);
+                            case "resident" -> setResidentData(fileUserID, fileUsername, residentPass);
                             default -> System.out.println("cant find page for this role");
                           }
 
@@ -150,6 +157,7 @@ public class LoginPage {
                         warningLabel.setText(" Wrong Username or Password");
                         warningLabel.setVisible(true);
                     }
+                    
                 }
             }
             catch(FileNotFoundException ex){
@@ -158,11 +166,12 @@ public class LoginPage {
         }
       }
     });
+    
   }
 
 
 
-private static void setResidentData(String residentId, String residentName)
+private static void setResidentData(String residentId, String residentName, boolean residentPass)
 {
     String fileLine = null;
     ArrayList<String> listOfResidentData = new ArrayList<String>();
@@ -208,16 +217,27 @@ private static void setResidentData(String residentId, String residentName)
                     residentMain.setPhone(item[4]);
                     residentMain.setUnit(item[5]);
                     residentMain.setImage(item[6]);
+                    residentPass = true;
                 }
                 break;
             }
         }
         
-       
+        
+        
     } catch (FileNotFoundException e) {
         Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, e);
     } catch (IOException ex) {
         Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    //direct to resident main page
+    if(residentPass)
+    {
+//        this.dispose();
+//        ResidentOption residentOption == new ResidentOption();
+//        residentOption.setVisible(true);
+        System.out.println("I dont know how to direct to another page");
     }
 
 }
