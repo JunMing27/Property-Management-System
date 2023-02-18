@@ -23,32 +23,11 @@ import java.util.Scanner;
 import java.util.logging.*;
 import javax.swing.*;
 
-public class LoginPage {
+public class LoginPage extends javax.swing.JFrame  {
 
-    
-  public static void main(String[] args) {
-      
-    //declare variable
-    boolean residentPass = false;
-    
-    // create window
-    JFrame logInFrame = new JFrame("Login");
-    logInFrame.setSize(800, 600);
-    logInFrame.setResizable(false);
-    logInFrame.setLocationRelativeTo(null);
-    logInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  private static JFrame logInFrame = new JFrame("Login");
 
-    // add panel to JFrame
-    JPanel panel = new JPanel();
-    logInFrame.add(panel);
-    placeComponents(panel);
-
-    // display Window
-    logInFrame.setVisible(true);
-    
-  }
-
-  private static void placeComponents(JPanel panel) {
+  public void placeComponents(JPanel panel) {
     panel.setLayout(null);
     
     // title label
@@ -119,6 +98,7 @@ public class LoginPage {
       @Override
       public void actionPerformed(ActionEvent e) {
         boolean residentPass = false;
+        boolean loginStatus = false;
         
         String enterUsername = "";
         String enterPassword = "";
@@ -137,30 +117,36 @@ public class LoginPage {
                 Scanner credentialReader = new Scanner(loginCredential);
                 credentialReader.useDelimiter("[,\n]");
                 while (credentialReader.hasNextLine()) {
-                    String fileUserID = credentialReader.next();
-                    String fileUsername = credentialReader.next();
-                    String filePassword = credentialReader.next();
-                    String fileUserRole = credentialReader.next();
-                    // compare user entered credential with credentials in txt field
-                    if (enterUsername.equals(fileUsername.trim()) && enterPassword.equals(filePassword.trim())){
-                        // If username and password are correct, system will search for the page based on their role
-                        System.out.println("Correct username or password");
-                        switch(fileUserRole.trim()) {
-                            case "admin" -> System.out.println("admin");
-                            case "manager" -> System.out.println("manager");
-                            case "resident" -> setResidentData(fileUserID, fileUsername, residentPass);
-                            default -> System.out.println("cant find page for this role");
-                          }
+                    try{
+                        String fileUserID = credentialReader.next();
+                        String fileUsername = credentialReader.next();
+                        String filePassword = credentialReader.next();
+                        String fileUserRole = credentialReader.next();
+                        // compare user entered credential with credentials in txt field
+                        if (enterUsername.equals(fileUsername.trim()) && enterPassword.equals(filePassword.trim())){
+                            loginStatus = true;
+                            // If username and password are correct, system will search for the page based on their role
+                            System.out.println("Correct username or password");
+                            switch(fileUserRole.trim()) {
+                                case "admin" -> System.out.println("admin");
+                                case "manager" -> System.out.println("manager");
+                                case "resident" -> setResidentData(fileUserID, fileUsername, residentPass);
+                                default -> System.out.println("cant find page for this role");
+                              }
 
-                    }
-                    else{
-                        warningLabel.setText(" Wrong Username or Password");
-                        warningLabel.setVisible(true);
-                    }
-                    
+                        }
+                        else{
+                            ;
+                        }
+                    }catch(Exception s){}
+                }
+                if(loginStatus==false){
+                    warningLabel.setText(" Wrong Username or Password");
+                    warningLabel.setVisible(true);
                 }
             }
             catch(FileNotFoundException ex){
+                
                 Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -171,7 +157,7 @@ public class LoginPage {
 
 
 
-private static void setResidentData(String residentId, String residentName, boolean residentPass)
+public void setResidentData(String residentId, String residentName, boolean residentPass)
 {
     String fileLine = null;
     ArrayList<String> listOfResidentData = new ArrayList<String>();
@@ -234,13 +220,35 @@ private static void setResidentData(String residentId, String residentName, bool
     //direct to resident main page
     if(residentPass)
     {
-//        this.dispose();
-//        ResidentOption residentOption == new ResidentOption();
-//        residentOption.setVisible(true);
+        logInFrame.dispose();
+        ResidentOption residentOption = new ResidentOption();
+        residentOption.setVisible(true);
         System.out.println("I dont know how to direct to another page");
     }
 
 }
+
+public static void main(String[] args) {
+      
+    //declare variable
+    boolean residentPass = false;
+    
+    // create window
+    logInFrame.setSize(800, 600);
+    logInFrame.setResizable(false);
+    logInFrame.setLocationRelativeTo(null);
+    logInFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    // add panel to JFrame
+    JPanel panel = new JPanel();
+    logInFrame.add(panel);
+    LoginPage login = new LoginPage();
+    login.placeComponents(panel);
+
+    // display Window
+    logInFrame.setVisible(true);
+    
+  }
 
 }
 
