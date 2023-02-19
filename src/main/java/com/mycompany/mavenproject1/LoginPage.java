@@ -130,7 +130,7 @@ public class LoginPage extends javax.swing.JFrame  {
                             switch(fileUserRole.trim()) {
                                 case "admin" -> System.out.println("admin");
                                 case "manager" -> System.out.println("manager");
-                                case "resident" -> setResidentData(fileUserID, fileUsername, residentPass);
+                                case "resident" -> setResidentData(fileUserID, fileUsername);
                                 default -> System.out.println("cant find page for this role");
                               }
 
@@ -157,74 +157,16 @@ public class LoginPage extends javax.swing.JFrame  {
 
 
 
-public void setResidentData(String residentId, String residentName, boolean residentPass)
+public void setResidentData(String residentId, String residentName)
 {
-    String fileLine = null;
-    ArrayList<String> listOfResidentData = new ArrayList<String>();
-    String[][] residentArray = new String[7][1];
-    
-    try {
-        ResidentMain residentMain = new ResidentMain();
-        residentMain.setId(residentId);
-        residentMain.setName(residentName);
-        
-        File residentFile = new File("src/main/java/com/mycompany/textFile/ResidentProfile.txt");
-        BufferedReader br = new BufferedReader(new FileReader(residentFile));
-        
-        
-        //save all data into arraylist
-        while((fileLine = br.readLine()) != null)
-        {
-            listOfResidentData.add(fileLine);
-        }
-        br.close();
-        
-        //convert 1d array to 2d array
-        for (int i=0; i<7; i++ )
-        {
-            for (int j=0; j<1; j++)
-            {
-                residentArray[i][j] = listOfResidentData.get(i);
-            }
-        }
-        
-        
-        //loop to find resident data and set data
-        for (int i=0; i<residentArray.length; i++)
-        {
-            //not only use id because "contain" may find wrong
-            if(residentArray[i][0].contains(residentId)&& residentArray[i][0].contains(residentName))
-            {
-                String[] item = residentArray[i][0].trim().split(",");
-                for (int j=0; j<item.length; j++)
-                {
-                    residentMain.setGender(item[2]);
-                    residentMain.setAge(item[3]);
-                    residentMain.setPhone(item[4]);
-                    residentMain.setUnit(item[5]);
-                    residentMain.setImage(item[6]);
-                    residentPass = true;
-                }
-                break;
-            }
-        }
-        
-        
-        
-    } catch (FileNotFoundException e) {
-        Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, e);
-    } catch (IOException ex) {
-        Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    
+    //set id and name
+    ResidentMain residentMain = new ResidentMain();
+    residentMain.setId(residentId);
+    residentMain.setName(residentName);
     //direct to resident main page
-    if(residentPass)
-    {
-        logInFrame.dispose();
-        ResidentOption residentOption = new ResidentOption();
-        residentOption.setVisible(true);
-        System.out.println("I dont know how to direct to another page");
-    }
+    logInFrame.dispose();
+    ResidentOption residentOption = new ResidentOption();
+    residentOption.setVisible(true);
 
 }
 
