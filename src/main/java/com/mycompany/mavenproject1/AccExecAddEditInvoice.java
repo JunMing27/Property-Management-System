@@ -224,6 +224,7 @@ public class AccExecAddEditInvoice extends javax.swing.JFrame {
         if(!jTextField1.isVisible()){
             this.dispose();
               
+            
 //            BusManBudgetPlanningManage budget = new BusManBudgetPlanningManage();
 //            budget.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //            budget.pack();

@@ -15,35 +15,33 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
-//import javax.swing.JFrame;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 
 /**
  *
- * @author Edi
+ * @author user
  */
-
 public class AccExecMain {
-    //VARIABLESSS FOR BUILDING MANAGER FUNCTIONALITY : USER MANAGEMENT
-    private String userId;
+    private String userID;
     private String userName;
     private String userGender;
     private String userAge;
     private String phoneNumber;
     private String UserImage;
     private String userType;
+
+    //VARIABLESSS FOR Acc Executive FUNCTIONALITY : Invoice Manager
+    private String InvoiceNumber;
+    private String TenantName;
+    private String DateInvoiceIssued;
+    private String DateDue;
+    private String AmountDue;
+    private String Amount;
     
-    
-    //VARIABLESSS FOR BUILDING MANAGER FUNCTIONALITY : INVOICE 
-    private String budgetId;
-    private String projectName;
-    private String projectBudget;
-    private String projectStartDate;
-    private String projectEndDate;
     
     //COMMON VARIABLES (USABLE FOR SEVERAL FUNCTION)
     private String dataId;
@@ -52,42 +50,52 @@ public class AccExecMain {
     private String password;
     
     
-    //GET FOR BUILDING MANAGER FUNCTIONALITY : USER MANAGEMENT
-    public String getUserId(){
-        return userId;
+   //Acc Exec Functionality : User Profile
+    public String getId() {
+        return userID;
     }
-    public String getUserName(){
+    public String getName() {
         return userName;
     }
-    public String getUserGender(){
+    public String getGender() {
         return userGender;
     }
-    public String getUserAge(){
+    public String getAge() {
         return userAge;
     }
-    public String getUserPhone(){
+    public String getPhone() {
         return phoneNumber;
     }
-    public String getUserImage(){
+    public String getUserImage() {
         return UserImage;
     }
+    public String getUserType() {
+        return userType;
+    }
     
+    //GET FOR BUILDING MANAGER FUNCTIONALITY : Invoice Management
+    public String getInvoiceNumber(){
+        return InvoiceNumber;
+    }
+    public String getTenantName(){
+        return TenantName;
+    }
+    public String getDateInvoiceIssued(){
+        return DateInvoiceIssued;
+    }
+    public String getDateDue(){
+        return DateDue;
+    }
+    public String getAmountDue(){
+        return AmountDue;
+    }
+    public String getAmountInvoice(){
+        return Amount;
+    }
     
-    //GET FOR BUILDING MANAGER FUNCTIONALITY : BUDGET PLANNING
-    public String getBudgetId(){
-        return budgetId;
-    }
-    public String getBudgetProjectName(){
-        return projectName;
-    }
-    public String getBudgetProjectBudget(){
-        return projectBudget;
-    }
-    public String getBudgetProjectStartDate(){
-        return projectStartDate;
-    }
-    public String getBudgetProjectEndDate(){
-        return projectEndDate;
+    //SET USER TYPE
+    public void setUserType(String userType1){
+        this.userType=userType1;
     }
     
     // GET FUNCTION FOR COMMON VARIABLE
@@ -104,12 +112,6 @@ public class AccExecMain {
         return file;
     }
     
-    //SET USER TYPE
-    public void setUserType(String userType1){
-        this.userType=userType1;
-    }
-    
-    //Method to choose correct txt file based on userType, so no need to redundant code
     private String file="";
     
     public void chooseTxtFile(String Type){
@@ -119,11 +121,10 @@ public class AccExecMain {
             file ="BuildingExecutive.txt";
         }else if (Type=="Admin Executive"){
             file ="AdminExecutive.txt";
-        }else if (Type=="budgetPlanning"){
-            file = "BudgetPlanning.txt";
+        }else if (Type=="Invoice Management"){
+            file = "InvoiceContent.txt";
         }
     }
-    
     
     // Method to display User Data
     //- store the current items from txt file to a 2d array, then loop to display user data at BusManuserManage
@@ -152,19 +153,20 @@ public class AccExecMain {
         try{
             if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
                 allData.get(dataLine);
-                this.userId=allData.get(dataLine).get(0);
+                this.userID=allData.get(dataLine).get(0);
                 this.userName = allData.get(dataLine).get(1);
                 this.userGender = allData.get(dataLine).get(2);
                 this.userAge = allData.get(dataLine).get(3);
                 this.phoneNumber = allData.get(dataLine).get(4);
                 this.UserImage = allData.get(dataLine).get(5);
                 this.Status = true;
-            }else if(type=="budget"){
-                this.budgetId=allData.get(dataLine).get(0);
-                this.projectName=allData.get(dataLine).get(1);
-                this.projectBudget=allData.get(dataLine).get(2);
-                this.projectStartDate=allData.get(dataLine).get(3);
-                this.projectEndDate=allData.get(dataLine).get(4);
+            }else if(type=="invoice"){
+                this.InvoiceNumber=allData.get(dataLine).get(0);
+                this.TenantName=allData.get(dataLine).get(1);
+                this.DateInvoiceIssued=allData.get(dataLine).get(2);
+                this.DateDue=allData.get(dataLine).get(3);
+                this.AmountDue=allData.get(dataLine).get(4);
+                this.Amount=allData.get(dataLine).get(5);
                 this.Status=true;
             }
         }catch(Exception e){
@@ -175,57 +177,56 @@ public class AccExecMain {
             this.Status = false;
         }
     }
-            
     
-    // Method to display User Data : if txt file no user record, it will display data as null 
+       // Method to display User Data : if txt file no user record, it will display data as null 
     public void setDataNull(String type){
         if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
-            this.userId = null;
+            this.userID = null;
             this.userName =  null;
             this.userGender = null;
             this.userAge =  null;
             this.phoneNumber =  null;
             this.UserImage = null;
         }else if(type=="budget"){
-            this.budgetId=null;
-            this.projectName=null;
-            this.projectBudget=null;
-            this.projectStartDate=null;
-            this.projectEndDate=null;
+            this.InvoiceNumber=null;
+            this.TenantName=null;
+            this.DateInvoiceIssued=null;
+            this.DateDue=null;
+            this.AmountDue=null;
+            this.Amount=null;
         }
     }
     
-    
-    
     // Method to getData based on ID
     public void getDataViewSingle(String id, String file,String type) throws FileNotFoundException{
-        BuildingManagerMain main = new BuildingManagerMain();
+        AccExecMain main = new AccExecMain();
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
         ArrayList<ArrayList<String>> allData = main.DataInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
                     if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
-                        this.userId = singleData.get(0);
+                        this.userID = singleData.get(0);
                         this.userName = singleData.get(1);
                         this.userGender = singleData.get(2);
                         this.userAge = singleData.get(3);
                         this.phoneNumber = singleData.get(4);
                         this.UserImage = singleData.get(5);
-                        getCredentialData(userId);
+                        getCredentialData(userID);
                     }
-                    if(type=="budget"){
-                        this.budgetId=singleData.get(0);
-                        this.projectName=singleData.get(1);
-                        this.projectBudget=singleData.get(2);
-                        this.projectStartDate=singleData.get(3);
-                        this.projectEndDate=singleData.get(4);
+                    if(type=="Invoice"){
+                        this.InvoiceNumber=singleData.get(0);
+                        this.TenantName=singleData.get(1);
+                        this.DateInvoiceIssued=singleData.get(2);
+                        this.DateDue=singleData.get(3);
+                        this.AmountDue=singleData.get(4);
+                        this.Amount=singleData.get(5);
                     }
                     break;
                 }
             }
     }
     
-    //COMMON USE Method to get credential if data need login credential
+//COMMON USE Method to get credential if data need login credential
     public void getCredentialData(String userId) throws FileNotFoundException{
         AdminExecutiveMain main = new AdminExecutiveMain();
         String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
@@ -243,7 +244,7 @@ public class AccExecMain {
     public void editOrAddData(ArrayList<String> dataList, String type, String file,String functionType){
         if(functionType=="edit"){
             try {
-                BuildingManagerMain main = new BuildingManagerMain();
+                AccExecMain main = new AccExecMain();
                 String fileName = "src/main/java/com/mycompany/textFile/"+file;
                 ArrayList<ArrayList<String>> allData = main.DataInfo(fileName);
                 for (ArrayList<String> user : allData) {
@@ -257,11 +258,12 @@ public class AccExecMain {
                             editCredential(dataList.get(0),dataList.get(6),dataList.get(7));
                             break;
                         }
-                        if(type=="budget"){
+                        if(type=="Invoice"){
                             user.set(1, dataList.get(1));
                             user.set(2, dataList.get(2));
                             user.set(3, dataList.get(3));
                             user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
                             break;
                         }
                     }
@@ -276,11 +278,11 @@ public class AccExecMain {
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
                             bw.close();
                         }
-                        if(type=="budget"){
+                        if(type=="Invoice"){
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
-                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
                             bw.close();
                         }
                     }
@@ -309,12 +311,13 @@ public class AccExecMain {
                     addCredential(dataList.get(0),dataList.get(6),dataList.get(7),userType);
                    
                 }
-                if(type=="budget"){
+                if(type=="Invoice"){
                     AddDataToFile.write(dataList.get(0)+",");
                     AddDataToFile.write(dataList.get(1)+",");
                     AddDataToFile.write(dataList.get(2)+",");
                     AddDataToFile.write(dataList.get(3)+",");
-                    AddDataToFile.write(dataList.get(4));
+                    AddDataToFile.write(dataList.get(4)+",");
+                    AddDataToFile.write(dataList.get(5));
                 }
                 AddDataToFile.newLine();
                 AddDataToFile.close();
@@ -368,8 +371,7 @@ public class AccExecMain {
         } 
         catch (Exception ex) {
         }
-    }
-    
+        
         public void deleteFunction(String itemID){
         try {
             int i =0;
@@ -415,9 +417,8 @@ public class AccExecMain {
         catch (Exception ex) {
         }
     }
-    
-    
-    //delete userCredential when admin delete user data
+        
+        //delete userCredential when admin delete user data
     public void deleteUserCredential(String userID){
         try {
             int i =0;
@@ -449,7 +450,6 @@ public class AccExecMain {
         catch (Exception ex) {
         }
     }
-    
     //COMMON USE METHOD TO INCREASE ID NUMBER 
     public void getIncreasedID(String file,String type){
          BufferedReader input;
@@ -491,8 +491,6 @@ public class AccExecMain {
             JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    
     //- store the current items from txt file to a 2d array 
     public  ArrayList<ArrayList<String>> DataInfo(String textFile) throws FileNotFoundException {
         File file = new File(textFile);
@@ -541,45 +539,11 @@ public class AccExecMain {
    public final static String TIFF = "tiff";
    public final static String TIF = "tif";
    public final static String PNG = "png";
-   
-   @Override
-   public boolean accept(File f) {
-      if (f.isDirectory()) {
-         return true;
-      }
-
-      String extension = getExtension(f);
-      if (extension != null) {
-         if (extension.equals(TIFF) ||
-            extension.equals(TIF) ||
-            extension.equals(GIF) ||
-            extension.equals(JPEG) ||
-            extension.equals(JPG) ||
-            extension.equals(PNG)) {
-            return true;
-         } else {
-            return false;
-         }
-      }
-      return false;
-   }
-
-   @Override
-   public String getDescription() {
-      return "Image Only";
-   }
-
-   String getExtension(File f) {
-      String ext = null;
-      String s = f.getName();
-      int i = s.lastIndexOf('.');
-   
-      if (i > 0 &&  i < s.length() - 1) {
-         ext = s.substring(i+1).toLowerCase();
-      }
-      return ext;
-   } 
+    }
 }
-}
-    
-    
+//    private String InvoiceNumber;
+//    private String TenantName;
+//    private String DateInvoiceIssued;
+//    private String DateDue;
+//    private String AmountDue;
+//    private String Amount;

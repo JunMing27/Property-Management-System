@@ -37,7 +37,7 @@ public class BuildingManagerMain {
     private String UserImage;
     private String userType;
     
-    
+   
     //VARIABLESSS FOR BUILDING MANAGER FUNCTIONALITY : BUDGET PLANNING
     private String budgetId;
     private String projectName;
