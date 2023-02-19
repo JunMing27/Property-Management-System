@@ -17,10 +17,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-/**
- *
- * @author Hoi Yi
- */
 public class ResidentOption extends javax.swing.JFrame {
 
     /**
