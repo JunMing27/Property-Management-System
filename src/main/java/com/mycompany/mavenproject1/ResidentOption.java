@@ -270,9 +270,7 @@ public class ResidentOption extends javax.swing.JFrame {
         ArrayList<String> listOfResidentData = new ArrayList<String>();
         int totalRow = 0;
 
-
         try {
-            
             File residentFile = new File("src/main/java/com/mycompany/textFile/ResidentProfile.txt");
             BufferedReader br = new BufferedReader(new FileReader(residentFile));
 
