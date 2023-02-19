@@ -31,7 +31,7 @@ public class ResidentPay extends javax.swing.JFrame {
     String fileLine = null;
     ArrayList<String> duePayment1D = new ArrayList<String>();
     int totalRow = 0;
-    String[][] duePayment2D = new String[totalRow][1];
+    String[][] duePayment2D, onlyUserDue2D, remove2D1, remove2D2;
     int totalDue = 0;
     boolean runFirst = false, runSecond = false, runThird = false, runFourth = false, runFifth = false, runSixth = false;
     boolean firstPage = true, secondPage = false, thirdPage = false;
@@ -41,7 +41,7 @@ public class ResidentPay extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         readData();
-        displayData();
+//        displayData();
     }
 
     /**
@@ -418,6 +418,8 @@ public class ResidentPay extends javax.swing.JFrame {
             }
             totalRow = duePayment1D.size();
             duePayment2D = new String[totalRow][1];
+            remove2D1 = new String[totalRow-1][1];
+            remove2D2 = new String[totalRow-2][1];
             br.close();
         
             
@@ -439,13 +441,45 @@ public class ResidentPay extends javax.swing.JFrame {
                     String[] item = duePayment2D[i][0].trim().split(",");
                     if(item[0].equals(residentId))
                     {
-                        totalDue = i;
+                        totalDue+=1;
+                    }
+                }
+            }
+            onlyUserDue2D = new String[totalDue][1];
+            setVisibility(totalDue);
+            
+            int p,q;
+            //set onlyUserDue2D
+            if(totalDue>2)
+            {
+                for (p=0,q=0; p<duePayment2D.length; p++)
+                {
+                    if(duePayment2D[p][0].contains(residentId))
+                    {
+                        System.out.println("p="+p+ " q="+q);
+                        System.out.println(duePayment2D[p][0]);
+                        
+                        onlyUserDue2D[q] = duePayment2D[p];
+                        q++;
+//                        for(int j=0; j<totalDue; j++)
+//                        {
+//                            for (int k=0; k<1; k++)
+//                            {
+//                                System.out.println("p="+p+ " q="+q+ " k="+k);
+//                                System.out.println("WTF "+ onlyUserDue2D[j][k]);
+//                                System.out.println("IDK "+ duePayment2D[p][j]);
+//                                
+//                                onlyUserDue2D[j][k] = duePayment2D[p][j];
+//                                System.out.println("??? "+Arrays.deepToString(onlyUserDue2D));
+//                            }
+//                            break;
+//                        }
                     }
                 }
             }
             
-            setVisibility(totalDue+1);
-            
+            System.out.println("all- "+Arrays.deepToString(duePayment2D));
+            System.out.println("Success?? "+Arrays.deepToString(onlyUserDue2D));
             
         }catch (FileNotFoundException ex) {
             Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
@@ -458,43 +492,68 @@ public class ResidentPay extends javax.swing.JFrame {
     private void displayData() {
         
         //loop to find only relevant data based on residentID
-        for (int i=0; i<duePayment2D.length; i++)
+        //first page
+        if(firstPage == true)
         {
-            if(duePayment2D[i][0].contains(residentId))
+            System.out.println("firstPage true");
+            for (int i=0; i<duePayment2D.length; i++)
             {
-                String[] item = duePayment2D[i][0].trim().split(",");
-
-                if(item[0].equals(residentId))
+                if(duePayment2D[i][0].contains(residentId))
                 {
-                    if(firstPage == true)
+                    String[] item = duePayment2D[i][0].trim().split(",");
+                    if(item[0].equals(residentId))
                     {
-                        System.out.println("firstPage true");
-                        if(runFirst == false)
-                        {
+                        if(runFirst == false){
                             setRelevantData(item, payToTxt1, payAmountTxt1, dueDateTxt1);
                             runFirst = true;
-                        }
-                        else
-                        {
+                        }else{
                             setRelevantData(item, payToTxt2, payAmountTxt2, dueDateTxt2);
                             runSecond = true;
+                            break;
                         }
                     }
-                    else if(secondPage == true)
+                }
+            }
+        }
+        else if(secondPage == true)
+        {
+            System.out.println("secondPage true");
+            for (int i=0; i<duePayment2D.length; i++)
+            {
+                System.out.println("??? "+duePayment2D[i][0]);
+                if(duePayment2D[i][0].contains(residentId))
+                {
+                    
+                    System.out.println("after+2 "+duePayment2D[i][0]);
+                    System.out.println("enter if");
+                    String[] item = duePayment2D[i][0].trim().split(",");
+                    System.out.println("item "+Arrays.deepToString(item));
+                    System.out.println("runThird= "+runThird);
+                    if(item[0].equals(residentId))
                     {
-                        System.out.println("secondPage true");
-                        if(runThird == false)
-                        {
+                        if(runThird == false){
                             setRelevantData(item, payToTxt1, payAmountTxt1, dueDateTxt1);
                             runThird = true;
                         }else{
                             setRelevantData(item, payToTxt2, payAmountTxt2, dueDateTxt2);
                             runFourth = true;
+                            break;
                         }
                     }
-                    else if(thirdPage == true)
+                }
+            }
+        }
+        else if(thirdPage == true)
+        {
+            System.out.println("thirdPage true");
+            for (int i=0; i<duePayment2D.length; i++)
+            {
+                
+                if(duePayment2D[i][0].contains(residentId) && i == 2 | i == 3)
+                {
+                    String[] item = duePayment2D[i][0].trim().split(",");
+                    if(item[0].equals(residentId))
                     {
-                        System.out.println("thirdPage true");
                         if(runFifth == false)
                         {
                             setRelevantData(item, payToTxt1, payAmountTxt1, dueDateTxt1);
@@ -502,17 +561,22 @@ public class ResidentPay extends javax.swing.JFrame {
                         }else{
                             setRelevantData(item, payToTxt2, payAmountTxt2, dueDateTxt2);
                             runSixth = true;
+                            break;
                         }
                     }
                 }
             }
         }
+        
+        
             
     }
 
 
     private void setRelevantData(String[] item, JLabel payTo, JLabel payAmount, JLabel dueDate)
     {
+        System.out.println("enter setRelevantData");
+        System.out.println("items "+Arrays.deepToString(item));
         for (int j=0; j<item.length; j++){
             payTo.setText(item[1]);
             payAmount.setText(item[2]);
