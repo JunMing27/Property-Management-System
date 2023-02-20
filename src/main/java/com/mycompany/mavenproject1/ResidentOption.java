@@ -25,13 +25,12 @@ public class ResidentOption extends javax.swing.JFrame {
     public ResidentOption() {
         //get id and name
         ResidentMain residentMain = new ResidentMain();
-        String residentId = residentMain.getId();
-        String residentName = residentMain.getName();
         
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        setResidentData(residentMain, residentId, residentName);
+        residentMain.setResidentData();
+        residentMain.setCredentialData();
     }
 
     /**
@@ -260,68 +259,6 @@ public class ResidentOption extends javax.swing.JFrame {
     private javax.swing.JButton visitorPassBtn;
     // End of variables declaration//GEN-END:variables
 
-     private void setResidentData(ResidentMain residentMain, String residentId, String residentName)
-    {
-        String fileLine = null;
-        ArrayList<String> listOfResidentData = new ArrayList<String>();
-        int totalRow = 0;
-
-        try {
-            File residentFile = new File("src/main/java/com/mycompany/textFile/ResidentProfile.txt");
-            BufferedReader br = new BufferedReader(new FileReader(residentFile));
-
-
-            //save all data into arraylist
-            while((fileLine = br.readLine()) != null)
-            {
-                listOfResidentData.add(fileLine);
-            }
-            totalRow = listOfResidentData.size();
-            String[][] residentArray = new String[totalRow][1];
-            br.close();
-
-            //convert 1d array to 2d array
-            for (int i=0; i<totalRow; i++ )
-            {
-                for (int j=0; j<1; j++)
-                {
-                    residentArray[i][j] = listOfResidentData.get(i);
-                }
-            }
-
-
-            //loop to find resident data and set data
-            for (int i=0; i<residentArray.length; i++)
-            {
-                if(residentArray[i][0].contains(residentId)&& 
-                        residentArray[i][0].contains(residentName))
-                {
-                    String[] item = residentArray[i][0].trim().split(",");
-                    for (int j=0; j<item.length; j++)
-                    {
-                        residentMain.setGender(item[2]);
-                        residentMain.setAge(item[3]);
-                        residentMain.setPhone(item[4]);
-                        residentMain.setUnit(item[5]);
-                        residentMain.setImage(item[6]);
-                    }
-                    break;
-                }
-            }
-
-
-
-        } catch (FileNotFoundException e) {
-            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, e);
-        } catch (IOException ex) {
-            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
-
-    }
-
-    
-    
     
 }
 
