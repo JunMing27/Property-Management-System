@@ -130,7 +130,7 @@ public class LoginPage extends javax.swing.JFrame  {
                             switch(fileUserRole.trim()) {
                                 case "admin" -> System.out.println("admin");
                                 case "manager" -> System.out.println("manager");
-                                case "resident" -> setResidentData(fileUserID, fileUsername);
+                                case "resident" -> setResidentData(fileUserID, fileUsername, filePassword);
                                 default -> System.out.println("cant find page for this role");
                               }
 
@@ -157,12 +157,13 @@ public class LoginPage extends javax.swing.JFrame  {
 
 
 
-public void setResidentData(String residentId, String residentName)
+public void setResidentData(String residentId, String residentName, String residentPwd)
 {
-    //set id and name
+    //set id,name,username,password
     ResidentMain residentMain = new ResidentMain();
     residentMain.setId(residentId);
-    residentMain.setName(residentName);
+    residentMain.setUserName(residentName);
+    residentMain.setPassword(residentPwd);
     //direct to resident main page
     logInFrame.dispose();
     ResidentOption residentOption = new ResidentOption();
@@ -171,10 +172,6 @@ public void setResidentData(String residentId, String residentName)
 }
 
 public static void main(String[] args) {
-      
-    //declare variable
-    boolean residentPass = false;
-    
     // create window
     logInFrame.setSize(800, 600);
     logInFrame.setResizable(false);
