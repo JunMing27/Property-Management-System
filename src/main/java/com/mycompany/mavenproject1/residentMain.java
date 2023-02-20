@@ -4,11 +4,19 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  *
  * @author user
  */
 public class ResidentMain {
+    //for ResidentProfile
     private String id;
     private String name;
     private String gender;
@@ -16,7 +24,15 @@ public class ResidentMain {
     private String phone;
     private String unit;
     private String image;
+    
+    //for ResidentPay
+    private String payTo;
+    private String payAmount;
+    private String dueDate;
+    private boolean status;
 
+    
+    //get Profile
     public String getId() {
         return id;
     }
@@ -45,6 +61,32 @@ public class ResidentMain {
         return image;
     }
 
+    
+    
+    //get ResidentPay
+
+    public String getPayTo() {
+        return payTo;
+    }
+
+    public String getPayAmount() {
+        return payAmount;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+    
+    
+    
+    
+    //get status
+    public boolean getStatus() {
+        return status;
+    }
+    
+    
+    //set profile
     public void setId(String id) {
         this.id = id;
     }
@@ -73,10 +115,79 @@ public class ResidentMain {
         this.image = image;
     }
 
-    @Override
-    public String toString() {
-        return "residentMain{" + "id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", phone=" + phone + ", unit=" + unit + ", image=" + image + '}';
+    
+    private  ArrayList<ArrayList<String>> DataInfo(String textFile) throws FileNotFoundException {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } else {
+        }
+        
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(id))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(id))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+       
+        return onlyUserInfo;
     }
+    
+    
+    public void displayDataView(Integer dataLine) throws FileNotFoundException, IOException{
+        
+        String fileName = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
+        ArrayList<ArrayList<String>> allData = DataInfo(fileName);
+        
+        int newSize = allData.size();
+        try{
+            allData.get(dataLine);
+            this.payTo = allData.get(dataLine).get(1);
+            this.payAmount = allData.get(dataLine).get(2);
+            this.dueDate = allData.get(dataLine).get(3);
+            this.status = true;
+            
+        }
+        catch(Exception e){
+            setDataNull();
+            this.status = false;
+        }
+        if(dataLine.equals(newSize-1)){
+            this.status = false;
+        }
+    }
+    
+    
+    public void setDataNull(){
+        this.payTo = null;
+        this.payAmount =  null;
+        this.dueDate = null;
+    }
+    
+    
+    
+    
+    
     
     
 }

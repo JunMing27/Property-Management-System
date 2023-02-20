@@ -17,10 +17,8 @@ import javax.swing.JLabel;
 
 public class ResidentPay extends javax.swing.JFrame {
     
-    
     ResidentMain residentMain = new ResidentMain();
     String residentId = residentMain.getId();
-    
     
     //declare variable
     String fileLine = null;
@@ -31,12 +29,17 @@ public class ResidentPay extends javax.swing.JFrame {
     boolean runFirst = false, runSecond = false, runThird = false, runFourth = false, runFifth = false, runSixth = false;
     boolean firstPage = true, secondPage = false, thirdPage = false;
         
-    public ResidentPay() {
+    public ResidentPay() throws IOException {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        readData();
-        displayData();
+        
+        residentMain.setId("R1");
+        
+        setData();
+//        backPageBtn.setEnabled(false);
+//        readData();
+//        displayData();
     }
 
     /**
@@ -283,48 +286,62 @@ public class ResidentPay extends javax.swing.JFrame {
     private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
         
         //if want click from second page to third page
-        if(runFourth == true) //click from second page to third page
-        {
-            System.out.println("//click from second page to third page");
-            secondPage = false;
-            runThird = false;
-            runFourth = false;
-            thirdPage = true;
-            firstPage = false;
-            setVisibility(totalDue);
-            displayData();
-        }else{ //click from first page to second page
-            System.out.println("//click from first page to second page");
-            firstPage = false;
-            runFirst = false;
-            runSecond = false;
-            secondPage = true;
-            thirdPage = false;
-            setVisibility(totalDue);
-            displayData();
+//        if(runFourth == true) //click from second page to third page
+//        {
+//            System.out.println("//click from second page to third page");
+//            secondPage = false;
+//            runThird = false;
+//            runFourth = false;
+//            thirdPage = true;
+//            firstPage = false;
+//            setVisibility(totalDue);
+//            displayData();
+//        }else{ //click from first page to second page
+//            System.out.println("//click from first page to second page");
+//            firstPage = false;
+//            runFirst = false;
+//            runSecond = false;
+//            secondPage = true;
+//            thirdPage = false;
+//            setVisibility(totalDue);
+//            displayData();
+//        }
+        backPageBtn.setEnabled(true);
+        try {
+            setData();
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_nextPageBtnActionPerformed
 
     private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
         
-        if(runFifth == true) //click from third page to second page
-        {
-            thirdPage = false;
-            runFifth = false;
-            runSixth = false;
-            secondPage = true;
-            firstPage = false;
-            setVisibility(totalDue+1);
-            displayData();
-        }else{ //click from second page to third page
-            firstPage = true;
-            secondPage = false;
-            runThird = false;
-            runFourth = false;
-            thirdPage = false;
-            setVisibility(totalDue+1);
-            displayData();
+//        if(runFifth == true) //click from third page to second page
+//        {
+//            thirdPage = false;
+//            runFifth = false;
+//            runSixth = false;
+//            secondPage = true;
+//            firstPage = false;
+//            setVisibility(totalDue+1);
+//            displayData();
+//        }else{ //click from second page to third page
+//            firstPage = true;
+//            secondPage = false;
+//            runThird = false;
+//            runFourth = false;
+//            thirdPage = false;
+//            setVisibility(totalDue+1);
+//            displayData();
+//        }
+        backButtonFunction();
+        nextPageBtn.setEnabled(true);
+        try {
+            setData();
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
         }
+                
     }//GEN-LAST:event_backPageBtnActionPerformed
 
     private void selectBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn1ActionPerformed
@@ -371,7 +388,11 @@ public class ResidentPay extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentPay().setVisible(true);
+                try {
+                    new ResidentPay().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -550,7 +571,6 @@ public class ResidentPay extends javax.swing.JFrame {
 
     private void setRelevantData(String[] item, JLabel payTo, JLabel payAmount, JLabel dueDate)
     {
-        System.out.println("enter setRelevantData");
         for (int j=0; j<item.length; j++){
             payTo.setText(item[1]);
             payAmount.setText(item[2]);
@@ -561,7 +581,6 @@ public class ResidentPay extends javax.swing.JFrame {
     
     private void setVisibility(int totalDue)
     {
-        System.out.println("enter setVisibility totalDue == "+totalDue);
         if(firstPage == true)
         {
             backPageBtn.setVisible(false);
@@ -618,6 +637,76 @@ public class ResidentPay extends javax.swing.JFrame {
     }
     
     
+    private Integer pageLine=-1;
+    
+    private void setPagination(){
+        pageLine=pageLine+1;
+    }
+    
+    
+    public void backButtonToggle(){
+        backBtn.setEnabled(false);
+    }
+    
+    public void backButtonFunction(){
+        pageLine = pageLine -4;
+        if (pageLine==-1){
+            backBtn.setEnabled(false);
+        }
+    }
+    
+    private void setData() throws IOException{
+        try {
+            setPagination();
+            residentMain.displayDataView(pageLine);
+            boolean boo = residentMain.getStatus();
+            if(boo==false){
+                nextPageBtn.setEnabled(false);
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(residentMain.getPayTo()!= null)
+        {
+            payToTxt1.setText(residentMain.getPayTo());
+            payAmountTxt1.setText(residentMain.getPayAmount());
+            dueDateTxt1.setText(residentMain.getDueDate());
+        }else{
+            payToTxt1.setText("no data");
+            payAmountTxt1.setText("no data");
+            dueDateTxt1.setText("no data");
+        }
+        
+        
+        
+        
+        //for bottom part
+        try {
+            System.out.println("enter second part");
+            setPagination();
+            residentMain.displayDataView(pageLine);
+            boolean boo = residentMain.getStatus();
+            if(boo==false){
+                nextPageBtn.setEnabled(false);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(residentMain.getPayTo()!= null)
+        {
+            payToTxt2.setText(residentMain.getPayTo());
+            payAmountTxt2.setText(residentMain.getPayAmount());
+            dueDateTxt2.setText(residentMain.getDueDate());
+        }else{
+            payToTxt2.setText("no data");
+            payAmountTxt2.setText("no data");
+            dueDateTxt2.setText("no data");
+        }
+        
+    }
     
     
     
