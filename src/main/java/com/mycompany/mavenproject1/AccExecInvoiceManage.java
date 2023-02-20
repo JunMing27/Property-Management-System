@@ -558,7 +558,7 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
     private void BackAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecInvoiceManageActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        AccExecOption AccExecOption = new AccExecOption();
+        AccExecOption1 AccExecOption = new AccExecOption1();
         AccExecOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         AccExecOption.pack();
         AccExecOption.setResizable(false);
