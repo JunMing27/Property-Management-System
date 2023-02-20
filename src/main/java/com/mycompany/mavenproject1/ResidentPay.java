@@ -20,26 +20,18 @@ public class ResidentPay extends javax.swing.JFrame {
     ResidentMain residentMain = new ResidentMain();
     String residentId = residentMain.getId();
     
-    //declare variable
-    String fileLine = null;
-    ArrayList<String> duePayment1D = new ArrayList<String>();
-    int totalRow = 0;
-    String[][] duePayment2D, onlyUserDue2D, remove2D1, remove2D2, remove2D3, remove2D4;
-    int totalDue = 0;
-    boolean runFirst = false, runSecond = false, runThird = false, runFourth = false, runFifth = false, runSixth = false;
-    boolean firstPage = true, secondPage = false, thirdPage = false;
         
-    public ResidentPay() throws IOException {
-        initComponents();
-        setResizable(false);
-        setLocationRelativeTo(null);
-        
-        residentMain.setId("R1");
-        
-        setData();
-//        backPageBtn.setEnabled(false);
-//        readData();
-//        displayData();
+    public ResidentPay(){
+        try {
+            initComponents();
+            setResizable(false);
+            setLocationRelativeTo(null);
+            
+            residentMain.setId("R1");
+            setData();
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -285,27 +277,6 @@ public class ResidentPay extends javax.swing.JFrame {
 
     private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
         
-        //if want click from second page to third page
-//        if(runFourth == true) //click from second page to third page
-//        {
-//            System.out.println("//click from second page to third page");
-//            secondPage = false;
-//            runThird = false;
-//            runFourth = false;
-//            thirdPage = true;
-//            firstPage = false;
-//            setVisibility(totalDue);
-//            displayData();
-//        }else{ //click from first page to second page
-//            System.out.println("//click from first page to second page");
-//            firstPage = false;
-//            runFirst = false;
-//            runSecond = false;
-//            secondPage = true;
-//            thirdPage = false;
-//            setVisibility(totalDue);
-//            displayData();
-//        }
         backPageBtn.setEnabled(true);
         try {
             setData();
@@ -316,24 +287,6 @@ public class ResidentPay extends javax.swing.JFrame {
 
     private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
         
-//        if(runFifth == true) //click from third page to second page
-//        {
-//            thirdPage = false;
-//            runFifth = false;
-//            runSixth = false;
-//            secondPage = true;
-//            firstPage = false;
-//            setVisibility(totalDue+1);
-//            displayData();
-//        }else{ //click from second page to third page
-//            firstPage = true;
-//            secondPage = false;
-//            runThird = false;
-//            runFourth = false;
-//            thirdPage = false;
-//            setVisibility(totalDue+1);
-//            displayData();
-//        }
         backButtonFunction();
         nextPageBtn.setEnabled(true);
         try {
@@ -341,6 +294,8 @@ public class ResidentPay extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
                 
     }//GEN-LAST:event_backPageBtnActionPerformed
 
@@ -388,11 +343,7 @@ public class ResidentPay extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new ResidentPay().setVisible(true);
-                } catch (IOException ex) {
-                    Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new ResidentPay().setVisible(true);
             }
         });
     }
@@ -422,236 +373,17 @@ public class ResidentPay extends javax.swing.JFrame {
 
     
     
-    private void readData()
-    {
-        
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/ResidentDuePayment.txt");
-            BufferedReader br = new BufferedReader(new FileReader(file));
-        
-            //save all data into arraylist
-            while((fileLine = br.readLine()) != null)
-            {
-                duePayment1D.add(fileLine);
-            }
-            totalRow = duePayment1D.size();
-            duePayment2D = new String[totalRow][1];
-            br.close();
-        
-            
-            //convert 1d array to 2d array
-            for (int i=0; i<totalRow; i++ )
-            {
-                for (int j=0; j<1; j++)
-                {
-                    duePayment2D[i][j] = duePayment1D.get(i);
-                }
-            }
-            
-            
-            //loop to find total number of due payment
-            for (int i=0; i<duePayment2D.length; i++)
-            {
-                if(duePayment2D[i][0].contains(residentId))
-                {
-                    String[] item = duePayment2D[i][0].trim().split(",");
-                    if(item[0].equals(residentId))
-                    {
-                        totalDue+=1;
-                    }
-                }
-            }
-            onlyUserDue2D = new String[totalDue][1];
-            remove2D1 = new String[totalDue-1][1];
-            remove2D2 = new String[totalDue-2][1];
-            remove2D3 = new String[totalDue-3][1];
-            remove2D4 = new String[totalDue-4][1];
-            setVisibility(totalDue);
-            
-            int p,q;
-            //set onlyUserDue2D
-            if(totalDue>2)
-            {
-                for (p=0,q=0; p<duePayment2D.length; p++)
-                {
-                    if(duePayment2D[p][0].contains(residentId))
-                    {
-                        onlyUserDue2D[q] = duePayment2D[p];
-                        q++;
-                    }
-                }
-            }
-            
-            //set remove2D1
-            for(int i=1; i<onlyUserDue2D.length; i++)
-            {
-                remove2D1[i-1] = onlyUserDue2D[i];
-            }
-            
-            //set remove2D2
-            for(int i=2; i<onlyUserDue2D.length; i++)
-            {
-                remove2D2[i-2] = onlyUserDue2D[i];
-            }
-            
-            //set remove2D3
-            for(int i=3; i<onlyUserDue2D.length; i++)
-            {
-                remove2D3[i-3] = onlyUserDue2D[i];
-            }
-            
-            //set remove2D4
-            for(int i=4; i<onlyUserDue2D.length; i++)
-            {
-                remove2D4[i-4] = onlyUserDue2D[i];
-            }
-            
-        }catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     
-    
-    private void displayData() {
-        
-        if(firstPage == true)
-        {
-            for (int i=0; i<onlyUserDue2D.length; i++)
-            {
-                String[] item = onlyUserDue2D[i][0].trim().split(",");
-                if(runFirst == false){
-                    setRelevantData(item, payToTxt1, payAmountTxt1, dueDateTxt1);
-                    runFirst = true;
-                }else{
-                    setRelevantData(item, payToTxt2, payAmountTxt2, dueDateTxt2);
-                    runSecond = true;
-                    break;
-                }
-            
-            }
-        }
-        else if(secondPage == true)
-        {
-            for (int i=0; i<remove2D2.length; i++)
-            {
-                String[] item = remove2D2[i][0].trim().split(",");
-                if(runThird == false){
-                    setRelevantData(item, payToTxt1, payAmountTxt1, dueDateTxt1);
-                    runThird = true;
-                }else{
-                    setRelevantData(item, payToTxt2, payAmountTxt2, dueDateTxt2);
-                    runFourth = true;
-                    break;
-                }
-            }
-        }
-        else if(thirdPage == true)
-        {
-            for (int i=0; i<remove2D4.length; i++)
-            {
-                String[] item = remove2D4[i][0].trim().split(",");
-                if(runFifth == false)
-                {
-                    setRelevantData(item, payToTxt1, payAmountTxt1, dueDateTxt1);
-                    runFifth = true;
-                }else{
-                    setRelevantData(item, payToTxt2, payAmountTxt2, dueDateTxt2);
-                    runSixth = true;
-                    break;
-                }
-            }
-        }
-        
-        
-            
-    }
-
-
-    private void setRelevantData(String[] item, JLabel payTo, JLabel payAmount, JLabel dueDate)
-    {
-        for (int j=0; j<item.length; j++){
-            payTo.setText(item[1]);
-            payAmount.setText(item[2]);
-            dueDate.setText(item[3]);
-        }
-    }
-    
-    
-    private void setVisibility(int totalDue)
-    {
-        if(firstPage == true)
-        {
-            backPageBtn.setVisible(false);
-            if(totalDue<3)
-            {
-                nextPageBtn.setVisible(false);
-            }
-            else{
-                nextPageBtn.setVisible(true);
-            }
-            
-        }
-        
-        if(secondPage == true)
-        {
-            backPageBtn.setVisible(true);
-            if(totalDue<5)
-            {
-                nextPageBtn.setVisible(false);
-            }
-            else{
-                nextPageBtn.setVisible(true);
-            }
-            
-        }
-        
-        
-        if(thirdPage == true)
-        {
-            backPageBtn.setVisible(true);
-            nextPageBtn.setVisible(false);
-        }
-        
-        
-        if(totalDue == 1 || totalDue == 3 || totalDue == 5)
-        {
-            payToLabel2.setVisible(false);
-            payToTxt2.setVisible(false);
-            payAmountLabel2.setVisible(false);
-            payAmountTxt2.setVisible(false);
-            dueDateLabel2.setVisible(false);
-            dueDateTxt2.setVisible(false);
-            selectBtn2.setVisible(false);
-        }else{ //2,4,6
-            payToLabel2.setVisible(true);
-            payToTxt2.setVisible(true);
-            payAmountLabel2.setVisible(true);
-            payAmountTxt2.setVisible(true);
-            dueDateLabel2.setVisible(true);
-            dueDateTxt2.setVisible(true);
-            selectBtn2.setVisible(true);
-        }
-        
-    }
-    
-    
-    private Integer pageLine=-1;
+    private int pageLine=-1;
     
     private void setPagination(){
         pageLine=pageLine+1;
     }
     
-    
-    public void backButtonToggle(){
-        backBtn.setEnabled(false);
-    }
-    
     public void backButtonFunction(){
-        pageLine = pageLine -4;
-        if (pageLine==-1){
-            backBtn.setEnabled(false);
+        pageLine = pageLine - 4;
+        if (pageLine == -1){
+            backPageBtn.setEnabled(false);
         }
     }
     
@@ -684,7 +416,6 @@ public class ResidentPay extends javax.swing.JFrame {
         
         //for bottom part
         try {
-            System.out.println("enter second part");
             setPagination();
             residentMain.displayDataView(pageLine);
             boolean boo = residentMain.getStatus();
