@@ -5,6 +5,7 @@
 package com.mycompany.mavenproject1;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -42,12 +43,12 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        InvoiceNum1 = new javax.swing.JLabel();
+        TenantName1 = new javax.swing.JLabel();
+        DateSent1 = new javax.swing.JLabel();
+        DueDate1 = new javax.swing.JLabel();
+        AmountDue1 = new javax.swing.JLabel();
+        Amount1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -64,12 +65,12 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        InvoiceNum2 = new javax.swing.JLabel();
+        TenantName2 = new javax.swing.JLabel();
+        DateSent2 = new javax.swing.JLabel();
+        DueDate2 = new javax.swing.JLabel();
+        AmountDue2 = new javax.swing.JLabel();
+        Amount2 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
@@ -84,12 +85,12 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+        InvoiceNum3 = new javax.swing.JLabel();
+        TenantName3 = new javax.swing.JLabel();
+        DateSent3 = new javax.swing.JLabel();
+        DueDate3 = new javax.swing.JLabel();
+        AmountDue3 = new javax.swing.JLabel();
+        Amount3 = new javax.swing.JLabel();
         jSeparator13 = new javax.swing.JSeparator();
         jSeparator14 = new javax.swing.JSeparator();
         jSeparator15 = new javax.swing.JSeparator();
@@ -135,58 +136,58 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
 
         jLabel1.setText("Invoice Number");
 
-        jLabel7.setText("jLabel7");
+        InvoiceNum1.setText("InvoiceNum1");
 
-        jLabel8.setText("jLabel8");
+        TenantName1.setText("TenantName1");
 
-        jLabel9.setText("jLabel9");
+        DateSent1.setText("DateSent1");
 
-        jLabel10.setText("jLabel10");
+        DueDate1.setText("DueDate1");
 
-        jLabel11.setText("jLabel11");
+        AmountDue1.setText("AmountDue1");
 
-        jLabel12.setText("jLabel12");
+        Amount1.setText("Amount1");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InvoiceNum1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator1))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TenantName1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DateSent1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DueDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(AmountDue1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Amount1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(ViewDetailsInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -216,18 +217,23 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
                         .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12))
+                    .addComponent(InvoiceNum1)
+                    .addComponent(TenantName1)
+                    .addComponent(DateSent1)
+                    .addComponent(DueDate1)
+                    .addComponent(AmountDue1)
+                    .addComponent(Amount1))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
         BackAccExecInvoiceManage2.setBackground(new java.awt.Color(255, 255, 255));
         BackAccExecInvoiceManage2.setForeground(new java.awt.Color(0, 0, 0));
         BackAccExecInvoiceManage2.setText("Back");
+        BackAccExecInvoiceManage2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackAccExecInvoiceManage2ActionPerformed(evt);
+            }
+        });
 
         NextAccExecInvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
         NextAccExecInvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
@@ -239,6 +245,11 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
         ViewDetailsInvoice2.setBackground(new java.awt.Color(255, 255, 255));
         ViewDetailsInvoice2.setForeground(new java.awt.Color(0, 0, 0));
         ViewDetailsInvoice2.setText("View Details");
+        ViewDetailsInvoice2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewDetailsInvoice2ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Tenant's Name");
 
@@ -252,17 +263,17 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
 
         jLabel18.setText("Invoice Number");
 
-        jLabel19.setText("jLabel7");
+        InvoiceNum2.setText("InvoiceNum2");
 
-        jLabel20.setText("jLabel8");
+        TenantName2.setText("TenantName2");
 
-        jLabel21.setText("jLabel9");
+        DateSent2.setText("DateSent2");
 
-        jLabel22.setText("jLabel10");
+        DueDate2.setText("DueDate2");
 
-        jLabel23.setText("jLabel11");
+        AmountDue2.setText("AmountDue2");
 
-        jLabel24.setText("jLabel12");
+        Amount2.setText("Amount2");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -272,12 +283,12 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InvoiceNum2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator7))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TenantName2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,24 +297,24 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DateSent2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DueDate2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(AmountDue2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Amount2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(ViewDetailsInvoice2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -333,12 +344,12 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
                         .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel24))
+                    .addComponent(InvoiceNum2)
+                    .addComponent(TenantName2)
+                    .addComponent(DateSent2)
+                    .addComponent(DueDate2)
+                    .addComponent(AmountDue2)
+                    .addComponent(Amount2))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -348,6 +359,11 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
         ViewDetailsInvoice3.setBackground(new java.awt.Color(255, 255, 255));
         ViewDetailsInvoice3.setForeground(new java.awt.Color(0, 0, 0));
         ViewDetailsInvoice3.setText("View Details");
+        ViewDetailsInvoice3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewDetailsInvoice3ActionPerformed(evt);
+            }
+        });
 
         jLabel25.setText("Tenant's Name");
 
@@ -361,17 +377,17 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
 
         jLabel30.setText("Invoice Number");
 
-        jLabel31.setText("jLabel7");
+        InvoiceNum3.setText("InvoiceNum3");
 
-        jLabel32.setText("jLabel8");
+        TenantName3.setText("TenantName3");
 
-        jLabel33.setText("jLabel9");
+        DateSent3.setText("DateSent3");
 
-        jLabel34.setText("jLabel10");
+        DueDate3.setText("DueDate3");
 
-        jLabel35.setText("jLabel11");
+        AmountDue3.setText("AmountDue3");
 
-        jLabel36.setText("jLabel12");
+        Amount3.setText("Amount3");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -381,12 +397,12 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InvoiceNum3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator13))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(TenantName3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,24 +411,24 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DateSent3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSeparator15))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DueDate3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                        .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(AmountDue3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Amount3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(ViewDetailsInvoice3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -442,12 +458,12 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
                         .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel33)
-                    .addComponent(jLabel34)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel36))
+                    .addComponent(InvoiceNum3)
+                    .addComponent(TenantName3)
+                    .addComponent(DateSent3)
+                    .addComponent(DueDate3)
+                    .addComponent(AmountDue3)
+                    .addComponent(Amount3))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -497,13 +513,13 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AddNewAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(71, 71, 71)
+                .addGap(35, 35, 35)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 174, Short.MAX_VALUE))
+                .addGap(22, 120, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -525,6 +541,18 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
 
     private void AddNewAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewAccExecInvoiceManageActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        AccExecAddEditInvoice InvoiceAddEdit = new AccExecAddEditInvoice();
+        InvoiceAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        InvoiceAddEdit.pack();
+        InvoiceAddEdit.setResizable(false);
+        InvoiceAddEdit.setLocationRelativeTo(null);
+        InvoiceAddEdit.setVisible(true);
+        try {
+            InvoiceAddEdit.addEditDetect("add","");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AccExecutiveInvoiceView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_AddNewAccExecInvoiceManageActionPerformed
 
     private void BackAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecInvoiceManageActionPerformed
@@ -540,16 +568,16 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
 
     private void ViewDetailsInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsInvoiceActionPerformed
         // TODO add your handling code here:
-        if(!jLabel4.getText().equals("no data")){
+        if(!InvoiceNum1.getText().equals("no data")){
             this.dispose();
-            BusManBudgetPlanningView budgetView = new BusManBudgetPlanningView();
-            budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            budgetView.pack();
-            budgetView.setResizable(false);
-            budgetView.setLocationRelativeTo(null);
-            budgetView.setVisible(true);
+            AccExecutiveInvoiceView InvoiceView = new AccExecutiveInvoiceView();
+            InvoiceView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            InvoiceView.pack();
+            InvoiceView.setResizable(false);
+            InvoiceView.setLocationRelativeTo(null);
+            InvoiceView.setVisible(true);
             try {
-                budgetView.setDataViewSingle(jLabel4.getText());
+                InvoiceView.setDataViewSingle(InvoiceNum1.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -558,6 +586,149 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ViewDetailsInvoiceActionPerformed
 
+    
+    
+    private void BackAccExecInvoiceManage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecInvoiceManage2ActionPerformed
+        // TODO add your handling code here:
+        backButtonFunction();
+        setInvoiceData();
+        BackAccExecInvoiceManage2.setEnabled(true);
+    }//GEN-LAST:event_BackAccExecInvoiceManage2ActionPerformed
+
+    private void ViewDetailsInvoice2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsInvoice2ActionPerformed
+        // TODO add your handling code here:
+        if(!InvoiceNum2.getText().equals("no data")){
+            this.dispose();
+            AccExecutiveInvoiceView InvoiceView = new AccExecutiveInvoiceView();
+            InvoiceView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            InvoiceView.pack();
+            InvoiceView.setResizable(false);
+            InvoiceView.setLocationRelativeTo(null);
+            InvoiceView.setVisible(true);
+            try {
+                InvoiceView.setDataViewSingle(InvoiceNum2.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_ViewDetailsInvoice2ActionPerformed
+
+    private void ViewDetailsInvoice3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsInvoice3ActionPerformed
+        // TODO add your handling code here:
+        if(!InvoiceNum3.getText().equals("no data")){
+            this.dispose();
+            AccExecutiveInvoiceView InvoiceView = new AccExecutiveInvoiceView();
+            InvoiceView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            InvoiceView.pack();
+            InvoiceView.setResizable(false);
+            InvoiceView.setLocationRelativeTo(null);
+            InvoiceView.setVisible(true);
+            try {
+                InvoiceView.setDataViewSingle(InvoiceNum3.getText());
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_ViewDetailsInvoice3ActionPerformed
+
+    public void backButtonToggle(){
+        BackAccExecInvoiceManage2.setEnabled(false);
+}
+    public void backButtonFunction(){
+        PageLine = PageLine -6;
+        if (PageLine==-1){
+            BackAccExecInvoiceManage2.setEnabled(false);
+        }
+    }
+    
+    private Integer PageLine=-1;
+    
+    private String searchTxt ="";
+    
+    public void setPagination(){
+        PageLine=PageLine+1;
+    }
+    
+    public void setInvoiceData(){
+        AccExecMain main = new AccExecMain();
+        main.chooseTxtFile("InvoiceContent");
+            try {
+                setPagination();
+                main.displayDataView(PageLine,searchTxt,"Invoice");
+                boolean boo = main.getStatus();
+                if(boo==false){
+                    NextAccExecInvoiceManage.setEnabled(false);
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            InvoiceNum1.setText(main.getInvoiceNumber());
+            TenantName1.setText(main.getTenantName());
+            DateSent1.setText(main.getDateInvoiceIssued());
+            DueDate1.setText(main.getDateDue());
+            AmountDue1.setText(main.getAmountDue());
+            Amount1.setText(main.getAmountInvoice());
+            try {
+                setPagination();
+                main.displayDataView(PageLine,searchTxt,"Invoice");
+                boolean boo = main.getStatus();
+                if(boo==false){
+                    NextAccExecInvoiceManage.setEnabled(false);
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(main.getInvoiceNumber() !=null){
+                InvoiceNum2.setText(main.getInvoiceNumber());
+                TenantName2.setText(main.getTenantName());
+                DateSent2.setText(main.getDateInvoiceIssued());
+                DueDate2.setText(main.getDateDue());
+                AmountDue2.setText(main.getAmountDue());
+                Amount2.setText(main.getAmountInvoice());
+            }else{
+                InvoiceNum2.setText("no data");
+                TenantName2.setText("no data");
+                DateSent2.setText("no data");
+                DueDate2.setText("no data");
+                AmountDue2.setText("no data");
+                Amount2.setText("no data");
+            }
+            try {
+                setPagination();
+                main.displayDataView(PageLine,searchTxt,"Invoice");
+                boolean boo = main.getStatus();
+                if(boo==false){
+                    NextAccExecInvoiceManage.setEnabled(false);
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(main.getInvoiceNumber() !=null){
+                InvoiceNum3.setText(main.getInvoiceNumber());
+                TenantName3.setText(main.getTenantName());
+                DateSent3.setText(main.getDateInvoiceIssued());
+                DueDate3.setText(main.getDateDue());
+                AmountDue3.setText(main.getAmountDue());
+                Amount3.setText(main.getAmountInvoice());
+            }else{
+                InvoiceNum3.setText("no data");
+                TenantName3.setText("no data");
+                DateSent3.setText("no data");
+                DueDate3.setText("no data");
+                AmountDue3.setText("no data");
+                Amount3.setText("no data");
+            }
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -595,29 +766,38 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddNewAccExecInvoiceManage;
+    private javax.swing.JLabel Amount1;
+    private javax.swing.JLabel Amount2;
+    private javax.swing.JLabel Amount3;
+    private javax.swing.JLabel AmountDue1;
+    private javax.swing.JLabel AmountDue2;
+    private javax.swing.JLabel AmountDue3;
     private javax.swing.JButton BackAccExecInvoiceManage;
     private javax.swing.JButton BackAccExecInvoiceManage2;
+    private javax.swing.JLabel DateSent1;
+    private javax.swing.JLabel DateSent2;
+    private javax.swing.JLabel DateSent3;
+    private javax.swing.JLabel DueDate1;
+    private javax.swing.JLabel DueDate2;
+    private javax.swing.JLabel DueDate3;
+    private javax.swing.JLabel InvoiceNum1;
+    private javax.swing.JLabel InvoiceNum2;
+    private javax.swing.JLabel InvoiceNum3;
     private javax.swing.JButton NextAccExecInvoiceManage;
+    private javax.swing.JLabel TenantName1;
+    private javax.swing.JLabel TenantName2;
+    private javax.swing.JLabel TenantName3;
     private javax.swing.JButton ViewDetailsInvoice;
     private javax.swing.JButton ViewDetailsInvoice2;
     private javax.swing.JButton ViewDetailsInvoice3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -625,18 +805,9 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
