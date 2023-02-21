@@ -29,8 +29,6 @@ public class ResidentOption extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        residentMain.setResidentData();
-        residentMain.setCredentialData();
     }
 
     /**

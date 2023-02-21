@@ -5,9 +5,11 @@
 package com.mycompany.mavenproject1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -92,8 +94,6 @@ public class ResidentMain {
     }
     
     
-    
-    
     //get status
     public boolean getStatus() {
         return status;
@@ -137,53 +137,28 @@ public class ResidentMain {
     public void setPassword(String password) {
         this.password = password;
     }
+   
+    //set ResidentPay
+    public void setPayTo(String payTo) {
+        this.payTo = payTo;
+    }
 
-    
-    public void setResidentData()
-    {
-        
-        try {
-            String fileName = "src/main/java/com/mycompany/textFile/ResidentProfile.txt";
-            ArrayList<ArrayList<String>> all = dataInfo(fileName);
-            for (ArrayList<String> one : all) {
-                if (one.get(0).equals(id)) {
-                    setName(one.get(1));
-                    setGender(one.get(2));
-                    setAge(one.get(3));
-                    setPhone(one.get(4));
-                    setUnit(one.get(5));
-                    setImage(one.get(6));
-                    break;
-                }
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
-
-    
+    public void setPayAmount(String payAmount) {
+        this.payAmount = payAmount;
     }
     
-    public void setCredentialData()
-    {
-        try {
-            String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
-            ArrayList<ArrayList<String>> allData = dataInfo(fileName);
-            for (ArrayList<String> singleData : allData) {
-                if (singleData.get(0).equals(id)) {
-                    setUserName(singleData.get(1));
-                    setPassword(singleData.get(2));
-                    break;
-                }
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
     }
     
     
+    //set Status
+    public  void setStatus(boolean status) {
+        this.status = status;
+    }
+
     
-    private  ArrayList<ArrayList<String>> dataInfo(String textFile) throws FileNotFoundException {
+    public ArrayList<ArrayList<String>> dataInfo(String textFile) throws FileNotFoundException {
         File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
@@ -193,16 +168,14 @@ public class ResidentMain {
             String[] itemArray;
             ArrayList<String> itemArrayList;
             allUserInfo = new ArrayList<>();
-            while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); 
+            while (sc.hasNextLine()) {
+                oneUserInfo = sc.nextLine().trim();
                 itemArray = oneUserInfo.split(","); 
                 itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
                 allUserInfo.add(itemArrayList);
             }
         } else {
         }
-        
-        
         int p,q;
         for (p=0,q=0; p<allUserInfo.size(); p++)
         {
@@ -216,23 +189,44 @@ public class ResidentMain {
                 }
             }
         }
-       
         return onlyUserInfo;
     }
     
     
-    public void displayDataView(Integer dataLine) throws FileNotFoundException, IOException{
+    public void displayDataView(Integer dataLine, String file) throws FileNotFoundException, IOException
+    {
         
-        String fileName = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
+        String fileName = "src/main/java/com/mycompany/textFile/"+file+".txt";
         ArrayList<ArrayList<String>> allData = dataInfo(fileName);
         
         int newSize = allData.size();
         try{
             allData.get(dataLine);
-            this.payTo = allData.get(dataLine).get(1);
-            this.payAmount = allData.get(dataLine).get(2);
-            this.dueDate = allData.get(dataLine).get(3);
-            this.status = true;
+            //for ResidentProfile
+            if(file.equals("ResidentProfile")) {
+                setId(allData.get(dataLine).get(0));
+                setName(allData.get(dataLine).get(1));
+                setGender(allData.get(dataLine).get(2));
+                setAge(allData.get(dataLine).get(3));
+                setPhone(allData.get(dataLine).get(4));
+                setUnit(allData.get(dataLine).get(5));
+                setImage(allData.get(dataLine).get(6));
+            }
+            //for Credential Data
+            else if(file.equals("loginCredential"))
+            {
+                setId(allData.get(dataLine).get(0));
+                setUserName(allData.get(dataLine).get(1));
+                setPassword(allData.get(dataLine).get(2));
+            }
+            //for ResidentPay
+            else if (file.equals("ResidentDuePayment")) {
+                setId(allData.get(dataLine).get(0));
+                setPayTo(allData.get(dataLine).get(1));
+                setPayAmount(allData.get(dataLine).get(2));
+                setDueDate(allData.get(dataLine).get(3));
+                this.status = true;
+            }
             
         }
         catch(Exception e){
@@ -245,18 +239,24 @@ public class ResidentMain {
     }
     
     
+    
     public void setDataNull(){
-        
+        //for ResidentProfile
+        this.id = null;
+        this.name = null;
+        this.gender = null;
+        this.age = null;
+        this.phone = null;
+        this.unit = null;
+        this.image = null;
+        //for CredentialData
+        this.userName = null;
+        this.password = null;
         //for ResidentPay
+        this.id = null;
         this.payTo = null;
         this.payAmount =  null;
         this.dueDate = null;
     }
-    
-    
-    
-    
-    
-    
-    
+
 }

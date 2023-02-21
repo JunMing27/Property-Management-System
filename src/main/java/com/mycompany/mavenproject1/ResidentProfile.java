@@ -7,6 +7,11 @@ package com.mycompany.mavenproject1;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
@@ -17,15 +22,13 @@ import javax.swing.ImageIcon;
 public class ResidentProfile extends javax.swing.JFrame {
 
     ResidentMain residentMain = new ResidentMain();
+    String residentId = residentMain.getId();
+    String residentImage;
     
     public ResidentProfile() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        
-        residentMain.setId("R1");
-        residentMain.setResidentData();
-        residentMain.setCredentialData();
         displayData();
     }
 
@@ -320,31 +323,85 @@ public class ResidentProfile extends javax.swing.JFrame {
 
     private void displayData()
     {
-        //data
-        residentIdTxt.setText(residentMain.getId());
-        residentNameTxt.setText(residentMain.getName());
-        residentGenderTxt.setText(residentMain.getGender());
-        residentAgeTxt.setText(residentMain.getAge());
-        residentPhoneTxt.setText(residentMain.getPhone());
-        residentUnitTxt.setText(residentMain.getUnit());
-        
-        //username and pwd
-        residentUsernameTxt.setText(residentMain.getUserName());
-        residentPwdTxt.setText(residentMain.getPassword());
-        //image
-        BufferedImage bufferedImage = null;
         try {
-            File imageFile = new File("src/main/java/com/mycompany/Image/"+residentMain.getImage());
-            bufferedImage = ImageIO.read(imageFile);
-        } catch (IOException e) {
-            e.printStackTrace();
+            String profileFile = "src/main/java/com/mycompany/textFile/ResidentProfile.txt";
+            String credentialFile = "src/main/java/com/mycompany/textFile/loginCredential.txt";
+            ArrayList<ArrayList<String>> userData = dataInfo(profileFile);
+            ArrayList<ArrayList<String>> credentialData = dataInfo(credentialFile);
+
+            if(userData.get(0) != null)
+            {
+                residentIdTxt.setText(userData.get(0).get(0));
+                residentNameTxt.setText(userData.get(0).get(1));
+                residentGenderTxt.setText(userData.get(0).get(2));
+                residentAgeTxt.setText(userData.get(0).get(3));
+                residentPhoneTxt.setText(userData.get(0).get(4));
+                residentUnitTxt.setText(userData.get(0).get(5));
+                residentImage = userData.get(0).get(6);
+                
+                residentUsernameTxt.setText(credentialData.get(0).get(1));
+                residentPwdTxt.setText(credentialData.get(0).get(2));
+
+                //image
+                BufferedImage bufferedImage = null;
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+residentImage);
+                bufferedImage = ImageIO.read(imageFile);
+                Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon profileIcon = new ImageIcon(profileImage);
+                imageLabel.setIcon(profileIcon);
+            }
+            else{
+                residentIdTxt.setText("no data");
+                residentNameTxt.setText("no data");
+                residentGenderTxt.setText("no data");
+                residentAgeTxt.setText("no data");
+                residentPhoneTxt.setText("no data");
+                residentUnitTxt.setText("no data");
+                imageLabel.setText("no data");
+                residentUsernameTxt.setText("no data");
+                residentPwdTxt.setText("no data");
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon profileIcon = new ImageIcon(profileImage);
-        imageLabel.setIcon(profileIcon);
+        
     }
     
-    
+    private  ArrayList<ArrayList<String>> dataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(residentId))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(residentId))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+        return onlyUserInfo;
+    }
     
     
     /**

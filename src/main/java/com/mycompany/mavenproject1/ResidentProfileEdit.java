@@ -4,9 +4,25 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
 
 /**
  *
@@ -16,8 +32,11 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     //declare variable
     ResidentProfile residentProfile = new ResidentProfile();
     ResidentMain residentMain = new ResidentMain();
-    String residentName, residentAgeString, residentGender, residentPhone;
+    String residentId, residentName, residentAgeString, residentGender, residentPhone, residentUnit, residentUserName, residentPwd, residentImage;
     int residentAgeInt;
+    File selectedImagePath;
+    String selectedImageString;
+    
     /**
      * Creates new form ResidentProfileEdit
      */
@@ -25,6 +44,7 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentId = residentMain.getId();
         displayData();
         
     }
@@ -164,6 +184,11 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         imageLabel.setBackground(new java.awt.Color(233, 233, 233));
         imageLabel.setForeground(new java.awt.Color(0, 0, 0));
         imageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageLabelMouseClicked(evt);
+            }
+        });
 
         saveBtn.setBackground(new java.awt.Color(255, 255, 255));
         saveBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -188,6 +213,7 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         errorMessage.setEditable(false);
         errorMessage.setBackground(new java.awt.Color(233, 233, 233));
         errorMessage.setForeground(new java.awt.Color(204, 0, 0));
+        errorMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         errorMessage.setBorder(null);
 
         residentUsernameLabel.setBackground(new java.awt.Color(233, 233, 233));
@@ -333,13 +359,23 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         int dialog = JOptionPane.showConfirmDialog(null, 
                 "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
+            residentName = residentNameTxt.getText();
+            residentAgeString = residentAgeTxt.getText();
+            residentGender = residentGenderTxt.getText();
+            residentPhone = residentPhoneTxt.getText();
+            residentUnit = residentUnitTxt.getText();
+            residentUserName = residentUsernameTxt.getText();
+            residentPwd = residentPwdTxt.getText();
+            
             if(checkData())
             {
-                setData();
+                removeFromFile("ResidentProfile");
+                removeFromFile("loginCredential");
+                editProfile(residentName, residentGender, residentAgeInt, residentPhone, residentUnit, residentImage);
+                editCredential(residentUserName, residentPwd);
                 this.dispose();
                 residentProfile.setVisible(true); 
             }
-              
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 
@@ -348,26 +384,93 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentProfile.setVisible(true);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
+    private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileFilter() {
+        @Override
+        public boolean accept(File f) {
+            if (f.isDirectory()) {
+                return true;
+            }
+            final String name = f.getName();
+            return name.endsWith(".png") || name.endsWith(".jpg");
+        }
+
+        @Override
+        public String getDescription() {
+            return "*.png,*.jpg";
+        }
+        });
+        int result = fileChooser.showOpenDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION)
+        {
+            selectedImagePath = fileChooser.getSelectedFile();
+            selectedImageString = selectedImagePath.toString();
+            BufferedImage bufferedImage = null;
+            try {
+                bufferedImage = ImageIO.read(selectedImagePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon profileIcon = new ImageIcon(profileImage);
+            imageLabel.setIcon(profileIcon);
+            
+            residentImage = selectedImageString.substring(selectedImageString.lastIndexOf("/") + 1);
+            
+        }
+    }//GEN-LAST:event_imageLabelMouseClicked
+
     
     private void displayData()
     {
-        residentIdTxt.setText(residentMain.getId());
-        residentNameTxt.setText(residentMain.getName());
-        residentGenderTxt.setText(residentMain.getGender());
-        residentAgeTxt.setText(residentMain.getAge());
-        residentPhoneTxt.setText(residentMain.getPhone());
-        residentUnitTxt.setText(residentMain.getUnit());
-        residentUsernameTxt.setText(residentMain.getUserName());
-        residentPwdTxt.setText(residentMain.getPassword());
+        try {
+            String profileFile = "src/main/java/com/mycompany/textFile/ResidentProfile.txt";
+            String credentialFile = "src/main/java/com/mycompany/textFile/loginCredential.txt";
+            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(profileFile);
+            ArrayList<ArrayList<String>> credentialData = onlyUserDataInfo(credentialFile);
+
+            if(userData.get(0) != null)
+            {
+                residentIdTxt.setText(userData.get(0).get(0));
+                residentNameTxt.setText(userData.get(0).get(1));
+                residentGenderTxt.setText(userData.get(0).get(2));
+                residentAgeTxt.setText(userData.get(0).get(3));
+                residentPhoneTxt.setText(userData.get(0).get(4));
+                residentUnitTxt.setText(userData.get(0).get(5));
+                residentImage = userData.get(0).get(6);
+                
+                residentUsernameTxt.setText(credentialData.get(0).get(1));
+                residentPwdTxt.setText(credentialData.get(0).get(2));
+
+                //image
+                BufferedImage bufferedImage = null;
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+residentImage);
+                bufferedImage = ImageIO.read(imageFile);
+                Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon profileIcon = new ImageIcon(profileImage);
+                imageLabel.setIcon(profileIcon);
+            }
+            else{
+                residentIdTxt.setText("no data");
+                residentNameTxt.setText("no data");
+                residentGenderTxt.setText("no data");
+                residentAgeTxt.setText("no data");
+                residentPhoneTxt.setText("no data");
+                residentUnitTxt.setText("no data");
+                imageLabel.setText("no data");
+                residentUsernameTxt.setText("no data");
+                residentPwdTxt.setText("no data");
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     private boolean checkData()
     {
-        residentName = residentNameTxt.getText();
-        residentAgeString = residentAgeTxt.getText();
-        residentGender = residentGenderTxt.getText();
-        residentPhone = residentPhoneTxt.getText();
-        
         //check empty
         if (residentName == null || residentGender == null || residentAgeString == null || residentPhone == null)
         {
@@ -382,17 +485,9 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         }
         
         
-        //check name
-        Matcher nameMatcher = Pattern.compile("^[A-Za-z]\\w{5,29}$").
-                matcher(residentName);
-        if(nameMatcher.matches() == false)
-        {
-            errorMessage.setText("Name is Invalid !");
-            return false;
-        }
         
         //check gender
-        if(!residentGender.equals("Male") || !residentGender.equals("Female") )
+        if(!residentGender.equals("male") || !residentGender.equals("female") )
         {
             errorMessage.setText("Gender must be Small Letter !");
             return false;
@@ -421,22 +516,162 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
             return false;
         }
         
-     
+        
+        //check Username
+        if(residentUserName.contains(" "))
+        {
+            errorMessage.setText("Username cannot contain space ");
+            return false;
+        }
+        
         return true;
     }
     
-    
-    private void setData()
+ 
+    private void editProfile(String name, String gender, int age, String phone, String unit, String image)
     {
-        residentMain.setName(residentNameTxt.getText());
-        residentMain.setGender(residentGenderTxt.getText());
-        residentMain.setAge(residentAgeTxt.getText());
-        residentMain.setPhone(residentPhoneTxt.getText());
-        residentMain.setUserName(residentUsernameTxt.getText());
-        residentMain.setPassword(residentPwdTxt.getText());
+        //save into profile file
+        try {
+            String fileName = "ResidentProfile";
+            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
+            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(residentId+","
+                    +name+","
+                    +gender+","
+                    +age+","
+                    +phone+","
+                    +unit+","
+                    +image+"\n");
+            bw.close();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     
+    private void editCredential(String username, String pwd)
+    {
+        try {
+            String fileName = "loginCredential";
+            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
+            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(residentId+","
+                    +username+","
+                    +pwd+","
+                    +"resident"+"\n");
+            bw.close();
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    private  ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(residentId))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(residentId))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+        return onlyUserInfo;
+    }
+    
+    private  ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        
+        return allUserInfo;
+    }
+    
+    private void removeFromFile(String fileName)
+    {
+        try {
+            String filePath = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            for(int j=0;j<allUsers.size();j++)
+            {
+                if(allUsers.get(j).get(0).equals(residentId))
+                {
+                    allUsers.remove(j);
+                    break;
+                }
+            }
+
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        }catch (IOException ex) {
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        
+    }
     /**
      * @param args the command line arguments
      */

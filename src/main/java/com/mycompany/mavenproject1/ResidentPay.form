@@ -72,8 +72,8 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="payToTxt1" min="-2" max="-2" attributes="0"/>
-                              <Component id="payAmountTxt1" min="-2" max="-2" attributes="0"/>
-                              <Component id="dueDateTxt1" min="-2" max="-2" attributes="0"/>
+                              <Component id="dueDateTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="payAmountTxt1" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -90,8 +90,8 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="payToTxt2" min="-2" max="-2" attributes="0"/>
-                              <Component id="payAmountTxt2" min="-2" max="-2" attributes="0"/>
                               <Component id="dueDateTxt2" min="-2" max="-2" attributes="0"/>
+                              <Component id="payAmountTxt2" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
