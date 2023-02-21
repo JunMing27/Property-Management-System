@@ -5,33 +5,32 @@
 package com.mycompany.mavenproject1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class ResidentPay extends javax.swing.JFrame {
     
     ResidentMain residentMain = new ResidentMain();
     String residentId = residentMain.getId();
-    
         
     public ResidentPay(){
-        try {
-            initComponents();
-            setResizable(false);
-            setLocationRelativeTo(null);
-            
-            residentMain.setId("R1");
-            setData();
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
+        residentId  = "R1";
+        displayData();
+        backPageBtn.setEnabled(false);
     }
 
     /**
@@ -197,8 +196,8 @@ public class ResidentPay extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(payToTxt1)
-                            .addComponent(payAmountTxt1)
-                            .addComponent(dueDateTxt1)))
+                            .addComponent(dueDateTxt1)
+                            .addComponent(payAmountTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -211,8 +210,8 @@ public class ResidentPay extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(payToTxt2)
-                            .addComponent(payAmountTxt2)
-                            .addComponent(dueDateTxt2)))
+                            .addComponent(dueDateTxt2)
+                            .addComponent(payAmountTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(224, 224, 224)
                         .addComponent(selectBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -278,29 +277,27 @@ public class ResidentPay extends javax.swing.JFrame {
     private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
         
         backPageBtn.setEnabled(true);
-        try {
-            setData();
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        displayData();
     }//GEN-LAST:event_nextPageBtnActionPerformed
 
     private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
         
         backButtonFunction();
         nextPageBtn.setEnabled(true);
-        try {
-            setData();
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-                
+        displayData();   
     }//GEN-LAST:event_backPageBtnActionPerformed
 
     private void selectBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn1ActionPerformed
-        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will consider paid ",
+                                        "INFORMATION", JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            removeSelectedDue("upper");
+            this.dispose();
+            ResidentPay residentPay = new ResidentPay();
+            residentPay.setVisible(true);
+        }
+        
     }//GEN-LAST:event_selectBtn1ActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -310,7 +307,17 @@ public class ResidentPay extends javax.swing.JFrame {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void selectBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn2ActionPerformed
-        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will consider paid ",
+                                        "INFORMATION", JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            removeSelectedDue("bottom");
+            this.dispose();
+            ResidentPay residentPay = new ResidentPay();
+            residentPay.setVisible(true);
+        }
+        
+        
     }//GEN-LAST:event_selectBtn2ActionPerformed
 
     /**
@@ -387,61 +394,193 @@ public class ResidentPay extends javax.swing.JFrame {
         }
     }
     
-    private void setData() throws IOException{
-        try {
-            setPagination();
-            residentMain.displayDataView(pageLine);
-            boolean boo = residentMain.getStatus();
-            if(boo==false){
-                nextPageBtn.setEnabled(false);
-            }
-
-        } catch (IOException ex) {
-            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+    private void displayData(){
+        setPagination();
+        displayDataView(pageLine, "upper");
+        boolean boo = residentMain.getStatus();
+        if(boo==false){
+            nextPageBtn.setEnabled(false);
         }
         
-        if(residentMain.getPayTo()!= null)
-        {
-            payToTxt1.setText(residentMain.getPayTo());
-            payAmountTxt1.setText(residentMain.getPayAmount());
-            dueDateTxt1.setText(residentMain.getDueDate());
-        }else{
-            payToTxt1.setText("no data");
-            payAmountTxt1.setText("no data");
-            dueDateTxt1.setText("no data");
+        setPagination();
+        displayDataView(pageLine, "bottom");
+        boolean boo2 = residentMain.getStatus();
+        if(boo2==false){
+            nextPageBtn.setEnabled(false);
         }
         
-        
-        
-        
-        //for bottom part
-        try {
-            setPagination();
-            residentMain.displayDataView(pageLine);
-            boolean boo = residentMain.getStatus();
-            if(boo==false){
-                nextPageBtn.setEnabled(false);
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        if(residentMain.getPayTo()!= null)
-        {
-            payToTxt2.setText(residentMain.getPayTo());
-            payAmountTxt2.setText(residentMain.getPayAmount());
-            dueDateTxt2.setText(residentMain.getDueDate());
-        }else{
-            payToTxt2.setText("no data");
-            payAmountTxt2.setText("no data");
-            dueDateTxt2.setText("no data");
-        }
         
     }
+        
     
-    
-    
+    private void displayDataView(Integer pageLine, String part)
+    {
+        try{
+            String paymentFile = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
+            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(paymentFile);
+            int newSize = userData.size();            
+            try{
+                userData.get(pageLine);
+                if(part.equals("upper"))
+                {
+                    payToTxt1.setText(userData.get(pageLine).get(1));
+                    payAmountTxt1.setText(userData.get(pageLine).get(2));
+                    dueDateTxt1.setText(userData.get(pageLine).get(3));
+                    payToTxt2.setText("no data");
+                    payAmountTxt2.setText("no data");
+                    dueDateTxt2.setText("no data");
+                    residentMain.setStatus(true);
+                }else{
+                    payToTxt2.setText(userData.get(pageLine).get(1));
+                    payAmountTxt2.setText(userData.get(pageLine).get(2));
+                    dueDateTxt2.setText(userData.get(pageLine).get(3));
+                    residentMain.setStatus(true);
+                }
+                if(payToTxt1.getText() == null)
+                {
+                    payToTxt1.setText("no data");
+                    payAmountTxt1.setText("no data");
+                    dueDateTxt1.setText("no data");
+                }
+                if(payToTxt2.getText() == null)
+                {
+                    payToTxt2.setText("no data");
+                    payAmountTxt2.setText("no data");
+                    dueDateTxt2.setText("no data");
+                }
+                
+            }
+            catch (Exception ex) {
+                residentMain.setStatus(false);
+            }
+            
+            if(pageLine.equals(newSize-1)){
+                residentMain.setStatus(false);
+            }
+        }
+        catch(FileNotFoundException ex){
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     
+    private ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(residentId))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(residentId))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+       
+        return onlyUserInfo;
+    }
+     
+    private ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        }
+        
+        return allUserInfo;
+    }
+    
+    private void removeSelectedDue(String part)
+    {
+        try {
+            String fileName = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
+            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
+            if(part.equals("upper"))
+            {
+                for(int j=0;j<userData.size();j++)
+                {
+                    if(userData.get(j).get(0).equals(residentId)
+                            && userData.get(j).get(1).equals(payToTxt1.getText())
+                            && userData.get(j).get(2).equals(payAmountTxt1.getText())
+                            && userData.get(j).get(3).equals(dueDateTxt1.getText()))
+                    {
+                        userData.remove(j);
+                        break;
+                    }
+                }
+            }else if(part.equals("bottom"))
+            {
+                for(int j=0;j<userData.size();j++)
+                {
+                    if(userData.get(j).get(0).equals(residentId)
+                            && userData.get(j).get(1).equals(payToTxt2.getText())
+                            && userData.get(j).get(2).equals(payAmountTxt2.getText())
+                            && userData.get(j).get(3).equals(dueDateTxt2.getText()))
+                    {
+                        userData.remove(j);
+                        break;
+                    }
+                }
+            }
+            
+            File paymentFile = new File(fileName);
+            FileWriter fw = new FileWriter(paymentFile);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<userData.size(); j++) 
+            {
+                ArrayList<String>item = userData.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
 

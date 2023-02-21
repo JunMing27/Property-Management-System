@@ -4,9 +4,25 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
 
 /**
  *
@@ -16,8 +32,11 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     //declare variable
     ResidentProfile residentProfile = new ResidentProfile();
     ResidentMain residentMain = new ResidentMain();
-    String residentName, residentAgeString, residentGender, residentPhone;
+    String residentId, residentName, residentAgeString, residentGender, residentPhone, residentUnit, residentUserName, residentPwd, residentImage;
     int residentAgeInt;
+    File selectedImagePath;
+    String selectedImageString;
+    
     /**
      * Creates new form ResidentProfileEdit
      */
@@ -25,6 +44,7 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentId = residentMain.getId();
         displayData();
         
     }
@@ -53,10 +73,14 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentAgeTxt = new javax.swing.JTextField();
         residentUnitTxt = new javax.swing.JTextField();
         residentPhoneTxt = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        imageLabel = new javax.swing.JLabel();
         saveBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
         errorMessage = new javax.swing.JTextField();
+        residentUsernameLabel = new javax.swing.JLabel();
+        residentUsernameTxt = new javax.swing.JTextField();
+        residentPwdLabel = new javax.swing.JLabel();
+        residentPwdTxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,13 +133,13 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentNameTxt.setForeground(new java.awt.Color(0, 0, 0));
         residentNameTxt.setText("User 1");
         residentNameTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentNameTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        residentNameTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         residentGenderTxt.setBackground(new java.awt.Color(233, 233, 233));
         residentGenderTxt.setForeground(new java.awt.Color(0, 0, 0));
         residentGenderTxt.setText("Female");
         residentGenderTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentGenderTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        residentGenderTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         residentAgeLabel.setEditable(false);
         residentAgeLabel.setBackground(new java.awt.Color(233, 233, 233));
@@ -142,7 +166,7 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentAgeTxt.setForeground(new java.awt.Color(0, 0, 0));
         residentAgeTxt.setText("38");
         residentAgeTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentAgeTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        residentAgeTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         residentUnitTxt.setEditable(false);
         residentUnitTxt.setBackground(new java.awt.Color(233, 233, 233));
@@ -155,12 +179,16 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentPhoneTxt.setForeground(new java.awt.Color(0, 0, 0));
         residentPhoneTxt.setText("012-345 6789");
         residentPhoneTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentPhoneTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        residentPhoneTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jLabel1.setBackground(new java.awt.Color(233, 233, 233));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("IMAGE");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imageLabel.setBackground(new java.awt.Color(233, 233, 233));
+        imageLabel.setForeground(new java.awt.Color(0, 0, 0));
+        imageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageLabelMouseClicked(evt);
+            }
+        });
 
         saveBtn.setBackground(new java.awt.Color(255, 255, 255));
         saveBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -185,89 +213,125 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         errorMessage.setEditable(false);
         errorMessage.setBackground(new java.awt.Color(233, 233, 233));
         errorMessage.setForeground(new java.awt.Color(204, 0, 0));
+        errorMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         errorMessage.setBorder(null);
+
+        residentUsernameLabel.setBackground(new java.awt.Color(233, 233, 233));
+        residentUsernameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentUsernameLabel.setText("Username :");
+
+        residentUsernameTxt.setBackground(new java.awt.Color(233, 233, 233));
+        residentUsernameTxt.setForeground(new java.awt.Color(0, 0, 0));
+        residentUsernameTxt.setText("User1");
+        residentUsernameTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        residentUsernameTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        residentPwdLabel.setBackground(new java.awt.Color(233, 233, 233));
+        residentPwdLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentPwdLabel.setText("Password :");
+
+        residentPwdTxt.setBackground(new java.awt.Color(233, 233, 233));
+        residentPwdTxt.setForeground(new java.awt.Color(0, 0, 0));
+        residentPwdTxt.setText("user123");
+        residentPwdTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        residentPwdTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(35, 35, 35)
-                            .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(119, 119, 119)
-                            .addComponent(topLabel))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(135, 135, 135)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(residentGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentUnitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentPhoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(38, 38, 38)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(residentGenderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentAgeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentUnitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(residentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(188, 188, 188)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(98, 98, 98)
+                        .addComponent(topLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(residentGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentUnitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentPhoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(3, 3, 3))
+                                    .addComponent(residentUsernameLabel)
+                                    .addComponent(residentPwdLabel))
+                                .addGap(38, 38, 38)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(residentGenderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentAgeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentUnitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(residentUsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentPwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(161, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(215, 215, 215))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(backBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
                         .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(residentIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(residentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(residentIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(residentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(residentNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(residentNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(residentGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(residentGenderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(residentAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(residentAgeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(residentPhoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(residentPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(residentUnitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(residentUnitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(residentUsernameLabel)
+                            .addComponent(residentUsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(residentNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(residentNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(residentGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(residentGenderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(residentAgeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(residentAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(residentPhoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(residentPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(residentUnitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(residentUnitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(residentPwdLabel)
+                    .addComponent(residentPwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -295,13 +359,23 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         int dialog = JOptionPane.showConfirmDialog(null, 
                 "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
+            residentName = residentNameTxt.getText();
+            residentAgeString = residentAgeTxt.getText();
+            residentGender = residentGenderTxt.getText();
+            residentPhone = residentPhoneTxt.getText();
+            residentUnit = residentUnitTxt.getText();
+            residentUserName = residentUsernameTxt.getText();
+            residentPwd = residentPwdTxt.getText();
+            
             if(checkData())
             {
-                setData();
+                removeFromFile("ResidentProfile");
+                removeFromFile("loginCredential");
+                editProfile(residentName, residentGender, residentAgeInt, residentPhone, residentUnit, residentImage);
+                editCredential(residentUserName, residentPwd);
                 this.dispose();
                 residentProfile.setVisible(true); 
             }
-              
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 
@@ -310,24 +384,93 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentProfile.setVisible(true);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
+    private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileFilter() {
+        @Override
+        public boolean accept(File f) {
+            if (f.isDirectory()) {
+                return true;
+            }
+            final String name = f.getName();
+            return name.endsWith(".png") || name.endsWith(".jpg");
+        }
+
+        @Override
+        public String getDescription() {
+            return "*.png,*.jpg";
+        }
+        });
+        int result = fileChooser.showOpenDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION)
+        {
+            selectedImagePath = fileChooser.getSelectedFile();
+            selectedImageString = selectedImagePath.toString();
+            BufferedImage bufferedImage = null;
+            try {
+                bufferedImage = ImageIO.read(selectedImagePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon profileIcon = new ImageIcon(profileImage);
+            imageLabel.setIcon(profileIcon);
+            
+            residentImage = selectedImageString.substring(selectedImageString.lastIndexOf("/") + 1);
+            
+        }
+    }//GEN-LAST:event_imageLabelMouseClicked
+
     
     private void displayData()
     {
-        residentIdTxt.setText(residentMain.getId());
-        residentNameTxt.setText(residentMain.getName());
-        residentGenderTxt.setText(residentMain.getGender());
-        residentAgeTxt.setText(residentMain.getAge());
-        residentPhoneTxt.setText(residentMain.getPhone());
-        residentUnitTxt.setText(residentMain.getUnit());
+        try {
+            String profileFile = "src/main/java/com/mycompany/textFile/ResidentProfile.txt";
+            String credentialFile = "src/main/java/com/mycompany/textFile/loginCredential.txt";
+            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(profileFile);
+            ArrayList<ArrayList<String>> credentialData = onlyUserDataInfo(credentialFile);
+
+            if(userData.get(0) != null)
+            {
+                residentIdTxt.setText(userData.get(0).get(0));
+                residentNameTxt.setText(userData.get(0).get(1));
+                residentGenderTxt.setText(userData.get(0).get(2));
+                residentAgeTxt.setText(userData.get(0).get(3));
+                residentPhoneTxt.setText(userData.get(0).get(4));
+                residentUnitTxt.setText(userData.get(0).get(5));
+                residentImage = userData.get(0).get(6);
+                
+                residentUsernameTxt.setText(credentialData.get(0).get(1));
+                residentPwdTxt.setText(credentialData.get(0).get(2));
+
+                //image
+                BufferedImage bufferedImage = null;
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+residentImage);
+                bufferedImage = ImageIO.read(imageFile);
+                Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon profileIcon = new ImageIcon(profileImage);
+                imageLabel.setIcon(profileIcon);
+            }
+            else{
+                residentIdTxt.setText("no data");
+                residentNameTxt.setText("no data");
+                residentGenderTxt.setText("no data");
+                residentAgeTxt.setText("no data");
+                residentPhoneTxt.setText("no data");
+                residentUnitTxt.setText("no data");
+                imageLabel.setText("no data");
+                residentUsernameTxt.setText("no data");
+                residentPwdTxt.setText("no data");
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     private boolean checkData()
     {
-        residentName = residentNameTxt.getText();
-        residentAgeString = residentAgeTxt.getText();
-        residentGender = residentGenderTxt.getText();
-        residentPhone = residentPhoneTxt.getText();
-        
         //check empty
         if (residentName == null || residentGender == null || residentAgeString == null || residentPhone == null)
         {
@@ -342,17 +485,9 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         }
         
         
-        //check name
-        Matcher nameMatcher = Pattern.compile("^[A-Za-z]\\w{5,29}$").
-                matcher(residentName);
-        if(nameMatcher.matches() == false)
-        {
-            errorMessage.setText("Name is Invalid !");
-            return false;
-        }
         
         //check gender
-        if(!residentGender.equals("Male") || !residentGender.equals("Female") )
+        if(!residentGender.equals("male") || !residentGender.equals("female") )
         {
             errorMessage.setText("Gender must be Small Letter !");
             return false;
@@ -381,21 +516,162 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
             return false;
         }
         
-     
+        
+        //check Username
+        if(residentUserName.contains(" "))
+        {
+            errorMessage.setText("Username cannot contain space ");
+            return false;
+        }
+        
         return true;
     }
     
-    
-    private void setData()
+ 
+    private void editProfile(String name, String gender, int age, String phone, String unit, String image)
     {
-        residentMain.setName(residentNameTxt.getText());
-        residentMain.setGender(residentGenderTxt.getText());
-        residentMain.setAge(residentAgeTxt.getText());
-        residentMain.setPhone(residentPhoneTxt.getText());
+        //save into profile file
+        try {
+            String fileName = "ResidentProfile";
+            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
+            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(residentId+","
+                    +name+","
+                    +gender+","
+                    +age+","
+                    +phone+","
+                    +unit+","
+                    +image+"\n");
+            bw.close();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    private void editCredential(String username, String pwd)
+    {
+        try {
+            String fileName = "loginCredential";
+            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
+            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(residentId+","
+                    +username+","
+                    +pwd+","
+                    +"resident"+"\n");
+            bw.close();
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
     
+    private  ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(residentId))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(residentId))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+        return onlyUserInfo;
+    }
+    
+    private  ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        
+        return allUserInfo;
+    }
+    
+    private void removeFromFile(String fileName)
+    {
+        try {
+            String filePath = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            for(int j=0;j<allUsers.size();j++)
+            {
+                if(allUsers.get(j).get(0).equals(residentId))
+                {
+                    allUsers.remove(j);
+                    break;
+                }
+            }
+
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        }catch (IOException ex) {
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -435,7 +711,7 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton cancelBtn;
     private javax.swing.JTextField errorMessage;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField residentAgeLabel;
     private javax.swing.JTextField residentAgeTxt;
@@ -447,8 +723,12 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     private javax.swing.JTextField residentNameTxt;
     private javax.swing.JTextField residentPhoneLabel;
     private javax.swing.JTextField residentPhoneTxt;
+    private javax.swing.JLabel residentPwdLabel;
+    private javax.swing.JTextField residentPwdTxt;
     private javax.swing.JTextField residentUnitLabel;
     private javax.swing.JTextField residentUnitTxt;
+    private javax.swing.JLabel residentUsernameLabel;
+    private javax.swing.JTextField residentUsernameTxt;
     private javax.swing.JButton saveBtn;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables

@@ -307,11 +307,11 @@ public class AccExecutiveInvoiceView extends javax.swing.JFrame {
         AccExecMain main = new AccExecMain();
         main.getDataViewSingle(id, "InvoiceContent.txt","invoice");
         //after getting data, set text value 
-        TenantName.setText(main.getBudgetProjectName());
-        DateInvoiceIssued.setText(main.getBudgetProjectBudget());
-        jLabel6.setText(main.getBudgetProjectStartDate());
-        jLabel7.setText(main.getBudgetProjectEndDate());
-        jLabel9.setText(main.getBudgetId());
+        TenantName.setText(main.getTenantName());
+        DateInvoiceIssued.setText(main.getDateInvoiceIssued());
+        DateDue.setText(main.getDateDue());
+        AmountDue.setText(main.getAmountDue());
+        Amount.setText(main.getAmountInvoice());
     }
     /**
      * @param args the command line arguments
