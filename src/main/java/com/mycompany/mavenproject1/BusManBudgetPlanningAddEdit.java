@@ -213,7 +213,7 @@ public class BusManBudgetPlanningAddEdit extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            BuildingManagerMain main = new BuildingManagerMain();
+            BuildingManager main = new BuildingManager();
             ArrayList<String> dataList = new ArrayList<String>();
             dataList.add(jTextField1.getText());
             dataList.add(jTextField2.getText());
@@ -222,7 +222,7 @@ public class BusManBudgetPlanningAddEdit extends javax.swing.JFrame {
             dataList.add(jTextField5.getText());
             main.editOrAddData(dataList, "budget","BudgetPlanning.txt","edit");
         }else if(addEditDetector=="add"){
-            BuildingManagerMain main = new BuildingManagerMain();
+            BuildingManager main = new BuildingManager();
             ArrayList<String> dataList = new ArrayList<String>();
             main.getIncreasedID("BudgetPlanning.txt","budget");
             dataList.add(main.getBudgetId());
@@ -244,7 +244,7 @@ public class BusManBudgetPlanningAddEdit extends javax.swing.JFrame {
     public void addEditDetect(String functionType,String id) throws FileNotFoundException{
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            BuildingManagerMain main = new BuildingManagerMain();
+            BuildingManager main = new BuildingManager();
             main.getDataViewSingle(id, "BudgetPlanning.txt","budget");
             jButton3.setText("Update");
             jTextField1.setText(main.getBudgetId());

@@ -24,3 +24,21 @@ Resident ID, Resident Name, Resident Gender, Resident Age, Resident Contact, Res
 
 VendorProfile.txt
 Vendor ID, Vendor Name, Vendor Gender, Vendor Age, Vendor Contact, Vendor Image
+
+
+
+
+
+
+
+
+OOP Implementation 
+Encapsulation(basically in every class)
+Inheritance (User.java in dataController folder, buildingManager.java in buildingManager folder)
+Constructor(buildingManager.java in buildingManager folder)
+Inner classes(buildingManager.java in buildingManager folder)
+Java Packages (in most frame class)
+Interface(buildingManager.java in buildingManager folder)
+Polymorphism(buildingManager.java in buildingManager folder) extend User extend userCredential method get,add,edit,delete credential
+
+

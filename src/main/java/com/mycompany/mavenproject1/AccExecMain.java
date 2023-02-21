@@ -129,7 +129,7 @@ public class AccExecMain {
     // Method to display User Data
     //- store the current items from txt file to a 2d array, then loop to display user data at BusManuserManage
     public  void displayDataView(Integer dataLine,String searchTxt,String type) throws FileNotFoundException, IOException{
-        BuildingManagerMain main = new BuildingManagerMain();
+        BuildingManager main = new BuildingManager();
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
         ArrayList<ArrayList<String>> allData = main.DataInfo(fileName);
         int i =0;

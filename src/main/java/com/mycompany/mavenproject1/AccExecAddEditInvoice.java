@@ -207,7 +207,7 @@ public class AccExecAddEditInvoice extends javax.swing.JFrame {
             dataList.add(jTextField5.getText());
             main.editOrAddData(dataList, "Invoice","InvoiceContent.txt","edit");
         }else if(addEditDetector=="add"){
-            BuildingManagerMain main = new BuildingManagerMain();
+            BuildingManager main = new BuildingManager();
             ArrayList<String> dataList = new ArrayList<String>();
             main.getIncreasedID("InvoiceContent.txt","budget");
             dataList.add(main.getBudgetId());
@@ -255,7 +255,7 @@ public class AccExecAddEditInvoice extends javax.swing.JFrame {
     public void addEditDetect(String functionType,String id) throws FileNotFoundException{
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            BuildingManagerMain main = new BuildingManagerMain();
+            BuildingManager main = new BuildingManager();
             main.getDataViewSingle(id, "BudgetPlanning.txt","budget");
             jButton2.setText("Update");
             jTextField1.setText(main.getBudgetId());

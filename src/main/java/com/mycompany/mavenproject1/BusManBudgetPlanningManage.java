@@ -556,7 +556,7 @@ public class BusManBudgetPlanningManage extends javax.swing.JFrame {
     }
     
     public void setBudgetPlanningData(){
-        BuildingManagerMain main = new BuildingManagerMain();
+        BuildingManager main = new BuildingManager();
         main.chooseTxtFile("budgetPlanning");
             try {
                 setPagination();

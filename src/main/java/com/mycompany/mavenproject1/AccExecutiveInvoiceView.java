@@ -288,7 +288,7 @@ public class AccExecutiveInvoiceView extends javax.swing.JFrame {
 
     private void DeleteAccExecutiveInoviceViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteAccExecutiveInoviceViewActionPerformed
         // TODO add your handling code here:
-        BuildingManagerMain main = new BuildingManagerMain();
+        BuildingManager main = new BuildingManager();
         main.chooseTxtFile("InvoiceContent");
         main.deleteFunction(InvoiceNumber.getText());
         JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);

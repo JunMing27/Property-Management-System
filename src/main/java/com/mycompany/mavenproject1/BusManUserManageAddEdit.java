@@ -263,7 +263,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        BusManUserManage manager = new BusManUserManage();
+        BuildingManUserManageFrame manager = new BuildingManUserManageFrame();
         manager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         manager.pack();
         manager.setResizable(false);
@@ -284,7 +284,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
             if((jTextField2.getText()).equals("") ||(jTextField4.getText()).equals("") ||(jTextField5.getText()).equals("") || (jTextField7.getText()).equals("") || (jPasswordField1.getPassword()).equals("") || this.imageName==null) {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
-                BuildingManagerMain main = new BuildingManagerMain();
+                BuildingManager main = new BuildingManager();
                 ArrayList<String> dataList = new ArrayList<String>();
                 dataList.add(jTextField1.getText());
                 dataList.add(jTextField2.getText());
@@ -316,7 +316,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
             if((jTextField2.getText()).equals("") ||(jTextField4.getText()).equals("") ||(jTextField5.getText()).equals("") || (jTextField7.getText()).equals("") || (jPasswordField1.getPassword()).equals("")|| this.imageName==null) {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
-                BuildingManagerMain main = new BuildingManagerMain();
+                BuildingManager main = new BuildingManager();
                 ArrayList<String> dataList = new ArrayList<String>();
                 main.getIncreasedID(fileType,userType);
                 dataList.add(main.getUserId());
@@ -367,7 +367,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
         try{
             // TODO add your handling code here:
             JFileChooser filechooser = new JFileChooser();
-            BuildingManagerMain main = new BuildingManagerMain();
+            BuildingManager main = new BuildingManager();
             filechooser.addChoosableFileFilter(main.new ImageFilter());
             filechooser.setAcceptAllFileFilterUsed(false);
             filechooser.showOpenDialog(null);
@@ -416,7 +416,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     
     public void setUserAndFileType(String user){
         this.userType=user;
-        BuildingManagerMain main = new BuildingManagerMain();
+        BuildingManager main = new BuildingManager();
         main.chooseTxtFile(userType);
         this.fileType=main.getFileType();
     }
@@ -424,7 +424,7 @@ public class BusManUserManageAddEdit extends javax.swing.JFrame {
     public void addEditDetect(String functionType,String id) throws FileNotFoundException{
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            BuildingManagerMain main = new BuildingManagerMain();
+            BuildingManager main = new BuildingManager();
             main.chooseTxtFile(userType);
             main.getDataViewSingle(id, fileType,userType);
             jButton2.setText("Update");
