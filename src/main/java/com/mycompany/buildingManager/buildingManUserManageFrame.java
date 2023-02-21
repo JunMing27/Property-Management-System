@@ -495,7 +495,8 @@ public class buildingManUserManageFrame extends javax.swing.JFrame {
             if (ques == JOptionPane.YES_OPTION){
                 buildingManager main = new buildingManager();
                 main.chooseTxtFile(userType);
-                main.deleteFunction(getText);
+                buildingManager.buildingManagerMethod mainInner = main.new buildingManagerMethod();
+                mainInner.deleteUserExecutive(getText);
                 JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
                 
                 this.dispose();

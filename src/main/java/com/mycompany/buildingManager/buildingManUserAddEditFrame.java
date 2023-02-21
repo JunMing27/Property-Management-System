@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.buildingManager;
-
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -300,7 +299,8 @@ public class buildingManUserAddEditFrame extends javax.swing.JFrame {
                 char[] i = credentialPasswordField.getPassword();
                 String stringPassword = new String(i);
                 dataList.add(stringPassword);
-                main.editOrAddData(dataList, userType,fileType,"edit");
+                buildingManager.buildingManagerMethod mainInner = main.new buildingManagerMethod();
+                mainInner.addEditUserExecutive(dataList, userType,fileType,"edit");
                 //transfer uploaded image to our system image folder
                 if (sourceFile!=null) {
                     File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
@@ -331,7 +331,8 @@ public class buildingManUserAddEditFrame extends javax.swing.JFrame {
                 dataList.add(stringPassword);
                 System.out.println(dataList);
                 main.setUserType(userType);
-                main.editOrAddData(dataList, userType,fileType,"add");
+                buildingManager.buildingManagerMethod mainInner = main.new buildingManagerMethod();
+                mainInner.addEditUserExecutive(dataList, userType,fileType,"add");
                 //transfer uploaded image to our system image folder
                 if (sourceFile!=null) {
                     File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);

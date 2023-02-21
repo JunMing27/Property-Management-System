@@ -244,7 +244,8 @@ public class buildingManager extends User implements dataManagementController{
                             user.set(3, dataList.get(3));
                             user.set(4, dataList.get(4));
                             user.set(5, dataList.get(5));
-                            editCredential(dataList.get(0),dataList.get(6),dataList.get(7));
+                            buildingManager.buildingManagerMethod mainInner = this.new buildingManagerMethod();
+                            mainInner.editUserCredential(dataList.get(0),dataList.get(6),dataList.get(7));
                             break;
                         }
                         if(type=="budget"){
@@ -295,7 +296,8 @@ public class buildingManager extends User implements dataManagementController{
                     AddDataToFile.write(dataList.get(3)+",");
                     AddDataToFile.write(dataList.get(4)+",");
                     AddDataToFile.write(dataList.get(5));
-                    addCredential(dataList.get(0),dataList.get(6),dataList.get(7),this.getUserType());
+                    buildingManager.buildingManagerMethod mainInner = this.new buildingManagerMethod();
+                    mainInner.addUserCredential(dataList.get(0),dataList.get(6),dataList.get(7),this.getUserType());
                    
                 }
                 if(type=="budget"){
@@ -343,7 +345,8 @@ public class buildingManager extends User implements dataManagementController{
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
                             bw.close();
-                            deleteUserCredential(itemID);
+                            buildingManager.buildingManagerMethod mainInner = this.new buildingManagerMethod();
+                            mainInner.deleteUserCredential(dataId);
                         }
                         else if (file=="BudgetPlanning.txt"){
                             System.out.println(file);
@@ -459,7 +462,7 @@ public class buildingManager extends User implements dataManagementController{
     }
     
     //delete userCredential when admin delete user data
-    public void deleteUserCredential(String userID){
+    public void deleteCredential(String userID){
         try {
             int i =0;
             String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
@@ -594,23 +597,26 @@ public class buildingManager extends User implements dataManagementController{
 }
     
     class buildingManagerMethod{
-        public void addUserExecutive(){
-            
+        public void addEditUserExecutive(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
         }
-        public void editUserExecutive(){
-        
+        public void deleteUserExecutive(String itemID){
+            deleteFunction(itemID);
         }
-        public void deleteUserExecutive(){
-        
+        public void addUserCredential(String id, String userName, String pass,String role)throws IOException{
+            addCredential(id, userName, pass,role);
         }
-        public void addUserCredential(){
-        
+        public void editUserCredential(String id ,String userName, String userPass){
+            editCredential(id,userName,userPass);
         }
-        public void editUserCredential(){
-        
+        public void deleteUserCredential(String userID){
+            deleteCredential(userID);
         }
-        public void deleteUserCredential(){
-        
+        public void addBudgetPlanning(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
+        }
+        public void deleteBudgetPlanning(String itemID){
+            deleteFunction(itemID);
         }
     }
 }
