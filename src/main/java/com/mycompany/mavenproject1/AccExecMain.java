@@ -47,6 +47,7 @@ public class AccExecMain {
     private String DateDue;
     private String AmountDue;
     private String Amount;
+    private String Description;
     
     
     //COMMON VARIABLES (USABLE FOR SEVERAL FUNCTION)
@@ -98,6 +99,9 @@ public class AccExecMain {
     public String getAmountInvoice(){
         return Amount;
     }
+    public String getDescriptionInvoice(){
+        return Description;
+    }
     
     //SET USER TYPE
     public void setUserType(String userType1){
@@ -121,14 +125,16 @@ public class AccExecMain {
     private String file="";
     
     public void chooseTxtFile(String Type){
-        if(Type=="Account Executive"){
-            file ="AccountExecutive.txt";
-        }else if (Type=="Building Executive"){
-            file ="BuildingExecutive.txt";
-        }else if (Type=="Admin Executive"){
-            file ="AdminExecutive.txt";
-        }else if (Type=="Invoice Management"){
+        if(Type=="Invoice"){
+            file ="InvoiceContent.txt";
+        }else if (Type=="Receipt"){
+            file ="ReceiptContent.txt";
+        }else if (Type=="Statement"){
+            file ="StatementContent.txt";
+        }else if (Type=="Invoice"){
             file = "InvoiceContent.txt";
+        }else if (Type=="OutstandingFee"){
+            file = "OutstandingFee.txt";
         }
     }
     
