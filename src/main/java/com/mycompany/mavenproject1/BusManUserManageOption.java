@@ -141,7 +141,7 @@ public class BusManUserManageOption extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        BusManUserManage BusManUserManage = new BusManUserManage();
+        BuildingManUserManageFrame BusManUserManage = new BuildingManUserManageFrame();
         BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BusManUserManage.pack();
         BusManUserManage.setResizable(false);
@@ -171,7 +171,7 @@ public class BusManUserManageOption extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        BusManUserManage BusManUserManage = new BusManUserManage();
+        BuildingManUserManageFrame BusManUserManage = new BuildingManUserManageFrame();
         BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BusManUserManage.pack();
         BusManUserManage.setResizable(false);
@@ -191,7 +191,7 @@ public class BusManUserManageOption extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        BusManUserManage BusManUserManage = new BusManUserManage();
+        BuildingManUserManageFrame BusManUserManage = new BuildingManUserManageFrame();
         BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BusManUserManage.pack();
         BusManUserManage.setResizable(false);
