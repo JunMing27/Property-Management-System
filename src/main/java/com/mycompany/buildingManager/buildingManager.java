@@ -168,13 +168,6 @@ public class buildingManager extends User implements dataManagementController{
                 this.setUserPhoneNumber(allData.get(dataLine).get(4));
                 this.setUserImage(allData.get(dataLine).get(5));
                 this.Status = true;
-            }else if(type=="budget"){
-//                this.budgetId=allData.get(dataLine).get(0);
-//                this.projectName=allData.get(dataLine).get(1);
-//                this.projectBudget=allData.get(dataLine).get(2);
-//                this.projectStartDate=allData.get(dataLine).get(3);
-//                this.projectEndDate=allData.get(dataLine).get(4);
-                this.Status=true;
             }
         }catch(Exception e){
             setDataNull(type);
@@ -193,12 +186,6 @@ public class buildingManager extends User implements dataManagementController{
             this.setUserAge(null);
             this.setUserPhoneNumber(null);
             this.setUserImage(null);
-        }else if(type=="budget"){
-//            this.budgetId=null;
-//            this.projectName=null;
-//            this.projectBudget=null;
-//            this.projectStartDate=null;
-//            this.projectEndDate=null;
         }
     }
     @Override
@@ -218,13 +205,6 @@ public class buildingManager extends User implements dataManagementController{
                             getCredentialData(this.getUserId());
                         } catch (FileNotFoundException ex) {
                         }
-                    }
-                    if(type=="budget"){
-//                        this.budgetId=singleData.get(0);
-//                        this.projectName=singleData.get(1);
-//                        this.projectBudget=singleData.get(2);
-//                        this.projectStartDate=singleData.get(3);
-//                        this.projectEndDate=singleData.get(4);
                     }
                     break;
                 }
@@ -384,13 +364,6 @@ public class buildingManager extends User implements dataManagementController{
                     // First character of a string
                     ID = (ScanEachString.next().trim());
                     break;
-                }
-                if(type=="budget"){
-//                    String IDchar = ID.substring(0,2);
-//                    ID = ID.substring(2);
-//                    Integer IDnumber = Integer.parseInt(ID)+1;
-//                    ID = IDchar+ (IDnumber).toString();
-//                    this.budgetId=ID;
                 }
                 if(type=="Admin Executive" || type=="Account Executive" || type=="Building Executive"){
                     String IDchar = ID.substring(0,2);
