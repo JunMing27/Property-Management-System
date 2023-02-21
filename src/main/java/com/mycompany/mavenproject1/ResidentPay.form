@@ -43,17 +43,16 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="259" max="-2" attributes="0"/>
-                  <Component id="topLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="backPageBtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="nextPageBtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+                          <Component id="topLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="backPageBtn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="nextPageBtn" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
                           <Component id="selectBtn1" min="-2" pref="86" max="-2" attributes="0"/>
@@ -99,7 +98,7 @@
                           <Component id="selectBtn2" min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="96" max="32767" attributes="0"/>
+                  <EmptySpace pref="61" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -259,7 +258,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Payment Amount :"/>
+            <Property name="text" type="java.lang.String" value="Payment Amount(RM) :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="dueDateLabel1">
@@ -281,7 +280,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="RM 1000"/>
+            <Property name="text" type="java.lang.String" value="1000"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="dueDateTxt1">
@@ -327,7 +326,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Payment Amount :"/>
+            <Property name="text" type="java.lang.String" value="Payment Amount(RM) :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="payAmountTxt2">
@@ -338,7 +337,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="RM 1000"/>
+            <Property name="text" type="java.lang.String" value="1000"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="dueDateLabel2">

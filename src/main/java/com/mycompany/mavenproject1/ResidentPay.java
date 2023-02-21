@@ -28,7 +28,6 @@ public class ResidentPay extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        residentId  = "R1";
         displayData();
         backPageBtn.setEnabled(false);
     }
@@ -119,7 +118,7 @@ public class ResidentPay extends javax.swing.JFrame {
 
         payAmountLabel1.setBackground(new java.awt.Color(233, 233, 233));
         payAmountLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        payAmountLabel1.setText("Payment Amount :");
+        payAmountLabel1.setText("Payment Amount(RM) :");
 
         dueDateLabel1.setBackground(new java.awt.Color(233, 233, 233));
         dueDateLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -127,7 +126,7 @@ public class ResidentPay extends javax.swing.JFrame {
 
         payAmountTxt1.setBackground(new java.awt.Color(233, 233, 233));
         payAmountTxt1.setForeground(new java.awt.Color(0, 0, 0));
-        payAmountTxt1.setText("RM 1000");
+        payAmountTxt1.setText("1000");
 
         dueDateTxt1.setBackground(new java.awt.Color(233, 233, 233));
         dueDateTxt1.setForeground(new java.awt.Color(0, 0, 0));
@@ -143,11 +142,11 @@ public class ResidentPay extends javax.swing.JFrame {
 
         payAmountLabel2.setBackground(new java.awt.Color(233, 233, 233));
         payAmountLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        payAmountLabel2.setText("Payment Amount :");
+        payAmountLabel2.setText("Payment Amount(RM) :");
 
         payAmountTxt2.setBackground(new java.awt.Color(233, 233, 233));
         payAmountTxt2.setForeground(new java.awt.Color(0, 0, 0));
-        payAmountTxt2.setText("RM 1000");
+        payAmountTxt2.setText("1000");
 
         dueDateLabel2.setBackground(new java.awt.Color(233, 233, 233));
         dueDateLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -172,15 +171,14 @@ public class ResidentPay extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(259, 259, 259)
-                .addComponent(topLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(backPageBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nextPageBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(topLabel)
+                        .addGap(83, 83, 83)
+                        .addComponent(backPageBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nextPageBtn))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(224, 224, 224)
                         .addComponent(selectBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -215,7 +213,7 @@ public class ResidentPay extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(224, 224, 224)
                         .addComponent(selectBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,7 +414,7 @@ public class ResidentPay extends javax.swing.JFrame {
     private void displayDataView(Integer pageLine, String part)
     {
         try{
-            String paymentFile = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
+            String paymentFile = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
             ArrayList<ArrayList<String>> userData = onlyUserDataInfo(paymentFile);
             int newSize = userData.size();            
             try{
@@ -525,7 +523,7 @@ public class ResidentPay extends javax.swing.JFrame {
     private void removeSelectedDue(String part)
     {
         try {
-            String fileName = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
+            String fileName = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
             ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
             if(part.equals("upper"))
             {
