@@ -220,7 +220,7 @@ public class ResidentMain {
                 setPassword(allData.get(dataLine).get(2));
             }
             //for ResidentPay
-            else if (file.equals("ResidentDuePayment")) {
+            else if (file.equals("ResidentPayment")) {
                 setId(allData.get(dataLine).get(0));
                 setPayTo(allData.get(dataLine).get(1));
                 setPayAmount(allData.get(dataLine).get(2));

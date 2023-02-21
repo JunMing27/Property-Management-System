@@ -414,7 +414,7 @@ public class ResidentPay extends javax.swing.JFrame {
     private void displayDataView(Integer pageLine, String part)
     {
         try{
-            String paymentFile = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
+            String paymentFile = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
             ArrayList<ArrayList<String>> userData = onlyUserDataInfo(paymentFile);
             int newSize = userData.size();            
             try{
@@ -523,7 +523,7 @@ public class ResidentPay extends javax.swing.JFrame {
     private void removeSelectedDue(String part)
     {
         try {
-            String fileName = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
+            String fileName = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
             ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
             if(part.equals("upper"))
             {

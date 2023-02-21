@@ -351,48 +351,7 @@ public class ResidentInvoice extends javax.swing.JFrame {
         
     }
         
-    
-    private void displayDataView(Integer pageLine, String part)
-    {
-        try{
-            String paymentFile = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
-            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(paymentFile);
-            int newSize = userData.size();            
-            try{
-                userData.get(pageLine);
-                tenantNameTxt.setText(userData.get(pageLine).get(1));
-                dateIssuedTxt.setText(userData.get(pageLine).get(2));
-                dueDateTxt.setText(userData.get(pageLine).get(3));
-                dueAmountTxt.setText(userData.get(pageLine).get(4));
-                totalAmountTxt.setText(userData.get(pageLine).get(5));
-                descTxt.setText(userData.get(pageLine).get(6));
-                residentMain.setStatus(true);
-                
-                if(tenantNameTxt.getText() == null)
-                {
-                    tenantNameTxt.setText("no data");
-                    dateIssuedTxt.setText("no data");
-                    dueDateTxt.setText("no data");
-                    dueAmountTxt.setText("no data");
-                    totalAmountTxt.setText("no data");
-                    descTxt.setText("no data");
-                }
-                
-            }
-            catch (Exception ex) {
-                residentMain.setStatus(false);
-            }
-            
-            if(pageLine.equals(newSize-1)){
-                residentMain.setStatus(false);
-            }
-        }
-        catch(FileNotFoundException ex){
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
-    
     private ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
     {
         File file = new File(textFile);
