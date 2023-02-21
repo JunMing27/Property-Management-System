@@ -4,27 +4,20 @@
  */
 package com.mycompany.mavenproject1;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
-public class ResidentPay extends javax.swing.JFrame {
-    
+
+public class ResidentPending extends javax.swing.JFrame {
     ResidentMain residentMain = new ResidentMain();
     String residentId = residentMain.getId();
-        
-    public ResidentPay(){
+    
+    public ResidentPending() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -44,27 +37,26 @@ public class ResidentPay extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
-        selectBtn1 = new javax.swing.JButton();
         backPageBtn = new javax.swing.JButton();
         nextPageBtn = new javax.swing.JButton();
         payToLabel1 = new javax.swing.JLabel();
         payToTxt1 = new javax.swing.JLabel();
         payAmountLabel1 = new javax.swing.JLabel();
-        dueDateLabel1 = new javax.swing.JLabel();
+        paidDateLabel1 = new javax.swing.JLabel();
         payAmountTxt1 = new javax.swing.JLabel();
-        dueDateTxt1 = new javax.swing.JLabel();
+        paidDateTxt1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         payToLabel2 = new javax.swing.JLabel();
         payToTxt2 = new javax.swing.JLabel();
         payAmountLabel2 = new javax.swing.JLabel();
         payAmountTxt2 = new javax.swing.JLabel();
-        dueDateLabel2 = new javax.swing.JLabel();
-        dueDateTxt2 = new javax.swing.JLabel();
-        selectBtn2 = new javax.swing.JButton();
+        paidDateLabel2 = new javax.swing.JLabel();
+        paidDateTxt2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(233, 233, 233));
+        jPanel1.setPreferredSize(new java.awt.Dimension(566, 600));
 
         backBtn.setBackground(new java.awt.Color(255, 255, 255));
         backBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -78,17 +70,7 @@ public class ResidentPay extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("PAY");
-
-        selectBtn1.setBackground(new java.awt.Color(255, 255, 255));
-        selectBtn1.setForeground(new java.awt.Color(0, 0, 0));
-        selectBtn1.setText("SELECT");
-        selectBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        selectBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectBtn1ActionPerformed(evt);
-            }
-        });
+        topLabel.setText("PENDING FEE");
 
         backPageBtn.setBackground(new java.awt.Color(255, 255, 255));
         backPageBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -120,17 +102,17 @@ public class ResidentPay extends javax.swing.JFrame {
         payAmountLabel1.setForeground(new java.awt.Color(0, 0, 0));
         payAmountLabel1.setText("Payment Amount(RM) :");
 
-        dueDateLabel1.setBackground(new java.awt.Color(233, 233, 233));
-        dueDateLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        dueDateLabel1.setText("Due Date :");
+        paidDateLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        paidDateLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        paidDateLabel1.setText("Paid Date :");
 
         payAmountTxt1.setBackground(new java.awt.Color(233, 233, 233));
         payAmountTxt1.setForeground(new java.awt.Color(0, 0, 0));
-        payAmountTxt1.setText("1000");
+        payAmountTxt1.setText("RM 1000");
 
-        dueDateTxt1.setBackground(new java.awt.Color(233, 233, 233));
-        dueDateTxt1.setForeground(new java.awt.Color(0, 0, 0));
-        dueDateTxt1.setText("10/04/2023");
+        paidDateTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        paidDateTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        paidDateTxt1.setText("10/04/2023");
 
         payToLabel2.setBackground(new java.awt.Color(233, 233, 233));
         payToLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -148,23 +130,13 @@ public class ResidentPay extends javax.swing.JFrame {
         payAmountTxt2.setForeground(new java.awt.Color(0, 0, 0));
         payAmountTxt2.setText("1000");
 
-        dueDateLabel2.setBackground(new java.awt.Color(233, 233, 233));
-        dueDateLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        dueDateLabel2.setText("Due Date :");
+        paidDateLabel2.setBackground(new java.awt.Color(233, 233, 233));
+        paidDateLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        paidDateLabel2.setText("Paid Date :");
 
-        dueDateTxt2.setBackground(new java.awt.Color(233, 233, 233));
-        dueDateTxt2.setForeground(new java.awt.Color(0, 0, 0));
-        dueDateTxt2.setText("10/04/2023");
-
-        selectBtn2.setBackground(new java.awt.Color(255, 255, 255));
-        selectBtn2.setForeground(new java.awt.Color(0, 0, 0));
-        selectBtn2.setText("SELECT");
-        selectBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        selectBtn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectBtn2ActionPerformed(evt);
-            }
-        });
+        paidDateTxt2.setBackground(new java.awt.Color(233, 233, 233));
+        paidDateTxt2.setForeground(new java.awt.Color(0, 0, 0));
+        paidDateTxt2.setText("10/04/2023");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,47 +145,41 @@ public class ResidentPay extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
+                        .addGap(206, 206, 206)
                         .addComponent(topLabel)
-                        .addGap(83, 83, 83)
+                        .addGap(58, 58, 58)
                         .addComponent(backPageBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(nextPageBtn))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(selectBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
+                        .addGap(133, 133, 133)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(paidDateLabel1)
                             .addComponent(payToLabel1)
-                            .addComponent(payAmountLabel1)
-                            .addComponent(dueDateLabel1))
+                            .addComponent(payAmountLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(payAmountTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(payToTxt1)
-                            .addComponent(dueDateTxt1)
-                            .addComponent(payAmountTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(paidDateTxt1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
+                        .addGap(134, 134, 134)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dueDateLabel2)
+                            .addComponent(payToLabel2)
                             .addComponent(payAmountLabel2)
-                            .addComponent(payToLabel2))
-                        .addGap(18, 18, 18)
+                            .addComponent(paidDateLabel2))
+                        .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(payToTxt2)
-                            .addComponent(dueDateTxt2)
+                            .addComponent(paidDateTxt2)
                             .addComponent(payAmountTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(selectBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                        .addGap(64, 64, 64)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +191,7 @@ public class ResidentPay extends javax.swing.JFrame {
                     .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backPageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nextPageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(59, 59, 59)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(payToLabel1)
                     .addComponent(payToTxt1))
@@ -235,13 +201,11 @@ public class ResidentPay extends javax.swing.JFrame {
                     .addComponent(payAmountTxt1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dueDateLabel1)
-                    .addComponent(dueDateTxt1))
-                .addGap(27, 27, 27)
-                .addComponent(selectBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(paidDateLabel1)
+                    .addComponent(paidDateTxt1))
+                .addGap(54, 54, 54)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(payToLabel2)
                     .addComponent(payToTxt2))
@@ -251,18 +215,16 @@ public class ResidentPay extends javax.swing.JFrame {
                     .addComponent(payAmountTxt2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dueDateLabel2)
-                    .addComponent(dueDateTxt2))
-                .addGap(37, 37, 37)
-                .addComponent(selectBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                    .addComponent(paidDateLabel2)
+                    .addComponent(paidDateTxt2))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,51 +234,24 @@ public class ResidentPay extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
-        
-        backPageBtn.setEnabled(true);
-        displayData();
-    }//GEN-LAST:event_nextPageBtnActionPerformed
-
-    private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
-        
-        backButtonFunction();
-        nextPageBtn.setEnabled(true);
-        displayData();   
-    }//GEN-LAST:event_backPageBtnActionPerformed
-
-    private void selectBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn1ActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will consider paid ",
-                                        "INFORMATION", JOptionPane.YES_NO_OPTION);
-        if(result == JOptionPane.YES_OPTION)
-        {
-            removeSelectedDue("upper");
-            this.dispose();
-            ResidentPay residentPay = new ResidentPay();
-            residentPay.setVisible(true);
-        }
-        
-    }//GEN-LAST:event_selectBtn1ActionPerformed
-
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
         ResidentPaymentOption residentPaymentOption = new ResidentPaymentOption();
         residentPaymentOption.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
-    private void selectBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn2ActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will consider paid ",
-                                        "INFORMATION", JOptionPane.YES_NO_OPTION);
-        if(result == JOptionPane.YES_OPTION)
-        {
-            removeSelectedDue("bottom");
-            this.dispose();
-            ResidentPay residentPay = new ResidentPay();
-            residentPay.setVisible(true);
-        }
-        
-        
-    }//GEN-LAST:event_selectBtn2ActionPerformed
+    private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
+
+        backButtonFunction();
+        nextPageBtn.setEnabled(true);
+        displayData();
+    }//GEN-LAST:event_backPageBtnActionPerformed
+
+    private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
+
+        backPageBtn.setEnabled(true);
+        displayData();
+    }//GEN-LAST:event_nextPageBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,20 +270,20 @@ public class ResidentPay extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentPending.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentPending.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentPending.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentPending.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentPay().setVisible(true);
+                new ResidentPending().setVisible(true);
             }
         });
     }
@@ -356,13 +291,13 @@ public class ResidentPay extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JButton backPageBtn;
-    private javax.swing.JLabel dueDateLabel1;
-    private javax.swing.JLabel dueDateLabel2;
-    private javax.swing.JLabel dueDateTxt1;
-    private javax.swing.JLabel dueDateTxt2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton nextPageBtn;
+    private javax.swing.JLabel paidDateLabel1;
+    private javax.swing.JLabel paidDateLabel2;
+    private javax.swing.JLabel paidDateTxt1;
+    private javax.swing.JLabel paidDateTxt2;
     private javax.swing.JLabel payAmountLabel1;
     private javax.swing.JLabel payAmountLabel2;
     private javax.swing.JLabel payAmountTxt1;
@@ -371,14 +306,10 @@ public class ResidentPay extends javax.swing.JFrame {
     private javax.swing.JLabel payToLabel2;
     private javax.swing.JLabel payToTxt1;
     private javax.swing.JLabel payToTxt2;
-    private javax.swing.JButton selectBtn1;
-    private javax.swing.JButton selectBtn2;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 
-    
-    
-    
+
     private int pageLine=-1;
     
     private void setPagination(){
@@ -407,15 +338,14 @@ public class ResidentPay extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         
-        
     }
-        
+
     
     private void displayDataView(Integer pageLine, String part)
     {
         try{
-            String paymentFile = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
-            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(paymentFile);
+            String pendingFile = "src/main/java/com/mycompany/textFile/ResidentPending.txt";
+            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(pendingFile);
             int newSize = userData.size();            
             try{
                 userData.get(pageLine);
@@ -423,28 +353,28 @@ public class ResidentPay extends javax.swing.JFrame {
                 {
                     payToTxt1.setText(userData.get(pageLine).get(1));
                     payAmountTxt1.setText(userData.get(pageLine).get(2));
-                    dueDateTxt1.setText(userData.get(pageLine).get(3));
+                    paidDateTxt1.setText(userData.get(pageLine).get(3));
                     payToTxt2.setText("no data");
                     payAmountTxt2.setText("no data");
-                    dueDateTxt2.setText("no data");
+                    paidDateTxt2.setText("no data");
                     residentMain.setStatus(true);
                 }else{
                     payToTxt2.setText(userData.get(pageLine).get(1));
                     payAmountTxt2.setText(userData.get(pageLine).get(2));
-                    dueDateTxt2.setText(userData.get(pageLine).get(3));
+                    paidDateTxt2.setText(userData.get(pageLine).get(3));
                     residentMain.setStatus(true);
                 }
                 if(payToTxt1.getText() == null)
                 {
                     payToTxt1.setText("no data");
                     payAmountTxt1.setText("no data");
-                    dueDateTxt1.setText("no data");
+                    paidDateTxt1.setText("no data");
                 }
                 if(payToTxt2.getText() == null)
                 {
                     payToTxt2.setText("no data");
                     payAmountTxt2.setText("no data");
-                    dueDateTxt2.setText("no data");
+                    paidDateTxt2.setText("no data");
                 }
                 
             }
@@ -498,87 +428,7 @@ public class ResidentPay extends javax.swing.JFrame {
        
         return onlyUserInfo;
     }
-     
-    private ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
-    {
-        File file = new File(textFile);
-        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
-        if (file.exists()) {
-            Scanner sc = new Scanner(file);
-            String oneUserInfo; 
-            String[] itemArray;
-            ArrayList<String> itemArrayList;
-            allUserInfo = new ArrayList<>();
-            while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); 
-                itemArray = oneUserInfo.split(","); 
-                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
-                allUserInfo.add(itemArrayList);
-            }
-        }
-        
-        return allUserInfo;
-    }
-    
-    private void removeSelectedDue(String part)
-    {
-        try {
-            String fileName = "src/main/java/com/mycompany/textFile/ResidentDuePayment.txt";
-            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
-            if(part.equals("upper"))
-            {
-                for(int j=0;j<userData.size();j++)
-                {
-                    if(userData.get(j).get(0).equals(residentId)
-                            && userData.get(j).get(1).equals(payToTxt1.getText())
-                            && userData.get(j).get(2).equals(payAmountTxt1.getText())
-                            && userData.get(j).get(3).equals(dueDateTxt1.getText()))
-                    {
-                        userData.remove(j);
-                        break;
-                    }
-                }
-            }else if(part.equals("bottom"))
-            {
-                for(int j=0;j<userData.size();j++)
-                {
-                    if(userData.get(j).get(0).equals(residentId)
-                            && userData.get(j).get(1).equals(payToTxt2.getText())
-                            && userData.get(j).get(2).equals(payAmountTxt2.getText())
-                            && userData.get(j).get(3).equals(dueDateTxt2.getText()))
-                    {
-                        userData.remove(j);
-                        break;
-                    }
-                }
-            }
-            
-            File paymentFile = new File(fileName);
-            FileWriter fw = new FileWriter(paymentFile);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<userData.size(); j++) 
-            {
-                ArrayList<String>item = userData.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                       bw.write(item.get(k));
-                    }else{
-                       bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
+
 
 }
-
