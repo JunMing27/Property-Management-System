@@ -88,13 +88,13 @@
                       <Component id="BackAccExecInvoiceManage" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                       <Component id="AddNewAccExecInvoiceManage" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="22" pref="174" max="32767" attributes="0"/>
+                  <EmptySpace min="22" pref="120" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -130,21 +130,21 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="28" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel1" max="32767" attributes="0"/>
-                          <Component id="jLabel7" max="32767" attributes="0"/>
+                          <Component id="InvoiceNum1" max="32767" attributes="0"/>
                           <Component id="jSeparator1" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="TenantName1" min="-2" pref="84" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator2" max="32767" attributes="0"/>
+                                  <Component id="jSeparator2" pref="118" max="32767" attributes="0"/>
                                   <Component id="jLabel2" min="-2" pref="84" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -152,12 +152,12 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel3" pref="96" max="32767" attributes="0"/>
-                          <Component id="jLabel9" max="32767" attributes="0"/>
+                          <Component id="DateSent1" max="32767" attributes="0"/>
                           <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel10" min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="DueDate1" min="-2" pref="68" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="jSeparator4" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
@@ -165,7 +165,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel5" pref="77" max="32767" attributes="0"/>
-                              <Component id="jLabel11" max="32767" attributes="0"/>
+                              <Component id="AmountDue1" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jSeparator5" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                       </Group>
@@ -173,7 +173,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jSeparator6" min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" pref="77" max="-2" attributes="0"/>
-                          <Component id="jLabel12" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="Amount1" min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="ViewDetailsInvoice" min="-2" pref="108" max="-2" attributes="0"/>
@@ -211,12 +211,12 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InvoiceNum1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TenantName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DateSent1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DueDate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AmountDue1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Amount1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="33" max="32767" attributes="0"/>
                   </Group>
@@ -268,34 +268,34 @@
                 <Property name="text" type="java.lang.String" value="Invoice Number"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="InvoiceNum1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel7"/>
+                <Property name="text" type="java.lang.String" value="InvoiceNum1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="TenantName1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel8"/>
+                <Property name="text" type="java.lang.String" value="TenantName1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel9">
+            <Component class="javax.swing.JLabel" name="DateSent1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel9"/>
+                <Property name="text" type="java.lang.String" value="DateSent1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="DueDate1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel10"/>
+                <Property name="text" type="java.lang.String" value="DueDate1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
+            <Component class="javax.swing.JLabel" name="AmountDue1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel11"/>
+                <Property name="text" type="java.lang.String" value="AmountDue1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
+            <Component class="javax.swing.JLabel" name="Amount1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel12"/>
+                <Property name="text" type="java.lang.String" value="Amount1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -322,6 +322,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackAccExecInvoiceManage2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="NextAccExecInvoiceManage">
           <Properties>
@@ -353,13 +356,13 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel19" alignment="0" max="32767" attributes="0"/>
+                          <Component id="InvoiceNum2" alignment="0" max="32767" attributes="0"/>
                           <Component id="jSeparator7" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel20" min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="TenantName2" min="-2" pref="84" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -372,12 +375,12 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel14" alignment="0" pref="96" max="32767" attributes="0"/>
-                          <Component id="jLabel21" alignment="0" max="32767" attributes="0"/>
+                          <Component id="DateSent2" alignment="0" max="32767" attributes="0"/>
                           <Component id="jSeparator9" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel22" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="DueDate2" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
                           <Component id="jLabel15" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="jSeparator10" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
@@ -385,7 +388,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel16" alignment="0" pref="77" max="32767" attributes="0"/>
-                              <Component id="jLabel23" alignment="0" max="32767" attributes="0"/>
+                              <Component id="AmountDue2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jSeparator11" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                       </Group>
@@ -393,7 +396,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jSeparator12" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="jLabel17" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
-                          <Component id="jLabel24" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="Amount2" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="ViewDetailsInvoice2" min="-2" pref="108" max="-2" attributes="0"/>
@@ -431,12 +434,12 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InvoiceNum2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TenantName2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DateSent2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DueDate2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AmountDue2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Amount2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
@@ -454,6 +457,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="View Details"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewDetailsInvoice2ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
@@ -485,34 +491,34 @@
                 <Property name="text" type="java.lang.String" value="Invoice Number"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel19">
+            <Component class="javax.swing.JLabel" name="InvoiceNum2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel7"/>
+                <Property name="text" type="java.lang.String" value="InvoiceNum2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel20">
+            <Component class="javax.swing.JLabel" name="TenantName2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel8"/>
+                <Property name="text" type="java.lang.String" value="TenantName2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel21">
+            <Component class="javax.swing.JLabel" name="DateSent2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel9"/>
+                <Property name="text" type="java.lang.String" value="DateSent2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel22">
+            <Component class="javax.swing.JLabel" name="DueDate2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel10"/>
+                <Property name="text" type="java.lang.String" value="DueDate2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel23">
+            <Component class="javax.swing.JLabel" name="AmountDue2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel11"/>
+                <Property name="text" type="java.lang.String" value="AmountDue2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel24">
+            <Component class="javax.swing.JLabel" name="Amount2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel12"/>
+                <Property name="text" type="java.lang.String" value="Amount2"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator7">
@@ -548,13 +554,13 @@
                       <EmptySpace pref="50" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel30" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabel31" alignment="0" max="32767" attributes="0"/>
+                          <Component id="InvoiceNum3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jSeparator13" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jLabel32" min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="TenantName3" min="-2" pref="84" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -567,12 +573,12 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel26" alignment="0" pref="96" max="32767" attributes="0"/>
-                          <Component id="jLabel33" alignment="0" max="32767" attributes="0"/>
+                          <Component id="DateSent3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jSeparator15" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel34" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="DueDate3" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
                           <Component id="jLabel27" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="jSeparator16" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
@@ -580,7 +586,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel28" alignment="0" pref="77" max="32767" attributes="0"/>
-                              <Component id="jLabel35" alignment="0" max="32767" attributes="0"/>
+                              <Component id="AmountDue3" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jSeparator17" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                       </Group>
@@ -588,7 +594,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jSeparator18" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="jLabel29" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
-                          <Component id="jLabel36" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="Amount3" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="ViewDetailsInvoice3" min="-2" pref="108" max="-2" attributes="0"/>
@@ -626,12 +632,12 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InvoiceNum3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TenantName3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DateSent3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DueDate3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AmountDue3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Amount3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="33" max="32767" attributes="0"/>
                   </Group>
@@ -649,6 +655,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="View Details"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewDetailsInvoice3ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>
@@ -680,34 +689,34 @@
                 <Property name="text" type="java.lang.String" value="Invoice Number"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel31">
+            <Component class="javax.swing.JLabel" name="InvoiceNum3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel7"/>
+                <Property name="text" type="java.lang.String" value="InvoiceNum3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel32">
+            <Component class="javax.swing.JLabel" name="TenantName3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel8"/>
+                <Property name="text" type="java.lang.String" value="TenantName3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel33">
+            <Component class="javax.swing.JLabel" name="DateSent3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel9"/>
+                <Property name="text" type="java.lang.String" value="DateSent3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel34">
+            <Component class="javax.swing.JLabel" name="DueDate3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel10"/>
+                <Property name="text" type="java.lang.String" value="DueDate3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel35">
+            <Component class="javax.swing.JLabel" name="AmountDue3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel11"/>
+                <Property name="text" type="java.lang.String" value="AmountDue3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel36">
+            <Component class="javax.swing.JLabel" name="Amount3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel12"/>
+                <Property name="text" type="java.lang.String" value="Amount3"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator13">

@@ -4,6 +4,12 @@
  */
 package com.mycompany.mavenproject1;
 
+import static com.mycompany.mavenproject1.AccExecMain.ImageFilter.GIF;
+import static com.mycompany.mavenproject1.AccExecMain.ImageFilter.JPEG;
+import static com.mycompany.mavenproject1.AccExecMain.ImageFilter.JPG;
+import static com.mycompany.mavenproject1.AccExecMain.ImageFilter.PNG;
+import static com.mycompany.mavenproject1.AccExecMain.ImageFilter.TIF;
+import static com.mycompany.mavenproject1.AccExecMain.ImageFilter.TIFF;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -371,7 +377,7 @@ public class AccExecMain {
         } 
         catch (Exception ex) {
         }
-        
+    }
         public void deleteFunction(String itemID){
         try {
             int i =0;
@@ -469,19 +475,19 @@ public class AccExecMain {
                     ID = (ScanEachString.next().trim());
                     break;
                 }
-                if(type=="budget"){
+                if(type=="Invoice"){
                     String IDchar = ID.substring(0,2);
                     ID = ID.substring(2);
                     Integer IDnumber = Integer.parseInt(ID)+1;
                     ID = IDchar+ (IDnumber).toString();
-                    this.budgetId=ID;
+                    this.InvoiceNumber=ID;
                 }
                 if(type=="Admin Executive" || type=="Account Executive" || type=="Building Executive"){
                     String IDchar = ID.substring(0,2);
                     ID = ID.substring(2);
                     Integer IDnumber = Integer.parseInt(ID)+1;
                     ID = IDchar+ (IDnumber).toString();
-                    this.userId=ID;
+                    this.userID=ID;
                 }
             }
             catch (IOException ex) {
@@ -532,14 +538,50 @@ public class AccExecMain {
     }
     
     //+ Method to restrict image upload function to only accept specific file type (IMAGE FOR EXAMPLE)
-    class ImageFilter extends FileFilter {
+   class ImageFilter extends FileFilter {
    public final static String JPEG = "jpeg";
    public final static String JPG = "jpg";
    public final static String GIF = "gif";
    public final static String TIFF = "tiff";
    public final static String TIF = "tif";
    public final static String PNG = "png";
-    }
+   @Override
+   public boolean accept(File f) {
+      if (f.isDirectory()) {
+         return true;
+      }
+
+      String extension = getExtension(f);
+      if (extension != null) {
+         if (extension.equals(TIFF) ||
+            extension.equals(TIF) ||
+            extension.equals(GIF) ||
+            extension.equals(JPEG) ||
+            extension.equals(JPG) ||
+            extension.equals(PNG)) {
+            return true;
+         } else {
+            return false;
+         }
+      }
+      return false;
+   }
+   @Override
+   public String getDescription() {
+      return "Image Only";
+   }
+
+   String getExtension(File f) {
+      String ext = null;
+      String s = f.getName();
+      int i = s.lastIndexOf('.');
+   
+      if (i > 0 &&  i < s.length() - 1) {
+         ext = s.substring(i+1).toLowerCase();
+      }
+      return ext;
+   } 
+   }
 }
 //    private String InvoiceNumber;
 //    private String TenantName;
