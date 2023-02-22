@@ -424,8 +424,8 @@ public class VendorProfileEdit extends javax.swing.JFrame {
                     editProfile(name, gender, ageInt, phone, image);
                     editCredential(userName, pwd);
                     this.dispose();
-                    ResidentProfile residentProfile = new ResidentProfile();
-                    residentProfile.setVisible(true);
+                    VendorProfile profile = new VendorProfile();
+                    profile.setVisible(true);
                 }
             }
         }else{
@@ -498,4 +498,185 @@ public class VendorProfileEdit extends javax.swing.JFrame {
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
+
+    
+    private void displayData()
+    {
+        try {
+            String profileFile = "src/main/java/com/mycompany/textFile/ResidentProfile.txt";
+            String credentialFile = "src/main/java/com/mycompany/textFile/loginCredential.txt";
+            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(profileFile);
+            ArrayList<ArrayList<String>> credentialData = onlyUserDataInfo(credentialFile);
+
+            if(userData.get(0) != null)
+            {
+                idTxt.setText(userData.get(0).get(0));
+                nameTxt.setText(userData.get(0).get(1));
+                if(userData.get(0).get(2).equals("male"))
+                {
+                   maleCheckBox.setSelected(true);
+                }else if(userData.get(0).get(2).equals("female"))
+                {
+                    femaleCheckBox.setSelected(true);
+                }
+                ageTxt.setText(userData.get(0).get(3));
+                phoneTxt.setText(userData.get(0).get(4));
+                image = userData.get(0).get(5);
+                
+                usernameTxt.setText(credentialData.get(0).get(1));
+                pwdTxt.setText(credentialData.get(0).get(2));
+
+                //image
+                BufferedImage bufferedImage = null;
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+image);
+                bufferedImage = ImageIO.read(imageFile);
+                Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon profileIcon = new ImageIcon(profileImage);
+                imageLabel.setIcon(profileIcon);
+            }
+            else{
+                idTxt.setText("no data");
+                nameTxt.setText("no data");
+                maleCheckBox.setSelected(false);
+                femaleCheckBox.setSelected(false);
+                ageTxt.setText("no data");
+                phoneTxt.setText("no data");
+                imageLabel.setText("no data");
+                usernameTxt.setText("no data");
+                pwdTxt.setText("no data");
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(VendorProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+ 
+    private void editProfile(String name, String gender, int age, String phone, String image)
+    {
+        //save into profile file
+        try {
+            String fileName = "ResidentProfile";
+            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(id+","
+                    +name+","
+                    +gender+","
+                    +age+","
+                    +phone+","
+                    +image+"\n");
+            bw.close();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(VendorProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(VendorProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    private void editCredential(String username, String pwd)
+    {
+        try {
+            String fileName = "loginCredential";
+            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(id+","
+                    +username+","
+                    +pwd+","
+                    +"resident"+"\n");
+            bw.close();
+        }catch (FileNotFoundException ex) {
+            Logger.getLogger(VendorProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(VendorProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    private  ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(id))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(id))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+        return onlyUserInfo;
+    }
+    
+    private  ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        
+        return allUserInfo;
+    }
+    
+    private void removeFromFile(String fileName)
+    {
+        try {
+            String filePath = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            for(int j=0;j<allUsers.size();j++)
+            {
+                if(allUsers.get(j).get(0).equals(id))
+                {
+                    allUsers.remove(j);
+                    break;
+                }
+            }
+
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        }catch (IOException ex) {
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        
+    }   
+
 }
