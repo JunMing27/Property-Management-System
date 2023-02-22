@@ -30,7 +30,6 @@ public class VisitorPassManage extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        residentId = "R1";
         displayData();
         backPageBtn.setEnabled(false);
     }
@@ -306,9 +305,9 @@ public class VisitorPassManage extends javax.swing.JFrame {
                     .addComponent(idLabel1)
                     .addComponent(idTxt1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameLabel1)
-                    .addComponent(nameTxt1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameTxt1)
+                    .addComponent(nameLabel1))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateTxt1)
@@ -394,7 +393,14 @@ public class VisitorPassManage extends javax.swing.JFrame {
     }//GEN-LAST:event_nextPageBtnActionPerformed
 
     private void editBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn2ActionPerformed
-        
+        dataList = new ArrayList<String>();
+        dataList.add(idTxt2.getText());
+        dataList.add(nameTxt2.getText());
+        dataList.add(dateTxt2.getText());
+        dataList.add(statusText2.getText());
+        this.dispose();
+        VisitorPassAddEdit edit = new VisitorPassAddEdit("edit", dataList );
+        edit.setVisible(true);
 
     }//GEN-LAST:event_editBtn2ActionPerformed
 
@@ -405,8 +411,8 @@ public class VisitorPassManage extends javax.swing.JFrame {
         {
             removeSelected("upper");
             this.dispose();
-            ResidentPay residentPay = new ResidentPay();
-            residentPay.setVisible(true);
+            VisitorPassManage visitorPassManage = new VisitorPassManage();
+            visitorPassManage.setVisible(true);
         }
     }//GEN-LAST:event_deleteBtn1ActionPerformed
 
@@ -417,13 +423,20 @@ public class VisitorPassManage extends javax.swing.JFrame {
         {
             removeSelected("bottom");
             this.dispose();
-            ResidentPay residentPay = new ResidentPay();
-            residentPay.setVisible(true);
+            VisitorPassManage visitorPassManage = new VisitorPassManage();
+            visitorPassManage.setVisible(true);
         }
     }//GEN-LAST:event_deleteBtn2ActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        
+        dataList = new ArrayList<String>();
+        dataList.add(idTxt1.getText());
+        dataList.add(nameTxt1.getText());
+        dataList.add(dateTxt1.getText());
+        dataList.add(statusText1.getText());
+        this.dispose();
+        VisitorPassAddEdit edit = new VisitorPassAddEdit("add", dataList );
+        edit.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     /**

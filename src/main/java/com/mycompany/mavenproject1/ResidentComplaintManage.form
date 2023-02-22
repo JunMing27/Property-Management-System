@@ -49,85 +49,72 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+                          <Component id="topLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="backPageBtn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="nextPageBtn" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="backBtn" min="-2" pref="86" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jSeparator1" min="-2" pref="410" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="idLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="nameLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="statusLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dateLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="dateTxt2" max="32767" attributes="0"/>
-                                      <Component id="statusText2" max="32767" attributes="0"/>
-                                      <Component id="idTxt2" min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Component id="nameTxt2" min="-2" pref="132" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="idLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                                  <Component id="idTxt2" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="editBtn2" min="-2" pref="86" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                                  <Component id="deleteBtn2" min="-2" pref="86" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="detailLabel2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="replyLabel2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="editBtn2" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="detailTxt2" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="replyTxt2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="deleteBtn2" min="-2" pref="86" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="backBtn" min="-2" pref="86" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="deleteBtn1" min="-2" pref="86" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="nameLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="detailLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="idLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dateLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="statusLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="editBtn1" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="idTxt1" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="statusText1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="dateTxt1" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="nameTxt1" min="-2" pref="146" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="deleteBtn1" min="-2" pref="86" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Component id="editBtn1" min="-2" pref="86" max="-2" attributes="0"/>
+                                          <Component id="replyLabel1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jSeparator1" min="-2" pref="410" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="topLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                          <Component id="backPageBtn" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="nextPageBtn" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="detailTxt1" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="replyTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="idTxt1" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="91" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                          <Component id="addBtn" min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
-                  <Component id="addBtn" min="-2" pref="86" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="34" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -147,56 +134,46 @@
                       <Component id="idLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="idTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="detailLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="detailTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="nameTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="nameLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="replyTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="replyLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="dateTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="dateLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="statusLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="statusText1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="editBtn1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="deleteBtn1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="idLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="idTxt2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="nameLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nameTxt2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="detailLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="detailTxt2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="dateLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="dateTxt2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="replyLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="replyTxt2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="statusLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="statusText2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="editBtn2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="deleteBtn2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
                   <Component id="addBtn" min="-2" pref="34" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -227,7 +204,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="VISITOR PASS"/>
+            <Property name="text" type="java.lang.String" value="COMPLAINT"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="editBtn1">
@@ -283,7 +260,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Visitor ID :"/>
+            <Property name="text" type="java.lang.String" value="Complaint ID :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="idTxt1">
@@ -294,10 +271,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="V1"/>
+            <Property name="text" type="java.lang.String" value="C1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="nameLabel1">
+        <Component class="javax.swing.JLabel" name="detailLabel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e9" green="e9" red="e9" type="rgb"/>
@@ -305,10 +282,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Visitor Name :"/>
+            <Property name="text" type="java.lang.String" value="Complaint Details :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="dateLabel1">
+        <Component class="javax.swing.JLabel" name="replyLabel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e9" green="e9" red="e9" type="rgb"/>
@@ -316,10 +293,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Date :"/>
+            <Property name="text" type="java.lang.String" value="Complaint Reply :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="nameTxt1">
+        <Component class="javax.swing.JLabel" name="detailTxt1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e9" green="e9" red="e9" type="rgb"/>
@@ -327,10 +304,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Halo"/>
+            <Property name="text" type="java.lang.String" value="Issue"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="dateTxt1">
+        <Component class="javax.swing.JLabel" name="replyTxt1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e9" green="e9" red="e9" type="rgb"/>
@@ -338,49 +315,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="10/04/2023"/>
+            <Property name="text" type="java.lang.String" value="Reply Data"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
-        </Component>
-        <Component class="javax.swing.JButton" name="editBtn2">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="EDIT"/>
-            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editBtn2ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="statusLabel1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e9" green="e9" red="e9" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Status :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="statusText1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e9" green="e9" red="e9" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Valid"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="deleteBtn1">
           <Properties>
@@ -407,10 +345,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Visitor ID :"/>
+            <Property name="text" type="java.lang.String" value="Complaint ID :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="nameLabel2">
+        <Component class="javax.swing.JLabel" name="detailLabel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e9" green="e9" red="e9" type="rgb"/>
@@ -418,10 +356,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Visitor Name :"/>
+            <Property name="text" type="java.lang.String" value="Complaint Details :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="dateLabel2">
+        <Component class="javax.swing.JLabel" name="replyLabel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e9" green="e9" red="e9" type="rgb"/>
@@ -429,18 +367,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Date :"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="statusLabel2">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e9" green="e9" red="e9" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Status :"/>
+            <Property name="text" type="java.lang.String" value="Complaint Reply :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="idTxt2">
@@ -451,10 +378,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="V1"/>
+            <Property name="text" type="java.lang.String" value="C1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="nameTxt2">
+        <Component class="javax.swing.JLabel" name="detailTxt2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e9" green="e9" red="e9" type="rgb"/>
@@ -462,10 +389,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Halo"/>
+            <Property name="text" type="java.lang.String" value="Issue"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="statusText2">
+        <Component class="javax.swing.JLabel" name="replyTxt2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e9" green="e9" red="e9" type="rgb"/>
@@ -473,19 +400,25 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Valid"/>
+            <Property name="text" type="java.lang.String" value="Reply Data"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="dateTxt2">
+        <Component class="javax.swing.JButton" name="editBtn2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e9" green="e9" red="e9" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="10/04/2023"/>
+            <Property name="text" type="java.lang.String" value="EDIT"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editBtn2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="deleteBtn2">
           <Properties>

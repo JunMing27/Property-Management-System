@@ -44,7 +44,7 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
         dataListGet = new ArrayList<String>();
         
         jDateChooser1.setDateFormatString(pattern);
-        if(addEditDetector.equals("EDIT"))
+        if(addEditDetector.equals("edit"))
         {
             jDateChooser1.setVisible(false);
             displayData(dataListGet);
@@ -261,7 +261,6 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
             if(date1 != null)
             {
                 date = sdf.format(date1);
-                System.out.println("date "+date);
             }else{
                 date = "";
             }
