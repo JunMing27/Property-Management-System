@@ -506,13 +506,13 @@ public class buildingManBudgetManageFrame extends javax.swing.JFrame {
     private void nextPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageActionPerformed
         // TODO add your handling code here:
         previousPage.setEnabled(true);
-        setBudgetPlanningData();
+        setBudgetPlanData();
     }//GEN-LAST:event_nextPageActionPerformed
 
     private void previousPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousPageActionPerformed
         // TODO add your handling code here:
         backButtonFunction();
-        setBudgetPlanningData();
+        setBudgetPlanData();
         nextPage.setEnabled(true);
     }//GEN-LAST:event_previousPageActionPerformed
 
@@ -550,7 +550,7 @@ public class buildingManBudgetManageFrame extends javax.swing.JFrame {
         }
     }
     
-    public void setBudgetPlanningData(){
+    public void setBudgetPlanData(){
         budgetPlanning budgetClass = new budgetPlanning();
         setPagination();
         budgetClass.displayDataView(PageLine,searchTxt,"budget");

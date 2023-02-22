@@ -214,7 +214,7 @@ public class buildingManBudgetSingleViewFrame extends javax.swing.JFrame {
         budgetManage.setVisible(true);
         budgetManage.backButtonToggle();
         //Run Method set UserType and Data
-        budgetManage.setBudgetPlanningData();
+        budgetManage.setBudgetPlanData();
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
@@ -233,9 +233,9 @@ public class buildingManBudgetSingleViewFrame extends javax.swing.JFrame {
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
-        budgetPlanning budgetClass = new budgetPlanning();
-        budgetClass.chooseTxtFile("budgetPlanning");
-        budgetClass.deleteFunction(projectIdLabel.getText());
+        buildingManager main = new buildingManager();
+        main.chooseTxtFile("budgetPlanning");
+        main.deleteFunction(projectIdLabel.getText());
         JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
         this.dispose();
@@ -247,7 +247,7 @@ public class buildingManBudgetSingleViewFrame extends javax.swing.JFrame {
         budgetManage.setVisible(true);
         budgetManage.backButtonToggle();
         //Run Method set UserType and Data
-        budgetManage.setBudgetPlanningData();
+        budgetManage.setBudgetPlanData();
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     public void setDataViewSingle(String id) throws FileNotFoundException{

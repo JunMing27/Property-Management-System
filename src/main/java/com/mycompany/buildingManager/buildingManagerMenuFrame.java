@@ -163,11 +163,18 @@ public class buildingManagerMenuFrame extends javax.swing.JFrame {
         budgetManage.setLocationRelativeTo(null);
         budgetManage.setVisible(true);
         budgetManage.backButtonToggle();
-        budgetManage.setBudgetPlanningData();
+        budgetManage.setBudgetPlanData();
     }//GEN-LAST:event_budgetPlanningPageActionPerformed
 
     private void teamStructurePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teamStructurePageActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        buildingManagerEmployeeMenuFrame employeeMenu = new buildingManagerEmployeeMenuFrame();
+        employeeMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        employeeMenu.pack();
+        employeeMenu.setResizable(false);
+        employeeMenu.setLocationRelativeTo(null);
+        employeeMenu.setVisible(true);
     }//GEN-LAST:event_teamStructurePageActionPerformed
 
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed

@@ -6,6 +6,7 @@ package com.mycompany.buildingManager;
 
 import com.mycompany.dataController.User;
 import com.mycompany.dataController.dataManagementController;
+import com.mycompany.dataController.displayController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -29,7 +30,7 @@ import javax.swing.filechooser.FileFilter;
  *
  * @author Jun Ming
  */
-public class buildingManager extends User implements dataManagementController{
+public class buildingManager extends User implements dataManagementController, displayController{
     @Override
     public String getUserId(){
         return super.getUserId();
@@ -235,6 +236,17 @@ public class buildingManager extends User implements dataManagementController{
                             user.set(4, dataList.get(4));
                             break;
                         }
+                        if(type=="Employee"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            user.set(6, dataList.get(6));
+                            buildingManager.buildingManagerMethod mainInner = this.new buildingManagerMethod();
+                            mainInner.editUserCredential(dataList.get(0),dataList.get(7),dataList.get(8));
+                            break;
+                        }
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -252,6 +264,13 @@ public class buildingManager extends User implements dataManagementController{
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
+                            bw.close();
+                        }
+                        if(type=="Employee"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
                             bw.close();
                         }
                     }

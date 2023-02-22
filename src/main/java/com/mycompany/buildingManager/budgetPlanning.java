@@ -4,19 +4,24 @@
  */
 package com.mycompany.buildingManager;
 
+import com.mycompany.dataController.displayController;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jun Ming
  */
-public class budgetPlanning extends buildingManager{
+public class budgetPlanning implements displayController{
     
     //VARIABLESSS FOR BUILDING MANAGER FUNCTIONALITY : BUDGET PLANNING
     private String budgetId;
@@ -64,6 +69,12 @@ public class budgetPlanning extends buildingManager{
         return Status;
     }
     
+    @Override
+    public void chooseTxtFile(String Type) {
+        file="BudgetPlanning.txt";
+    }
+    
+    @Override
     public void displayDataView(Integer dataLine, String searchTxt, String type) {
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
@@ -101,6 +112,7 @@ public class budgetPlanning extends buildingManager{
             Status = false;
         }
     }
+    @Override
     public void setDataNull(String type) {
         setBudgetId(null);
         setBudgetProjectName(null);
@@ -108,7 +120,7 @@ public class budgetPlanning extends buildingManager{
         setBudgetProjectStartDate(null);
         setBudgetProjectEndDate(null);
     }
-    
+    @Override
     public void getDataViewSingle(String id, String file, String type) {
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
@@ -124,6 +136,7 @@ public class budgetPlanning extends buildingManager{
             }
     }
     
+    @Override
     public void getIncreasedID(String file, String type) {
         BufferedReader input;
         try {
@@ -155,4 +168,30 @@ public class budgetPlanning extends buildingManager{
             JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }
+    public ArrayList<ArrayList<String>> DataInfo(String textFile) {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = null;
+            try {
+                sc = new Scanner(file);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(buildingManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } else {
+        }
+        return allUserInfo;
+    }
+
+    
 }

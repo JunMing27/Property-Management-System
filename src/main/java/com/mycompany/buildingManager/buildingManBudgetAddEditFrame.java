@@ -191,7 +191,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
             budgetManage.setVisible(true);
             budgetManage.backButtonToggle();
             //Run Method set UserType and Data
-            budgetManage.setBudgetPlanningData();
+            budgetManage.setBudgetPlanData();
         }else{
             this.dispose();
             buildingManBudgetSingleViewFrame budgetView = new buildingManBudgetSingleViewFrame();
@@ -211,15 +211,17 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
             budgetPlanning budget = new budgetPlanning();
+            buildingManager main = new buildingManager();
             ArrayList<String> dataList = new ArrayList<String>();
             dataList.add(projectIdField.getText());
             dataList.add(projectNameField.getText());
             dataList.add(projectBudgetField.getText());
             dataList.add(projectStartDateField.getText());
             dataList.add(projectEndDateField.getText());
-            budget.editOrAddData(dataList, "budget","BudgetPlanning.txt","edit");
+            main.editOrAddData(dataList, "budget","BudgetPlanning.txt","edit");
         }else if(addEditDetector=="add"){
             budgetPlanning budget = new budgetPlanning();
+            buildingManager main = new buildingManager();
             ArrayList<String> dataList = new ArrayList<String>();
             budget.getIncreasedID("BudgetPlanning.txt","budget");
             dataList.add(budget.getBudgetId());
@@ -227,7 +229,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
             dataList.add(projectBudgetField.getText());
             dataList.add(projectStartDateField.getText());
             dataList.add(projectEndDateField.getText());
-            budget.editOrAddData(dataList, "budget","BudgetPlanning.txt","add");
+            main.editOrAddData(dataList, "budget","BudgetPlanning.txt","add");
         }
     }//GEN-LAST:event_addEditBtnActionPerformed
 
