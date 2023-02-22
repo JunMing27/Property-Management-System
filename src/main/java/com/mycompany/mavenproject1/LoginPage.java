@@ -131,6 +131,7 @@ public class LoginPage extends javax.swing.JFrame  {
                                 case "admin" -> System.out.println("admin");
                                 case "manager" -> System.out.println("manager");
                                 case "resident" -> setResidentData(fileUserID, fileUsername, filePassword);
+                                case "visitor" -> directToVisitorPass(fileUserID);
                                 default -> System.out.println("cant find page for this role");
                               }
 
@@ -169,6 +170,14 @@ public void setResidentData(String residentId, String residentName, String resid
     ResidentOption residentOption = new ResidentOption();
     residentOption.setVisible(true);
 
+}
+
+public void directToVisitorPass(String visitorId)
+{
+    //assume visitor pass valid
+    logInFrame.dispose();
+    VisitorPassView visitorPassView = new VisitorPassView(visitorId);
+    visitorPassView.setVisible(true);
 }
 
 public static void main(String[] args) {

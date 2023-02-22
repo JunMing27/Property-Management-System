@@ -445,7 +445,7 @@ public class ResidentStatement extends javax.swing.JFrame {
             }
         }
         catch(FileNotFoundException ex){
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentStatement.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

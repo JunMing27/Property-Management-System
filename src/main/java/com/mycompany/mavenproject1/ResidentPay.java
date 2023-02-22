@@ -4,11 +4,9 @@
  */
 package com.mycompany.mavenproject1;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +14,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class ResidentPay extends javax.swing.JFrame {
@@ -190,9 +187,10 @@ public class ResidentPay extends javax.swing.JFrame {
                             .addComponent(dueDateLabel1))
                         .addGap(73, 73, 73)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(payAmountTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(payToTxt1)
-                            .addComponent(dueDateTxt1)))
+                            .addComponent(payToTxt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(dueDateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(payAmountTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -213,7 +211,7 @@ public class ResidentPay extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(225, 225, 225)
                         .addComponent(selectBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(61, 61, 61))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,9 +232,9 @@ public class ResidentPay extends javax.swing.JFrame {
                     .addComponent(payAmountLabel1)
                     .addComponent(payAmountTxt1))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dueDateLabel1)
-                    .addComponent(dueDateTxt1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dueDateTxt1)
+                    .addComponent(dueDateLabel1))
                 .addGap(27, 27, 27)
                 .addComponent(selectBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -433,6 +431,7 @@ public class ResidentPay extends javax.swing.JFrame {
                     payToTxt2.setText(userData.get(pageLine).get(2));
                     payAmountTxt2.setText(userData.get(pageLine).get(3));
                     dueDateTxt2.setText(userData.get(pageLine).get(4));
+                    selectBtn2.setEnabled(true);
                     residentMain.setStatus(true);
                 }
                 if(payToTxt1.getText() == null)

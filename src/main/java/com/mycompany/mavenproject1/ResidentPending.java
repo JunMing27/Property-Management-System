@@ -387,7 +387,7 @@ public class ResidentPending extends javax.swing.JFrame {
             }
         }
         catch(FileNotFoundException ex){
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentPending.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

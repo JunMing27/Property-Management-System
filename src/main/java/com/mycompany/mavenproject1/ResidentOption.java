@@ -23,7 +23,7 @@ public class ResidentOption extends javax.swing.JFrame {
      * Creates new form ResidentOption
      */
     public ResidentOption() {
-        initComponents();
+        initComponents(); 
         setResizable(false);
         setLocationRelativeTo(null);
     }
@@ -184,8 +184,9 @@ public class ResidentOption extends javax.swing.JFrame {
         int dialog = JOptionPane.showConfirmDialog(null, 
                 "Are You Sure ?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
-            LoginPage.main(null);
-            this.dispose();   
+            this.dispose(); 
+            LoginPage loginPage = new LoginPage();
+            loginPage.setVisible(true); 
         }
     }//GEN-LAST:event_exitBtnActionPerformed
 
@@ -197,15 +198,21 @@ public class ResidentOption extends javax.swing.JFrame {
     }//GEN-LAST:event_paymentBtnActionPerformed
 
     private void facilityBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityBookBtnActionPerformed
-        // Direct to Facility Booking Page
+        this.dispose();
+        FacilityBooking facilityBooking = new FacilityBooking();
+        facilityBooking.setVisible(true);
     }//GEN-LAST:event_facilityBookBtnActionPerformed
 
     private void visitorPassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorPassBtnActionPerformed
-        // Direct to Visitor Pass Page
+        this.dispose();
+        VisitorPassManage visitorPassManage = new VisitorPassManage();
+        visitorPassManage.setVisible(true);
     }//GEN-LAST:event_visitorPassBtnActionPerformed
 
     private void complaintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintBtnActionPerformed
-        // Direct to Complaint Page
+        this.dispose();
+        ResidentComplaintManage complaint = new ResidentComplaintManage();
+        complaint.setVisible(true);
     }//GEN-LAST:event_complaintBtnActionPerformed
 
     /**
