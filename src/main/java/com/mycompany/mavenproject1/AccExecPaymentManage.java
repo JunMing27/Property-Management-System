@@ -483,6 +483,8 @@ public class AccExecPaymentManage extends javax.swing.JFrame {
 
     private void NextAccExecPaymentManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextAccExecPaymentManageActionPerformed
         // TODO add your handling code here:
+        BackAccExecPaymentManage2.setEnabled(true);
+        setPaymentData();
     }//GEN-LAST:event_NextAccExecPaymentManageActionPerformed
 
     private void BackAccExecPaymentManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecPaymentManageActionPerformed

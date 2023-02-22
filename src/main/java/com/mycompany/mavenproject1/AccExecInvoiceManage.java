@@ -238,6 +238,11 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
         NextAccExecInvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
         NextAccExecInvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
         NextAccExecInvoiceManage.setText("Next");
+        NextAccExecInvoiceManage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NextAccExecInvoiceManageActionPerformed(evt);
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -637,6 +642,12 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ViewDetailsInvoice3ActionPerformed
+
+    private void NextAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextAccExecInvoiceManageActionPerformed
+        // TODO add your handling code here:
+        BackAccExecInvoiceManage2.setEnabled(true);
+        setInvoiceData();
+    }//GEN-LAST:event_NextAccExecInvoiceManageActionPerformed
 
     public void backButtonToggle(){
         BackAccExecInvoiceManage2.setEnabled(false);

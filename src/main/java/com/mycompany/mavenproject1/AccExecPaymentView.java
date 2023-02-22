@@ -4,6 +4,12 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
@@ -26,22 +32,248 @@ public class AccExecPaymentView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        BackAccExecutiveInvoiceView = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        PayAmount = new javax.swing.JLabel();
+        DateDue = new javax.swing.JLabel();
+        PaymentID = new javax.swing.JLabel();
+        PaymentDescription = new javax.swing.JLabel();
+        UpdateAccExecutiveInvoiceView = new javax.swing.JButton();
+        DeleteAccExecutiveInoviceView = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        BackAccExecutiveInvoiceView.setBackground(new java.awt.Color(255, 255, 255));
+        BackAccExecutiveInvoiceView.setForeground(new java.awt.Color(0, 0, 0));
+        BackAccExecutiveInvoiceView.setText("Back");
+        BackAccExecutiveInvoiceView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackAccExecutiveInvoiceViewActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Payment");
+
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Payment ID");
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Payment Description");
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Pay Amount");
+
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Due Date");
+
+        PayAmount.setForeground(new java.awt.Color(0, 0, 0));
+        PayAmount.setText("PayAmount");
+
+        DateDue.setForeground(new java.awt.Color(0, 0, 0));
+        DateDue.setText("Date Due");
+
+        PaymentID.setForeground(new java.awt.Color(0, 0, 0));
+        PaymentID.setText("PaymentID");
+
+        PaymentDescription.setForeground(new java.awt.Color(0, 0, 0));
+        PaymentDescription.setText("PaymentDescription");
+
+        UpdateAccExecutiveInvoiceView.setBackground(new java.awt.Color(255, 255, 255));
+        UpdateAccExecutiveInvoiceView.setForeground(new java.awt.Color(0, 0, 0));
+        UpdateAccExecutiveInvoiceView.setText("Update");
+        UpdateAccExecutiveInvoiceView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateAccExecutiveInvoiceViewActionPerformed(evt);
+            }
+        });
+
+        DeleteAccExecutiveInoviceView.setBackground(new java.awt.Color(255, 255, 255));
+        DeleteAccExecutiveInoviceView.setForeground(new java.awt.Color(0, 0, 0));
+        DeleteAccExecutiveInoviceView.setText("Delete");
+        DeleteAccExecutiveInoviceView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteAccExecutiveInoviceViewActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(BackAccExecutiveInvoiceView, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PaymentID, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PaymentDescription, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(UpdateAccExecutiveInvoiceView, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(DeleteAccExecutiveInoviceView, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(PayAmount)
+                        .addGap(312, 312, 312)
+                        .addComponent(DateDue, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(89, 89, 89))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(275, 275, 275))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(BackAccExecutiveInvoiceView, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PaymentID)
+                    .addComponent(PaymentDescription))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(DateDue))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PayAmount)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DeleteAccExecutiveInoviceView, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UpdateAccExecutiveInvoiceView, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void DeleteAccExecutiveInoviceViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteAccExecutiveInoviceViewActionPerformed
+        // TODO add your handling code here:
+        AccExecMain main = new AccExecMain();
+        main.chooseTxtFile("InvoiceContent");
+        main.deleteFunction(PaymentID.getText());
+        JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+        AccExecInvoiceManage Invoice = new AccExecInvoiceManage();
+        Invoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Invoice.pack();
+        Invoice.setResizable(false);
+        Invoice.setLocationRelativeTo(null);
+        Invoice.setVisible(true);
+        Invoice.backButtonToggle();// need to check back with accexecinvoicemanage
+        Invoice.setInvoiceData(); //same as above
+    }//GEN-LAST:event_DeleteAccExecutiveInoviceViewActionPerformed
+
+    private void UpdateAccExecutiveInvoiceViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateAccExecutiveInvoiceViewActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        AccExecAddEditInvoice InvoiceAddEdit = new AccExecAddEditInvoice();
+        InvoiceAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        InvoiceAddEdit.pack();
+        InvoiceAddEdit.setResizable(false);
+        InvoiceAddEdit.setLocationRelativeTo(null);
+        InvoiceAddEdit.setVisible(true);
+        try {
+            InvoiceAddEdit.addEditDetect("edit",PaymentID.getText());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AccExecutiveInvoiceView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_UpdateAccExecutiveInvoiceViewActionPerformed
+
+    private void BackAccExecutiveInvoiceViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecutiveInvoiceViewActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        AccExecInvoiceManage Invoice = new AccExecInvoiceManage();
+        Invoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Invoice.pack();
+        Invoice.setResizable(false);
+        Invoice.setLocationRelativeTo(null);
+        Invoice.setVisible(true);
+        Invoice.backButtonToggle(); //need to check back with accexecinvoicemanage
+        Invoice.setInvoiceData(); //same as above
+    }//GEN-LAST:event_BackAccExecutiveInvoiceViewActionPerformed
+
+    public void setDataViewSingle(String id) throws FileNotFoundException{
+        AccExecMain main = new AccExecMain();
+        main.getDataViewSingle(id, "InvoiceContent.txt","invoice");
+        //after getting data, set text value 
+        PaymentID.setText(main.getTenantName());
+        PaymentDescription.setText(main.getDateInvoiceIssued());
+        PayAmount.setText(main.getDateDue());
+        DateDue.setText(main.getAmountDue());
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -78,5 +310,22 @@ public class AccExecPaymentView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackAccExecutiveInvoiceView;
+    private javax.swing.JLabel DateDue;
+    private javax.swing.JButton DeleteAccExecutiveInoviceView;
+    private javax.swing.JLabel PayAmount;
+    private javax.swing.JLabel PaymentDescription;
+    private javax.swing.JLabel PaymentID;
+    private javax.swing.JButton UpdateAccExecutiveInvoiceView;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
     // End of variables declaration//GEN-END:variables
 }

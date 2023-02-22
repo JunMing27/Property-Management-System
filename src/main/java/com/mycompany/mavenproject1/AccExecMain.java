@@ -49,6 +49,28 @@ public class AccExecMain {
     private String Amount;
     private String Description;
     
+//    Statement ID, User ID, Username, Paid Date, Paid Amount, Description
+    //Variables for AccExecutive Functionality: Statement Manager
+    private String StatemendID;
+    private String Username;
+    private String PaidDate;
+    private String PaidAmount;
+
+//    Receipt ID, User ID, Description, Paid Amount, Paid Date, Date Issued
+    //Variables for AccExecutive Functionality: Receipt Manager
+    private String ReceiptID; 
+    private String DescriptionReceipt;
+    private String PaidAmountReceipt;
+    private String PaidDateReceipt;
+    private String DateIssuedReceipt;
+    
+    
+//Payment ID, User ID, Pay Description, Pay Amount, Due Date        
+   //Variables for AccExecutive Functionality: Payment Manager
+    private String PaymentID;
+    private String PayDescription;
+    private String PayAmount;
+    private String DueDate;
     
     //COMMON VARIABLES (USABLE FOR SEVERAL FUNCTION)
     private String dataId;
@@ -80,7 +102,7 @@ public class AccExecMain {
         return userType;
     }
     
-    //GET FOR BUILDING MANAGER FUNCTIONALITY : Invoice Management
+    //GET For Acc Executive FUNCTIONALITY : Invoice Management
     public String getInvoiceNumber(){
         return InvoiceNumber;
     }
@@ -102,6 +124,57 @@ public class AccExecMain {
     public String getDescriptionInvoice(){
         return Description;
     }
+    
+    //Get for Acc Executive Functionality : Statement Management
+    public String getStatementID(){
+        return StatemendID;
+    }
+    public String getUserID(){
+        return userID;
+    }
+    public String getUsername(){
+        return Username;
+    }
+    public String getPaidDate(){
+        return PaidDate;
+    }
+    public String getPaidAmount(){
+        return PaidAmount;
+    }
+    
+    //get for Acc Exec Functionality : Receipt Management
+    public String getReceiptID(){
+        return ReceiptID;
+    }
+    public String getDescriptionReceipt(){
+        return DescriptionReceipt;
+    }
+    public String getPaidAmountReceipt(){
+        return PaidAmountReceipt;
+    }
+    public String getPaidDateReceipt(){
+        return PaidDateReceipt;
+    }
+    public String getDateIssuedReceipt(){
+        return DateIssuedReceipt;
+    }
+
+//    get for Acc Exec Functionality : Payment Management;
+    public String getPaymentID(){
+        return PaymentID;
+    }
+    public String getPayDescription(){
+        return PayDescription;
+    }
+    public String getPayAmount(){
+        return PayAmount;
+    }
+    public String getDueDate(){
+        return DueDate;
+    }
+    
+    
+    
     
     //SET USER TYPE
     public void setUserType(String userType1){
@@ -131,9 +204,8 @@ public class AccExecMain {
             file ="ReceiptContent.txt";
         }else if (Type=="Statement"){
             file ="StatementContent.txt";
-        }else if (Type=="Invoice"){
-            file = "InvoiceContent.txt";
-        }else if (Type=="OutstandingFee"){
+        }
+        else if (Type=="OutstandingFee"){
             file = "OutstandingFee.txt";
         }
     }
@@ -163,7 +235,7 @@ public class AccExecMain {
         }
         int newSize = allData.size();
         try{
-            if(type=="Account Executive" || type=="Building Executive" || type=="Admin Executive"){
+            if(type=="Invoice" || type=="Receipt" || type=="Statement"|| type=="Payment"){
                 allData.get(dataLine);
                 this.userID=allData.get(dataLine).get(0);
                 this.userName = allData.get(dataLine).get(1);
@@ -172,13 +244,14 @@ public class AccExecMain {
                 this.phoneNumber = allData.get(dataLine).get(4);
                 this.UserImage = allData.get(dataLine).get(5);
                 this.Status = true;
-            }else if(type=="invoice"){
+            }else if(type=="Invoice"){
                 this.InvoiceNumber=allData.get(dataLine).get(0);
                 this.TenantName=allData.get(dataLine).get(1);
                 this.DateInvoiceIssued=allData.get(dataLine).get(2);
                 this.DateDue=allData.get(dataLine).get(3);
                 this.AmountDue=allData.get(dataLine).get(4);
                 this.Amount=allData.get(dataLine).get(5);
+                this.Amount=allData.get(dataLine).get(6);
                 this.Status=true;
             }
         }catch(Exception e){
@@ -206,6 +279,7 @@ public class AccExecMain {
             this.DateDue=null;
             this.AmountDue=null;
             this.Amount=null;
+            this.Description=null;
         }
     }
     
@@ -232,12 +306,33 @@ public class AccExecMain {
                         this.DateDue=singleData.get(3);
                         this.AmountDue=singleData.get(4);
                         this.Amount=singleData.get(5);
+                        this.Description=singleData.get(6);
+                    }
+                    if(type=="Statement"){
+                        this.StatemendID=singleData.get(0);
+                        this.userID=singleData.get(1);
+                        this.Username=singleData.get(2);
+                        this.PaidDate=singleData.get(3);
+                        this.PaidAmount=singleData.get(4);
+                    }
+                    if(type=="Receipt"){
+                        this.ReceiptID=singleData.get(0);
+                        this.DescriptionReceipt=singleData.get(1);
+                        this.PaidAmountReceipt=singleData.get(2);
+                        this.PaidDateReceipt=singleData.get(3);
+                        this.DateIssuedReceipt=singleData.get(4);
+                    }
+                    if(type=="Payment"){
+                        this.PaymentID=singleData.get(0);
+                        this.PayDescription=singleData.get(1);
+                        this.PayAmount=singleData.get(2);
+                        this.DueDate=singleData.get(3);
                     }
                     break;
                 }
             }
     }
-    
+
 //COMMON USE Method to get credential if data need login credential
     public void getCredentialData(String userId) throws FileNotFoundException{
         AdminExecutiveMain main = new AdminExecutiveMain();

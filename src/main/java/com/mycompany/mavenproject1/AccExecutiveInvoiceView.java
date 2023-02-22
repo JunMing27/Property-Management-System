@@ -305,13 +305,13 @@ public class AccExecutiveInvoiceView extends javax.swing.JFrame {
         Invoice.setResizable(false);
         Invoice.setLocationRelativeTo(null);
         Invoice.setVisible(true);
-        //        Invoice.backButtonToggle(); need to check back with accexecinvoicemanage
-        //        Invoice.setBudgetPlanningData(); same as above
+                Invoice.backButtonToggle(); //need to check back with accexecinvoicemanage
+                Invoice.setInvoiceData(); //same as above
     }//GEN-LAST:event_BackAccExecutiveInvoiceViewActionPerformed
 
     private void DeleteAccExecutiveInoviceViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteAccExecutiveInoviceViewActionPerformed
         // TODO add your handling code here:
-        BuildingManager main = new BuildingManager();
+        AccExecMain main = new AccExecMain();
         main.chooseTxtFile("InvoiceContent");
         main.deleteFunction(InvoiceNumber.getText());
         JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
@@ -322,8 +322,8 @@ public class AccExecutiveInvoiceView extends javax.swing.JFrame {
         Invoice.setResizable(false);
         Invoice.setLocationRelativeTo(null);
         Invoice.setVisible(true);
-//        Invoice.backButtonToggle(); need to check back with accexecinvoicemanage
-//        Invoice.setBudgetPlanningData(); same as above
+        Invoice.backButtonToggle();// need to check back with accexecinvoicemanage
+        Invoice.setInvoiceData(); //same as above
     }//GEN-LAST:event_DeleteAccExecutiveInoviceViewActionPerformed
 
         public void setDataViewSingle(String id) throws FileNotFoundException{
@@ -335,7 +335,7 @@ public class AccExecutiveInvoiceView extends javax.swing.JFrame {
         DateDue.setText(main.getDateDue());
         AmountDue.setText(main.getAmountDue());
         Amount.setText(main.getAmountInvoice());
-        Description.setText(main.getDescriptionInvoice);
+        Description.setText(main.getDescriptionInvoice());
     }
     /**
      * @param args the command line arguments
