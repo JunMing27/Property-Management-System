@@ -181,30 +181,30 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-//        if(!projectIdField.isVisible()){
-        this.dispose();
-        buildingManBudgetManageFrame budgetManage = new buildingManBudgetManageFrame();
-        budgetManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        budgetManage.pack();
-        budgetManage.setResizable(false);
-        budgetManage.setLocationRelativeTo(null);
-        budgetManage.setVisible(true);
-        budgetManage.backButtonToggle();
-        //Run Method set UserType and Data
-        budgetManage.setBudgetPlanningData();
-//        }else{
-//            this.dispose();
-//            BusManBudgetPlanningView budgetView = new BusManBudgetPlanningView();
-//            budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//            budgetView.pack();
-//            budgetView.setResizable(false);
-//            budgetView.setLocationRelativeTo(null);
-//            budgetView.setVisible(true);
-//            try {
-//                budgetView.setDataViewSingle(projectIdField.getText());
-//            } catch (FileNotFoundException ex) {
-//            }
-//        }
+        if(!projectIdField.isVisible()){
+            this.dispose();
+            buildingManBudgetManageFrame budgetManage = new buildingManBudgetManageFrame();
+            budgetManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            budgetManage.pack();
+            budgetManage.setResizable(false);
+            budgetManage.setLocationRelativeTo(null);
+            budgetManage.setVisible(true);
+            budgetManage.backButtonToggle();
+            //Run Method set UserType and Data
+            budgetManage.setBudgetPlanningData();
+        }else{
+            this.dispose();
+            buildingManBudgetSingleViewFrame budgetView = new buildingManBudgetSingleViewFrame();
+            budgetView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            budgetView.pack();
+            budgetView.setResizable(false);
+            budgetView.setLocationRelativeTo(null);
+            budgetView.setVisible(true);
+            try {
+                budgetView.setDataViewSingle(projectIdField.getText());
+            } catch (FileNotFoundException ex) {
+            }
+        }
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed

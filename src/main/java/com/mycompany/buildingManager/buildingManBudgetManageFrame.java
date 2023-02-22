@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -436,16 +437,20 @@ public class buildingManBudgetManageFrame extends javax.swing.JFrame {
 
     private void viewDetailBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailBtn1ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        buildingManBudgetAddEditFrame budgetAddEdit = new buildingManBudgetAddEditFrame();
-        budgetAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        budgetAddEdit.pack();
-        budgetAddEdit.setResizable(false);
-        budgetAddEdit.setLocationRelativeTo(null);
-        budgetAddEdit.setVisible(true);
-        try {
-            budgetAddEdit.addEditDetect("edit",ProjectIdLabel1.getText());
-        } catch (FileNotFoundException ex) {
+        if(!ProjectIdLabel1.getText().equals("no data")){
+            this.dispose();
+            buildingManBudgetSingleViewFrame singleView = new buildingManBudgetSingleViewFrame();
+            singleView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            singleView.pack();
+            singleView.setResizable(false);
+            singleView.setLocationRelativeTo(null);
+            singleView.setVisible(true);
+            try {
+                singleView.setDataViewSingle(ProjectIdLabel1.getText());
+            } catch (FileNotFoundException ex) {
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_viewDetailBtn1ActionPerformed
 
@@ -462,31 +467,39 @@ public class buildingManBudgetManageFrame extends javax.swing.JFrame {
 
     private void viewDetailBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailBtn2ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        buildingManBudgetAddEditFrame budgetAddEdit = new buildingManBudgetAddEditFrame();
-        budgetAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        budgetAddEdit.pack();
-        budgetAddEdit.setResizable(false);
-        budgetAddEdit.setLocationRelativeTo(null);
-        budgetAddEdit.setVisible(true);
-        try {
-            budgetAddEdit.addEditDetect("edit",ProjectIdLabel2.getText());
-        } catch (FileNotFoundException ex) {
+        if(!ProjectIdLabel2.getText().equals("no data")){
+            this.dispose();
+            buildingManBudgetSingleViewFrame singleView = new buildingManBudgetSingleViewFrame();
+            singleView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            singleView.pack();
+            singleView.setResizable(false);
+            singleView.setLocationRelativeTo(null);
+            singleView.setVisible(true);
+            try {
+                singleView.setDataViewSingle(ProjectIdLabel2.getText());
+            } catch (FileNotFoundException ex) {
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_viewDetailBtn2ActionPerformed
 
     private void viewDetailBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDetailBtn3ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        buildingManBudgetAddEditFrame budgetAddEdit = new buildingManBudgetAddEditFrame();
-        budgetAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        budgetAddEdit.pack();
-        budgetAddEdit.setResizable(false);
-        budgetAddEdit.setLocationRelativeTo(null);
-        budgetAddEdit.setVisible(true);
-        try {
-            budgetAddEdit.addEditDetect("edit",ProjectIdLabel3.getText());
-        } catch (FileNotFoundException ex) {
+        if(!ProjectIdLabel3.getText().equals("no data")){
+            this.dispose();
+            buildingManBudgetSingleViewFrame singleView = new buildingManBudgetSingleViewFrame();
+            singleView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            singleView.pack();
+            singleView.setResizable(false);
+            singleView.setLocationRelativeTo(null);
+            singleView.setVisible(true);
+            try {
+                singleView.setDataViewSingle(ProjectIdLabel3.getText());
+            } catch (FileNotFoundException ex) {
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_viewDetailBtn3ActionPerformed
 
