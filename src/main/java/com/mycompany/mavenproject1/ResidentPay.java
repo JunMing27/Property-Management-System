@@ -465,22 +465,8 @@ public class ResidentPay extends javax.swing.JFrame {
     
     private ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
     {
-        File file = new File(textFile);
-        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
-        if (file.exists()) {
-            Scanner sc = new Scanner(file);
-            String oneUserInfo; 
-            String[] itemArray;
-            ArrayList<String> itemArrayList;
-            allUserInfo = new ArrayList<>();
-            while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); 
-                itemArray = oneUserInfo.split(","); 
-                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
-                allUserInfo.add(itemArrayList);
-            }
-        } 
         
         
         int p,q;

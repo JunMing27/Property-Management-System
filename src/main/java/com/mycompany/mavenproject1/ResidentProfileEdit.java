@@ -534,7 +534,6 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         try {
             String fileName = "ResidentProfile";
             File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
-            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(residentId+","
@@ -578,22 +577,8 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     
     private  ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
     {
-        File file = new File(textFile);
-        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
-        if (file.exists()) {
-            Scanner sc = new Scanner(file);
-            String oneUserInfo; 
-            String[] itemArray;
-            ArrayList<String> itemArrayList;
-            allUserInfo = new ArrayList<>();
-            while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); 
-                itemArray = oneUserInfo.split(","); 
-                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
-                allUserInfo.add(itemArrayList);
-            }
-        } 
         
         int p,q;
         for (p=0,q=0; p<allUserInfo.size(); p++)
@@ -615,7 +600,6 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     {
         File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
-        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         if (file.exists()) {
             Scanner sc = new Scanner(file);
             String oneUserInfo; 
