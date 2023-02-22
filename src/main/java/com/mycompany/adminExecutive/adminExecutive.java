@@ -130,7 +130,7 @@ public class adminExecutive extends User implements dataManagementController, di
     @Override
     public void chooseTxtFile(String Type) {
         if(Type=="Resident"){
-            file ="residentProfile.txt";
+            file ="ResidentProfile.txt";
         }else if (Type=="Employee"){
             file ="Employee.txt";
         }
