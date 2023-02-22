@@ -61,7 +61,7 @@ public class ResidentReceipt extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("PAYMENT HISTORY");
+        topLabel.setText("RECEIPT");
 
         payHistoryTable.setBackground(new java.awt.Color(233, 233, 233));
         payHistoryTable.setForeground(new java.awt.Color(0, 0, 0));
@@ -85,9 +85,9 @@ public class ResidentReceipt extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
+                        .addGap(247, 247, 247)
                         .addComponent(topLabel)))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(249, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(85, Short.MAX_VALUE)
@@ -99,9 +99,9 @@ public class ResidentReceipt extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(483, Short.MAX_VALUE))
+                .addContainerGap(473, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(167, Short.MAX_VALUE)
@@ -189,9 +189,9 @@ public class ResidentReceipt extends javax.swing.JFrame {
             while(line != null )
             {
                 String[] dataRow = line.split(",");
-                if(dataRow[0].equals(residentId))
+                if(dataRow[1].equals(residentId))
                 {
-                    String[] onlyData = {dataRow[1],dataRow[2],dataRow[3], dataRow[4]};
+                    String[] onlyData = {dataRow[2],dataRow[3],dataRow[4], dataRow[5]};
                     model.addRow(onlyData);
                     
                 }
