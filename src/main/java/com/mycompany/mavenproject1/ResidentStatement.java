@@ -21,14 +21,14 @@ import javax.swing.JTable;
 public class ResidentStatement extends javax.swing.JFrame {
 
     ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
-    public String monthPassed;
+    String residentId;
+    public String monthPassed, labelPassed;
     
     public ResidentStatement() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        residentId = "R1";
+        residentId = residentMain.getId();
         displayData();
         backPageBtn.setEnabled(false);
     }
@@ -238,10 +238,11 @@ public class ResidentStatement extends javax.swing.JFrame {
     private void statement5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement5MouseClicked
         if(!statement5.getText().contains("EMPTY") || !statement5.getText().contains("no data"))
         {
-            String month = statement5.getText().substring(0,statement5.getText().lastIndexOf(" "));
+            labelPassed = statement5.getText();
+            String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed, labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement5MouseClicked
@@ -249,11 +250,12 @@ public class ResidentStatement extends javax.swing.JFrame {
     private void statement1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement1MouseClicked
         if(!statement1.getText().contains("EMPTY") || !statement1.getText().contains("no data"))
         {
-            String month = statement1.getText().substring(0,statement1.getText().lastIndexOf(" "));
+            labelPassed = statement1.getText();
+            String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             month = month.substring(month.lastIndexOf(" ") +1);
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed, labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement1MouseClicked
@@ -261,10 +263,11 @@ public class ResidentStatement extends javax.swing.JFrame {
     private void statement2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement2MouseClicked
         if(!statement2.getText().contains("EMPTY") || !statement2.getText().contains("no data"))
         {
-            String month = statement2.getText().substring(0,statement2.getText().lastIndexOf(" "));
+            labelPassed = statement2.getText();
+            String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed,labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement2MouseClicked
@@ -272,10 +275,11 @@ public class ResidentStatement extends javax.swing.JFrame {
     private void statement3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement3MouseClicked
         if(!statement3.getText().contains("EMPTY") || !statement3.getText().contains("no data"))
         {
-            String month = statement3.getText().substring(0,statement3.getText().lastIndexOf(" "));
+            labelPassed = statement3.getText();
+            String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed, labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement3MouseClicked
@@ -283,10 +287,11 @@ public class ResidentStatement extends javax.swing.JFrame {
     private void statement4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement4MouseClicked
         if(!statement4.getText().contains("EMPTY") || !statement4.getText().contains("no data"))
         {
-            String month = statement4.getText().substring(0,statement4.getText().lastIndexOf(" "));
+            labelPassed = statement4.getText();
+            String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed, labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement4MouseClicked
