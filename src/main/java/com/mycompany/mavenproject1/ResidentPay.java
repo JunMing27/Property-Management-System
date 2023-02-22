@@ -433,6 +433,7 @@ public class ResidentPay extends javax.swing.JFrame {
                     payToTxt2.setText(userData.get(pageLine).get(2));
                     payAmountTxt2.setText(userData.get(pageLine).get(3));
                     dueDateTxt2.setText(userData.get(pageLine).get(4));
+                    selectBtn2.setEnabled(true);
                     residentMain.setStatus(true);
                 }
                 if(payToTxt1.getText() == null)

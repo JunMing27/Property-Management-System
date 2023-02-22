@@ -558,7 +558,6 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         try {
             String fileName = "loginCredential";
             File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
-            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(residentId+","
