@@ -421,17 +421,17 @@ public class ResidentPay extends javax.swing.JFrame {
                 userData.get(pageLine);
                 if(part.equals("upper"))
                 {
-                    payToTxt1.setText(userData.get(pageLine).get(1));
-                    payAmountTxt1.setText(userData.get(pageLine).get(2));
-                    dueDateTxt1.setText(userData.get(pageLine).get(3));
+                    payToTxt1.setText(userData.get(pageLine).get(2));
+                    payAmountTxt1.setText(userData.get(pageLine).get(3));
+                    dueDateTxt1.setText(userData.get(pageLine).get(4));
                     payToTxt2.setText("no data");
                     payAmountTxt2.setText("no data");
                     dueDateTxt2.setText("no data");
                     residentMain.setStatus(true);
                 }else{
-                    payToTxt2.setText(userData.get(pageLine).get(1));
-                    payAmountTxt2.setText(userData.get(pageLine).get(2));
-                    dueDateTxt2.setText(userData.get(pageLine).get(3));
+                    payToTxt2.setText(userData.get(pageLine).get(2));
+                    payAmountTxt2.setText(userData.get(pageLine).get(3));
+                    dueDateTxt2.setText(userData.get(pageLine).get(4));
                     residentMain.setStatus(true);
                 }
                 if(payToTxt1.getText() == null)
@@ -488,7 +488,7 @@ public class ResidentPay extends javax.swing.JFrame {
             if(allUserInfo.get(p).contains(residentId))
             {
                 ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(0).equals(residentId))
+                if(item.get(1).equals(residentId))
                 {
                     onlyUserInfo.add(allUserInfo.get(p));
                     q++;
@@ -530,10 +530,10 @@ public class ResidentPay extends javax.swing.JFrame {
             {
                 for(int j=0;j<userData.size();j++)
                 {
-                    if(userData.get(j).get(0).equals(residentId)
-                            && userData.get(j).get(1).equals(payToTxt1.getText())
-                            && userData.get(j).get(2).equals(payAmountTxt1.getText())
-                            && userData.get(j).get(3).equals(dueDateTxt1.getText()))
+                    if(userData.get(j).get(1).equals(residentId)
+                            && userData.get(j).get(2).equals(payToTxt1.getText())
+                            && userData.get(j).get(3).equals(payAmountTxt1.getText())
+                            && userData.get(j).get(4).equals(dueDateTxt1.getText()))
                     {
                         removedItem = userData.get(j);
                         userData.remove(j);
@@ -544,10 +544,10 @@ public class ResidentPay extends javax.swing.JFrame {
             {
                 for(int j=0;j<userData.size();j++)
                 {
-                    if(userData.get(j).get(0).equals(residentId)
-                            && userData.get(j).get(1).equals(payToTxt2.getText())
-                            && userData.get(j).get(2).equals(payAmountTxt2.getText())
-                            && userData.get(j).get(3).equals(dueDateTxt2.getText()))
+                    if(userData.get(j).get(1).equals(residentId)
+                            && userData.get(j).get(2).equals(payToTxt2.getText())
+                            && userData.get(j).get(3).equals(payAmountTxt2.getText())
+                            && userData.get(j).get(4).equals(dueDateTxt2.getText()))
                     {
                         removedItem = userData.get(j);
                         userData.remove(j);
@@ -610,11 +610,16 @@ public class ResidentPay extends javax.swing.JFrame {
                 bw.write("\n");
             }
             
+            int totalRow = userData.size();
+            
             for (int j=0; j<1; j++) 
             {
-                for(int k=0; k<removedItem.size();k++)
+                for(int k=-1; k<removedItem.size();k++)
                 {
-                    if(k == removedItem.size()-1)
+                    if(k == -1)
+                    {
+                        bw.write("PE"+totalRow+",");
+                    }else if(k == removedItem.size()-1)
                     {
                         bw.write(removedItem.get(k));
                     }else{

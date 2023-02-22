@@ -378,7 +378,7 @@ public class ResidentInvoice extends javax.swing.JFrame {
             if(allUserInfo.get(p).contains(residentId))
             {
                 ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(0).equals(residentId))
+                if(item.get(1).equals(residentId))
                 {
                     onlyUserInfo.add(allUserInfo.get(p));
                     q++;
