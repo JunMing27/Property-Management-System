@@ -19,8 +19,8 @@ import javax.swing.JOptionPane;
 
 public class ResidentComplaintManage extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
+    ResidentMain residentMain;
+    String residentId;
     public ArrayList<String> dataList;
     
     
@@ -28,6 +28,8 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
+        residentId = residentMain.getId();
         displayData();
         backPageBtn.setEnabled(false);
     }

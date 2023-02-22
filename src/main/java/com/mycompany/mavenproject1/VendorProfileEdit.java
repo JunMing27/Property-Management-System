@@ -28,7 +28,8 @@ import javax.swing.filechooser.FileFilter;
  * @author user
  */
 public class VendorProfileEdit extends javax.swing.JFrame {
-    VendorMain main = new VendorMain(); 
+    
+    VendorMain main; 
     String id, name, ageString, gender, phone, userName, pwd, image; int ageInt; 
     File selectedImagePath; String selectedImageString;
     
@@ -36,6 +37,7 @@ public class VendorProfileEdit extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        main = new VendorMain();
         id = main.getId();
         displayData();
     }

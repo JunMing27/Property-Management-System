@@ -22,14 +22,16 @@ import javax.swing.JOptionPane;
  */
 public class VisitorPassManage extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
+    ResidentMain residentMain;
+    String residentId;
     public ArrayList<String> dataList;
     
     public VisitorPassManage() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
+        residentId = residentMain.getId();
         displayData();
         backPageBtn.setEnabled(false);
     }

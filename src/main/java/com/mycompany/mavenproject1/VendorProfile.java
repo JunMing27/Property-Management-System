@@ -23,7 +23,7 @@ import javax.swing.ImageIcon;
  */
 public class VendorProfile extends javax.swing.JFrame {
 
-    VendorMain main = new VendorMain();
+    VendorMain main;
     String id;
     String image;
             
@@ -31,6 +31,7 @@ public class VendorProfile extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        main = new VendorMain();
         id = main.getId();
         displayData();
     }

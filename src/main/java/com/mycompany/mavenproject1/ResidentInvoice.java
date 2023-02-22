@@ -15,13 +15,15 @@ import java.util.logging.Logger;
 
 public class ResidentInvoice extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
+    ResidentMain residentMain;
+    String residentId;
     
     public ResidentInvoice() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
+        residentId = residentMain.getId();
         displayData();
         backPageBtn.setEnabled(false);
     }

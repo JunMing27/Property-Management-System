@@ -18,13 +18,15 @@ import javax.swing.JOptionPane;
 
 public class ResidentPay extends javax.swing.JFrame {
     
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
+    ResidentMain residentMain;
+    String residentId;
         
     public ResidentPay(){
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
+        residentId = residentMain.getId();
         displayData();
         backPageBtn.setEnabled(false);
     }

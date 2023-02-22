@@ -19,13 +19,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ResidentReceipt extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
+    ResidentMain residentMain;
+    String residentId;
     
     public ResidentReceipt() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
+        residentId = residentMain.getId();
         createTable();
     }
 

@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
  */
 public class VisitorPassAddEdit extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
+    ResidentMain residentMain;
     String residentId, id, name, date, status;
     
     String pattern = "dd-MM-YYYY";
@@ -38,6 +38,7 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
         residentId = residentMain.getId();
         addEditDetector = addEditString;
         dataListGet = dataList;

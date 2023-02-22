@@ -20,7 +20,7 @@ import javax.swing.JTable;
 
 public class ResidentStatement extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
+    ResidentMain residentMain;
     String residentId;
     public String monthPassed, labelPassed;
     
@@ -28,6 +28,7 @@ public class ResidentStatement extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
         residentId = residentMain.getId();
         displayData();
         backPageBtn.setEnabled(false);

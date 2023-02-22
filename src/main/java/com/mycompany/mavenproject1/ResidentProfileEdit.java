@@ -31,7 +31,7 @@ import javax.swing.filechooser.FileFilter;
 public class ResidentProfileEdit extends javax.swing.JFrame {
     //declare variable
     ResidentProfile residentProfile = new ResidentProfile();
-    ResidentMain residentMain = new ResidentMain();
+    ResidentMain residentMain;
     String residentId, residentName, residentAgeString, residentGender, residentPhone, residentUnit, residentUserName, residentPwd, residentImage;
     int residentAgeInt;
     File selectedImagePath;
@@ -44,6 +44,7 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
         residentId = residentMain.getId();
         displayData();
         

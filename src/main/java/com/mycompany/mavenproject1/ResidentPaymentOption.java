@@ -177,7 +177,7 @@ public class ResidentPaymentOption extends javax.swing.JFrame {
 
     private void payHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payHistoryBtnActionPerformed
         this.dispose();
-        ResidentPaymentHistory residentPaymentHistory = new ResidentPaymentHistory();
+        ResidentPayHistory residentPaymentHistory = new ResidentPayHistory();
         residentPaymentHistory.setVisible(true);
     }//GEN-LAST:event_payHistoryBtnActionPerformed
 

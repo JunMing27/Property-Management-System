@@ -14,13 +14,15 @@ import java.util.logging.Logger;
 
 
 public class ResidentPending extends javax.swing.JFrame {
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
+    ResidentMain residentMain;
+    String residentId;
     
     public ResidentPending() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
+        residentId = residentMain.getId();
         displayData();
         backPageBtn.setEnabled(false);
     }

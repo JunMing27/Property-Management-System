@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 
 public class ResidentComplaintAddEdit extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
+    ResidentMain residentMain;
     String residentId, id, detail, reply;
     
     static ArrayList<String> dataListGet = new ArrayList<String>();
@@ -32,6 +32,7 @@ public class ResidentComplaintAddEdit extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
         residentId = residentMain.getId();
         addEditDetector = addEditString;
         dataListGet = dataList;

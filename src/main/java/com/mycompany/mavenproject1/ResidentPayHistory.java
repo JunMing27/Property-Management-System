@@ -9,29 +9,27 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author user
  */
-public class ResidentPaymentHistory extends javax.swing.JFrame {
+public class ResidentPayHistory extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
+    ResidentMain residentMain;
+    String residentId;
     
-    public ResidentPaymentHistory() {
+    public ResidentPayHistory() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
+        residentId = residentMain.getId();
         createTable();
+        
     }
 
     /**
@@ -151,20 +149,21 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentPayHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentPayHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentPayHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentPayHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentPaymentHistory().setVisible(true);
+                new ResidentPayHistory().setVisible(true);
             }
         });
     }
@@ -207,9 +206,9 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
             
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentPaymentHistory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentPayHistory.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ResidentPaymentHistory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentPayHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
    

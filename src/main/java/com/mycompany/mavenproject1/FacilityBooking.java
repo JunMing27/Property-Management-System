@@ -18,14 +18,15 @@ import javax.swing.JOptionPane;
 
 public class FacilityBooking extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
+    ResidentMain residentMain;
+    String residentId;
     public ArrayList<String> dataList;
     
     public FacilityBooking() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
         displayData();
         backPageBtn.setEnabled(false);
     }

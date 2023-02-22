@@ -21,14 +21,16 @@ import javax.swing.ImageIcon;
  */
 public class ResidentProfile extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
+    ResidentMain residentMain;
+    String residentId;
     String residentImage;
     
     public ResidentProfile() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentMain = new ResidentMain();
+        residentId = residentMain.getId();
         displayData();
     }
 
