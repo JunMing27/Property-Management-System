@@ -54,25 +54,21 @@
                           <Component id="nextPageBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
-                          <Component id="selectBtn1" min="-2" pref="86" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="backBtn" min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="payToLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="payAmountLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="dueDateLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="payAmountLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="payToLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="dueDateLabel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="payAmountTxt1" min="-2" pref="81" max="-2" attributes="0"/>
                               <Component id="payToTxt1" min="-2" max="-2" attributes="0"/>
-                              <Component id="dueDateTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="payAmountTxt1" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="dueDateTxt1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -80,13 +76,13 @@
                           <Component id="jSeparator1" min="-2" pref="410" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="dueDateLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="payAmountLabel2" min="-2" max="-2" attributes="0"/>
                               <Component id="payToLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="dueDateLabel2" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="payToTxt2" min="-2" max="-2" attributes="0"/>
                               <Component id="dueDateTxt2" min="-2" max="-2" attributes="0"/>
@@ -96,6 +92,10 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
                           <Component id="selectBtn2" min="-2" pref="86" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+                          <Component id="selectBtn1" min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="61" max="32767" attributes="0"/>
@@ -126,7 +126,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="dueDateLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="dueDateTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dueDateTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="selectBtn1" min="-2" pref="34" max="-2" attributes="0"/>
