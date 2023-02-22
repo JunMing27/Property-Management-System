@@ -6,16 +6,17 @@ package com.mycompany.mavenproject1;
 
 import javax.swing.JOptionPane;
 
-
-public class ResidentOption extends javax.swing.JFrame {
+/**
+ *
+ * @author user
+ */
+public class VendorOption extends javax.swing.JFrame {
 
     /**
-     * Creates new form ResidentOption
+     * Creates new form VendorOption
      */
-    public ResidentOption() {
-        initComponents(); 
-        setResizable(false);
-        setLocationRelativeTo(null);
+    public VendorOption() {
+        initComponents();
     }
 
     /**
@@ -32,8 +33,6 @@ public class ResidentOption extends javax.swing.JFrame {
         exitBtn = new javax.swing.JButton();
         paymentBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
-        facilityBookBtn = new javax.swing.JButton();
-        visitorPassBtn = new javax.swing.JButton();
         complaintBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,27 +74,7 @@ public class ResidentOption extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("WELCOME RESIDENT !");
-
-        facilityBookBtn.setBackground(new java.awt.Color(255, 255, 255));
-        facilityBookBtn.setForeground(new java.awt.Color(0, 0, 0));
-        facilityBookBtn.setText("Facility Booking");
-        facilityBookBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        facilityBookBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                facilityBookBtnActionPerformed(evt);
-            }
-        });
-
-        visitorPassBtn.setBackground(new java.awt.Color(255, 255, 255));
-        visitorPassBtn.setForeground(new java.awt.Color(0, 0, 0));
-        visitorPassBtn.setText("Visitor Pass");
-        visitorPassBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        visitorPassBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                visitorPassBtnActionPerformed(evt);
-            }
-        });
+        topLabel.setText("WELCOME VENDOR !");
 
         complaintBtn.setBackground(new java.awt.Color(255, 255, 255));
         complaintBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -112,38 +91,33 @@ public class ResidentOption extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(153, 153, 153)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(profileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(facilityBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(visitorPassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(complaintBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(profileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(complaintBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(topLabel)))
                 .addContainerGap(155, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(topLabel)
-                .addGap(179, 179, 179))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(56, 56, 56)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(63, 63, 63)
                 .addComponent(profileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(51, 51, 51)
                 .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(facilityBookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(visitorPassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(48, 48, 48)
                 .addComponent(complaintBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(47, 47, 47)
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,7 +130,7 @@ public class ResidentOption extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -171,12 +145,12 @@ public class ResidentOption extends javax.swing.JFrame {
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         // Direct to Login Page
-        int dialog = JOptionPane.showConfirmDialog(null, 
-                "Are You Sure ?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        int dialog = JOptionPane.showConfirmDialog(null,
+            "Are You Sure ?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
-            this.dispose(); 
+            this.dispose();
             LoginPage loginPage = new LoginPage();
-            loginPage.setVisible(true); 
+            loginPage.setVisible(true);
         }
     }//GEN-LAST:event_exitBtnActionPerformed
 
@@ -186,18 +160,6 @@ public class ResidentOption extends javax.swing.JFrame {
         ResidentPaymentOption residentPaymentOption = new ResidentPaymentOption();
         residentPaymentOption.setVisible(true);
     }//GEN-LAST:event_paymentBtnActionPerformed
-
-    private void facilityBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityBookBtnActionPerformed
-        this.dispose();
-        FacilityBooking facilityBooking = new FacilityBooking();
-        facilityBooking.setVisible(true);
-    }//GEN-LAST:event_facilityBookBtnActionPerformed
-
-    private void visitorPassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorPassBtnActionPerformed
-        this.dispose();
-        VisitorPassManage visitorPassManage = new VisitorPassManage();
-        visitorPassManage.setVisible(true);
-    }//GEN-LAST:event_visitorPassBtnActionPerformed
 
     private void complaintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintBtnActionPerformed
         this.dispose();
@@ -222,20 +184,20 @@ public class ResidentOption extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendorOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendorOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendorOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendorOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentOption().setVisible(true);
+                new VendorOption().setVisible(true);
             }
         });
     }
@@ -243,14 +205,9 @@ public class ResidentOption extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton complaintBtn;
     private javax.swing.JButton exitBtn;
-    private javax.swing.JButton facilityBookBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton paymentBtn;
     private javax.swing.JButton profileBtn;
     private javax.swing.JLabel topLabel;
-    private javax.swing.JButton visitorPassBtn;
     // End of variables declaration//GEN-END:variables
-
-    
 }
-

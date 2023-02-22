@@ -364,32 +364,65 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        int dialog = JOptionPane.showConfirmDialog(null, 
-                "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
-        if(dialog == JOptionPane.YES_OPTION){
-            residentName = residentNameTxt.getText();
-            residentAgeString = residentAgeTxt.getText();
-            if(maleCheckBox.isSelected())
-            {
-                residentGender = "male"; 
-            }else if(femaleCheckBox.isSelected())
-            {
-                residentGender = "female";
+        residentName = residentNameTxt.getText();
+        residentAgeString = residentAgeTxt.getText();
+        if(maleCheckBox.isSelected())
+        {
+            residentGender = "male"; 
+        }else if(femaleCheckBox.isSelected())
+        {
+            residentGender = "female";
+        }
+        residentPhone = residentPhoneTxt.getText();
+        residentUnit = residentUnitTxt.getText();
+        residentUserName = residentUsernameTxt.getText();
+        residentPwd = residentPwdTxt.getText();
+        errorMessage.setText("");
+        if(!residentName.isEmpty() && !residentAgeString.isEmpty() && !residentGender.isEmpty() 
+                && !residentPhone.isEmpty() && !residentUnit.isEmpty() && !residentUserName.isEmpty() && !residentPwd.isEmpty())
+        {
+            try {
+                residentAgeInt = Integer.parseInt(residentAgeString);
+                errorMessage.setText("Age Must be Integer !");
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
             }
-            residentPhone = residentPhoneTxt.getText();
-            residentUnit = residentUnitTxt.getText();
-            residentUserName = residentUsernameTxt.getText();
-            residentPwd = residentPwdTxt.getText();
             
-            if(checkData())
+            //check phone
+            Matcher phoneMatcher = Pattern.compile("^(01)[0-9]*[0-9]{7,8}$").
+                    matcher(residentPhone);
+             //check dash
+            Matcher phoneMatcher2 = Pattern.compile("^(01)[0-9]-*[0-9]{7,8}$").
+                    matcher(residentPhone);
+             //check space
+            Matcher phoneMatcher3 = Pattern.compile("^(01)[0-9]-*[0-9 ]{7,8}$").
+                    matcher(residentPhone);
+            if(phoneMatcher.matches() == false && phoneMatcher2.matches() == false && phoneMatcher3.matches() == false)
             {
-                removeFromFile("ResidentProfile");
-                removeFromFile("loginCredential");
-                editProfile(residentName, residentGender, residentAgeInt, residentPhone, residentUnit, residentImage);
-                editCredential(residentUserName, residentPwd);
-                this.dispose();
-                residentProfile.setVisible(true); 
+                errorMessage.setText("Phone Number is Invalid !");
             }
+            
+            if(residentUserName.contains(" ") || residentPwd.contains(" "))
+            {
+                errorMessage.setText("Username or Password cannot contain space ");
+            }
+            
+            if(errorMessage.getText().equals(""))
+            {
+                int dialog = JOptionPane.showConfirmDialog(null, 
+                        "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                if(dialog == JOptionPane.YES_OPTION){
+                    removeFromFile("ResidentProfile");
+                    removeFromFile("loginCredential");
+                    editProfile(residentName, residentGender, residentAgeInt, residentPhone, residentUnit, residentImage);
+                    editCredential(residentUserName, residentPwd);
+                    this.dispose();
+                    ResidentProfile residentProfile = new ResidentProfile();
+                    residentProfile.setVisible(true); 
+                }
+            }
+        }else{
+            errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 
@@ -489,63 +522,6 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         }
         
     }
-    
-    private boolean checkData()
-    {
-        //check empty
-        if (residentName == null || residentGender == null || residentAgeString == null || residentPhone == null)
-        {
-            errorMessage.setText("Name/Gender/Age/Phone Cannot be Empty !");
-            return false;
-        }
-        
-        if (residentName.equals("") || residentGender.equals("") || residentAgeString.equals("") || residentPhone.equals(""))
-        {
-            errorMessage.setText("Name/Gender/Age/Phone Cannot be Empty !");
-            return false;
-        }
-        
-        
-        //check age
-        try {
-            residentAgeInt = Integer.parseInt(residentAgeString);
-            errorMessage.setText("Age Must be Integer !");
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        
-        //check phone
-        Matcher phoneMatcher = Pattern.compile("^(01)[0-9]*[0-9]{7,8}$").
-                matcher(residentPhone);
-         //check dash
-        Matcher phoneMatcher2 = Pattern.compile("^(01)[0-9]-*[0-9]{7,8}$").
-                matcher(residentPhone);
-         //check space
-        Matcher phoneMatcher3 = Pattern.compile("^(01)[0-9]-*[0-9 ]{7,8}$").
-                matcher(residentPhone);
-        if(phoneMatcher.matches() == false && phoneMatcher2.matches() == false && phoneMatcher3.matches() == false)
-        {
-            errorMessage.setText("Phone Number is Invalid !");
-            return false;
-        }
-        
-        
-        //check Username
-        if(residentUserName.contains(" "))
-        {
-            errorMessage.setText("Username cannot contain space ");
-            return false;
-        }
-        
-        if(residentPwd.contains(" "))
-        {
-            errorMessage.setText("Password cannot contain space ");
-            return false;
-        }
-        
-        return true;
-    }
-    
  
     private void editProfile(String name, String gender, int age, String phone, String unit, String image)
     {
