@@ -4,7 +4,6 @@
  */
 package com.mycompany.mavenproject1;
 
-import javax.swing.JFrame;
 
 public class ResidentPaymentOption extends javax.swing.JFrame {
 
