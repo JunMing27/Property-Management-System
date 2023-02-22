@@ -66,7 +66,6 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentGenderLabel = new javax.swing.JTextField();
         residentIdTxt = new javax.swing.JTextField();
         residentNameTxt = new javax.swing.JTextField();
-        residentGenderTxt = new javax.swing.JTextField();
         residentAgeLabel = new javax.swing.JTextField();
         residentUnitLabel = new javax.swing.JTextField();
         residentPhoneLabel = new javax.swing.JTextField();
@@ -81,6 +80,8 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentUsernameTxt = new javax.swing.JTextField();
         residentPwdLabel = new javax.swing.JLabel();
         residentPwdTxt = new javax.swing.JTextField();
+        maleCheckBox = new javax.swing.JCheckBox();
+        femaleCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,12 +135,6 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentNameTxt.setText("User 1");
         residentNameTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         residentNameTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        residentGenderTxt.setBackground(new java.awt.Color(233, 233, 233));
-        residentGenderTxt.setForeground(new java.awt.Color(0, 0, 0));
-        residentGenderTxt.setText("Female");
-        residentGenderTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentGenderTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         residentAgeLabel.setEditable(false);
         residentAgeLabel.setBackground(new java.awt.Color(233, 233, 233));
@@ -236,6 +231,14 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         residentPwdTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         residentPwdTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        maleCheckBox.setBackground(new java.awt.Color(233, 233, 233));
+        maleCheckBox.setForeground(new java.awt.Color(0, 0, 0));
+        maleCheckBox.setText("Male");
+
+        femaleCheckBox.setBackground(new java.awt.Color(233, 233, 233));
+        femaleCheckBox.setForeground(new java.awt.Color(0, 0, 0));
+        femaleCheckBox.setText("Female");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -269,8 +272,6 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                                     .addComponent(residentPwdLabel))
                                 .addGap(38, 38, 38)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(residentGenderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentAgeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(residentUnitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(residentPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(residentNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,8 +280,14 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                                         .addGap(1, 1, 1)
                                         .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(residentUsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentPwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(161, Short.MAX_VALUE))
+                                    .addComponent(residentPwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(maleCheckBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(residentAgeTxt, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(femaleCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +311,8 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(residentGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(residentGenderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(maleCheckBox)
+                            .addComponent(femaleCheckBox))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(residentAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,7 +333,7 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(residentPwdLabel)
                     .addComponent(residentPwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -361,7 +369,13 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         if(dialog == JOptionPane.YES_OPTION){
             residentName = residentNameTxt.getText();
             residentAgeString = residentAgeTxt.getText();
-            residentGender = residentGenderTxt.getText();
+            if(maleCheckBox.isSelected())
+            {
+                residentGender = "male"; 
+            }else if(femaleCheckBox.isSelected())
+            {
+                residentGender = "female";
+            }
             residentPhone = residentPhoneTxt.getText();
             residentUnit = residentUnitTxt.getText();
             residentUserName = residentUsernameTxt.getText();
@@ -434,7 +448,13 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
             {
                 residentIdTxt.setText(userData.get(0).get(0));
                 residentNameTxt.setText(userData.get(0).get(1));
-                residentGenderTxt.setText(userData.get(0).get(2));
+                if(userData.get(0).get(2).equals("male"))
+                {
+                   maleCheckBox.setSelected(true);
+                }else if(userData.get(0).get(2).equals("female"))
+                {
+                    femaleCheckBox.setSelected(true);
+                }
                 residentAgeTxt.setText(userData.get(0).get(3));
                 residentPhoneTxt.setText(userData.get(0).get(4));
                 residentUnitTxt.setText(userData.get(0).get(5));
@@ -454,7 +474,8 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
             else{
                 residentIdTxt.setText("no data");
                 residentNameTxt.setText("no data");
-                residentGenderTxt.setText("no data");
+                maleCheckBox.setSelected(false);
+                femaleCheckBox.setSelected(false);
                 residentAgeTxt.setText("no data");
                 residentPhoneTxt.setText("no data");
                 residentUnitTxt.setText("no data");
@@ -485,14 +506,6 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         }
         
         
-        
-        //check gender
-        if(!residentGender.equals("male") || !residentGender.equals("female") )
-        {
-            errorMessage.setText("Gender must be Small Letter !");
-            return false;
-        }
-        
         //check age
         try {
             residentAgeInt = Integer.parseInt(residentAgeString);
@@ -521,6 +534,12 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
         if(residentUserName.contains(" "))
         {
             errorMessage.setText("Username cannot contain space ");
+            return false;
+        }
+        
+        if(residentPwd.contains(" "))
+        {
+            errorMessage.setText("Password cannot contain space ");
             return false;
         }
         
@@ -694,12 +713,13 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton cancelBtn;
     private javax.swing.JTextField errorMessage;
+    private javax.swing.JCheckBox femaleCheckBox;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JCheckBox maleCheckBox;
     private javax.swing.JTextField residentAgeLabel;
     private javax.swing.JTextField residentAgeTxt;
     private javax.swing.JTextField residentGenderLabel;
-    private javax.swing.JTextField residentGenderTxt;
     private javax.swing.JTextField residentIdLabel;
     private javax.swing.JTextField residentIdTxt;
     private javax.swing.JTextField residentNameLabel;
