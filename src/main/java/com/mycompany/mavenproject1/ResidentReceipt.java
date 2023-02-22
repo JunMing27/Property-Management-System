@@ -9,25 +9,20 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author user
  */
-public class ResidentPaymentHistory extends javax.swing.JFrame {
+public class ResidentReceipt extends javax.swing.JFrame {
 
     ResidentMain residentMain = new ResidentMain();
     String residentId = residentMain.getId();
     
-    public ResidentPaymentHistory() {
+    public ResidentReceipt() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -151,20 +146,20 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentPaymentHistory().setVisible(true);
+                new ResidentReceipt().setVisible(true);
             }
         });
     }
@@ -177,15 +172,15 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 
-    
     private void createTable()
     {
         
         try {
-            String payHistoryFile = "src/main/java/com/mycompany/textFile/ResidentPayHistory.txt";
-            File file = new File(payHistoryFile);
+            String receiptFile = "src/main/java/com/mycompany/textFile/ReceiptContent.txt";
+            File file = new File(receiptFile);
             BufferedReader br = new BufferedReader(new FileReader(file));
-            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};
+            
+            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date", "Issued Date"};
             
             DefaultTableModel model = (DefaultTableModel) payHistoryTable.getModel();
             model.setColumnIdentifiers(tableHeader);
@@ -196,7 +191,7 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
                 String[] dataRow = line.split(",");
                 if(dataRow[0].equals(residentId))
                 {
-                    String[] onlyData = {dataRow[1],dataRow[2],dataRow[3]};
+                    String[] onlyData = {dataRow[1],dataRow[2],dataRow[3], dataRow[4]};
                     model.addRow(onlyData);
                     
                 }
@@ -212,6 +207,5 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
             Logger.getLogger(ResidentPaymentHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   
 
 }

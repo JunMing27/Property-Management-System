@@ -308,7 +308,7 @@ public class ResidentInvoice extends javax.swing.JFrame {
         setPagination();
         try
         {
-            String invoiceFile = "src/main/java/com/mycompany/textFile/ResidentInvoice.txt";
+            String invoiceFile = "src/main/java/com/mycompany/textFile/InvoiceContent.txt";
             ArrayList<ArrayList<String>> userData = onlyUserDataInfo(invoiceFile);
             int newSize = userData.size();   
             try{

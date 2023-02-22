@@ -177,7 +177,9 @@ public class ResidentPaymentOption extends javax.swing.JFrame {
     }//GEN-LAST:event_payBtnActionPerformed
 
     private void payHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payHistoryBtnActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        ResidentPaymentHistory residentPaymentHistory = new ResidentPaymentHistory();
+        residentPaymentHistory.setVisible(true);
     }//GEN-LAST:event_payHistoryBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
@@ -197,7 +199,9 @@ public class ResidentPaymentOption extends javax.swing.JFrame {
     }//GEN-LAST:event_invoiceBtnActionPerformed
 
     private void receiptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receiptBtnActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        ResidentReceipt residentReceipt = new ResidentReceipt();
+        residentReceipt.setVisible(true);
     }//GEN-LAST:event_receiptBtnActionPerformed
 
     private void pendingFeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingFeeBtnActionPerformed
