@@ -351,17 +351,17 @@ public class ResidentPending extends javax.swing.JFrame {
                 userData.get(pageLine);
                 if(part.equals("upper"))
                 {
-                    payToTxt1.setText(userData.get(pageLine).get(1));
-                    payAmountTxt1.setText(userData.get(pageLine).get(2));
-                    paidDateTxt1.setText(userData.get(pageLine).get(3));
+                    payToTxt1.setText(userData.get(pageLine).get(2));
+                    payAmountTxt1.setText(userData.get(pageLine).get(3));
+                    paidDateTxt1.setText(userData.get(pageLine).get(4));
                     payToTxt2.setText("no data");
                     payAmountTxt2.setText("no data");
                     paidDateTxt2.setText("no data");
                     residentMain.setStatus(true);
                 }else{
-                    payToTxt2.setText(userData.get(pageLine).get(1));
-                    payAmountTxt2.setText(userData.get(pageLine).get(2));
-                    paidDateTxt2.setText(userData.get(pageLine).get(3));
+                    payToTxt2.setText(userData.get(pageLine).get(2));
+                    payAmountTxt2.setText(userData.get(pageLine).get(3));
+                    paidDateTxt2.setText(userData.get(pageLine).get(4));
                     residentMain.setStatus(true);
                 }
                 if(payToTxt1.getText() == null)
@@ -418,7 +418,7 @@ public class ResidentPending extends javax.swing.JFrame {
             if(allUserInfo.get(p).contains(residentId))
             {
                 ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(0).equals(residentId))
+                if(item.get(1).equals(residentId))
                 {
                     onlyUserInfo.add(allUserInfo.get(p));
                     q++;

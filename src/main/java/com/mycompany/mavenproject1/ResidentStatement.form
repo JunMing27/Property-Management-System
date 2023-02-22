@@ -157,6 +157,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="statement1MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="backPageBtn">
           <Properties>
@@ -198,7 +201,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="STATEMENT FOR FEBRUARY 2023"/>
+            <Property name="text" type="java.lang.String" value="EMPTY"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="3">
@@ -207,6 +210,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="statement2MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="statement3">
           <Properties>
@@ -220,7 +226,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="STATEMENT FOR MARCH 2023"/>
+            <Property name="text" type="java.lang.String" value="EMPTY"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="3">
@@ -229,6 +235,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="statement3MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="statement4">
           <Properties>
@@ -242,7 +251,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="STATEMENT FOR APRIL 2023"/>
+            <Property name="text" type="java.lang.String" value="EMPTY"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="3">
@@ -251,6 +260,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="statement4MouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="statement5">
           <Properties>
@@ -264,7 +276,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="STATEMENT FOR MAY 2023"/>
+            <Property name="text" type="java.lang.String" value="EMPTY"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="3">
@@ -273,6 +285,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="statement5MouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

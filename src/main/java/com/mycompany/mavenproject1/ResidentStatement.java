@@ -71,6 +71,11 @@ public class ResidentStatement extends javax.swing.JFrame {
         statement1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         statement1.setText("STATEMENT FOR JANUARY 2023");
         statement1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
+        statement1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                statement1MouseClicked(evt);
+            }
+        });
 
         backPageBtn.setBackground(new java.awt.Color(255, 255, 255));
         backPageBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -94,29 +99,49 @@ public class ResidentStatement extends javax.swing.JFrame {
         statement2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         statement2.setForeground(new java.awt.Color(0, 0, 0));
         statement2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        statement2.setText("STATEMENT FOR FEBRUARY 2023");
+        statement2.setText("EMPTY");
         statement2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
+        statement2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                statement2MouseClicked(evt);
+            }
+        });
 
         statement3.setBackground(new java.awt.Color(233, 233, 233));
         statement3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         statement3.setForeground(new java.awt.Color(0, 0, 0));
         statement3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        statement3.setText("STATEMENT FOR MARCH 2023");
+        statement3.setText("EMPTY");
         statement3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
+        statement3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                statement3MouseClicked(evt);
+            }
+        });
 
         statement4.setBackground(new java.awt.Color(233, 233, 233));
         statement4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         statement4.setForeground(new java.awt.Color(0, 0, 0));
         statement4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        statement4.setText("STATEMENT FOR APRIL 2023");
+        statement4.setText("EMPTY");
         statement4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
+        statement4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                statement4MouseClicked(evt);
+            }
+        });
 
         statement5.setBackground(new java.awt.Color(233, 233, 233));
         statement5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         statement5.setForeground(new java.awt.Color(0, 0, 0));
         statement5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        statement5.setText("STATEMENT FOR MAY 2023");
+        statement5.setText("EMPTY");
         statement5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 3));
+        statement5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                statement5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -202,6 +227,41 @@ public class ResidentStatement extends javax.swing.JFrame {
         backPageBtn.setEnabled(true);
         displayData();
     }//GEN-LAST:event_nextPageBtnActionPerformed
+
+    private void statement5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement5MouseClicked
+        if(!statement5.getText().contains("EMPTY") || !statement5.getText().contains("no data"))
+        {
+            showTable();
+        }
+    }//GEN-LAST:event_statement5MouseClicked
+
+    private void statement1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement1MouseClicked
+        if(!statement1.getText().contains("EMPTY") || !statement1.getText().contains("no data"))
+        {
+            showTable();
+        }
+    }//GEN-LAST:event_statement1MouseClicked
+
+    private void statement2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement2MouseClicked
+        if(!statement2.getText().contains("EMPTY") || !statement2.getText().contains("no data"))
+        {
+            showTable();
+        }
+    }//GEN-LAST:event_statement2MouseClicked
+
+    private void statement3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement3MouseClicked
+        if(!statement3.getText().contains("EMPTY") || !statement3.getText().contains("no data"))
+        {
+            showTable();
+        }
+    }//GEN-LAST:event_statement3MouseClicked
+
+    private void statement4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement4MouseClicked
+        if(!statement4.getText().contains("EMPTY") || !statement4.getText().contains("no data"))
+        {
+            showTable();
+        }
+    }//GEN-LAST:event_statement4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -306,33 +366,53 @@ public class ResidentStatement extends javax.swing.JFrame {
     private void displayDataView(Integer pageLine, String part)
     {
         try{
-            String paymentFile = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
-            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(paymentFile);
-            int newSize = userData.size();            
+            String statementFile = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
+            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(statementFile);
+            int newSize = userData.size();  
+            String extractMonth,month,extractYear,stId;
             try{
+                month = "empty";
                 userData.get(pageLine);
+                extractMonth = userData.get(pageLine).get(3);
+                extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
+                extractMonth = extractMonth.substring(extractMonth.indexOf("-")+1);
+                extractMonth = extractMonth.substring(0,extractMonth.lastIndexOf("-"));
+                month = month(extractMonth);
                 if(part.equals("1"))
                 {
-                    statement1.setText("STATEMENT FOR "+userData.get(pageLine).get);
+                    statement1.setText("STATEMENT FOR "+month+" "+extractYear);
                     residentMain.setStatus(true);
-                }else{
-                    payToTxt2.setText(userData.get(pageLine).get(1));
-                    payAmountTxt2.setText(userData.get(pageLine).get(2));
-                    dueDateTxt2.setText(userData.get(pageLine).get(3));
+                }else if(part.equals("2"))
+                {
+                    statement2.setText("STATEMENT FOR "+month+" "+extractYear);
+                    residentMain.setStatus(true);
+                }else if(part.equals("3")){                     
+                        statement3.setText("STATEMENT FOR "+month+" "+extractYear);
+                        residentMain.setStatus(true);                 
+                }else if(part.equals("4")){                     
+                    statement4.setText("STATEMENT FOR "+month+" "+extractYear);
+                    residentMain.setStatus(true);                 
+                }else if(part.equals("5")){                     
+                    statement5.setText("STATEMENT FOR "+month+" "+extractYear);
                     residentMain.setStatus(true);
                 }
-                if(payToTxt1.getText() == null)
+                
+                if(statement1.getText().contains("empty"))
                 {
-                    payToTxt1.setText("no data");
-                    payAmountTxt1.setText("no data");
-                    dueDateTxt1.setText("no data");
-                }
-                if(payToTxt2.getText() == null)
+                    statement1.setText("no data");
+                }else if(statement2.getText().contains("empty"))
                 {
-                    payToTxt2.setText("no data");
-                    payAmountTxt2.setText("no data");
-                    dueDateTxt2.setText("no data");
-                }
+                    statement2.setText("no data"); 
+                } else if(statement3.getText().contains("empty")) 
+                { 
+                    statement3.setText("no data");
+                }else if(statement4.getText().contains("empty")) 
+                { 
+                    statement4.setText("no data");
+                }else if(statement5.getText().contains("empty")) 
+                { 
+                    statement5.setText("no data");
+                } 
                 
             }
             catch (Exception ex) {
@@ -375,7 +455,7 @@ public class ResidentStatement extends javax.swing.JFrame {
             if(allUserInfo.get(p).contains(residentId))
             {
                 ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(0).equals(residentId))
+                if(item.get(1).equals(residentId))
                 {
                     onlyUserInfo.add(allUserInfo.get(p));
                     q++;
@@ -388,48 +468,46 @@ public class ResidentStatement extends javax.swing.JFrame {
     
     
     
-    private String month(Integer number)
-    {
-        String month;
-        if(number == 01)
-        {
-            month = "JANUARY";
-        }else if(number == 02)
-        {
-            month = "FEBRUARY";
-        }else if(number == 03)
-        {
-            month = "MARCH";
-        }else if(number == 04)
-        {
-            month = "APRIL";
-        }else if(number == 05)
-        {
-            month = "MAY";
-        }else if(number == 06)
-        {
-            month = "JUNE";
-        }else if(number == 07)
-        {
-            month = "JULY";
-        }else if(number == 08)
-        {
-            month = "AUGUST";
-        }else if(number == 09)
-        {
-            month = "SEPTEMBER";
-        }else if(number == 10)
-        {
-            month = "OCTOBER";
-        }else if(number == 11)
-        {
-            month = "NOVEMBER";
-        }else if(number == 12)
-        {
+    private String month(String number)
+    {   
+        String month = "empty"; 
+        if(number.equals("01")) 
+        { 
+            month = "JANUARY"; 
+        }else if(number.equals("02")) 
+        { 
+            month = "FEBRUARY"; 
+        }else if(number.equals("03")) 
+        { 
+            month = "MARCH"; 
+        }else if(number.equals("04")) 
+        { 
+            month = "APRIL"; 
+        }else if(number.equals("05")) 
+        { 
+            month = "MAY"; 
+        }else if(number.equals("06")) 
+        { 
+            month = "JUNE"; 
+        }else if(number.equals("07")) 
+        { 
+            month = "JULY"; 
+        }else if(number.equals("08")) 
+        { 
+            month = "AUGUST"; 
+        }else if(number.equals("09")) 
+        { 
+            month = "SEPTEMBER"; 
+        }else if(number.equals("10")) 
+        { 
+            month = "OCTOBER"; 
+        }else if(number.equals("11")) 
+        { 
+            month = "NOVEMBER"; 
+        }else if(number.equals("12")) 
+        { 
             month = "DECEMBER";
-        
+        } 
+        return month;
     }
-    
-    
-    
 }

@@ -194,9 +194,9 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
             while(line != null )
             {
                 String[] dataRow = line.split(",");
-                if(dataRow[0].equals(residentId))
+                if(dataRow[1].equals(residentId))
                 {
-                    String[] onlyData = {dataRow[1],dataRow[2],dataRow[3]};
+                    String[] onlyData = {dataRow[2],dataRow[3],dataRow[4]};
                     model.addRow(onlyData);
                     
                 }
