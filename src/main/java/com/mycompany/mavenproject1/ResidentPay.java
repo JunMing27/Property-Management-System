@@ -525,6 +525,7 @@ public class ResidentPay extends javax.swing.JFrame {
         try {
             String fileName = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
             ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
+            ArrayList<String>removedItem = new ArrayList<String>();
             if(part.equals("upper"))
             {
                 for(int j=0;j<userData.size();j++)
@@ -534,6 +535,7 @@ public class ResidentPay extends javax.swing.JFrame {
                             && userData.get(j).get(2).equals(payAmountTxt1.getText())
                             && userData.get(j).get(3).equals(dueDateTxt1.getText()))
                     {
+                        removedItem = userData.get(j);
                         userData.remove(j);
                         break;
                     }
@@ -547,11 +549,14 @@ public class ResidentPay extends javax.swing.JFrame {
                             && userData.get(j).get(2).equals(payAmountTxt2.getText())
                             && userData.get(j).get(3).equals(dueDateTxt2.getText()))
                     {
+                        removedItem = userData.get(j);
                         userData.remove(j);
                         break;
                     }
                 }
             }
+            
+            addToPendingFile(removedItem);
             
             File paymentFile = new File(fileName);
             FileWriter fw = new FileWriter(paymentFile);
@@ -580,5 +585,53 @@ public class ResidentPay extends javax.swing.JFrame {
         }
     }
 
+    
+    private void addToPendingFile(ArrayList<String> removedItem)
+    {
+        try {
+            String fileName = "src/main/java/com/mycompany/textFile/ResidentPending.txt";
+            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
+            File pendingFile = new File(fileName);
+            FileWriter fw = new FileWriter(pendingFile);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<userData.size(); j++) 
+            {
+                ArrayList<String>item = userData.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                        bw.write(item.get(k));
+                    }else{
+                        bw.write(item.get(k)+",");
+                    }
+                }
+                
+                bw.write("\n");
+            }
+            
+            for (int j=0; j<1; j++) 
+            {
+                for(int k=0; k<removedItem.size();k++)
+                {
+                    if(k == removedItem.size()-1)
+                    {
+                        bw.write(removedItem.get(k));
+                    }else{
+                        bw.write(removedItem.get(k)+",");
+                    }
+                
+                }
+                bw.write("\n");
+            }
+            
+            bw.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }
 
