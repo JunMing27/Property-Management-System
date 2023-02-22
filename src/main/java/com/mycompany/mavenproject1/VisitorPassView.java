@@ -151,9 +151,9 @@ public class VisitorPassView extends javax.swing.JFrame {
                     .addComponent(idLabel1)
                     .addComponent(idTxt1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameLabel1)
-                    .addComponent(nameTxt1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameTxt1)
+                    .addComponent(nameLabel1))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateTxt1)
@@ -265,7 +265,7 @@ public class VisitorPassView extends javax.swing.JFrame {
             br.close();
             
         }catch (FileNotFoundException ex) {
-            Logger.getLogger(VisitorPassAddEdit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(VisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -308,9 +308,9 @@ public class VisitorPassView extends javax.swing.JFrame {
             bw.write(data+"\n");
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

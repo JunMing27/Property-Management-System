@@ -202,9 +202,9 @@ public class ResidentReceipt extends javax.swing.JFrame {
             
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentPaymentHistory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentReceipt.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ResidentPaymentHistory.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentReceipt.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

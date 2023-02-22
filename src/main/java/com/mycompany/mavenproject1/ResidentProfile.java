@@ -363,7 +363,7 @@ public class ResidentProfile extends javax.swing.JFrame {
             }
             
         } catch (IOException ex) {
-            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentProfile.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

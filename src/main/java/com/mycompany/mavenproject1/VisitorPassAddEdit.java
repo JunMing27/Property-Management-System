@@ -420,7 +420,7 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
             bw.close();
             
         }catch (IOException ex) {
-            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorPassAddEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
     
         

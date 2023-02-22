@@ -464,7 +464,7 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
             }
             
         } catch (IOException ex) {
-            Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -546,9 +546,9 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
             bw.close();
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ResidentMain.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
