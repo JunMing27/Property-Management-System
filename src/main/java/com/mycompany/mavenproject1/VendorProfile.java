@@ -4,6 +4,19 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author user
@@ -292,8 +305,8 @@ public class VendorProfile extends javax.swing.JFrame {
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         this.dispose();
-        ResidentProfileEdit residentProfileEdit = new ResidentProfileEdit();
-        residentProfileEdit.setVisible(true);
+        VendorProfileEdit edit = new VendorProfileEdit();
+        edit.setVisible(true);
     }//GEN-LAST:event_editBtnActionPerformed
 
     /**
@@ -352,4 +365,88 @@ public class VendorProfile extends javax.swing.JFrame {
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
+
+
+    private void displayData()
+    {
+        try {
+            String profileFile = "src/main/java/com/mycompany/textFile/VendorProfile.txt";
+            String credentialFile = "src/main/java/com/mycompany/textFile/loginCredential.txt";
+            ArrayList<ArrayList<String>> userData = dataInfo(profileFile);
+            ArrayList<ArrayList<String>> credentialData = dataInfo(credentialFile);
+
+            if(userData.get(0) != null)
+            {
+                idTxt.setText(userData.get(0).get(0));
+                nameTxt.setText(userData.get(0).get(1));
+                genderTxt.setText(userData.get(0).get(2));
+                ageTxt.setText(userData.get(0).get(3));
+                phoneTxt.setText(userData.get(0).get(4));
+                image = userData.get(0).get(5);
+                
+                usernameTxt.setText(credentialData.get(0).get(1));
+                pwdTxt.setText(credentialData.get(0).get(2));
+
+                //image
+                BufferedImage bufferedImage = null;
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+image);
+                bufferedImage = ImageIO.read(imageFile);
+                Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon profileIcon = new ImageIcon(profileImage);
+                imageLabel.setIcon(profileIcon);
+            }
+            else{
+                idTxt.setText("no data");
+                nameTxt.setText("no data");
+                genderTxt.setText("no data");
+                ageTxt.setText("no data");
+                phoneTxt.setText("no data");
+                imageLabel.setText("no data");
+                usernameTxt.setText("no data");
+                pwdTxt.setText("no data");
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(VendorProfile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    private  ArrayList<ArrayList<String>> dataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(id))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(id))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+        return onlyUserInfo;
+    }
+    
+    
+
 }
