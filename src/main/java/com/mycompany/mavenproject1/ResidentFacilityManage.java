@@ -4,34 +4,17 @@
  */
 package com.mycompany.mavenproject1;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author user
  */
-public class ResidentPaymentHistory extends javax.swing.JFrame {
+public class ResidentFacilityManage extends javax.swing.JFrame {
 
-    ResidentMain residentMain = new ResidentMain();
-    String residentId = residentMain.getId();
-    
-    public ResidentPaymentHistory() {
+    /**
+     * Creates new form ResidentFacilityView
+     */
+    public ResidentFacilityManage() {
         initComponents();
-        setResizable(false);
-        setLocationRelativeTo(null);
-        createTable();
     }
 
     /**
@@ -44,15 +27,17 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        backBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        payHistoryTable = new javax.swing.JTable();
+        backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(233, 233, 233));
         jPanel1.setPreferredSize(new java.awt.Dimension(566, 600));
+
+        topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        topLabel.setForeground(new java.awt.Color(0, 0, 0));
+        topLabel.setText("FACILITY BOOKING");
 
         backBtn.setBackground(new java.awt.Color(255, 255, 255));
         backBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -64,22 +49,6 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
             }
         });
 
-        topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("PAYMENT HISTORY");
-
-        payHistoryTable.setBackground(new java.awt.Color(233, 233, 233));
-        payHistoryTable.setForeground(new java.awt.Color(0, 0, 0));
-        payHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(payHistoryTable);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -87,38 +56,30 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(37, 37, 37)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
+                        .addGap(181, 181, 181)
                         .addComponent(topLabel)))
-                .addContainerGap(228, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(85, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(105, Short.MAX_VALUE)))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(28, 28, 28)
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(483, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(167, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(60, Short.MAX_VALUE)))
+                .addContainerGap(481, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,20 +112,21 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentFacilityManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentFacilityManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentFacilityManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentPaymentHistory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentFacilityManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentPaymentHistory().setVisible(true);
+                new ResidentFacilityManage().setVisible(true);
             }
         });
     }
@@ -172,46 +134,6 @@ public class ResidentPaymentHistory extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable payHistoryTable;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
-
-    
-    private void createTable()
-    {
-        
-        try {
-            String payHistoryFile = "src/main/java/com/mycompany/textFile/PayHistory.txt";
-            File file = new File(payHistoryFile);
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};
-            
-            DefaultTableModel model = (DefaultTableModel) payHistoryTable.getModel();
-            model.setColumnIdentifiers(tableHeader);
-            
-            String line = br.readLine();
-            while(line != null )
-            {
-                String[] dataRow = line.split(",");
-                if(dataRow[1].equals(residentId))
-                {
-                    String[] onlyData = {dataRow[2],dataRow[3],dataRow[4]};
-                    model.addRow(onlyData);
-                    
-                }
-                line = br.readLine();
-            }
-            
-            br.close();
-            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentPaymentHistory.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentPaymentHistory.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-   
-
 }

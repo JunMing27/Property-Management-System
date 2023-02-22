@@ -344,7 +344,7 @@ public class ResidentPending extends javax.swing.JFrame {
     private void displayDataView(Integer pageLine, String part)
     {
         try{
-            String pendingFile = "src/main/java/com/mycompany/textFile/ResidentPending.txt";
+            String pendingFile = "src/main/java/com/mycompany/textFile/Pending.txt";
             ArrayList<ArrayList<String>> userData = onlyUserDataInfo(pendingFile);
             int newSize = userData.size();            
             try{

@@ -189,7 +189,9 @@ public class ResidentPaymentOption extends javax.swing.JFrame {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void statementBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statementBtnActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        ResidentStatement residentStatement = new ResidentStatement();
+        residentStatement.setVisible(true);
     }//GEN-LAST:event_statementBtnActionPerformed
 
     private void invoiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoiceBtnActionPerformed

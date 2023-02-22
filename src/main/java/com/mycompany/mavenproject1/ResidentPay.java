@@ -414,7 +414,7 @@ public class ResidentPay extends javax.swing.JFrame {
     private void displayDataView(Integer pageLine, String part)
     {
         try{
-            String paymentFile = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
+            String paymentFile = "src/main/java/com/mycompany/textFile/Payment.txt";
             ArrayList<ArrayList<String>> userData = onlyUserDataInfo(paymentFile);
             int newSize = userData.size();            
             try{
@@ -523,7 +523,7 @@ public class ResidentPay extends javax.swing.JFrame {
     private void removeSelectedDue(String part)
     {
         try {
-            String fileName = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
+            String fileName = "src/main/java/com/mycompany/textFile/Payment.txt";
             ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
             ArrayList<String>removedItem = new ArrayList<String>();
             if(part.equals("upper"))
@@ -589,16 +589,18 @@ public class ResidentPay extends javax.swing.JFrame {
     private void addToPendingFile(ArrayList<String> removedItem)
     {
         try {
-            String fileName = "src/main/java/com/mycompany/textFile/ResidentPending.txt";
+            String fileName = "src/main/java/com/mycompany/textFile/Pending.txt";
             ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
             File pendingFile = new File(fileName);
             FileWriter fw = new FileWriter(pendingFile);
             BufferedWriter bw = new BufferedWriter(fw);
+            int pendingId = 0;
             for (int j=0; j<userData.size(); j++) 
             {
                 ArrayList<String>item = userData.get(j);
                 for(int k=0; k<item.size(); k++)
                 {
+                    pendingId = Integer.parseInt(item.get(0).substring(item.get(0).indexOf("PE")+2));
                     if(k == item.size()-1)
                     {
                         bw.write(item.get(k));
@@ -610,7 +612,7 @@ public class ResidentPay extends javax.swing.JFrame {
                 bw.write("\n");
             }
             
-            int totalRow = userData.size();
+            pendingId = pendingId+1;
             
             for (int j=0; j<1; j++) 
             {
@@ -618,11 +620,11 @@ public class ResidentPay extends javax.swing.JFrame {
                 {
                     if(k == -1)
                     {
-                        bw.write("PE"+totalRow+",");
+                        bw.write("PE"+pendingId+",");
                     }else if(k == removedItem.size()-1)
                     {
                         bw.write(removedItem.get(k));
-                    }else{
+                    }else if (k != 0){
                         bw.write(removedItem.get(k)+",");
                     }
                 
