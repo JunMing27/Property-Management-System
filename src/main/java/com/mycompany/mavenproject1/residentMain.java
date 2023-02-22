@@ -39,6 +39,8 @@ public class ResidentMain {
     private String dueDate;
     private boolean status;
 
+    //for statement month
+    private String month;
     
     //get Profile
     public String getId() {
@@ -99,6 +101,11 @@ public class ResidentMain {
         return status;
     }
     
+    //get statement month
+    public String getMonth() {
+        return month;
+    }
+    
     
     //set profile
     public void setId(String id) {
@@ -157,6 +164,11 @@ public class ResidentMain {
         this.status = status;
     }
 
+    //set statement month
+    public void setMonth(String month) {
+        this.month = month;
+    }
+    
     
     public ArrayList<ArrayList<String>> dataInfo(String textFile) throws FileNotFoundException {
         File file = new File(textFile);

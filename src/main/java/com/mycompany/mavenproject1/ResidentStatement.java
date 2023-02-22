@@ -4,24 +4,31 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 
 public class ResidentStatement extends javax.swing.JFrame {
 
     ResidentMain residentMain = new ResidentMain();
     String residentId = residentMain.getId();
+    public String monthPassed;
     
     public ResidentStatement() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        residentId = "R1";
         displayData();
         backPageBtn.setEnabled(false);
     }
@@ -231,35 +238,56 @@ public class ResidentStatement extends javax.swing.JFrame {
     private void statement5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement5MouseClicked
         if(!statement5.getText().contains("EMPTY") || !statement5.getText().contains("no data"))
         {
-            showTable();
+            String month = statement5.getText().substring(0,statement5.getText().lastIndexOf(" "));
+            monthPassed = getMonth(month);
+            this.dispose();
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            table.setVisible(true);
         }
     }//GEN-LAST:event_statement5MouseClicked
 
     private void statement1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement1MouseClicked
         if(!statement1.getText().contains("EMPTY") || !statement1.getText().contains("no data"))
         {
-            showTable();
+            String month = statement1.getText().substring(0,statement1.getText().lastIndexOf(" "));
+            month = month.substring(month.lastIndexOf(" ") +1);
+            monthPassed = getMonth(month);
+            this.dispose();
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            table.setVisible(true);
         }
     }//GEN-LAST:event_statement1MouseClicked
 
     private void statement2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement2MouseClicked
         if(!statement2.getText().contains("EMPTY") || !statement2.getText().contains("no data"))
         {
-            showTable();
+            String month = statement2.getText().substring(0,statement2.getText().lastIndexOf(" "));
+            monthPassed = getMonth(month);
+            this.dispose();
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            table.setVisible(true);
         }
     }//GEN-LAST:event_statement2MouseClicked
 
     private void statement3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement3MouseClicked
         if(!statement3.getText().contains("EMPTY") || !statement3.getText().contains("no data"))
         {
-            showTable();
+            String month = statement3.getText().substring(0,statement3.getText().lastIndexOf(" "));
+            monthPassed = getMonth(month);
+            this.dispose();
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            table.setVisible(true);
         }
     }//GEN-LAST:event_statement3MouseClicked
 
     private void statement4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement4MouseClicked
         if(!statement4.getText().contains("EMPTY") || !statement4.getText().contains("no data"))
         {
-            showTable();
+            String month = statement4.getText().substring(0,statement4.getText().lastIndexOf(" "));
+            monthPassed = getMonth(month);
+            this.dispose();
+            ResidentStatementTable table = new ResidentStatementTable(monthPassed);
+            table.setVisible(true);
         }
     }//GEN-LAST:event_statement4MouseClicked
 
@@ -267,28 +295,6 @@ public class ResidentStatement extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentStatement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentStatement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentStatement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentStatement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -366,7 +372,7 @@ public class ResidentStatement extends javax.swing.JFrame {
     private void displayDataView(Integer pageLine, String part)
     {
         try{
-            String statementFile = "src/main/java/com/mycompany/textFile/ResidentPayment.txt";
+            String statementFile = "src/main/java/com/mycompany/textFile/StatementContent.txt";
             ArrayList<ArrayList<String>> userData = onlyUserDataInfo(statementFile);
             int newSize = userData.size();  
             String extractMonth,month,extractYear,stId;
@@ -378,23 +384,31 @@ public class ResidentStatement extends javax.swing.JFrame {
                 extractMonth = extractMonth.substring(extractMonth.indexOf("-")+1);
                 extractMonth = extractMonth.substring(0,extractMonth.lastIndexOf("-"));
                 month = month(extractMonth);
-                if(part.equals("1"))
+                if(!month.equals(residentMain.getMonth()))
                 {
-                    statement1.setText("STATEMENT FOR "+month+" "+extractYear);
-                    residentMain.setStatus(true);
-                }else if(part.equals("2"))
-                {
-                    statement2.setText("STATEMENT FOR "+month+" "+extractYear);
-                    residentMain.setStatus(true);
-                }else if(part.equals("3")){                     
-                        statement3.setText("STATEMENT FOR "+month+" "+extractYear);
-                        residentMain.setStatus(true);                 
-                }else if(part.equals("4")){                     
-                    statement4.setText("STATEMENT FOR "+month+" "+extractYear);
-                    residentMain.setStatus(true);                 
-                }else if(part.equals("5")){                     
-                    statement5.setText("STATEMENT FOR "+month+" "+extractYear);
-                    residentMain.setStatus(true);
+                    if(part.equals("1"))
+                    {
+                        statement1.setText("STATEMENT FOR "+month+" "+extractYear);
+                        residentMain.setStatus(true);
+                        residentMain.setMonth(month);
+                    }else if(part.equals("2"))
+                    {
+                        statement2.setText("STATEMENT FOR "+month+" "+extractYear);
+                        residentMain.setStatus(true);
+                        residentMain.setMonth(month);
+                    }else if(part.equals("3")){                     
+                            statement3.setText("STATEMENT FOR "+month+" "+extractYear);
+                            residentMain.setStatus(true); 
+                            residentMain.setMonth(month);
+                    }else if(part.equals("4")){                     
+                        statement4.setText("STATEMENT FOR "+month+" "+extractYear);
+                        residentMain.setStatus(true);    
+                        residentMain.setMonth(month);
+                    }else if(part.equals("5")){                     
+                        statement5.setText("STATEMENT FOR "+month+" "+extractYear);
+                        residentMain.setStatus(true);
+                        residentMain.setMonth(month);
+                    }
                 }
                 
                 if(statement1.getText().contains("empty"))
@@ -414,9 +428,11 @@ public class ResidentStatement extends javax.swing.JFrame {
                     statement5.setText("no data");
                 } 
                 
+                
             }
             catch (Exception ex) {
                 residentMain.setStatus(false);
+                residentMain.setMonth(null);
             }
             
             if(pageLine.equals(newSize-1)){
@@ -467,7 +483,6 @@ public class ResidentStatement extends javax.swing.JFrame {
     }
     
     
-    
     private String month(String number)
     {   
         String month = "empty"; 
@@ -507,6 +522,50 @@ public class ResidentStatement extends javax.swing.JFrame {
         }else if(number.equals("12")) 
         { 
             month = "DECEMBER";
+        } 
+        return month;
+    }
+    
+    
+    public String getMonth(String monthString)
+    {
+        String month = "empty"; 
+        if(monthString.equals("JANUARY")) 
+        { 
+            month = "01"; 
+        }else if(monthString.equals("FEBRUARY")) 
+        { 
+            month = "02"; 
+        }else if(monthString.equals("MARCH")) 
+        { 
+            month = "03"; 
+        }else if(monthString.equals("APRIL")) 
+        { 
+            month = "04"; 
+        }else if(monthString.equals("MAY")) 
+        { 
+            month = "05"; 
+        }else if(monthString.equals("JUNE")) 
+        { 
+            month = "06"; 
+        }else if(monthString.equals("JULY")) 
+        { 
+            month = "07"; 
+        }else if(monthString.equals("AUGUST")) 
+        { 
+            month = "08"; 
+        }else if(monthString.equals("SEPTEMBER")) 
+        { 
+            month = "09"; 
+        }else if(monthString.equals("OCTOBER")) 
+        { 
+            month = "10"; 
+        }else if(monthString.equals("NOVEMBER")) 
+        { 
+            month = "11"; 
+        }else if(monthString.equals("DECEMBER")) 
+        { 
+            month = "12";
         } 
         return month;
     }
