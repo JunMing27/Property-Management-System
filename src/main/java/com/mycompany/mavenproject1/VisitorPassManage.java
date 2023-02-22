@@ -430,10 +430,6 @@ public class VisitorPassManage extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         dataList = new ArrayList<String>();
-        dataList.add(idTxt1.getText());
-        dataList.add(nameTxt1.getText());
-        dataList.add(dateTxt1.getText());
-        dataList.add(statusText1.getText());
         this.dispose();
         VisitorPassAddEdit edit = new VisitorPassAddEdit("add", dataList );
         edit.setVisible(true);
@@ -591,7 +587,7 @@ public class VisitorPassManage extends javax.swing.JFrame {
             }
         }
         catch(FileNotFoundException ex){
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorPassManage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -650,9 +646,7 @@ public class VisitorPassManage extends javax.swing.JFrame {
                 for(int j=0;j<userData.size();j++)
                 {
                     if(userData.get(j).get(3).equals(residentId)
-                            && userData.get(j).get(0).equals(idTxt1.getText())
-                            && userData.get(j).get(1).equals(nameTxt1.getText())
-                            && userData.get(j).get(2).equals(dateTxt1.getText()))
+                            && userData.get(j).get(0).equals(idTxt1.getText()))
                     {
                         userData.remove(j);
                         break;
@@ -663,9 +657,7 @@ public class VisitorPassManage extends javax.swing.JFrame {
                 for(int j=0;j<userData.size();j++)
                 {
                     if(userData.get(j).get(3).equals(residentId)
-                            && userData.get(j).get(0).equals(idTxt2.getText())
-                            && userData.get(j).get(1).equals(nameTxt2.getText())
-                            && userData.get(j).get(2).equals(dateTxt2.getText()))
+                            && userData.get(j).get(0).equals(idTxt2.getText()))
                     {
                         userData.remove(j);
                         break;
@@ -695,9 +687,9 @@ public class VisitorPassManage extends javax.swing.JFrame {
             
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorPassManage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorPassManage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

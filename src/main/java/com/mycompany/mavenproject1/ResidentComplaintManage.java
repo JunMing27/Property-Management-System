@@ -4,17 +4,32 @@
  */
 package com.mycompany.mavenproject1;
 
-/**
- *
- * @author user
- */
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+
 public class ResidentComplaintManage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ResidentComplaint
-     */
+    ResidentMain residentMain = new ResidentMain();
+    String residentId = residentMain.getId();
+    public ArrayList<String> dataList;
+    
+    
     public ResidentComplaintManage() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
+        displayData();
+        backPageBtn.setEnabled(false);
     }
 
     /**
@@ -308,20 +323,19 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        ResidentPaymentOption residentPaymentOption = new ResidentPaymentOption();
-        residentPaymentOption.setVisible(true);
+        ResidentOption residentOption = new ResidentOption();
+        residentOption.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will consider paid ",
-            "INFORMATION", JOptionPane.YES_NO_OPTION);
-        if(result == JOptionPane.YES_OPTION)
-        {
-            removeSelectedDue("upper");
-            this.dispose();
-            ResidentPay residentPay = new ResidentPay();
-            residentPay.setVisible(true);
-        }
+        dataList = new ArrayList<String>();
+        dataList.add(idTxt1.getText());
+        dataList.add(detailTxt1.getText());
+        dataList.add(replyTxt1.getText());
+        dataList.add(residentId);
+        this.dispose();
+        ResidentComplaintAddEdit addEdit = new ResidentComplaintAddEdit("edit",dataList);
+        addEdit.setVisible(true);
 
     }//GEN-LAST:event_editBtn1ActionPerformed
 
@@ -339,33 +353,48 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
     }//GEN-LAST:event_nextPageBtnActionPerformed
 
     private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will consider paid ",
+        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' Will Delete This Complaint ",
             "INFORMATION", JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
-            removeSelectedDue("bottom");
+            removeSelected("upper");
             this.dispose();
-            ResidentPay residentPay = new ResidentPay();
-            residentPay.setVisible(true);
+            ResidentComplaintManage complaint = new ResidentComplaintManage();
+            complaint.setVisible(true);
         }
 
     }//GEN-LAST:event_deleteBtn1ActionPerformed
 
     private void editBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn2ActionPerformed
-        // TODO add your handling code here:
+        dataList = new ArrayList<String>();
+        dataList.add(idTxt2.getText());
+        dataList.add(detailTxt2.getText());
+        dataList.add(replyTxt2.getText());
+        dataList.add(residentId);
+        this.dispose();
+        ResidentComplaintAddEdit addEdit = new ResidentComplaintAddEdit("edit",dataList);
+        addEdit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
     private void deleteBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn2ActionPerformed
-        // TODO add your handling code here:
+        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' Will Delete This Complaint ",
+            "INFORMATION", JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            removeSelected("bottom");
+            this.dispose();
+            ResidentComplaintManage complaint = new ResidentComplaintManage();
+            complaint.setVisible(true);
+        }
     }//GEN-LAST:event_deleteBtn2ActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        // TODO add your handling code here:
+        dataList = new ArrayList<String>();
+        this.dispose();
+        ResidentComplaintAddEdit addEdit = new ResidentComplaintAddEdit("edit",dataList);
+        addEdit.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -424,4 +453,208 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
     private javax.swing.JLabel replyTxt2;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
+
+
+    private int pageLine=-1;
+    
+    private void setPagination(){
+        pageLine=pageLine+1;
+    }
+    
+    public void backButtonFunction(){
+        pageLine = pageLine - 4;
+        if (pageLine == -1){
+            backPageBtn.setEnabled(false);
+        }
+    }
+    
+    private void displayData(){
+        setPagination();
+        displayDataView(pageLine, "upper");
+        boolean boo = residentMain.getStatus();
+        if(boo==false){
+            nextPageBtn.setEnabled(false);
+        }
+        
+        setPagination();
+        displayDataView(pageLine, "bottom");
+        boolean boo2 = residentMain.getStatus();
+        if(boo2==false){
+            nextPageBtn.setEnabled(false);
+        }
+        
+        
+    }
+    
+    private void displayDataView(Integer pageLine, String part)
+    {
+        try{
+            String complaintFile = "src/main/java/com/mycompany/textFile/Complaint.txt";
+            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(complaintFile);
+            int newSize = userData.size();            
+            try{
+                userData.get(pageLine);
+                if(part.equals("upper"))
+                {
+                    idTxt1.setText(userData.get(pageLine).get(0));
+                    detailTxt1.setText(userData.get(pageLine).get(1));
+                    replyTxt1.setText(userData.get(pageLine).get(2));
+                    if(!replyTxt1.getText().equals("")) //if replied
+                    {
+                        editBtn1.setEnabled(false);
+                    }
+                    idTxt2.setText("no data");
+                    detailTxt2.setText("no data");
+                    replyTxt2.setText("no data");
+                    editBtn2.setEnabled(false);
+                    deleteBtn2.setEnabled(false);
+                    residentMain.setStatus(true);
+                }else{
+                    idTxt2.setText(userData.get(pageLine).get(0));
+                    detailTxt2.setText(userData.get(pageLine).get(1));
+                    replyTxt2.setText(userData.get(pageLine).get(2));
+                    if(!replyTxt1.getText().equals("")) //if replied
+                    {
+                        editBtn1.setEnabled(false);
+                    }else{
+                       editBtn2.setEnabled(true); 
+                    }
+                    
+                    deleteBtn2.setEnabled(true);
+                    residentMain.setStatus(true);
+                }
+                if(idTxt1.getText() == null)
+                {
+                    idTxt1.setText("no data");
+                    detailTxt1.setText("no data");
+                    replyTxt1.setText("no data");
+                }
+                if(idTxt2.getText() == null)
+                {
+                    idTxt2.setText("no data");
+                    detailTxt2.setText("no data");
+                    replyTxt2.setText("no data");
+                }
+                
+            }
+            catch (Exception ex) {
+                residentMain.setStatus(false);
+            }
+            
+            if(pageLine.equals(newSize-1)){
+                residentMain.setStatus(false);
+            }
+        }
+        catch(FileNotFoundException ex){
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
+    private ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(residentId))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(3).equals(residentId))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+       
+        return onlyUserInfo;
+    }
+     
+    private ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        }
+        
+        return allUserInfo;
+    }
+    
+    private void removeSelected(String part)
+    {
+        try {
+            String fileName = "src/main/java/com/mycompany/textFile/VisitorPass.txt";
+            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
+            if(part.equals("upper"))
+            {
+                for(int j=0;j<userData.size();j++)
+                {
+                    if(userData.get(j).get(3).equals(residentId)
+                            && userData.get(j).get(0).equals(idTxt1.getText())
+                            && userData.get(j).get(1).equals(detailTxt1.getText())
+                            && userData.get(j).get(2).equals(replyTxt1.getText()))
+                    {
+                        userData.remove(j);
+                        break;
+                    }
+                }
+            }else if(part.equals("bottom"))
+            {
+                for(int j=0;j<userData.size();j++)
+                {
+                    if(userData.get(j).get(3).equals(residentId)
+                            && userData.get(j).get(0).equals(idTxt2.getText())
+                            && userData.get(j).get(1).equals(detailTxt2.getText())
+                            && userData.get(j).get(2).equals(replyTxt2.getText()))
+                    {
+                        userData.remove(j);
+                        break;
+                    }
+                }
+            }
+            
+            
+            File paymentFile = new File(fileName);
+            FileWriter fw = new FileWriter(paymentFile);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<userData.size(); j++) 
+            {
+                ArrayList<String>item = userData.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
 }

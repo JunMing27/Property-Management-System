@@ -11,30 +11,24 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author user
- */
-public class VisitorPassAddEdit extends javax.swing.JFrame {
+
+
+public class ResidentComplaintAddEdit extends javax.swing.JFrame {
 
     ResidentMain residentMain = new ResidentMain();
-    String residentId, id, name, date, status;
+    String residentId, id, detail, reply;
     
-    String pattern = "dd-MM-YYYY";
-    SimpleDateFormat sdf = new SimpleDateFormat(pattern); 
     static ArrayList<String> dataListGet = new ArrayList<String>();
     static String addEditDetector;
     
-    public VisitorPassAddEdit(String addEditString, ArrayList<String> dataList) {
+    public ResidentComplaintAddEdit(String addEditString, ArrayList<String> dataList) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -42,16 +36,12 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
         addEditDetector = addEditString;
         dataListGet = dataList;
         
-        jDateChooser1.setDateFormatString(pattern);
         if(addEditDetector.equals("edit"))
         {
-            jDateChooser1.setVisible(false);
             displayData(dataListGet);
         }else{
-            dateTxt.setVisible(false);
             emptyData();
         }
-        
     }
 
     /**
@@ -66,18 +56,16 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
-        idLabel1 = new javax.swing.JLabel();
         idTxt1 = new javax.swing.JLabel();
-        nameLabel1 = new javax.swing.JLabel();
         dateLabel1 = new javax.swing.JLabel();
         saveBtn = new javax.swing.JButton();
-        statusLabel1 = new javax.swing.JLabel();
         cancelBtn = new javax.swing.JButton();
-        nameTxt = new javax.swing.JTextField();
-        statusTxt = new javax.swing.JTextField();
-        dateTxt = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        replyTxt = new javax.swing.JLabel();
         errorMessage = new javax.swing.JTextField();
+        idLabel1 = new javax.swing.JLabel();
+        detailLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        detailTxt = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,23 +84,15 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("VISITOR PASS");
-
-        idLabel1.setBackground(new java.awt.Color(233, 233, 233));
-        idLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        idLabel1.setText("Visitor ID :");
+        topLabel.setText("COMPLAINT");
 
         idTxt1.setBackground(new java.awt.Color(233, 233, 233));
         idTxt1.setForeground(new java.awt.Color(0, 0, 0));
-        idTxt1.setText("V1");
-
-        nameLabel1.setBackground(new java.awt.Color(233, 233, 233));
-        nameLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        nameLabel1.setText("Visitor Name :");
+        idTxt1.setText("C1");
 
         dateLabel1.setBackground(new java.awt.Color(233, 233, 233));
         dateLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        dateLabel1.setText("Date :");
+        dateLabel1.setText("Reply :");
 
         saveBtn.setBackground(new java.awt.Color(255, 255, 255));
         saveBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -124,10 +104,6 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
             }
         });
 
-        statusLabel1.setBackground(new java.awt.Color(233, 233, 233));
-        statusLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        statusLabel1.setText("Status :");
-
         cancelBtn.setBackground(new java.awt.Color(255, 255, 255));
         cancelBtn.setForeground(new java.awt.Color(0, 0, 0));
         cancelBtn.setText("CANCEL");
@@ -138,28 +114,29 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
             }
         });
 
-        nameTxt.setBackground(new java.awt.Color(233, 233, 233));
-        nameTxt.setForeground(new java.awt.Color(0, 0, 0));
-        nameTxt.setText("jTextField1");
-
-        statusTxt.setBackground(new java.awt.Color(233, 233, 233));
-        statusTxt.setForeground(new java.awt.Color(0, 0, 0));
-        statusTxt.setText("valid or invalid");
-        statusTxt.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                statusTxtFocusGained(evt);
-            }
-        });
-
-        dateTxt.setBackground(new java.awt.Color(233, 233, 233));
-        dateTxt.setForeground(new java.awt.Color(0, 0, 0));
-        dateTxt.setText("date");
+        replyTxt.setBackground(new java.awt.Color(233, 233, 233));
+        replyTxt.setForeground(new java.awt.Color(0, 0, 0));
+        replyTxt.setText("null");
 
         errorMessage.setEditable(false);
         errorMessage.setBackground(new java.awt.Color(233, 233, 233));
         errorMessage.setForeground(new java.awt.Color(204, 0, 0));
         errorMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         errorMessage.setBorder(null);
+
+        idLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        idLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        idLabel1.setText("Complaint ID :");
+
+        detailLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        detailLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        detailLabel1.setText("Complaint Details :");
+
+        detailTxt.setBackground(new java.awt.Color(233, 233, 233));
+        detailTxt.setColumns(20);
+        detailTxt.setForeground(new java.awt.Color(0, 0, 0));
+        detailTxt.setRows(5);
+        jScrollPane1.setViewportView(detailTxt);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -176,25 +153,20 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(statusLabel1)
                             .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dateLabel1)
-                            .addComponent(nameLabel1)
-                            .addComponent(idLabel1))
-                        .addGap(82, 82, 82)
+                            .addComponent(idLabel1)
+                            .addComponent(detailLabel1))
+                        .addGap(67, 67, 67)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(replyTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,32 +175,28 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
+                .addGap(72, 72, 72)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel1)
                     .addComponent(idTxt1))
-                .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel1)
-                    .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(dateLabel1)
-                        .addComponent(dateTxt))
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(statusLabel1)
-                        .addGap(66, 66, 66)
+                        .addComponent(detailLabel1)
+                        .addGap(89, 89, 89)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dateLabel1)
+                            .addComponent(replyTxt))
+                        .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(statusTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                            .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,60 +215,37 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        VisitorPassManage visitorPass = new VisitorPassManage();
-        visitorPass.setVisible(true);
+        ResidentComplaintManage complaint = new ResidentComplaintManage();
+        complaint.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         id = idTxt1.getText();
-        name = nameTxt.getText();
-        if(jDateChooser1.isVisible()) //for add
+        detail = detailTxt.getText();
+        reply = replyTxt.getText();
+        
+        if(!id.isEmpty() && !detail.isEmpty() )
         {
-            Date date1 = jDateChooser1.getDate();
-            if(date1 != null)
-            {
-                date = sdf.format(date1);
-            }else{
-                date = "";
-            }
-        }else{
-            date = dateTxt.getText();
-        }
-        status = statusTxt.getText();
-        if(!id.isEmpty() && !name.isEmpty() && !date.isEmpty() && !status.isEmpty() )
-        {
-            if(status.equals("Valid") || status.equals("Invalid"))
-            {
-                int dialog = JOptionPane.showConfirmDialog(null,
+            int dialog = JOptionPane.showConfirmDialog(null,
                 "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
-                if(dialog == JOptionPane.YES_OPTION){
-                    removeFromFile("VisitorPass");
-                    editFile(id, name, date, status);
-                    this.dispose();
-                    VisitorPassManage visitorPass = new VisitorPassManage();
-                    visitorPass.setVisible(true);
-                }  
-            }else{
-                errorMessage.setText("STATUS MUST BE 'Valid' OR 'Invalid' !");
+            if(dialog == JOptionPane.YES_OPTION){
+                removeFromFile("Complaint");
+                editFile(id, detail, reply);
+                this.dispose();
+                ResidentComplaintManage complaint = new ResidentComplaintManage();
+                complaint.setVisible(true);
             }
         }else{
             errorMessage.setText("DO NOT LEFT EMPTY DATA !");
         }
-        
+
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         this.dispose();
-        VisitorPassManage visitorPass = new VisitorPassManage();
-        visitorPass.setVisible(true);
+        ResidentComplaintManage complaint = new ResidentComplaintManage();
+        complaint.setVisible(true);
     }//GEN-LAST:event_cancelBtnActionPerformed
-
-    private void statusTxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_statusTxtFocusGained
-        if(statusTxt.getText().equals("Valid or Invalid"))
-        {
-            statusTxt.setText("");
-        }
-    }//GEN-LAST:event_statusTxtFocusGained
 
     /**
      * @param args the command line arguments
@@ -319,20 +264,20 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentComplaintAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentComplaintAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentComplaintAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ResidentComplaintAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VisitorPassAddEdit(addEditDetector,dataListGet).setVisible(true);
+                new ResidentComplaintAddEdit(addEditDetector,dataListGet).setVisible(true);
             }
         });
     }
@@ -341,28 +286,25 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton cancelBtn;
     private javax.swing.JLabel dateLabel1;
-    private javax.swing.JLabel dateTxt;
+    private javax.swing.JLabel detailLabel1;
+    private javax.swing.JTextArea detailTxt;
     private javax.swing.JTextField errorMessage;
     private javax.swing.JLabel idLabel1;
     private javax.swing.JLabel idTxt1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel nameLabel1;
-    private javax.swing.JTextField nameTxt;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel replyTxt;
     private javax.swing.JButton saveBtn;
-    private javax.swing.JLabel statusLabel1;
-    private javax.swing.JTextField statusTxt;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
+
 
     private void displayData(ArrayList<String> dataListGet)
     {
         idTxt1.setText(dataListGet.get(0));
-        nameTxt.setText(dataListGet.get(1));
-        dateTxt.setText(dataListGet.get(2));
-        statusTxt.setText(dataListGet.get(3));
+        detailTxt.setText(dataListGet.get(1));
+        replyTxt.setText(dataListGet.get(2));
     }
-
 
     private  ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
     {
@@ -385,6 +327,7 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
         return allUserInfo;
     }
     
+    
     private void removeFromFile(String fileName)
     {
         try {
@@ -393,7 +336,7 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
             for(int j=0;j<allUsers.size();j++)
             {
                 if(allUsers.get(j).get(3).equals(residentId)
-                            && allUsers.get(j).get(0).equals(idTxt1.getText())
+                            && allUsers.get(j).get(0).equals(idTxt1.getText()))
                     {
                         allUsers.remove(j);
                         break;
@@ -420,37 +363,35 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
             bw.close();
             
         }catch (IOException ex) {
-            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentComplaintAddEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
     
-        
     }
-
     
-    private void editFile(String id, String name, String date, String status)
+    
+    private void editFile(String id, String detail, String reply)
     {
         try {
-            String fileName = "VisitorPass";
+            String fileName = "Complaint";
             File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(id+","
-                    +name+","
-                    +date+","
-                    +residentId+","
-                    +status+"\n");
-            
+                    +detail+","
+                    +reply+","
+                    +residentId+"\n");
+
             bw.close();
+
         } catch (IOException ex) {
-            Logger.getLogger(VisitorPassAddEdit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentComplaintAddEdit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    
+        
     private void emptyData()
     {
         try {
-            String fileName = "VisitorPass";
+            String fileName = "Complaint";
             File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
@@ -461,7 +402,7 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
                 String[] dataRow = line.split(",");
                 for(int i=0; i<dataRow.length; i++)
                 {
-                    totalRow = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("V")+1));
+                    totalRow = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("C")+1));
                 }
                 line = br.readLine();
             }
@@ -469,16 +410,19 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
             br.close();
             
             totalRow = totalRow+1;
-            idTxt1.setText("V"+totalRow);
-            nameTxt.setText("");
-            statusTxt.setText("Valid or Invalid");
+            idTxt1.setText("C"+totalRow);
+            detailTxt.setText("");
+            replyTxt.setText("");
             
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(VisitorPassAddEdit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentComplaintAddEdit.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(VisitorPassAddEdit.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResidentComplaintAddEdit.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+    
+
+
 
 }
