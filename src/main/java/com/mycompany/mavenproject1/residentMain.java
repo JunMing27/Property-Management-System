@@ -39,7 +39,7 @@ public class ResidentMain {
     private String dueDate;
     private boolean status;
 
-    //for statement month
+    //for statement
     private String month;
     
     //get Profile
@@ -101,7 +101,7 @@ public class ResidentMain {
         return status;
     }
     
-    //get statement month
+    //get statement
     public String getMonth() {
         return month;
     }
@@ -164,7 +164,7 @@ public class ResidentMain {
         this.status = status;
     }
 
-    //set statement month
+    //set statement
     public void setMonth(String month) {
         this.month = month;
     }

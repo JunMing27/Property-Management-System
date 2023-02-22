@@ -139,8 +139,8 @@ public class VendorOption extends javax.swing.JFrame {
     private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
         // Direct to Profile Page
         this.dispose();
-        ResidentProfile residentProfile = new ResidentProfile();
-        residentProfile.setVisible(true);
+        VendorProfile profile = new VendorProfile();
+        profile.setVisible(true);
     }//GEN-LAST:event_profileBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
@@ -157,8 +157,8 @@ public class VendorOption extends javax.swing.JFrame {
     private void paymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBtnActionPerformed
         // Direct to Payment Page
         this.dispose();
-        ResidentPaymentOption residentPaymentOption = new ResidentPaymentOption();
-        residentPaymentOption.setVisible(true);
+        VendorPaymentOption payment = new VendorPaymentOption();
+        payment.setVisible(true);
     }//GEN-LAST:event_paymentBtnActionPerformed
 
     private void complaintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintBtnActionPerformed
