@@ -23,9 +23,6 @@ public class ResidentOption extends javax.swing.JFrame {
      * Creates new form ResidentOption
      */
     public ResidentOption() {
-        //get id and name
-        ResidentMain residentMain = new ResidentMain();
-        
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
