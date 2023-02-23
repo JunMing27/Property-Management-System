@@ -327,7 +327,7 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
                 removeFromFile("VisitorEntry");
                 editFile(id, name, date, enterTime, leaveTime);
                 this.dispose();
-                GuardVisitorEntry visitorEntry = new GuardVisitorEntry();
+                GuardVisEntryManage visitorEntry = new GuardVisEntryManage();
                 visitorEntry.setVisible(true);
             }
                 

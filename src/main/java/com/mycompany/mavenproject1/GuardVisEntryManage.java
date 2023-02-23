@@ -4,11 +4,8 @@
  */
 package com.mycompany.mavenproject1;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,11 +16,11 @@ import java.util.logging.Logger;
  *
  * @author user
  */
-public class GuardVisitorEntry extends javax.swing.JFrame {
+public class GuardVisEntryManage extends javax.swing.JFrame {
 
     ArrayList<String> dataList;
     
-    public GuardVisitorEntry() {
+    public GuardVisEntryManage() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -381,14 +378,12 @@ public class GuardVisitorEntry extends javax.swing.JFrame {
     }//GEN-LAST:event_editBtn1ActionPerformed
 
     private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
-
         backButtonFunction();
         nextPageBtn.setEnabled(true);
         displayData();
     }//GEN-LAST:event_backPageBtnActionPerformed
 
     private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
-
         backPageBtn.setEnabled(true);
         displayData();
     }//GEN-LAST:event_nextPageBtnActionPerformed
@@ -428,20 +423,21 @@ public class GuardVisitorEntry extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GuardVisitorEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisEntryManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GuardVisitorEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisEntryManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GuardVisitorEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisEntryManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GuardVisitorEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisEntryManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GuardVisitorEntry().setVisible(true);
+                new GuardVisEntryManage().setVisible(true);
             }
         });
     }
@@ -582,7 +578,7 @@ public class GuardVisitorEntry extends javax.swing.JFrame {
             }
         }
         catch(FileNotFoundException ex){
-            Logger.getLogger(GuardVisitorEntry.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardVisEntryManage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

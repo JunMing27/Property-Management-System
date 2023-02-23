@@ -157,7 +157,7 @@ public class GuardOption extends javax.swing.JFrame {
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         // Direct to Login Page
         int dialog = JOptionPane.showConfirmDialog(null,
-            "Are You Sure ?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            "Are You Sure to Log Out?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
             this.dispose();
             LoginPage loginPage = new LoginPage();
@@ -167,12 +167,14 @@ public class GuardOption extends javax.swing.JFrame {
 
     private void visitorEntryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorEntryBtnActionPerformed
         this.dispose();
-        GuardVisitorEntry visitorEntry = new GuardVisitorEntry();
+        GuardVisEntryManage visitorEntry = new GuardVisEntryManage();
         visitorEntry.setVisible(true);
     }//GEN-LAST:event_visitorEntryBtnActionPerformed
 
     private void checkpointBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkpointBtnActionPerformed
-        
+        this.dispose();
+        GuardCheckPointManage checkpoint = new GuardCheckPointManage();
+        checkpoint.setVisible(true);
     }//GEN-LAST:event_checkpointBtnActionPerformed
 
     private void incidentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incidentBtnActionPerformed
