@@ -23,12 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -43,22 +43,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="facilityNameLabel" alignment="0" pref="114" max="32767" attributes="0"/>
-                                  <Component id="facilityIdLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="unitNumberLabel" alignment="0" pref="114" max="32767" attributes="0"/>
+                                  <Component id="unitIdLabel" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="facilityLocationLabel" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                              <Component id="unitLocationLabel" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="facilityLocationComboBox" alignment="0" pref="234" max="32767" attributes="0"/>
-                              <Component id="facilityIdField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="facilityNameField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="unitLocationComboBox" alignment="0" pref="234" max="32767" attributes="0"/>
+                              <Component id="unitIdField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="unitNumberField" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -81,18 +81,18 @@
                   <Component id="backBtn" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="facilityIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="facilityIdField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="unitIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="unitIdField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="facilityNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="facilityNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="unitNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="unitNumberField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="facilityLocationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="facilityLocationComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="unitLocationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="unitLocationComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Component id="addEditBtn" min="-2" pref="40" max="-2" attributes="0"/>
@@ -116,7 +116,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="facilityIdLabel">
+        <Component class="javax.swing.JLabel" name="unitIdLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -124,10 +124,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Facility ID"/>
+            <Property name="text" type="java.lang.String" value="Unit ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="facilityNameLabel">
+        <Component class="javax.swing.JLabel" name="unitNumberLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -135,7 +135,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Facility Name"/>
+            <Property name="text" type="java.lang.String" value="Unit Number"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="addEditBtn">
@@ -152,7 +152,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addEditBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="facilityIdField">
+        <Component class="javax.swing.JTextField" name="unitIdField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -160,10 +160,10 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facilityIdFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="unitIdFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="facilityLocationComboBox">
+        <Component class="javax.swing.JComboBox" name="unitLocationComboBox">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -176,13 +176,13 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facilityLocationComboBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="unitLocationComboBoxActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="facilityLocationLabel">
+        <Component class="javax.swing.JLabel" name="unitLocationLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -190,17 +190,17 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Facility Location"/>
+            <Property name="text" type="java.lang.String" value="Unit Location"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="facilityNameField">
+        <Component class="javax.swing.JTextField" name="unitNumberField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facilityNameFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="unitNumberFieldActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

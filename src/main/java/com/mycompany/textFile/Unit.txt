@@ -4,3 +4,4 @@ U4,D-01-03,Block D,occupied
 U5,D-01-04,BlocRGk D,occupied
 U6,YEET,ETTE,occupied
 U7,TEET,GRFD,occupied
+U9,DDA,Block A,Available

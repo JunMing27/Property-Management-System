@@ -37,7 +37,7 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        backBtn = new javax.swing.JButton();
         complaintIdLabel = new javax.swing.JLabel();
         complaintDetailLabel = new javax.swing.JLabel();
         complaintFromLabel = new javax.swing.JLabel();
@@ -54,12 +54,12 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backBtn.setBackground(new java.awt.Color(255, 255, 255));
+        backBtn.setForeground(new java.awt.Color(0, 0, 0));
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backBtnActionPerformed(evt);
             }
         });
 
@@ -136,7 +136,7 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
                             .addComponent(complaintIdField)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(211, 211, 211)
                         .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -146,7 +146,7 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(complaintIdLabel)
@@ -182,7 +182,7 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         this.dispose();
         adminExecComplaintManageFrame complaintPage = new adminExecComplaintManageFrame();
@@ -193,7 +193,7 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
         complaintPage.setVisible(true);
         complaintPage.backButtonToggle();
         complaintPage.setComplaintData();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_backBtnActionPerformed
 
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
@@ -316,6 +316,7 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addEditBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JTextArea complaintDetailField;
     private javax.swing.JLabel complaintDetailLabel;
     private javax.swing.JLabel complaintFromLabel;
@@ -323,7 +324,6 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
     private javax.swing.JLabel complaintIdLabel;
     private javax.swing.JTextArea complaintReplyField;
     private javax.swing.JLabel complaintReplyLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
