@@ -16,22 +16,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author user
- */
-public class VisitorPassManage extends javax.swing.JFrame {
+public class GuardVisitorPass extends javax.swing.JFrame {
 
-    ResidentMain residentMain;
-    String residentId;
-    ArrayList<String> dataList;
+    GuardMain main;
+    String id;
     
-    public VisitorPassManage() {
+    public GuardVisitorPass() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        residentMain = new ResidentMain();
-        residentId = residentMain.getId();
+        main = new GuardMain();
+        id = main.getId();
         displayData();
         backPageBtn.setEnabled(false);
     }
@@ -48,7 +43,6 @@ public class VisitorPassManage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
-        editBtn1 = new javax.swing.JButton();
         backPageBtn = new javax.swing.JButton();
         nextPageBtn = new javax.swing.JButton();
         idLabel1 = new javax.swing.JLabel();
@@ -58,10 +52,8 @@ public class VisitorPassManage extends javax.swing.JFrame {
         nameTxt1 = new javax.swing.JLabel();
         dateTxt1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        editBtn2 = new javax.swing.JButton();
         statusLabel1 = new javax.swing.JLabel();
         statusText1 = new javax.swing.JLabel();
-        deleteBtn1 = new javax.swing.JButton();
         idLabel2 = new javax.swing.JLabel();
         nameLabel2 = new javax.swing.JLabel();
         dateLabel2 = new javax.swing.JLabel();
@@ -70,8 +62,8 @@ public class VisitorPassManage extends javax.swing.JFrame {
         nameTxt2 = new javax.swing.JLabel();
         statusText2 = new javax.swing.JLabel();
         dateTxt2 = new javax.swing.JLabel();
-        deleteBtn2 = new javax.swing.JButton();
-        addBtn = new javax.swing.JButton();
+        searchTxtField = new javax.swing.JTextField();
+        searchBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,16 +83,6 @@ public class VisitorPassManage extends javax.swing.JFrame {
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
         topLabel.setText("VISITOR PASS");
-
-        editBtn1.setBackground(new java.awt.Color(255, 255, 255));
-        editBtn1.setForeground(new java.awt.Color(0, 0, 0));
-        editBtn1.setText("EDIT");
-        editBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        editBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editBtn1ActionPerformed(evt);
-            }
-        });
 
         backPageBtn.setBackground(new java.awt.Color(255, 255, 255));
         backPageBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -144,16 +126,6 @@ public class VisitorPassManage extends javax.swing.JFrame {
         dateTxt1.setForeground(new java.awt.Color(0, 0, 0));
         dateTxt1.setText("10/04/2023");
 
-        editBtn2.setBackground(new java.awt.Color(255, 255, 255));
-        editBtn2.setForeground(new java.awt.Color(0, 0, 0));
-        editBtn2.setText("EDIT");
-        editBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        editBtn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editBtn2ActionPerformed(evt);
-            }
-        });
-
         statusLabel1.setBackground(new java.awt.Color(233, 233, 233));
         statusLabel1.setForeground(new java.awt.Color(0, 0, 0));
         statusLabel1.setText("Status :");
@@ -161,16 +133,6 @@ public class VisitorPassManage extends javax.swing.JFrame {
         statusText1.setBackground(new java.awt.Color(233, 233, 233));
         statusText1.setForeground(new java.awt.Color(0, 0, 0));
         statusText1.setText("Valid");
-
-        deleteBtn1.setBackground(new java.awt.Color(255, 255, 255));
-        deleteBtn1.setForeground(new java.awt.Color(0, 0, 0));
-        deleteBtn1.setText("DELETE");
-        deleteBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        deleteBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBtn1ActionPerformed(evt);
-            }
-        });
 
         idLabel2.setBackground(new java.awt.Color(233, 233, 233));
         idLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -204,24 +166,22 @@ public class VisitorPassManage extends javax.swing.JFrame {
         dateTxt2.setForeground(new java.awt.Color(0, 0, 0));
         dateTxt2.setText("10/04/2023");
 
-        deleteBtn2.setBackground(new java.awt.Color(255, 255, 255));
-        deleteBtn2.setForeground(new java.awt.Color(0, 0, 0));
-        deleteBtn2.setText("DELETE");
-        deleteBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        deleteBtn2.addActionListener(new java.awt.event.ActionListener() {
+        searchTxtField.setBackground(new java.awt.Color(255, 255, 255));
+        searchTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        searchTxtField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchTxtField.setCaretColor(new java.awt.Color(0, 0, 0));
+        searchTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBtn2ActionPerformed(evt);
+                searchTxtFieldActionPerformed(evt);
             }
         });
 
-        addBtn.setBackground(new java.awt.Color(255, 255, 255));
-        addBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        addBtn.setForeground(new java.awt.Color(0, 0, 0));
-        addBtn.setText("ADD");
-        addBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        addBtn.addActionListener(new java.awt.event.ActionListener() {
+        searchBtn.setBackground(new java.awt.Color(255, 255, 255));
+        searchBtn.setForeground(new java.awt.Color(0, 0, 0));
+        searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBtnActionPerformed(evt);
+                searchBtnActionPerformed(evt);
             }
         });
 
@@ -234,47 +194,25 @@ public class VisitorPassManage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idLabel2)
-                                    .addComponent(nameLabel2)
-                                    .addComponent(statusLabel2)
-                                    .addComponent(dateLabel2))
-                                .addGap(123, 123, 123)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dateTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(statusText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(idTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(82, 82, 82)
-                                .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(idLabel2)
+                            .addComponent(nameLabel2)
+                            .addComponent(statusLabel2)
+                            .addComponent(dateLabel2))
+                        .addGap(123, 123, 123)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dateTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(statusText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(idTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(searchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nameLabel1)
-                                    .addComponent(idLabel1)
-                                    .addComponent(dateLabel1)
-                                    .addComponent(statusLabel1)
-                                    .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(84, 84, 84)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(statusText1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(dateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(nameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(85, 85, 85))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -284,19 +222,32 @@ public class VisitorPassManage extends javax.swing.JFrame {
                                         .addGap(40, 40, 40)
                                         .addComponent(backPageBtn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(nextPageBtn)))))
+                                        .addComponent(nextPageBtn))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nameLabel1)
+                                    .addComponent(idLabel1)
+                                    .addComponent(dateLabel1)
+                                    .addComponent(statusLabel1))
+                                .addGap(121, 121, 121)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(statusText1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(dateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(nameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 91, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBtn))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,11 +269,7 @@ public class VisitorPassManage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(statusLabel1)
                     .addComponent(statusText1))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(63, 63, 63)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -340,13 +287,7 @@ public class VisitorPassManage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(statusLabel2)
                     .addComponent(statusText2))
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -357,7 +298,7 @@ public class VisitorPassManage extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -365,21 +306,9 @@ public class VisitorPassManage extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        ResidentOption residentOption = new ResidentOption();
-        residentOption.setVisible(true);
+        GuardOption option = new GuardOption();
+        option.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
-
-    private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
-        dataList = new ArrayList<String>();
-        dataList.add(idTxt1.getText());
-        dataList.add(nameTxt1.getText());
-        dataList.add(dateTxt1.getText());
-        dataList.add(statusText1.getText());
-        this.dispose();
-        VisitorPassAddEdit edit = new VisitorPassAddEdit("edit", dataList );
-        edit.setVisible(true);
-
-    }//GEN-LAST:event_editBtn1ActionPerformed
 
     private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
 
@@ -394,48 +323,16 @@ public class VisitorPassManage extends javax.swing.JFrame {
         displayData();
     }//GEN-LAST:event_nextPageBtnActionPerformed
 
-    private void editBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn2ActionPerformed
-        dataList = new ArrayList<String>();
-        dataList.add(idTxt2.getText());
-        dataList.add(nameTxt2.getText());
-        dataList.add(dateTxt2.getText());
-        dataList.add(statusText2.getText());
-        this.dispose();
-        VisitorPassAddEdit edit = new VisitorPassAddEdit("edit", dataList );
-        edit.setVisible(true);
+    private void searchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTxtFieldActionPerformed
 
-    }//GEN-LAST:event_editBtn2ActionPerformed
-
-    private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will Delete This Visitor Pass ",
-            "INFORMATION", JOptionPane.YES_NO_OPTION);
-        if(result == JOptionPane.YES_OPTION)
-        {
-            removeSelected("upper");
-            this.dispose();
-            VisitorPassManage visitorPassManage = new VisitorPassManage();
-            visitorPassManage.setVisible(true);
-        }
-    }//GEN-LAST:event_deleteBtn1ActionPerformed
-
-    private void deleteBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn2ActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' Will Delete This Visitor Pass",
-            "INFORMATION", JOptionPane.YES_NO_OPTION);
-        if(result == JOptionPane.YES_OPTION)
-        {
-            removeSelected("bottom");
-            this.dispose();
-            VisitorPassManage visitorPassManage = new VisitorPassManage();
-            visitorPassManage.setVisible(true);
-        }
-    }//GEN-LAST:event_deleteBtn2ActionPerformed
-
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        dataList = new ArrayList<String>();
-        this.dispose();
-        VisitorPassAddEdit edit = new VisitorPassAddEdit("add", dataList );
-        edit.setVisible(true);
-    }//GEN-LAST:event_addBtnActionPerformed
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        // TODO add your handling code here:
+        searchTxt = searchTxtField.getText();
+        pageLine=-1;
+        displaySearchedData();
+    }//GEN-LAST:event_searchBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -454,36 +351,31 @@ public class VisitorPassManage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisitorPass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisitorPass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisitorPass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisitorPass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VisitorPassManage().setVisible(true);
+                new GuardVisitorPass().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton backPageBtn;
     private javax.swing.JLabel dateLabel1;
     private javax.swing.JLabel dateLabel2;
     private javax.swing.JLabel dateTxt1;
     private javax.swing.JLabel dateTxt2;
-    private javax.swing.JButton deleteBtn1;
-    private javax.swing.JButton deleteBtn2;
-    private javax.swing.JButton editBtn1;
-    private javax.swing.JButton editBtn2;
     private javax.swing.JLabel idLabel1;
     private javax.swing.JLabel idLabel2;
     private javax.swing.JLabel idTxt1;
@@ -495,6 +387,8 @@ public class VisitorPassManage extends javax.swing.JFrame {
     private javax.swing.JLabel nameTxt1;
     private javax.swing.JLabel nameTxt2;
     private javax.swing.JButton nextPageBtn;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JTextField searchTxtField;
     private javax.swing.JLabel statusLabel1;
     private javax.swing.JLabel statusLabel2;
     private javax.swing.JLabel statusText1;
@@ -503,6 +397,7 @@ public class VisitorPassManage extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private int pageLine=-1;
+    private String searchTxt = "";
     
     private void setPagination(){
         pageLine=pageLine+1;
@@ -517,15 +412,15 @@ public class VisitorPassManage extends javax.swing.JFrame {
     
     private void displayData(){
         setPagination();
-        displayDataView(pageLine, "upper");
-        boolean boo = residentMain.getStatus();
+        displayDataView(pageLine, "", "upper");
+        boolean boo = main.getStatus();
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
         
         setPagination();
-        displayDataView(pageLine, "bottom");
-        boolean boo2 = residentMain.getStatus();
+        displayDataView(pageLine, "", "bottom");
+        boolean boo2 = main.getStatus();
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
@@ -534,11 +429,30 @@ public class VisitorPassManage extends javax.swing.JFrame {
     }
 
     
-    private void displayDataView(Integer pageLine, String part)
+    private void displayDataView(Integer pageLine, String searchTxt, String part)
     {
         try{
             String visitorPassFile = "src/main/java/com/mycompany/textFile/VisitorPass.txt";
-            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(visitorPassFile);
+            ArrayList<ArrayList<String>> userData = allUserDataInfo(visitorPassFile);
+            int i =0;
+            int fixedSize = userData.size();
+            int changedSize = userData.size();
+            if(!searchTxt.equals("")){
+                for (int x=0;x<fixedSize+1;x++) {
+                    if(i ==changedSize){
+                        break;
+                    }
+                    // user.get(0) is userID, user.get(1) is username
+                    if(!(userData.get(i)).contains(searchTxt)){
+                        userData.remove(i);
+                        changedSize=changedSize-1;
+                        i=i-1;
+                    }
+                    i=i+1;
+                }
+            }
+            
+            
             int newSize = userData.size();            
             try{
                 userData.get(pageLine);
@@ -552,17 +466,13 @@ public class VisitorPassManage extends javax.swing.JFrame {
                     nameTxt2.setText("no data");
                     dateTxt2.setText("no data");
                     statusText2.setText("no data");
-                    editBtn2.setEnabled(false);
-                    deleteBtn2.setEnabled(false);
-                    residentMain.setStatus(true);
+                    main.setStatus(true);
                 }else{
                     idTxt2.setText(userData.get(pageLine).get(0));
                     nameTxt2.setText(userData.get(pageLine).get(1));
                     dateTxt2.setText(userData.get(pageLine).get(2));
                     statusText2.setText(userData.get(pageLine).get(4));
-                    editBtn2.setEnabled(true);
-                    deleteBtn2.setEnabled(true);
-                    residentMain.setStatus(true);
+                    main.setStatus(true);
                 }
                 if(idTxt1.getText() == null)
                 {
@@ -581,41 +491,19 @@ public class VisitorPassManage extends javax.swing.JFrame {
                 
             }
             catch (Exception ex) {
-                residentMain.setStatus(false);
+                main.setStatus(false);
             }
             
             if(pageLine.equals(newSize-1)){
-                residentMain.setStatus(false);
+                main.setStatus(false);
             }
         }
         catch(FileNotFoundException ex){
-            Logger.getLogger(VisitorPassManage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardVisitorPass.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    
-    private ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
-    {
-        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
-        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
-        
-        
-        int p,q;
-        for (p=0,q=0; p<allUserInfo.size(); p++)
-        {
-            if(allUserInfo.get(p).contains(residentId))
-            {
-                ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(3).equals(residentId))
-                {
-                    onlyUserInfo.add(allUserInfo.get(p));
-                    q++;
-                }
-            }
-        }
-       
-        return onlyUserInfo;
-    }
+
      
     private ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
     {
@@ -638,62 +526,23 @@ public class VisitorPassManage extends javax.swing.JFrame {
         return allUserInfo;
     }
     
-    private void removeSelected(String part)
+    
+    
+    private void displaySearchedData()
     {
-        try {
-            String fileName = "src/main/java/com/mycompany/textFile/VisitorPass.txt";
-            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
-            if(part.equals("upper"))
-            {
-                for(int j=0;j<userData.size();j++)
-                {
-                    if(userData.get(j).get(3).equals(residentId)
-                            && userData.get(j).get(0).equals(idTxt1.getText()))
-                    {
-                        userData.remove(j);
-                        break;
-                    }
-                }
-            }else if(part.equals("bottom"))
-            {
-                for(int j=0;j<userData.size();j++)
-                {
-                    if(userData.get(j).get(3).equals(residentId)
-                            && userData.get(j).get(0).equals(idTxt2.getText()))
-                    {
-                        userData.remove(j);
-                        break;
-                    }
-                }
-            }
-            
-            
-            File paymentFile = new File(fileName);
-            FileWriter fw = new FileWriter(paymentFile);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<userData.size(); j++) 
-            {
-                ArrayList<String>item = userData.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                       bw.write(item.get(k));
-                    }else{
-                       bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(VisitorPassManage.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(VisitorPassManage.class.getName()).log(Level.SEVERE, null, ex);
+        setPagination();
+        displayDataView(pageLine, searchTxt, "upper");
+        boolean boo = main.getStatus();
+        if(boo==false){
+            nextPageBtn.setEnabled(false);
+        }
+        
+        setPagination();
+        displayDataView(pageLine, searchTxt, "bottom");
+        boolean boo2 = main.getStatus();
+        if(boo2==false){
+            nextPageBtn.setEnabled(false);
         }
     }
-
 
 }

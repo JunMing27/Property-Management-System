@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author user
  */
-public class VendorOption extends javax.swing.JFrame {
+public class GuardOption extends javax.swing.JFrame {
 
     /**
-     * Creates new form VendorOption
+     * Creates new form GuardOption
      */
-    public VendorOption() {
+    public GuardOption() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -31,24 +31,25 @@ public class VendorOption extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        profileBtn = new javax.swing.JButton();
+        visitorPassBtn = new javax.swing.JButton();
         exitBtn = new javax.swing.JButton();
-        paymentBtn = new javax.swing.JButton();
+        visitorEntryBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
-        complaintBtn = new javax.swing.JButton();
+        checkpointBtn = new javax.swing.JButton();
+        incidentBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(233, 233, 233));
         jPanel1.setPreferredSize(new java.awt.Dimension(566, 600));
 
-        profileBtn.setBackground(new java.awt.Color(255, 255, 255));
-        profileBtn.setForeground(new java.awt.Color(0, 0, 0));
-        profileBtn.setText("Profile");
-        profileBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        profileBtn.addActionListener(new java.awt.event.ActionListener() {
+        visitorPassBtn.setBackground(new java.awt.Color(255, 255, 255));
+        visitorPassBtn.setForeground(new java.awt.Color(0, 0, 0));
+        visitorPassBtn.setText("Visitor Pass");
+        visitorPassBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        visitorPassBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profileBtnActionPerformed(evt);
+                visitorPassBtnActionPerformed(evt);
             }
         });
 
@@ -62,29 +63,39 @@ public class VendorOption extends javax.swing.JFrame {
             }
         });
 
-        paymentBtn.setBackground(new java.awt.Color(255, 255, 255));
-        paymentBtn.setForeground(new java.awt.Color(0, 0, 0));
-        paymentBtn.setText("Payment");
-        paymentBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        paymentBtn.setMaximumSize(new java.awt.Dimension(72, 22));
-        paymentBtn.setMinimumSize(new java.awt.Dimension(72, 22));
-        paymentBtn.addActionListener(new java.awt.event.ActionListener() {
+        visitorEntryBtn.setBackground(new java.awt.Color(255, 255, 255));
+        visitorEntryBtn.setForeground(new java.awt.Color(0, 0, 0));
+        visitorEntryBtn.setText("Visitor Entry");
+        visitorEntryBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        visitorEntryBtn.setMaximumSize(new java.awt.Dimension(72, 22));
+        visitorEntryBtn.setMinimumSize(new java.awt.Dimension(72, 22));
+        visitorEntryBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paymentBtnActionPerformed(evt);
+                visitorEntryBtnActionPerformed(evt);
             }
         });
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("WELCOME VENDOR !");
+        topLabel.setText("WELCOME SECURITY GUARD !");
 
-        complaintBtn.setBackground(new java.awt.Color(255, 255, 255));
-        complaintBtn.setForeground(new java.awt.Color(0, 0, 0));
-        complaintBtn.setText("Complaint");
-        complaintBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        complaintBtn.addActionListener(new java.awt.event.ActionListener() {
+        checkpointBtn.setBackground(new java.awt.Color(255, 255, 255));
+        checkpointBtn.setForeground(new java.awt.Color(0, 0, 0));
+        checkpointBtn.setText("Checkpoint Check-In");
+        checkpointBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        checkpointBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                complaintBtnActionPerformed(evt);
+                checkpointBtnActionPerformed(evt);
+            }
+        });
+
+        incidentBtn.setBackground(new java.awt.Color(255, 255, 255));
+        incidentBtn.setForeground(new java.awt.Color(0, 0, 0));
+        incidentBtn.setText("Incident");
+        incidentBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        incidentBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                incidentBtnActionPerformed(evt);
             }
         });
 
@@ -93,33 +104,32 @@ public class VendorOption extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(153, 153, 153)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(profileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(complaintBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(topLabel)))
-                .addContainerGap(155, Short.MAX_VALUE))
+                    .addComponent(incidentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(topLabel)
+                    .addComponent(visitorEntryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(visitorPassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkpointBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(58, 58, 58)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(profileBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addComponent(visitorPassBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(visitorEntryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
-                .addComponent(complaintBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addComponent(checkpointBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(incidentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,17 +148,14 @@ public class VendorOption extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
-        // Direct to Profile Page
-        this.dispose();
-        VendorProfile profile = new VendorProfile();
-        profile.setVisible(true);
-    }//GEN-LAST:event_profileBtnActionPerformed
+    private void visitorPassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorPassBtnActionPerformed
+        
+    }//GEN-LAST:event_visitorPassBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         // Direct to Login Page
         int dialog = JOptionPane.showConfirmDialog(null,
-            "Are You Sure to Log Out?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            "Are You Sure ?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
             this.dispose();
             LoginPage loginPage = new LoginPage();
@@ -156,18 +163,17 @@ public class VendorOption extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_exitBtnActionPerformed
 
-    private void paymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBtnActionPerformed
-        // Direct to Payment Page
-        this.dispose();
-        VendorPaymentOption payment = new VendorPaymentOption();
-        payment.setVisible(true);
-    }//GEN-LAST:event_paymentBtnActionPerformed
+    private void visitorEntryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorEntryBtnActionPerformed
+        
+    }//GEN-LAST:event_visitorEntryBtnActionPerformed
 
-    private void complaintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintBtnActionPerformed
-        this.dispose();
-        VendorComplaintManage complaint = new VendorComplaintManage();
-        complaint.setVisible(true);
-    }//GEN-LAST:event_complaintBtnActionPerformed
+    private void checkpointBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkpointBtnActionPerformed
+        
+    }//GEN-LAST:event_checkpointBtnActionPerformed
+
+    private void incidentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incidentBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_incidentBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,30 +192,31 @@ public class VendorOption extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VendorOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VendorOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VendorOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VendorOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardOption.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VendorOption().setVisible(true);
+                new GuardOption().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton complaintBtn;
+    private javax.swing.JButton checkpointBtn;
     private javax.swing.JButton exitBtn;
+    private javax.swing.JButton incidentBtn;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton paymentBtn;
-    private javax.swing.JButton profileBtn;
     private javax.swing.JLabel topLabel;
+    private javax.swing.JButton visitorEntryBtn;
+    private javax.swing.JButton visitorPassBtn;
     // End of variables declaration//GEN-END:variables
 }

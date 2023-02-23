@@ -16,16 +16,17 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author user
  */
-public class VisitorPassView extends javax.swing.JFrame {
+public class VisitorVisitorPassView extends javax.swing.JFrame {
 
     static String visitorIdGet;
     
-    public VisitorPassView(String visitorId) {
+    public VisitorVisitorPassView(String visitorId) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -182,9 +183,14 @@ public class VisitorPassView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        this.dispose();
-        ResidentOption residentOption = new ResidentOption();
-        residentOption.setVisible(true);
+        // Direct to Login Page
+        int dialog = JOptionPane.showConfirmDialog(null,
+            "Are You Sure to Log Out?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        if(dialog == JOptionPane.YES_OPTION){
+            this.dispose();
+            LoginPage loginPage = new LoginPage();
+            loginPage.setVisible(true);
+        }
     }//GEN-LAST:event_backBtnActionPerformed
 
     /**
@@ -204,20 +210,21 @@ public class VisitorPassView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisitorVisitorPassView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisitorVisitorPassView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisitorVisitorPassView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VisitorPassView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisitorVisitorPassView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VisitorPassView(visitorIdGet).setVisible(true);
+                new VisitorVisitorPassView(visitorIdGet).setVisible(true);
             }
         });
     }
@@ -265,9 +272,9 @@ public class VisitorPassView extends javax.swing.JFrame {
             br.close();
             
         }catch (FileNotFoundException ex) {
-            Logger.getLogger(VisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorVisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(VisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorVisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -308,9 +315,9 @@ public class VisitorPassView extends javax.swing.JFrame {
             bw.write(data+"\n");
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(VisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorVisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(VisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VisitorVisitorPassView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

@@ -172,7 +172,7 @@ public class ResidentOption extends javax.swing.JFrame {
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         // Direct to Login Page
         int dialog = JOptionPane.showConfirmDialog(null, 
-                "Are You Sure ?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                "Are You Sure to Log Out?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
             this.dispose(); 
             LoginPage loginPage = new LoginPage();

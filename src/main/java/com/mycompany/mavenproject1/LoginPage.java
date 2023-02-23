@@ -176,7 +176,7 @@ public void directToVisitorPass(String visitorId)
 {
     //assume visitor pass valid
     logInFrame.dispose();
-    VisitorPassView visitorPassView = new VisitorPassView(visitorId);
+    VisitorVisitorPassView visitorPassView = new VisitorVisitorPassView(visitorId);
     visitorPassView.setVisible(true);
 }
 
