@@ -11,14 +11,8 @@ package com.mycompany.mavenproject1;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 import java.util.logging.*;
 import javax.swing.*;
@@ -97,7 +91,6 @@ public class LoginPage extends javax.swing.JFrame  {
     loginBtn.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        boolean residentPass = false;
         boolean loginStatus = false;
         
         String enterUsername = "";
@@ -132,6 +125,7 @@ public class LoginPage extends javax.swing.JFrame  {
                                 case "manager" -> System.out.println("manager");
                                 case "resident" -> setResidentData(fileUserID, fileUsername, filePassword);
                                 case "visitor" -> directToVisitorPass(fileUserID);
+                                case "guard" -> toGuardOption(fileUserID);
                                 default -> System.out.println("cant find page for this role");
                               }
 
@@ -178,6 +172,12 @@ public void directToVisitorPass(String visitorId)
     logInFrame.dispose();
     VisitorVisitorPassView visitorPassView = new VisitorVisitorPassView(visitorId);
     visitorPassView.setVisible(true);
+}
+
+public void toGuardOption(String userId)
+{
+    GuardMain main = new GuardMain();
+    
 }
 
 public static void main(String[] args) {

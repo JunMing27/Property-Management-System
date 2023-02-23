@@ -13,22 +13,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author user
- */
-public class ResidentReceipt extends javax.swing.JFrame {
+public class GuardCheckPointView extends javax.swing.JFrame {
 
-    ResidentMain residentMain;
-    String residentId;
+    static String blockGet;
     
-    public ResidentReceipt() {
+    public GuardCheckPointView(String blockNumber) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        residentMain = new ResidentMain();
-        residentId = residentMain.getId();
-        createTable();
+        blockGet = blockNumber;
+        createTable(blockGet);
     }
 
     /**
@@ -44,7 +38,7 @@ public class ResidentReceipt extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        receiptTable = new javax.swing.JTable();
+        checkPointRecordTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,11 +57,11 @@ public class ResidentReceipt extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("RECEIPT");
+        topLabel.setText("VIEW BLOCK CHECK POINT");
 
-        receiptTable.setBackground(new java.awt.Color(233, 233, 233));
-        receiptTable.setForeground(new java.awt.Color(0, 0, 0));
-        receiptTable.setModel(new javax.swing.table.DefaultTableModel(
+        checkPointRecordTable.setBackground(new java.awt.Color(233, 233, 233));
+        checkPointRecordTable.setForeground(new java.awt.Color(0, 0, 0));
+        checkPointRecordTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -75,7 +69,7 @@ public class ResidentReceipt extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(receiptTable);
+        jScrollPane1.setViewportView(checkPointRecordTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -87,9 +81,9 @@ public class ResidentReceipt extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
+                        .addGap(150, 150, 150)
                         .addComponent(topLabel)))
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(85, Short.MAX_VALUE)
@@ -101,9 +95,9 @@ public class ResidentReceipt extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(27, 27, 27)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(471, Short.MAX_VALUE))
+                .addContainerGap(474, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(167, Short.MAX_VALUE)
@@ -127,8 +121,8 @@ public class ResidentReceipt extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        ResidentPaymentOption residentPaymentOption = new ResidentPaymentOption();
-        residentPaymentOption.setVisible(true);
+        GuardCheckPointManage manage = new GuardCheckPointManage();
+        manage.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     /**
@@ -148,52 +142,51 @@ public class ResidentReceipt extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardCheckPointView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardCheckPointView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardCheckPointView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentReceipt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardCheckPointView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentReceipt().setVisible(true);
+                new GuardCheckPointView(blockGet).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.JTable checkPointRecordTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable receiptTable;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 
-    private void createTable()
+    private void createTable(String blockNumber)
     {
-        
         try {
-            String receiptFile = "src/main/java/com/mycompany/textFile/ReceiptContent.txt";
-            File file = new File(receiptFile);
+            String CheckpointRecordFile = "src/main/java/com/mycompany/textFile/CheckpointRecord.txt";
+            File file = new File(CheckpointRecordFile);
             BufferedReader br = new BufferedReader(new FileReader(file));
             
-            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date", "Issued Date"};
+            String[] tableHeader = {"Security Guard ID", "Check Point Date", "Check Point Time"};
             
-            DefaultTableModel model = (DefaultTableModel) receiptTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) checkPointRecordTable.getModel();
             model.setColumnIdentifiers(tableHeader);
             
             String line = br.readLine();
             while(line != null )
             {
                 String[] dataRow = line.split(",");
-                if(dataRow[1].equals(residentId))
+                if(dataRow[2].contains(blockNumber))
                 {
-                    String[] onlyData = {dataRow[2],dataRow[3],dataRow[4], dataRow[5]};
+                    String[] onlyData = {dataRow[1],dataRow[3],dataRow[4]};
                     model.addRow(onlyData);
                     
                 }
@@ -204,10 +197,12 @@ public class ResidentReceipt extends javax.swing.JFrame {
             
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentReceipt.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardCheckPointView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ResidentReceipt.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardCheckPointView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+
 
 }
