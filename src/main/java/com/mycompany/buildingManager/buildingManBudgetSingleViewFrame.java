@@ -251,7 +251,7 @@ public class buildingManBudgetSingleViewFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     public void setDataViewSingle(String id) throws FileNotFoundException{
-        budgetPlanning budgetClass = new budgetPlanning();
+        budgetPlan budgetClass = new budgetPlan();
         budgetClass.getDataViewSingle(id, "BudgetPlanning.txt","budget");
         //after getting data, set text value 
         projectNameLabel.setText(budgetClass.getBudgetProjectName());

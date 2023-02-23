@@ -567,10 +567,10 @@ public class adminExecutive extends User implements dataManagementController, di
         public void deleteUserCredential(String userID){
             deleteCredential(userID);
         }
-        public void addBudgetPlanning(ArrayList<String> dataList, String type, String file, String functionType){
+        public void addEditComplaint(ArrayList<String> dataList, String type, String file, String functionType){
             editOrAddData(dataList,type,file,functionType);
         }
-        public void deleteBudgetPlanning(String itemID){
+        public void deleteComplaint(String itemID){
             deleteFunction(itemID);
         }
     }

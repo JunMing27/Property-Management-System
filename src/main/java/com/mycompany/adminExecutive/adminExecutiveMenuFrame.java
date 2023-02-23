@@ -194,7 +194,15 @@ public class adminExecutiveMenuFrame extends javax.swing.JFrame {
 
     private void complaintManagePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintManagePageActionPerformed
         // TODO add your handling code here:
-        
+        this.dispose();
+        adminExecComplaintManageFrame complaintPage = new adminExecComplaintManageFrame();
+        complaintPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        complaintPage.pack();
+        complaintPage.setResizable(false);
+        complaintPage.setLocationRelativeTo(null);
+        complaintPage.setVisible(true);
+        complaintPage.backButtonToggle();
+        complaintPage.setComplaintData();
     }//GEN-LAST:event_complaintManagePageActionPerformed
 
     private void employeeManagePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeManagePageActionPerformed

@@ -210,7 +210,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            budgetPlanning budget = new budgetPlanning();
+            budgetPlan budget = new budgetPlan();
             buildingManager main = new buildingManager();
             ArrayList<String> dataList = new ArrayList<String>();
             dataList.add(projectIdField.getText());
@@ -220,7 +220,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
             dataList.add(projectEndDateField.getText());
             main.editOrAddData(dataList, "budget","BudgetPlanning.txt","edit");
         }else if(addEditDetector=="add"){
-            budgetPlanning budget = new budgetPlanning();
+            budgetPlan budget = new budgetPlan();
             buildingManager main = new buildingManager();
             ArrayList<String> dataList = new ArrayList<String>();
             budget.getIncreasedID("BudgetPlanning.txt","budget");
@@ -244,7 +244,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
     public void addEditDetect(String functionType,String id) throws FileNotFoundException{
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            budgetPlanning budgetClass = new budgetPlanning();
+            budgetPlan budgetClass = new budgetPlan();
             budgetClass.getDataViewSingle(id, "BudgetPlanning.txt","budget");
             addEditBtn.setText("Update");
             projectIdField.setText(budgetClass.getBudgetId());
