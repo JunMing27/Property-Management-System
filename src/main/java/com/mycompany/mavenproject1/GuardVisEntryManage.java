@@ -402,8 +402,8 @@ public class GuardVisEntryManage extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         dataList = new ArrayList<String>();
         this.dispose();
-        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("add", dataList );
-        edit.setVisible(true);
+        GuardVisEntryAddEdit add = new GuardVisEntryAddEdit("add", dataList );
+        add.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     /**

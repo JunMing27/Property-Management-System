@@ -4,7 +4,18 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,14 +33,14 @@ public class GuardIncidentAddEdit extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         dataListGet = new ArrayList<String>();
-//        addEditDetector = addEditString;
-//        dataListGet = dataList;
-//        if(addEditDetector.equals("edit"))
-//        {
-//            displayData(dataListGet);
-//        }else{
-//            emptyData();
-//        }
+        addEditDetector = addEditString;
+        dataListGet = dataList;
+        if(addEditDetector.equals("edit"))
+        {
+            displayData(dataListGet);
+        }else{
+            emptyData();
+        }
     }
 
     /**
@@ -224,8 +235,8 @@ public class GuardIncidentAddEdit extends javax.swing.JFrame {
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         this.dispose();
-        VisitorPassManage visitorPass = new VisitorPassManage();
-        visitorPass.setVisible(true);
+        GuardIncidentManage incidentManage = new GuardIncidentManage();
+        incidentManage.setVisible(true);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     /**
@@ -276,4 +287,134 @@ public class GuardIncidentAddEdit extends javax.swing.JFrame {
     private javax.swing.JButton saveBtn;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
+
+    private void displayData(ArrayList<String> dataListGet)
+    {
+        idTxt1.setText(dataListGet.get(0));
+        detailTxt1.setText(dataListGet.get(1));
+    }
+    
+    private  ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
+    {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = new Scanner(file);
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        
+        return allUserInfo;
+    }
+    
+    private void removeFromFile(String fileName)
+    {
+        try {
+            GuardMain main = new GuardMain();
+            String guardId = main.getId();
+            String filePath = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            for(int j=0;j<allUsers.size();j++)
+            {
+                if(allUsers.get(j).get(1).equals(guardId)
+                            && allUsers.get(j).get(0).equals(idTxt1.getText()))
+                    {
+                        allUsers.remove(j);
+                        break;
+                    }
+            }
+
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        }catch (IOException ex) {
+            Logger.getLogger(GuardIncidentAddEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        
+    }
+
+    
+    private void editFile(String incidentId, String detail)
+    {
+        try {
+            GuardMain main = new GuardMain();
+            String guardId = main.getId();
+            String fileName = "Incident";
+            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(incidentId+","
+                    +guardId+","
+                    +detail+"\n");
+            
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(GuardIncidentAddEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
+    private void emptyData()
+    {
+        try {
+            String fileName = "Incident";
+            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            int totalRow = 0;
+            while(line != null )
+            {
+                String[] dataRow = line.split(",");
+                for(int i=0; i<dataRow.length; i++)
+                {
+                    totalRow = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("IC")+2));
+                }
+                line = br.readLine();
+            }
+            
+            br.close();
+            
+            totalRow = totalRow+1;
+            idTxt1.setText("IC"+totalRow);
+            detailTxt1.setText("");
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GuardIncidentAddEdit.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(GuardIncidentAddEdit.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+
+
+
+
+
+
 }

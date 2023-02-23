@@ -393,7 +393,7 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         dataList = new ArrayList<String>();
         this.dispose();
-        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "resident");
+        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("add",dataList, "resident");
         addEdit.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 

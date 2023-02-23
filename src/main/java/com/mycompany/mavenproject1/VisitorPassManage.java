@@ -382,14 +382,12 @@ public class VisitorPassManage extends javax.swing.JFrame {
     }//GEN-LAST:event_editBtn1ActionPerformed
 
     private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
-
         backButtonFunction();
         nextPageBtn.setEnabled(true);
         displayData();
     }//GEN-LAST:event_backPageBtnActionPerformed
 
     private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
-
         backPageBtn.setEnabled(true);
         displayData();
     }//GEN-LAST:event_nextPageBtnActionPerformed
@@ -433,8 +431,8 @@ public class VisitorPassManage extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         dataList = new ArrayList<String>();
         this.dispose();
-        VisitorPassAddEdit edit = new VisitorPassAddEdit("add", dataList );
-        edit.setVisible(true);
+        VisitorPassAddEdit add = new VisitorPassAddEdit("add", dataList );
+        add.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     /**

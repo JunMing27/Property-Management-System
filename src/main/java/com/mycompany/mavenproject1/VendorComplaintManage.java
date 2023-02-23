@@ -389,7 +389,7 @@ public class VendorComplaintManage extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         dataList = new ArrayList<String>();
         this.dispose();
-        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "vendor");
+        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("add",dataList, "vendor");
         addEdit.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 

@@ -276,8 +276,8 @@ public class GuardIncidentManage extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         dataList = new ArrayList<String>();
         this.dispose();
-        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("add", dataList );
-        edit.setVisible(true);
+        GuardIncidentAddEdit add = new GuardIncidentAddEdit("add", dataList );
+        add.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void editBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn2ActionPerformed
@@ -285,7 +285,7 @@ public class GuardIncidentManage extends javax.swing.JFrame {
         dataList.add(idTxt2.getText());
         dataList.add(detailTxt2.getText());
         this.dispose();
-        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("edit", dataList);
+        GuardIncidentAddEdit edit = new GuardIncidentAddEdit("edit", dataList);
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
