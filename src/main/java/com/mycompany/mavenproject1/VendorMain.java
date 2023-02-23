@@ -10,6 +10,7 @@ package com.mycompany.mavenproject1;
  */
 public class VendorMain {
     private String id;
+    private String name;
     private boolean status;
    
     //for statement
@@ -20,6 +21,11 @@ public class VendorMain {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    
     public boolean getStatus() {
         return status;
     }
@@ -31,6 +37,12 @@ public class VendorMain {
     public void setId(String id) {
         this.id = id;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
 
     public void setStatus(boolean status) {
         this.status = status;

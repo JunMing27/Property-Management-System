@@ -188,38 +188,38 @@ public class VendorPaymentOption extends javax.swing.JFrame {
 
     private void payHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payHistoryBtnActionPerformed
         this.dispose();
-        ResidentPayHistory residentPaymentHistory = new ResidentPayHistory();
-        residentPaymentHistory.setVisible(true);
+        VendorPayHistory payHistory = new VendorPayHistory();
+        payHistory.setVisible(true);
     }//GEN-LAST:event_payHistoryBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        ResidentOption residentOption = new ResidentOption();
-        residentOption.setVisible(true);
+        VendorOption option = new VendorOption();
+        option.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void statementBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statementBtnActionPerformed
         this.dispose();
-        ResidentStatement residentStatement = new ResidentStatement();
-        residentStatement.setVisible(true);
+        VendorStatement statement = new VendorStatement();
+        statement.setVisible(true);
     }//GEN-LAST:event_statementBtnActionPerformed
 
     private void invoiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoiceBtnActionPerformed
         this.dispose();
-        ResidentInvoice residentInvoice = new ResidentInvoice();
-        residentInvoice.setVisible(true);
+        VendorInvoice invoice = new VendorInvoice();
+        invoice.setVisible(true);
     }//GEN-LAST:event_invoiceBtnActionPerformed
 
     private void receiptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receiptBtnActionPerformed
         this.dispose();
-        ResidentReceipt residentReceipt = new ResidentReceipt();
-        residentReceipt.setVisible(true);
+        VendorReceipt receipt = new VendorReceipt();
+        receipt.setVisible(true);
     }//GEN-LAST:event_receiptBtnActionPerformed
 
     private void pendingFeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingFeeBtnActionPerformed
         this.dispose();
-        ResidentPending residentPending = new ResidentPending();
-        residentPending.setVisible(true);
+        VendorPending pending = new VendorPending();
+        pending.setVisible(true);
     }//GEN-LAST:event_pendingFeeBtnActionPerformed
 
     /**

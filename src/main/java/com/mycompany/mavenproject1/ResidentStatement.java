@@ -4,25 +4,20 @@
  */
 package com.mycompany.mavenproject1;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 
 
 public class ResidentStatement extends javax.swing.JFrame {
 
     ResidentMain residentMain;
     String residentId;
-    public String monthPassed, labelPassed;
+    String monthPassed, labelPassed;
     
     public ResidentStatement() {
         initComponents();
@@ -243,7 +238,7 @@ public class ResidentStatement extends javax.swing.JFrame {
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed, labelPassed);
+            StatementTable table = new StatementTable(monthPassed, labelPassed, "resident");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement5MouseClicked
@@ -256,7 +251,7 @@ public class ResidentStatement extends javax.swing.JFrame {
             month = month.substring(month.lastIndexOf(" ") +1);
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed, labelPassed);
+            StatementTable table = new StatementTable(monthPassed, labelPassed, "resident");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement1MouseClicked
@@ -268,7 +263,7 @@ public class ResidentStatement extends javax.swing.JFrame {
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed,labelPassed);
+            StatementTable table = new StatementTable(monthPassed,labelPassed, "resident");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement2MouseClicked
@@ -280,7 +275,7 @@ public class ResidentStatement extends javax.swing.JFrame {
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed, labelPassed);
+            StatementTable table = new StatementTable(monthPassed, labelPassed, "resident");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement3MouseClicked
@@ -292,7 +287,7 @@ public class ResidentStatement extends javax.swing.JFrame {
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            ResidentStatementTable table = new ResidentStatementTable(monthPassed, labelPassed);
+            StatementTable table = new StatementTable(monthPassed, labelPassed, "resident");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement4MouseClicked
@@ -403,9 +398,9 @@ public class ResidentStatement extends javax.swing.JFrame {
                         residentMain.setStatus(true);
                         residentMain.setMonth(month);
                     }else if(part.equals("3")){                     
-                            statement3.setText("STATEMENT FOR "+month+" "+extractYear);
-                            residentMain.setStatus(true); 
-                            residentMain.setMonth(month);
+                        statement3.setText("STATEMENT FOR "+month+" "+extractYear);
+                        residentMain.setStatus(true); 
+                        residentMain.setMonth(month);
                     }else if(part.equals("4")){                     
                         statement4.setText("STATEMENT FOR "+month+" "+extractYear);
                         residentMain.setStatus(true);    

@@ -44,7 +44,7 @@ public class ResidentReceipt extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        payHistoryTable = new javax.swing.JTable();
+        receiptTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,9 +65,9 @@ public class ResidentReceipt extends javax.swing.JFrame {
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
         topLabel.setText("RECEIPT");
 
-        payHistoryTable.setBackground(new java.awt.Color(233, 233, 233));
-        payHistoryTable.setForeground(new java.awt.Color(0, 0, 0));
-        payHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+        receiptTable.setBackground(new java.awt.Color(233, 233, 233));
+        receiptTable.setForeground(new java.awt.Color(0, 0, 0));
+        receiptTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -75,7 +75,7 @@ public class ResidentReceipt extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(payHistoryTable);
+        jScrollPane1.setViewportView(receiptTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -170,7 +170,7 @@ public class ResidentReceipt extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable payHistoryTable;
+    private javax.swing.JTable receiptTable;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 
@@ -184,7 +184,7 @@ public class ResidentReceipt extends javax.swing.JFrame {
             
             String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date", "Issued Date"};
             
-            DefaultTableModel model = (DefaultTableModel) payHistoryTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) receiptTable.getModel();
             model.setColumnIdentifiers(tableHeader);
             
             String line = br.readLine();
