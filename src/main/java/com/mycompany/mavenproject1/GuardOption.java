@@ -166,7 +166,9 @@ public class GuardOption extends javax.swing.JFrame {
     }//GEN-LAST:event_exitBtnActionPerformed
 
     private void visitorEntryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorEntryBtnActionPerformed
-        
+        this.dispose();
+        GuardVisitorEntry visitorEntry = new GuardVisitorEntry();
+        visitorEntry.setVisible(true);
     }//GEN-LAST:event_visitorEntryBtnActionPerformed
 
     private void checkpointBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkpointBtnActionPerformed

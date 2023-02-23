@@ -376,7 +376,7 @@ public class GuardVisitorEntry extends javax.swing.JFrame {
         dataList.add(dateTxt1.getText());
         dataList.add(enterTimeTxt1.getText());
         this.dispose();
-        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("add", dataList);
+        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("edit", dataList);
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn1ActionPerformed
 
