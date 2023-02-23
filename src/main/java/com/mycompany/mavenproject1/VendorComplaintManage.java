@@ -16,20 +16,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+public class VendorComplaintManage extends javax.swing.JFrame {
 
-public class ResidentComplaintManage extends javax.swing.JFrame {
-
-    ResidentMain residentMain;
-    String residentId;
+    VendorMain main;
+    String id;
     ArrayList<String> dataList;
     
-    
-    public ResidentComplaintManage() {
+    public VendorComplaintManage() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        residentMain = new ResidentMain();
-        residentId = residentMain.getId();
+        main = new VendorMain();
+        id = main.getId();
         displayData();
         backPageBtn.setEnabled(false);
     }
@@ -317,7 +315,7 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -325,8 +323,8 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        ResidentOption residentOption = new ResidentOption();
-        residentOption.setVisible(true);
+        VendorOption option = new VendorOption();
+        option.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
@@ -334,11 +332,10 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
         dataList.add(idTxt1.getText());
         dataList.add(detailTxt1.getText());
         dataList.add(replyTxt1.getText());
-        dataList.add(residentId);
+        dataList.add(id);
         this.dispose();
-        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "resident");
+        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "vendor");
         addEdit.setVisible(true);
-
     }//GEN-LAST:event_editBtn1ActionPerformed
 
     private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
@@ -364,7 +361,6 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
             ResidentComplaintManage complaint = new ResidentComplaintManage();
             complaint.setVisible(true);
         }
-
     }//GEN-LAST:event_deleteBtn1ActionPerformed
 
     private void editBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn2ActionPerformed
@@ -372,9 +368,9 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
         dataList.add(idTxt2.getText());
         dataList.add(detailTxt2.getText());
         dataList.add(replyTxt2.getText());
-        dataList.add(residentId);
+        dataList.add(id);
         this.dispose();
-        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "resident");
+        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "vendor");
         addEdit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
@@ -393,10 +389,13 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         dataList = new ArrayList<String>();
         this.dispose();
-        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "resident");
+        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "vendor");
         addEdit.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -411,21 +410,20 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentComplaintManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendorComplaintManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentComplaintManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendorComplaintManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentComplaintManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendorComplaintManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentComplaintManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendorComplaintManage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentComplaintManage().setVisible(true);
+                new VendorComplaintManage().setVisible(true);
             }
         });
     }
@@ -456,7 +454,6 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 
-
     private int pageLine=-1;
     
     private void setPagination(){
@@ -473,14 +470,14 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
     private void displayData(){
         setPagination();
         displayDataView(pageLine, "upper");
-        boolean boo = residentMain.getStatus();
+        boolean boo = main.getStatus();
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
         
         setPagination();
         displayDataView(pageLine, "bottom");
-        boolean boo2 = residentMain.getStatus();
+        boolean boo2 = main.getStatus();
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
@@ -510,7 +507,7 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
                     replyTxt2.setText("no data");
                     editBtn2.setEnabled(false);
                     deleteBtn2.setEnabled(false);
-                    residentMain.setStatus(true);
+                    main.setStatus(true);
                 }else{
                     idTxt2.setText(userData.get(pageLine).get(0));
                     detailTxt2.setText(userData.get(pageLine).get(1));
@@ -523,7 +520,7 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
                     }
                     
                     deleteBtn2.setEnabled(true);
-                    residentMain.setStatus(true);
+                    main.setStatus(true);
                 }
                 if(idTxt1.getText() == null)
                 {
@@ -540,15 +537,15 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
                 
             }
             catch (Exception ex) {
-                residentMain.setStatus(false);
+                main.setStatus(false);
             }
             
             if(pageLine.equals(newSize-1)){
-                residentMain.setStatus(false);
+                main.setStatus(false);
             }
         }
         catch(FileNotFoundException ex){
-            Logger.getLogger(ResidentComplaintManage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VendorComplaintManage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -562,10 +559,10 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
         int p,q;
         for (p=0,q=0; p<allUserInfo.size(); p++)
         {
-            if(allUserInfo.get(p).contains(residentId))
+            if(allUserInfo.get(p).contains(id))
             {
                 ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(3).equals(residentId))
+                if(item.get(3).equals(id))
                 {
                     onlyUserInfo.add(allUserInfo.get(p));
                     q++;
@@ -606,7 +603,7 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
             {
                 for(int j=0;j<userData.size();j++)
                 {
-                    if(userData.get(j).get(3).equals(residentId)
+                    if(userData.get(j).get(3).equals(id)
                             && userData.get(j).get(0).equals(idTxt1.getText())
                             && userData.get(j).get(1).equals(detailTxt1.getText())
                             && userData.get(j).get(2).equals(replyTxt1.getText()))
@@ -619,7 +616,7 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
             {
                 for(int j=0;j<userData.size();j++)
                 {
-                    if(userData.get(j).get(3).equals(residentId)
+                    if(userData.get(j).get(3).equals(id)
                             && userData.get(j).get(0).equals(idTxt2.getText())
                             && userData.get(j).get(1).equals(detailTxt2.getText())
                             && userData.get(j).get(2).equals(replyTxt2.getText()))
@@ -652,11 +649,14 @@ public class ResidentComplaintManage extends javax.swing.JFrame {
             
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentComplaintManage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VendorComplaintManage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(ResidentComplaintManage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VendorComplaintManage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+
+
 
 
 }

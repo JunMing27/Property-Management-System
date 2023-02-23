@@ -228,7 +228,7 @@ public class VendorStatement extends javax.swing.JFrame {
             month = month.substring(month.lastIndexOf(" ") +1);
             monthPassed = getMonth(month);
             this.dispose();
-            StatementTable table = new StatementTable(monthPassed, labelPassed, "vendor");
+            ResVenStatementTable table = new ResVenStatementTable(monthPassed, labelPassed, "vendor");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement1MouseClicked
@@ -253,7 +253,7 @@ public class VendorStatement extends javax.swing.JFrame {
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            StatementTable table = new StatementTable(monthPassed,labelPassed, "vendor");
+            ResVenStatementTable table = new ResVenStatementTable(monthPassed,labelPassed, "vendor");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement2MouseClicked
@@ -265,7 +265,7 @@ public class VendorStatement extends javax.swing.JFrame {
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            StatementTable table = new StatementTable(monthPassed, labelPassed, "vendor");
+            ResVenStatementTable table = new ResVenStatementTable(monthPassed, labelPassed, "vendor");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement3MouseClicked
@@ -277,7 +277,7 @@ public class VendorStatement extends javax.swing.JFrame {
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            StatementTable table = new StatementTable(monthPassed, labelPassed, "vendor");
+            ResVenStatementTable table = new ResVenStatementTable(monthPassed, labelPassed, "vendor");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement4MouseClicked
@@ -289,7 +289,7 @@ public class VendorStatement extends javax.swing.JFrame {
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             monthPassed = getMonth(month);
             this.dispose();
-            StatementTable table = new StatementTable(monthPassed, labelPassed, "vendor");
+            ResVenStatementTable table = new ResVenStatementTable(monthPassed, labelPassed, "vendor");
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement5MouseClicked

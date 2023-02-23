@@ -163,7 +163,7 @@ public class VendorOption extends javax.swing.JFrame {
 
     private void complaintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintBtnActionPerformed
         this.dispose();
-        ResidentComplaintManage complaint = new ResidentComplaintManage();
+        VendorComplaintManage complaint = new VendorComplaintManage();
         complaint.setVisible(true);
     }//GEN-LAST:event_complaintBtnActionPerformed
 
