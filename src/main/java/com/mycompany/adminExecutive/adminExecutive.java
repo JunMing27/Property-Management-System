@@ -133,6 +133,8 @@ public class adminExecutive extends User implements dataManagementController, di
             file ="ResidentProfile.txt";
         }else if (Type=="Employee"){
             file ="Employee.txt";
+        }else if (Type=="Complaint"){
+            file ="Complaint.txt";
         }
     }
     @Override
@@ -220,6 +222,12 @@ public class adminExecutive extends User implements dataManagementController, di
                             mainInner.editUserCredential(dataList.get(0),dataList.get(7),dataList.get(8));
                             break;
                         }
+                        if(type=="Complaint"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            break;
+                        }
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -232,11 +240,11 @@ public class adminExecutive extends User implements dataManagementController, di
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
                             bw.close();
                         }
-                        if(type=="budget"){
+                        if(type=="Complaint"){
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
-                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
                             bw.close();
                         }
                     }
@@ -255,7 +263,6 @@ public class adminExecutive extends User implements dataManagementController, di
                 FileWriter AddNewItem = new FileWriter("src/main/java/com/mycompany/textFile/"+file,true);
                 AddDataToFile = new BufferedWriter(AddNewItem);
                 if(type=="Employee"){
-                    System.out.println("here can");
                     AddDataToFile.write(dataList.get(0)+",");
                     AddDataToFile.write(dataList.get(1)+",");
                     AddDataToFile.write(dataList.get(2)+",");
@@ -267,12 +274,11 @@ public class adminExecutive extends User implements dataManagementController, di
                     mainInner.addUserCredential(dataList.get(0),dataList.get(7),dataList.get(8),"Employee");
                    
                 }
-                if(type=="budget"){
+                if(type=="Complaint"){
                     AddDataToFile.write(dataList.get(0)+",");
                     AddDataToFile.write(dataList.get(1)+",");
                     AddDataToFile.write(dataList.get(2)+",");
-                    AddDataToFile.write(dataList.get(3)+",");
-                    AddDataToFile.write(dataList.get(4));
+                    AddDataToFile.write(dataList.get(3));
                 }
                 AddDataToFile.newLine();
                 AddDataToFile.close();
@@ -311,6 +317,16 @@ public class adminExecutive extends User implements dataManagementController, di
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
+                            bw.close();
+                            adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
+                            mainInner.deleteUserCredential(dataId);
+                        }
+                        if(file=="Complaint.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
                             bw.close();
                             adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
                             mainInner.deleteUserCredential(dataId);

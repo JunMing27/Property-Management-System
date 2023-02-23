@@ -8,9 +8,11 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -195,34 +197,38 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
 
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
-//        if(addEditDetector=="edit"){
-//            if((jTextField2.getText()).equals("") || (jTextField3.getText()).equals("") ||((String)residentComboBox.getSelectedItem()).equals("") ){
-//                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
-//            }else{
-//                AdminExecutiveMain main = new AdminExecutiveMain();
-//                ArrayList<String> dataList = new ArrayList<String>();
-//                dataList.add(complaintIdField.getText());
-//                dataList.add(jTextField2.getText());
-//                dataList.add(jTextField3.getText());
-//                dataList.add((String)residentComboBox.getSelectedItem());
-//                main.editOrAddData(dataList, "complaint","Complaint.txt","edit");
-//            }
-//        }else if(addEditDetector=="add"){
-//            if((jTextField2.getText()).equals("") ||((String)residentComboBox.getSelectedItem()).equals("") ){
-//                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
-//            }else{
-//                AdminExecutiveMain main = new AdminExecutiveMain();
-//                ArrayList<String> dataList = new ArrayList<String>();
-//                main.getIncreasedID("Complaint.txt","complaint");
-//                dataList.add(main.getComplaintId());
-//                dataList.add(jTextField2.getText());
-//                dataList.add("-");
-//                dataList.add((String)residentComboBox.getSelectedItem());
-//                main.editOrAddData(dataList, "complaint","Complaint.txt","add");
-//                complaintIdField.setText("");
-//                jTextField2.setText("");
-//            }
-//        }
+        if(addEditDetector=="edit"){
+            if((complaintDetailField.getText()).equals("")  ||((String)residentComboBox.getSelectedItem()).equals("") ){
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                adminExecutive main = new adminExecutive();
+                adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
+                ArrayList<String> dataList = new ArrayList<String>();
+                dataList.add(complaintIdField.getText());
+                dataList.add(complaintDetailField.getText());
+                dataList.add(complaintReplyField.getText());
+                dataList.add((String)residentComboBox.getSelectedItem());
+                mainInner.addEditComplaint(dataList, "Complaint","Complaint.txt","edit");
+            }
+        }else if(addEditDetector=="add"){
+            if((complaintDetailField.getText()).equals("") ||((String)residentComboBox.getSelectedItem()).equals("") ){
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                adminExecutive main = new adminExecutive();
+                adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
+                complaint complaintClass = new complaint();
+                ArrayList<String> dataList = new ArrayList<String>();
+                
+                complaintClass.getIncreasedID("Complaint.txt","Complaint");
+                dataList.add(complaintClass.getComplaintId());
+                dataList.add(complaintDetailField.getText());
+                dataList.add("-");
+                dataList.add((String)residentComboBox.getSelectedItem());
+                mainInner.addEditComplaint(dataList, "Complaint","Complaint.txt","add");
+                complaintDetailField.setText("");
+                complaintReplyField.setText("");
+            }
+        }
     }//GEN-LAST:event_addEditBtnActionPerformed
 
     private void complaintIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintIdFieldActionPerformed
@@ -260,6 +266,7 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
             addEditBtn.setText("Add");
             complaintIdField.setVisible(false);
             complaintIdLabel.setVisible(false);
+            complaintReplyField.setEnabled(false);
             complaint complaintClass = new complaint();
             complaint.complaintMethod mainInner = complaintClass.new complaintMethod();
             mainInner.getDropDownData("residentProfile.txt","Complaint");

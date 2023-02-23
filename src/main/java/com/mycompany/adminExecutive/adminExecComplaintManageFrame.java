@@ -482,12 +482,13 @@ public class adminExecComplaintManageFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addNewComplaint, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(complaintSearchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchBtn)))
+                        .addComponent(searchBtn))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addNewComplaint, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
@@ -569,17 +570,17 @@ public class adminExecComplaintManageFrame extends javax.swing.JFrame {
 
     private void addNewComplaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewComplaintActionPerformed
         // TODO add your handling code here:
-//        this.dispose();
-//        adminExecComplaintAddEditFrame complaintAddEdit = new adminExecComplaintAddEditFrame();
-//        complaintAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        complaintAddEdit.pack();
-//        complaintAddEdit.setResizable(false);
-//        complaintAddEdit.setLocationRelativeTo(null);
-//        complaintAddEdit.setVisible(true);
-//        try {
-//            complaintAddEdit.addEditDetect("add","");
-//        } catch (FileNotFoundException ex) {
-//        }
+        this.dispose();
+        adminExecComplaintAddEditFrame complaintAddEdit = new adminExecComplaintAddEditFrame();
+        complaintAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        complaintAddEdit.pack();
+        complaintAddEdit.setResizable(false);
+        complaintAddEdit.setLocationRelativeTo(null);
+        complaintAddEdit.setVisible(true);
+        try {
+            complaintAddEdit.addEditDetect("add","");
+        } catch (FileNotFoundException ex) {
+        }
     }//GEN-LAST:event_addNewComplaintActionPerformed
 
     private void complaintSearchTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintSearchTxtActionPerformed

@@ -152,8 +152,8 @@ public class complaint implements displayController{
                     ID = (ScanEachString.next().trim());
                     break;
                 }
-                    String IDchar = ID.substring(0,2);
-                    ID = ID.substring(2);
+                    String IDchar = ID.substring(0,1);
+                    ID = ID.substring(1);
                     Integer IDnumber = Integer.parseInt(ID)+1;
                     ID = IDchar+ (IDnumber).toString();
                     setComplaintId(ID);
