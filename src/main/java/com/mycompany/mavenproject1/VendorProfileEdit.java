@@ -390,45 +390,51 @@ public class VendorProfileEdit extends javax.swing.JFrame {
         if(!name.isEmpty() && !ageString.isEmpty() && !gender.isEmpty()
             && !phone.isEmpty() && !userName.isEmpty() && !pwd.isEmpty())
         {
-            try {
-                ageInt = Integer.parseInt(ageString);
-                errorMessage.setText("Age Must be Integer !");
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
-
-            //check phone
-            Matcher phoneMatcher = Pattern.compile("^(01)[0-9]*[0-9]{7,8}$").
-            matcher(phone);
-            //check dash
-            Matcher phoneMatcher2 = Pattern.compile("^(01)[0-9]-*[0-9]{7,8}$").
-            matcher(phone);
-            //check space
-            Matcher phoneMatcher3 = Pattern.compile("^(01)[0-9]-*[0-9 ]{7,8}$").
-            matcher(phone);
-            if(phoneMatcher.matches() == false && phoneMatcher2.matches() == false && phoneMatcher3.matches() == false)
+            if(!name.isBlank()&& !ageString.isBlank()&& !gender.isBlank()
+                && !phone.isBlank()&& !userName.isBlank()&& !pwd.isBlank())
             {
-                errorMessage.setText("Phone Number is Invalid !");
-            }
-
-            if(userName.contains(" ") || pwd.contains(" "))
-            {
-                errorMessage.setText("Username or Password cannot contain space ");
-            }
-
-            if(errorMessage.getText().equals(""))
-            {
-                int dialog = JOptionPane.showConfirmDialog(null,
-                    "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
-                if(dialog == JOptionPane.YES_OPTION){
-                    removeFromFile("VendorProfile");
-                    removeFromFile("loginCredential");
-                    editProfile(name, gender, ageInt, phone, image);
-                    editCredential(userName, pwd);
-                    this.dispose();
-                    VendorProfile profile = new VendorProfile();
-                    profile.setVisible(true);
+                try {
+                    ageInt = Integer.parseInt(ageString);
+                    errorMessage.setText("Age Must be Integer !");
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
                 }
+
+                //check phone
+                Matcher phoneMatcher = Pattern.compile("^(01)[0-9]*[0-9]{7,8}$").
+                matcher(phone);
+                //check dash
+                Matcher phoneMatcher2 = Pattern.compile("^(01)[0-9]-*[0-9]{7,8}$").
+                matcher(phone);
+                //check space
+                Matcher phoneMatcher3 = Pattern.compile("^(01)[0-9]-*[0-9 ]{7,8}$").
+                matcher(phone);
+                if(phoneMatcher.matches() == false && phoneMatcher2.matches() == false && phoneMatcher3.matches() == false)
+                {
+                    errorMessage.setText("Phone Number is Invalid !");
+                }
+
+                if(userName.contains(" ") || pwd.contains(" "))
+                {
+                    errorMessage.setText("Username or Password cannot contain space ");
+                }
+
+                if(errorMessage.getText().equals(""))
+                {
+                    int dialog = JOptionPane.showConfirmDialog(null,
+                        "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                    if(dialog == JOptionPane.YES_OPTION){
+                        removeFromFile("VendorProfile");
+                        removeFromFile("loginCredential");
+                        editProfile(name, gender, ageInt, phone, image);
+                        editCredential(userName, pwd);
+                        this.dispose();
+                        VendorProfile profile = new VendorProfile();
+                        profile.setVisible(true);
+                    }
+                }
+            }else{
+                errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
             }
         }else{
             errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");

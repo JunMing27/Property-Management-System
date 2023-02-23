@@ -153,13 +153,19 @@ public class GuardIncidentManage extends javax.swing.JFrame {
             }
         });
 
+        detailTxt1.setEditable(false);
+        detailTxt1.setBackground(new java.awt.Color(233, 233, 233));
         detailTxt1.setColumns(20);
+        detailTxt1.setForeground(new java.awt.Color(0, 0, 0));
         detailTxt1.setLineWrap(true);
         detailTxt1.setRows(5);
         detailTxt1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(detailTxt1);
 
+        detailTxt2.setEditable(false);
+        detailTxt2.setBackground(new java.awt.Color(233, 233, 233));
         detailTxt2.setColumns(20);
+        detailTxt2.setForeground(new java.awt.Color(0, 0, 0));
         detailTxt2.setLineWrap(true);
         detailTxt2.setRows(5);
         detailTxt2.setWrapStyleWord(true);
