@@ -5,17 +5,18 @@
 package com.mycompany.mavenproject1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.SpinnerListModel;
 
 /**
@@ -142,16 +143,12 @@ public class GuardCheckPointAdd extends javax.swing.JFrame {
         blockLabel1.setText("Block Number :");
 
         blockSpinner.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        blockSpinner.setValue("-","A","B","C","D");
+        blockSpinner.setName(""); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(topLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -175,11 +172,17 @@ public class GuardCheckPointAdd extends javax.swing.JFrame {
                             .addComponent(blockSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(errorMessage1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(topLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(errorMessage1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,9 +215,9 @@ public class GuardCheckPointAdd extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(29, 29, 29)
                 .addComponent(errorMessage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -240,16 +243,23 @@ public class GuardCheckPointAdd extends javax.swing.JFrame {
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         String checkId = cpIdTxt1.getText();
         String guardId = guardIdTxt1.getText();
+        String block = blockSpinner.getValue().toString();
         String date = dateTxt1.getText();
         String time = timeTxt1.getText();
         
-        int dialog = JOptionPane.showConfirmDialog(null,
-            "RECORD Cannot be Changed After Saved", "Confirmation", JOptionPane.YES_NO_OPTION);
-        if(dialog == JOptionPane.YES_OPTION){
-            addFile(checkId, guardId, date, enterTime, leaveTime);
-            this.dispose();
-            GuardCheckPointManage manage = new GuardCheckPointManage();
-            manage.setVisible(true);
+        if(!block.equals("-----"))
+        {
+            errorMessage1.setText("");
+            int dialog = JOptionPane.showConfirmDialog(null,
+                "RECORD Cannot be Changed After Saved", "Confirmation", JOptionPane.YES_NO_OPTION);
+            if(dialog == JOptionPane.YES_OPTION){
+                addFile(checkId, guardId, block, date, time);
+                this.dispose();
+                GuardCheckPointManage manage = new GuardCheckPointManage();
+                manage.setVisible(true);
+            }
+        }else{
+            errorMessage1.setText("Block Number is Invalid !");
         }
 
     }//GEN-LAST:event_saveBtnActionPerformed
@@ -341,15 +351,18 @@ public class GuardCheckPointAdd extends javax.swing.JFrame {
             cpIdTxt1.setText("CP"+totalRow);
             guardIdTxt1.setText(main.getId());
             
-            String[] blockList = {"-", "A", "B", "C", "D"};
+            String[] blockList = {"-----","A", "B", "C", "D"};
             SpinnerListModel model = new SpinnerListModel(blockList);
             blockSpinner.setModel(model);
-            
+            JSpinner.ListEditor editor = new javax.swing.JSpinner.ListEditor(blockSpinner);
+            editor.getTextField().setEditable(false);
+            blockSpinner.setEditor(editor);
+                    
             Date todayDate = new Date();
             SimpleDateFormat sdfDate = new SimpleDateFormat("dd-MM-yyyy");
             dateTxt1.setText(sdfDate.format(todayDate));
             
-            SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm");
+            SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
             timeTxt1.setText(sdfTime.format(todayDate));
             
         } catch (FileNotFoundException ex) {
@@ -359,4 +372,23 @@ public class GuardCheckPointAdd extends javax.swing.JFrame {
         } 
     }
 
+    private void addFile(String cpId, String guardId, String block, String date, String time)
+    {
+        try {
+            String fileName = "CheckpointRecord";
+            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(cpId+","
+                    +guardId+","
+                    +block+","
+                    +date+","
+                    +time+"\n");
+
+            bw.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(GuardCheckPointAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
