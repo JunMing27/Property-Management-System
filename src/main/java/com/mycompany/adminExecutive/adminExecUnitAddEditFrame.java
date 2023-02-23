@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author Jun Ming
  */
-public class adminExecFacilityAddEditFrame extends javax.swing.JFrame {
+public class adminExecUnitAddEditFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form adminExecFacilityAddEditFrame
+     * Creates new form adminExecUnitAddEditFrame
      */
-    public adminExecFacilityAddEditFrame() {
+    public adminExecUnitAddEditFrame() {
         initComponents();
     }
 
@@ -33,13 +33,13 @@ public class adminExecFacilityAddEditFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
-        facilityIdLabel = new javax.swing.JLabel();
-        facilityNameLabel = new javax.swing.JLabel();
+        unitIdLabel = new javax.swing.JLabel();
+        unitNumberLabel = new javax.swing.JLabel();
         addEditBtn = new javax.swing.JButton();
-        facilityIdField = new javax.swing.JTextField();
-        facilityLocationComboBox = new javax.swing.JComboBox<>();
-        facilityLocationLabel = new javax.swing.JLabel();
-        facilityNameField = new javax.swing.JTextField();
+        unitIdField = new javax.swing.JTextField();
+        unitLocationComboBox = new javax.swing.JComboBox<>();
+        unitLocationLabel = new javax.swing.JLabel();
+        unitNumberField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,13 +54,13 @@ public class adminExecFacilityAddEditFrame extends javax.swing.JFrame {
             }
         });
 
-        facilityIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        facilityIdLabel.setForeground(new java.awt.Color(0, 0, 0));
-        facilityIdLabel.setText("Facility ID");
+        unitIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        unitIdLabel.setForeground(new java.awt.Color(0, 0, 0));
+        unitIdLabel.setText("Unit ID");
 
-        facilityNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        facilityNameLabel.setForeground(new java.awt.Color(0, 0, 0));
-        facilityNameLabel.setText("Facility Name");
+        unitNumberLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        unitNumberLabel.setForeground(new java.awt.Color(0, 0, 0));
+        unitNumberLabel.setText("Unit Number");
 
         addEditBtn.setBackground(new java.awt.Color(255, 255, 255));
         addEditBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -71,30 +71,30 @@ public class adminExecFacilityAddEditFrame extends javax.swing.JFrame {
             }
         });
 
-        facilityIdField.setBackground(new java.awt.Color(255, 255, 255));
-        facilityIdField.setEnabled(false);
-        facilityIdField.addActionListener(new java.awt.event.ActionListener() {
+        unitIdField.setBackground(new java.awt.Color(255, 255, 255));
+        unitIdField.setEnabled(false);
+        unitIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                facilityIdFieldActionPerformed(evt);
+                unitIdFieldActionPerformed(evt);
             }
         });
 
-        facilityLocationComboBox.setBackground(new java.awt.Color(255, 255, 255));
-        facilityLocationComboBox.setForeground(new java.awt.Color(0, 0, 0));
-        facilityLocationComboBox.addActionListener(new java.awt.event.ActionListener() {
+        unitLocationComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        unitLocationComboBox.setForeground(new java.awt.Color(0, 0, 0));
+        unitLocationComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                facilityLocationComboBoxActionPerformed(evt);
+                unitLocationComboBoxActionPerformed(evt);
             }
         });
 
-        facilityLocationLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        facilityLocationLabel.setForeground(new java.awt.Color(0, 0, 0));
-        facilityLocationLabel.setText("Facility Location");
+        unitLocationLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        unitLocationLabel.setForeground(new java.awt.Color(0, 0, 0));
+        unitLocationLabel.setText("Unit Location");
 
-        facilityNameField.setBackground(new java.awt.Color(255, 255, 255));
-        facilityNameField.addActionListener(new java.awt.event.ActionListener() {
+        unitNumberField.setBackground(new java.awt.Color(255, 255, 255));
+        unitNumberField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                facilityNameFieldActionPerformed(evt);
+                unitNumberFieldActionPerformed(evt);
             }
         });
 
@@ -108,14 +108,14 @@ public class adminExecFacilityAddEditFrame extends javax.swing.JFrame {
                         .addGap(120, 120, 120)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(facilityNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                                .addComponent(facilityIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(facilityLocationLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(unitNumberLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                .addComponent(unitIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(unitLocationLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(facilityLocationComboBox, 0, 234, Short.MAX_VALUE)
-                            .addComponent(facilityIdField)
-                            .addComponent(facilityNameField)))
+                            .addComponent(unitLocationComboBox, 0, 234, Short.MAX_VALUE)
+                            .addComponent(unitIdField)
+                            .addComponent(unitNumberField)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,16 +131,16 @@ public class adminExecFacilityAddEditFrame extends javax.swing.JFrame {
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(facilityIdLabel)
-                    .addComponent(facilityIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(unitIdLabel)
+                    .addComponent(unitIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(facilityNameLabel)
-                    .addComponent(facilityNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(unitNumberLabel)
+                    .addComponent(unitNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(facilityLocationLabel)
-                    .addComponent(facilityLocationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(unitLocationLabel)
+                    .addComponent(unitLocationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
@@ -163,90 +163,94 @@ public class adminExecFacilityAddEditFrame extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        adminExecFacilityManageFrame facilityPage = new adminExecFacilityManageFrame();
-        facilityPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        facilityPage.pack();
-        facilityPage.setResizable(false);
-        facilityPage.setLocationRelativeTo(null);
-        facilityPage.setVisible(true);
-        facilityPage.backButtonToggle();
-        facilityPage.setFacilityData();
+        adminExecUnitManageFrame unitPage = new adminExecUnitManageFrame();
+        unitPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        unitPage.pack();
+        unitPage.setResizable(false);
+        unitPage.setLocationRelativeTo(null);
+        unitPage.setVisible(true);
+        unitPage.backButtonToggle();
+        unitPage.setUnitData();
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            if((facilityIdField.getText()).equals("")  ||(facilityNameField.getText()).equals("")||((String)facilityLocationComboBox.getSelectedItem()).equals("") ){
+            if((unitIdField.getText()).equals("")  ||(unitNumberField.getText()).equals("")||((String)unitLocationComboBox.getSelectedItem()).equals("") ){
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 adminExecutive main = new adminExecutive();
                 adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
                 ArrayList<String> dataList = new ArrayList<String>();
-                dataList.add(facilityIdField.getText());
-                dataList.add(facilityNameField.getText());
-                dataList.add((String)facilityLocationComboBox.getSelectedItem());
-                mainInner.addEditFacility(dataList, "Facility","Facility.txt","edit");
+                dataList.add(unitIdField.getText());
+                dataList.add(unitNumberField.getText());
+                dataList.add((String)unitLocationComboBox.getSelectedItem());
+                dataList.add("Available");
+                mainInner.addEditUnit(dataList, "Unit","Unit.txt","edit");
             }
         }else if(addEditDetector=="add"){
-            if((facilityNameField.getText()).equals("")||((String)facilityLocationComboBox.getSelectedItem()).equals("") ){
+            if((unitNumberField.getText()).equals("")||((String)unitLocationComboBox.getSelectedItem()).equals("") ){
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 adminExecutive main = new adminExecutive();
                 adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
-                facility facilityClass = new facility();
+                unit unitClass = new unit();
                 ArrayList<String> dataList = new ArrayList<String>();
 
-                facilityClass.getIncreasedID("Facility.txt","facility");
-                dataList.add(facilityClass.getFacilityId());
-                dataList.add(facilityNameField.getText());
-                dataList.add((String)facilityLocationComboBox.getSelectedItem());
-                mainInner.addEditFacility(dataList, "Facility","Facility.txt","add");
-                facilityNameField.setText("");
+                unitClass.getIncreasedID("Unit.txt","Unit");
+                dataList.add(unitClass.getUnitId());
+                dataList.add(unitNumberField.getText());
+                dataList.add((String)unitLocationComboBox.getSelectedItem());
+                dataList.add("Available");
+                mainInner.addEditUnit(dataList, "Unit","Unit.txt","add");
+                unitNumberField.setText("");
             }
         }
     }//GEN-LAST:event_addEditBtnActionPerformed
 
-    private void facilityIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityIdFieldActionPerformed
+    private void unitIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitIdFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_facilityIdFieldActionPerformed
+    }//GEN-LAST:event_unitIdFieldActionPerformed
 
-    private void facilityLocationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityLocationComboBoxActionPerformed
+    private void unitLocationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitLocationComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_facilityLocationComboBoxActionPerformed
+    }//GEN-LAST:event_unitLocationComboBoxActionPerformed
 
-    private void facilityNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityNameFieldActionPerformed
+    private void unitNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitNumberFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_facilityNameFieldActionPerformed
+    }//GEN-LAST:event_unitNumberFieldActionPerformed
 
     private String addEditDetector;
-    private String fileType="Facility.txt";
-    private String userType="Facility";
+    private String fileType="Unit.txt";
+    private String userType="Unit";
     
     public void addEditDetect(String functionType,String id) throws FileNotFoundException {
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            facility facilityClass = new facility();
-            facilityClass.chooseTxtFile("Facility");
-            facilityClass.getDataViewSingle(id, fileType,userType);
+            unit unitClass = new unit();
+            unitClass.chooseTxtFile("Unit");
+            unitClass.getDataViewSingle(id, fileType,userType);
             addEditBtn.setText("Update");
-            facilityIdField.setText(facilityClass.getFacilityId());
-            facilityNameField.setText(facilityClass.getFacilityName());
-            facilityLocationComboBox.addItem("Block A");
-            facilityLocationComboBox.addItem("Block B");
-            facilityLocationComboBox.addItem("Block C");
-            facilityLocationComboBox.addItem("Block D");
-            facilityLocationComboBox.setSelectedItem(facilityClass.getFacilityLocation());
+            unitIdField.setText(unitClass.getUnitId());
+            unitNumberField.setText(unitClass.getUnitNumber());
+            unitLocationComboBox.addItem("Block A");
+            unitLocationComboBox.addItem("Block B");
+            unitLocationComboBox.addItem("Block C");
+            unitLocationComboBox.addItem("Block D");
+            unitLocationComboBox.setSelectedItem(unitClass.getUnitLocation());
+            System.out.println(unitClass.getUnitLocation());
         }else if (functionType=="add"){
             this.addEditDetector="add";
             addEditBtn.setText("Add");
-            facilityIdField.setVisible(false);
-            facilityIdLabel.setVisible(false);
-            facilityLocationComboBox.addItem("Block A");
-            facilityLocationComboBox.addItem("Block B");
-            facilityLocationComboBox.addItem("Block C");
-            facilityLocationComboBox.addItem("Block D");
+            unitIdField.setVisible(false);
+            unitIdLabel.setVisible(false);
+            unitLocationComboBox.addItem("Block A");
+            unitLocationComboBox.addItem("Block B");
+            unitLocationComboBox.addItem("Block C");
+            unitLocationComboBox.addItem("Block D");
         }
     }
+    
     
     /**
      * @param args the command line arguments
@@ -265,20 +269,20 @@ public class adminExecFacilityAddEditFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(adminExecFacilityAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(adminExecUnitAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(adminExecFacilityAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(adminExecUnitAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(adminExecFacilityAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(adminExecUnitAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(adminExecFacilityAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(adminExecUnitAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new adminExecFacilityAddEditFrame().setVisible(true);
+                new adminExecUnitAddEditFrame().setVisible(true);
             }
         });
     }
@@ -286,12 +290,12 @@ public class adminExecFacilityAddEditFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addEditBtn;
     private javax.swing.JButton backBtn;
-    private javax.swing.JTextField facilityIdField;
-    private javax.swing.JLabel facilityIdLabel;
-    private javax.swing.JComboBox<String> facilityLocationComboBox;
-    private javax.swing.JLabel facilityLocationLabel;
-    private javax.swing.JTextField facilityNameField;
-    private javax.swing.JLabel facilityNameLabel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField unitIdField;
+    private javax.swing.JLabel unitIdLabel;
+    private javax.swing.JComboBox<String> unitLocationComboBox;
+    private javax.swing.JLabel unitLocationLabel;
+    private javax.swing.JTextField unitNumberField;
+    private javax.swing.JLabel unitNumberLabel;
     // End of variables declaration//GEN-END:variables
 }
