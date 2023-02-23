@@ -14,20 +14,20 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
-public class GuardVisitorPass extends javax.swing.JFrame {
+/**
+ *
+ * @author user
+ */
+public class GuardVisitorEntry extends javax.swing.JFrame {
 
-    GuardMain main;
-    String id;
+    ArrayList<String> dataList;
     
-    public GuardVisitorPass() {
+    public GuardVisitorEntry() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        main = new GuardMain();
-        id = main.getId();
-//        displayData();
+        displayData();
         backPageBtn.setEnabled(false);
     }
 
@@ -43,6 +43,7 @@ public class GuardVisitorPass extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
+        editBtn1 = new javax.swing.JButton();
         backPageBtn = new javax.swing.JButton();
         nextPageBtn = new javax.swing.JButton();
         idLabel1 = new javax.swing.JLabel();
@@ -52,18 +53,22 @@ public class GuardVisitorPass extends javax.swing.JFrame {
         nameTxt1 = new javax.swing.JLabel();
         dateTxt1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        statusLabel1 = new javax.swing.JLabel();
-        statusText1 = new javax.swing.JLabel();
+        editBtn2 = new javax.swing.JButton();
+        enterTimeLabel1 = new javax.swing.JLabel();
+        enterTimeTxt1 = new javax.swing.JLabel();
         idLabel2 = new javax.swing.JLabel();
         nameLabel2 = new javax.swing.JLabel();
         dateLabel2 = new javax.swing.JLabel();
-        statusLabel2 = new javax.swing.JLabel();
         idTxt2 = new javax.swing.JLabel();
         nameTxt2 = new javax.swing.JLabel();
-        statusText2 = new javax.swing.JLabel();
         dateTxt2 = new javax.swing.JLabel();
-        searchTxtField = new javax.swing.JTextField();
-        searchBtn = new javax.swing.JButton();
+        addBtn = new javax.swing.JButton();
+        leaveTimeLabel1 = new javax.swing.JLabel();
+        leaveTimeTxt1 = new javax.swing.JLabel();
+        enterTimeLabel2 = new javax.swing.JLabel();
+        enterTimeTxt2 = new javax.swing.JLabel();
+        leaveTimeLabel2 = new javax.swing.JLabel();
+        leaveTimeTxt2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,7 +87,17 @@ public class GuardVisitorPass extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("VISITOR PASS");
+        topLabel.setText("VISITOR ENTRY");
+
+        editBtn1.setBackground(new java.awt.Color(255, 255, 255));
+        editBtn1.setForeground(new java.awt.Color(0, 0, 0));
+        editBtn1.setText("EDIT");
+        editBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtn1ActionPerformed(evt);
+            }
+        });
 
         backPageBtn.setBackground(new java.awt.Color(255, 255, 255));
         backPageBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -104,7 +119,7 @@ public class GuardVisitorPass extends javax.swing.JFrame {
 
         idLabel1.setBackground(new java.awt.Color(233, 233, 233));
         idLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        idLabel1.setText("Visitor ID :");
+        idLabel1.setText("Visitor Entry ID :");
 
         idTxt1.setBackground(new java.awt.Color(233, 233, 233));
         idTxt1.setForeground(new java.awt.Color(0, 0, 0));
@@ -126,17 +141,27 @@ public class GuardVisitorPass extends javax.swing.JFrame {
         dateTxt1.setForeground(new java.awt.Color(0, 0, 0));
         dateTxt1.setText("10/04/2023");
 
-        statusLabel1.setBackground(new java.awt.Color(233, 233, 233));
-        statusLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        statusLabel1.setText("Status :");
+        editBtn2.setBackground(new java.awt.Color(255, 255, 255));
+        editBtn2.setForeground(new java.awt.Color(0, 0, 0));
+        editBtn2.setText("EDIT");
+        editBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editBtn2ActionPerformed(evt);
+            }
+        });
 
-        statusText1.setBackground(new java.awt.Color(233, 233, 233));
-        statusText1.setForeground(new java.awt.Color(0, 0, 0));
-        statusText1.setText("Valid");
+        enterTimeLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        enterTimeLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        enterTimeLabel1.setText("Enter Time :");
+
+        enterTimeTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        enterTimeTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        enterTimeTxt1.setText("10:00");
 
         idLabel2.setBackground(new java.awt.Color(233, 233, 233));
         idLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        idLabel2.setText("Visitor ID :");
+        idLabel2.setText("Visitor Entry ID :");
 
         nameLabel2.setBackground(new java.awt.Color(233, 233, 233));
         nameLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -146,10 +171,6 @@ public class GuardVisitorPass extends javax.swing.JFrame {
         dateLabel2.setForeground(new java.awt.Color(0, 0, 0));
         dateLabel2.setText("Date :");
 
-        statusLabel2.setBackground(new java.awt.Color(233, 233, 233));
-        statusLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        statusLabel2.setText("Status :");
-
         idTxt2.setBackground(new java.awt.Color(233, 233, 233));
         idTxt2.setForeground(new java.awt.Color(0, 0, 0));
         idTxt2.setText("V1");
@@ -158,32 +179,44 @@ public class GuardVisitorPass extends javax.swing.JFrame {
         nameTxt2.setForeground(new java.awt.Color(0, 0, 0));
         nameTxt2.setText("Halo");
 
-        statusText2.setBackground(new java.awt.Color(233, 233, 233));
-        statusText2.setForeground(new java.awt.Color(0, 0, 0));
-        statusText2.setText("Valid");
-
         dateTxt2.setBackground(new java.awt.Color(233, 233, 233));
         dateTxt2.setForeground(new java.awt.Color(0, 0, 0));
         dateTxt2.setText("10/04/2023");
 
-        searchTxtField.setBackground(new java.awt.Color(255, 255, 255));
-        searchTxtField.setForeground(new java.awt.Color(0, 0, 0));
-        searchTxtField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        searchTxtField.setCaretColor(new java.awt.Color(0, 0, 0));
-        searchTxtField.addActionListener(new java.awt.event.ActionListener() {
+        addBtn.setBackground(new java.awt.Color(255, 255, 255));
+        addBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addBtn.setForeground(new java.awt.Color(0, 0, 0));
+        addBtn.setText("ADD");
+        addBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTxtFieldActionPerformed(evt);
+                addBtnActionPerformed(evt);
             }
         });
 
-        searchBtn.setBackground(new java.awt.Color(255, 255, 255));
-        searchBtn.setForeground(new java.awt.Color(0, 0, 0));
-        searchBtn.setText("Search");
-        searchBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBtnActionPerformed(evt);
-            }
-        });
+        leaveTimeLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        leaveTimeLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        leaveTimeLabel1.setText("Leave Time :");
+
+        leaveTimeTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        leaveTimeTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        leaveTimeTxt1.setText("11:00");
+
+        enterTimeLabel2.setBackground(new java.awt.Color(233, 233, 233));
+        enterTimeLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        enterTimeLabel2.setText("Enter Time :");
+
+        enterTimeTxt2.setBackground(new java.awt.Color(233, 233, 233));
+        enterTimeTxt2.setForeground(new java.awt.Color(0, 0, 0));
+        enterTimeTxt2.setText("10:00");
+
+        leaveTimeLabel2.setBackground(new java.awt.Color(233, 233, 233));
+        leaveTimeLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        leaveTimeLabel2.setText("Leave Time :");
+
+        leaveTimeTxt2.setBackground(new java.awt.Color(233, 233, 233));
+        leaveTimeTxt2.setForeground(new java.awt.Color(0, 0, 0));
+        leaveTimeTxt2.setText("11:00");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -196,23 +229,41 @@ public class GuardVisitorPass extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(idLabel2)
                             .addComponent(nameLabel2)
-                            .addComponent(statusLabel2)
-                            .addComponent(dateLabel2))
+                            .addComponent(dateLabel2)
+                            .addComponent(enterTimeLabel2)
+                            .addComponent(leaveTimeLabel2))
                         .addGap(123, 123, 123)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(dateTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(statusText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(idTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(searchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(leaveTimeTxt2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                                        .addComponent(enterTimeTxt2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nameLabel1)
+                                    .addComponent(idLabel1)
+                                    .addComponent(dateLabel1)
+                                    .addComponent(enterTimeLabel1)
+                                    .addComponent(leaveTimeLabel1))
+                                .addGap(121, 121, 121)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(enterTimeTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(dateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(leaveTimeTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(nameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -222,32 +273,26 @@ public class GuardVisitorPass extends javax.swing.JFrame {
                                         .addGap(40, 40, 40)
                                         .addComponent(backPageBtn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(nextPageBtn))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nameLabel1)
-                                    .addComponent(idLabel1)
-                                    .addComponent(dateLabel1)
-                                    .addComponent(statusLabel1))
-                                .addGap(121, 121, 121)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(statusText1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(dateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(nameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(nextPageBtn)))))
                         .addGap(0, 91, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBtn))
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,11 +312,17 @@ public class GuardVisitorPass extends javax.swing.JFrame {
                     .addComponent(dateLabel1))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusLabel1)
-                    .addComponent(statusText1))
-                .addGap(63, 63, 63)
+                    .addComponent(enterTimeLabel1)
+                    .addComponent(enterTimeTxt1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(leaveTimeLabel1)
+                    .addComponent(leaveTimeTxt1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel2)
                     .addComponent(idTxt2))
@@ -283,11 +334,19 @@ public class GuardVisitorPass extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateLabel2)
                     .addComponent(dateTxt2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusLabel2)
-                    .addComponent(statusText2))
-                .addContainerGap(145, Short.MAX_VALUE))
+                    .addComponent(enterTimeLabel2)
+                    .addComponent(enterTimeTxt2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(leaveTimeLabel2)
+                    .addComponent(leaveTimeTxt2))
+                .addGap(16, 16, 16)
+                .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -298,7 +357,7 @@ public class GuardVisitorPass extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, 591, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -309,6 +368,17 @@ public class GuardVisitorPass extends javax.swing.JFrame {
         GuardOption option = new GuardOption();
         option.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
+
+    private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
+        dataList = new ArrayList<String>();
+        dataList.add(idTxt1.getText());
+        dataList.add(nameTxt1.getText());
+        dataList.add(dateTxt1.getText());
+        dataList.add(enterTimeTxt1.getText());
+        this.dispose();
+        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("add", dataList);
+        edit.setVisible(true);
+    }//GEN-LAST:event_editBtn1ActionPerformed
 
     private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
 
@@ -323,19 +393,23 @@ public class GuardVisitorPass extends javax.swing.JFrame {
         displayData();
     }//GEN-LAST:event_nextPageBtnActionPerformed
 
-    private void searchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchTxtFieldActionPerformed
+    private void editBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn2ActionPerformed
+        dataList = new ArrayList<String>();
+        dataList.add(idTxt2.getText());
+        dataList.add(nameTxt2.getText());
+        dataList.add(dateTxt2.getText());
+        dataList.add(enterTimeTxt2.getText());
+        this.dispose();
+        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("edit", dataList);
+        edit.setVisible(true);
+    }//GEN-LAST:event_editBtn2ActionPerformed
 
-    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        searchTxt = searchTxtField.getText().trim();
-        if(!searchTxt.isEmpty())
-        {
-           pageLine=-1;
-           displaySearchedData(); 
-        }
-        
-    }//GEN-LAST:event_searchBtnActionPerformed
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        dataList = new ArrayList<String>();
+        this.dispose();
+        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("add", dataList );
+        edit.setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,53 +428,57 @@ public class GuardVisitorPass extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GuardVisitorPass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisitorEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GuardVisitorPass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisitorEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GuardVisitorPass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisitorEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GuardVisitorPass.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuardVisitorEntry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GuardVisitorPass().setVisible(true);
+                new GuardVisitorEntry().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton backPageBtn;
     private javax.swing.JLabel dateLabel1;
     private javax.swing.JLabel dateLabel2;
     private javax.swing.JLabel dateTxt1;
     private javax.swing.JLabel dateTxt2;
+    private javax.swing.JButton editBtn1;
+    private javax.swing.JButton editBtn2;
+    private javax.swing.JLabel enterTimeLabel1;
+    private javax.swing.JLabel enterTimeLabel2;
+    private javax.swing.JLabel enterTimeTxt1;
+    private javax.swing.JLabel enterTimeTxt2;
     private javax.swing.JLabel idLabel1;
     private javax.swing.JLabel idLabel2;
     private javax.swing.JLabel idTxt1;
     private javax.swing.JLabel idTxt2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel leaveTimeLabel1;
+    private javax.swing.JLabel leaveTimeLabel2;
+    private javax.swing.JLabel leaveTimeTxt1;
+    private javax.swing.JLabel leaveTimeTxt2;
     private javax.swing.JLabel nameLabel1;
     private javax.swing.JLabel nameLabel2;
     private javax.swing.JLabel nameTxt1;
     private javax.swing.JLabel nameTxt2;
     private javax.swing.JButton nextPageBtn;
-    private javax.swing.JButton searchBtn;
-    private javax.swing.JTextField searchTxtField;
-    private javax.swing.JLabel statusLabel1;
-    private javax.swing.JLabel statusLabel2;
-    private javax.swing.JLabel statusText1;
-    private javax.swing.JLabel statusText2;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 
     private int pageLine=-1;
-    private String searchTxt = "";
     
     private void setPagination(){
         pageLine=pageLine+1;
@@ -414,15 +492,16 @@ public class GuardVisitorPass extends javax.swing.JFrame {
     }
     
     private void displayData(){
+        GuardMain main = new GuardMain();
         setPagination();
-        displayDataView(pageLine, "", "upper");
+        displayDataView(pageLine, "upper");
         boolean boo = main.getStatus();
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
         
         setPagination();
-        displayDataView(pageLine, "", "bottom");
+        displayDataView(pageLine, "bottom");
         boolean boo2 = main.getStatus();
         if(boo2==false){
             nextPageBtn.setEnabled(false);
@@ -432,30 +511,12 @@ public class GuardVisitorPass extends javax.swing.JFrame {
     }
 
     
-    private void displayDataView(Integer pageLine, String searchTxt, String part)
+    private void displayDataView(Integer pageLine, String part)
     {
         try{
-            String visitorPassFile = "src/main/java/com/mycompany/textFile/VisitorPass.txt";
-            ArrayList<ArrayList<String>> userData = allUserDataInfo(visitorPassFile);
-            int i =0;
-            int fixedSize = userData.size();
-            int changedSize = userData.size();
-            if(!searchTxt.equals("")){
-                for (int x=0;x<fixedSize+1;x++) {
-                    if(i ==changedSize){
-                        break;
-                    }
-                    // user.get(0) is userID, user.get(1) is username
-                    if(!(userData.get(i)).contains(searchTxt)){
-                        userData.remove(i);
-                        changedSize=changedSize-1;
-                        i=i-1;
-                    }
-                    i=i+1;
-                }
-            }
-            
-            
+            GuardMain main = new GuardMain();
+            String visitorEntryFile = "src/main/java/com/mycompany/textFile/VisitorEntry.txt";
+            ArrayList<ArrayList<String>> userData = allUserDataInfo(visitorEntryFile);
             int newSize = userData.size();            
             try{
                 userData.get(pageLine);
@@ -464,17 +525,34 @@ public class GuardVisitorPass extends javax.swing.JFrame {
                     idTxt1.setText(userData.get(pageLine).get(0));
                     nameTxt1.setText(userData.get(pageLine).get(1));
                     dateTxt1.setText(userData.get(pageLine).get(2));
-                    statusText1.setText(userData.get(pageLine).get(4));
+                    enterTimeTxt1.setText(userData.get(pageLine).get(3));
+                    leaveTimeTxt1.setText(userData.get(pageLine).get(4));
+                    if(leaveTimeTxt1.getText().equals("-"))
+                    {
+                        editBtn1.setEnabled(true);
+                    }else{
+                        editBtn1.setEnabled(false);
+                    }
                     idTxt2.setText("no data");
                     nameTxt2.setText("no data");
                     dateTxt2.setText("no data");
-                    statusText2.setText("no data");
+                    enterTimeTxt2.setText("no data");
+                    leaveTimeTxt2.setText("no data");
+                    editBtn2.setEnabled(false);
                     main.setStatus(true);
                 }else{
                     idTxt2.setText(userData.get(pageLine).get(0));
                     nameTxt2.setText(userData.get(pageLine).get(1));
                     dateTxt2.setText(userData.get(pageLine).get(2));
-                    statusText2.setText(userData.get(pageLine).get(4));
+                    enterTimeTxt2.setText(userData.get(pageLine).get(3));
+                    leaveTimeTxt2.setText(userData.get(pageLine).get(4));
+                    if(leaveTimeTxt2.getText().equals("-"))
+                    {
+                        editBtn2.setEnabled(true);
+                    }else{
+                        editBtn2.setEnabled(false);
+                    }
+                    editBtn2.setEnabled(true);
                     main.setStatus(true);
                 }
                 if(idTxt1.getText() == null)
@@ -482,14 +560,16 @@ public class GuardVisitorPass extends javax.swing.JFrame {
                     idTxt1.setText("no data");
                     nameTxt1.setText("no data");
                     dateTxt1.setText("no data");
-                    statusText1.setText("no data");
+                    enterTimeTxt1.setText("no data");
+                    leaveTimeTxt1.setText("no data");
                 }
                 if(idTxt2.getText() == null)
                 {
                     idTxt2.setText("no data");
                     nameTxt2.setText("no data");
                     dateTxt2.setText("no data");
-                    statusText2.setText("no data");
+                    enterTimeTxt2.setText("no data");
+                    leaveTimeTxt2.setText("no data");
                 }
                 
             }
@@ -502,12 +582,11 @@ public class GuardVisitorPass extends javax.swing.JFrame {
             }
         }
         catch(FileNotFoundException ex){
-            Logger.getLogger(GuardVisitorPass.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuardVisitorEntry.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-
-     
+  
     private ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
     {
         File file = new File(textFile);
@@ -530,22 +609,4 @@ public class GuardVisitorPass extends javax.swing.JFrame {
     }
     
     
-    
-    private void displaySearchedData()
-    {
-        setPagination();
-        displayDataView(pageLine, searchTxt, "upper");
-        boolean boo = main.getStatus();
-        if(boo==false){
-            nextPageBtn.setEnabled(false);
-        }
-        
-        setPagination();
-        displayDataView(pageLine, searchTxt, "bottom");
-        boolean boo2 = main.getStatus();
-        if(boo2==false){
-            nextPageBtn.setEnabled(false);
-        }
-    }
-
 }

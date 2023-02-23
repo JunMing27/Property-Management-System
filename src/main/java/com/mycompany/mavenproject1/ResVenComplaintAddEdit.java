@@ -26,13 +26,14 @@ public class ResVenComplaintAddEdit extends javax.swing.JFrame {
     VendorMain vendorMain;
     String userId, id, detail, reply;
     
-    static ArrayList<String> dataListGet = new ArrayList<String>();
+    static ArrayList<String> dataListGet;
     static String addEditDetector, roleGet;
     
     public ResVenComplaintAddEdit(String addEditString, ArrayList<String> dataList, String role) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        dataListGet = new ArrayList<String>();
         if(role.equals("resident"))
         {
             roleGet = role;

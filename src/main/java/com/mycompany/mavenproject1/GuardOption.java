@@ -149,7 +149,9 @@ public class GuardOption extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void visitorPassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorPassBtnActionPerformed
-        
+        this.dispose();
+        GuardVisitorPass visitorPass = new GuardVisitorPass();
+        visitorPass.setVisible(true);
     }//GEN-LAST:event_visitorPassBtnActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
