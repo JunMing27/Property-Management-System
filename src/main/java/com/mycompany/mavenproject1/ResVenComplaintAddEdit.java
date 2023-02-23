@@ -249,22 +249,30 @@ public class ResVenComplaintAddEdit extends javax.swing.JFrame {
         
         if(!id.isEmpty() && !detail.isEmpty() )
         {
-            int dialog = JOptionPane.showConfirmDialog(null,
-                "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
-            if(dialog == JOptionPane.YES_OPTION){
-                removeFromFile("Complaint");
-                editFile(id, detail, reply);
-                this.dispose();
-                if(roleGet.equals("resident"))
-                {
-                    ResidentComplaintManage complaint = new ResidentComplaintManage();
-                    complaint.setVisible(true);
+            if(!id.isBlank()&& !detail.isBlank())
+            {
+                int dialog = JOptionPane.showConfirmDialog(null,
+                    "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                if(dialog == JOptionPane.YES_OPTION){
+                    if(addEditDetector.equals("edit"))
+                    {
+                        removeFromFile("Complaint");
+                    }
+                    editFile(id, detail, reply);
+                    this.dispose();
+                    if(roleGet.equals("resident"))
+                    {
+                        ResidentComplaintManage complaint = new ResidentComplaintManage();
+                        complaint.setVisible(true);
 
-                }else if(roleGet.equals("vendor"))
-                {
-                    VendorComplaintManage complaint = new VendorComplaintManage();
-                    complaint.setVisible(true);
+                    }else if(roleGet.equals("vendor"))
+                    {
+                        VendorComplaintManage complaint = new VendorComplaintManage();
+                        complaint.setVisible(true);
+                    }
                 }
+            }else{
+                errorMessage.setText("DO NOT LEFT EMPTY DATA !");
             }
         }else{
             errorMessage.setText("DO NOT LEFT EMPTY DATA !");

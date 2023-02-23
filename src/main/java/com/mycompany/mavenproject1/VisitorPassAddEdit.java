@@ -272,19 +272,27 @@ public class VisitorPassAddEdit extends javax.swing.JFrame {
         status = statusTxt.getText();
         if(!id.isEmpty() && !name.isEmpty() && !date.isEmpty() && !status.isEmpty() )
         {
-            if(status.equals("Valid") || status.equals("Invalid"))
+            if(!id.isBlank()&& !name.isBlank()&& !date.isBlank()&& !status.isBlank())
             {
-                int dialog = JOptionPane.showConfirmDialog(null,
-                "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
-                if(dialog == JOptionPane.YES_OPTION){
-                    removeFromFile("VisitorPass");
-                    editFile(id, name, date, status);
-                    this.dispose();
-                    VisitorPassManage visitorPass = new VisitorPassManage();
-                    visitorPass.setVisible(true);
-                }  
+                if(status.equals("Valid") || status.equals("Invalid"))
+                {
+                    int dialog = JOptionPane.showConfirmDialog(null,
+                    "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                    if(dialog == JOptionPane.YES_OPTION){
+                        if(addEditDetector.equals("edit"))
+                        {
+                            removeFromFile("VisitorPass");
+                        }
+                        editFile(id, name, date, status);
+                        this.dispose();
+                        VisitorPassManage visitorPass = new VisitorPassManage();
+                        visitorPass.setVisible(true);
+                    }  
+                }else{
+                    errorMessage.setText("STATUS MUST BE 'Valid' OR 'Invalid' !");
+                }
             }else{
-                errorMessage.setText("STATUS MUST BE 'Valid' OR 'Invalid' !");
+                errorMessage.setText("DO NOT LEFT EMPTY DATA !");
             }
         }else{
             errorMessage.setText("DO NOT LEFT EMPTY DATA !");

@@ -328,8 +328,8 @@ public class GuardVisitorPass extends javax.swing.JFrame {
     }//GEN-LAST:event_searchTxtFieldActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        searchTxt = searchTxtField.getText().trim();
-        if(!searchTxt.isEmpty())
+        searchTxt = searchTxtField.getText();
+        if(!searchTxt.isEmpty() && !searchTxt.isBlank())
         {
            pageLine=-1;
            displaySearchedData(); 

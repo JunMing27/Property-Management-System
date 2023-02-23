@@ -223,10 +223,10 @@ public class AccExecAddEditPayment extends javax.swing.JFrame {
             dataList.add(PayAmountField.getText());
             main.editOrAddData(dataList, "Payment","Payment.txt","edit");
         }else if(addEditDetector=="add"){
-            BuildingManager main = new BuildingManager();
+            AccExecMain main = new AccExecMain();
             ArrayList<String> dataList = new ArrayList<String>();
             main.getIncreasedID("Payment.txt","Payment");
-            dataList.add(main.getBudgetId());
+            dataList.add(main.getPaymentID());
             dataList.add(UserIDField.getText());
             dataList.add(PayDescriptionField.getText());
             dataList.add(DueDateField.getText());
@@ -235,6 +235,32 @@ public class AccExecAddEditPayment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public void addEditDetect(String functionType,String id) throws FileNotFoundException{
+        if(functionType=="edit"){
+            this.addEditDetector="edit";
+            AccExecMain main = new AccExecMain();
+            main.getDataViewSingle(id, "Payment.txt","Payment");
+            jButton2.setText("Update");
+            PaymentIDField.setText(main.getPaymentID());
+            UserIDField.setText(main.getUserID());
+            PayDescriptionField.setText(main.getPayDescription());
+            PayAmountField.setText(main.getPayAmount());
+            DueDateField.setText(main.getDueDate());
+        }else if (functionType=="add"){
+            this.addEditDetector="add";
+            jButton2.setText("Add");
+            PaymentIDField.setVisible(false);
+            jLabel1.setVisible(false);
+        }
+    }
+
+    
+//    Payment ID, User ID, Pay Description, Pay Amount, Due Date
+    
+      private String addEditDetector;   
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -271,29 +297,7 @@ public class AccExecAddEditPayment extends javax.swing.JFrame {
     }
     
     
-        public void addEditDetect(String functionType,String id) throws FileNotFoundException{
-        if(functionType=="edit"){
-            this.addEditDetector="edit";
-            BuildingManager main = new BuildingManager();
-            main.getDataViewSingle(id, "Payment.txt","Payment");
-            jButton2.setText("Update");
-            PaymentIDField.setText(main.getBudgetId());
-            UserIDField.setText(main.getBudgetProjectName());
-            PayDescriptionField.setText(main.getBudgetProjectBudget());
-            PayAmountField.setText(main.getBudgetProjectStartDate());
-            DueDateField.setText(main.getBudgetProjectEndDate());
-        }else if (functionType=="add"){
-            this.addEditDetector="add";
-            jButton2.setText("Add");
-            PaymentIDField.setVisible(false);
-            jLabel1.setVisible(false);
-        }
-    }
-
-    
-//    Payment ID, User ID, Pay Description, Pay Amount, Due Date
-    
-      private String addEditDetector;   
+        
     
     
     

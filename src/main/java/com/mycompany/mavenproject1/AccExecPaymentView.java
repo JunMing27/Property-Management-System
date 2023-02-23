@@ -224,27 +224,27 @@ public class AccExecPaymentView extends javax.swing.JFrame {
         main.deleteFunction(PaymentID.getText());
         JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
-        AccExecInvoiceManage Invoice = new AccExecInvoiceManage();
-        Invoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Invoice.pack();
-        Invoice.setResizable(false);
-        Invoice.setLocationRelativeTo(null);
-        Invoice.setVisible(true);
-        Invoice.backButtonToggle();// need to check back with accexecinvoicemanage
-        Invoice.setInvoiceData(); //same as above
+        AccExecPaymentManage Payment = new AccExecPaymentManage();
+        Payment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Payment.pack();
+        Payment.setResizable(false);
+        Payment.setLocationRelativeTo(null);
+        Payment.setVisible(true);
+        Payment.backButtonToggle();// need to check back with accexecinvoicemanage
+        Payment.setPaymentData(); //same as above
     }//GEN-LAST:event_DeleteAccExecutiveInoviceViewActionPerformed
 
     private void UpdateAccExecutiveInvoiceViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateAccExecutiveInvoiceViewActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        AccExecAddEditInvoice InvoiceAddEdit = new AccExecAddEditInvoice();
-        InvoiceAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        InvoiceAddEdit.pack();
-        InvoiceAddEdit.setResizable(false);
-        InvoiceAddEdit.setLocationRelativeTo(null);
-        InvoiceAddEdit.setVisible(true);
+        AccExecAddEditInvoice PaymentAddEdit = new AccExecAddEditInvoice();
+        PaymentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        PaymentAddEdit.pack();
+        PaymentAddEdit.setResizable(false);
+        PaymentAddEdit.setLocationRelativeTo(null);
+        PaymentAddEdit.setVisible(true);
         try {
-            InvoiceAddEdit.addEditDetect("edit",PaymentID.getText());
+            PaymentAddEdit.addEditDetect("edit",PaymentID.getText());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AccExecutiveInvoiceView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -253,14 +253,14 @@ public class AccExecPaymentView extends javax.swing.JFrame {
     private void BackAccExecutiveInvoiceViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecutiveInvoiceViewActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        AccExecInvoiceManage Invoice = new AccExecInvoiceManage();
-        Invoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Invoice.pack();
-        Invoice.setResizable(false);
-        Invoice.setLocationRelativeTo(null);
-        Invoice.setVisible(true);
-        Invoice.backButtonToggle(); //need to check back with accexecinvoicemanage
-        Invoice.setInvoiceData(); //same as above
+        AccExecPaymentManage Payment = new AccExecPaymentManage();
+        Payment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Payment.pack();
+        Payment.setResizable(false);
+        Payment.setLocationRelativeTo(null);
+        Payment.setVisible(true);
+        Payment.backButtonToggle(); //need to check back with accexecinvoicemanage
+        Payment.setPaymentData(); //same as above
     }//GEN-LAST:event_BackAccExecutiveInvoiceViewActionPerformed
 
     public void setDataViewSingle(String id) throws FileNotFoundException{

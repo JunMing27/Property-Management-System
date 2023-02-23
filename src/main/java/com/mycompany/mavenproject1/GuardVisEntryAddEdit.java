@@ -315,23 +315,29 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
                 hour = hourInt.toString();
                 leaveTime = hour+":"+minute;
             }
-        if(leaveTime.isEmpty())
+        if(leaveTime.isEmpty() || leaveTime.isBlank())
         {
             leaveTime = "-";
         }
         if(!id.isEmpty() && !name.isEmpty() && !date.isEmpty() && !enterTime.isEmpty())
         {
-            int dialog = JOptionPane.showConfirmDialog(null,
-                "DATE and TIME Cannot be Changed After Saved", "Confirmation", JOptionPane.YES_NO_OPTION);
-            if(dialog == JOptionPane.YES_OPTION){
-                removeFromFile("VisitorEntry");
-                editFile(id, name, date, enterTime, leaveTime);
-                this.dispose();
-                GuardVisitorEntry visitorEntry = new GuardVisitorEntry();
-                visitorEntry.setVisible(true);
+            if(!id.isBlank()&& !name.isBlank()&& !date.isBlank()&& !enterTime.isBlank())
+            {
+                int dialog = JOptionPane.showConfirmDialog(null,
+                    "DATE and TIME Cannot be Changed After Saved", "Confirmation", JOptionPane.YES_NO_OPTION);
+                if(dialog == JOptionPane.YES_OPTION){
+                    if(addEditDetector.equals("edit"))
+                    {
+                        removeFromFile("VisitorEntry");
+                    }
+                    editFile(id, name, date, enterTime, leaveTime);
+                    this.dispose();
+                    GuardVisEntryManage visitorEntry = new GuardVisEntryManage();
+                    visitorEntry.setVisible(true);
+                }
+            }else{  
+                errorMessage.setText("Name/Date/Enter Time is Empty!");
             }
-                
-            
         }else{
             errorMessage.setText("Name/Date/Enter Time is Empty!");
         }
