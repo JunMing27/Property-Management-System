@@ -201,7 +201,9 @@ public class GuardCheckPointManage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInBtnActionPerformed
-        
+        this.dispose();
+        GuardCheckPointAdd add = new GuardCheckPointAdd();
+        add.setVisible(true);
     }//GEN-LAST:event_checkInBtnActionPerformed
 
     private void viewBtn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtn4ActionPerformed

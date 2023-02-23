@@ -5,7 +5,6 @@
 package com.mycompany.adminExecutive;
 
 
-import com.mycompany.buildingManager.buildingManager;
 import com.mycompany.employee.employee;
 import java.awt.Image;
 import java.awt.image.BufferedImage;

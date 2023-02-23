@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.buildingManager;
+package com.mycompany.adminExecutive;
 
 import com.mycompany.dataController.displayController;
 import java.io.BufferedReader;
@@ -13,57 +13,54 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jun Ming
  */
-public class budgetPlanning implements displayController{
+public class complaint implements displayController{
+
     
-    //VARIABLESSS FOR BUILDING MANAGER FUNCTIONALITY : BUDGET PLANNING
-    private String budgetId;
-    private String projectName;
-    private String projectBudget;
-    private String projectStartDate;
-    private String projectEndDate;
+    private String complaintId;
+    private String complaintDescription;
+    private String complaintReply;
+    private String residentId;
     
-    public String getBudgetId(){
-        return budgetId;
+    public String getComplaintId(){
+        return complaintId;
     }
-    public String getBudgetProjectName(){
-        return projectName;
+    public String getComplaintDescription(){
+        return complaintDescription;
     }
-    public String getBudgetProjectBudget(){
-        return projectBudget;
+    public String getComplaintReply(){
+        return complaintReply;
     }
-    public String getBudgetProjectStartDate(){
-        return projectStartDate;
-    }
-    public String getBudgetProjectEndDate(){
-        return projectEndDate;
+    public String getResidentId(){
+        return residentId;
     }
     
-    public void setBudgetId(String budgetId){
-        this.budgetId=budgetId;
+    public void setComplaintId(String complaintId){
+        this.complaintId=complaintId;
     }
-    public void setBudgetProjectName(String budgetProjectName){
-        this.projectName=budgetProjectName;
+    public void setComplaintDesc(String desc){
+        this.complaintDescription=desc;
     }
-    public void setBudgetProjectBudget(String projectBudget){
-        this.projectBudget=projectBudget;
+    public void setComplaintReply(String reply){
+        this.complaintReply=reply;
     }
-    public void setBudgetProjectStartDate(String projectStartDate){
-        this.projectStartDate=projectStartDate;
+    public void setResidentId(String residentId){
+        this.residentId=residentId;
     }
-    public void setBudgetProjectEndDate(String projectEndDate){
-        this.projectEndDate=projectEndDate;
+    
+    private ArrayList<String> dropDownDatas = new ArrayList<String>();
+    
+    public ArrayList<String>  getDropDownData(){
+        return dropDownDatas;
     }
     
     private Boolean Status;
-    private String file="BudgetPlanning.txt";
+    private String file="Complaint.txt";
 
     public Boolean getStatus(){
         return Status;
@@ -71,7 +68,7 @@ public class budgetPlanning implements displayController{
     
     @Override
     public void chooseTxtFile(String Type) {
-        file="BudgetPlanning.txt";
+        file="Complaint.txt";
     }
     
     @Override
@@ -97,11 +94,10 @@ public class budgetPlanning implements displayController{
         }
         int newSize = allData.size();
         try{
-            setBudgetId(allData.get(dataLine).get(0));
-            setBudgetProjectName(allData.get(dataLine).get(1));
-            setBudgetProjectBudget(allData.get(dataLine).get(2));
-            setBudgetProjectStartDate(allData.get(dataLine).get(3));
-            setBudgetProjectEndDate(allData.get(dataLine).get(4));
+            setComplaintId(allData.get(dataLine).get(0));
+            setComplaintDesc(allData.get(dataLine).get(1));
+            setComplaintReply(allData.get(dataLine).get(2));
+            setResidentId(allData.get(dataLine).get(3));
             Status=true;
             
         }catch(Exception e){
@@ -114,11 +110,11 @@ public class budgetPlanning implements displayController{
     }
     @Override
     public void setDataNull(String type) {
-        setBudgetId(null);
-        setBudgetProjectName(null);
-        setBudgetProjectBudget(null);
-        setBudgetProjectStartDate(null);
-        setBudgetProjectEndDate(null);
+        setComplaintId(null);
+        setComplaintDesc(null);
+        setComplaintReply(null);
+        setResidentId(null);
+
     }
     @Override
     public void getDataViewSingle(String id, String file, String type) {
@@ -126,11 +122,10 @@ public class budgetPlanning implements displayController{
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
-                    setBudgetId(singleData.get(0));
-                    setBudgetProjectName(singleData.get(1));
-                    setBudgetProjectBudget(singleData.get(2));
-                    setBudgetProjectStartDate(singleData.get(3));
-                    setBudgetProjectEndDate(singleData.get(4));
+                    setComplaintId(singleData.get(0));
+                    setComplaintDesc(singleData.get(1));
+                    setComplaintReply(singleData.get(2));
+                    setResidentId(singleData.get(3));
                     break;
                 }
             }
@@ -155,11 +150,11 @@ public class budgetPlanning implements displayController{
                     ID = (ScanEachString.next().trim());
                     break;
                 }
-                    String IDchar = ID.substring(0,2);
-                    ID = ID.substring(2);
+                    String IDchar = ID.substring(0,1);
+                    ID = ID.substring(1);
                     Integer IDnumber = Integer.parseInt(ID)+1;
                     ID = IDchar+ (IDnumber).toString();
-                    setBudgetId(ID);
+                    setComplaintId(ID);
             }
             catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -176,7 +171,6 @@ public class budgetPlanning implements displayController{
             try {
                 sc = new Scanner(file);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(buildingManager.class.getName()).log(Level.SEVERE, null, ex);
             }
             String oneUserInfo; 
             String[] itemArray;
@@ -192,6 +186,18 @@ public class budgetPlanning implements displayController{
         }
         return allUserInfo;
     }
-
-    
+ 
+    class complaintMethod{
+        public void getDropDownData(String file,String type) throws FileNotFoundException{
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
+        ArrayList<ArrayList<String>> allData = DataInfo(fileName);
+        
+        for (ArrayList<String> singleData : allData) {
+            if(type=="Complaint"){
+                dropDownDatas.add(singleData.get(0));
+            }
+            
+        }
+    }
+    }
 }

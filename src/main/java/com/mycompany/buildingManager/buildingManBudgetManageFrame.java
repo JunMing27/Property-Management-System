@@ -551,7 +551,7 @@ public class buildingManBudgetManageFrame extends javax.swing.JFrame {
     }
     
     public void setBudgetPlanData(){
-        budgetPlanning budgetClass = new budgetPlanning();
+        budgetPlan budgetClass = new budgetPlan();
         setPagination();
         budgetClass.displayDataView(PageLine,searchTxt,"budget");
         boolean boo = budgetClass.getStatus();
