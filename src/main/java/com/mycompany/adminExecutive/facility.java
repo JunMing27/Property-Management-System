@@ -19,48 +19,34 @@ import javax.swing.JOptionPane;
  *
  * @author Jun Ming
  */
-public class complaint implements displayController{
+public class facility implements displayController{
 
+    private String facilityId;
+    private String facilityName;
+    private String facilityLocation;
     
-    private String complaintId;
-    private String complaintDescription;
-    private String complaintReply;
-    private String residentId;
-    
-    public String getComplaintId(){
-        return complaintId;
+    public String getFacilityId(){
+        return facilityId;
     }
-    public String getComplaintDescription(){
-        return complaintDescription;
+    public String getFacilityName(){
+        return facilityName;
     }
-    public String getComplaintReply(){
-        return complaintReply;
-    }
-    public String getResidentId(){
-        return residentId;
+    public String getFacilityLocation(){
+        return facilityLocation;
     }
     
-    public void setComplaintId(String complaintId){
-        this.complaintId=complaintId;
+    public void setFacilityId(String facilityId){
+        this.facilityId=facilityId;
     }
-    public void setComplaintDesc(String desc){
-        this.complaintDescription=desc;
+    public void setFacilityName(String facilityName){
+        this.facilityName=facilityName;
     }
-    public void setComplaintReply(String reply){
-        this.complaintReply=reply;
-    }
-    public void setResidentId(String residentId){
-        this.residentId=residentId;
-    }
-    
-    private ArrayList<String> dropDownDatas = new ArrayList<String>();
-    
-    public ArrayList<String>  getDropDownData(){
-        return dropDownDatas;
+    public void setFacilityLocation(String facilityLocation){
+        this.facilityLocation=facilityLocation;
     }
     
     private Boolean Status;
-    private String file="Complaint.txt";
+    private String file="Facility.txt";
 
     public Boolean getStatus(){
         return Status;
@@ -68,7 +54,7 @@ public class complaint implements displayController{
     
     @Override
     public void chooseTxtFile(String Type) {
-        file="Complaint.txt";
+        file="Facility.txt";
     }
     
     @Override
@@ -94,10 +80,9 @@ public class complaint implements displayController{
         }
         int newSize = allData.size();
         try{
-            setComplaintId(allData.get(dataLine).get(0));
-            setComplaintDesc(allData.get(dataLine).get(1));
-            setComplaintReply(allData.get(dataLine).get(2));
-            setResidentId(allData.get(dataLine).get(3));
+            setFacilityId(allData.get(dataLine).get(0));
+            setFacilityName(allData.get(dataLine).get(1));
+            setFacilityLocation(allData.get(dataLine).get(2));
             Status=true;
             
         }catch(Exception e){
@@ -110,11 +95,9 @@ public class complaint implements displayController{
     }
     @Override
     public void setDataNull(String type) {
-        setComplaintId(null);
-        setComplaintDesc(null);
-        setComplaintReply(null);
-        setResidentId(null);
-
+        setFacilityId(null);
+        setFacilityName(null);
+        setFacilityLocation(null);
     }
     @Override
     public void getDataViewSingle(String id, String file, String type) {
@@ -122,10 +105,9 @@ public class complaint implements displayController{
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
-                    setComplaintId(singleData.get(0));
-                    setComplaintDesc(singleData.get(1));
-                    setComplaintReply(singleData.get(2));
-                    setResidentId(singleData.get(3));
+                    setFacilityId(singleData.get(0));
+                    setFacilityName(singleData.get(1));
+                    setFacilityLocation(singleData.get(2));
                     break;
                 }
             }
@@ -154,7 +136,7 @@ public class complaint implements displayController{
                     ID = ID.substring(1);
                     Integer IDnumber = Integer.parseInt(ID)+1;
                     ID = IDchar+ (IDnumber).toString();
-                    setComplaintId(ID);
+                    setFacilityId(ID);
             }
             catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -187,17 +169,5 @@ public class complaint implements displayController{
         return allUserInfo;
     }
  
-    class complaintMethod{
-        public void getDropDownData(String file,String type) throws FileNotFoundException{
-        String fileName = "src/main/java/com/mycompany/textFile/"+file;
-        ArrayList<ArrayList<String>> allData = DataInfo(fileName);
-        
-        for (ArrayList<String> singleData : allData) {
-            if(type=="Complaint"){
-                dropDownDatas.add(singleData.get(0));
-            }
-            
-        }
-    }
-    }
+    
 }

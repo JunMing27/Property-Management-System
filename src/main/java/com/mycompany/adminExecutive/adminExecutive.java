@@ -135,6 +135,8 @@ public class adminExecutive extends User implements dataManagementController, di
             file ="Employee.txt";
         }else if (Type=="Complaint"){
             file ="Complaint.txt";
+        }else if (Type=="Facility"){
+            file ="Facility.txt";
         }
     }
     @Override
@@ -228,6 +230,11 @@ public class adminExecutive extends User implements dataManagementController, di
                             user.set(3, dataList.get(3));
                             break;
                         }
+                        if(type=="Facility"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            break;
+                        }
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -245,6 +252,13 @@ public class adminExecutive extends User implements dataManagementController, di
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
+                            bw.close();
+                        }
+                        if(type=="Facility"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+"\n");
                             bw.close();
                         }
                     }
@@ -279,6 +293,11 @@ public class adminExecutive extends User implements dataManagementController, di
                     AddDataToFile.write(dataList.get(1)+",");
                     AddDataToFile.write(dataList.get(2)+",");
                     AddDataToFile.write(dataList.get(3));
+                }
+                if(type=="Facility"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2));
                 }
                 AddDataToFile.newLine();
                 AddDataToFile.close();
@@ -327,6 +346,16 @@ public class adminExecutive extends User implements dataManagementController, di
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
+                            bw.close();
+                            adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
+                            mainInner.deleteUserCredential(dataId);
+                        }
+                        if(file=="Facility.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+"\n");
                             bw.close();
                             adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
                             mainInner.deleteUserCredential(dataId);
@@ -587,6 +616,12 @@ public class adminExecutive extends User implements dataManagementController, di
             editOrAddData(dataList,type,file,functionType);
         }
         public void deleteComplaint(String itemID){
+            deleteFunction(itemID);
+        }
+        public void addEditFacility(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
+        }
+        public void deleteFacility(String itemID){
             deleteFunction(itemID);
         }
     }
