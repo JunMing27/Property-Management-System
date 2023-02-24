@@ -16,4 +16,6 @@ public interface dataManagementController1 {
     public void removeFromFile(String textFile, ArrayList<String> dataList);
     public void editFile(String textFile, ArrayList<String> dataList);
     public int getNextId(String textFile);
+    public String monthString(String monthNumber);
+    public String monthNumber(String monthString);
 }

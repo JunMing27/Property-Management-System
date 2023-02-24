@@ -208,10 +208,28 @@ public class resident extends User implements dataManagementController1, display
     }
     
     
-    
-    
-    
+    //add for statement
+    private String monthYear;
+    private String date;
 
+    public String getMonthYear() {
+        return monthYear;
+    }
+
+    public void setMonthYear(String monthYear) {
+        this.monthYear = monthYear;
+    }
+    
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    
+    
     @Override
     public void deleteUserCredential(String userID) {
         
@@ -289,6 +307,31 @@ public class resident extends User implements dataManagementController1, display
                 }
             }
         }
+        
+        //for StatementContent.txt filter month
+        else if(textFile.contains("StatementContent"))
+        {
+            this.setMonthYear(null);
+            for (p=0,q=0; p<allUserInfo.size(); p++)
+            {
+                if(allUserInfo.get(p).contains(this.getUserId()))
+                {
+                    ArrayList<String> item = allUserInfo.get(p);
+                    if(item.get(1).equals(this.getUserId()))
+                    {
+                        String monthYear = item.get(3);
+                        monthYear = monthYear.substring(monthYear.indexOf("-")+1); //will be 02-2023
+                        if(!monthYear.equals(this.getMonthYear()) )
+                        {
+                            this.setMonthYear(monthYear);
+                            onlyUserInfo.add(allUserInfo.get(p));
+                            q++;
+                        }
+                    }
+                }
+            }
+        }
+        
         return onlyUserInfo;
     }
 
@@ -316,23 +359,7 @@ public class resident extends User implements dataManagementController1, display
         int newSize = allData.size();
         try{
             if(type.equals("resident")){
-                this.setUserId(allData.get(dataLine).get(0));
-                this.setUserName(allData.get(dataLine).get(1));
-                this.setUserGender(allData.get(dataLine).get(2));
-                this.setUserAge(allData.get(dataLine).get(3));
-                this.setUserPhoneNumber(allData.get(dataLine).get(4));
-                this.setUserUnit(allData.get(dataLine).get(5));
-                this.setUserImage(allData.get(dataLine).get(6));
-                this.status = true;
-            }else if(type.equals("vendor"))
-            {
-                this.setUserId(allData.get(dataLine).get(0));
-                this.setUserName(allData.get(dataLine).get(1));
-                this.setUserGender(allData.get(dataLine).get(2));
-                this.setUserAge(allData.get(dataLine).get(3));
-                this.setUserPhoneNumber(allData.get(dataLine).get(4));
-                this.setUserImage(allData.get(dataLine).get(5));
-                this.status = true;
+             //no one use yet
             }
             
         }catch(Exception e){
@@ -357,7 +384,8 @@ public class resident extends User implements dataManagementController1, display
         this.setPayTo(null);
         this.setPayAmount(null);
         this.setDueDate(null);
-
+        this.setMonthYear(null);
+        this.setDate(null);
     }
 
     @Override
@@ -407,6 +435,11 @@ public class resident extends User implements dataManagementController1, display
                 this.setPayTo(allData.get(dataLine).get(2));
                 this.setPayAmount(allData.get(dataLine).get(3));
                 this.setDueDate(allData.get(dataLine).get(4));
+                this.status = true;
+            }else if(type.equals("statement"))
+            {
+                this.setUserId(allData.get(dataLine).get(1));
+                this.setDate(allData.get(dataLine).get(3));
                 this.status = true;
             }
             
@@ -594,6 +627,93 @@ public class resident extends User implements dataManagementController1, display
             Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id;
+    }
+
+    @Override
+    public String monthString(String monthNumber) {
+        String month = "empty"; 
+        if(monthNumber.equals("01")) 
+        { 
+            month = "JANUARY"; 
+        }else if(monthNumber.equals("02")) 
+        { 
+            month = "FEBRUARY"; 
+        }else if(monthNumber.equals("03")) 
+        { 
+            month = "MARCH"; 
+        }else if(monthNumber.equals("04")) 
+        { 
+            month = "APRIL"; 
+        }else if(monthNumber.equals("05")) 
+        { 
+            month = "MAY"; 
+        }else if(monthNumber.equals("06")) 
+        { 
+            month = "JUNE"; 
+        }else if(monthNumber.equals("07")) 
+        { 
+            month = "JULY"; 
+        }else if(monthNumber.equals("08")) 
+        { 
+            month = "AUGUST"; 
+        }else if(monthNumber.equals("09")) 
+        { 
+            month = "SEPTEMBER"; 
+        }else if(monthNumber.equals("10")) 
+        { 
+            month = "OCTOBER"; 
+        }else if(monthNumber.equals("11")) 
+        { 
+            month = "NOVEMBER"; 
+        }else if(monthNumber.equals("12")) 
+        { 
+            month = "DECEMBER";
+        } 
+        return month;
+    }
+
+    @Override
+    public String monthNumber(String monthString) {
+        String month = "empty"; 
+        if(monthString.equals("JANUARY")) 
+        { 
+            month = "01"; 
+        }else if(monthString.equals("FEBRUARY")) 
+        { 
+            month = "02"; 
+        }else if(monthString.equals("MARCH")) 
+        { 
+            month = "03"; 
+        }else if(monthString.equals("APRIL")) 
+        { 
+            month = "04"; 
+        }else if(monthString.equals("MAY")) 
+        { 
+            month = "05"; 
+        }else if(monthString.equals("JUNE")) 
+        { 
+            month = "06"; 
+        }else if(monthString.equals("JULY")) 
+        { 
+            month = "07"; 
+        }else if(monthString.equals("AUGUST")) 
+        { 
+            month = "08"; 
+        }else if(monthString.equals("SEPTEMBER")) 
+        { 
+            month = "09"; 
+        }else if(monthString.equals("OCTOBER")) 
+        { 
+            month = "10"; 
+        }else if(monthString.equals("NOVEMBER")) 
+        { 
+            month = "11"; 
+        }else if(monthString.equals("DECEMBER")) 
+        { 
+            month = "12";
+        } 
+        return month;
+    
     }
 
     
