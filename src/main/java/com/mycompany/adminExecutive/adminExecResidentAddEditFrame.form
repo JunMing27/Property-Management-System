@@ -49,7 +49,7 @@
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="backBtn" min="-2" pref="91" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="employeeImage" min="-2" pref="165" max="-2" attributes="0"/>
+                          <Component id="userImage" min="-2" pref="165" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
@@ -69,17 +69,17 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="employeeIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="employeeNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="employeeGenderLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="employeeAgeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="employeePhoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="residentIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="residentNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="residentGenderLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="residentAgeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="residentPhoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="employeeNameField" alignment="0" pref="165" max="32767" attributes="0"/>
-                                          <Component id="employeeIdField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="residentNameField" alignment="0" pref="165" max="32767" attributes="0"/>
+                                          <Component id="residentIdField" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="maleCheckBox" min="-2" pref="74" max="-2" attributes="0"/>
@@ -91,17 +91,17 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="employeeUserNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="employeePassLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="employeeJobScopeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="residentUserNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="residentPassLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="residentUnitIdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="employeeAgeField" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="employeePhoneNumberField" alignment="1" pref="165" max="32767" attributes="0"/>
+                                      <Component id="residentAgeField" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="residentPhoneNumberField" alignment="1" pref="165" max="32767" attributes="0"/>
                                       <Component id="credentialNameField" alignment="0" pref="165" max="32767" attributes="0"/>
                                       <Component id="credentialPasswordField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="employeeJobScopeField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="residentUnitIdComboBox" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -117,47 +117,47 @@
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="backBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="employeeImage" min="-2" pref="130" max="-2" attributes="0"/>
+                  <Component id="userImage" min="-2" pref="130" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="imageUploader" min="-2" pref="23" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="employeeIdField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="employeeIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentIdField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="employeeNameField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="employeeNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="employeeGenderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentGenderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="maleCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="femaleCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="employeeAgeField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="employeeAgeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentAgeField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentAgeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="employeePhoneNumberField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="employeePhoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentPhoneNumberField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentPhoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="employeeJobScopeLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="residentUnitIdLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="employeeUserNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="residentUserNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="credentialNameField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" pref="21" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="employeePassLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="residentPassLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="credentialPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -165,7 +165,7 @@
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="employeeJobScopeField" min="-2" max="-2" attributes="0"/>
+                          <Component id="residentUnitIdComboBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -201,7 +201,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddEditBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="employeeImage">
+        <Component class="javax.swing.JLabel" name="userImage">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
@@ -227,21 +227,21 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imageUploaderActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="employeeIdField">
+        <Component class="javax.swing.JTextField" name="residentIdField">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="employeeIdFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="residentIdFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="employeeNameField">
+        <Component class="javax.swing.JTextField" name="residentNameField">
         </Component>
-        <Component class="javax.swing.JTextField" name="employeeAgeField">
+        <Component class="javax.swing.JTextField" name="residentAgeField">
         </Component>
-        <Component class="javax.swing.JTextField" name="employeePhoneNumberField">
+        <Component class="javax.swing.JTextField" name="residentPhoneNumberField">
         </Component>
-        <Component class="javax.swing.JLabel" name="employeeIdLabel">
+        <Component class="javax.swing.JLabel" name="residentIdLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -249,10 +249,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Employee ID"/>
+            <Property name="text" type="java.lang.String" value="Resident ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="employeeNameLabel">
+        <Component class="javax.swing.JLabel" name="residentNameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -260,10 +260,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Employee Name "/>
+            <Property name="text" type="java.lang.String" value="Resident Name "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="employeeGenderLabel">
+        <Component class="javax.swing.JLabel" name="residentGenderLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -274,7 +274,7 @@
             <Property name="text" type="java.lang.String" value="Gender "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="employeeAgeLabel">
+        <Component class="javax.swing.JLabel" name="residentAgeLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -285,7 +285,7 @@
             <Property name="text" type="java.lang.String" value="Age "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="employeePhoneNumberLabel">
+        <Component class="javax.swing.JLabel" name="residentPhoneNumberLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -318,7 +318,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="femaleCheckBoxActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="employeeUserNameLabel">
+        <Component class="javax.swing.JLabel" name="residentUserNameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -334,7 +334,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="credentialNameFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="employeePassLabel">
+        <Component class="javax.swing.JLabel" name="residentPassLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -345,7 +345,7 @@
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="employeeJobScopeLabel">
+        <Component class="javax.swing.JLabel" name="residentUnitIdLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -353,12 +353,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Job Scope"/>
+            <Property name="text" type="java.lang.String" value="Unit ID"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="credentialPasswordField">
         </Component>
-        <Component class="javax.swing.JComboBox" name="employeeJobScopeField">
+        <Component class="javax.swing.JComboBox" name="residentUnitIdComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>

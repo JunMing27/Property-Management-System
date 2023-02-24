@@ -28,13 +28,14 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 
 /**
  *
  * @author HoiYi
  */
-public class resident extends User implements dataManagementController1, displayController1,dataManagementController, displayController{
+public class resident extends User implements dataManagementController1, displayController1, displayController{
 
     @Override
     public String getUserType() {
@@ -248,8 +249,7 @@ public class resident extends User implements dataManagementController1, display
         this.dueAmount = dueAmount;
     }
     
-    
-    
+ 
     @Override
     public void deleteUserCredential(String userID) {
         
@@ -756,51 +756,158 @@ public class resident extends User implements dataManagementController1, display
     
     }
 
-    @Override
-    public void editOrAddData(ArrayList<String> dataList, String type, String file, String functionType) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
+    
 
-    @Override
-    public void deleteFunction(String itemID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private String file="residentProfile.txt";
+    public String getFileType(){
+        return file;
     }
-
-    @Override
-    public ArrayList<ArrayList<String>> DataInfo(String textFile) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void transferImage(File source, File destination) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    
     @Override
     public void chooseTxtFile(String Type) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (Type=="Resident"){
+            file ="residentProfile.txt";
+        }
     }
 
     @Override
     public void displayDataView(Integer dataLine, String searchTxt, String type) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
+        ArrayList<ArrayList<String>> allData = DataInfo(fileName);
+        int i =0;
+        int fixedSize = allData.size();
+        int changedSize = allData.size();
+        if(!searchTxt.equals("")){
+            for (int x=0;x<fixedSize+1;x++) {
+                if(i ==changedSize){
+                    break;
+                }
+                // user.get(0) is userID, user.get(1) is username
+                if(!(allData.get(i)).contains(searchTxt)){
+                    allData.remove(i);
+                    changedSize=changedSize-1;
+                    i=i-1;
+                }
+                i=i+1;
+            }
+        }
+        int newSize = allData.size();
+        try{
+            if(type=="Resident"){
+                this.setUserId(allData.get(dataLine).get(0));
+                this.setUserName(allData.get(dataLine).get(1));
+                this.setUserGender(allData.get(dataLine).get(2));
+                this.setUserAge(allData.get(dataLine).get(3));
+                this.setUserPhoneNumber(allData.get(dataLine).get(4));
+                this.setUserUnit(allData.get(dataLine).get(5));
+                this.setUserImage(allData.get(dataLine).get(6));
+                this.status = true;
+            }
+        }catch(Exception e){
+            setDataNull(type);
+            this.status = false;
+        }
+        if(dataLine.equals(newSize-1)){
+            this.status = false;
+        }
     }
 
     @Override
     public void setDataNull(String type) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(type=="Resident"){
+            this.setUserId(null);
+            this.setUserName(null);
+            this.setUserGender(null);
+            this.setUserAge(null);
+            this.setUserPhoneNumber(null);
+            this.setUserUnit(null);
+            this.setUserImage(null);
+        }
     }
 
     @Override
     public void getDataViewSingle(String id, String file, String type) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
+        ArrayList<ArrayList<String>> allData = DataInfo(fileName);
+        for (ArrayList<String> singleData : allData) {
+                if (singleData.get(0).equals(id)) {
+                    if(type=="Resident"){
+                        this.setUserId(singleData.get(0));
+                        this.setUserName(singleData.get(1));
+                        this.setUserGender(singleData.get(2));
+                        this.setUserAge(singleData.get(3));
+                        this.setUserPhoneNumber(singleData.get(4));
+                        this.setUserUnit(singleData.get(5));
+                        this.setUserImage(singleData.get(6));
+                        try {
+                            getCredentialData(this.getUserId());
+                        } catch (FileNotFoundException ex) {
+                        }
+                    }
+                    break;
+                }
+            }
     }
 
     @Override
     public void getIncreasedID(String file, String type) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        BufferedReader input;
+        try {
+            input = new BufferedReader(new FileReader("src/main/java/com/mycompany/textFile/"+file));
+            String last="";
+            String line="";
+            String ID="";
+            try {
+                while ((line = input.readLine()) != null) {
+                    last = line;
+                }
+                Scanner ScanEachString = new Scanner(last);
+                ScanEachString.useDelimiter("[,\n]");
+                while (ScanEachString.hasNextLine()) {
+                    // First character of a string
+                    ID = (ScanEachString.next().trim());
+                    break;
+                }
+                if(type=="Resident"){
+                    String IDchar = ID.substring(0,1);
+                    ID = ID.substring(1);
+                    Integer IDnumber = Integer.parseInt(ID)+1;
+                    ID = IDchar+ (IDnumber).toString();
+                    setUserId(ID);
+                }
+            }
+            catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public ArrayList<ArrayList<String>> DataInfo(String textFile) {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = null;
+            try {
+                sc = new Scanner(file);
+            } catch (FileNotFoundException ex) {
+            }
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } else {
+        }
+        return allUserInfo;
     }
 
-    
     
 }

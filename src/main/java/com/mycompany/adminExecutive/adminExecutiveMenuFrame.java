@@ -197,7 +197,19 @@ public class adminExecutiveMenuFrame extends javax.swing.JFrame {
 
     private void residentManagePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentManagePageActionPerformed
         // TODO add your handling code here:
-        
+        this.dispose();
+        adminExecResidentManageFrame residentManage = new adminExecResidentManageFrame();
+        residentManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        residentManage.pack();
+        residentManage.setResizable(false);
+        residentManage.setLocationRelativeTo(null);
+        residentManage.setVisible(true);
+        residentManage.backButtonToggle();
+        try {
+            residentManage.setUserType("Resident");
+            residentManage.setResidentData();
+        } catch (IOException ex) {
+        }
     }//GEN-LAST:event_residentManagePageActionPerformed
 
     private void complaintManagePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintManagePageActionPerformed

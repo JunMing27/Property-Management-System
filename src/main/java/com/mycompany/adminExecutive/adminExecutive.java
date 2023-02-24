@@ -126,11 +126,16 @@ public class adminExecutive extends User implements dataManagementController, di
         return file;
     }
     
+    private ArrayList<String> dropDownDatas = new ArrayList<String>();
+    
+    public ArrayList<String>  getDropDownData(){
+        return dropDownDatas;
+    }
     
     @Override
     public void chooseTxtFile(String Type) {
         if(Type=="Resident"){
-            file ="ResidentProfile.txt";
+            file ="residentProfile.txt";
         }else if (Type=="Employee"){
             file ="Employee.txt";
         }else if (Type=="Complaint"){
@@ -255,6 +260,17 @@ public class adminExecutive extends User implements dataManagementController, di
                             mainInner.editUserCredential(dataList.get(0),dataList.get(6),dataList.get(7));
                             break;
                         }
+                        if(type=="Resident"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            user.set(6, dataList.get(6));
+                            adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
+                            mainInner.editUserCredential(dataList.get(0),dataList.get(7),dataList.get(8));
+                            break;
+                        }
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -293,6 +309,13 @@ public class adminExecutive extends User implements dataManagementController, di
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
+                            bw.close();
+                        }
+                        if(type=="Resident"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
                             bw.close();
                         }
                     }
@@ -348,6 +371,18 @@ public class adminExecutive extends User implements dataManagementController, di
                     AddDataToFile.write(dataList.get(5));
                     adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
                     mainInner.addUserCredential(dataList.get(0),dataList.get(6),dataList.get(7),"Vendor");
+                }
+                if(type=="Resident"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4)+",");
+                    AddDataToFile.write(dataList.get(5)+",");
+                    AddDataToFile.write(dataList.get(6));
+                    adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
+                    mainInner.addUserCredential(dataList.get(0),dataList.get(7),dataList.get(8),"Resident");
+                   
                 }
                 AddDataToFile.newLine();
                 AddDataToFile.close();
@@ -423,6 +458,16 @@ public class adminExecutive extends User implements dataManagementController, di
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
+                            bw.close();
+                            adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
+                            mainInner.deleteUserCredential(dataId);
+                        }
+                        if(file=="residentProfile.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
                             bw.close();
                             adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
                             mainInner.deleteUserCredential(dataId);
@@ -676,6 +721,12 @@ public class adminExecutive extends User implements dataManagementController, di
         public void deleteVendor(String itemID){
             deleteFunction(itemID);
         }
+        public void addEditResident(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
+        }
+        public void deleteResident(String itemID){
+            deleteFunction(itemID);
+        }
         public void addUserCredential(String id, String userName, String pass,String role)throws IOException{
             addCredential(id, userName, pass,role);
         }
@@ -703,6 +754,51 @@ public class adminExecutive extends User implements dataManagementController, di
         public void deleteUnit(String itemID){
             deleteFunction(itemID);
         }
+        public void getResidentUnitDropDown(String file,String type)throws FileNotFoundException{
+            String fileName = "src/main/java/com/mycompany/textFile/"+file;
+            ArrayList<ArrayList<String>> allData = DataInfo(fileName);
+
+            for (ArrayList<String> singleData : allData) {
+                if(type=="Resident"){
+                    if(singleData.get(3).equals("Available")){
+                        dropDownDatas.add(singleData.get(0));
+                    }
+                }
+
+            }
+    }
+        //CHANGE UNIT AVAILABILITY UPON RESIDENT CREATION E.G RESIDENT CREATED LIVING IN UNIT ID U2, U2 availability change to occupied
+    public void editAvailability(String oldUnitId, String newUnitId){
+        if(!oldUnitId.equals(newUnitId)){
+            try {
+                String fileName = "src/main/java/com/mycompany/textFile/Unit.txt";
+                ArrayList<ArrayList<String>> allUnit = DataInfo(fileName);
+                for (ArrayList<String> unit : allUnit) {
+                    if (unit.get(0).equals(oldUnitId)) {
+                        unit.set(3, "Available");
+                    }
+                    else if(unit.get(0).equals(newUnitId)) {
+                        unit.set(3, "Occupied");
+                    }
+                }
+                new FileWriter(fileName, false).close();
+                for (ArrayList<String> unit : allUnit) {
+                    try {
+                        File userData = new File("src/main/java/com/mycompany/textFile/Unit.txt");
+                        FileWriter ufw = new FileWriter(userData,true);
+                        BufferedWriter ubw = new BufferedWriter(ufw);
+                        ubw.append(unit.get(0)+",").append(unit.get(1)+",").append(unit.get(2)+",").append(unit.get(3)+"\n");
+                        ubw.close();
+                    }
+                    catch (IOException e) {
+                    }
+                }
+            } 
+            catch (Exception ex) {
+            }
+        }
+    }
+        
     }
     
 }
