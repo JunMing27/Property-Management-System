@@ -58,10 +58,14 @@
                           <Component id="topLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
+                          <Component id="imageLabel" min="-2" pref="138" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="errorMessage" min="-2" pref="286" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
+                              <Component id="errorMessage" alignment="1" min="-2" pref="286" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="residentGenderLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="residentUnitLabel" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -86,8 +90,8 @@
                                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                           <Component id="cancelBtn" min="-2" pref="86" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="residentUsernameTxt" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="residentPwdTxt" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="residentUsernameTxt" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="residentPwdTxt" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="maleCheckBox" alignment="0" max="32767" attributes="0"/>
@@ -99,10 +103,6 @@
                                   </Group>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
-                          <Component id="imageLabel" min="-2" pref="138" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="144" max="32767" attributes="0"/>
@@ -160,8 +160,8 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="residentPwdLabel" min="-2" max="-2" attributes="0"/>
-                      <Component id="residentPwdTxt" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentPwdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentPwdTxt" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="16" max="32767" attributes="0"/>
                   <Component id="errorMessage" min="-2" max="-2" attributes="0"/>

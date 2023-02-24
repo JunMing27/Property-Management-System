@@ -7,6 +7,7 @@ package com.my.company.resident;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -23,10 +24,12 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
     /**
      * Creates new form residentProfileManageFrame
      */
-    public residentProfileManageFrame() {
+    static String idGet;
+    public residentProfileManageFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        idGet = id;
         displayData();
     }
 
@@ -309,13 +312,13 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        ResidentOption residentOption = new ResidentOption();
-        residentOption.setVisible(true);
+        residentMenuFrame menu = new residentMenuFrame(idGet);
+        menu.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         this.dispose();
-        ResidentProfileEdit residentProfileEdit = new ResidentProfileEdit();
+        residentProfileEditFrame residentProfileEdit = new residentProfileEditFrame(idGet);
         residentProfileEdit.setVisible(true);
     }//GEN-LAST:event_editBtnActionPerformed
 
@@ -324,54 +327,51 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
     private void displayData()
     {
         resident main = new resident();
-        String profileString = "ResidentProfile";
-        String credentialString = "loginCredential";
-        ArrayList<ArrayList<String>> userData = main.onlyUserDataInfo(profileString);
-        ArrayList<ArrayList<String>> credentialData = main.onlyUserDataInfo(credentialString);
+        main.setUserId(idGet);
+        main.displayDataViewOwn(0, "", "resident", "ResidentProfile");
+        try {
+            main.getCredentialData(main.getUserId());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(residentProfileManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(main.getUserId()!= null)
+        {
+            residentIdTxt.setText(main.getUserId());
+            residentNameTxt.setText(main.getUserName());
+            residentGenderTxt.setText(main.getUserGender());
+            residentAgeTxt.setText(main.getUserAge());
+            residentPhoneTxt.setText(main.getUserPhone());
+            residentUnitTxt.setText(main.getUserUnit());
+            residentImage = main.getUserImage();
 
-        if(userData.get(0) != null)
-            {
-                try {
-                    residentIdTxt.setText(userData.get(0).get(0));
-                    residentNameTxt.setText(userData.get(0).get(1));
-                    residentGenderTxt.setText(userData.get(0).get(2));
-                    residentAgeTxt.setText(userData.get(0).get(3));
-                    residentPhoneTxt.setText(userData.get(0).get(4));
-                    residentUnitTxt.setText(userData.get(0).get(5));
-                    residentImage = userData.get(0).get(6);
-
-                    residentUsernameTxt.setText(credentialData.get(0).get(1));
-                    residentPwdTxt.setText(credentialData.get(0).get(2));
-
-                    //image
-                    BufferedImage bufferedImage = null;
-                    File imageFile = new File("src/main/java/com/mycompany/Image/"+residentImage);
-                    bufferedImage = ImageIO.read(imageFile);
-                    Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
-                    ImageIcon profileIcon = new ImageIcon(profileImage);
-                    imageLabel.setIcon(profileIcon);
-                } catch (IOException ex) {
-                    Logger.getLogger(residentProfileManageFrame.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            residentUsernameTxt.setText(main.getCredentialName());
+            residentPwdTxt.setText(main.getPassword());
+            
+            try {
+                //image
+                BufferedImage bufferedImage = null;
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+residentImage);
+                bufferedImage = ImageIO.read(imageFile);
+                Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon profileIcon = new ImageIcon(profileImage);
+                imageLabel.setIcon(profileIcon);
+            } catch (IOException ex) {
+                Logger.getLogger(residentProfileManageFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-            else{
-                residentIdTxt.setText("no data");
-                residentNameTxt.setText("no data");
-                residentGenderTxt.setText("no data");
-                residentAgeTxt.setText("no data");
-                residentPhoneTxt.setText("no data");
-                residentUnitTxt.setText("no data");
-                imageLabel.setText("no data");
-                residentUsernameTxt.setText("no data");
-                residentPwdTxt.setText("no data");
-            }
+        }
+        else{
+            residentIdTxt.setText("no data");
+            residentNameTxt.setText("no data");
+            residentGenderTxt.setText("no data");
+            residentAgeTxt.setText("no data");
+            residentPhoneTxt.setText("no data");
+            residentUnitTxt.setText("no data");
+            imageLabel.setText("no data");
+            residentUsernameTxt.setText("no data");
+            residentPwdTxt.setText("no data");
+        }
     }
-    
-    
-    
-    
-    
-    
     
     
     
@@ -405,7 +405,7 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentProfileManageFrame().setVisible(true);
+                new residentProfileManageFrame(idGet).setVisible(true);
             }
         });
     }

@@ -9,14 +9,24 @@ import com.mycompany.dataController.dataManagementController;
 import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController;
 import com.mycompany.dataController.displayController1;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.net.FileNameMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.filechooser.FileFilter;
 
 /**
  *
@@ -141,9 +151,38 @@ public class resident extends User implements dataManagementController1, display
     }
     
     
+    //add selectedImageString
+    private String selectedImageString;
+
+    public String getSelectedImageString() {
+        return selectedImageString;
+    }
+
+    public void setSelectedImageString(String selectedImageString) {
+        this.selectedImageString = selectedImageString;
+    }
+    
+    
+    
+    //add selectedImageIcon
+    private ImageIcon selectedImageIcon;
+    
+    public ImageIcon getSelectedImageIcon() {
+        return selectedImageIcon;
+    }
+
+    public void setSelectedImageIcon(ImageIcon selectedImageIcon) {
+        this.selectedImageIcon = selectedImageIcon;
+    }
+    
+    
+    
+    
+    
     //declare variable for methods
-    private String file = "";
-    private String userId = this.getUserId();
+    
+    
+    
     
     
 
@@ -164,12 +203,21 @@ public class resident extends User implements dataManagementController1, display
 
     @Override
     public void getCredentialData(String userId) throws FileNotFoundException {
-        
+        String fileName = "src/main/java/com/mycompany/textFile/loginCredential.txt";
+        ArrayList<ArrayList<String>> allData = allUserDataInfo(fileName);
+        for (ArrayList<String> singleData : allData) {
+                if (singleData.get(0).equals(this.getUserId())) {
+                    setCredentialName(singleData.get(1));
+                    setPassword(singleData.get(2));
+                    break;
+                }
+            }
+    
     }
 
     @Override
     public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
-        File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+        File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
         if (file.exists()) {
             Scanner sc = null;
@@ -199,14 +247,15 @@ public class resident extends User implements dataManagementController1, display
         
         int p,q;
         //for ResidentProfile.txt & vendorProfile.txt
-        if(textFile.equals("ResidentProfile") || textFile.equals("VendorProfile"))
+        
+        if(textFile.contains("ResidentProfile") || textFile.contains("VendorProfile"))
         {
             for (p=0,q=0; p<allUserInfo.size(); p++)
             {
-                if(allUserInfo.get(p).contains(userId))
+                if(allUserInfo.get(p).contains(this.getUserId()))
                 {
                     ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(0).equals(userId))
+                    if(item.get(0).equals(this.getUserId()))
                     {
                         onlyUserInfo.add(allUserInfo.get(p));
                         q++;
@@ -218,8 +267,8 @@ public class resident extends User implements dataManagementController1, display
     }
 
     @Override
-    public void displayDataViewAll(Integer dataLine, String searchTxt, String type) {
-        String fileName = "src/main/java/com/mycompany/textFile/"+file;
+    public void displayDataViewAll(Integer dataLine, String searchTxt, String type, String fileName) {
+        fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
         ArrayList<ArrayList<String>> allData = allUserDataInfo(fileName);
         int i =0;
         int fixedSize = allData.size();
@@ -285,8 +334,8 @@ public class resident extends User implements dataManagementController1, display
     }
 
     @Override
-    public void displayDataViewOwn(Integer dataLine, String searchTxt, String type) {
-        String fileName = "src/main/java/com/mycompany/textFile/"+file;
+    public void displayDataViewOwn(Integer dataLine, String searchTxt, String type, String fileName) {
+        fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
         ArrayList<ArrayList<String>> allData = onlyUserDataInfo(fileName);
         int i =0;
         int fixedSize = allData.size();
@@ -335,5 +384,120 @@ public class resident extends User implements dataManagementController1, display
             this.status = false;
         }
     }
+
+
+    @Override
+    public void displayJFileChooserImage() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileFilter() {
+            @Override
+            public boolean accept(File f) {
+                if (f.isDirectory()) {
+                    return true;
+                }
+                final String name = f.getName();
+                return name.endsWith(".png") || name.endsWith(".jpg");
+            }
+            @Override
+            public String getDescription() {
+                return "*.png,*.jpg";
+            }
+        });
+        
+        int result = fileChooser.showOpenDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION)
+        {
+            File selectedImagePath = fileChooser.getSelectedFile();
+            String selectedImageString = selectedImagePath.toString();
+            
+            BufferedImage bufferedImage = null;
+            try {
+                bufferedImage = ImageIO.read(selectedImagePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Image profileImage = bufferedImage.getScaledInstance(138, 126, Image.SCALE_SMOOTH);
+            ImageIcon profileIcon = new ImageIcon(profileImage);
+            this.setSelectedImageIcon(profileIcon);
+            
+            String image = selectedImageString.substring(selectedImageString.lastIndexOf("/") + 1);
+            this.setSelectedImageString(image);
+        }
+    }
+
+    @Override
+    public void removeFromFile(String textFile) {
+        try {
+            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            if(textFile.equals("ResidentProfile") || textFile.equals("vendorProfile") || textFile.equals("loginCredential"))
+            {
+                for(int j=0;j<allUsers.size();j++)
+                {
+                    if(allUsers.get(j).get(0).equals(this.getUserId()))
+                    {
+                        allUsers.remove(j);
+                        break;
+                    }
+                }
+            }
+
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        }catch (IOException ex) {
+            Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void editFile(String textFile,  ArrayList<String> dataList) {
+        try {
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            if(textFile.equals("ResidentProfile"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(4)+","
+                        +dataList.get(5)+","
+                        +dataList.get(6)+"\n");
+            }
+            if(textFile.equals("loginCredential"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+"\n");
+            }
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
+        
+        }
+    }
+
+    
+    
    
+    
 }

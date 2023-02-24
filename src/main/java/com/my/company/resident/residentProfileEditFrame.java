@@ -2,52 +2,38 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.mavenproject1;
+package com.my.company.resident;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileFilter;
 
 /**
  *
- * @author user
+ * @author hoiyi
  */
-public class ResidentProfileEdit extends javax.swing.JFrame {
-    //declare variable
-    ResidentProfile residentProfile = new ResidentProfile();
-    ResidentMain residentMain;
-    String residentId, residentName, residentAgeString, residentGender, residentPhone, residentUnit, residentUserName, residentPwd, residentImage;
-    int residentAgeInt;
-    File selectedImagePath;
-    String selectedImageString;
+public class residentProfileEditFrame extends javax.swing.JFrame {
+
+    String image;
+    static String idGet;
     
-    /**
-     * Creates new form ResidentProfileEdit
-     */
-    public ResidentProfileEdit() {
+    public residentProfileEditFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        residentMain = new ResidentMain();
-        residentId = residentMain.getId();
+        idGet = id;
         displayData();
-        
     }
 
     /**
@@ -252,6 +238,9 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                         .addGap(98, 98, 98)
                         .addComponent(topLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,10 +273,7 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                                             .addComponent(maleCheckBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(residentAgeTxt, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(femaleCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(femaleCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -361,56 +347,64 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        residentProfile.setVisible(true);
+        residentProfileManageFrame manageFrame = new residentProfileManageFrame(idGet);
+        manageFrame.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
+        resident main = new resident();
+        main.displayJFileChooserImage();
+        imageLabel.setIcon(main.getSelectedImageIcon());
+    }//GEN-LAST:event_imageLabelMouseClicked
+
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        residentName = residentNameTxt.getText();
-        residentAgeString = residentAgeTxt.getText();
+        
+        String name = residentNameTxt.getText();
+        String ageString = residentAgeTxt.getText();
+        String gender = "";
         if(maleCheckBox.isSelected())
         {
-            residentGender = "male"; 
+            gender = "male";
         }else if(femaleCheckBox.isSelected())
         {
-            residentGender = "female";
+            gender = "female";
         }
-        residentPhone = residentPhoneTxt.getText();
-        residentUnit = residentUnitTxt.getText();
-        residentUserName = residentUsernameTxt.getText();
-        residentPwd = residentPwdTxt.getText();
+        String phone = residentPhoneTxt.getText();
+        String unit = residentUnitTxt.getText();
+        String userName = residentUsernameTxt.getText();
+        String pwd = residentPwdTxt.getText();
         errorMessage.setText("");
-        if(!residentName.isEmpty() && !residentAgeString.isEmpty() 
-                && !residentGender.isEmpty() && !residentPhone.isEmpty() 
-                && !residentUnit.isEmpty() && !residentUserName.isEmpty() 
-                && !residentPwd.isEmpty())
+        if(!name.isEmpty() && !ageString.isEmpty()
+            && !gender.isEmpty() && !phone.isEmpty()
+            && !unit.isEmpty() && !userName.isEmpty()
+            && !pwd.isEmpty())
         {
-            if(!residentName.isBlank()&& !residentAgeString.isBlank()
-                && !residentGender.isBlank()&& !residentPhone.isBlank()
-                && !residentUnit.isBlank()&& !residentUserName.isBlank()
-                && !residentPwd.isBlank())
+            if(!name.isBlank()&& !ageString.isBlank()
+                && !gender.isBlank()&& !phone.isBlank()
+                && !unit.isBlank()&& !userName.isBlank()
+                && !pwd.isBlank())
             {
                 try {
-                    residentAgeInt = Integer.parseInt(residentAgeString);
+                    Integer.parseInt(ageString);
                     
                 } catch (NumberFormatException e) {
                     errorMessage.setText("Age Must be Integer !");
                 }
 
-                //check phone
                 Matcher phoneMatcher = Pattern.compile("^(01)[0-9]*[0-9]{7,8}$").
-                        matcher(residentPhone);
+                        matcher(phone);
                  //check dash
                 Matcher phoneMatcher2 = Pattern.compile("^(01)[0-9]-*[0-9]{7,8}$").
-                        matcher(residentPhone);
+                        matcher(phone);
                  //check space
                 Matcher phoneMatcher3 = Pattern.compile("^(01)[0-9]-*[0-9 ]{7,8}$").
-                        matcher(residentPhone);
+                        matcher(phone);
                 if(phoneMatcher.matches() == false && phoneMatcher2.matches() == false && phoneMatcher3.matches() == false)
                 {
                     errorMessage.setText("Phone Number is Invalid !");
                 }
 
-                if(residentUserName.contains(" ") || residentPwd.contains(" "))
+                if(userName.contains(" ") || pwd.contains(" "))
                 {
                     errorMessage.setText("Username or Password cannot contain space ");
                 }
@@ -420,12 +414,27 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                     int dialog = JOptionPane.showConfirmDialog(null, 
                             "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
                     if(dialog == JOptionPane.YES_OPTION){
-                        removeFromFile("ResidentProfile");
-                        removeFromFile("loginCredential");
-                        editProfile(residentName, residentGender, residentAgeInt, residentPhone, residentUnit, residentImage);
-                        editCredential(residentUserName, residentPwd);
+                        resident main = new resident();
+                        main.setUserId(idGet);
+                        main.removeFromFile("ResidentProfile");
+                        main.removeFromFile("loginCredential");
+                        ArrayList<String> dataList = new ArrayList<>();
+                        dataList.add(idGet);
+                        dataList.add(name);
+                        dataList.add(gender);
+                        dataList.add(ageString);
+                        dataList.add(phone);
+                        dataList.add(unit);
+                        dataList.add(image);
+                        main.editFile("ResidentProfile", dataList);
+                        dataList = new ArrayList<>();
+                        dataList.add(idGet);
+                        dataList.add(userName);
+                        dataList.add(pwd);
+                        dataList.add("resident");
+                        main.editFile("loginCredential", dataList);
                         this.dispose();
-                        ResidentProfile residentProfile = new ResidentProfile();
+                        residentProfileManageFrame residentProfile = new residentProfileManageFrame(idGet);
                         residentProfile.setVisible(true); 
                     }
                 }
@@ -437,228 +446,69 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         this.dispose();
-        residentProfile.setVisible(true);
+        residentProfileManageFrame residentProfile = new residentProfileManageFrame(idGet);
+        residentProfile.setVisible(true); 
     }//GEN-LAST:event_cancelBtnActionPerformed
-
-    private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileFilter(new FileFilter() {
-            @Override
-            public boolean accept(File f) {
-                if (f.isDirectory()) {
-                    return true;
-                }
-                final String name = f.getName();
-                return name.endsWith(".png") || name.endsWith(".jpg");
-            }
-
-            @Override
-            public String getDescription() {
-                return "*.png,*.jpg";
-            }
-        });
-        int result = fileChooser.showOpenDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION)
-        {
-            selectedImagePath = fileChooser.getSelectedFile();
-            selectedImageString = selectedImagePath.toString();
-            BufferedImage bufferedImage = null;
-            try {
-                bufferedImage = ImageIO.read(selectedImagePath);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
-            ImageIcon profileIcon = new ImageIcon(profileImage);
-            imageLabel.setIcon(profileIcon);
-            
-            residentImage = selectedImageString.substring(selectedImageString.lastIndexOf("/") + 1);
-            
-        }
-    }//GEN-LAST:event_imageLabelMouseClicked
 
     
     private void displayData()
     {
+        resident main = new resident();
+        main.setUserId(idGet);
+        main.displayDataViewOwn(0, "", "resident", "ResidentProfile");
         try {
-            String profileFile = "src/main/java/com/mycompany/textFile/ResidentProfile.txt";
-            String credentialFile = "src/main/java/com/mycompany/textFile/loginCredential.txt";
-            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(profileFile);
-            ArrayList<ArrayList<String>> credentialData = onlyUserDataInfo(credentialFile);
-
-            if(userData.get(0) != null)
+            main.getCredentialData(main.getUserId());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(residentProfileEditFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(main.getUserId() != null)
+        {
+            residentIdTxt.setText(main.getUserId());
+            residentNameTxt.setText(main.getUserName());
+            String gender = main.getUserGender();
+            if(gender.equals("male"))
             {
-                residentIdTxt.setText(userData.get(0).get(0));
-                residentNameTxt.setText(userData.get(0).get(1));
-                if(userData.get(0).get(2).equals("male"))
-                {
-                   maleCheckBox.setSelected(true);
-                }else if(userData.get(0).get(2).equals("female"))
-                {
-                    femaleCheckBox.setSelected(true);
-                }
-                residentAgeTxt.setText(userData.get(0).get(3));
-                residentPhoneTxt.setText(userData.get(0).get(4));
-                residentUnitTxt.setText(userData.get(0).get(5));
-                residentImage = userData.get(0).get(6);
-                
-                residentUsernameTxt.setText(credentialData.get(0).get(1));
-                residentPwdTxt.setText(credentialData.get(0).get(2));
+                maleCheckBox.setSelected(true);
+            }else if(gender.equals("female"))
+            {
+                femaleCheckBox.setSelected(true);
+            }
+            residentAgeTxt.setText(main.getUserAge());
+            residentPhoneTxt.setText(main.getUserPhone());
+            residentUnitTxt.setText(main.getUserUnit());
+            image = main.getUserImage();
 
+            residentUsernameTxt.setText(main.getCredentialName());
+            residentPwdTxt.setText(main.getPassword());
+
+            try {
                 //image
                 BufferedImage bufferedImage = null;
-                File imageFile = new File("src/main/java/com/mycompany/Image/"+residentImage);
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+image);
                 bufferedImage = ImageIO.read(imageFile);
                 Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon profileIcon = new ImageIcon(profileImage);
                 imageLabel.setIcon(profileIcon);
+            } catch (IOException ex) {
+                Logger.getLogger(residentProfileEditFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-            else{
-                residentIdTxt.setText("no data");
-                residentNameTxt.setText("no data");
-                maleCheckBox.setSelected(false);
-                femaleCheckBox.setSelected(false);
-                residentAgeTxt.setText("no data");
-                residentPhoneTxt.setText("no data");
-                residentUnitTxt.setText("no data");
-                imageLabel.setText("no data");
-                residentUsernameTxt.setText("no data");
-                residentPwdTxt.setText("no data");
-            }
-            
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
-    }
- 
-    private void editProfile(String name, String gender, int age, String phone, String unit, String image)
-    {
-        //save into profile file
-        try {
-            String fileName = "ResidentProfile";
-            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
-            FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(residentId+","
-                    +name+","
-                    +gender+","
-                    +age+","
-                    +phone+","
-                    +unit+","
-                    +image+"\n");
-            bw.close();
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
+        }else{
+            residentIdTxt.setText("no data");
+            residentNameTxt.setText("no data");
+            maleCheckBox.setSelected(false);
+            femaleCheckBox.setSelected(false);
+            residentAgeTxt.setText("no data");
+            residentPhoneTxt.setText("no data");
+            residentUnitTxt.setText("no data");
+            imageLabel.setText("no data");
+            residentUsernameTxt.setText("no data");
+            residentPwdTxt.setText("no data");
         }
     }
     
-    
-    private void editCredential(String username, String pwd)
-    {
-        try {
-            String fileName = "loginCredential";
-            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
-            FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(residentId+","
-                    +username+","
-                    +pwd+","
-                    +"resident"+"\n");
-            bw.close();
-        }catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-    
-    
-    private  ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
-    {
-        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
-        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
-        
-        int p,q;
-        for (p=0,q=0; p<allUserInfo.size(); p++)
-        {
-            if(allUserInfo.get(p).contains(residentId))
-            {
-                ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(0).equals(residentId))
-                {
-                    onlyUserInfo.add(allUserInfo.get(p));
-                    q++;
-                }
-            }
-        }
-        return onlyUserInfo;
-    }
-    
-    private  ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
-    {
-        File file = new File(textFile);
-        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
-        if (file.exists()) {
-            Scanner sc = new Scanner(file);
-            String oneUserInfo; 
-            String[] itemArray;
-            ArrayList<String> itemArrayList;
-            allUserInfo = new ArrayList<>();
-            while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); 
-                itemArray = oneUserInfo.split(","); 
-                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
-                allUserInfo.add(itemArrayList);
-            }
-        } 
-        
-        return allUserInfo;
-    }
-    
-    private void removeFromFile(String fileName)
-    {
-        try {
-            String filePath = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
-            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            for(int j=0;j<allUsers.size();j++)
-            {
-                if(allUsers.get(j).get(0).equals(residentId))
-                {
-                    allUsers.remove(j);
-                    break;
-                }
-            }
 
-            File file= new File(filePath);
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<allUsers.size(); j++) 
-            {
-                ArrayList<String>item = allUsers.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                       bw.write(item.get(k));
-                    }else{
-                       bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-            
-        }catch (IOException ex) {
-            Logger.getLogger(ResidentProfileEdit.class.getName()).log(Level.SEVERE, null, ex);
-        }
     
-        
-    }
     /**
      * @param args the command line arguments
      */
@@ -676,20 +526,20 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentProfileEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentProfileEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentProfileEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentProfileEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentProfileEdit().setVisible(true);
+                new residentProfileEditFrame(idGet).setVisible(true);
             }
         });
     }
@@ -720,5 +570,5 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     private javax.swing.JButton saveBtn;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
-}
 
+}
