@@ -34,7 +34,7 @@ import javax.swing.filechooser.FileFilter;
  *
  * @author HoiYi
  */
-public class resident extends User implements dataManagementController1, displayController1{
+public class resident extends User implements dataManagementController1, displayController1,dataManagementController, displayController{
 
     @Override
     public String getUserType() {
@@ -754,6 +754,51 @@ public class resident extends User implements dataManagementController1, display
         } 
         return month;
     
+    }
+
+    @Override
+    public void editOrAddData(ArrayList<String> dataList, String type, String file, String functionType) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void deleteFunction(String itemID) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public ArrayList<ArrayList<String>> DataInfo(String textFile) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void transferImage(File source, File destination) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void chooseTxtFile(String Type) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void displayDataView(Integer dataLine, String searchTxt, String type) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setDataNull(String type) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void getDataViewSingle(String id, String file, String type) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void getIncreasedID(String file, String type) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     
