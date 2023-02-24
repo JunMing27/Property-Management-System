@@ -6,7 +6,9 @@ package com.my.company.resident;
 
 import com.mycompany.dataController.User;
 import com.mycompany.dataController.dataManagementController;
+import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController;
+import com.mycompany.dataController.displayController1;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
  *
  * @author HoiYi
  */
-public class resident extends User implements dataManagementController, displayController{
+public class resident extends User implements dataManagementController1, displayController1{
 
     @Override
     public String getUserType() {
@@ -160,97 +162,19 @@ public class resident extends User implements dataManagementController, displayC
     }
 
     @Override
-    public void editOrAddData(ArrayList<String> dataList, String type, String file, String functionType) {
-        
-    }
-
-    @Override
-    public void deleteFunction(String itemID) {
-        
-    }
-
-    @Override
     public ArrayList<ArrayList<String>> DataInfo(String textFile) {
-        return null;
-    }
-
-    @Override
-    public void transferImage(File source, File destination) {
-        
-    }
-
-    @Override
-    public void chooseTxtFile(String Type) {
-        
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void displayDataView(Integer dataLine, String searchTxt, String type) {
-        String fileName = "src/main/java/com/mycompany/textFile/"+file;
-        ArrayList<ArrayList<String>> allData = DataInfo(fileName);
-        int i =0;
-        int fixedSize = allData.size();
-        int changedSize = allData.size();
-        if(!searchTxt.equals("")){
-            for (int x=0;x<fixedSize+1;x++) {
-                if(i ==changedSize){
-                    break;
-                }
-                
-                if(!(allData.get(i)).contains(searchTxt)){
-                    allData.remove(i);
-                    changedSize=changedSize-1;
-                    i=i-1;
-                }
-                i=i+1;
-            }
-        }
-        int newSize = allData.size();
-        try{
-            //for profile
-            if(type.equals("Resident")){
-                this.setUserId(allData.get(dataLine).get(0));
-                this.setUserName(allData.get(dataLine).get(1));
-                this.setUserGender(allData.get(dataLine).get(2));
-                this.setUserAge(allData.get(dataLine).get(3));
-                this.setUserPhoneNumber(allData.get(dataLine).get(4));
-                this.setUserUnit(allData.get(dataLine).get(5));
-                this.setUserImage(allData.get(dataLine).get(6));
-                this.status = true;
-            }
-            //for profile
-            else if(type.equals("vendor"))
-            {
-                this.setUserId(allData.get(dataLine).get(0));
-                this.setUserName(allData.get(dataLine).get(1));
-                this.setUserGender(allData.get(dataLine).get(2));
-                this.setUserAge(allData.get(dataLine).get(3));
-                this.setUserPhoneNumber(allData.get(dataLine).get(4));
-                this.setUserImage(allData.get(dataLine).get(5));
-                this.status = true;
-            }
-        }catch(Exception e){
-            setDataNull(type);
-            this.status = false;
-        }
-        if(dataLine.equals(newSize-1)){
-            this.status = false;
-        }
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void setDataNull(String type) {
-        
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public void getDataViewSingle(String id, String file, String type) {
-        
-    }
-
-    @Override
-    public void getIncreasedID(String file, String type) {
-        
-    }
-    
+   
 }

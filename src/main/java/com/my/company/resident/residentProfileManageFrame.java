@@ -17,6 +17,7 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        displayData();
     }
 
     /**
@@ -308,6 +309,20 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
         residentProfileEdit.setVisible(true);
     }//GEN-LAST:event_editBtnActionPerformed
 
+    
+    private void displayData()
+    {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
