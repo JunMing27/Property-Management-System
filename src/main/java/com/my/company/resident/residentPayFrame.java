@@ -2,33 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.mavenproject1;
+package com.my.company.resident;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class ResidentPay extends javax.swing.JFrame {
+/**
+ *
+ * @author user
+ */
+public class residentPayFrame extends javax.swing.JFrame {
+
+    static String idGet;
     
-    ResidentMain residentMain;
-    String residentId;
-        
-    public ResidentPay(){
+    public residentPayFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        residentMain = new ResidentMain();
-        residentId = residentMain.getId();
-        displayData();
+        idGet = id;
         backPageBtn.setEnabled(false);
+        displayData();
     }
 
     /**
@@ -64,6 +57,7 @@ public class ResidentPay extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(233, 233, 233));
+        jPanel1.setPreferredSize(new java.awt.Dimension(566, 600));
 
         backBtn.setBackground(new java.awt.Color(255, 255, 255));
         backBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -272,52 +266,129 @@ public class ResidentPay extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        this.dispose();
+        residentPaymentMenuFrame residentPaymentOption = new residentPaymentMenuFrame(idGet);
+        residentPaymentOption.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void selectBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn1ActionPerformed
+        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will consider paid ",
+            "INFORMATION", JOptionPane.YES_NO_OPTION);
+        if(result == JOptionPane.YES_OPTION)
+        {
+            ArrayList<String> dataList = new ArrayList<>();
+            dataList.add(idGet);
+            dataList.add(payToTxt1.getText());
+            dataList.add(payAmountTxt1.getText());
+            dataList.add(dueDateTxt1.getText());
+            resident main = new resident();
+            main.setUserId(idGet);
+            main.removeFromFile("Payment", dataList);
+            int dataNextId = main.getNextId("Pending");
+            dataList.add(Integer.toString(dataNextId));
+            main.editFile("Pending", dataList);
+            this.dispose();
+            residentPayFrame residentPay = new residentPayFrame(idGet);
+            residentPay.setVisible(true);
+        }
+
+    }//GEN-LAST:event_selectBtn1ActionPerformed
+
+    private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
+
+        backButtonFunction();
+        nextPageBtn.setEnabled(true);
+        displayData();
+    }//GEN-LAST:event_backPageBtnActionPerformed
+
     private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
-        
+
         backPageBtn.setEnabled(true);
         displayData();
     }//GEN-LAST:event_nextPageBtnActionPerformed
 
-    private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
-        
-        backButtonFunction();
-        nextPageBtn.setEnabled(true);
-        displayData();   
-    }//GEN-LAST:event_backPageBtnActionPerformed
-
-    private void selectBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn1ActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will consider paid ",
-                                        "INFORMATION", JOptionPane.YES_NO_OPTION);
-        if(result == JOptionPane.YES_OPTION)
-        {
-            removeSelectedDue("upper");
-            this.dispose();
-            ResidentPay residentPay = new ResidentPay();
-            residentPay.setVisible(true);
-        }
-        
-    }//GEN-LAST:event_selectBtn1ActionPerformed
-
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        this.dispose();
-        ResidentPaymentOption residentPaymentOption = new ResidentPaymentOption();
-        residentPaymentOption.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
-
     private void selectBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtn2ActionPerformed
         int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will consider paid ",
-                                        "INFORMATION", JOptionPane.YES_NO_OPTION);
+            "INFORMATION", JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
-            removeSelectedDue("bottom");
+            ArrayList<String> dataList = new ArrayList<>();
+            dataList.add(idGet);
+            dataList.add(payToTxt2.getText());
+            dataList.add(payAmountTxt2.getText());
+            dataList.add(dueDateTxt2.getText());
+            resident main = new resident();
+            main.setUserId(idGet);
+            main.removeFromFile("Payment", dataList);
+            int dataNextId = main.getNextId("Pending");
+            dataList.add(Integer.toString(dataNextId));
+            main.editFile("Pending", dataList);
             this.dispose();
-            ResidentPay residentPay = new ResidentPay();
+            residentPayFrame residentPay = new residentPayFrame(idGet);
             residentPay.setVisible(true);
+        }
+
+    }//GEN-LAST:event_selectBtn2ActionPerformed
+
+    private int pageLine=-1;
+    
+    private void setPagination(){
+        pageLine=pageLine+1;
+    }
+    
+    public void backButtonFunction(){
+        pageLine = pageLine - 4;
+        if (pageLine == -1){
+            backPageBtn.setEnabled(false);
+        }
+    }
+    
+    private void displayData(){
+        resident main = new resident();
+        main.setUserId(idGet);
+        setPagination();
+        main.displayDataViewOwn(pageLine, "", "pay", "Payment");
+        boolean boo = main.getStatus();
+        if(boo==false){
+            nextPageBtn.setEnabled(false);
+        }
+        if(main.getUserId() != null){
+            payToTxt1.setText(main.getPayTo());
+            payAmountTxt1.setText(main.getPayAmount());
+            dueDateTxt1.setText(main.getDueDate());
+        }else{
+            payToTxt1.setText("no data");
+            payAmountTxt1.setText("no data");
+            dueDateTxt1.setText("no data");
+            selectBtn1.setEnabled(false);
+        }
+        
+        setPagination();
+        main.displayDataViewOwn(pageLine, "", "pay", "Payment");
+        boolean boo2 = main.getStatus();
+        if(boo2==false){
+            nextPageBtn.setEnabled(false);
+        }
+        if(main.getUserId() != null){
+            payToTxt2.setText(main.getPayTo());
+            payAmountTxt2.setText(main.getPayAmount());
+            dueDateTxt2.setText(main.getDueDate());
+        }else{
+            payToTxt2.setText("no data");
+            payAmountTxt2.setText("no data");
+            dueDateTxt2.setText("no data");
+            selectBtn2.setEnabled(false);
         }
         
         
-    }//GEN-LAST:event_selectBtn2ActionPerformed
-
+        
+    }
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -335,24 +406,25 @@ public class ResidentPay extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ResidentPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentPayFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ResidentPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentPayFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ResidentPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentPayFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ResidentPay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentPayFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResidentPay().setVisible(true);
+                new residentPayFrame(idGet).setVisible(true);
             }
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JButton backPageBtn;
@@ -376,256 +448,6 @@ public class ResidentPay extends javax.swing.JFrame {
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 
-    
-    
-    
-    private int pageLine=-1;
-    
-    private void setPagination(){
-        pageLine=pageLine+1;
-    }
-    
-    public void backButtonFunction(){
-        pageLine = pageLine - 4;
-        if (pageLine == -1){
-            backPageBtn.setEnabled(false);
-        }
-    }
-    
-    private void displayData(){
-        setPagination();
-        displayDataView(pageLine, "upper");
-        boolean boo = residentMain.getStatus();
-        if(boo==false){
-            nextPageBtn.setEnabled(false);
-        }
-        
-        setPagination();
-        displayDataView(pageLine, "bottom");
-        boolean boo2 = residentMain.getStatus();
-        if(boo2==false){
-            nextPageBtn.setEnabled(false);
-        }
-        
-    }
-        
-    
-    private void displayDataView(Integer pageLine, String part)
-    {
-        try{
-            String paymentFile = "src/main/java/com/mycompany/textFile/Payment.txt";
-            ArrayList<ArrayList<String>> userData = onlyUserDataInfo(paymentFile);
-            int newSize = userData.size();            
-            try{
-                userData.get(pageLine);
-                if(part.equals("upper"))
-                {
-                    payToTxt1.setText(userData.get(pageLine).get(2));
-                    payAmountTxt1.setText(userData.get(pageLine).get(3));
-                    dueDateTxt1.setText(userData.get(pageLine).get(4));
-                    payToTxt2.setText("no data");
-                    payAmountTxt2.setText("no data");
-                    dueDateTxt2.setText("no data");
-                    selectBtn2.setEnabled(false);
-                    residentMain.setStatus(true);
-                }else{
-                    payToTxt2.setText(userData.get(pageLine).get(2));
-                    payAmountTxt2.setText(userData.get(pageLine).get(3));
-                    dueDateTxt2.setText(userData.get(pageLine).get(4));
-                    selectBtn2.setEnabled(true);
-                    residentMain.setStatus(true);
-                }
-                if(payToTxt1.getText() == null)
-                {
-                    payToTxt1.setText("no data");
-                    payAmountTxt1.setText("no data");
-                    dueDateTxt1.setText("no data");
-                }
-                if(payToTxt2.getText() == null)
-                {
-                    payToTxt2.setText("no data");
-                    payAmountTxt2.setText("no data");
-                    dueDateTxt2.setText("no data");
-                }
-                
-            }
-            catch (Exception ex) {
-                residentMain.setStatus(false);
-            }
-            
-            if(pageLine.equals(newSize-1)){
-                residentMain.setStatus(false);
-            }
-        }
-        catch(FileNotFoundException ex){
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
-    
-    private ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) throws FileNotFoundException 
-    {
-        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
-        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
-        
-        
-        int p,q;
-        for (p=0,q=0; p<allUserInfo.size(); p++)
-        {
-            if(allUserInfo.get(p).contains(residentId))
-            {
-                ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(1).equals(residentId))
-                {
-                    onlyUserInfo.add(allUserInfo.get(p));
-                    q++;
-                }
-            }
-        }
-       
-        return onlyUserInfo;
-    }
-     
-    private ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
-    {
-        File file = new File(textFile);
-        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
-        if (file.exists()) {
-            Scanner sc = new Scanner(file);
-            String oneUserInfo; 
-            String[] itemArray;
-            ArrayList<String> itemArrayList;
-            allUserInfo = new ArrayList<>();
-            while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); 
-                itemArray = oneUserInfo.split(","); 
-                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
-                allUserInfo.add(itemArrayList);
-            }
-        }
-        
-        return allUserInfo;
-    }
-    
-    private void removeSelectedDue(String part)
-    {
-        try {
-            String fileName = "src/main/java/com/mycompany/textFile/Payment.txt";
-            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
-            ArrayList<String>removedItem = new ArrayList<String>();
-            if(part.equals("upper"))
-            {
-                for(int j=0;j<userData.size();j++)
-                {
-                    if(userData.get(j).get(1).equals(residentId)
-                            && userData.get(j).get(2).equals(payToTxt1.getText())
-                            && userData.get(j).get(3).equals(payAmountTxt1.getText())
-                            && userData.get(j).get(4).equals(dueDateTxt1.getText()))
-                    {
-                        removedItem = userData.get(j);
-                        userData.remove(j);
-                        break;
-                    }
-                }
-            }else if(part.equals("bottom"))
-            {
-                for(int j=0;j<userData.size();j++)
-                {
-                    if(userData.get(j).get(1).equals(residentId)
-                            && userData.get(j).get(2).equals(payToTxt2.getText())
-                            && userData.get(j).get(3).equals(payAmountTxt2.getText())
-                            && userData.get(j).get(4).equals(dueDateTxt2.getText()))
-                    {
-                        removedItem = userData.get(j);
-                        userData.remove(j);
-                        break;
-                    }
-                }
-            }
-            
-            addToPendingFile(removedItem);
-            
-            File paymentFile = new File(fileName);
-            FileWriter fw = new FileWriter(paymentFile);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<userData.size(); j++) 
-            {
-                ArrayList<String>item = userData.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                       bw.write(item.get(k));
-                    }else{
-                       bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
-    
-    private void addToPendingFile(ArrayList<String> removedItem)
-    {
-        try {
-            String fileName = "src/main/java/com/mycompany/textFile/Pending.txt";
-            ArrayList<ArrayList<String>> userData = allUserDataInfo(fileName);
-            File pendingFile = new File(fileName);
-            FileWriter fw = new FileWriter(pendingFile);
-            BufferedWriter bw = new BufferedWriter(fw);
-            int pendingId = 0;
-            for (int j=0; j<userData.size(); j++) 
-            {
-                ArrayList<String>item = userData.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    pendingId = Integer.parseInt(item.get(0).substring(item.get(0).indexOf("PE")+2));
-                    if(k == item.size()-1)
-                    {
-                        bw.write(item.get(k));
-                    }else{
-                        bw.write(item.get(k)+",");
-                    }
-                }
-                
-                bw.write("\n");
-            }
-            
-            pendingId = pendingId+1;
-            
-            for (int j=0; j<1; j++) 
-            {
-                for(int k=-1; k<removedItem.size();k++)
-                {
-                    if(k == -1)
-                    {
-                        bw.write("PE"+pendingId+",");
-                    }else if(k == removedItem.size()-1)
-                    {
-                        bw.write(removedItem.get(k));
-                    }else if (k != 0){
-                        bw.write(removedItem.get(k)+",");
-                    }
-                
-                }
-                bw.write("\n");
-            }
-            
-            bw.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ResidentPay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
 }
-

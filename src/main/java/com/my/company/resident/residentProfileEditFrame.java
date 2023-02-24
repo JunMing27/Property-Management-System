@@ -416,8 +416,10 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                     if(dialog == JOptionPane.YES_OPTION){
                         resident main = new resident();
                         main.setUserId(idGet);
-                        main.removeFromFile("ResidentProfile");
-                        main.removeFromFile("loginCredential");
+                        ArrayList<String> dataList1 = new ArrayList<>();
+                        dataList1.add(idGet);
+                        main.removeFromFile("ResidentProfile", dataList1);
+                        main.removeFromFile("loginCredential", dataList1);
                         ArrayList<String> dataList = new ArrayList<>();
                         dataList.add(idGet);
                         dataList.add(name);

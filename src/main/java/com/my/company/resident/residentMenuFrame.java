@@ -16,6 +16,8 @@ public class residentMenuFrame extends javax.swing.JFrame {
     
     public residentMenuFrame(String id) {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
         idGet = id;
     }
 
@@ -184,7 +186,7 @@ public class residentMenuFrame extends javax.swing.JFrame {
     private void paymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBtnActionPerformed
         // Direct to Payment Page
         this.dispose();
-        ResidentPaymentOption residentPaymentOption = new ResidentPaymentOption();
+        residentPaymentMenuFrame residentPaymentOption = new residentPaymentMenuFrame(idGet);
         residentPaymentOption.setVisible(true);
     }//GEN-LAST:event_paymentBtnActionPerformed
 

@@ -11,9 +11,11 @@ import com.mycompany.dataController.displayController;
 import com.mycompany.dataController.displayController1;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.FileNameMap;
@@ -127,7 +129,7 @@ public class resident extends User implements dataManagementController1, display
     }
 
     
-    //add uner unit
+    //add user unit
     private String userUnit;
 
     public String getUserUnit() {
@@ -176,10 +178,34 @@ public class resident extends User implements dataManagementController1, display
     }
     
     
-    
-    
-    
-    //declare variable for methods
+    //add for pay
+    private String payTo;
+    private String payAmount;
+    private String dueDate;
+
+    public String getPayTo() {
+        return payTo;
+    }
+
+    public void setPayTo(String payTo) {
+        this.payTo = payTo;
+    }
+
+    public String getPayAmount() {
+        return payAmount;
+    }
+
+    public void setPayAmount(String payAmount) {
+        this.payAmount = payAmount;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
     
     
     
@@ -321,16 +347,17 @@ public class resident extends User implements dataManagementController1, display
     @Override
     public void setDataNull() {
         //no matter what type, set all data null
-//        if(type.equals("resident") || type.equals("vendor"))
-//        {
-            this.setUserId(null);
-            this.setUserName(null);
-            this.setUserGender(null);
-            this.setUserAge(null);
-            this.setUserPhoneNumber(null);
-            this.setUserImage(null);
-            this.setUserUnit(null);
-//        }
+        this.setUserId(null);
+        this.setUserName(null);
+        this.setUserGender(null);
+        this.setUserAge(null);
+        this.setUserPhoneNumber(null);
+        this.setUserImage(null);
+        this.setUserUnit(null);
+        this.setPayTo(null);
+        this.setPayAmount(null);
+        this.setDueDate(null);
+
     }
 
     @Override
@@ -373,6 +400,13 @@ public class resident extends User implements dataManagementController1, display
                 this.setUserAge(allData.get(dataLine).get(3));
                 this.setUserPhoneNumber(allData.get(dataLine).get(4));
                 this.setUserImage(allData.get(dataLine).get(5));
+                this.status = true;
+            }else if(type.equals("pay"))
+            {
+                this.setUserId(allData.get(dataLine).get(1));
+                this.setPayTo(allData.get(dataLine).get(2));
+                this.setPayAmount(allData.get(dataLine).get(3));
+                this.setDueDate(allData.get(dataLine).get(4));
                 this.status = true;
             }
             
@@ -426,7 +460,7 @@ public class resident extends User implements dataManagementController1, display
     }
 
     @Override
-    public void removeFromFile(String textFile) {
+    public void removeFromFile(String textFile, ArrayList<String> dataList) {
         try {
             String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
             ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
@@ -434,12 +468,27 @@ public class resident extends User implements dataManagementController1, display
             {
                 for(int j=0;j<allUsers.size();j++)
                 {
-                    if(allUsers.get(j).get(0).equals(this.getUserId()))
+                    if(allUsers.get(j).get(0).equals(dataList.get(0)))
                     {
                         allUsers.remove(j);
                         break;
                     }
                 }
+            }
+            
+            if(textFile.equals("Payment"))
+            {
+                for(int j=0;j<allUsers.size();j++)
+                {
+                    if(allUsers.get(j).get(1).equals(dataList.get(0))
+                            && allUsers.get(j).get(2).equals(dataList.get(1))
+                            && allUsers.get(j).get(3).equals(dataList.get(2))
+                            && allUsers.get(j).get(4).equals(dataList.get(3)))
+                    {
+                        allUsers.remove(j);
+                        break;
+                    }
+                } 
             }
 
             File file= new File(filePath);
@@ -489,6 +538,15 @@ public class resident extends User implements dataManagementController1, display
                         +dataList.get(2)+","
                         +dataList.get(3)+"\n");
             }
+            if(textFile.equals("Pending"))
+            {
+                bw.write(dataList.get(4)+","
+                        +dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+"\n");
+            }
+            
             bw.close();
         } catch (IOException ex) {
             Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
@@ -496,8 +554,48 @@ public class resident extends User implements dataManagementController1, display
         }
     }
 
+    @Override
+    public int getNextId(String textFile) {
+        int id = 0;
+        try {
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            if(textFile.equals("Complaint"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("C")+1));
+                    }
+                    line = br.readLine();
+                }
+            }
+            else if(textFile.equals("Pending"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("PE")+2));
+                    }
+                    line = br.readLine();
+                }
+            }
+            
+            br.close();
+            
+            id = id+1;
+        } catch (IOException ex) {
+            Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+
     
-    
-   
     
 }
