@@ -671,7 +671,7 @@ public class adminExecUnitManageFrame extends javax.swing.JFrame {
         }
     }
     
-    
+
     public void setUnitData(){
         unit unitClass = new unit();
         setPagination();

@@ -223,7 +223,7 @@ public class adminExecUnitAddEditFrame extends javax.swing.JFrame {
     private String addEditDetector;
     private String fileType="Unit.txt";
     private String userType="Unit";
-    
+     
     public void addEditDetect(String functionType,String id) throws FileNotFoundException {
         if(functionType=="edit"){
             this.addEditDetector="edit";
