@@ -262,6 +262,46 @@ public class resident extends User implements dataManagementController1, display
     }
     
     
+    //add for visitor pass
+    private String visitorPassId;
+    private String visitorName;
+    private String visitDate;
+    private String visitorPassStatus;
+
+    public String getVisitorPassId() {
+        return visitorPassId;
+    }
+
+    public void setVisitorPassId(String visitorPassId) {
+        this.visitorPassId = visitorPassId;
+    }
+
+    public String getVisitorName() {
+        return visitorName;
+    }
+
+    public void setVisitorName(String visitorName) {
+        this.visitorName = visitorName;
+    }
+
+    public String getVisitDate() {
+        return visitDate;
+    }
+
+    public void setVisitDate(String visitDate) {
+        this.visitDate = visitDate;
+    }
+
+    public String getVisitorPassStatus() {
+        return visitorPassStatus;
+    }
+
+    public void setVisitorPassStatus(String visitorPassStatus) {
+        this.visitorPassStatus = visitorPassStatus;
+    }
+     
+    
+   
     
     @Override
     public void deleteUserCredential(String userID) {
@@ -382,6 +422,24 @@ public class resident extends User implements dataManagementController1, display
             } 
         }
         
+        
+        //for visitorPass
+        else if(textFile.contains("VisitorPass"))
+        {
+            for (p=0,q=0; p<allUserInfo.size(); p++)
+            {
+                if(allUserInfo.get(p).contains(this.getUserId()))
+                {
+                    ArrayList<String> item = allUserInfo.get(p);
+                    if(item.get(3).equals(this.getUserId()))
+                    {
+                        onlyUserInfo.add(allUserInfo.get(p));
+                        q++;
+                    }
+                }
+            }
+        }
+        
         return onlyUserInfo;
     }
 
@@ -439,6 +497,10 @@ public class resident extends User implements dataManagementController1, display
         this.setDueAmount(null);
         this.setDateIssued(null);
         this.setPaidDate(null);
+        this.setVisitorPassId(null);
+        this.setVisitorName(null);
+        this.setVisitDate(null);
+        this.setVisitorPassStatus(null);
     }
 
     @Override
@@ -504,6 +566,15 @@ public class resident extends User implements dataManagementController1, display
                 this.setPayDesc(allData.get(dataLine).get(2));
                 this.setPayAmount(allData.get(dataLine).get(3));
                 this.setPaidDate(allData.get(dataLine).get(4));
+                this.status = true;
+                
+            }else if(type.equals("visitorPass"))
+            {
+                this.setVisitorPassId(allData.get(dataLine).get(0));
+                this.setVisitorName(allData.get(dataLine).get(1));
+                this.setVisitDate(allData.get(dataLine).get(2));
+                this.setUserId(allData.get(dataLine).get(3));
+                this.setVisitorPassStatus(allData.get(dataLine).get(4));
                 this.status = true;
             }
             
