@@ -179,17 +179,18 @@ public class resident extends User implements dataManagementController1, display
     
     
     //add for pay
-    private String payTo;
+    private String payDesc;
     private String payAmount;
     private String dueDate;
 
-    public String getPayTo() {
-        return payTo;
+    public String getPayDesc() {
+        return payDesc;
     }
 
-    public void setPayTo(String payTo) {
-        this.payTo = payTo;
+    public void setPayDesc(String payDesc) {
+        this.payDesc = payDesc;
     }
+
 
     public String getPayAmount() {
         return payAmount;
@@ -310,9 +311,9 @@ public class resident extends User implements dataManagementController1, display
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
-        //for ResidentProfile.txt & vendorProfile.txt
+        //for ResidentProfile.txt
         
-        if(textFile.contains("ResidentProfile") || textFile.contains("VendorProfile"))
+        if(textFile.contains("ResidentProfile"))
         {
             for (p=0,q=0; p<allUserInfo.size(); p++)
             {
@@ -351,7 +352,7 @@ public class resident extends User implements dataManagementController1, display
                 }
             }
         }
-        else if(textFile.contains("InvoiceContent"))
+        else if(textFile.contains("Payment") || textFile.contains("InvoiceContent"))
         {
            for (p=0,q=0; p<allUserInfo.size(); p++)
             {
@@ -416,7 +417,7 @@ public class resident extends User implements dataManagementController1, display
         this.setUserPhoneNumber(null);
         this.setUserImage(null);
         this.setUserUnit(null);
-        this.setPayTo(null);
+        this.setPayDesc(null);
         this.setPayAmount(null);
         this.setDueDate(null);
         this.setMonthYear(null);
@@ -457,30 +458,30 @@ public class resident extends User implements dataManagementController1, display
                 this.setUserUnit(allData.get(dataLine).get(5));
                 this.setUserImage(allData.get(dataLine).get(6));
                 this.status = true;
-            }else if(type.equals("vendor"))
-            {
-                this.setUserId(allData.get(dataLine).get(0));
-                this.setUserName(allData.get(dataLine).get(1));
-                this.setUserGender(allData.get(dataLine).get(2));
-                this.setUserAge(allData.get(dataLine).get(3));
-                this.setUserPhoneNumber(allData.get(dataLine).get(4));
-                this.setUserImage(allData.get(dataLine).get(5));
-                this.status = true;
+            
             }else if(type.equals("pay"))
             {
                 this.setUserId(allData.get(dataLine).get(1));
-                this.setPayTo(allData.get(dataLine).get(2));
+                this.setPayDesc(allData.get(dataLine).get(2));
                 this.setPayAmount(allData.get(dataLine).get(3));
                 this.setDueDate(allData.get(dataLine).get(4));
                 this.status = true;
+                
             }else if(type.equals("statement"))
             {
                 this.setUserId(allData.get(dataLine).get(1));
                 this.setDate(allData.get(dataLine).get(3));
                 this.status = true;
+                
             }else if(type.equals("invoice"))
             {
-                
+                this.setUserId(allData.get(dataLine).get(1));
+                this.setUserName(allData.get(dataLine).get(2));
+                this.setDateIssued(allData.get(dataLine).get(3));
+                this.setDueDate(allData.get(dataLine).get(4));
+                this.setDueAmount(allData.get(dataLine).get(5));
+                this.setPayAmount(allData.get(dataLine).get(6));
+                this.setPayDesc(allData.get(dataLine).get(7));
             }
             
         }catch(Exception e){

@@ -206,7 +206,7 @@ public class residentPaymentMenuFrame extends javax.swing.JFrame {
 
     private void invoiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoiceBtnActionPerformed
         this.dispose();
-        ResidentInvoice residentInvoice = new ResidentInvoice();
+        residentInvoiceFrame residentInvoice = new residentInvoiceFrame(idGet);
         residentInvoice.setVisible(true);
     }//GEN-LAST:event_invoiceBtnActionPerformed
 

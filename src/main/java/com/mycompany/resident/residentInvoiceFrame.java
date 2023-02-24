@@ -275,32 +275,22 @@ public class residentInvoiceFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null){
-            payToTxt1.setText(main.getPayTo());
-            payAmountTxt1.setText(main.getPayAmount());
-            dueDateTxt1.setText(main.getDueDate());
+            tenantNameTxt.setText(main.getUserName());
+            dateIssuedTxt.setText(main.getDateIssued());
+            dueDateTxt.setText(main.getDueDate());
+            dueAmountTxt.setText(main.getDueAmount());
+            totalAmountTxt.setText(main.getPayAmount());
+            descTxt.setText(main.getPayDesc());
         }else{
-            payToTxt1.setText("no data");
-            payAmountTxt1.setText("no data");
-            dueDateTxt1.setText("no data");
-            selectBtn1.setEnabled(false);
+            tenantNameTxt.setText("no data");
+            dateIssuedTxt.setText("no data");
+            dueDateTxt.setText("no data");
+            dueAmountTxt.setText("no data");
+            totalAmountTxt.setText("no data");
+            descTxt.setText("no data");
         }
         
-        setPagination();
-        main.displayDataViewOwn(pageLine, "", "pay", "Payment");
-        boolean boo2 = main.getStatus();
-        if(boo2==false){
-            nextPageBtn.setEnabled(false);
-        }
-        if(main.getUserId() != null){
-            payToTxt2.setText(main.getPayTo());
-            payAmountTxt2.setText(main.getPayAmount());
-            dueDateTxt2.setText(main.getDueDate());
-        }else{
-            payToTxt2.setText("no data");
-            payAmountTxt2.setText("no data");
-            dueDateTxt2.setText("no data");
-            selectBtn2.setEnabled(false);
-        }
+        
     }
     
     
