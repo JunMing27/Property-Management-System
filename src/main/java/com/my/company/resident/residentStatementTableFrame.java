@@ -4,6 +4,15 @@
  */
 package com.my.company.resident;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author user
@@ -122,18 +131,51 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        if(roleGet.equals("resident"))
-        {
-            ResidentStatement statement = new ResidentStatement();
-            statement.setVisible(true);
-
-        }else if(roleGet.equals("vendor"))
-        {
-            VendorStatement statement = new VendorStatement();
-            statement.setVisible(true);
-        }
+        residentStatementFrame statement = new residentStatementFrame(idGet);
+        statement.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void createTable()
+    {
+        String userName = null;
+        try {
+            String statementFile = "src/main/java/com/mycompany/textFile/StatementContent.txt";
+            File file = new File(statementFile);
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};
+            DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
+            model.setColumnIdentifiers(tableHeader);
+            String line = br.readLine();
+            while(line != null )
+            {
+                String[] dataRow = line.split(",");
+                if(dataRow[1].equals(idGet))
+                {
+                    userName = dataRow[2];
+                    String monthFile = dataRow[3].substring(dataRow[3].indexOf("-")+1);
+                    monthFile = monthFile.substring(0,monthFile.lastIndexOf("-"));
+                    if(monthFile.equals(monthGet))
+                    {
+                        String[] onlyData = {dataRow[5],dataRow[4],dataRow[3]};
+                        model.addRow(onlyData);
+                    }
+                    
+                }
+                line = br.readLine();
+            }
+            
+            br.close();
+            nameLabel.setText(userName);
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(residentStatementTableFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(residentStatementTableFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -164,7 +206,7 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentStatementTableFrame().setVisible(true);
+                new residentStatementTableFrame(idGet, monthGet, labelGet).setVisible(true);
             }
         });
     }
