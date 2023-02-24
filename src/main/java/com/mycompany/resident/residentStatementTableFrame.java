@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.my.company.resident;
+package com.mycompany.resident;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,17 +15,20 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author hoiyi
+ * @author user
  */
-public class residentPayHistoryFrame extends javax.swing.JFrame {
+public class residentStatementTableFrame extends javax.swing.JFrame {
 
-    static String idGet;
+    static String idGet, monthGet, labelGet ;
     
-    public residentPayHistoryFrame(String id) {
+    public residentStatementTableFrame(String id, String month, String label) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
+        monthGet = month;
+        labelGet = label;
+        topLabel.setText(label);
         createTable();
     }
 
@@ -42,7 +45,8 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        payHistoryTable = new javax.swing.JTable();
+        statementTable = new javax.swing.JTable();
+        nameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,11 +65,11 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("PAYMENT HISTORY");
+        topLabel.setText("STATEMENT FOR MONTH YEAR");
 
-        payHistoryTable.setBackground(new java.awt.Color(233, 233, 233));
-        payHistoryTable.setForeground(new java.awt.Color(0, 0, 0));
-        payHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+        statementTable.setBackground(new java.awt.Color(233, 233, 233));
+        statementTable.setForeground(new java.awt.Color(0, 0, 0));
+        statementTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -73,7 +77,12 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(payHistoryTable);
+        jScrollPane1.setViewportView(statementTable);
+
+        nameLabel.setBackground(new java.awt.Color(233, 233, 233));
+        nameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        nameLabel.setText("NAME");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,28 +94,25 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(topLabel)))
-                .addContainerGap(228, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(85, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(105, Short.MAX_VALUE)))
+                        .addGap(85, 85, 85)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(483, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(167, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(60, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(nameLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,20 +131,19 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        residentPaymentMenuFrame residentPaymentOption = new residentPaymentMenuFrame(idGet);
-        residentPaymentOption.setVisible(true);
+        residentStatementFrame statement = new residentStatementFrame(idGet);
+        statement.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void createTable()
     {
-        
-        BufferedReader br = null;
+        String userName = null;
         try {
-            String payHistoryFile = "src/main/java/com/mycompany/textFile/PayHistory.txt";
-            File file = new File(payHistoryFile);
-            br = new BufferedReader(new FileReader(file));
+            String statementFile = "src/main/java/com/mycompany/textFile/StatementContent.txt";
+            File file = new File(statementFile);
+            BufferedReader br = new BufferedReader(new FileReader(file));
             String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};
-            DefaultTableModel model = (DefaultTableModel) payHistoryTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
             model.setColumnIdentifiers(tableHeader);
             String line = br.readLine();
             while(line != null )
@@ -146,22 +151,29 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
                 String[] dataRow = line.split(",");
                 if(dataRow[1].equals(idGet))
                 {
-                    String[] onlyData = {dataRow[2],dataRow[3],dataRow[4]};
-                    model.addRow(onlyData);
+                    userName = dataRow[2];
+                    String monthFile = dataRow[3].substring(dataRow[3].indexOf("-")+1);
+                    monthFile = monthFile.substring(0,monthFile.lastIndexOf("-"));
+                    if(monthFile.equals(monthGet))
+                    {
+                        String[] onlyData = {dataRow[5],dataRow[4],dataRow[3]};
+                        model.addRow(onlyData);
+                    }
                     
                 }
                 line = br.readLine();
             }
-            br.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(residentPayHistoryFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(residentPayHistoryFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
             
-         
+            br.close();
+            nameLabel.setText(userName);
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(residentStatementTableFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(residentStatementTableFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
+    
     
     
     /**
@@ -181,20 +193,20 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(residentPayHistoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(residentPayHistoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(residentPayHistoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(residentPayHistoryFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentPayHistoryFrame(idGet).setVisible(true);
+                new residentStatementTableFrame(idGet, monthGet, labelGet).setVisible(true);
             }
         });
     }
@@ -203,7 +215,8 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable payHistoryTable;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JTable statementTable;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.my.company.resident;
+package com.mycompany.resident;
 
 /**
  *
- * @author user
+ * @author hoiyi
  */
 public class residentPaymentMenuFrame extends javax.swing.JFrame {
 
@@ -200,7 +200,7 @@ public class residentPaymentMenuFrame extends javax.swing.JFrame {
 
     private void statementBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statementBtnActionPerformed
         this.dispose();
-        ResidentStatement residentStatement = new ResidentStatement();
+        residentStatementFrame residentStatement = new residentStatementFrame(idGet);
         residentStatement.setVisible(true);
     }//GEN-LAST:event_statementBtnActionPerformed
 

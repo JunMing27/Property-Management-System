@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.my.company.resident;
+package com.mycompany.resident;
 
 import com.mycompany.dataController.User;
 import com.mycompany.dataController.dataManagementController;
@@ -228,6 +228,26 @@ public class resident extends User implements dataManagementController1, display
         this.date = date;
     }
 
+    //add for invoice
+    private String dateIssued;
+    private String dueAmount;
+
+    public String getDateIssued() {
+        return dateIssued;
+    }
+
+    public void setDateIssued(String dateIssued) {
+        this.dateIssued = dateIssued;
+    }
+
+    public String getDueAmount() {
+        return dueAmount;
+    }
+
+    public void setDueAmount(String dueAmount) {
+        this.dueAmount = dueAmount;
+    }
+    
     
     
     @Override
@@ -331,6 +351,21 @@ public class resident extends User implements dataManagementController1, display
                 }
             }
         }
+        else if(textFile.contains("InvoiceContent"))
+        {
+           for (p=0,q=0; p<allUserInfo.size(); p++)
+            {
+                if(allUserInfo.get(p).contains(this.getUserId()))
+                {
+                    ArrayList<String> item = allUserInfo.get(p);
+                    if(item.get(1).equals(this.getUserId()))
+                    {
+                        onlyUserInfo.add(allUserInfo.get(p));
+                        q++;
+                    }
+                }
+            } 
+        }
         
         return onlyUserInfo;
     }
@@ -386,6 +421,8 @@ public class resident extends User implements dataManagementController1, display
         this.setDueDate(null);
         this.setMonthYear(null);
         this.setDate(null);
+        this.setDueAmount(null);
+        this.setDateIssued(null);
     }
 
     @Override
@@ -441,6 +478,9 @@ public class resident extends User implements dataManagementController1, display
                 this.setUserId(allData.get(dataLine).get(1));
                 this.setDate(allData.get(dataLine).get(3));
                 this.status = true;
+            }else if(type.equals("invoice"))
+            {
+                
             }
             
         }catch(Exception e){
