@@ -163,7 +163,6 @@ public void setResidentData(String residentId, String residentName, String resid
     logInFrame.dispose();
     ResidentOption residentOption = new ResidentOption();
     residentOption.setVisible(true);
-    residentOption.setThisUserId(residentId);
 
 }
 

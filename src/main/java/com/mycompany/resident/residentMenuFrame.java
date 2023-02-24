@@ -198,7 +198,7 @@ public class residentMenuFrame extends javax.swing.JFrame {
 
     private void visitorPassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorPassBtnActionPerformed
         this.dispose();
-        VisitorPassManage visitorPassManage = new VisitorPassManage();
+        residentVisPassManageFrame visitorPassManage = new residentVisPassManageFrame(idGet);
         visitorPassManage.setVisible(true);
     }//GEN-LAST:event_visitorPassBtnActionPerformed
 

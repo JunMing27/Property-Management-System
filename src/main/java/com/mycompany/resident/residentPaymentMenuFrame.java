@@ -206,19 +206,19 @@ public class residentPaymentMenuFrame extends javax.swing.JFrame {
 
     private void invoiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoiceBtnActionPerformed
         this.dispose();
-        ResidentInvoice residentInvoice = new ResidentInvoice();
+        residentInvoiceFrame residentInvoice = new residentInvoiceFrame(idGet);
         residentInvoice.setVisible(true);
     }//GEN-LAST:event_invoiceBtnActionPerformed
 
     private void receiptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receiptBtnActionPerformed
         this.dispose();
-        ResidentReceipt residentReceipt = new ResidentReceipt();
+        residentReceiptFrame residentReceipt = new residentReceiptFrame(idGet);
         residentReceipt.setVisible(true);
     }//GEN-LAST:event_receiptBtnActionPerformed
 
     private void pendingFeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingFeeBtnActionPerformed
         this.dispose();
-        ResidentPending residentPending = new ResidentPending();
+        residentPendingFrame residentPending = new residentPendingFrame(idGet);
         residentPending.setVisible(true);
     }//GEN-LAST:event_pendingFeeBtnActionPerformed
 

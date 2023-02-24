@@ -354,7 +354,7 @@ public class residentPayFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null){
-            payToTxt1.setText(main.getPayTo());
+            payToTxt1.setText(main.getPayDesc());
             payAmountTxt1.setText(main.getPayAmount());
             dueDateTxt1.setText(main.getDueDate());
         }else{
@@ -371,7 +371,7 @@ public class residentPayFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null){
-            payToTxt2.setText(main.getPayTo());
+            payToTxt2.setText(main.getPayDesc());
             payAmountTxt2.setText(main.getPayAmount());
             dueDateTxt2.setText(main.getDueDate());
         }else{
@@ -380,8 +380,6 @@ public class residentPayFrame extends javax.swing.JFrame {
             dueDateTxt2.setText("no data");
             selectBtn2.setEnabled(false);
         }
-        
-        
         
     }
     
