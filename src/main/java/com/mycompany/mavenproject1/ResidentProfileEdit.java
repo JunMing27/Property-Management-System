@@ -252,9 +252,6 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                         .addGap(98, 98, 98)
                         .addComponent(topLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,7 +284,10 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
                                             .addComponent(maleCheckBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(residentAgeTxt, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(femaleCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(femaleCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -391,9 +391,9 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
             {
                 try {
                     residentAgeInt = Integer.parseInt(residentAgeString);
-                    errorMessage.setText("Age Must be Integer !");
+                    
                 } catch (NumberFormatException e) {
-                    e.printStackTrace();
+                    errorMessage.setText("Age Must be Integer !");
                 }
 
                 //check phone
@@ -443,19 +443,19 @@ public class ResidentProfileEdit extends javax.swing.JFrame {
     private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileFilter() {
-        @Override
-        public boolean accept(File f) {
-            if (f.isDirectory()) {
-                return true;
+            @Override
+            public boolean accept(File f) {
+                if (f.isDirectory()) {
+                    return true;
+                }
+                final String name = f.getName();
+                return name.endsWith(".png") || name.endsWith(".jpg");
             }
-            final String name = f.getName();
-            return name.endsWith(".png") || name.endsWith(".jpg");
-        }
 
-        @Override
-        public String getDescription() {
-            return "*.png,*.jpg";
-        }
+            @Override
+            public String getDescription() {
+                return "*.png,*.jpg";
+            }
         });
         int result = fileChooser.showOpenDialog(null);
         if(result == JFileChooser.APPROVE_OPTION)

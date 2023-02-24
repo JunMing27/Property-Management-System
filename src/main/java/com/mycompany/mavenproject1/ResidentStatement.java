@@ -325,7 +325,7 @@ public class ResidentStatement extends javax.swing.JFrame {
     }
     
     public void backButtonFunction(){
-        pageLine = pageLine - 4;
+        pageLine = pageLine - 10;
         if (pageLine == -1){
             backPageBtn.setEnabled(false);
         }
@@ -385,6 +385,7 @@ public class ResidentStatement extends javax.swing.JFrame {
                 extractMonth = extractMonth.substring(extractMonth.indexOf("-")+1);
                 extractMonth = extractMonth.substring(0,extractMonth.lastIndexOf("-"));
                 month = month(extractMonth);
+                System.out.println("getMonth "+residentMain.getMonth());
                 if(!month.equals(residentMain.getMonth()))
                 {
                     if(part.equals("1"))
@@ -392,16 +393,16 @@ public class ResidentStatement extends javax.swing.JFrame {
                         statement1.setText("STATEMENT FOR "+month+" "+extractYear);
                         residentMain.setStatus(true);
                         residentMain.setMonth(month);
-                    }else if(part.equals("2"))
+                    }else if(part.equals("2") )
                     {
                         statement2.setText("STATEMENT FOR "+month+" "+extractYear);
                         residentMain.setStatus(true);
                         residentMain.setMonth(month);
-                    }else if(part.equals("3")){                     
+                    }else if(part.equals("3") ){                     
                         statement3.setText("STATEMENT FOR "+month+" "+extractYear);
                         residentMain.setStatus(true); 
                         residentMain.setMonth(month);
-                    }else if(part.equals("4")){                     
+                    }else if(part.equals("4") ){                     
                         statement4.setText("STATEMENT FOR "+month+" "+extractYear);
                         residentMain.setStatus(true);    
                         residentMain.setMonth(month);
@@ -410,21 +411,26 @@ public class ResidentStatement extends javax.swing.JFrame {
                         residentMain.setStatus(true);
                         residentMain.setMonth(month);
                     }
+                }else{
+                    System.out.println("i same month");
+                    
                 }
                 
-                if(statement1.getText().contains("empty"))
+                if(statement1.getText().contains("EMPTY"))
                 {
                     statement1.setText("no data");
-                }else if(statement2.getText().contains("empty"))
+                }else if(statement2.getText().contains("EMPTY"))
                 {
+                    System.out.println("i got enter");
                     statement2.setText("no data"); 
-                } else if(statement3.getText().contains("empty")) 
+                } else if(statement3.getText().contains("EMPTY")) 
                 { 
+                    System.out.println("i got enter");
                     statement3.setText("no data");
-                }else if(statement4.getText().contains("empty")) 
+                }else if(statement4.getText().contains("EMPTY")) 
                 { 
                     statement4.setText("no data");
-                }else if(statement5.getText().contains("empty")) 
+                }else if(statement5.getText().contains("EMPTY")) 
                 { 
                     statement5.setText("no data");
                 } 

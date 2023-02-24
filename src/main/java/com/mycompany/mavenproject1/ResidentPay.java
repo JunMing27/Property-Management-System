@@ -407,7 +407,6 @@ public class ResidentPay extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         
-        
     }
         
     

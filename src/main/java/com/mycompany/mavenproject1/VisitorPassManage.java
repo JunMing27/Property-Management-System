@@ -32,6 +32,7 @@ public class VisitorPassManage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         residentMain = new ResidentMain();
         residentId = residentMain.getId();
+        residentId = "R1";
         displayData();
         backPageBtn.setEnabled(false);
     }
@@ -611,7 +612,7 @@ public class VisitorPassManage extends javax.swing.JFrame {
                 }
             }
         }
-       
+        System.out.println("only "+onlyUserInfo);
         return onlyUserInfo;
     }
      
