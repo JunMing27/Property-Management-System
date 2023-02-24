@@ -211,7 +211,7 @@ public class resident extends User implements dataManagementController1, display
     
     //add for statement
     private String monthYear;
-    private String date;
+    private String date; 
 
     public String getMonthYear() {
         return monthYear;
@@ -247,6 +247,18 @@ public class resident extends User implements dataManagementController1, display
 
     public void setDueAmount(String dueAmount) {
         this.dueAmount = dueAmount;
+    }
+    
+    
+    //add paidDate
+    private String paidDate;
+
+    public String getPaidDate() {
+        return paidDate;
+    }
+
+    public void setPaidDate(String paidDate) {
+        this.paidDate = paidDate;
     }
     
     
@@ -352,7 +364,9 @@ public class resident extends User implements dataManagementController1, display
                 }
             }
         }
-        else if(textFile.contains("Payment") || textFile.contains("InvoiceContent"))
+        
+        //for those [1] is userId
+        else if(textFile.contains("Payment") || textFile.contains("InvoiceContent") || textFile.contains("Pending"))
         {
            for (p=0,q=0; p<allUserInfo.size(); p++)
             {
@@ -424,6 +438,7 @@ public class resident extends User implements dataManagementController1, display
         this.setDate(null);
         this.setDueAmount(null);
         this.setDateIssued(null);
+        this.setPaidDate(null);
     }
 
     @Override
@@ -457,7 +472,6 @@ public class resident extends User implements dataManagementController1, display
                 this.setUserPhoneNumber(allData.get(dataLine).get(4));
                 this.setUserUnit(allData.get(dataLine).get(5));
                 this.setUserImage(allData.get(dataLine).get(6));
-                this.status = true;
             
             }else if(type.equals("pay"))
             {
@@ -482,6 +496,15 @@ public class resident extends User implements dataManagementController1, display
                 this.setDueAmount(allData.get(dataLine).get(5));
                 this.setPayAmount(allData.get(dataLine).get(6));
                 this.setPayDesc(allData.get(dataLine).get(7));
+                this.status = true;
+                
+            }else if(type.equals("pending"))
+            {
+                this.setUserId(allData.get(dataLine).get(1));
+                this.setPayDesc(allData.get(dataLine).get(2));
+                this.setPayAmount(allData.get(dataLine).get(3));
+                this.setPaidDate(allData.get(dataLine).get(4));
+                this.status = true;
             }
             
         }catch(Exception e){
@@ -524,6 +547,7 @@ public class resident extends User implements dataManagementController1, display
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            //width and height according to jframe profile label size
             Image profileImage = bufferedImage.getScaledInstance(138, 126, Image.SCALE_SMOOTH);
             ImageIcon profileIcon = new ImageIcon(profileImage);
             this.setSelectedImageIcon(profileIcon);
