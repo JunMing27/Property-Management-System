@@ -256,7 +256,19 @@ public class adminExecutiveMenuFrame extends javax.swing.JFrame {
 
     private void vendorManagePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorManagePageActionPerformed
         // TODO add your handling code here:
-        
+        this.dispose();
+        adminExecVendorManageFrame vendorManage = new adminExecVendorManageFrame();
+        vendorManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        vendorManage.pack();
+        vendorManage.setResizable(false);
+        vendorManage.setLocationRelativeTo(null);
+        vendorManage.setVisible(true);
+        vendorManage.backButtonToggle();
+        try {
+            vendorManage.setUserType("Vendor");
+            vendorManage.setVendorData();
+        } catch (IOException ex) {
+        }
     }//GEN-LAST:event_vendorManagePageActionPerformed
 
     

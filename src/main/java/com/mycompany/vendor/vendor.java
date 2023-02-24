@@ -2,8 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.employee;
-
+package com.mycompany.vendor;
 
 import com.mycompany.dataController.User;
 import com.mycompany.dataController.dataManagementController;
@@ -22,21 +21,12 @@ import javax.swing.JOptionPane;
  *
  * @author Jun Ming
  */
-public class employee extends User implements dataManagementController, displayController{
+public class vendor extends User implements dataManagementController, displayController{
 
-    private String employeeJobScope;
-    
-    public String getEmployeeJobScope(){
-        return employeeJobScope;
-    }
-    
-    public void setEmployeeJobScope(String jobscope){
-        this.employeeJobScope=jobscope;
-    }
     
     private Boolean Status;
     
-    public employee() {
+    public vendor() {
         Status = false;
   }
 
@@ -47,15 +37,15 @@ public class employee extends User implements dataManagementController, displayC
         this.Status=status; 
     }
     private String dataId;
-    private String file="Employee.txt";
+    private String file="VendorProfile.txt";
     public String getFileType(){
         return file;
     }
     
     @Override
     public void chooseTxtFile(String Type) {
-        if (Type=="Employee"){
-            file ="Employee.txt";
+        if (Type=="Vendor"){
+            file ="VendorProfile.txt";
         }
     }
 
@@ -82,14 +72,13 @@ public class employee extends User implements dataManagementController, displayC
         }
         int newSize = allData.size();
         try{
-            if(type=="Employee"){
+            if(type=="Vendor"){
                 this.setUserId(allData.get(dataLine).get(0));
                 this.setUserName(allData.get(dataLine).get(1));
                 this.setUserGender(allData.get(dataLine).get(2));
                 this.setUserAge(allData.get(dataLine).get(3));
                 this.setUserPhoneNumber(allData.get(dataLine).get(4));
-                this.setEmployeeJobScope(allData.get(dataLine).get(5));
-                this.setUserImage(allData.get(dataLine).get(6));
+                this.setUserImage(allData.get(dataLine).get(5));
                 this.Status = true;
             }
         }catch(Exception e){
@@ -103,13 +92,12 @@ public class employee extends User implements dataManagementController, displayC
 
     @Override
     public void setDataNull(String type) {
-        if(type=="Employee"){
+        if(type=="Vendor"){
             this.setUserId(null);
             this.setUserName(null);
             this.setUserGender(null);
             this.setUserAge(null);
             this.setUserPhoneNumber(null);
-            this.setEmployeeJobScope(null);
             this.setUserImage(null);
         }
     }
@@ -120,14 +108,13 @@ public class employee extends User implements dataManagementController, displayC
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
-                    if(type=="Employee"){
+                    if(type=="Vendor"){
                         this.setUserId(singleData.get(0));
                         this.setUserName(singleData.get(1));
                         this.setUserGender(singleData.get(2));
                         this.setUserAge(singleData.get(3));
                         this.setUserPhoneNumber(singleData.get(4));
-                        this.setEmployeeJobScope(singleData.get(5));
-                        this.setUserImage(singleData.get(6));
+                        this.setUserImage(singleData.get(5));
                         try {
                             getCredentialData(this.getUserId());
                         } catch (FileNotFoundException ex) {
@@ -157,7 +144,7 @@ public class employee extends User implements dataManagementController, displayC
                     ID = (ScanEachString.next().trim());
                     break;
                 }
-                if(type=="Employee"){
+                if(type=="Vendor"){
                     String IDchar = ID.substring(0,1);
                     ID = ID.substring(1);
                     Integer IDnumber = Integer.parseInt(ID)+1;
@@ -223,8 +210,5 @@ public class employee extends User implements dataManagementController, displayC
     public void transferImage(File source, File destination) {
         
     }
-
-    
-    
     
 }
