@@ -9,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -43,12 +45,14 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
         complaintFromLabel = new javax.swing.JLabel();
         addEditBtn = new javax.swing.JButton();
         complaintIdField = new javax.swing.JTextField();
-        residentComboBox = new javax.swing.JComboBox<>();
+        userComboBox = new javax.swing.JComboBox<>();
         complaintReplyLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         complaintDetailField = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         complaintReplyField = new javax.swing.JTextArea();
+        complaintUserTypeLabel1 = new javax.swing.JLabel();
+        userTypeComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,11 +96,11 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
             }
         });
 
-        residentComboBox.setBackground(new java.awt.Color(255, 255, 255));
-        residentComboBox.setForeground(new java.awt.Color(0, 0, 0));
-        residentComboBox.addActionListener(new java.awt.event.ActionListener() {
+        userComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        userComboBox.setForeground(new java.awt.Color(0, 0, 0));
+        userComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                residentComboBoxActionPerformed(evt);
+                userComboBoxActionPerformed(evt);
             }
         });
 
@@ -114,6 +118,18 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
         complaintReplyField.setRows(5);
         jScrollPane2.setViewportView(complaintReplyField);
 
+        complaintUserTypeLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        complaintUserTypeLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        complaintUserTypeLabel1.setText("Type");
+
+        userTypeComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        userTypeComboBox.setForeground(new java.awt.Color(0, 0, 0));
+        userTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTypeComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -126,19 +142,21 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(complaintDetailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                                 .addComponent(complaintIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(complaintFromLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(complaintFromLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(complaintUserTypeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(complaintReplyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(residentComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(userComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1)
                             .addComponent(jScrollPane2)
-                            .addComponent(complaintIdField)))
+                            .addComponent(complaintIdField)
+                            .addComponent(userTypeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
+                        .addGap(225, 225, 225)
                         .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
@@ -159,13 +177,17 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(complaintReplyLabel)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(residentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(complaintUserTypeLabel1)
+                    .addComponent(userTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(complaintFromLabel))
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -198,7 +220,7 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            if((complaintDetailField.getText()).equals("")  ||((String)residentComboBox.getSelectedItem()).equals("") ){
+            if((complaintDetailField.getText()).equals("")  ||((String)userComboBox.getSelectedItem()).equals("") ){
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 adminExecutive main = new adminExecutive();
@@ -207,11 +229,11 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
                 dataList.add(complaintIdField.getText());
                 dataList.add(complaintDetailField.getText());
                 dataList.add(complaintReplyField.getText());
-                dataList.add((String)residentComboBox.getSelectedItem());
+                dataList.add((String)userComboBox.getSelectedItem());
                 mainInner.addEditComplaint(dataList, "Complaint","Complaint.txt","edit");
             }
         }else if(addEditDetector=="add"){
-            if((complaintDetailField.getText()).equals("") ||((String)residentComboBox.getSelectedItem()).equals("") ){
+            if((complaintDetailField.getText()).equals("") ||((String)userComboBox.getSelectedItem()).equals("") ){
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 adminExecutive main = new adminExecutive();
@@ -223,7 +245,7 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
                 dataList.add(complaintClass.getComplaintId());
                 dataList.add(complaintDetailField.getText());
                 dataList.add("-");
-                dataList.add((String)residentComboBox.getSelectedItem());
+                dataList.add((String)userComboBox.getSelectedItem());
                 mainInner.addEditComplaint(dataList, "Complaint","Complaint.txt","add");
                 complaintDetailField.setText("");
                 complaintReplyField.setText("");
@@ -235,9 +257,41 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_complaintIdFieldActionPerformed
 
-    private void residentComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentComboBoxActionPerformed
+    private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_residentComboBoxActionPerformed
+    }//GEN-LAST:event_userComboBoxActionPerformed
+
+    private void userTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTypeComboBoxActionPerformed
+        // TODO add your handling code here:
+        complaint complaintClass = new complaint();
+        complaint.complaintMethod mainInner = complaintClass.new complaintMethod();
+        if(((String)userTypeComboBox.getSelectedItem()).equals("Vendor")){
+                userComboBox.removeAllItems();
+            try {
+                mainInner.getDropDownData("VendorProfile.txt","Complaint");
+            } catch (FileNotFoundException ex) {
+
+            }
+                int i=0;
+                for (String x : complaintClass.getDropDownData()) {
+                    userComboBox.addItem((complaintClass.getDropDownData()).get(i));
+                    i++;
+                }   
+        }
+            else if(((String)userTypeComboBox.getSelectedItem()).equals("Resident")){
+                userComboBox.removeAllItems();
+            try {
+                mainInner.getDropDownData("residentProfile.txt","Complaint");
+            } catch (FileNotFoundException ex) {
+
+            }
+                int i=0;
+                for (String x : complaintClass.getDropDownData()) {
+                    userComboBox.addItem((complaintClass.getDropDownData()).get(i));
+                    i++;
+                } 
+        }
+    }//GEN-LAST:event_userTypeComboBoxActionPerformed
 
     private String addEditDetector;
     private String fileType="Complaint.txt";
@@ -250,17 +304,27 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
             complaintClass.chooseTxtFile("Complaint");
             complaintClass.getDataViewSingle(id, fileType,userType);
             complaint.complaintMethod mainInner = complaintClass.new complaintMethod();
-            mainInner.getDropDownData("residentProfile.txt","Complaint");
+            
             addEditBtn.setText("Update");
             complaintIdField.setText(complaintClass.getComplaintId());
             complaintDetailField.setText(complaintClass.getComplaintDescription());
             complaintReplyField.setText(complaintClass.getComplaintReply());
+            System.out.println((complaintClass.getUserId()).substring(0,1));
+            if((complaintClass.getUserId()).substring(0,1).equals("V")){
+                userTypeComboBox.addItem("Vendor");
+                userTypeComboBox.addItem("Resident");
+                mainInner.getDropDownData("VendorProfile.txt","Complaint");
+            }else if ((complaintClass.getUserId()).substring(0,1).equals("R")){
+                userTypeComboBox.addItem("Resident");
+                userTypeComboBox.addItem("Vendor");
+                mainInner.getDropDownData("residentProfile.txt","Complaint");
+            }
             int i=0;
             for (String x : complaintClass.getDropDownData()) {
-                residentComboBox.addItem((complaintClass.getDropDownData()).get(i));
+                userComboBox.addItem((complaintClass.getDropDownData()).get(i));
                 i++;
             }
-            residentComboBox.setSelectedItem(complaintClass.getResidentId());
+            userComboBox.setSelectedItem(complaintClass.getUserId());
         }else if (functionType=="add"){
             this.addEditDetector="add";
             addEditBtn.setText("Add");
@@ -269,12 +333,17 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
             complaintReplyField.setEnabled(false);
             complaint complaintClass = new complaint();
             complaint.complaintMethod mainInner = complaintClass.new complaintMethod();
-            mainInner.getDropDownData("residentProfile.txt","Complaint");
-            int i=0;
-            for (String x : complaintClass.getDropDownData()) {
-                residentComboBox.addItem((complaintClass.getDropDownData()).get(i));
-                i++;
-            }
+            userTypeComboBox.addItem("Vendor");
+            userTypeComboBox.addItem("Resident");
+            if(((String)userTypeComboBox.getSelectedItem()).equals("Vendor")){
+                userComboBox.removeAllItems();
+                mainInner.getDropDownData("VendorProfile.txt","Complaint");
+                int i=0;
+                for (String x : complaintClass.getDropDownData()) {
+                    userComboBox.addItem((complaintClass.getDropDownData()).get(i));
+                    i++;
+                }   
+        }
         }
     }
     
@@ -324,9 +393,11 @@ public class adminExecComplaintAddEditFrame extends javax.swing.JFrame {
     private javax.swing.JLabel complaintIdLabel;
     private javax.swing.JTextArea complaintReplyField;
     private javax.swing.JLabel complaintReplyLabel;
+    private javax.swing.JLabel complaintUserTypeLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JComboBox<String> residentComboBox;
+    private javax.swing.JComboBox<String> userComboBox;
+    private javax.swing.JComboBox<String> userTypeComboBox;
     // End of variables declaration//GEN-END:variables
 }

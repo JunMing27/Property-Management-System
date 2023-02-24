@@ -36,7 +36,7 @@ public class complaint implements displayController{
     public String getComplaintReply(){
         return complaintReply;
     }
-    public String getResidentId(){
+    public String getUserId(){
         return residentId;
     }
     
@@ -49,7 +49,7 @@ public class complaint implements displayController{
     public void setComplaintReply(String reply){
         this.complaintReply=reply;
     }
-    public void setResidentId(String residentId){
+    public void setUserId(String residentId){
         this.residentId=residentId;
     }
     
@@ -97,7 +97,7 @@ public class complaint implements displayController{
             setComplaintId(allData.get(dataLine).get(0));
             setComplaintDesc(allData.get(dataLine).get(1));
             setComplaintReply(allData.get(dataLine).get(2));
-            setResidentId(allData.get(dataLine).get(3));
+            setUserId(allData.get(dataLine).get(3));
             Status=true;
             
         }catch(Exception e){
@@ -113,7 +113,7 @@ public class complaint implements displayController{
         setComplaintId(null);
         setComplaintDesc(null);
         setComplaintReply(null);
-        setResidentId(null);
+        setUserId(null);
 
     }
     @Override
@@ -125,7 +125,7 @@ public class complaint implements displayController{
                     setComplaintId(singleData.get(0));
                     setComplaintDesc(singleData.get(1));
                     setComplaintReply(singleData.get(2));
-                    setResidentId(singleData.get(3));
+                    setUserId(singleData.get(3));
                     break;
                 }
             }
