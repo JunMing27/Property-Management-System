@@ -11,5 +11,6 @@ import java.util.ArrayList;
  * @author HoiYi
  */
 public interface dataManagementController1 {
-    public  ArrayList<ArrayList<String>> DataInfo(String textFile);
+    public  ArrayList<ArrayList<String>> allUserDataInfo(String textFile);
+    public  ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile);
 }

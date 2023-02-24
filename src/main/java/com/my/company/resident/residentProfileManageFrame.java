@@ -4,6 +4,16 @@
  */
 package com.my.company.resident;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author user
@@ -309,10 +319,52 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
         residentProfileEdit.setVisible(true);
     }//GEN-LAST:event_editBtnActionPerformed
 
+    private String residentImage;
     
     private void displayData()
     {
-        
+        resident main = new resident();
+        String profileString = "ResidentProfile";
+        String credentialString = "loginCredential";
+        ArrayList<ArrayList<String>> userData = main.onlyUserDataInfo(profileString);
+        ArrayList<ArrayList<String>> credentialData = main.onlyUserDataInfo(credentialString);
+
+        if(userData.get(0) != null)
+            {
+                try {
+                    residentIdTxt.setText(userData.get(0).get(0));
+                    residentNameTxt.setText(userData.get(0).get(1));
+                    residentGenderTxt.setText(userData.get(0).get(2));
+                    residentAgeTxt.setText(userData.get(0).get(3));
+                    residentPhoneTxt.setText(userData.get(0).get(4));
+                    residentUnitTxt.setText(userData.get(0).get(5));
+                    residentImage = userData.get(0).get(6);
+
+                    residentUsernameTxt.setText(credentialData.get(0).get(1));
+                    residentPwdTxt.setText(credentialData.get(0).get(2));
+
+                    //image
+                    BufferedImage bufferedImage = null;
+                    File imageFile = new File("src/main/java/com/mycompany/Image/"+residentImage);
+                    bufferedImage = ImageIO.read(imageFile);
+                    Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon profileIcon = new ImageIcon(profileImage);
+                    imageLabel.setIcon(profileIcon);
+                } catch (IOException ex) {
+                    Logger.getLogger(residentProfileManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else{
+                residentIdTxt.setText("no data");
+                residentNameTxt.setText("no data");
+                residentGenderTxt.setText("no data");
+                residentAgeTxt.setText("no data");
+                residentPhoneTxt.setText("no data");
+                residentUnitTxt.setText("no data");
+                imageLabel.setText("no data");
+                residentUsernameTxt.setText("no data");
+                residentPwdTxt.setText("no data");
+            }
     }
     
     

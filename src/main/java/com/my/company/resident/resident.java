@@ -13,6 +13,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -139,6 +143,8 @@ public class resident extends User implements dataManagementController1, display
     
     //declare variable for methods
     private String file = "";
+    private String userId = this.getUserId();
+    
     
 
     @Override
@@ -162,19 +168,172 @@ public class resident extends User implements dataManagementController1, display
     }
 
     @Override
-    public ArrayList<ArrayList<String>> DataInfo(String textFile) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
+        File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = null;
+            try {
+                sc = new Scanner(file);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        return allUserInfo;
+    }
+    
+    @Override
+    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
+        ArrayList<ArrayList<String>> allUserInfo = this.allUserDataInfo(textFile);
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        
+        int p,q;
+        //for ResidentProfile.txt & vendorProfile.txt
+        if(textFile.equals("ResidentProfile") || textFile.equals("VendorProfile"))
+        {
+            for (p=0,q=0; p<allUserInfo.size(); p++)
+            {
+                if(allUserInfo.get(p).contains(userId))
+                {
+                    ArrayList<String> item = allUserInfo.get(p);
+                    if(item.get(0).equals(userId))
+                    {
+                        onlyUserInfo.add(allUserInfo.get(p));
+                        q++;
+                    }
+                }
+            }
+        }
+        return onlyUserInfo;
     }
 
     @Override
-    public void displayDataView(Integer dataLine, String searchTxt, String type) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void displayDataViewAll(Integer dataLine, String searchTxt, String type) {
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
+        ArrayList<ArrayList<String>> allData = allUserDataInfo(fileName);
+        int i =0;
+        int fixedSize = allData.size();
+        int changedSize = allData.size();
+        if(!searchTxt.equals("")){
+            for (int x=0;x<fixedSize+1;x++) {
+                if(i ==changedSize){
+                    break;
+                }
+                
+                if(!(allData.get(i)).contains(searchTxt)){
+                    allData.remove(i);
+                    changedSize=changedSize-1;
+                    i=i-1;
+                }
+                i=i+1;
+            }
+        }
+        int newSize = allData.size();
+        try{
+            if(type.equals("resident")){
+                this.setUserId(allData.get(dataLine).get(0));
+                this.setUserName(allData.get(dataLine).get(1));
+                this.setUserGender(allData.get(dataLine).get(2));
+                this.setUserAge(allData.get(dataLine).get(3));
+                this.setUserPhoneNumber(allData.get(dataLine).get(4));
+                this.setUserUnit(allData.get(dataLine).get(5));
+                this.setUserImage(allData.get(dataLine).get(6));
+                this.status = true;
+            }else if(type.equals("vendor"))
+            {
+                this.setUserId(allData.get(dataLine).get(0));
+                this.setUserName(allData.get(dataLine).get(1));
+                this.setUserGender(allData.get(dataLine).get(2));
+                this.setUserAge(allData.get(dataLine).get(3));
+                this.setUserPhoneNumber(allData.get(dataLine).get(4));
+                this.setUserImage(allData.get(dataLine).get(5));
+                this.status = true;
+            }
+            
+        }catch(Exception e){
+            setDataNull();
+            this.status = false;
+        }
+        if(dataLine.equals(newSize-1)){
+            this.status = false;
+        }
     }
 
     @Override
-    public void setDataNull(String type) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setDataNull() {
+        //no matter what type, set all data null
+//        if(type.equals("resident") || type.equals("vendor"))
+//        {
+            this.setUserId(null);
+            this.setUserName(null);
+            this.setUserGender(null);
+            this.setUserAge(null);
+            this.setUserPhoneNumber(null);
+            this.setUserImage(null);
+            this.setUserUnit(null);
+//        }
     }
 
+    @Override
+    public void displayDataViewOwn(Integer dataLine, String searchTxt, String type) {
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
+        ArrayList<ArrayList<String>> allData = onlyUserDataInfo(fileName);
+        int i =0;
+        int fixedSize = allData.size();
+        int changedSize = allData.size();
+        if(!searchTxt.equals("")){
+            for (int x=0;x<fixedSize+1;x++) {
+                if(i ==changedSize){
+                    break;
+                }
+                
+                if(!(allData.get(i)).contains(searchTxt)){
+                    allData.remove(i);
+                    changedSize=changedSize-1;
+                    i=i-1;
+                }
+                i=i+1;
+            }
+        }
+        int newSize = allData.size();
+        try{
+            if(type.equals("resident")){
+                this.setUserId(allData.get(dataLine).get(0));
+                this.setUserName(allData.get(dataLine).get(1));
+                this.setUserGender(allData.get(dataLine).get(2));
+                this.setUserAge(allData.get(dataLine).get(3));
+                this.setUserPhoneNumber(allData.get(dataLine).get(4));
+                this.setUserUnit(allData.get(dataLine).get(5));
+                this.setUserImage(allData.get(dataLine).get(6));
+                this.status = true;
+            }else if(type.equals("vendor"))
+            {
+                this.setUserId(allData.get(dataLine).get(0));
+                this.setUserName(allData.get(dataLine).get(1));
+                this.setUserGender(allData.get(dataLine).get(2));
+                this.setUserAge(allData.get(dataLine).get(3));
+                this.setUserPhoneNumber(allData.get(dataLine).get(4));
+                this.setUserImage(allData.get(dataLine).get(5));
+                this.status = true;
+            }
+            
+        }catch(Exception e){
+            setDataNull();
+            this.status = false;
+        }
+        if(dataLine.equals(newSize-1)){
+            this.status = false;
+        }
+    }
    
 }
