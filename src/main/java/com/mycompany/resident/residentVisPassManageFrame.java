@@ -409,7 +409,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         {
             removeSelected("bottom");
             this.dispose();
-           residentVisPassManageFrame visitorPassManage = new residentVisPassManageFrame(idGet);
+            residentVisPassManageFrame visitorPassManage = new residentVisPassManageFrame(idGet);
             visitorPassManage.setVisible(true);
         }
     }//GEN-LAST:event_deleteBtn2ActionPerformed

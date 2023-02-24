@@ -381,8 +381,6 @@ public class residentPayFrame extends javax.swing.JFrame {
             selectBtn2.setEnabled(false);
         }
         
-        
-        
     }
     
     
