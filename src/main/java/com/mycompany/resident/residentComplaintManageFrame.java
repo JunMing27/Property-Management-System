@@ -418,7 +418,6 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null){
-            System.out.println("???");
             idTxt1.setText(main.getComplaintId());
             detailTxt1.setText(main.getComplaintDetail());
             replyTxt1.setText(main.getComplaintReply());

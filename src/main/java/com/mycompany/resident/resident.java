@@ -778,6 +778,13 @@ public class resident extends User implements dataManagementController1, display
                         +dataList.get(0)+","
                         +dataList.get(4)+"\n");
             }
+            else if(textFile.equals("Complaint"))
+            {
+                bw.write(dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(0)+"\n");
+            }
             
             bw.close();
         } catch (IOException ex) {
