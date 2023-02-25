@@ -1,3 +1,5 @@
+package com.mycompany.employee;
+
 
 import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController1;
@@ -31,6 +33,7 @@ public class checkpoint implements displayController1, dataManagementController1
     private String blockNumber;
     private String checkPointRecordDate;
     private String checkPointRecordTime;
+    private int totalLine;
 
     public String getCheckPointRecordID() {
         return checkPointRecordID;
@@ -72,6 +75,16 @@ public class checkpoint implements displayController1, dataManagementController1
         this.checkPointRecordTime = checkPointRecordTime;
     }
 
+    public int getTotalLine() {
+        return totalLine;
+    }
+
+    public void setTotalLine(int totalLine) {
+        this.totalLine = totalLine;
+    }
+
+    
+    
     @Override
     public void displayDataViewAll(Integer dataLine, String searchTxt, String type, String fileName) {
     
@@ -135,6 +148,7 @@ public class checkpoint implements displayController1, dataManagementController1
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
+        int totalRow = 0;
         
         for (p=0,q=0; p<allUserInfo.size(); p++)
         {
@@ -143,12 +157,13 @@ public class checkpoint implements displayController1, dataManagementController1
                 ArrayList<String> item = allUserInfo.get(p);
                 if(item.get(1).equals(this.getUserId()))
                 {
+                    totalRow = totalRow +1;
                     onlyUserInfo.add(allUserInfo.get(p));
                     q++;
                 }
             }
         }
-        
+        setTotalLine(totalRow);
         return onlyUserInfo;
     }
 

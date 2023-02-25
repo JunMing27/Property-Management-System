@@ -130,7 +130,7 @@ public class paymentHistory implements displayController1{
             try {
                 sc = new Scanner(file);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(paymentHistory.class.getName()).log(Level.SEVERE, null, ex);
             }
             String oneUserInfo; 
             String[] itemArray;

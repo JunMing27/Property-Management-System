@@ -174,7 +174,7 @@ public class guardMenuFrame extends javax.swing.JFrame {
 
     private void checkpointBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkpointBtnActionPerformed
         this.dispose();
-        GuardCheckPointManage checkpoint = new GuardCheckPointManage();
+        guardCheckPointViewFrame checkpoint = new guardCheckPointViewFrame(idGet);
         checkpoint.setVisible(true);
     }//GEN-LAST:event_checkpointBtnActionPerformed
 
@@ -212,7 +212,7 @@ public class guardMenuFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new guardMenuFrame().setVisible(true);
+                new guardMenuFrame(idGet).setVisible(true);
             }
         });
     }

@@ -19,15 +19,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class guardCheckPointViewFrame extends javax.swing.JFrame {
 
-    static String idGet, blockGet;
+    static String idGet;
     
-    public guardCheckPointViewFrame(String id, String blockNumber) {
+    public guardCheckPointViewFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
-        blockGet = blockNumber;
-        createTable(blockGet);
+        noDataLabel.setVisible(false);
+        createTable();
     }
 
     /**
@@ -44,6 +44,8 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
         topLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         checkPointRecordTable = new javax.swing.JTable();
+        noDataLabel = new javax.swing.JLabel();
+        checkInBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,7 +64,7 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("VIEW BLOCK CHECK POINT");
+        topLabel.setText("CHECK POINT RECORD");
 
         checkPointRecordTable.setBackground(new java.awt.Color(233, 233, 233));
         checkPointRecordTable.setForeground(new java.awt.Color(0, 0, 0));
@@ -76,6 +78,22 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(checkPointRecordTable);
 
+        noDataLabel.setBackground(new java.awt.Color(233, 233, 233));
+        noDataLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        noDataLabel.setForeground(new java.awt.Color(0, 0, 0));
+        noDataLabel.setText("No Data");
+
+        checkInBtn.setBackground(new java.awt.Color(255, 255, 255));
+        checkInBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        checkInBtn.setForeground(new java.awt.Color(0, 0, 0));
+        checkInBtn.setText("CHECK IN");
+        checkInBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        checkInBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkInBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -86,9 +104,15 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(topLabel)))
-                .addContainerGap(184, Short.MAX_VALUE))
+                        .addGap(171, 171, 171)
+                        .addComponent(topLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(noDataLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addComponent(checkInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(200, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(85, Short.MAX_VALUE)
@@ -102,7 +126,11 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(474, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noDataLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 398, Short.MAX_VALUE)
+                .addComponent(checkInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(167, Short.MAX_VALUE)
@@ -126,36 +154,39 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        guardCheckPointManageFrame manage = new guardCheckPointManageFrame(idGet);
-        manage.setVisible(true);
+        guardMenuFrame menu = new guardMenuFrame(idGet);
+        menu.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
-    private void createTable(String blockNumber)
+    private void checkInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInBtnActionPerformed
+        this.dispose();
+        guardCheckPointAddFrame add = new guardCheckPointAddFrame(idGet);
+        add.setVisible(true);
+    }//GEN-LAST:event_checkInBtnActionPerformed
+
+    private void createTable()
     {
-        
-            String CheckpointRecordFile = "src/main/java/com/mycompany/textFile/CheckpointRecord.txt";
-            File file = new File(CheckpointRecordFile);
-            BufferedReader br = new BufferedReader(new FileReader(file));
+        checkpoint main = new checkpoint();
+        main.setUserId(idGet);
+        main.displayDataViewOwn(0, "", "checkpointRecord", "CheckpointRecord");
+        if(main.getCheckPointRecordID() != null)
+        {
+            int totalRow = main.getTotalLine();
             
-            String[] tableHeader = {"Security Guard ID", "Check Point Date", "Check Point Time"};
-            
+            String[] tableHeader = {"Block Number", "Check Point Date", "Check Point Time"};
             DefaultTableModel model = (DefaultTableModel) checkPointRecordTable.getModel();
             model.setColumnIdentifiers(tableHeader);
             
-            String line = br.readLine();
-            while(line != null )
+            for(int i=0; i<totalRow; i++)
             {
-                String[] dataRow = line.split(",");
-                if(dataRow[2].contains(blockNumber))
-                {
-                    String[] onlyData = {dataRow[1],dataRow[3],dataRow[4]};
-                    model.addRow(onlyData);
-                    
-                }
-                line = br.readLine();
+                main.displayDataViewOwn(i, "", "checkpointRecord", "CheckpointRecord");
+                String[] dataRow = {main.getBlockNumber(), main.getCheckPointRecordDate(), main.getCheckPointRecordTime()};
+                model.addRow(dataRow);
             }
-            
-            br.close();
+                
+        }else{
+            noDataLabel.setVisible(true);
+        }
         
     }
     
@@ -189,16 +220,18 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new guardCheckPointViewFrame(idGet, blockGet).setVisible(true);
+                new guardCheckPointViewFrame(idGet).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.JButton checkInBtn;
     private javax.swing.JTable checkPointRecordTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel noDataLabel;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 }
