@@ -147,18 +147,23 @@ public class complaint implements displayController{
                 while ((line = input.readLine()) != null) {
                     last = line;
                 }
-                Scanner ScanEachString = new Scanner(last);
-                ScanEachString.useDelimiter("[,\n]");
-                while (ScanEachString.hasNextLine()) {
-                    // First character of a string
-                    ID = (ScanEachString.next().trim());
-                    break;
-                }
-                    String IDchar = ID.substring(0,1);
-                    ID = ID.substring(1);
-                    Integer IDnumber = Integer.parseInt(ID)+1;
-                    ID = IDchar+ (IDnumber).toString();
+                if(last==""){
+                    ID = "C1";
                     setComplaintId(ID);
+                }else{
+                    Scanner ScanEachString = new Scanner(last);
+                    ScanEachString.useDelimiter("[,\n]");
+                    while (ScanEachString.hasNextLine()) {
+                        // First character of a string
+                        ID = (ScanEachString.next().trim());
+                        break;
+                    }
+                        String IDchar = ID.substring(0,1);
+                        ID = ID.substring(1);
+                        Integer IDnumber = Integer.parseInt(ID)+1;
+                        ID = IDchar+ (IDnumber).toString();
+                        setComplaintId(ID);
+                }
             }
             catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);

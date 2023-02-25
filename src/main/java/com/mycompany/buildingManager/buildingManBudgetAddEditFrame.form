@@ -60,11 +60,16 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="projectNameField" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                              <Component id="projectBudgetField" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                              <Component id="projectStartDateField" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                              <Component id="projectEndDateField" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                               <Component id="projectIdField" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="projectNameField" alignment="0" pref="175" max="32767" attributes="0"/>
+                                      <Component id="projectBudgetField" alignment="0" pref="175" max="32767" attributes="0"/>
+                                      <Component id="StartDateChooser" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="EndDateChooser" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -82,31 +87,33 @@
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="backBtn" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="projectIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="projectIdField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="projectIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="projectIdField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="projectNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="projectNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="projectBudgetLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="projectBudgetField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="projectStartDateLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="StartDateChooser" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="projectEndDateLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="EndDateChooser" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="projectNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="projectNameField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="projectBudgetLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="projectBudgetField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="projectStartDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="projectStartDateField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="projectEndDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="projectEndDateField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
+                  <EmptySpace pref="52" max="32767" attributes="0"/>
                   <Component id="addEditBtn" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
@@ -217,26 +224,6 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="projectStartDateField">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="projectEndDateField">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="projectIdField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -247,6 +234,10 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="projectIdFieldActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="StartDateChooser">
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="EndDateChooser">
         </Component>
       </SubComponents>
     </Container>

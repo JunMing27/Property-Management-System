@@ -242,19 +242,24 @@ public class vendor extends User implements dataManagementController, displayCon
                 while ((line = input.readLine()) != null) {
                     last = line;
                 }
-                Scanner ScanEachString = new Scanner(last);
-                ScanEachString.useDelimiter("[,\n]");
-                while (ScanEachString.hasNextLine()) {
-                    // First character of a string
-                    ID = (ScanEachString.next().trim());
-                    break;
-                }
-                if(type=="Vendor"){
-                    String IDchar = ID.substring(0,1);
-                    ID = ID.substring(1);
-                    Integer IDnumber = Integer.parseInt(ID)+1;
-                    ID = IDchar+ (IDnumber).toString();
+                if(last==""){
+                    ID = "V1";
                     setUserId(ID);
+                }else{
+                    Scanner ScanEachString = new Scanner(last);
+                    ScanEachString.useDelimiter("[,\n]");
+                    while (ScanEachString.hasNextLine()) {
+                        // First character of a string
+                        ID = (ScanEachString.next().trim());
+                        break;
+                    }
+                    if(type=="Vendor"){
+                        String IDchar = ID.substring(0,1);
+                        ID = ID.substring(1);
+                        Integer IDnumber = Integer.parseInt(ID)+1;
+                        ID = IDchar+ (IDnumber).toString();
+                        setUserId(ID);
+                    }
                 }
             }
             catch (IOException ex) {

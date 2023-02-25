@@ -510,12 +510,17 @@ BufferedReader input;
                     ID = (ScanEachString.next().trim());
                     break;
                 }
+                if(last==""){
+                    ID = "R1";
+                    setUserId(ID);
+                }else{
                 if(type=="Resident"){
                     String IDchar = ID.substring(0,1);
                     ID = ID.substring(1);
                     Integer IDnumber = Integer.parseInt(ID)+1;
                     ID = IDchar+ (IDnumber).toString();
                     setUserId(ID);
+                }
                 }
             }
             catch (IOException ex) {

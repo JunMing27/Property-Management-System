@@ -377,19 +377,30 @@ public class buildingManager extends User implements dataManagementController, d
                 while ((line = input.readLine()) != null) {
                     last = line;
                 }
-                Scanner ScanEachString = new Scanner(last);
-                ScanEachString.useDelimiter("[,\n]");
-                while (ScanEachString.hasNextLine()) {
-                    // First character of a string
-                    ID = (ScanEachString.next().trim());
-                    break;
-                }
-                if(type=="Admin Executive" || type=="Account Executive" || type=="Building Executive"){
-                    String IDchar = ID.substring(0,2);
-                    ID = ID.substring(2);
-                    Integer IDnumber = Integer.parseInt(ID)+1;
-                    ID = IDchar+ (IDnumber).toString();
+                if(last=="" && type.equals("Admin Executive")){
+                    ID = "AE1";
                     setUserId(ID);
+                }else if(last=="" && type.equals("Account Executive")){
+                    ID = "AC1";
+                    setUserId(ID);
+                }else if(last=="" && type.equals("Building Executive")){
+                    ID = "BE1";
+                    setUserId(ID);
+                }else{
+                    Scanner ScanEachString = new Scanner(last);
+                    ScanEachString.useDelimiter("[,\n]");
+                    while (ScanEachString.hasNextLine()) {
+                        // First character of a string
+                        ID = (ScanEachString.next().trim());
+                        break;
+                    }
+                    if(type=="Admin Executive" || type=="Account Executive" || type=="Building Executive"){
+                        String IDchar = ID.substring(0,2);
+                        ID = ID.substring(2);
+                        Integer IDnumber = Integer.parseInt(ID)+1;
+                        ID = IDchar+ (IDnumber).toString();
+                        setUserId(ID);
+                    }
                 }
             }
             catch (IOException ex) {

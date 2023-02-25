@@ -5,8 +5,12 @@
 package com.mycompany.buildingManager;
 
 import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,9 +44,9 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
         addEditBtn = new javax.swing.JButton();
         projectNameField = new javax.swing.JTextField();
         projectBudgetField = new javax.swing.JTextField();
-        projectStartDateField = new javax.swing.JTextField();
-        projectEndDateField = new javax.swing.JTextField();
         projectIdField = new javax.swing.JTextField();
+        StartDateChooser = new com.toedter.calendar.JDateChooser();
+        EndDateChooser = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,12 +96,6 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
         projectBudgetField.setBackground(new java.awt.Color(255, 255, 255));
         projectBudgetField.setForeground(new java.awt.Color(0, 0, 0));
 
-        projectStartDateField.setBackground(new java.awt.Color(255, 255, 255));
-        projectStartDateField.setForeground(new java.awt.Color(0, 0, 0));
-
-        projectEndDateField.setBackground(new java.awt.Color(255, 255, 255));
-        projectEndDateField.setForeground(new java.awt.Color(0, 0, 0));
-
         projectIdField.setBackground(new java.awt.Color(255, 255, 255));
         projectIdField.setEnabled(false);
         projectIdField.addActionListener(new java.awt.event.ActionListener() {
@@ -125,11 +123,14 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
                             .addComponent(projectEndDateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(projectNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(projectBudgetField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(projectStartDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(projectEndDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(projectIdField)))
+                            .addComponent(projectIdField)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(projectNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                    .addComponent(projectBudgetField, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                    .addComponent(StartDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(EndDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(214, 214, 214)
                         .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -141,26 +142,27 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(projectIdLabel)
-                    .addComponent(projectIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(projectNameLabel)
-                    .addComponent(projectNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(projectBudgetLabel)
-                    .addComponent(projectBudgetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(projectStartDateLabel)
-                    .addComponent(projectStartDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(projectEndDateLabel)
-                    .addComponent(projectEndDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(projectIdLabel)
+                            .addComponent(projectIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(projectNameLabel)
+                            .addComponent(projectNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(projectBudgetLabel)
+                            .addComponent(projectBudgetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(projectStartDateLabel)
+                            .addComponent(StartDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(projectEndDateLabel))
+                    .addComponent(EndDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -210,26 +212,40 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            budgetPlan budget = new budgetPlan();
-            buildingManager main = new buildingManager();
-            ArrayList<String> dataList = new ArrayList<String>();
-            dataList.add(projectIdField.getText());
-            dataList.add(projectNameField.getText());
-            dataList.add(projectBudgetField.getText());
-            dataList.add(projectStartDateField.getText());
-            dataList.add(projectEndDateField.getText());
-            main.editOrAddData(dataList, "budget","BudgetPlanning.txt","edit");
+             if((projectNameField.getText()).equals("") ||(projectBudgetField.getText()).equals("") ||StartDateChooser.getDate().equals("") ||EndDateChooser.getDate().equals("")) {
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                budgetPlan budget = new budgetPlan();
+                buildingManager main = new buildingManager();
+                ArrayList<String> dataList = new ArrayList<String>();
+                dataList.add(projectIdField.getText());
+                dataList.add(projectNameField.getText());
+                dataList.add(projectBudgetField.getText());
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String newStartDate = sdf.format(StartDateChooser.getDate());
+                String newEndDate = sdf.format(EndDateChooser.getDate());
+                dataList.add(newStartDate);
+                dataList.add(newEndDate);
+                main.editOrAddData(dataList, "budget","BudgetPlanning.txt","edit");
+             }
         }else if(addEditDetector=="add"){
-            budgetPlan budget = new budgetPlan();
-            buildingManager main = new buildingManager();
-            ArrayList<String> dataList = new ArrayList<String>();
-            budget.getIncreasedID("BudgetPlanning.txt","budget");
-            dataList.add(budget.getBudgetId());
-            dataList.add(projectNameField.getText());
-            dataList.add(projectBudgetField.getText());
-            dataList.add(projectStartDateField.getText());
-            dataList.add(projectEndDateField.getText());
-            main.editOrAddData(dataList, "budget","BudgetPlanning.txt","add");
+            if((projectNameField.getText()).equals("") ||(projectBudgetField.getText()).equals("") ||(StartDateChooser.getDate().toString()).equals("") ||(EndDateChooser.getDate().toString()).equals("")) {
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                budgetPlan budget = new budgetPlan();
+                buildingManager main = new buildingManager();
+                ArrayList<String> dataList = new ArrayList<String>();
+                budget.getIncreasedID("BudgetPlanning.txt","budget");
+                dataList.add(budget.getBudgetId());
+                dataList.add(projectNameField.getText());
+                dataList.add(projectBudgetField.getText());
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String newStartDate = sdf.format(StartDateChooser.getDate());
+                String newEndDate = sdf.format(EndDateChooser.getDate());
+                dataList.add(newStartDate);
+                dataList.add(newEndDate);
+                main.editOrAddData(dataList, "budget","BudgetPlanning.txt","add");
+             }
         }
     }//GEN-LAST:event_addEditBtnActionPerformed
 
@@ -250,8 +266,18 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
             projectIdField.setText(budgetClass.getBudgetId());
             projectNameField.setText(budgetClass.getBudgetProjectName());
             projectBudgetField.setText(budgetClass.getBudgetProjectBudget());
-            projectStartDateField.setText(budgetClass.getBudgetProjectStartDate());
-            projectEndDateField.setText(budgetClass.getBudgetProjectEndDate());
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date existingStartDate;
+            Date existingEndDate;
+            try {  
+                existingStartDate =sdf.parse(budgetClass.getBudgetProjectStartDate());
+                StartDateChooser.setDate(existingStartDate);
+                existingEndDate =sdf.parse(budgetClass.getBudgetProjectEndDate());
+                EndDateChooser.setDate(existingEndDate);
+            } catch (ParseException ex) {
+            }
+
         }else if (functionType=="add"){
             this.addEditDetector="add";
             addEditBtn.setText("Add");
@@ -297,18 +323,18 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser EndDateChooser;
+    private com.toedter.calendar.JDateChooser StartDateChooser;
     private javax.swing.JButton addEditBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField projectBudgetField;
     private javax.swing.JLabel projectBudgetLabel;
-    private javax.swing.JTextField projectEndDateField;
     private javax.swing.JLabel projectEndDateLabel;
     private javax.swing.JTextField projectIdField;
     private javax.swing.JLabel projectIdLabel;
     private javax.swing.JTextField projectNameField;
     private javax.swing.JLabel projectNameLabel;
-    private javax.swing.JTextField projectStartDateField;
     private javax.swing.JLabel projectStartDateLabel;
     // End of variables declaration//GEN-END:variables
 }
