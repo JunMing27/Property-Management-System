@@ -4,7 +4,7 @@
  */
 package com.mycompany.resident;
 
-import com.mycompany.adminExecutive.facility;
+import com.mycompany.adminExecutive.facilityBooking;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -65,6 +65,10 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
         editBtn2 = new javax.swing.JButton();
         deleteBtn2 = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
+        bookingIdLabel1 = new javax.swing.JLabel();
+        bookingIdTxt1 = new javax.swing.JLabel();
+        bookingIdLabel2 = new javax.swing.JLabel();
+        bookingIdTxt2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -234,6 +238,22 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
             }
         });
 
+        bookingIdLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        bookingIdLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        bookingIdLabel1.setText("Facility Booking ID :");
+
+        bookingIdTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        bookingIdTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        bookingIdTxt1.setText("FB1");
+
+        bookingIdLabel2.setBackground(new java.awt.Color(233, 233, 233));
+        bookingIdLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        bookingIdLabel2.setText("Facility Booking ID :");
+
+        bookingIdTxt2.setBackground(new java.awt.Color(233, 233, 233));
+        bookingIdTxt2.setForeground(new java.awt.Color(0, 0, 0));
+        bookingIdTxt2.setText("FB1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -243,27 +263,33 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(facilityIdLabel2)
-                            .addComponent(facilityNameLabel2)
-                            .addComponent(bookDateLabel2)
-                            .addComponent(bookTimeLabel2)
-                            .addComponent(bookDurationLabel2)
-                            .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(facilityIdLabel2)
+                                    .addComponent(facilityNameLabel2)
+                                    .addComponent(bookDateLabel2)
+                                    .addComponent(bookTimeLabel2)
+                                    .addComponent(bookDurationLabel2)
+                                    .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(72, 72, 72)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(bookDurationTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(facilityNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(facilityIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(bookDateTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(bookTimeTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(bookDurationTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(facilityNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(facilityIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(bookDateTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(bookingIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addComponent(bookTimeTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(87, 87, 87)
+                                        .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(84, 84, 84)
-                                .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bookingIdLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
@@ -275,14 +301,18 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nextPageBtn))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(facilityNameLabel1)
-                            .addComponent(facilityIdLabel1)
-                            .addComponent(bookDateLabel1)
-                            .addComponent(bookTimeLabel1)
-                            .addComponent(bookDurationLabel1)
-                            .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(97, 97, 97)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(bookDurationLabel1)
+                                .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(facilityIdLabel1)
+                                .addComponent(facilityNameLabel1)
+                                .addComponent(bookingIdLabel1)
+                                .addComponent(bookDateLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(bookTimeLabel1)
+                                .addGap(27, 27, 27)))
                         .addGap(72, 72, 72)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -292,8 +322,9 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
                                     .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(facilityNameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bookDateTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(facilityIdTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bookDurationTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bookDurationTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(facilityIdTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bookingIdTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(59, 59, 59))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -319,57 +350,65 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
+                .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(facilityIdLabel1)
-                    .addComponent(facilityIdTxt1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(bookingIdLabel1)
+                    .addComponent(bookingIdTxt1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(facilityIdTxt1)
+                    .addComponent(facilityIdLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(facilityNameLabel1)
                     .addComponent(facilityNameTxt1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookDateLabel1)
                     .addComponent(bookDateTxt1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookTimeLabel1)
                     .addComponent(bookTimeTxt1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookDurationLabel1)
                     .addComponent(bookDurationTxt1))
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bookingIdLabel2)
+                    .addComponent(bookingIdTxt2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(facilityIdLabel2)
                     .addComponent(facilityIdTxt2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(facilityNameTxt2)
-                    .addComponent(facilityNameLabel2))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(facilityNameLabel2)
+                    .addComponent(facilityNameTxt2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookDateLabel2)
                     .addComponent(bookDateTxt2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bookTimeLabel2)
-                    .addComponent(bookTimeTxt2))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bookTimeTxt2)
+                    .addComponent(bookTimeLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookDurationLabel2)
                     .addComponent(bookDurationTxt2))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
                 .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -397,14 +436,16 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
-        this.dispose();
+        
         ArrayList<String> dataList = new ArrayList<>();
+        dataList.add(bookingIdTxt1.getText());
         dataList.add(facilityIdTxt1.getText());
         dataList.add(facilityNameTxt1.getText());
         dataList.add(bookDateTxt1.getText());
         dataList.add(bookTimeTxt1.getText());
         dataList.add(bookDurationTxt1.getText());
-        FacilityBookingAddEdit facilityBookingAddEdit = new FacilityBookingAddEdit("edit", dataList );
+        this.dispose();
+        residentFacBookAddEditFrame facilityBookingAddEdit = new residentFacBookAddEditFrame(idGet, "edit", dataList );
         facilityBookingAddEdit.setVisible(true);
     }//GEN-LAST:event_editBtn1ActionPerformed
 
@@ -426,7 +467,16 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
             "WARNING", JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
-            removeSelected("upper");
+            ArrayList<String> dataList = new ArrayList<>();
+            dataList.add(bookingIdTxt1.getText());
+            dataList.add(facilityIdTxt1.getText());
+            dataList.add(facilityNameTxt1.getText());
+            dataList.add(bookDateTxt1.getText());
+            dataList.add(bookTimeTxt1.getText());
+            dataList.add(bookDurationTxt1.getText());
+            facilityBooking main = new facilityBooking();
+            main.setResidentId(idGet);
+            main.removeFromFile("FacilityBooking", dataList);
             this.dispose();
             residentFacBookManageFrame manage = new residentFacBookManageFrame(idGet);
             manage.setVisible(true);
@@ -434,31 +484,45 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteBtn1ActionPerformed
 
     private void editBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn2ActionPerformed
-        this.dispose();
         ArrayList<String> dataList = new ArrayList<>();
+        dataList.add(bookingIdTxt2.getText());
         dataList.add(facilityIdTxt2.getText());
         dataList.add(facilityNameTxt2.getText());
         dataList.add(bookDateTxt2.getText());
         dataList.add(bookTimeTxt2.getText());
         dataList.add(bookDurationTxt2.getText());
-        FacilityBookingAddEdit facilityBookingAddEdit = new FacilityBookingAddEdit("edit", dataList );
+        this.dispose();
+        residentFacBookAddEditFrame facilityBookingAddEdit = new residentFacBookAddEditFrame(idGet, "edit", dataList );
         facilityBookingAddEdit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
     private void deleteBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn2ActionPerformed
+        
         int result = JOptionPane.showConfirmDialog(null, "Click 'YES' Will Delete Selected Booking ",
             "WARNING", JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
-            removeSelected("bottom");
+            ArrayList<String> dataList = new ArrayList<>();
+            dataList.add(bookingIdTxt2.getText());
+            dataList.add(facilityIdTxt2.getText());
+            dataList.add(facilityNameTxt2.getText());
+            dataList.add(bookDateTxt2.getText());
+            dataList.add(bookTimeTxt2.getText());
+            dataList.add(bookDurationTxt2.getText());
+            facilityBooking main = new facilityBooking();
+            main.setResidentId(idGet);
+            main.removeFromFile("FacilityBooking", dataList);
             this.dispose();
-            residentFacBookManageFrame residentPay = new residentFacBookManageFrame(idGet);
-            residentPay.setVisible(true);
+            residentFacBookManageFrame manage = new residentFacBookManageFrame(idGet);
+            manage.setVisible(true);
         }
     }//GEN-LAST:event_deleteBtn2ActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        // TODO add your handling code here:
+        ArrayList<String> dataList = new ArrayList<>();
+        this.dispose();
+        residentFacBookAddEditFrame facilityBookingAddEdit = new residentFacBookAddEditFrame(idGet, "add", dataList );
+        facilityBookingAddEdit.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private int pageLine=-1;
@@ -476,7 +540,8 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
     
     private void displayData(){
         facilityBooking main = new facilityBooking();
-        main.setUserId(idGet);
+        main.setResidentId(idGet);
+        main.chooseTxtFile("");
         
         setPagination();
         main.displayDataView(pageLine, "", "facility");
@@ -484,14 +549,16 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getFacBookingId() != null)
+        if(main.getFacilityBookingId()!= null)
         {
+            bookingIdTxt1.setText(main.getFacilityBookingId());
             facilityIdTxt1.setText(main.getFacilityId());
             facilityNameTxt1.setText(main.getFacilityName());
-            bookDateTxt1.setText(main.getBookDate);
-            bookTimeTxt1.setText(main.getBookTime);
-            bookDurationTxt1.setText(main.getBookDuration);
+            bookDateTxt1.setText(main.getBookingDate());
+            bookTimeTxt1.setText(main.getBookingStartTime());
+            bookDurationTxt1.setText(main.getBookingDuration());
         }else{
+            bookingIdTxt1.setText("no data");
             facilityIdTxt1.setText("no data");
             facilityNameTxt1.setText("no data");
             bookDateTxt1.setText("no data");
@@ -508,14 +575,16 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         
-        if(main.getFacBookingId() != null)
+        if(main.getFacilityBookingId()!= null)
         {
+            bookingIdTxt2.setText(main.getFacilityBookingId());
             facilityIdTxt2.setText(main.getFacilityId());
             facilityNameTxt2.setText(main.getFacilityName());
-            bookDateTxt2.setText(main.getBookDate);
-            bookTimeTxt2.setText(main.getBookTime);
-            bookDurationTxt2.setText(main.getBookDuration);
+            bookDateTxt2.setText(main.getBookingDate());
+            bookTimeTxt2.setText(main.getBookingStartTime());
+            bookDurationTxt2.setText(main.getBookingDuration());
         }else{
+            bookingIdTxt2.setText("no data");
             facilityIdTxt2.setText("no data");
             facilityNameTxt2.setText("no data");
             bookDateTxt2.setText("no data");
@@ -580,6 +649,10 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
     private javax.swing.JLabel bookTimeLabel2;
     private javax.swing.JLabel bookTimeTxt1;
     private javax.swing.JLabel bookTimeTxt2;
+    private javax.swing.JLabel bookingIdLabel1;
+    private javax.swing.JLabel bookingIdLabel2;
+    private javax.swing.JLabel bookingIdTxt1;
+    private javax.swing.JLabel bookingIdTxt2;
     private javax.swing.JButton deleteBtn1;
     private javax.swing.JButton deleteBtn2;
     private javax.swing.JButton editBtn1;
