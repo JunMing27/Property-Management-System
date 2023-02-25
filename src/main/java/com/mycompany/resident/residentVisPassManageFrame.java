@@ -60,6 +60,8 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         dateTxt2 = new javax.swing.JLabel();
         deleteBtn2 = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
+        searchTxtField = new javax.swing.JTextField();
+        searchBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -213,6 +215,25 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
             }
         });
 
+        searchTxtField.setBackground(new java.awt.Color(255, 255, 255));
+        searchTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        searchTxtField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchTxtField.setCaretColor(new java.awt.Color(0, 0, 0));
+        searchTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTxtFieldActionPerformed(evt);
+            }
+        });
+
+        searchBtn.setBackground(new java.awt.Color(255, 255, 255));
+        searchBtn.setForeground(new java.awt.Color(0, 0, 0));
+        searchBtn.setText("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -242,9 +263,6 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(98, 98, 98)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(nameLabel1)
@@ -272,8 +290,15 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
                                         .addGap(40, 40, 40)
                                         .addComponent(backPageBtn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(nextPageBtn)))))
-                        .addGap(0, 91, Short.MAX_VALUE)))
+                                        .addComponent(nextPageBtn))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(99, 99, 99)
+                                .addComponent(searchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 63, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(185, 185, 185)
@@ -284,7 +309,10 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBtn))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -431,7 +459,23 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         add.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
+    private void searchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTxtFieldActionPerformed
+
+    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+        searchTxt = searchTxtField.getText();
+        if(!searchTxt.isEmpty() && !searchTxt.isBlank())
+        {
+            pageLine=-1;
+            backPageBtn.setEnabled(false);
+            nextPageBtn.setEnabled(true);
+            displayData();
+        }
+    }//GEN-LAST:event_searchBtnActionPerformed
+
     private int pageLine=-1;
+    private String searchTxt = "";
     
     private void setPagination(){
         pageLine=pageLine+1;
@@ -448,7 +492,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         visitorPass main = new visitorPass();
         main.setUserId(idGet);
         setPagination();
-        main.displayDataViewOwn(pageLine, "", "visitorPass", "VisitorPass");
+        main.displayDataViewOwn(pageLine, searchTxt, "visitorPass", "VisitorPass");
         boolean boo = main.getStatus();
         if(boo==false){
             nextPageBtn.setEnabled(false);
@@ -465,7 +509,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         }
         
         setPagination();
-        main.displayDataViewOwn(pageLine, "", "visitorPass", "VisitorPass");
+        main.displayDataViewOwn(pageLine, searchTxt, "visitorPass", "VisitorPass");
         boolean boo2 = main.getStatus();
         if(boo2==false){
             nextPageBtn.setEnabled(false);
@@ -544,6 +588,8 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
     private javax.swing.JLabel nameTxt1;
     private javax.swing.JLabel nameTxt2;
     private javax.swing.JButton nextPageBtn;
+    private javax.swing.JButton searchBtn;
+    private javax.swing.JTextField searchTxtField;
     private javax.swing.JLabel statusLabel1;
     private javax.swing.JLabel statusLabel2;
     private javax.swing.JLabel statusText1;

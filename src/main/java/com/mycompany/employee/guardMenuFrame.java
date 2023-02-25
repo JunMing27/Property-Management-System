@@ -168,7 +168,7 @@ public class guardMenuFrame extends javax.swing.JFrame {
 
     private void visitorEntryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visitorEntryBtnActionPerformed
         this.dispose();
-        GuardVisEntryManage visitorEntry = new GuardVisEntryManage();
+         visitorEntry = new GuardVisEntryManage();
         visitorEntry.setVisible(true);
     }//GEN-LAST:event_visitorEntryBtnActionPerformed
 

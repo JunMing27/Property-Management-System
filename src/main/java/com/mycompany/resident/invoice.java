@@ -131,7 +131,7 @@ public class invoice implements displayController1{
                     break;
                 }
                 
-                if(!(allData.get(i)).contains(searchTxt)){
+                if(!(allData.get(i).toString().toLowerCase()).contains(searchTxt.toLowerCase())){
                     allData.remove(i);
                     changedSize=changedSize-1;
                     i=i-1;

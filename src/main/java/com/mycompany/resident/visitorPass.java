@@ -83,7 +83,42 @@ public class visitorPass implements displayController1, dataManagementController
     
     @Override
     public void displayDataViewAll(Integer dataLine, String searchTxt, String type, String fileName) {
-    
+        fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
+        ArrayList<ArrayList<String>> allData = allUserDataInfo(fileName);
+        int i =0;
+        int fixedSize = allData.size();
+        int changedSize = allData.size();
+        if(!searchTxt.equals("")){
+            for (int x=0;x<fixedSize+1;x++) {
+                if(i ==changedSize){
+                    break;
+                }
+                
+                if(!(allData.get(i).toString().toLowerCase()).contains(searchTxt.toLowerCase()))
+                {
+                    allData.remove(i);
+                    changedSize=changedSize-1;
+                    i=i-1;
+                }
+                i=i+1;
+            }
+        }
+        int newSize = allData.size();
+        try{
+            this.setVisitorPassId(allData.get(dataLine).get(0));
+            this.setVisitorName(allData.get(dataLine).get(1));
+            this.setVisitDate(allData.get(dataLine).get(2));
+            this.setUserId(allData.get(dataLine).get(3));
+            this.setVisitorPassStatus(allData.get(dataLine).get(4));
+            this.status = true;  
+            
+        }catch(Exception e){
+            setDataNull();
+            this.status = false;
+        }
+        if(dataLine.equals(newSize-1)){
+            this.status = false;
+        }
     }
 
     @Override
@@ -107,7 +142,7 @@ public class visitorPass implements displayController1, dataManagementController
                     break;
                 }
                 
-                if(!(allData.get(i)).contains(searchTxt)){
+                if(!(allData.get(i).toString().toLowerCase()).contains(searchTxt.toLowerCase())){
                     allData.remove(i);
                     changedSize=changedSize-1;
                     i=i-1;
