@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  *
  * @author hoiyi
  */
-public class pay implements displayController1, dataManagementController1{
+public class payment implements displayController1, dataManagementController1{
 
     private String paymentId;
     private String payDesc;
@@ -171,7 +171,7 @@ public class pay implements displayController1, dataManagementController1{
             try {
                 sc = new Scanner(file);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(pay.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(payment.class.getName()).log(Level.SEVERE, null, ex);
             }
             String oneUserInfo; 
             String[] itemArray;
@@ -224,7 +224,7 @@ public class pay implements displayController1, dataManagementController1{
             }
             bw.close();
         } catch (IOException ex) {
-            Logger.getLogger(pay.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(payment.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -241,7 +241,7 @@ public class pay implements displayController1, dataManagementController1{
                     +dataList.get(2)+","
                     +dataList.get(3)+"\n");
         } catch (IOException ex) {
-            Logger.getLogger(pay.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(payment.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -263,7 +263,7 @@ public class pay implements displayController1, dataManagementController1{
                     line = br.readLine();
                 }
         }catch (IOException ex) {
-            Logger.getLogger(pay.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(payment.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id;
     }

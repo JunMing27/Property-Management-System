@@ -28,7 +28,7 @@ public class vendor extends User implements dataManagementController, displayCon
     
     public vendor() {
         Status = false;
-  }
+    }
 
     public Boolean getStatus(){
         return Status;
@@ -41,6 +41,100 @@ public class vendor extends User implements dataManagementController, displayCon
     public String getFileType(){
         return file;
     }
+    
+    //add by hoiyi
+
+    @Override
+    public void setPassword(String password) {
+        super.setPassword(password); 
+    }
+
+    @Override
+    public void setCredentialName(String credentialName) {
+        super.setCredentialName(credentialName);
+    }
+
+    @Override
+    public String getPassword() {
+        return super.getPassword(); 
+    }
+
+    @Override
+    public String getCredentialName() {
+        return super.getCredentialName(); 
+    }
+
+    @Override
+    public void setUserType(String userType) {
+        super.setUserType(userType);
+    }
+
+    @Override
+    public void setUserImage(String userImage) {
+        super.setUserImage(userImage); 
+    }
+
+    @Override
+    public void setUserPhoneNumber(String phoneNumber) {
+        super.setUserPhoneNumber(phoneNumber); 
+    }
+
+    @Override
+    public void setUserAge(String userAge) {
+        super.setUserAge(userAge); 
+    }
+
+    @Override
+    public void setUserGender(String userGender) {
+        super.setUserGender(userGender); 
+    }
+
+    @Override
+    public void setUserName(String userName) {
+        super.setUserName(userName); 
+    }
+
+    @Override
+    public void setUserId(String userId) {
+        super.setUserId(userId); 
+    }
+
+    @Override
+    public String getUserType() {
+        return super.getUserType(); 
+    }
+
+    @Override
+    public String getUserImage() {
+        return super.getUserImage(); 
+    }
+
+    @Override
+    public String getUserPhone() {
+        return super.getUserPhone(); 
+    }
+
+    @Override
+    public String getUserAge() {
+        return super.getUserAge(); 
+    }
+
+    @Override
+    public String getUserGender() {
+        return super.getUserGender(); 
+    }
+
+    @Override
+    public String getUserName() {
+        return super.getUserName(); 
+    }
+
+    @Override
+    public String getUserId() {
+        return super.getUserId(); 
+    }
+    
+    
     
     @Override
     public void chooseTxtFile(String Type) {
@@ -73,6 +167,17 @@ public class vendor extends User implements dataManagementController, displayCon
         int newSize = allData.size();
         try{
             if(type=="Vendor"){
+                this.setUserId(allData.get(dataLine).get(0));
+                this.setUserName(allData.get(dataLine).get(1));
+                this.setUserGender(allData.get(dataLine).get(2));
+                this.setUserAge(allData.get(dataLine).get(3));
+                this.setUserPhoneNumber(allData.get(dataLine).get(4));
+                this.setUserImage(allData.get(dataLine).get(5));
+                this.Status = true;
+            }
+            //add by hoiyi
+            else if(type.equals("vendorOwn"))
+            {
                 this.setUserId(allData.get(dataLine).get(0));
                 this.setUserName(allData.get(dataLine).get(1));
                 this.setUserGender(allData.get(dataLine).get(2));

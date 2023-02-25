@@ -282,7 +282,7 @@ public class residentPayFrame extends javax.swing.JFrame {
             dataList.add(payToTxt1.getText());
             dataList.add(payAmountTxt1.getText());
             dataList.add(dueDateTxt1.getText());
-            pay main = new pay();
+            payment main = new payment();
             main.setUserId(idGet);
             main.removeFromFile("Payment", dataList);
             int dataNextId = main.getNextId("Pending");
@@ -318,7 +318,7 @@ public class residentPayFrame extends javax.swing.JFrame {
             dataList.add(payToTxt2.getText());
             dataList.add(payAmountTxt2.getText());
             dataList.add(dueDateTxt2.getText());
-            pay main = new pay();
+            payment main = new payment();
             main.setUserId(idGet);
             main.removeFromFile("Payment", dataList);
             int dataNextId = main.getNextId("Pending");
@@ -345,7 +345,7 @@ public class residentPayFrame extends javax.swing.JFrame {
     }
     
     private void displayData(){
-        pay main = new pay();
+        payment main = new payment();
         main.setUserId(idGet);
         setPagination();
         main.displayDataViewOwn(pageLine, "", "pay", "Payment");

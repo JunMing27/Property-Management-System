@@ -20,10 +20,8 @@ import javax.swing.ImageIcon;
  */
 public class residentProfileManageFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form residentProfileManageFrame
-     */
     static String idGet;
+    
     public residentProfileManageFrame(String id) {
         initComponents();
         setResizable(false);
@@ -327,7 +325,7 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
     {
         resident main = new resident();
         main.setUserId(idGet);
-        main.displayDataViewOwn(0, "ResidentProfile");
+        main.displayDataViewOwn(0, "", "resident", "ResidentProfile");
         try {
             main.getCredentialData(main.getUserId());
         } catch (FileNotFoundException ex) {
