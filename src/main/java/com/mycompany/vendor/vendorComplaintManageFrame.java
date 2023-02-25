@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.resident;
+package com.mycompany.vendor;
 
 import com.mycompany.adminExecutive.complaint;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ import javax.swing.JOptionPane;
  *
  * @author hoiyi
  */
-public class residentComplaintManageFrame extends javax.swing.JFrame {
+public class vendorComplaintManageFrame extends javax.swing.JFrame {
 
     static String idGet;
     
-    public residentComplaintManageFrame(String id) {
+    public vendorComplaintManageFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -316,8 +316,8 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        residentMenuFrame residentOption = new residentMenuFrame(idGet);
-        residentOption.setVisible(true);
+        vendorMenuFrame option = new vendorMenuFrame(idGet);
+        option.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
@@ -326,7 +326,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         dataList.add(detailTxt1.getText());
         dataList.add(replyTxt1.getText());
         this.dispose();
-        residentComplaintAddEditFrame addEdit = new residentComplaintAddEditFrame(idGet, "edit", dataList);
+        vendorComplaintAddEditFrame addEdit = new vendorComplaintAddEditFrame(idGet, "edit", dataList);
         addEdit.setVisible(true);
     }//GEN-LAST:event_editBtn1ActionPerformed
 
@@ -355,7 +355,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
             main.setUserId(idGet);
             main.removeFromFile("Complaint", dataList);
             this.dispose();
-            residentComplaintManageFrame complaint = new residentComplaintManageFrame(idGet);
+            vendorComplaintManageFrame complaint = new vendorComplaintManageFrame(idGet);
             complaint.setVisible(true);
         }
     }//GEN-LAST:event_deleteBtn1ActionPerformed
@@ -366,7 +366,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         dataList.add(detailTxt2.getText());
         dataList.add(replyTxt2.getText());
         this.dispose();
-        residentComplaintAddEditFrame addEdit = new residentComplaintAddEditFrame(idGet, "edit", dataList);
+        vendorComplaintAddEditFrame addEdit = new vendorComplaintAddEditFrame(idGet, "edit", dataList);
         addEdit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
@@ -382,7 +382,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
             main.setUserId(idGet);
             main.removeFromFile("Complaint", dataList);
             this.dispose();
-            residentComplaintManageFrame complaint = new residentComplaintManageFrame(idGet);
+            vendorComplaintManageFrame complaint = new vendorComplaintManageFrame(idGet);
             complaint.setVisible(true);
         }
     }//GEN-LAST:event_deleteBtn2ActionPerformed
@@ -390,11 +390,10 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         ArrayList<String> dataList = new ArrayList<>();
         this.dispose();
-        residentComplaintAddEditFrame addEdit = new residentComplaintAddEditFrame(idGet, "add", dataList);
+        vendorComplaintAddEditFrame addEdit = new vendorComplaintAddEditFrame(idGet, "add", dataList);
         addEdit.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
-    
     private int pageLine=-1;
     
     private void setPagination(){
@@ -461,8 +460,6 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         }
     }
     
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -480,20 +477,20 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(residentComplaintManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorComplaintManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(residentComplaintManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorComplaintManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(residentComplaintManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorComplaintManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(residentComplaintManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorComplaintManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentComplaintManageFrame(idGet).setVisible(true);
+                new vendorComplaintManageFrame(idGet).setVisible(true);
             }
         });
     }

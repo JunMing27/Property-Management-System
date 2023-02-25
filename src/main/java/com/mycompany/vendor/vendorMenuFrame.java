@@ -142,7 +142,7 @@ public class vendorMenuFrame extends javax.swing.JFrame {
     private void profileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileBtnActionPerformed
         // Direct to Profile Page
         this.dispose();
-        VendorProfile profile = new VendorProfile();
+        vendorProfileManageFrame profile = new vendorProfileManageFrame(idGet);
         profile.setVisible(true);
     }//GEN-LAST:event_profileBtnActionPerformed
 
@@ -160,13 +160,13 @@ public class vendorMenuFrame extends javax.swing.JFrame {
     private void paymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBtnActionPerformed
         // Direct to Payment Page
         this.dispose();
-        VendorPaymentOption payment = new VendorPaymentOption();
+        vendorPaymentMenuFrame payment = new vendorPaymentMenuFrame(idGet);
         payment.setVisible(true);
     }//GEN-LAST:event_paymentBtnActionPerformed
 
     private void complaintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintBtnActionPerformed
         this.dispose();
-        VendorComplaintManage complaint = new VendorComplaintManage();
+        vendorComplaintManageFrame complaint = new vendorComplaintManageFrame(idGet);
         complaint.setVisible(true);
     }//GEN-LAST:event_complaintBtnActionPerformed
 
