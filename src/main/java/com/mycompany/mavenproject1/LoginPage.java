@@ -12,6 +12,7 @@ import com.mycompany.adminExecutive.adminExecutiveMenuFrame;
 import com.mycompany.buildingManager.buildingManagerMenuFrame;
 import com.mycompany.employee.guardMenuFrame;
 import com.mycompany.resident.residentMenuFrame;
+import com.mycompany.vendor.vendorMenuFrame;
 import com.mycompany.visitor.checkVisitorPassFrame;
 import com.mycompany.visitor.visitorViewVisitorPassFrame;
 import java.awt.Font;
@@ -133,7 +134,8 @@ public class LoginPage extends javax.swing.JFrame  {
                                 case "Admin Executive" -> goAdminExecutivePage();
                                 case "Building Manager" -> goBuildingManagerPage();
                                 case "resident" -> goResidentPage(fileUserID);
-                                case "employee" -> toEmployeePage(fileUserID); //will valid if it is guard
+                                case "vendor" -> goVendorPage(fileUserID);
+                                case "employee" -> goEmployeePage(fileUserID); //will valid if it is guard
                                 default -> System.out.println("cant find page for this role");
                               }
 
@@ -198,7 +200,14 @@ public void goResidentPage(String residentId)
 
 }
 
-public void toEmployeePage(String guardId)
+public void goVendorPage(String vendorId)
+{
+    logInFrame.dispose();
+    vendorMenuFrame vendorMenu = new vendorMenuFrame(vendorId);
+    vendorMenu.setVisible(true);
+}
+
+public void goEmployeePage(String guardId)
 {
     String jobScope = "";
     try{
