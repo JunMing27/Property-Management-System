@@ -520,9 +520,9 @@ public class resident extends User implements dataManagementController1, display
         this.setUserPhoneNumber(null);
         this.setUserImage(null);
         this.setUserUnit(null);
-        this.setPayDesc(null);
-        this.setPayAmount(null);
-        this.setDueDate(null);
+//        this.setPayDesc(null);
+//        this.setPayAmount(null);
+//        this.setDueDate(null);
         this.setMonthYear(null);
         this.setDate(null);
         this.setDueAmount(null);
@@ -571,11 +571,11 @@ public class resident extends User implements dataManagementController1, display
             
             }else if(type.equals("pay"))
             {
-                this.setUserId(allData.get(dataLine).get(1));
-                this.setPayDesc(allData.get(dataLine).get(2));
-                this.setPayAmount(allData.get(dataLine).get(3));
-                this.setDueDate(allData.get(dataLine).get(4));
-                this.status = true;
+//                this.setUserId(allData.get(dataLine).get(1));
+//                this.setPayDesc(allData.get(dataLine).get(2));
+//                this.setPayAmount(allData.get(dataLine).get(3));
+//                this.setDueDate(allData.get(dataLine).get(4));
+//                this.status = true;
                 
             }else if(type.equals("statement"))
             {
@@ -630,7 +630,6 @@ public class resident extends User implements dataManagementController1, display
     }
 
 
-    @Override
     public void displayJFileChooserImage() {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileFilter(new FileFilter() {
@@ -689,17 +688,17 @@ public class resident extends User implements dataManagementController1, display
             
             else if(textFile.equals("Payment"))
             {
-                for(int j=0;j<allUsers.size();j++)
-                {
-                    if(allUsers.get(j).get(1).equals(dataList.get(0))
-                            && allUsers.get(j).get(2).equals(dataList.get(1))
-                            && allUsers.get(j).get(3).equals(dataList.get(2))
-                            && allUsers.get(j).get(4).equals(dataList.get(3)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
-                } 
+//                for(int j=0;j<allUsers.size();j++)
+//                {
+//                    if(allUsers.get(j).get(1).equals(dataList.get(0))
+//                            && allUsers.get(j).get(2).equals(dataList.get(1))
+//                            && allUsers.get(j).get(3).equals(dataList.get(2))
+//                            && allUsers.get(j).get(4).equals(dataList.get(3)))
+//                    {
+//                        allUsers.remove(j);
+//                        break;
+//                    }
+//                } 
             }
             
             else if(textFile.equals("VisitorPass") || (textFile.equals("Complaint")))
@@ -847,7 +846,6 @@ public class resident extends User implements dataManagementController1, display
         return id;
     }
 
-    @Override
     public String monthString(String monthNumber) {
         String month = "empty"; 
         if(monthNumber.equals("01")) 
@@ -890,7 +888,6 @@ public class resident extends User implements dataManagementController1, display
         return month;
     }
 
-    @Override
     public String monthNumber(String monthString) {
         String month = "empty"; 
         if(monthString.equals("JANUARY")) 

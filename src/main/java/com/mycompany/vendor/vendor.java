@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Jun Ming
+ * @author Jun Ming, Hoi Yi
  */
 public class vendor extends User implements dataManagementController, displayController{
 

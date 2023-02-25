@@ -12,5 +12,5 @@ public interface displayController1 {
     public void displayDataViewAll(Integer dataLine,String searchTxt,String type, String fileName);
     public void setDataNull();
     public void displayDataViewOwn(Integer dataLine,String searchTxt, String type, String fileName);
-    public void displayJFileChooserImage();
+//    public void displayJFileChooserImage();
 }

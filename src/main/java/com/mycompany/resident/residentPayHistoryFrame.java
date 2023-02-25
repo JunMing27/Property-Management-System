@@ -131,33 +131,20 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
 
     private void createTable()
     {
+        payHistory main = new payHistory();
+        main.setUserId(idGet);
+        int totalRow = main.getTotalLine();
         
-        BufferedReader br = null;
-        try {
-            String payHistoryFile = "src/main/java/com/mycompany/textFile/PayHistory.txt";
-            File file = new File(payHistoryFile);
-            br = new BufferedReader(new FileReader(file));
-            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};
-            DefaultTableModel model = (DefaultTableModel) payHistoryTable.getModel();
-            model.setColumnIdentifiers(tableHeader);
-            String line = br.readLine();
-            while(line != null )
-            {
-                String[] dataRow = line.split(",");
-                if(dataRow[1].equals(idGet))
-                {
-                    String[] onlyData = {dataRow[2],dataRow[3],dataRow[4]};
-                    model.addRow(onlyData);
-                    
-                }
-                line = br.readLine();
-            }
-            br.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(residentPayHistoryFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(residentPayHistoryFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};
+        DefaultTableModel model = (DefaultTableModel) payHistoryTable.getModel();
+        model.setColumnIdentifiers(tableHeader);
+        for(int i=0; i<totalRow; i++)
+        {
+            main.displayDataViewOwn(i, "", "payHistory", "PayHistory");
+            String[] dataRow = {main.getPayDescription(), main.getPaidAmount(), main.getPaidDate()};
+            model.addRow(dataRow);
+        }
+
         
             
          
