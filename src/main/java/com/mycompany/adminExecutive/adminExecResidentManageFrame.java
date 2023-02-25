@@ -4,6 +4,16 @@
  */
 package com.mycompany.adminExecutive;
 
+import com.mycompany.resident.resident;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jun Ming
@@ -29,22 +39,22 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
         RoleLabel = new javax.swing.JLabel();
-        employeeImage1 = new javax.swing.JLabel();
-        employeeId1 = new javax.swing.JLabel();
-        employeeName1 = new javax.swing.JLabel();
+        residentImage1 = new javax.swing.JLabel();
+        residentId1 = new javax.swing.JLabel();
+        residentName1 = new javax.swing.JLabel();
         updateBtn1 = new javax.swing.JButton();
         deleteBtn1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        employeeId2 = new javax.swing.JLabel();
-        employeeName2 = new javax.swing.JLabel();
-        employeeImage2 = new javax.swing.JLabel();
+        residentId2 = new javax.swing.JLabel();
+        residentName2 = new javax.swing.JLabel();
+        residentImage2 = new javax.swing.JLabel();
         updateBtn2 = new javax.swing.JButton();
         deleteBtn2 = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
         previousPage = new javax.swing.JButton();
         nextPage = new javax.swing.JButton();
         searchBtn = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        residentSearchField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,12 +73,12 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
         RoleLabel.setForeground(new java.awt.Color(0, 0, 0));
         RoleLabel.setText("Resident");
 
-        employeeImage1.setForeground(new java.awt.Color(0, 0, 0));
-        employeeImage1.setText("IMAGE");
+        residentImage1.setForeground(new java.awt.Color(0, 0, 0));
+        residentImage1.setText("IMAGE");
 
-        employeeId1.setText("jLabel3");
+        residentId1.setText("jLabel3");
 
-        employeeName1.setText("jLabel4");
+        residentName1.setText("jLabel4");
 
         updateBtn1.setBackground(new java.awt.Color(255, 255, 255));
         updateBtn1.setForeground(new java.awt.Color(0, 0, 0));
@@ -88,12 +98,12 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
             }
         });
 
-        employeeId2.setText("jLabel3");
+        residentId2.setText("jLabel3");
 
-        employeeName2.setText("jLabel4");
+        residentName2.setText("jLabel4");
 
-        employeeImage2.setForeground(new java.awt.Color(0, 0, 0));
-        employeeImage2.setText("IMAGE");
+        residentImage2.setForeground(new java.awt.Color(0, 0, 0));
+        residentImage2.setText("IMAGE");
 
         updateBtn2.setBackground(new java.awt.Color(255, 255, 255));
         updateBtn2.setForeground(new java.awt.Color(0, 0, 0));
@@ -150,13 +160,13 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextField1.setCaretColor(new java.awt.Color(0, 0, 0));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        residentSearchField.setBackground(new java.awt.Color(255, 255, 255));
+        residentSearchField.setForeground(new java.awt.Color(0, 0, 0));
+        residentSearchField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        residentSearchField.setCaretColor(new java.awt.Color(0, 0, 0));
+        residentSearchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                residentSearchFieldActionPerformed(evt);
             }
         });
 
@@ -170,7 +180,7 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(126, 126, 126)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(residentSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +196,7 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(82, 82, 82)
-                                            .addComponent(employeeImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(residentImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(36, 36, 36))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                             .addContainerGap()
@@ -196,8 +206,8 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(3, 3, 3)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(employeeId1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                                                .addComponent(employeeName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                .addComponent(residentId1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                                .addComponent(residentName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(57, 57, 57)
                                             .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -213,11 +223,11 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(85, 85, 85)
-                                    .addComponent(employeeImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(residentImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(40, 40, 40)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(employeeId2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                        .addComponent(employeeName2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(residentId2, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                        .addComponent(residentName2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(211, 211, 211)
                                     .addComponent(RoleLabel)
@@ -240,7 +250,7 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(searchBtn)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(residentSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RoleLabel)
@@ -250,7 +260,7 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(employeeImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(residentImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(updateBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,20 +268,20 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
                         .addGap(32, 32, 32))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(employeeId1)
+                        .addComponent(residentId1)
                         .addGap(27, 27, 27)
-                        .addComponent(employeeName1)
+                        .addComponent(residentName1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(employeeId2)
+                        .addComponent(residentId2)
                         .addGap(26, 26, 26)
-                        .addComponent(employeeName2)
+                        .addComponent(residentName2)
                         .addGap(38, 38, 38))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(employeeImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(residentImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,15 +318,15 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
 
     private void updateBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtn1ActionPerformed
         // TODO add your handling code here:
-        if(!(employeeId1.getText()).equals("no data")){
+        if(!(residentId1.getText()).equals("no data")){
             this.dispose();
-            adminExecEmployeeAddEditFrame employeeAddEdit = new adminExecEmployeeAddEditFrame();
-            employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            employeeAddEdit.pack();
-            employeeAddEdit.setResizable(false);
-            employeeAddEdit.setLocationRelativeTo(null);
-            employeeAddEdit.setVisible(true);
-            employeeAddEdit.addEditDetect("edit",employeeId1.getText());
+            adminExecResidentAddEditFrame residentAddEdit = new adminExecResidentAddEditFrame();
+            residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            residentAddEdit.pack();
+            residentAddEdit.setResizable(false);
+            residentAddEdit.setLocationRelativeTo(null);
+            residentAddEdit.setVisible(true);
+            residentAddEdit.addEditDetect("edit",residentId1.getText());
         }else{
             JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
         }
@@ -324,20 +334,21 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
 
     private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
         // TODO add your handling code here:
-        deleteBtn(employeeId1.getText());
+        temporaryUnitId3=temporaryUnitId1;
+        deleteBtn(residentId1.getText());
     }//GEN-LAST:event_deleteBtn1ActionPerformed
 
     private void updateBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtn2ActionPerformed
         // TODO add your handling code here:
-        if(!(employeeId2.getText()).equals("no data")){
+        if(!(residentId2.getText()).equals("no data")){
             this.dispose();
-            adminExecEmployeeAddEditFrame employeeAddEdit = new adminExecEmployeeAddEditFrame();
-            employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            employeeAddEdit.pack();
-            employeeAddEdit.setResizable(false);
-            employeeAddEdit.setLocationRelativeTo(null);
-            employeeAddEdit.setVisible(true);
-            employeeAddEdit.addEditDetect("edit",employeeId2.getText());
+            adminExecResidentAddEditFrame residentAddEdit = new adminExecResidentAddEditFrame();
+            residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            residentAddEdit.pack();
+            residentAddEdit.setResizable(false);
+            residentAddEdit.setLocationRelativeTo(null);
+            residentAddEdit.setVisible(true);
+            residentAddEdit.addEditDetect("edit",residentId2.getText());
         }else{
             JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
         }
@@ -345,26 +356,27 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
 
     private void deleteBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn2ActionPerformed
         // TODO add your handling code here:
-        deleteBtn(employeeId2.getText());
+        temporaryUnitId3=temporaryUnitId2;
+        deleteBtn(residentId2.getText());
     }//GEN-LAST:event_deleteBtn2ActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        adminExecEmployeeAddEditFrame employeeAddEdit = new adminExecEmployeeAddEditFrame();
-        employeeAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        employeeAddEdit.pack();
-        employeeAddEdit.setResizable(false);
-        employeeAddEdit.setLocationRelativeTo(null);
-        employeeAddEdit.setVisible(true);
-        employeeAddEdit.addEditDetect("add","");
+        adminExecResidentAddEditFrame residentAddEdit = new adminExecResidentAddEditFrame();
+        residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        residentAddEdit.pack();
+        residentAddEdit.setResizable(false);
+        residentAddEdit.setLocationRelativeTo(null);
+        residentAddEdit.setVisible(true);
+        residentAddEdit.addEditDetect("add","");
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void previousPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousPageActionPerformed
         // TODO add your handling code here:
         backButtonFunction();
         try {
-            setEmployeeData();
+            setResidentData();
         } catch (IOException ex) {
         }
         nextPage.setEnabled(true);
@@ -374,29 +386,136 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         previousPage.setEnabled(true);
         try {
-            setEmployeeData();
+            setResidentData();
         } catch (IOException ex) {
         }
     }//GEN-LAST:event_nextPageActionPerformed
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
-        this.searchTxt = jTextField1.getText();
+        this.searchTxt = residentSearchField.getText();
         this.PageLine=-1;
         previousPage.setEnabled(false);
         nextPage.setEnabled(true);
         adminExecutive main = new adminExecutive();
-        main.chooseTxtFile("Employee");
+        main.chooseTxtFile("Resident");
         try {
-            setEmployeeData();
+            setResidentData();
         } catch (IOException ex) {
         }
     }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void residentSearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentSearchFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_residentSearchFieldActionPerformed
 
+    private Integer PageLine=-1;
+    
+    public void setPagination(){
+        PageLine=PageLine+1;
+    }
+    
+    private String searchTxt ="";
+    private String userType="";
+    private String temporaryUnitId1;
+    private String temporaryUnitId2;
+    private String temporaryUnitId3;
+    
+    public void setUserType(String type){
+        this.userType=type;
+    }
+    
+    public void backButtonToggle(){
+        previousPage.setEnabled(false);
+}
+    
+    public void backButtonFunction(){
+        PageLine = PageLine -4;
+        if (PageLine==-1){
+            previousPage.setEnabled(false);
+        }
+    }
+    
+    public void setResidentData() throws IOException{
+        resident main = new resident();
+        main.chooseTxtFile(userType);
+        
+        setPagination();
+        main.displayDataView(PageLine,searchTxt,userType);
+        temporaryUnitId1=main.getUserUnit();
+        boolean boo = main.getStatus();
+        if(boo==false){
+            nextPage.setEnabled(false);
+        }
+        if(main.getUserId() !=null){
+            residentId1.setText(main.getUserId());
+            residentName1.setText(main.getUserName());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getUserImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                residentImage1.setIcon(new ImageIcon(resizedImage));
+                }catch(Exception e){}
+        }else{
+            residentId1.setText("no data");
+            residentName1.setText("no data");
+            residentImage1.setIcon(null);
+        }
+        setPagination();
+        main.displayDataView(PageLine,searchTxt,userType);
+        temporaryUnitId2=main.getUserUnit();
+        boo = main.getStatus();
+        if(boo==false){
+            nextPage.setEnabled(false);
+        }
+        if(main.getUserId() !=null){
+            residentId2.setText(main.getUserId());
+            residentName2.setText(main.getUserName());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+main.getUserImage()));
+                Image resizedImage = UserImage.getScaledInstance(120, 100, Image.SCALE_SMOOTH);
+                residentImage2.setIcon(new ImageIcon(resizedImage));
+                }catch(Exception e){}
+        }else{
+            residentId2.setText("no data");
+            residentName2.setText("no data");
+            residentImage2.setIcon(null);
+        }
+    
+    }
+    
+    
+    //Method for delete button, so no need to be repetitive
+    public void deleteBtn(String getText){
+        if(!getText.equals("no data")){
+            int ques = JOptionPane.showConfirmDialog(null,"confirm to delete this data", "Quit", JOptionPane.YES_NO_OPTION);
+            if (ques == JOptionPane.YES_OPTION){
+                adminExecutive main = new adminExecutive();
+                main.chooseTxtFile("Resident");
+                adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
+                mainInner.editAvailability(temporaryUnitId3 ,"");
+                mainInner.deleteUserExecutive(getText);
+                JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
+                
+                this.dispose();
+                adminExecResidentManageFrame residentManage = new adminExecResidentManageFrame();
+                residentManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                residentManage.pack();
+                residentManage.setResizable(false);
+                residentManage.setLocationRelativeTo(null);
+                residentManage.setVisible(true);
+                residentManage.backButtonToggle();
+                try {
+                    residentManage.setUserType("Resident");
+                    residentManage.setResidentData();
+                } catch (IOException ex) {
+
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -438,17 +557,17 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton deleteBtn1;
     private javax.swing.JButton deleteBtn2;
-    private javax.swing.JLabel employeeId1;
-    private javax.swing.JLabel employeeId2;
-    private javax.swing.JLabel employeeImage1;
-    private javax.swing.JLabel employeeImage2;
-    private javax.swing.JLabel employeeName1;
-    private javax.swing.JLabel employeeName2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton nextPage;
     private javax.swing.JButton previousPage;
+    private javax.swing.JLabel residentId1;
+    private javax.swing.JLabel residentId2;
+    private javax.swing.JLabel residentImage1;
+    private javax.swing.JLabel residentImage2;
+    private javax.swing.JLabel residentName1;
+    private javax.swing.JLabel residentName2;
+    private javax.swing.JTextField residentSearchField;
     private javax.swing.JButton searchBtn;
     private javax.swing.JButton updateBtn1;
     private javax.swing.JButton updateBtn2;

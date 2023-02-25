@@ -4,6 +4,19 @@
  */
 package com.mycompany.adminExecutive;
 
+import com.mycompany.resident.resident;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jun Ming
@@ -29,25 +42,25 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
         AddEditBtn = new javax.swing.JButton();
-        employeeImage = new javax.swing.JLabel();
+        userImage = new javax.swing.JLabel();
         imageUploader = new javax.swing.JButton();
-        employeeIdField = new javax.swing.JTextField();
-        employeeNameField = new javax.swing.JTextField();
-        employeeAgeField = new javax.swing.JTextField();
-        employeePhoneNumberField = new javax.swing.JTextField();
-        employeeIdLabel = new javax.swing.JLabel();
-        employeeNameLabel = new javax.swing.JLabel();
-        employeeGenderLabel = new javax.swing.JLabel();
-        employeeAgeLabel = new javax.swing.JLabel();
-        employeePhoneNumberLabel = new javax.swing.JLabel();
+        residentIdField = new javax.swing.JTextField();
+        residentNameField = new javax.swing.JTextField();
+        residentAgeField = new javax.swing.JTextField();
+        residentPhoneNumberField = new javax.swing.JTextField();
+        residentIdLabel = new javax.swing.JLabel();
+        residentNameLabel = new javax.swing.JLabel();
+        residentGenderLabel = new javax.swing.JLabel();
+        residentAgeLabel = new javax.swing.JLabel();
+        residentPhoneNumberLabel = new javax.swing.JLabel();
         maleCheckBox = new javax.swing.JCheckBox();
         femaleCheckBox = new javax.swing.JCheckBox();
-        employeeUserNameLabel = new javax.swing.JLabel();
+        residentUserNameLabel = new javax.swing.JLabel();
         credentialNameField = new javax.swing.JTextField();
-        employeePassLabel = new javax.swing.JLabel();
-        employeeJobScopeLabel = new javax.swing.JLabel();
+        residentPassLabel = new javax.swing.JLabel();
+        residentUnitIdLabel = new javax.swing.JLabel();
         credentialPasswordField = new javax.swing.JPasswordField();
-        employeeJobScopeField = new javax.swing.JComboBox<>();
+        residentUnitIdComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,8 +83,8 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
             }
         });
 
-        employeeImage.setForeground(new java.awt.Color(0, 0, 0));
-        employeeImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        userImage.setForeground(new java.awt.Color(0, 0, 0));
+        userImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         imageUploader.setBackground(new java.awt.Color(255, 255, 255));
         imageUploader.setForeground(new java.awt.Color(0, 0, 0));
@@ -82,32 +95,32 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
             }
         });
 
-        employeeIdField.setEnabled(false);
-        employeeIdField.addActionListener(new java.awt.event.ActionListener() {
+        residentIdField.setEnabled(false);
+        residentIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                employeeIdFieldActionPerformed(evt);
+                residentIdFieldActionPerformed(evt);
             }
         });
 
-        employeeIdLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        employeeIdLabel.setForeground(new java.awt.Color(0, 0, 0));
-        employeeIdLabel.setText("Employee ID");
+        residentIdLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        residentIdLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentIdLabel.setText("Resident ID");
 
-        employeeNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        employeeNameLabel.setForeground(new java.awt.Color(0, 0, 0));
-        employeeNameLabel.setText("Employee Name ");
+        residentNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        residentNameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentNameLabel.setText("Resident Name ");
 
-        employeeGenderLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        employeeGenderLabel.setForeground(new java.awt.Color(0, 0, 0));
-        employeeGenderLabel.setText("Gender ");
+        residentGenderLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        residentGenderLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentGenderLabel.setText("Gender ");
 
-        employeeAgeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        employeeAgeLabel.setForeground(new java.awt.Color(0, 0, 0));
-        employeeAgeLabel.setText("Age ");
+        residentAgeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        residentAgeLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentAgeLabel.setText("Age ");
 
-        employeePhoneNumberLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        employeePhoneNumberLabel.setForeground(new java.awt.Color(0, 0, 0));
-        employeePhoneNumberLabel.setText("Phone Number");
+        residentPhoneNumberLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        residentPhoneNumberLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentPhoneNumberLabel.setText("Phone Number");
 
         maleCheckBox.setForeground(new java.awt.Color(0, 0, 0));
         maleCheckBox.setText("Male");
@@ -125,9 +138,9 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
             }
         });
 
-        employeeUserNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        employeeUserNameLabel.setForeground(new java.awt.Color(0, 0, 0));
-        employeeUserNameLabel.setText("User Name");
+        residentUserNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        residentUserNameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentUserNameLabel.setText("User Name");
 
         credentialNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,13 +148,13 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
             }
         });
 
-        employeePassLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        employeePassLabel.setForeground(new java.awt.Color(0, 0, 0));
-        employeePassLabel.setText("Password");
+        residentPassLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        residentPassLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentPassLabel.setText("Password");
 
-        employeeJobScopeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        employeeJobScopeLabel.setForeground(new java.awt.Color(0, 0, 0));
-        employeeJobScopeLabel.setText("Job Scope");
+        residentUnitIdLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        residentUnitIdLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentUnitIdLabel.setText("Unit ID");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,7 +166,7 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(82, 82, 82)
-                        .addComponent(employeeImage, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(userImage, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(158, 158, 158)
                         .addComponent(AddEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -168,16 +181,16 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(employeeIdLabel)
-                                    .addComponent(employeeNameLabel)
-                                    .addComponent(employeeGenderLabel)
-                                    .addComponent(employeeAgeLabel)
-                                    .addComponent(employeePhoneNumberLabel))
+                                    .addComponent(residentIdLabel)
+                                    .addComponent(residentNameLabel)
+                                    .addComponent(residentGenderLabel)
+                                    .addComponent(residentAgeLabel)
+                                    .addComponent(residentPhoneNumberLabel))
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(employeeNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                        .addComponent(employeeIdField))
+                                        .addComponent(residentNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                        .addComponent(residentIdField))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(maleCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,16 +198,16 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(employeeUserNameLabel)
-                                    .addComponent(employeePassLabel)
-                                    .addComponent(employeeJobScopeLabel))
+                                    .addComponent(residentUserNameLabel)
+                                    .addComponent(residentPassLabel)
+                                    .addComponent(residentUnitIdLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(employeeAgeField)
-                                    .addComponent(employeePhoneNumberField, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                    .addComponent(residentAgeField)
+                                    .addComponent(residentPhoneNumberField, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                                     .addComponent(credentialNameField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                                     .addComponent(credentialPasswordField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(employeeJobScopeField, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(residentUnitIdComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(191, 191, 191))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -203,47 +216,47 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(backBtn)
                 .addGap(12, 12, 12)
-                .addComponent(employeeImage, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userImage, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(imageUploader, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(employeeIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(employeeIdLabel))
+                    .addComponent(residentIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(residentIdLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(employeeNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(employeeNameLabel))
+                    .addComponent(residentNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(residentNameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(employeeGenderLabel)
+                    .addComponent(residentGenderLabel)
                     .addComponent(maleCheckBox)
                     .addComponent(femaleCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(employeeAgeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(employeeAgeLabel))
+                    .addComponent(residentAgeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(residentAgeLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(employeePhoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(employeePhoneNumberLabel))
+                    .addComponent(residentPhoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(residentPhoneNumberLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(employeeJobScopeLabel)
+                        .addComponent(residentUnitIdLabel)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(employeeUserNameLabel)
+                            .addComponent(residentUserNameLabel)
                             .addComponent(credentialNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 21, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(employeePassLabel)
+                            .addComponent(residentPassLabel)
                             .addComponent(credentialPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(AddEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(employeeJobScopeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(residentUnitIdComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -264,16 +277,16 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        adminExecEmployeeManageFrame employeeManage = new adminExecEmployeeManageFrame();
-        employeeManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        employeeManage.pack();
-        employeeManage.setResizable(false);
-        employeeManage.setLocationRelativeTo(null);
-        employeeManage.setVisible(true);
-        employeeManage.backButtonToggle();
+        adminExecResidentManageFrame residentManage = new adminExecResidentManageFrame();
+        residentManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        residentManage.pack();
+        residentManage.setResizable(false);
+        residentManage.setLocationRelativeTo(null);
+        residentManage.setVisible(true);
+        residentManage.backButtonToggle();
         try {
-            employeeManage.setUserType("Employee");
-            employeeManage.setEmployeeData();
+            residentManage.setUserType("Resident");
+            residentManage.setResidentData();
         } catch (IOException ex) {
         }
     }//GEN-LAST:event_backBtnActionPerformed
@@ -281,74 +294,90 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
     private void AddEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddEditBtnActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            if((employeeNameField.getText()).equals("") ||(employeeAgeField.getText()).equals("") ||(employeePhoneNumberField.getText()).equals("") || (credentialNameField.getText()).equals("") || (credentialPasswordField.getPassword()).equals("") || this.imageName==null) {
+            if((residentNameField.getText()).equals("") ||(residentAgeField.getText()).equals("") ||(residentPhoneNumberField.getText()).equals("") || (credentialNameField.getText()).equals("") || (credentialPasswordField.getPassword()).equals("") || this.imageName==null) {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 adminExecutive adminExecutiveMain = new adminExecutive();
+                adminExecutive.adminExecutiveMethod mainInner = adminExecutiveMain.new adminExecutiveMethod();
+                mainInner.editAvailability(temporaryId,(String)residentUnitIdComboBox.getSelectedItem());
                 ArrayList<String> dataList = new ArrayList<String>();
-                dataList.add(employeeIdField.getText());
-                dataList.add(employeeNameField.getText());
+                dataList.add(residentIdField.getText());
+                dataList.add(residentNameField.getText());
                 if(maleCheckBox.isSelected()){
                     dataList.add("male");
                 }else{
                     dataList.add("female");
                 }
-                dataList.add(employeeAgeField.getText());
-                dataList.add(employeePhoneNumberField.getText());
-                dataList.add((String)employeeJobScopeField.getSelectedItem());
+                dataList.add(residentAgeField.getText());
+                dataList.add(residentPhoneNumberField.getText());
+                dataList.add((String)residentUnitIdComboBox.getSelectedItem());
                 dataList.add(imageName);
                 dataList.add(credentialNameField.getText());
                 char[] i = credentialPasswordField.getPassword();
                 String stringPassword = new String(i);
                 dataList.add(stringPassword);
-                adminExecutiveMain.editOrAddData(dataList, "Employee","Employee.txt","edit");
+                adminExecutiveMain.editOrAddData(dataList, "Resident","residentProfile.txt","edit");
                 //transfer uploaded image to our system image folder
                 if (sourceFile!=null) {
                     File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
                     File source = sourceFile;
                     adminExecutiveMain.transferImage(source,dest);
                 }
+                this.dispose();
+                adminExecResidentAddEditFrame residentAddEdit = new adminExecResidentAddEditFrame();
+                residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                residentAddEdit.pack();
+                residentAddEdit.setResizable(false);
+                residentAddEdit.setLocationRelativeTo(null);
+                residentAddEdit.setVisible(true);
+                residentAddEdit.addEditDetect("edit",residentIdField.getText());
             }
         }else if(addEditDetector=="add"){
-            if((employeeNameField.getText()).equals("") ||(employeeAgeField.getText()).equals("") ||(employeePhoneNumberField.getText()).equals("") || (credentialNameField.getText()).equals("") || (credentialPasswordField.getPassword()).equals("")|| this.imageName==null) {
+            if((residentNameField.getText()).equals("") ||(residentAgeField.getText()).equals("") ||(residentPhoneNumberField.getText()).equals("") || (credentialNameField.getText()).equals("") || (credentialPasswordField.getPassword()).equals("")|| this.imageName==null) {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
-                employee employeeClass = new employee();
+                if(((String)residentUnitIdComboBox.getSelectedItem())!=null){
+                resident residentClass = new resident();
+                adminExecutive adminExecutiveMain= new adminExecutive();
+                adminExecutive.adminExecutiveMethod mainInner = adminExecutiveMain.new adminExecutiveMethod();
+                mainInner.editAvailability("",(String)residentUnitIdComboBox.getSelectedItem());
                 ArrayList<String> dataList = new ArrayList<String>();
-                employeeClass.getIncreasedID("Employee.txt","Employee");
-                dataList.add(employeeClass.getUserId());
-                dataList.add(employeeNameField.getText());
+                residentClass.getIncreasedID("residentProfile.txt","Resident");
+                dataList.add(residentClass.getUserId());
+                dataList.add(residentNameField.getText());
                 if(maleCheckBox.isSelected()){
                     dataList.add("male");
                 }else{
                     dataList.add("female");
                 }
-                dataList.add(employeeAgeField.getText());
-                dataList.add(employeePhoneNumberField.getText());
-                dataList.add((String)employeeJobScopeField.getSelectedItem());
+                dataList.add(residentAgeField.getText());
+                dataList.add(residentPhoneNumberField.getText());
+                dataList.add((String)residentUnitIdComboBox.getSelectedItem());
                 dataList.add(imageName);
                 dataList.add(credentialNameField.getText());
                 char[] i = credentialPasswordField.getPassword();
                 String stringPassword = new String(i);
                 dataList.add(stringPassword);
                 System.out.println(dataList);
-                adminExecutive adminExecutiveMain= new adminExecutive();
-                adminExecutiveMain.editOrAddData(dataList, "Employee","Employee.txt","add");
+                
+                adminExecutiveMain.editOrAddData(dataList, "Resident","residentProfile.txt","add");
                 //transfer uploaded image to our system image folder
                 File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
                 File source = sourceFile;
                 adminExecutiveMain.transferImage(source,dest);
                 //set value empty after inserting
-                employeeIdField.setText("");
-                employeeNameField.setText("");
-                maleCheckBox.setSelected(false);
-                femaleCheckBox.setSelected(false);
-                employeeAgeField.setText("");
-                employeePhoneNumberField.setText("");
-                credentialNameField.setText("");
-                credentialPasswordField.setText("");
-                employeeImage.setIcon(null);
+                this.dispose();
+                adminExecResidentAddEditFrame residentAddEdit = new adminExecResidentAddEditFrame();
+                residentAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                residentAddEdit.pack();
+                residentAddEdit.setResizable(false);
+                residentAddEdit.setLocationRelativeTo(null);
+                residentAddEdit.setVisible(true);
+                residentAddEdit.addEditDetect("add","");
+            }else{JOptionPane.showMessageDialog(null, "No Unit Left. Please Add Unit", "Warning", JOptionPane.ERROR_MESSAGE);}
+            
             }
+                
         }
     }//GEN-LAST:event_AddEditBtnActionPerformed
 
@@ -370,7 +399,7 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
                 // resize the image so that it can fit the border:
                 BufferedImage ItemImage = ImageIO.read(new File(imagePath[0]));
                 Image resizedImage = ItemImage.getScaledInstance(165, 130, Image.SCALE_SMOOTH);
-                employeeImage.setIcon(new ImageIcon(resizedImage));
+                userImage.setIcon(new ImageIcon(resizedImage));
             }
             catch(IOException e){}
         }
@@ -378,9 +407,9 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_imageUploaderActionPerformed
 
-    private void employeeIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeIdFieldActionPerformed
+    private void residentIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentIdFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_employeeIdFieldActionPerformed
+    }//GEN-LAST:event_residentIdFieldActionPerformed
 
     private void maleCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleCheckBoxActionPerformed
         // TODO add your handling code here:
@@ -400,6 +429,81 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_credentialNameFieldActionPerformed
 
+    private String imageName=null;
+    File sourceFile=null;
+    String[] imagePath = new String[1];
+    private String addEditDetector;
+    private String fileType="residentProfile.txt";
+    private String userType="Resident";
+    private boolean Status=false;
+    private String temporaryId;
+    
+    public void addEditDetect(String functionType,String id) {
+        if(functionType=="edit"){
+            this.addEditDetector="edit";
+            adminExecutive main = new adminExecutive();
+            adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
+            try {
+                mainInner.getResidentUnitDropDown("Unit.txt","Resident");
+            } catch (FileNotFoundException ex) {
+
+            }
+            resident residentClass = new resident();
+            residentClass.chooseTxtFile("Resident");
+            residentClass.getDataViewSingle(id, fileType,userType);
+            AddEditBtn.setText("Update");
+            residentIdField.setText(residentClass.getUserId());
+            residentNameField.setText(residentClass.getUserName());
+            if(residentClass.getUserGender().equals("male")){
+                maleCheckBox.setSelected(true);
+            }else if(residentClass.getUserGender().equals("female")){
+                femaleCheckBox.setSelected(true);
+            }
+            residentAgeField.setText(residentClass.getUserAge());
+            residentPhoneNumberField.setText(residentClass.getUserPhone());
+            int i=0;
+            for (String x : main.getDropDownData()) {
+                residentUnitIdComboBox.addItem((main.getDropDownData()).get(i));
+                if((main.getDropDownData()).get(i)==residentClass.getUserUnit()){
+                    Status=true;
+                }
+                i++;
+            }
+            residentUnitIdComboBox.setSelectedItem(residentClass.getUserUnit());
+            if(Status ==false ){
+                residentUnitIdComboBox.addItem(residentClass.getUserUnit());
+                residentUnitIdComboBox.setSelectedItem(residentClass.getUserUnit());
+            }
+            this.temporaryId=residentClass.getUserUnit();
+            this.imageName=residentClass.getUserImage();
+            credentialNameField.setText(residentClass.getCredentialName());
+            credentialPasswordField.setText(residentClass.getPassword());
+            try{
+                BufferedImage UserImage = ImageIO.read(new File("src/main/java/com/mycompany/image/"+residentClass.getUserImage()));
+                Image resizedImage = UserImage.getScaledInstance(165, 130, Image.SCALE_SMOOTH);
+                userImage.setIcon(new ImageIcon(resizedImage));
+                }catch(Exception e){}
+        }else if (functionType=="add"){
+            this.addEditDetector="add";
+            AddEditBtn.setText("Add");
+            residentIdField.setVisible(false);
+            residentIdLabel.setVisible(false);
+            adminExecutive main = new adminExecutive();
+            adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
+            try {
+                mainInner.getResidentUnitDropDown("Unit.txt","Resident");
+            } catch (FileNotFoundException ex) {
+            }
+            int i=0;
+                for (String x : main.getDropDownData()) {
+                    residentUnitIdComboBox.addItem((main.getDropDownData()).get(i));
+                    System.out.println((main.getDropDownData()).get(i));
+                    System.out.println("zzz");
+                    i++;
+                } 
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -440,23 +544,23 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JTextField credentialNameField;
     private javax.swing.JPasswordField credentialPasswordField;
-    private javax.swing.JTextField employeeAgeField;
-    private javax.swing.JLabel employeeAgeLabel;
-    private javax.swing.JLabel employeeGenderLabel;
-    private javax.swing.JTextField employeeIdField;
-    private javax.swing.JLabel employeeIdLabel;
-    private javax.swing.JLabel employeeImage;
-    private javax.swing.JComboBox<String> employeeJobScopeField;
-    private javax.swing.JLabel employeeJobScopeLabel;
-    private javax.swing.JTextField employeeNameField;
-    private javax.swing.JLabel employeeNameLabel;
-    private javax.swing.JLabel employeePassLabel;
-    private javax.swing.JTextField employeePhoneNumberField;
-    private javax.swing.JLabel employeePhoneNumberLabel;
-    private javax.swing.JLabel employeeUserNameLabel;
     private javax.swing.JCheckBox femaleCheckBox;
     private javax.swing.JButton imageUploader;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox maleCheckBox;
+    private javax.swing.JTextField residentAgeField;
+    private javax.swing.JLabel residentAgeLabel;
+    private javax.swing.JLabel residentGenderLabel;
+    private javax.swing.JTextField residentIdField;
+    private javax.swing.JLabel residentIdLabel;
+    private javax.swing.JTextField residentNameField;
+    private javax.swing.JLabel residentNameLabel;
+    private javax.swing.JLabel residentPassLabel;
+    private javax.swing.JTextField residentPhoneNumberField;
+    private javax.swing.JLabel residentPhoneNumberLabel;
+    private javax.swing.JComboBox<String> residentUnitIdComboBox;
+    private javax.swing.JLabel residentUnitIdLabel;
+    private javax.swing.JLabel residentUserNameLabel;
+    private javax.swing.JLabel userImage;
     // End of variables declaration//GEN-END:variables
 }

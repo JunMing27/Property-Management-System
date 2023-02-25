@@ -55,7 +55,7 @@ public class adminExecEmployeeManageFrame extends javax.swing.JFrame {
         previousPage = new javax.swing.JButton();
         nextPage = new javax.swing.JButton();
         searchBtn = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        employeeSearchField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,13 +161,13 @@ public class adminExecEmployeeManageFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextField1.setCaretColor(new java.awt.Color(0, 0, 0));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        employeeSearchField.setBackground(new java.awt.Color(255, 255, 255));
+        employeeSearchField.setForeground(new java.awt.Color(0, 0, 0));
+        employeeSearchField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        employeeSearchField.setCaretColor(new java.awt.Color(0, 0, 0));
+        employeeSearchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                employeeSearchFieldActionPerformed(evt);
             }
         });
 
@@ -181,7 +181,7 @@ public class adminExecEmployeeManageFrame extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(126, 126, 126)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(employeeSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,7 +251,7 @@ public class adminExecEmployeeManageFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(searchBtn)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(employeeSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RoleLabel)
@@ -392,7 +392,7 @@ public class adminExecEmployeeManageFrame extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
-        this.searchTxt = jTextField1.getText();
+        this.searchTxt = employeeSearchField.getText();
         this.PageLine=-1;
         previousPage.setEnabled(false);
         nextPage.setEnabled(true);
@@ -404,9 +404,9 @@ public class adminExecEmployeeManageFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchBtnActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void employeeSearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeSearchFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_employeeSearchFieldActionPerformed
 
     private Integer PageLine=-1;
     
@@ -557,9 +557,9 @@ public class adminExecEmployeeManageFrame extends javax.swing.JFrame {
     private javax.swing.JLabel employeeImage2;
     private javax.swing.JLabel employeeName1;
     private javax.swing.JLabel employeeName2;
+    private javax.swing.JTextField employeeSearchField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton nextPage;
     private javax.swing.JButton previousPage;
     private javax.swing.JButton searchBtn;
