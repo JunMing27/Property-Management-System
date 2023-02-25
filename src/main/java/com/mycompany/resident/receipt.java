@@ -120,15 +120,13 @@ public class receipt implements displayController1{
             }
         }
         try{
-            if(type.equals("receipt"))
-            {
-                this.setReceiptId(allData.get(dataLine).get(0));
-                this.setUserId(allData.get(dataLine).get(1));
-                this.setPaymentDesc(allData.get(dataLine).get(2));
-                this.setPaidAmount(allData.get(dataLine).get(3));
-                this.setPaidDate(allData.get(dataLine).get(4));
-                this.setIssuedDate(allData.get(dataLine).get(5));
-            }
+            this.setReceiptId(allData.get(dataLine).get(0));
+            this.setUserId(allData.get(dataLine).get(1));
+            this.setPaymentDesc(allData.get(dataLine).get(2));
+            this.setPaidAmount(allData.get(dataLine).get(3));
+            this.setPaidDate(allData.get(dataLine).get(4));
+            this.setIssuedDate(allData.get(dataLine).get(5));
+            
         }catch(Exception e){
             setDataNull();
         }
@@ -161,22 +159,20 @@ public class receipt implements displayController1{
         int p,q;
         int totalRow = 0;
         
-        if(textFile.contains("ReceiptContent"))
+        for (p=0,q=0; p<allUserInfo.size(); p++)
         {
-            for (p=0,q=0; p<allUserInfo.size(); p++)
+            if(allUserInfo.get(p).contains(this.getUserId()))
             {
-                if(allUserInfo.get(p).contains(this.getUserId()))
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(1).equals(this.getUserId()))
                 {
-                    ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(1).equals(this.getUserId()))
-                    {
-                        totalRow = totalRow+1;
-                        onlyUserInfo.add(allUserInfo.get(p));
-                        q++;
-                    }
+                    totalRow = totalRow+1;
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
                 }
             }
         }
+        
         setTotalLine(totalRow);
         
         return onlyUserInfo;

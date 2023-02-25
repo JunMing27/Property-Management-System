@@ -2,19 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.resident;
+package com.mycompany.vendor;
 
+import com.mycompany.resident.receipt;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author hoiyi
  */
-public class residentReceiptFrame extends javax.swing.JFrame {
+public class vendorReceiptFrame extends javax.swing.JFrame {
 
     static String idGet;
     
-    public residentReceiptFrame(String id) {
+    public vendorReceiptFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -131,8 +132,8 @@ public class residentReceiptFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        residentPaymentMenuFrame residentPaymentOption = new residentPaymentMenuFrame(idGet);
-        residentPaymentOption.setVisible(true);
+        vendorPaymentMenuFrame option = new vendorPaymentMenuFrame(idGet);
+        option.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void createTable()
@@ -157,7 +158,6 @@ public class residentReceiptFrame extends javax.swing.JFrame {
         }else{
             noDataLabel.setVisible(true);
         }
-         
     }
     
     /**
@@ -177,20 +177,20 @@ public class residentReceiptFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(residentReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(residentReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(residentReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(residentReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentReceiptFrame(idGet).setVisible(true);
+                new vendorReceiptFrame(idGet).setVisible(true);
             }
         });
     }
