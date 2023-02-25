@@ -213,7 +213,7 @@ public class residentStatementFrame extends javax.swing.JFrame {
     private void statement1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement1MouseClicked
         if(!statement1.getText().contains("EMPTY") || !statement1.getText().contains("no data"))
         {
-            resident main = new resident();
+            statement main = new statement();
             String labelPassed = statement1.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             month = month.substring(month.lastIndexOf(" ") +1);
@@ -240,7 +240,7 @@ public class residentStatementFrame extends javax.swing.JFrame {
     private void statement2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement2MouseClicked
         if(!statement2.getText().contains("EMPTY") || !statement2.getText().contains("no data"))
         {
-            resident main = new resident();
+            statement main = new statement();
             String labelPassed = statement2.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             month = month.substring(month.lastIndexOf(" ") +1);
@@ -254,7 +254,7 @@ public class residentStatementFrame extends javax.swing.JFrame {
     private void statement3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement3MouseClicked
         if(!statement3.getText().contains("EMPTY") || !statement3.getText().contains("no data"))
         {
-            resident main = new resident();
+            statement main = new statement();
             String labelPassed = statement3.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             month = month.substring(month.lastIndexOf(" ") +1);
@@ -268,7 +268,7 @@ public class residentStatementFrame extends javax.swing.JFrame {
     private void statement4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement4MouseClicked
         if(!statement4.getText().contains("EMPTY") || !statement4.getText().contains("no data"))
         {
-            resident main = new resident();
+            statement main = new statement();
             String labelPassed = statement4.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             month = month.substring(month.lastIndexOf(" ") +1);
@@ -282,7 +282,7 @@ public class residentStatementFrame extends javax.swing.JFrame {
     private void statement5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statement5MouseClicked
         if(!statement5.getText().contains("EMPTY") || !statement5.getText().contains("no data"))
         {
-            resident main = new resident();
+            statement main = new statement();
             String labelPassed = statement5.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
             month = month.substring(month.lastIndexOf(" ") +1);
@@ -308,18 +308,17 @@ public class residentStatementFrame extends javax.swing.JFrame {
     
     private void displayData(){
         String extractMonth, extractYear;
-        resident main = new resident();
-        idGet = "R1";
+        statement main = new statement();
         main.setUserId(idGet);
         setPagination();
-        main.displayDataViewOwn(pageLine, "", "statement", "StatementContent");
+        main.displayDataViewOwn(pageLine, "", "statementMonth", "StatementContent");
         boolean boo = main.getStatus();
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null)
         {
-            extractMonth = main.getDate();
+            extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
             extractMonth = extractMonth.substring(extractMonth.indexOf("-")+1);
             extractMonth = extractMonth.substring(0,extractMonth.lastIndexOf("-"));
@@ -330,14 +329,14 @@ public class residentStatementFrame extends javax.swing.JFrame {
         
         
         setPagination();
-        main.displayDataViewOwn(pageLine, "", "statement", "StatementContent");
+        main.displayDataViewOwn(pageLine, "", "statementMonth", "StatementContent");
         boolean boo2 = main.getStatus();
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null)
         {
-            extractMonth = main.getDate();
+            extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
             extractMonth = extractMonth.substring(extractMonth.indexOf("-")+1);
             extractMonth = extractMonth.substring(0,extractMonth.lastIndexOf("-"));
@@ -347,14 +346,14 @@ public class residentStatementFrame extends javax.swing.JFrame {
         }
         
         setPagination();
-        main.displayDataViewOwn(pageLine, "", "statement", "StatementContent");
+        main.displayDataViewOwn(pageLine, "", "statementMonth", "StatementContent");
         boolean boo3 = main.getStatus();
         if(boo3==false){
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null)
         {
-            extractMonth = main.getDate();
+            extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
             extractMonth = extractMonth.substring(extractMonth.indexOf("-")+1);
             extractMonth = extractMonth.substring(0,extractMonth.lastIndexOf("-"));
@@ -364,14 +363,14 @@ public class residentStatementFrame extends javax.swing.JFrame {
         }
         
         setPagination();
-        main.displayDataViewOwn(pageLine, "", "statement", "StatementContent");
+        main.displayDataViewOwn(pageLine, "", "statementMonth", "StatementContent");
         boolean boo4 = main.getStatus();
         if(boo4==false){
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null)
         {
-            extractMonth = main.getDate();
+            extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
             extractMonth = extractMonth.substring(extractMonth.indexOf("-")+1);
             extractMonth = extractMonth.substring(0,extractMonth.lastIndexOf("-"));
@@ -381,14 +380,14 @@ public class residentStatementFrame extends javax.swing.JFrame {
         }
         
         setPagination();
-        main.displayDataViewOwn(pageLine, "", "statement", "StatementContent");
+        main.displayDataViewOwn(pageLine, "", "statementMonth", "StatementContent");
         boolean boo5 = main.getStatus();
         if(boo5==false){
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null)
         {
-            extractMonth = main.getDate();
+            extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
             extractMonth = extractMonth.substring(extractMonth.indexOf("-")+1);
             extractMonth = extractMonth.substring(0,extractMonth.lastIndexOf("-"));

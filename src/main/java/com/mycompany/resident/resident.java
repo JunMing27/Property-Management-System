@@ -415,25 +415,25 @@ public class resident extends User implements dataManagementController1, display
         //for StatementContent.txt filter month
         else if(textFile.contains("StatementContent"))
         {
-            this.setMonthYear(null);
-            for (p=0,q=0; p<allUserInfo.size(); p++)
-            {
-                if(allUserInfo.get(p).contains(this.getUserId()))
-                {
-                    ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(1).equals(this.getUserId()))
-                    {
-                        String monthYear = item.get(3);
-                        monthYear = monthYear.substring(monthYear.indexOf("-")+1); //will be 02-2023
-                        if(!monthYear.equals(this.getMonthYear()) )
-                        {
-                            this.setMonthYear(monthYear);
-                            onlyUserInfo.add(allUserInfo.get(p));
-                            q++;
-                        }
-                    }
-                }
-            }
+//            this.setMonthYear(null);
+//            for (p=0,q=0; p<allUserInfo.size(); p++)
+//            {
+//                if(allUserInfo.get(p).contains(this.getUserId()))
+//                {
+//                    ArrayList<String> item = allUserInfo.get(p);
+//                    if(item.get(1).equals(this.getUserId()))
+//                    {
+//                        String monthYear = item.get(3);
+//                        monthYear = monthYear.substring(monthYear.indexOf("-")+1); //will be 02-2023
+//                        if(!monthYear.equals(this.getMonthYear()) )
+//                        {
+//                            this.setMonthYear(monthYear);
+//                            onlyUserInfo.add(allUserInfo.get(p));
+//                            q++;
+//                        }
+//                    }
+//                }
+//            }
         }
         
         //for those [1] is userId
@@ -523,8 +523,8 @@ public class resident extends User implements dataManagementController1, display
 //        this.setPayDesc(null);
 //        this.setPayAmount(null);
 //        this.setDueDate(null);
-        this.setMonthYear(null);
-        this.setDate(null);
+//        this.setMonthYear(null);
+//        this.setDate(null);
         this.setDueAmount(null);
         this.setDateIssued(null);
         this.setPaidDate(null);
@@ -579,9 +579,9 @@ public class resident extends User implements dataManagementController1, display
                 
             }else if(type.equals("statement"))
             {
-                this.setUserId(allData.get(dataLine).get(1));
-                this.setDate(allData.get(dataLine).get(3));
-                this.status = true;
+//                this.setUserId(allData.get(dataLine).get(1));
+//                this.setDate(allData.get(dataLine).get(3));
+//                this.status = true;
                 
             }else if(type.equals("invoice"))
             {
@@ -596,11 +596,11 @@ public class resident extends User implements dataManagementController1, display
                 
             }else if(type.equals("pending"))
             {
-                this.setUserId(allData.get(dataLine).get(1));
-                this.setPayDesc(allData.get(dataLine).get(2));
-                this.setPayAmount(allData.get(dataLine).get(3));
-                this.setPaidDate(allData.get(dataLine).get(4));
-                this.status = true;
+//                this.setUserId(allData.get(dataLine).get(1));
+//                this.setPayDesc(allData.get(dataLine).get(2));
+//                this.setPayAmount(allData.get(dataLine).get(3));
+//                this.setPaidDate(allData.get(dataLine).get(4));
+//                this.status = true;
                 
             }else if(type.equals("visitorPass"))
             {
