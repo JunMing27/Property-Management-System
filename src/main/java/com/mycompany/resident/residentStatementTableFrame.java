@@ -19,14 +19,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class residentStatementTableFrame extends javax.swing.JFrame {
 
-    static String idGet, monthGet, labelGet ;
+    static String idGet, monthGet, yearGet, labelGet ;
     
-    public residentStatementTableFrame(String id, String month, String label) {
+    public residentStatementTableFrame(String id, String month, String year, String label) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
         monthGet = month;
+        yearGet = year;
         labelGet = label;
         topLabel.setText(label);
         createTable();
@@ -131,47 +132,30 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        residentStatementFrame statement = new residentStatementFrame(idGet);
+        residentStatementMonthFrame statement = new residentStatementMonthFrame(idGet);
         statement.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void createTable()
     {
-        String userName = null;
-        try {
-            String statementFile = "src/main/java/com/mycompany/textFile/StatementContent.txt";
-            File file = new File(statementFile);
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};
-            DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
-            model.setColumnIdentifiers(tableHeader);
-            String line = br.readLine();
-            while(line != null )
-            {
-                String[] dataRow = line.split(",");
-                if(dataRow[1].equals(idGet))
-                {
-                    userName = dataRow[2];
-                    String monthFile = dataRow[3].substring(dataRow[3].indexOf("-")+1);
-                    monthFile = monthFile.substring(0,monthFile.lastIndexOf("-"));
-                    if(monthFile.equals(monthGet))
-                    {
-                        String[] onlyData = {dataRow[5],dataRow[4],dataRow[3]};
-                        model.addRow(onlyData);
-                    }
-                    
-                }
-                line = br.readLine();
-            }
+        statement main = new statement();
+        main.setUserId(idGet);
+        main.setMonthYear(monthGet+"-"+yearGet);
+        main.displayDataViewOwn(0, "", "statementContent", "StatementContent");
+        int totalRow = main.getTotalLine();
+        
+        String[] tableHeader = {"Pay Description", "Paid Amount", "Pay Date"};
+        DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
+        model.setColumnIdentifiers(tableHeader);
             
-            br.close();
-            nameLabel.setText(userName);
+        for(int i=0; i<totalRow ; i++)
+        {
+            main.displayDataViewOwn(i, "", "statementContent", "StatementContent");
+            nameLabel.setText(main.getUserName());
+            String[] dataRow = {main.getPaymentDesc(), main.getPaidAmount(), main.getPaidDate()};
+            model.addRow(dataRow);
+        }
             
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(residentStatementTableFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(residentStatementTableFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } 
     }
     
     
@@ -206,7 +190,7 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentStatementTableFrame(idGet, monthGet, labelGet).setVisible(true);
+                new residentStatementTableFrame(idGet, monthGet, yearGet, labelGet).setVisible(true);
             }
         });
     }

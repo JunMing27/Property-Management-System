@@ -173,7 +173,7 @@ public class statement implements displayController1{
             try {
                 sc = new Scanner(file);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(statement.class.getName()).log(Level.SEVERE, null, ex);
             }
             String oneUserInfo; 
             String[] itemArray;
@@ -200,13 +200,20 @@ public class statement implements displayController1{
                     ArrayList<String> item = allUserInfo.get(p);
                     if(item.get(1).equals(this.getUserId()))
                     {
-                        totalRow = totalRow+1;
-                        onlyUserInfo.add(allUserInfo.get(p));
-                        q++;
+                        String monthFile = item.get(3).substring(item.get(3).indexOf("-")+1);
+                        
+                        if(monthFile.equals(this.getMonthYear()))
+                        {
+                            System.out.println("equal");
+                            totalRow = totalRow+1;
+                            onlyUserInfo.add(allUserInfo.get(p));
+                            q++;
+                        }
                     }
                 }
             }
             setTotalLine(totalRow);
+            
         }else if (type.equals("statementMonth")) {
             this.setMonthYear(null);
             for (p=0,q=0; p<allUserInfo.size(); p++)

@@ -200,7 +200,7 @@ public class residentPaymentMenuFrame extends javax.swing.JFrame {
 
     private void statementBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statementBtnActionPerformed
         this.dispose();
-        residentStatementFrame residentStatement = new residentStatementFrame(idGet);
+        residentStatementMonthFrame residentStatement = new residentStatementMonthFrame(idGet);
         residentStatement.setVisible(true);
     }//GEN-LAST:event_statementBtnActionPerformed
 

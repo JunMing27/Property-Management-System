@@ -126,6 +126,7 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
     {
         payHistory main = new payHistory();
         main.setUserId(idGet);
+        main.displayDataViewOwn(0, "", "payHistory", "PayHistory");
         int totalRow = main.getTotalLine();
         
         String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};

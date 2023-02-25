@@ -8,15 +8,16 @@ package com.mycompany.resident;
  *
  * @author hoiyi
  */
-public class residentStatementFrame extends javax.swing.JFrame {
+public class residentStatementMonthFrame extends javax.swing.JFrame {
 
     static String idGet;
     
-    public residentStatementFrame(String id) {
+    public residentStatementMonthFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        id = idGet;
+        idGet = id;
+        idGet = "R1";
         backPageBtn.setEnabled(false);
         displayData();
     }
@@ -216,10 +217,13 @@ public class residentStatementFrame extends javax.swing.JFrame {
             statement main = new statement();
             String labelPassed = statement1.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
+            String yearPassed = labelPassed.substring(labelPassed.lastIndexOf(" ")+1);
             month = month.substring(month.lastIndexOf(" ") +1);
             String monthPassed = main.monthNumber(month);
+            System.out.println("month "+monthPassed);
+            System.out.println("year "+yearPassed);
             this.dispose();
-            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, labelPassed);
+            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, yearPassed, labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement1MouseClicked
@@ -243,10 +247,11 @@ public class residentStatementFrame extends javax.swing.JFrame {
             statement main = new statement();
             String labelPassed = statement2.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
+            String yearPassed = labelPassed.substring(labelPassed.lastIndexOf(" ")+1);
             month = month.substring(month.lastIndexOf(" ") +1);
             String monthPassed = main.monthNumber(month);
             this.dispose();
-            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, labelPassed);
+            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, yearPassed, labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement2MouseClicked
@@ -257,10 +262,11 @@ public class residentStatementFrame extends javax.swing.JFrame {
             statement main = new statement();
             String labelPassed = statement3.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
+            String yearPassed = labelPassed.substring(labelPassed.lastIndexOf(" ")+1);
             month = month.substring(month.lastIndexOf(" ") +1);
             String monthPassed = main.monthNumber(month);
             this.dispose();
-            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, labelPassed);
+            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, yearPassed, labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement3MouseClicked
@@ -271,10 +277,11 @@ public class residentStatementFrame extends javax.swing.JFrame {
             statement main = new statement();
             String labelPassed = statement4.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
+            String yearPassed = labelPassed.substring(labelPassed.lastIndexOf(" ")+1);
             month = month.substring(month.lastIndexOf(" ") +1);
             String monthPassed = main.monthNumber(month);
             this.dispose();
-            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, labelPassed);
+            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, yearPassed, labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement4MouseClicked
@@ -285,10 +292,11 @@ public class residentStatementFrame extends javax.swing.JFrame {
             statement main = new statement();
             String labelPassed = statement5.getText();
             String month = labelPassed.substring(0,labelPassed.lastIndexOf(" "));
+            String yearPassed = labelPassed.substring(labelPassed.lastIndexOf(" ")+1);
             month = month.substring(month.lastIndexOf(" ") +1);
             String monthPassed = main.monthNumber(month);
             this.dispose();
-            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, labelPassed);
+            residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, yearPassed, labelPassed);
             table.setVisible(true);
         }
     }//GEN-LAST:event_statement5MouseClicked
@@ -417,20 +425,21 @@ public class residentStatementFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(residentStatementFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentStatementMonthFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(residentStatementFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentStatementMonthFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(residentStatementFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentStatementMonthFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(residentStatementFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentStatementMonthFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentStatementFrame(idGet).setVisible(true);
+                new residentStatementMonthFrame(idGet).setVisible(true);
             }
         });
     }
