@@ -278,7 +278,7 @@ public class guardIncidentManageFrame extends javax.swing.JFrame {
         dataList.add(idTxt1.getText());
         dataList.add(detailTxt1.getText());
         this.dispose();
-        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("edit", dataList);
+        guardIncidentAddEditFrame edit = new guardIncidentAddEditFrame(idGet,"edit", dataList);
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn1ActionPerformed
 
@@ -298,14 +298,14 @@ public class guardIncidentManageFrame extends javax.swing.JFrame {
         dataList.add(idTxt2.getText());
         dataList.add(detailTxt2.getText());
         this.dispose();
-        GuardIncidentAddEdit edit = new GuardIncidentAddEdit("edit", dataList);
+        guardIncidentAddEditFrame edit = new guardIncidentAddEditFrame(idGet,"edit", dataList);
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         ArrayList<String> dataList = new ArrayList<>();
         this.dispose();
-        GuardIncidentAddEdit add = new GuardIncidentAddEdit("add", dataList );
+        guardIncidentAddEditFrame add = new guardIncidentAddEditFrame(idGet,"add", dataList);
         add.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
