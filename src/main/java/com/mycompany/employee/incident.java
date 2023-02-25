@@ -1,5 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.employee;
-
 
 import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController1;
@@ -16,31 +19,23 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
  *
  * @author hoiyi
  */
-public class checkpoint implements displayController1, dataManagementController1{
+public class incident implements displayController1, dataManagementController1{
     
-    //for checkpoint record
-    private String checkPointRecordID;
+    private String incidentId;
     private String userId;
-    private String blockNumber;
-    private String checkPointRecordDate;
-    private String checkPointRecordTime;
-    private int totalLine;
+    private String incidentDetail;
+    private boolean status;
 
-    public String getCheckPointRecordID() {
-        return checkPointRecordID;
+    public String getIncidentId() {
+        return incidentId;
     }
 
-    public void setCheckPointRecordID(String checkPointRecordID) {
-        this.checkPointRecordID = checkPointRecordID;
+    public void setIncidentId(String incidentId) {
+        this.incidentId = incidentId;
     }
 
     public String getUserId() {
@@ -51,69 +46,52 @@ public class checkpoint implements displayController1, dataManagementController1
         this.userId = userId;
     }
 
-    public String getBlockNumber() {
-        return blockNumber;
+    public String getIncidentDetail() {
+        return incidentDetail;
     }
 
-    public void setBlockNumber(String blockNumber) {
-        this.blockNumber = blockNumber;
+    public void setIncidentDetail(String incidentDetail) {
+        this.incidentDetail = incidentDetail;
     }
 
-    public String getCheckPointRecordDate() {
-        return checkPointRecordDate;
+    public boolean getStatus() {
+        return status;
     }
 
-    public void setCheckPointRecordDate(String checkPointRecordDate) {
-        this.checkPointRecordDate = checkPointRecordDate;
-    }
-
-    public String getCheckPointRecordTime() {
-        return checkPointRecordTime;
-    }
-
-    public void setCheckPointRecordTime(String checkPointRecordTime) {
-        this.checkPointRecordTime = checkPointRecordTime;
-    }
-
-    public int getTotalLine() {
-        return totalLine;
-    }
-
-    public void setTotalLine(int totalLine) {
-        this.totalLine = totalLine;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     
     
     @Override
     public void displayDataViewAll(Integer dataLine, String searchTxt, String type, String fileName) {
-    
+        
     }
 
     @Override
     public void setDataNull() {
-        setBlockNumber(null);
-        setCheckPointRecordDate(null);
-        setCheckPointRecordID(null);
-        setCheckPointRecordTime(null);
+        setIncidentId(null);
+        setIncidentDetail(null);
     }
 
     @Override
     public void displayDataViewOwn(Integer dataLine, String searchTxt, String type, String fileName) {
         fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
         ArrayList<ArrayList<String>> allData = onlyUserDataInfo(fileName);
+        int newSize = allData.size();
         try{
-            setCheckPointRecordID(allData.get(dataLine).get(0));
+            setIncidentId(allData.get(dataLine).get(0));
             setUserId(allData.get(dataLine).get(1));
-            setBlockNumber(allData.get(dataLine).get(2));
-            setCheckPointRecordDate(allData.get(dataLine).get(3));
-            setCheckPointRecordTime(allData.get(dataLine).get(4));
-             
+            setIncidentDetail(allData.get(dataLine).get(2));
+            this.status = true;  
         }catch(Exception e){
             setDataNull();
-            
+            this.status = false;
         }
-        
+        if(dataLine.equals(newSize-1)){
+            this.status = false;
+        }
     }
 
     @Override
@@ -125,7 +103,7 @@ public class checkpoint implements displayController1, dataManagementController1
             try {
                 sc = new Scanner(file);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(checkpoint.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(incident.class.getName()).log(Level.SEVERE, null, ex);
             }
             String oneUserInfo; 
             String[] itemArray;
@@ -147,7 +125,6 @@ public class checkpoint implements displayController1, dataManagementController1
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
-        int totalRow = 0;
         
         for (p=0,q=0; p<allUserInfo.size(); p++)
         {
@@ -156,19 +133,53 @@ public class checkpoint implements displayController1, dataManagementController1
                 ArrayList<String> item = allUserInfo.get(p);
                 if(item.get(1).equals(this.getUserId()))
                 {
-                    totalRow = totalRow +1;
                     onlyUserInfo.add(allUserInfo.get(p));
                     q++;
                 }
             }
         }
-        setTotalLine(totalRow);
+        
         return onlyUserInfo;
     }
 
     @Override
     public void removeFromFile(String textFile, ArrayList<String> dataList) {
-        
+        try {
+            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            for(int j=0;j<allUsers.size();j++)
+            {
+                if(allUsers.get(j).get(0).equals(dataList.get(0))
+                        && allUsers.get(j).get(1).equals(dataList.get(1)))
+                {
+                    allUsers.remove(j);
+                    break;
+                }
+            }
+            
+            
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(incident.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -179,14 +190,12 @@ public class checkpoint implements displayController1, dataManagementController1
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(dataList.get(0)+","
                     +dataList.get(1)+","
-                    +dataList.get(2)+","
-                    +dataList.get(3)+","
-                    +dataList.get(4)+"\n");
+                    +dataList.get(2)+"\n");
             
             
             bw.close();
         } catch (IOException ex) {
-            Logger.getLogger(checkpoint.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(incident.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -203,22 +212,20 @@ public class checkpoint implements displayController1, dataManagementController1
                 String[] dataRow = line.split(",");
                 for(int i=0; i<dataRow.length; i++)
                 {
-                    id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("CPR")+3));
+                    id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("IC")+2));
                 }
                 line = br.readLine();
             }
-        
+            
             
             br.close();
             id = id+1;
             
         } catch (IOException ex) {
-            Logger.getLogger(checkpoint.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(incident.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id;
     }
-    
-    
     
     
 }
