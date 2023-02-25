@@ -398,7 +398,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
             ArrayList<String> dataList = new ArrayList<>();
             dataList.add(idGet);
             dataList.add(idTxt1.getText());
-            resident main = new resident();
+            visitorPass main = new visitorPass();
             main.setUserId(idGet);
             main.removeFromFile("VisitorPass", dataList);
             this.dispose();
@@ -415,7 +415,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
             ArrayList<String> dataList = new ArrayList<>();
             dataList.add(idGet);
             dataList.add(idTxt2.getText());
-            resident main = new resident();
+            visitorPass main = new visitorPass();
             main.setUserId(idGet);
             main.removeFromFile("VisitorPass", dataList);
             this.dispose();
@@ -445,7 +445,8 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
     }
     
     private void displayData(){
-        resident main = new resident();
+        visitorPass main = new visitorPass();
+        idGet = "R1";
         main.setUserId(idGet);
         setPagination();
         main.displayDataViewOwn(pageLine, "", "visitorPass", "VisitorPass");

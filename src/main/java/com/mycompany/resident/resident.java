@@ -825,15 +825,15 @@ public class resident extends User implements dataManagementController1, display
             }
             else if(textFile.equals("VisitorPass"))
             {
-                while(line != null )
-                {
-                    String[] dataRow = line.split(",");
-                    for(int i=0; i<dataRow.length; i++)
-                    {
-                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VP")+2));
-                    }
-                    line = br.readLine();
-                }
+//                while(line != null )
+//                {
+//                    String[] dataRow = line.split(",");
+//                    for(int i=0; i<dataRow.length; i++)
+//                    {
+//                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VP")+2));
+//                    }
+//                    line = br.readLine();
+//                }
             }
             
             br.close();
@@ -843,91 +843,6 @@ public class resident extends User implements dataManagementController1, display
             Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id;
-    }
-
-    public String monthString(String monthNumber) {
-        String month = "empty"; 
-        if(monthNumber.equals("01")) 
-        { 
-            month = "JANUARY"; 
-        }else if(monthNumber.equals("02")) 
-        { 
-            month = "FEBRUARY"; 
-        }else if(monthNumber.equals("03")) 
-        { 
-            month = "MARCH"; 
-        }else if(monthNumber.equals("04")) 
-        { 
-            month = "APRIL"; 
-        }else if(monthNumber.equals("05")) 
-        { 
-            month = "MAY"; 
-        }else if(monthNumber.equals("06")) 
-        { 
-            month = "JUNE"; 
-        }else if(monthNumber.equals("07")) 
-        { 
-            month = "JULY"; 
-        }else if(monthNumber.equals("08")) 
-        { 
-            month = "AUGUST"; 
-        }else if(monthNumber.equals("09")) 
-        { 
-            month = "SEPTEMBER"; 
-        }else if(monthNumber.equals("10")) 
-        { 
-            month = "OCTOBER"; 
-        }else if(monthNumber.equals("11")) 
-        { 
-            month = "NOVEMBER"; 
-        }else if(monthNumber.equals("12")) 
-        { 
-            month = "DECEMBER";
-        } 
-        return month;
-    }
-
-    public String monthNumber(String monthString) {
-        String month = "empty"; 
-        if(monthString.equals("JANUARY")) 
-        { 
-            month = "01"; 
-        }else if(monthString.equals("FEBRUARY")) 
-        { 
-            month = "02"; 
-        }else if(monthString.equals("MARCH")) 
-        { 
-            month = "03"; 
-        }else if(monthString.equals("APRIL")) 
-        { 
-            month = "04"; 
-        }else if(monthString.equals("MAY")) 
-        { 
-            month = "05"; 
-        }else if(monthString.equals("JUNE")) 
-        { 
-            month = "06"; 
-        }else if(monthString.equals("JULY")) 
-        { 
-            month = "07"; 
-        }else if(monthString.equals("AUGUST")) 
-        { 
-            month = "08"; 
-        }else if(monthString.equals("SEPTEMBER")) 
-        { 
-            month = "09"; 
-        }else if(monthString.equals("OCTOBER")) 
-        { 
-            month = "10"; 
-        }else if(monthString.equals("NOVEMBER")) 
-        { 
-            month = "11"; 
-        }else if(monthString.equals("DECEMBER")) 
-        { 
-            month = "12";
-        } 
-        return month;
-    
     }
 
 

@@ -258,40 +258,49 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
             date = dateTxt.getText();
         }
         String status = "";
-        if (validCheckBox.isSelected())
+        if(validCheckBox.isSelected() && invalidCheckBox.isSelected())
         {
-            status = "Valid";
-        }else if(invalidCheckBox.isSelected())
-        {
-            status = "Invalid";
-        }
-        if(!id.isEmpty() && !name.isEmpty() && !date.isEmpty() && !status.isEmpty() )
-        {
-            if(!id.isBlank()&& !name.isBlank()&& !date.isBlank()&& !status.isBlank())
+            status = "two selected";
+        }else{
+            if (validCheckBox.isSelected())
             {
+                status = "Valid";
+            }else if(invalidCheckBox.isSelected())
+            {
+                status = "Invalid";
+            }
+        }
+        if(!id.isEmpty() && !name.isEmpty() && !date.isEmpty() && !status.isEmpty())
+        {
+            if(!id.isBlank()&& !name.isBlank()&& !date.isBlank() && !status.isBlank())
+            {
+                if(!status.equals("two selected"))
+                {
                     int dialog = JOptionPane.showConfirmDialog(null,
                         "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
                     if(dialog == JOptionPane.YES_OPTION){
-                        
+
                         ArrayList<String> dataList = new ArrayList<>();
                         dataList.add(idGet);
                         dataList.add(id);
                         dataList.add(name);
                         dataList.add(date);
                         dataList.add(status);
-                        resident main = new resident();
+                        visitorPass main = new visitorPass();
                         main.setUserId(idGet);
                         if(addEditGet.equals("edit"))
                         {
                             main.removeFromFile("VisitorPass", dataList);
                         }
                         main.editFile("VisitorPass", dataList);
-                        
+
                         this.dispose();
                         residentVisPassManageFrame visitorPass = new residentVisPassManageFrame(idGet);
                         visitorPass.setVisible(true);
                     }
-                
+                }else{
+                    errorMessage.setText("Please Select Only One CheckBox !");
+                }
             }else{
                 errorMessage.setText("DO NOT LEFT EMPTY DATA !");
             }
@@ -323,7 +332,7 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
     
     private void emptyData()
     {
-        resident main = new resident();
+        visitorPass main = new visitorPass();
         main.setUserId(idGet);
         int nextVPId = main.getNextId("VisitorPass");
         idTxt1.setText("VP"+nextVPId);

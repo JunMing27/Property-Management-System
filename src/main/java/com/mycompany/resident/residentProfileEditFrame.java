@@ -362,12 +362,17 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
         String name = residentNameTxt.getText();
         String ageString = residentAgeTxt.getText();
         String gender = "";
-        if(maleCheckBox.isSelected())
+        if(maleCheckBox.isSelected() && femaleCheckBox.isSelected())
         {
-            gender = "male";
-        }else if(femaleCheckBox.isSelected())
-        {
-            gender = "female";
+            gender = "two selected";
+        }else{
+            if(maleCheckBox.isSelected())
+            {
+                gender = "male";
+            }else if(femaleCheckBox.isSelected())
+            {
+                gender = "female";
+            }
         }
         String phone = residentPhoneTxt.getText();
         String unit = residentUnitTxt.getText();
@@ -384,9 +389,12 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                 && !unit.isBlank()&& !userName.isBlank()
                 && !pwd.isBlank())
             {
+                if(gender.equals("two selected"))
+                {
+                    errorMessage.setText("Please Select Only One CheckBox");
+                }
                 try {
                     Integer.parseInt(ageString);
-                    
                 } catch (NumberFormatException e) {
                     errorMessage.setText("Age Must be Integer !");
                 }

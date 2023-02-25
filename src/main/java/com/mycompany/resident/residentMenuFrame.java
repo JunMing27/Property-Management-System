@@ -193,7 +193,7 @@ public class residentMenuFrame extends javax.swing.JFrame {
 
     private void facilityBookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityBookBtnActionPerformed
         this.dispose();
-        FacilityBooking facilityBooking = new FacilityBooking();
+        residentFacBookManageFrame facilityBooking = new residentFacBookManageFrame(idGet);
         facilityBooking.setVisible(true);
     }//GEN-LAST:event_facilityBookBtnActionPerformed
 
@@ -205,7 +205,7 @@ public class residentMenuFrame extends javax.swing.JFrame {
 
     private void complaintBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintBtnActionPerformed
         this.dispose();
-        ResidentComplaintManage complaint = new ResidentComplaintManage();
+        residentComplaintManageFrame complaint = new residentComplaintManageFrame(idGet);
         complaint.setVisible(true);
     }//GEN-LAST:event_complaintBtnActionPerformed
 
