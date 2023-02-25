@@ -136,7 +136,7 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
 
     private void createTable()
     {
-        payHistory main = new payHistory();
+        paymentHistory main = new paymentHistory();
         main.setUserId(idGet);
         main.displayDataViewOwn(0, "", "payHistory", "PayHistory");
         if(main.getPayHistoryId() != null)

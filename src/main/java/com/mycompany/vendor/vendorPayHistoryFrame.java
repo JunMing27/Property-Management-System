@@ -4,7 +4,7 @@
  */
 package com.mycompany.vendor;
 
-import com.mycompany.resident.payHistory;
+import com.mycompany.resident.paymentHistory;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -137,7 +137,7 @@ public class vendorPayHistoryFrame extends javax.swing.JFrame {
 
     private void createTable()
     {
-        payHistory main = new payHistory();
+        paymentHistory main = new paymentHistory();
         main.setUserId(idGet);
         main.displayDataViewOwn(0, "", "payHistory", "PayHistory");
         if(main.getPayHistoryId() != null)

@@ -15,9 +15,9 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author user
+ * @author hoiyi
  */
-public class payHistory implements displayController1{
+public class paymentHistory implements displayController1{
     
     private String payHistoryId;
     private String payDescription;
@@ -111,14 +111,12 @@ public class payHistory implements displayController1{
             }
         }
         try{
-            if(type.equals("payHistory"))
-            {
-                this.setPayHistoryId(allData.get(dataLine).get(0));
-                this.setUserId(allData.get(dataLine).get(1));
-                this.setPayDescription(allData.get(dataLine).get(2));
-                this.setPaidAmount(allData.get(dataLine).get(3));
-                this.setPaidDate(allData.get(dataLine).get(4));
-            }
+            this.setPayHistoryId(allData.get(dataLine).get(0));
+            this.setUserId(allData.get(dataLine).get(1));
+            this.setPayDescription(allData.get(dataLine).get(2));
+            this.setPaidAmount(allData.get(dataLine).get(3));
+            this.setPaidDate(allData.get(dataLine).get(4));
+            
         }catch(Exception e){
             setDataNull();
         }
@@ -151,26 +149,21 @@ public class payHistory implements displayController1{
         int p,q;
         int totalRow = 0;
         
-        if(textFile.contains("Payment"))
+        for (p=0,q=0; p<allUserInfo.size(); p++)
         {
-            for (p=0,q=0; p<allUserInfo.size(); p++)
+            if(allUserInfo.get(p).contains(this.getUserId()))
             {
-                if(allUserInfo.get(p).contains(this.getUserId()))
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(1).equals(this.getUserId()))
                 {
-                    ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(1).equals(this.getUserId()))
-                    {
-                        totalRow = totalRow+1;
-                        onlyUserInfo.add(allUserInfo.get(p));
-                        q++;
-                    }
+                    totalRow = totalRow+1;
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
                 }
             }
-        
-            setTotalLine(totalRow);
         }
         
-       
+        setTotalLine(totalRow);
         
         return onlyUserInfo;
     }
