@@ -324,13 +324,11 @@ public class guardVisPassFrame extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         searchTxt = searchTxtField.getText();
-        if(!searchTxt.isEmpty() && !searchTxt.isBlank())
-        {
-            pageLine=-1;
-            backPageBtn.setEnabled(false);
-            nextPageBtn.setEnabled(true);
-            displayData();
-        }
+        pageLine=-1;
+        backPageBtn.setEnabled(false);
+        nextPageBtn.setEnabled(true);
+        displayData();
+        
 
     }//GEN-LAST:event_searchBtnActionPerformed
 
@@ -363,10 +361,12 @@ public class guardVisPassFrame extends javax.swing.JFrame {
         if(main.getVisitorPassId()!= null){
             idTxt1.setText(main.getVisitorPassId());
             nameTxt1.setText(main.getVisitorName());
+            dateTxt1.setText(main.getVisitDate());
             statusText1.setText(main.getVisitorPassStatus());
         }else{
             idTxt1.setText("no data");
             nameTxt1.setText("no data");
+            dateTxt1.setText("no data");
             statusText1.setText("no data");
         }
         
@@ -380,10 +380,12 @@ public class guardVisPassFrame extends javax.swing.JFrame {
         if(main.getVisitorPassId()!= null){
             idTxt2.setText(main.getVisitorPassId());
             nameTxt2.setText(main.getVisitorName());
+            dateTxt1.setText(main.getVisitDate());
             statusText2.setText(main.getVisitorPassStatus());
         }else{
             idTxt2.setText("no data");
             nameTxt2.setText("no data");
+            dateTxt2.setText("no data");
             statusText2.setText("no data");
         }
     }

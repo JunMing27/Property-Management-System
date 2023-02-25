@@ -2,20 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.resident;
+package com.mycompany.employee;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author hoiyi
  */
-public class residentVisPassManageFrame extends javax.swing.JFrame {
+public class guardVisEntryManageFrame extends javax.swing.JFrame {
 
     static String idGet;
     
-    public residentVisPassManageFrame(String id) {
+    public guardVisEntryManageFrame(String id) {
+        initComponents();
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -47,21 +47,21 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         dateTxt1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         editBtn2 = new javax.swing.JButton();
-        statusLabel1 = new javax.swing.JLabel();
-        statusText1 = new javax.swing.JLabel();
-        deleteBtn1 = new javax.swing.JButton();
+        enterTimeLabel1 = new javax.swing.JLabel();
+        enterTimeTxt1 = new javax.swing.JLabel();
         idLabel2 = new javax.swing.JLabel();
         nameLabel2 = new javax.swing.JLabel();
         dateLabel2 = new javax.swing.JLabel();
-        statusLabel2 = new javax.swing.JLabel();
         idTxt2 = new javax.swing.JLabel();
         nameTxt2 = new javax.swing.JLabel();
-        statusText2 = new javax.swing.JLabel();
         dateTxt2 = new javax.swing.JLabel();
-        deleteBtn2 = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
-        searchTxtField = new javax.swing.JTextField();
-        searchBtn = new javax.swing.JButton();
+        leaveTimeLabel1 = new javax.swing.JLabel();
+        leaveTimeTxt1 = new javax.swing.JLabel();
+        enterTimeLabel2 = new javax.swing.JLabel();
+        enterTimeTxt2 = new javax.swing.JLabel();
+        leaveTimeLabel2 = new javax.swing.JLabel();
+        leaveTimeTxt2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,7 +80,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("VISITOR PASS");
+        topLabel.setText("VISITOR ENTRY");
 
         editBtn1.setBackground(new java.awt.Color(255, 255, 255));
         editBtn1.setForeground(new java.awt.Color(0, 0, 0));
@@ -112,7 +112,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
 
         idLabel1.setBackground(new java.awt.Color(233, 233, 233));
         idLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        idLabel1.setText("Visitor ID :");
+        idLabel1.setText("Visitor Entry ID :");
 
         idTxt1.setBackground(new java.awt.Color(233, 233, 233));
         idTxt1.setForeground(new java.awt.Color(0, 0, 0));
@@ -144,27 +144,17 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
             }
         });
 
-        statusLabel1.setBackground(new java.awt.Color(233, 233, 233));
-        statusLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        statusLabel1.setText("Status :");
+        enterTimeLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        enterTimeLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        enterTimeLabel1.setText("Enter Time :");
 
-        statusText1.setBackground(new java.awt.Color(233, 233, 233));
-        statusText1.setForeground(new java.awt.Color(0, 0, 0));
-        statusText1.setText("Valid");
-
-        deleteBtn1.setBackground(new java.awt.Color(255, 255, 255));
-        deleteBtn1.setForeground(new java.awt.Color(0, 0, 0));
-        deleteBtn1.setText("DELETE");
-        deleteBtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        deleteBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBtn1ActionPerformed(evt);
-            }
-        });
+        enterTimeTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        enterTimeTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        enterTimeTxt1.setText("10:00");
 
         idLabel2.setBackground(new java.awt.Color(233, 233, 233));
         idLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        idLabel2.setText("Visitor ID :");
+        idLabel2.setText("Visitor Entry ID :");
 
         nameLabel2.setBackground(new java.awt.Color(233, 233, 233));
         nameLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -174,10 +164,6 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         dateLabel2.setForeground(new java.awt.Color(0, 0, 0));
         dateLabel2.setText("Date :");
 
-        statusLabel2.setBackground(new java.awt.Color(233, 233, 233));
-        statusLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        statusLabel2.setText("Status :");
-
         idTxt2.setBackground(new java.awt.Color(233, 233, 233));
         idTxt2.setForeground(new java.awt.Color(0, 0, 0));
         idTxt2.setText("V1");
@@ -186,23 +172,9 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         nameTxt2.setForeground(new java.awt.Color(0, 0, 0));
         nameTxt2.setText("Halo");
 
-        statusText2.setBackground(new java.awt.Color(233, 233, 233));
-        statusText2.setForeground(new java.awt.Color(0, 0, 0));
-        statusText2.setText("Valid");
-
         dateTxt2.setBackground(new java.awt.Color(233, 233, 233));
         dateTxt2.setForeground(new java.awt.Color(0, 0, 0));
         dateTxt2.setText("10/04/2023");
-
-        deleteBtn2.setBackground(new java.awt.Color(255, 255, 255));
-        deleteBtn2.setForeground(new java.awt.Color(0, 0, 0));
-        deleteBtn2.setText("DELETE");
-        deleteBtn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        deleteBtn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBtn2ActionPerformed(evt);
-            }
-        });
 
         addBtn.setBackground(new java.awt.Color(255, 255, 255));
         addBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -215,24 +187,29 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
             }
         });
 
-        searchTxtField.setBackground(new java.awt.Color(255, 255, 255));
-        searchTxtField.setForeground(new java.awt.Color(0, 0, 0));
-        searchTxtField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        searchTxtField.setCaretColor(new java.awt.Color(0, 0, 0));
-        searchTxtField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTxtFieldActionPerformed(evt);
-            }
-        });
+        leaveTimeLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        leaveTimeLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        leaveTimeLabel1.setText("Leave Time :");
 
-        searchBtn.setBackground(new java.awt.Color(255, 255, 255));
-        searchBtn.setForeground(new java.awt.Color(0, 0, 0));
-        searchBtn.setText("Search");
-        searchBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBtnActionPerformed(evt);
-            }
-        });
+        leaveTimeTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        leaveTimeTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        leaveTimeTxt1.setText("11:00");
+
+        enterTimeLabel2.setBackground(new java.awt.Color(233, 233, 233));
+        enterTimeLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        enterTimeLabel2.setText("Enter Time :");
+
+        enterTimeTxt2.setBackground(new java.awt.Color(233, 233, 233));
+        enterTimeTxt2.setForeground(new java.awt.Color(0, 0, 0));
+        enterTimeTxt2.setText("10:00");
+
+        leaveTimeLabel2.setBackground(new java.awt.Color(233, 233, 233));
+        leaveTimeLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        leaveTimeLabel2.setText("Leave Time :");
+
+        leaveTimeTxt2.setBackground(new java.awt.Color(233, 233, 233));
+        leaveTimeTxt2.setForeground(new java.awt.Color(0, 0, 0));
+        leaveTimeTxt2.setText("11:00");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -243,44 +220,43 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idLabel2)
+                            .addComponent(nameLabel2)
+                            .addComponent(dateLabel2)
+                            .addComponent(enterTimeLabel2)
+                            .addComponent(leaveTimeLabel2))
+                        .addGap(123, 123, 123)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dateTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idLabel2)
-                                    .addComponent(nameLabel2)
-                                    .addComponent(statusLabel2)
-                                    .addComponent(dateLabel2))
-                                .addGap(123, 123, 123)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dateTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(statusText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(idTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(82, 82, 82)
-                                .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(leaveTimeTxt2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                                        .addComponent(enterTimeTxt2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(98, 98, 98)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(nameLabel1)
                                     .addComponent(idLabel1)
                                     .addComponent(dateLabel1)
-                                    .addComponent(statusLabel1)
-                                    .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(84, 84, 84)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(statusText1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(dateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(nameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(85, 85, 85))))
+                                    .addComponent(enterTimeLabel1)
+                                    .addComponent(leaveTimeLabel1))
+                                .addGap(121, 121, 121)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(enterTimeTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(dateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(leaveTimeTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(nameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -290,29 +266,26 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
                                         .addGap(40, 40, 40)
                                         .addComponent(backPageBtn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(nextPageBtn))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99)
-                                .addComponent(searchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(searchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 63, Short.MAX_VALUE)))
+                                        .addComponent(nextPageBtn)))))
+                        .addGap(0, 91, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBtn))
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,15 +305,17 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
                     .addComponent(dateLabel1))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusLabel1)
-                    .addComponent(statusText1))
-                .addGap(23, 23, 23)
+                    .addComponent(enterTimeLabel1)
+                    .addComponent(enterTimeTxt1))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(leaveTimeLabel1)
+                    .addComponent(leaveTimeTxt1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel2)
                     .addComponent(idTxt2))
@@ -352,15 +327,17 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateLabel2)
                     .addComponent(dateTxt2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusLabel2)
-                    .addComponent(statusText2))
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterTimeLabel2)
+                    .addComponent(enterTimeTxt2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(leaveTimeLabel2)
+                    .addComponent(leaveTimeTxt2))
+                .addGap(16, 16, 16)
+                .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
@@ -381,8 +358,8 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        residentMenuFrame residentOption = new residentMenuFrame(idGet);
-        residentOption.setVisible(true);
+        guardMenuFrame option = new guardMenuFrame(idGet);
+        option.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
@@ -390,9 +367,9 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         dataList.add(idTxt1.getText());
         dataList.add(nameTxt1.getText());
         dataList.add(dateTxt1.getText());
-        dataList.add(statusText1.getText());
+        dataList.add(enterTimeTxt1.getText());
         this.dispose();
-        residentVisPassAddEditFrame edit = new residentVisPassAddEditFrame(idGet, "edit", dataList );
+        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("edit", dataList);
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn1ActionPerformed
 
@@ -412,70 +389,20 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         dataList.add(idTxt2.getText());
         dataList.add(nameTxt2.getText());
         dataList.add(dateTxt2.getText());
-        dataList.add(statusText2.getText());
+        dataList.add(enterTimeTxt2.getText());
         this.dispose();
-        residentVisPassAddEditFrame edit = new residentVisPassAddEditFrame(idGet, "edit", dataList );
+        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("edit", dataList);
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
-
-    private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' will Delete This Visitor Pass ",
-            "INFORMATION", JOptionPane.YES_NO_OPTION);
-        if(result == JOptionPane.YES_OPTION)
-        {
-            ArrayList<String> dataList = new ArrayList<>();
-            dataList.add(idGet);
-            dataList.add(idTxt1.getText());
-            visitorPass main = new visitorPass();
-            main.setUserId(idGet);
-            main.removeFromFile("VisitorPass", dataList);
-            this.dispose();
-            residentVisPassManageFrame visitorPassManage = new residentVisPassManageFrame(idGet);
-            visitorPassManage.setVisible(true);
-        }
-    }//GEN-LAST:event_deleteBtn1ActionPerformed
-
-    private void deleteBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn2ActionPerformed
-        int result = JOptionPane.showConfirmDialog(null, "Click 'YES' Will Delete This Visitor Pass",
-            "INFORMATION", JOptionPane.YES_NO_OPTION);
-        if(result == JOptionPane.YES_OPTION)
-        {
-            ArrayList<String> dataList = new ArrayList<>();
-            dataList.add(idGet);
-            dataList.add(idTxt2.getText());
-            visitorPass main = new visitorPass();
-            main.setUserId(idGet);
-            main.removeFromFile("VisitorPass", dataList);
-            this.dispose();
-            residentVisPassManageFrame visitorPassManage = new residentVisPassManageFrame(idGet);
-            visitorPassManage.setVisible(true);
-        }
-    }//GEN-LAST:event_deleteBtn2ActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         ArrayList<String> dataList = new ArrayList<>();
         this.dispose();
-        residentVisPassAddEditFrame add = new residentVisPassAddEditFrame(idGet, "add", dataList );
+        GuardVisEntryAddEdit add = new GuardVisEntryAddEdit("add", dataList );
         add.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
-    private void searchTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchTxtFieldActionPerformed
-
-    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        searchTxt = searchTxtField.getText();
-        if(!searchTxt.isEmpty() && !searchTxt.isBlank())
-        {
-            pageLine=-1;
-            backPageBtn.setEnabled(false);
-            nextPageBtn.setEnabled(true);
-            displayData();
-        }
-    }//GEN-LAST:event_searchBtnActionPerformed
-
-    private int pageLine=-1;
-    private String searchTxt = "";
+     private int pageLine=-1;
     
     private void setPagination(){
         pageLine=pageLine+1;
@@ -489,51 +416,53 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
     }
     
     private void displayData(){
-        visitorPass main = new visitorPass();
-        main.setUserId(idGet);
+        visitorEntry main = new visitorEntry();
+        
         setPagination();
-        main.displayDataViewOwn(pageLine, searchTxt, "visitorPass", "VisitorPass");
+        main.displayDataViewAll(pageLine, "", "visitorEntry", "VisitorEntry");
         boolean boo = main.getStatus();
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getVisitorPassId()!= null){
-            idTxt1.setText(main.getVisitorPassId());
+        
+        if(main.getVisitorEntryId() != null)
+        {
+            idTxt1.setText(main.getVisitorEntryId());
             nameTxt1.setText(main.getVisitorName());
             dateTxt1.setText(main.getVisitDate());
-            statusText1.setText(main.getVisitorPassStatus());
+            enterTimeTxt1.setText(main.getVisitEnterTime());
+            leaveTimeTxt1.setText(main.getVisitLeaveTime());
         }else{
             idTxt1.setText("no data");
             nameTxt1.setText("no data");
             dateTxt1.setText("no data");
-            statusText1.setText("no data");
-            editBtn1.setEnabled(false);
-            deleteBtn2.setEnabled(false);
+            enterTimeTxt1.setText("no data");
+            leaveTimeTxt1.setText("no data");
         }
         
         setPagination();
-        main.displayDataViewOwn(pageLine, searchTxt, "visitorPass", "VisitorPass");
+        main.displayDataViewAll(pageLine, "", "visitorEntry", "VisitorEntry");
         boolean boo2 = main.getStatus();
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getVisitorPassId()!= null){
-            idTxt2.setText(main.getVisitorPassId());
+        
+        if(main.getVisitorEntryId() != null)
+        {
+            idTxt2.setText(main.getVisitorEntryId());
             nameTxt2.setText(main.getVisitorName());
             dateTxt2.setText(main.getVisitDate());
-            statusText2.setText(main.getVisitorPassStatus());
+            enterTimeTxt2.setText(main.getVisitEnterTime());
+            leaveTimeTxt2.setText(main.getVisitLeaveTime());
         }else{
             idTxt2.setText("no data");
             nameTxt2.setText("no data");
             dateTxt2.setText("no data");
-            statusText2.setText("no data");
-            editBtn2.setEnabled(false);
-            deleteBtn2.setEnabled(false);
+            enterTimeTxt2.setText("no data");
+            leaveTimeTxt2.setText("no data");
         }
         
     }
-    
-    
     
     
     /**
@@ -553,20 +482,20 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(residentVisPassManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(guardVisEntryManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(residentVisPassManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(guardVisEntryManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(residentVisPassManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(guardVisEntryManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(residentVisPassManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(guardVisEntryManageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentVisPassManageFrame(idGet).setVisible(true);
+                new guardVisEntryManageFrame(idGet).setVisible(true);
             }
         });
     }
@@ -579,27 +508,27 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
     private javax.swing.JLabel dateLabel2;
     private javax.swing.JLabel dateTxt1;
     private javax.swing.JLabel dateTxt2;
-    private javax.swing.JButton deleteBtn1;
-    private javax.swing.JButton deleteBtn2;
     private javax.swing.JButton editBtn1;
     private javax.swing.JButton editBtn2;
+    private javax.swing.JLabel enterTimeLabel1;
+    private javax.swing.JLabel enterTimeLabel2;
+    private javax.swing.JLabel enterTimeTxt1;
+    private javax.swing.JLabel enterTimeTxt2;
     private javax.swing.JLabel idLabel1;
     private javax.swing.JLabel idLabel2;
     private javax.swing.JLabel idTxt1;
     private javax.swing.JLabel idTxt2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel leaveTimeLabel1;
+    private javax.swing.JLabel leaveTimeLabel2;
+    private javax.swing.JLabel leaveTimeTxt1;
+    private javax.swing.JLabel leaveTimeTxt2;
     private javax.swing.JLabel nameLabel1;
     private javax.swing.JLabel nameLabel2;
     private javax.swing.JLabel nameTxt1;
     private javax.swing.JLabel nameTxt2;
     private javax.swing.JButton nextPageBtn;
-    private javax.swing.JButton searchBtn;
-    private javax.swing.JTextField searchTxtField;
-    private javax.swing.JLabel statusLabel1;
-    private javax.swing.JLabel statusLabel2;
-    private javax.swing.JLabel statusText1;
-    private javax.swing.JLabel statusText2;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 }

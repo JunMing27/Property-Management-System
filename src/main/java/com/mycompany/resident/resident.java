@@ -5,12 +5,9 @@
 package com.mycompany.resident;
 
 import com.mycompany.dataController.User;
-import com.mycompany.dataController.dataManagementController;
 import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController;
 import com.mycompany.dataController.displayController1;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -23,11 +20,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileFilter;
 
 /**
  *
@@ -163,16 +156,6 @@ public class resident extends User implements dataManagementController1, display
         this.selectedImageString = selectedImageString;
     }
     
-    //add selectedImageIcon
-    private ImageIcon selectedImageIcon;
-    
-    public ImageIcon getSelectedImageIcon() {
-        return selectedImageIcon;
-    }
-
-    public void setSelectedImageIcon(ImageIcon selectedImageIcon) {
-        this.selectedImageIcon = selectedImageIcon;
-    }
     
     
     @Override
