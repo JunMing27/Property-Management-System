@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.resident;
+package com.mycompany.vendor;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -24,12 +24,12 @@ import javax.swing.filechooser.FileFilter;
  *
  * @author hoiyi
  */
-public class residentProfileEditFrame extends javax.swing.JFrame {
+public class vendorProfileEditFrame extends javax.swing.JFrame {
 
-    String image = null;
+    String image = "";
     static String idGet;
     
-    public residentProfileEditFrame(String id) {
+    public vendorProfileEditFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -49,27 +49,25 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
         topLabel = new javax.swing.JLabel();
-        residentIdLabel = new javax.swing.JTextField();
-        residentNameLabel = new javax.swing.JTextField();
-        residentGenderLabel = new javax.swing.JTextField();
-        residentIdTxt = new javax.swing.JTextField();
-        residentNameTxt = new javax.swing.JTextField();
-        residentAgeLabel = new javax.swing.JTextField();
-        residentUnitLabel = new javax.swing.JTextField();
-        residentPhoneLabel = new javax.swing.JTextField();
-        residentAgeTxt = new javax.swing.JTextField();
-        residentUnitTxt = new javax.swing.JTextField();
-        residentPhoneTxt = new javax.swing.JTextField();
+        idTxt = new javax.swing.JTextField();
+        nameTxt = new javax.swing.JTextField();
+        ageTxt = new javax.swing.JTextField();
+        phoneTxt = new javax.swing.JTextField();
         imageLabel = new javax.swing.JLabel();
         saveBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
         errorMessage = new javax.swing.JTextField();
-        residentUsernameLabel = new javax.swing.JLabel();
-        residentUsernameTxt = new javax.swing.JTextField();
-        residentPwdLabel = new javax.swing.JLabel();
-        residentPwdTxt = new javax.swing.JTextField();
+        usernameTxt = new javax.swing.JTextField();
+        pwdTxt = new javax.swing.JTextField();
         maleCheckBox = new javax.swing.JCheckBox();
         femaleCheckBox = new javax.swing.JCheckBox();
+        idLabel = new javax.swing.JTextField();
+        nameLabel = new javax.swing.JTextField();
+        genderLabel = new javax.swing.JTextField();
+        ageLabel = new javax.swing.JTextField();
+        phoneLabel = new javax.swing.JTextField();
+        usernameLabel = new javax.swing.JLabel();
+        pwdLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,79 +88,30 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
         topLabel.setText("PROFILE");
 
-        residentIdLabel.setEditable(false);
-        residentIdLabel.setBackground(new java.awt.Color(233, 233, 233));
-        residentIdLabel.setForeground(new java.awt.Color(0, 0, 0));
-        residentIdLabel.setText("Resident ID :");
-        residentIdLabel.setBorder(null);
-        residentIdLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        idTxt.setEditable(false);
+        idTxt.setBackground(new java.awt.Color(233, 233, 233));
+        idTxt.setForeground(new java.awt.Color(0, 0, 0));
+        idTxt.setText("V1");
+        idTxt.setBorder(null);
+        idTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        residentNameLabel.setEditable(false);
-        residentNameLabel.setBackground(new java.awt.Color(233, 233, 233));
-        residentNameLabel.setForeground(new java.awt.Color(0, 0, 0));
-        residentNameLabel.setText("Resident Name :");
-        residentNameLabel.setBorder(null);
-        residentNameLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        nameTxt.setBackground(new java.awt.Color(233, 233, 233));
+        nameTxt.setForeground(new java.awt.Color(0, 0, 0));
+        nameTxt.setText("User 1");
+        nameTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        nameTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        residentGenderLabel.setEditable(false);
-        residentGenderLabel.setBackground(new java.awt.Color(233, 233, 233));
-        residentGenderLabel.setForeground(new java.awt.Color(0, 0, 0));
-        residentGenderLabel.setText("Resident Gender :");
-        residentGenderLabel.setBorder(null);
-        residentGenderLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ageTxt.setBackground(new java.awt.Color(233, 233, 233));
+        ageTxt.setForeground(new java.awt.Color(0, 0, 0));
+        ageTxt.setText("38");
+        ageTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        ageTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        residentIdTxt.setEditable(false);
-        residentIdTxt.setBackground(new java.awt.Color(233, 233, 233));
-        residentIdTxt.setForeground(new java.awt.Color(0, 0, 0));
-        residentIdTxt.setText("R1");
-        residentIdTxt.setBorder(null);
-        residentIdTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        residentNameTxt.setBackground(new java.awt.Color(233, 233, 233));
-        residentNameTxt.setForeground(new java.awt.Color(0, 0, 0));
-        residentNameTxt.setText("User 1");
-        residentNameTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentNameTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        residentAgeLabel.setEditable(false);
-        residentAgeLabel.setBackground(new java.awt.Color(233, 233, 233));
-        residentAgeLabel.setForeground(new java.awt.Color(0, 0, 0));
-        residentAgeLabel.setText("Resident Age :");
-        residentAgeLabel.setBorder(null);
-        residentAgeLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        residentUnitLabel.setEditable(false);
-        residentUnitLabel.setBackground(new java.awt.Color(233, 233, 233));
-        residentUnitLabel.setForeground(new java.awt.Color(0, 0, 0));
-        residentUnitLabel.setText("Resident Unit No. :");
-        residentUnitLabel.setBorder(null);
-        residentUnitLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        residentPhoneLabel.setEditable(false);
-        residentPhoneLabel.setBackground(new java.awt.Color(233, 233, 233));
-        residentPhoneLabel.setForeground(new java.awt.Color(0, 0, 0));
-        residentPhoneLabel.setText("Resident Phone No. :");
-        residentPhoneLabel.setBorder(null);
-        residentPhoneLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        residentAgeTxt.setBackground(new java.awt.Color(233, 233, 233));
-        residentAgeTxt.setForeground(new java.awt.Color(0, 0, 0));
-        residentAgeTxt.setText("38");
-        residentAgeTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentAgeTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-
-        residentUnitTxt.setEditable(false);
-        residentUnitTxt.setBackground(new java.awt.Color(233, 233, 233));
-        residentUnitTxt.setForeground(new java.awt.Color(0, 0, 0));
-        residentUnitTxt.setText("D-01-01");
-        residentUnitTxt.setBorder(null);
-        residentUnitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        residentPhoneTxt.setBackground(new java.awt.Color(233, 233, 233));
-        residentPhoneTxt.setForeground(new java.awt.Color(0, 0, 0));
-        residentPhoneTxt.setText("012-345 6789");
-        residentPhoneTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentPhoneTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        phoneTxt.setBackground(new java.awt.Color(233, 233, 233));
+        phoneTxt.setForeground(new java.awt.Color(0, 0, 0));
+        phoneTxt.setText("012-345 6789");
+        phoneTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        phoneTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         imageLabel.setBackground(new java.awt.Color(233, 233, 233));
         imageLabel.setForeground(new java.awt.Color(0, 0, 0));
@@ -199,25 +148,17 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
         errorMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         errorMessage.setBorder(null);
 
-        residentUsernameLabel.setBackground(new java.awt.Color(233, 233, 233));
-        residentUsernameLabel.setForeground(new java.awt.Color(0, 0, 0));
-        residentUsernameLabel.setText("Username :");
+        usernameTxt.setBackground(new java.awt.Color(233, 233, 233));
+        usernameTxt.setForeground(new java.awt.Color(0, 0, 0));
+        usernameTxt.setText("User1");
+        usernameTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        usernameTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        residentUsernameTxt.setBackground(new java.awt.Color(233, 233, 233));
-        residentUsernameTxt.setForeground(new java.awt.Color(0, 0, 0));
-        residentUsernameTxt.setText("User1");
-        residentUsernameTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentUsernameTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        residentPwdLabel.setBackground(new java.awt.Color(233, 233, 233));
-        residentPwdLabel.setForeground(new java.awt.Color(0, 0, 0));
-        residentPwdLabel.setText("Password :");
-
-        residentPwdTxt.setBackground(new java.awt.Color(233, 233, 233));
-        residentPwdTxt.setForeground(new java.awt.Color(0, 0, 0));
-        residentPwdTxt.setText("user123");
-        residentPwdTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        residentPwdTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pwdTxt.setBackground(new java.awt.Color(233, 233, 233));
+        pwdTxt.setForeground(new java.awt.Color(0, 0, 0));
+        pwdTxt.setText("user123");
+        pwdTxt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        pwdTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         maleCheckBox.setBackground(new java.awt.Color(233, 233, 233));
         maleCheckBox.setForeground(new java.awt.Color(0, 0, 0));
@@ -226,6 +167,49 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
         femaleCheckBox.setBackground(new java.awt.Color(233, 233, 233));
         femaleCheckBox.setForeground(new java.awt.Color(0, 0, 0));
         femaleCheckBox.setText("Female");
+
+        idLabel.setEditable(false);
+        idLabel.setBackground(new java.awt.Color(233, 233, 233));
+        idLabel.setForeground(new java.awt.Color(0, 0, 0));
+        idLabel.setText("ID :");
+        idLabel.setBorder(null);
+        idLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        nameLabel.setEditable(false);
+        nameLabel.setBackground(new java.awt.Color(233, 233, 233));
+        nameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        nameLabel.setText("Name :");
+        nameLabel.setBorder(null);
+        nameLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        genderLabel.setEditable(false);
+        genderLabel.setBackground(new java.awt.Color(233, 233, 233));
+        genderLabel.setForeground(new java.awt.Color(0, 0, 0));
+        genderLabel.setText("Gender :");
+        genderLabel.setBorder(null);
+        genderLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        ageLabel.setEditable(false);
+        ageLabel.setBackground(new java.awt.Color(233, 233, 233));
+        ageLabel.setForeground(new java.awt.Color(0, 0, 0));
+        ageLabel.setText("Age :");
+        ageLabel.setBorder(null);
+        ageLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        phoneLabel.setEditable(false);
+        phoneLabel.setBackground(new java.awt.Color(233, 233, 233));
+        phoneLabel.setForeground(new java.awt.Color(0, 0, 0));
+        phoneLabel.setText("Phone No. :");
+        phoneLabel.setBorder(null);
+        phoneLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        usernameLabel.setBackground(new java.awt.Color(233, 233, 233));
+        usernameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        usernameLabel.setText("Username :");
+
+        pwdLabel.setBackground(new java.awt.Color(233, 233, 233));
+        pwdLabel.setForeground(new java.awt.Color(0, 0, 0));
+        pwdLabel.setText("Password :");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -239,42 +223,41 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                         .addGap(98, 98, 98)
                         .addComponent(topLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
+                        .addGap(136, 136, 136)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(residentGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentUnitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentPhoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(3, 3, 3))
-                                    .addComponent(residentUsernameLabel)
-                                    .addComponent(residentPwdLabel))
+                                    .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(genderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(usernameLabel)
+                                    .addComponent(pwdLabel))
                                 .addGap(38, 38, 38)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(residentUnitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(residentUsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(residentPwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(maleCheckBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(residentAgeTxt, javax.swing.GroupLayout.Alignment.LEADING))
+                                            .addComponent(ageTxt, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(femaleCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(femaleCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -290,38 +273,34 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                         .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(residentIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(residentIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(residentNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(residentNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(residentGenderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(maleCheckBox)
-                            .addComponent(femaleCheckBox))
+                            .addComponent(femaleCheckBox)
+                            .addComponent(genderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(residentAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(residentAgeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(phoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(residentPhoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(residentPhoneTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(usernameLabel)
+                            .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(residentUnitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(residentUnitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(residentUsernameLabel)
-                            .addComponent(residentUsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(residentPwdLabel)
-                    .addComponent(residentPwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                            .addComponent(pwdLabel)
+                            .addComponent(pwdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -348,8 +327,8 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        residentProfileManageFrame manageFrame = new residentProfileManageFrame(idGet);
-        manageFrame.setVisible(true);
+        vendorProfileManageFrame profile = new vendorProfileManageFrame(idGet);
+        profile.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
@@ -363,39 +342,35 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                 final String name = f.getName();
                 return name.endsWith(".png") || name.endsWith(".jpg");
             }
+
             @Override
             public String getDescription() {
                 return "*.png,*.jpg";
             }
         });
-        
         int result = fileChooser.showOpenDialog(null);
         if(result == JFileChooser.APPROVE_OPTION)
         {
             File selectedImagePath = fileChooser.getSelectedFile();
-            String selectedImage = selectedImagePath.toString();
-            
+            String selectedImageString = selectedImagePath.toString();
             BufferedImage bufferedImage = null;
             try {
                 bufferedImage = ImageIO.read(selectedImagePath);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            //width and height according to jframe profile label size
-            Image profileImage = bufferedImage.getScaledInstance(imageLabel.WIDTH, imageLabel.HEIGHT, Image.SCALE_SMOOTH);
+            Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon profileIcon = new ImageIcon(profileImage);
             imageLabel.setIcon(profileIcon);
-            
-            image = selectedImage.substring(selectedImage.lastIndexOf("/") + 1);
-            
+
+            image = selectedImageString.substring(selectedImageString.lastIndexOf("/") + 1);
+
         }
-        
     }//GEN-LAST:event_imageLabelMouseClicked
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        
-        String name = residentNameTxt.getText();
-        String ageString = residentAgeTxt.getText();
+        String name = nameTxt.getText();
+        String ageString = ageTxt.getText();
         String gender = "";
         if(maleCheckBox.isSelected() && femaleCheckBox.isSelected())
         {
@@ -409,39 +384,36 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                 gender = "female";
             }
         }
-        String phone = residentPhoneTxt.getText();
-        String unit = residentUnitTxt.getText();
-        String userName = residentUsernameTxt.getText();
-        String pwd = residentPwdTxt.getText();
+        String phone = phoneTxt.getText();
+        String userName = usernameTxt.getText();
+        String pwd = pwdTxt.getText();
         errorMessage.setText("");
-        if(!name.isEmpty() && !ageString.isEmpty()
-            && !gender.isEmpty() && !phone.isEmpty()
-            && !unit.isEmpty() && !userName.isEmpty()
-            && !pwd.isEmpty() && !image.equals(""))
+        if(!name.isEmpty() && !ageString.isEmpty() && !gender.isEmpty()
+            && !phone.isEmpty() && !userName.isEmpty() && !pwd.isEmpty() && !image.equals(""))
         {
-            if(!name.isBlank()&& !ageString.isBlank()
-                && !gender.isBlank()&& !phone.isBlank()
-                && !unit.isBlank()&& !userName.isBlank()
-                && !pwd.isBlank())
+            if(!name.isBlank()&& !ageString.isBlank()&& !gender.isBlank()
+                && !phone.isBlank()&& !userName.isBlank()&& !pwd.isBlank())
             {
                 if(gender.equals("two selected"))
                 {
                     errorMessage.setText("Please Select Only One CheckBox");
                 }
+                
                 try {
                     Integer.parseInt(ageString);
                 } catch (NumberFormatException e) {
                     errorMessage.setText("Age Must be Integer !");
                 }
 
+                //check phone
                 Matcher phoneMatcher = Pattern.compile("^(01)[0-9]*[0-9]{7,8}$").
-                        matcher(phone);
-                 //check dash
+                matcher(phone);
+                //check dash
                 Matcher phoneMatcher2 = Pattern.compile("^(01)[0-9]-*[0-9]{7,8}$").
-                        matcher(phone);
-                 //check space
+                matcher(phone);
+                //check space
                 Matcher phoneMatcher3 = Pattern.compile("^(01)[0-9]-*[0-9 ]{7,8}$").
-                        matcher(phone);
+                matcher(phone);
                 if(phoneMatcher.matches() == false && phoneMatcher2.matches() == false && phoneMatcher3.matches() == false)
                 {
                     errorMessage.setText("Phone Number is Invalid !");
@@ -454,10 +426,10 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
 
                 if(errorMessage.getText().equals(""))
                 {
-                    int dialog = JOptionPane.showConfirmDialog(null, 
-                            "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                    int dialog = JOptionPane.showConfirmDialog(null,
+                        "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
                     if(dialog == JOptionPane.YES_OPTION){
-                        resident main = new resident();
+                        vendor main = new vendor();
                         main.setUserId(idGet);
                         ArrayList<String> dataList = new ArrayList<>();
                         dataList.add(idGet);
@@ -467,7 +439,6 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                         dataList.add(gender);
                         dataList.add(ageString);
                         dataList.add(phone);
-                        dataList.add(unit);
                         dataList.add(image);
                         main.editFile("ResidentProfile", dataList);
                         dataList = new ArrayList<>();
@@ -477,37 +448,41 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                         dataList.add("resident");
                         main.editFile("loginCredential", dataList);
                         this.dispose();
-                        residentProfileManageFrame residentProfile = new residentProfileManageFrame(idGet);
-                        residentProfile.setVisible(true); 
+                        vendorProfileManageFrame profile = new vendorProfileManageFrame(idGet);
+                        profile.setVisible(true);
                     }
                 }
-            }errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
+            }else{
+                errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
+            }
         }else{
-            errorMessage.setText("Name/Gender/Age/Phone/Username/Password/Image  Cannot be Empty !");
+            errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         this.dispose();
-        residentProfileManageFrame residentProfile = new residentProfileManageFrame(idGet);
-        residentProfile.setVisible(true); 
+        vendorProfileManageFrame profile = new vendorProfileManageFrame(idGet);
+        profile.setVisible(true);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     
     private void displayData()
     {
-        resident main = new resident();
+        vendor main = new vendor();
         main.setUserId(idGet);
-        main.displayDataViewOwn(0, "", "resident", "ResidentProfile");
+        main.chooseTxtFile("Vendor");
+        main.displayDataView(0, "", "vendorOwn");
         try {
             main.getCredentialData(main.getUserId());
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(residentProfileEditFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(vendorProfileEditFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         if(main.getUserId() != null)
         {
-            residentIdTxt.setText(main.getUserId());
-            residentNameTxt.setText(main.getUserName());
+            idTxt.setText(main.getUserId());
+            nameTxt.setText(main.getUserName());
             String gender = main.getUserGender();
             if(gender.equals("male"))
             {
@@ -516,14 +491,12 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
             {
                 femaleCheckBox.setSelected(true);
             }
-            residentAgeTxt.setText(main.getUserAge());
-            residentPhoneTxt.setText(main.getUserPhone());
-            residentUnitTxt.setText(main.getUserUnit());
+            ageTxt.setText(main.getUserAge());
+            phoneTxt.setText(main.getUserPhone());
             image = main.getUserImage();
-
-            residentUsernameTxt.setText(main.getCredentialName());
-            residentPwdTxt.setText(main.getPassword());
-
+            usernameTxt.setText(main.getCredentialName());
+            pwdTxt.setText(main.getPassword());
+            
             try {
                 //image
                 BufferedImage bufferedImage = null;
@@ -533,24 +506,22 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                 ImageIcon profileIcon = new ImageIcon(profileImage);
                 imageLabel.setIcon(profileIcon);
             } catch (IOException ex) {
-                Logger.getLogger(residentProfileEditFrame.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(vendorProfileEditFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
-        }else{
-            residentIdTxt.setText("no data");
-            residentNameTxt.setText("no data");
+        }else
+        {
+            idTxt.setText("no data");
+            nameTxt.setText("no data");
             maleCheckBox.setSelected(false);
             femaleCheckBox.setSelected(false);
-            residentAgeTxt.setText("no data");
-            residentPhoneTxt.setText("no data");
-            residentUnitTxt.setText("no data");
+            ageTxt.setText("no data");
+            phoneTxt.setText("no data");
             imageLabel.setText("no data");
-            residentUsernameTxt.setText("no data");
-            residentPwdTxt.setText("no data");
+            usernameTxt.setText("no data");
+            pwdTxt.setText("no data");
         }
     }
     
-
     
     /**
      * @param args the command line arguments
@@ -569,49 +540,46 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(residentProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(residentProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(residentProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(residentProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorProfileEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentProfileEditFrame(idGet).setVisible(true);
+                new vendorProfileEditFrame(idGet).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ageLabel;
+    private javax.swing.JTextField ageTxt;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton cancelBtn;
     private javax.swing.JTextField errorMessage;
     private javax.swing.JCheckBox femaleCheckBox;
+    private javax.swing.JTextField genderLabel;
+    private javax.swing.JTextField idLabel;
+    private javax.swing.JTextField idTxt;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox maleCheckBox;
-    private javax.swing.JTextField residentAgeLabel;
-    private javax.swing.JTextField residentAgeTxt;
-    private javax.swing.JTextField residentGenderLabel;
-    private javax.swing.JTextField residentIdLabel;
-    private javax.swing.JTextField residentIdTxt;
-    private javax.swing.JTextField residentNameLabel;
-    private javax.swing.JTextField residentNameTxt;
-    private javax.swing.JTextField residentPhoneLabel;
-    private javax.swing.JTextField residentPhoneTxt;
-    private javax.swing.JLabel residentPwdLabel;
-    private javax.swing.JTextField residentPwdTxt;
-    private javax.swing.JTextField residentUnitLabel;
-    private javax.swing.JTextField residentUnitTxt;
-    private javax.swing.JLabel residentUsernameLabel;
-    private javax.swing.JTextField residentUsernameTxt;
+    private javax.swing.JTextField nameLabel;
+    private javax.swing.JTextField nameTxt;
+    private javax.swing.JTextField phoneLabel;
+    private javax.swing.JTextField phoneTxt;
+    private javax.swing.JLabel pwdLabel;
+    private javax.swing.JTextField pwdTxt;
     private javax.swing.JButton saveBtn;
     private javax.swing.JLabel topLabel;
+    private javax.swing.JLabel usernameLabel;
+    private javax.swing.JTextField usernameTxt;
     // End of variables declaration//GEN-END:variables
-
 }

@@ -4,9 +4,15 @@
  */
 package com.mycompany.vendor;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -294,7 +300,7 @@ public class vendorProfileManageFrame extends javax.swing.JFrame {
 
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         this.dispose();
-        VendorProfileEdit edit = new VendorProfileEdit();
+        vendorProfileEditFrame edit = new vendorProfileEditFrame(idGet);
         edit.setVisible(true);
     }//GEN-LAST:event_editBtnActionPerformed
 
@@ -310,6 +316,40 @@ public class vendorProfileManageFrame extends javax.swing.JFrame {
             main.getCredentialData(main.getUserId());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(vendorProfileManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(main.getUserId() != null)
+        {
+            idTxt.setText(main.getUserId());
+            nameTxt.setText(main.getUserName());
+            genderTxt.setText(main.getUserGender());
+            ageTxt.setText(main.getUserAge());
+            phoneTxt.setText(main.getUserPhone());
+            image = main.getUserImage();
+            usernameTxt.setText(main.getCredentialName());
+            pwdTxt.setText(main.getPassword());
+            
+            try {
+                //image
+                BufferedImage bufferedImage = null;
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+image);
+                bufferedImage = ImageIO.read(imageFile);
+                Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon profileIcon = new ImageIcon(profileImage);
+                imageLabel.setIcon(profileIcon);
+            } catch (IOException ex) {
+                Logger.getLogger(vendorProfileManageFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else
+        {
+            idTxt.setText("no data");
+            nameTxt.setText("no data");
+            genderTxt.setText("no data");
+            ageTxt.setText("no data");
+            phoneTxt.setText("no data");
+            imageLabel.setText("no data");
+            usernameTxt.setText("no data");
+            pwdTxt.setText("no data");
         }
     }
     

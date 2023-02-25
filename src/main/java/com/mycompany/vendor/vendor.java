@@ -6,22 +6,27 @@ package com.mycompany.vendor;
 
 import com.mycompany.dataController.User;
 import com.mycompany.dataController.dataManagementController;
+import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jun Ming, Hoi Yi
  */
-public class vendor extends User implements dataManagementController, displayController{
+public class vendor extends User implements dataManagementController, displayController, dataManagementController1{
 
     
     private Boolean Status;
@@ -320,5 +325,122 @@ public class vendor extends User implements dataManagementController, displayCon
     public void transferImage(File source, File destination) {
         
     }
+
+    @Override
+    public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = null;
+            try {
+                sc = new Scanner(file);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(vendor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        return allUserInfo;
+    }
+
+    @Override
+    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
+        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(this.getUserId()))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(this.getUserId()))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+        
+        
+        return onlyUserInfo;
+    }
+
+    @Override
+    public void removeFromFile(String textFile, ArrayList<String> dataList) {
+        try {
+            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            
+            for(int j=0;j<allUsers.size();j++)
+            {
+                if(allUsers.get(j).get(0).equals(dataList.get(0)))
+                {
+                    allUsers.remove(j);
+                    break;
+                }
+            }
+            
+            
+
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(vendor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void editFile(String textFile, ArrayList<String> dataList) {
+        try {
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(dataList.get(0)+","
+                    +dataList.get(1)+","
+                    +dataList.get(2)+","
+                    +dataList.get(3)+","
+                    +dataList.get(4)+","
+                    +dataList.get(5)+"\n");
+            
+            
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(vendor.class.getName()).log(Level.SEVERE, null, ex);
+        
+        }
+    }
+
+    @Override
+    public int getNextId(String textFile) {
+        return 0;
+    }
+    
+    
     
 }

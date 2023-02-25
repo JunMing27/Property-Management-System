@@ -117,15 +117,13 @@ public class visitorPass implements displayController1, dataManagementController
         }
         int newSize = allData.size();
         try{
-            if(type.equals("visitorPass"))
-            {
-                this.setVisitorPassId(allData.get(dataLine).get(0));
-                this.setVisitorName(allData.get(dataLine).get(1));
-                this.setVisitDate(allData.get(dataLine).get(2));
-                this.setUserId(allData.get(dataLine).get(3));
-                this.setVisitorPassStatus(allData.get(dataLine).get(4));
-                this.status = true;  
-            }
+            this.setVisitorPassId(allData.get(dataLine).get(0));
+            this.setVisitorName(allData.get(dataLine).get(1));
+            this.setVisitDate(allData.get(dataLine).get(2));
+            this.setUserId(allData.get(dataLine).get(3));
+            this.setVisitorPassStatus(allData.get(dataLine).get(4));
+            this.status = true;  
+            
         }catch(Exception e){
             setDataNull();
             this.status = false;
@@ -166,21 +164,20 @@ public class visitorPass implements displayController1, dataManagementController
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
-        if(textFile.contains("VisitorPass"))
+        
+        for (p=0,q=0; p<allUserInfo.size(); p++)
         {
-            for (p=0,q=0; p<allUserInfo.size(); p++)
+            if(allUserInfo.get(p).contains(this.getUserId()))
             {
-                if(allUserInfo.get(p).contains(this.getUserId()))
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(3).equals(this.getUserId()))
                 {
-                    ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(3).equals(this.getUserId()))
-                    {
-                        onlyUserInfo.add(allUserInfo.get(p));
-                        q++;
-                    }
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
                 }
             }
         }
+        
         return onlyUserInfo;
     }
 

@@ -294,44 +294,6 @@ public class resident extends User implements dataManagementController1, display
     }
 
 
-    public void displayJFileChooserImage() {
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileFilter(new FileFilter() {
-            @Override
-            public boolean accept(File f) {
-                if (f.isDirectory()) {
-                    return true;
-                }
-                final String name = f.getName();
-                return name.endsWith(".png") || name.endsWith(".jpg");
-            }
-            @Override
-            public String getDescription() {
-                return "*.png,*.jpg";
-            }
-        });
-        
-        int result = fileChooser.showOpenDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION)
-        {
-            File selectedImagePath = fileChooser.getSelectedFile();
-            String selectedImage = selectedImagePath.toString();
-            
-            BufferedImage bufferedImage = null;
-            try {
-                bufferedImage = ImageIO.read(selectedImagePath);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            //width and height according to jframe profile label size
-            Image profileImage = bufferedImage.getScaledInstance(138, 126, Image.SCALE_SMOOTH);
-            ImageIcon profileIcon = new ImageIcon(profileImage);
-            this.setSelectedImageIcon(profileIcon);
-            
-            String image = selectedImage.substring(selectedImage.lastIndexOf("/") + 1);
-            this.setSelectedImageString(image);
-        }
-    }
 
     @Override
     public void removeFromFile(String textFile, ArrayList<String> dataList) {
@@ -493,7 +455,7 @@ public class resident extends User implements dataManagementController1, display
 
     @Override
     public void getIncreasedID(String file, String type) {
-BufferedReader input;
+        BufferedReader input;
         try {
             input = new BufferedReader(new FileReader("src/main/java/com/mycompany/textFile/"+file));
             String last="";
