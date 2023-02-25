@@ -179,7 +179,9 @@ public class guardMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_checkpointBtnActionPerformed
 
     private void incidentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incidentBtnActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        guardIncidentManageFrame incident = new guardIncidentManageFrame(idGet);
+        incident.setVisible(true);
     }//GEN-LAST:event_incidentBtnActionPerformed
 
     /**

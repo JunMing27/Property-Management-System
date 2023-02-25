@@ -71,7 +71,7 @@ public class visitorPass implements displayController1, dataManagementController
     public void setVisitorPassStatus(String visitorPassStatus) {
         this.visitorPassStatus = visitorPassStatus;
     }
-
+    
     public boolean getStatus() {
         return status;
     }
@@ -198,16 +198,32 @@ public class visitorPass implements displayController1, dataManagementController
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
-        
-        for (p=0,q=0; p<allUserInfo.size(); p++)
+        if(this.getUserId() != null) //if is resident
         {
-            if(allUserInfo.get(p).contains(this.getUserId()))
+            for (p=0,q=0; p<allUserInfo.size(); p++)
             {
-                ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(3).equals(this.getUserId()))
+                if(allUserInfo.get(p).contains(this.getUserId()))
                 {
-                    onlyUserInfo.add(allUserInfo.get(p));
-                    q++;
+                    ArrayList<String> item = allUserInfo.get(p);
+                    if(item.get(3).equals(this.getUserId()))
+                    {
+                        onlyUserInfo.add(allUserInfo.get(p));
+                        q++;
+                    }
+                }
+            }
+        }else if(this.getVisitorName()!= null ) //if is visitor
+        {
+            for (p=0,q=0; p<allUserInfo.size(); p++)
+            {
+                if(allUserInfo.get(p).contains(this.getUserId()))
+                {
+                    ArrayList<String> item = allUserInfo.get(p);
+                    if(item.get(1).equals(this.getVisitorName()))
+                    {
+                        onlyUserInfo.add(allUserInfo.get(p));
+                        q++;
+                    }
                 }
             }
         }
@@ -220,13 +236,26 @@ public class visitorPass implements displayController1, dataManagementController
         try {
             String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
             ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            for(int j=0;j<allUsers.size();j++)
+            if(getUserId() != null) //indicate resident or visitor
             {
-                if(allUsers.get(j).get(3).equals(dataList.get(0))
-                        && allUsers.get(j).get(0).equals(dataList.get(1)))
+                for(int j=0;j<allUsers.size();j++)
                 {
-                    allUsers.remove(j);
-                    break;
+                    if(allUsers.get(j).get(3).equals(dataList.get(0))
+                            && allUsers.get(j).get(0).equals(dataList.get(1)))
+                    {
+                        allUsers.remove(j);
+                        break;
+                    }
+                }
+            }else if(getVisitorName() != null)
+            {
+                for(int j=0;j<allUsers.size();j++)
+                {
+                    if(allUsers.get(j).get(0).equals(dataList.get(0)))
+                    {
+                        allUsers.remove(j);
+                        break;
+                    }
                 }
             }
             
