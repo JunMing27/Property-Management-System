@@ -20,6 +20,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
+        idGet = "R1";
         backPageBtn.setEnabled(false);
         displayData();
     }

@@ -16,7 +16,6 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
     
     public guardVisEntryManageFrame(String id) {
         initComponents();
-        initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
@@ -116,7 +115,7 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
 
         idTxt1.setBackground(new java.awt.Color(233, 233, 233));
         idTxt1.setForeground(new java.awt.Color(0, 0, 0));
-        idTxt1.setText("V1");
+        idTxt1.setText("id");
 
         nameLabel1.setBackground(new java.awt.Color(233, 233, 233));
         nameLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -128,7 +127,7 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
 
         nameTxt1.setBackground(new java.awt.Color(233, 233, 233));
         nameTxt1.setForeground(new java.awt.Color(0, 0, 0));
-        nameTxt1.setText("Halo");
+        nameTxt1.setText("name");
 
         dateTxt1.setBackground(new java.awt.Color(233, 233, 233));
         dateTxt1.setForeground(new java.awt.Color(0, 0, 0));
@@ -444,6 +443,7 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
             dateTxt1.setText("no data");
             enterTimeTxt1.setText("no data");
             leaveTimeTxt1.setText("no data");
+            editBtn1.setEnabled(false);
         }
         
         setPagination();
@@ -472,6 +472,7 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
             dateTxt2.setText("no data");
             enterTimeTxt2.setText("no data");
             leaveTimeTxt2.setText("no data");
+            editBtn2.setEnabled(false);
         }
         
     }

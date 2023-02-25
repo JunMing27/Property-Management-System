@@ -85,7 +85,7 @@ public class visitorEntry implements displayController1, dataManagementControlle
     public void displayDataViewAll(Integer dataLine, String searchTxt, String type, String fileName) {
         fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
         ArrayList<ArrayList<String>> allData = allUserDataInfo(fileName);
-        System.out.println("???"+allData);
+        
         int newSize = allData.size();
         try{
             this.setVisitorEntryId(allData.get(dataLine).get(0));
@@ -105,11 +105,11 @@ public class visitorEntry implements displayController1, dataManagementControlle
 
     @Override
     public void setDataNull() {
-        setVisitDate(null);
-        setVisitEnterTime(null);
-        setVisitorEntryId(null);
-        setVisitLeaveTime(null);
-        setVisitorName(null);
+        this.setVisitDate(null);
+        this.setVisitEnterTime(null);
+        this.setVisitorEntryId(null);
+        this.setVisitLeaveTime(null);
+        this.setVisitorName(null);
     }
 
     @Override
@@ -192,10 +192,10 @@ public class visitorEntry implements displayController1, dataManagementControlle
             File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(dataList.get(1)+","
+            bw.write(dataList.get(0)+","
+                    +dataList.get(1)+","
                     +dataList.get(2)+","
                     +dataList.get(3)+","
-                    +dataList.get(0)+","
                     +dataList.get(4)+"\n");
             
             
@@ -213,18 +213,16 @@ public class visitorEntry implements displayController1, dataManagementControlle
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
-            if(textFile.equals("VisitorPass"))
+            while(line != null )
             {
-                while(line != null )
+                String[] dataRow = line.split(",");
+                for(int i=0; i<dataRow.length; i++)
                 {
-                    String[] dataRow = line.split(",");
-                    for(int i=0; i<dataRow.length; i++)
-                    {
-                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VE")+2));
-                    }
-                    line = br.readLine();
+                    id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VE")+2));
                 }
+                line = br.readLine();
             }
+            
             
             br.close();
             id = id+1;

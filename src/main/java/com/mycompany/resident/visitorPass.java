@@ -158,8 +158,9 @@ public class visitorPass implements displayController1, dataManagementController
             this.setUserId(allData.get(dataLine).get(3));
             this.setVisitorPassStatus(allData.get(dataLine).get(4));
             this.status = true;  
-            
+            System.out.println("set finish");
         }catch(Exception e){
+            System.out.println("i null");
             setDataNull();
             this.status = false;
         }
