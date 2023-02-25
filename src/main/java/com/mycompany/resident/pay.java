@@ -150,8 +150,6 @@ public class pay implements displayController1, dataManagementController1{
              }
         }
         
-        
-        
         return onlyUserInfo;
     }
 

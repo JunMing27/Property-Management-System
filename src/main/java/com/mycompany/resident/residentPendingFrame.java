@@ -264,7 +264,7 @@ public class residentPendingFrame extends javax.swing.JFrame {
     
     private void displayData()
     {
-        resident main = new resident();
+        pendingFee main = new pendingFee();
         main.setUserId(idGet);
         setPagination();
         main.displayDataViewOwn(pageLine, "", "pending", "Pending");
@@ -273,8 +273,8 @@ public class residentPendingFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null){
-            payToTxt1.setText(main.getPayDesc());
-            payAmountTxt1.setText(main.getPayAmount());
+            payToTxt1.setText(main.getPaidDesc());
+            payAmountTxt1.setText(main.getPendingAmount());
             paidDateTxt1.setText(main.getPaidDate());
         }else{
             payToTxt1.setText("no data");
@@ -289,8 +289,8 @@ public class residentPendingFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         if(main.getUserId() != null){
-            payToTxt2.setText(main.getPayDesc());
-            payAmountTxt2.setText(main.getPayAmount());
+            payToTxt2.setText(main.getPaidDesc());
+            payAmountTxt2.setText(main.getPendingAmount());
             paidDateTxt2.setText(main.getPaidDate());
         }else{
             payToTxt2.setText("no data");
