@@ -4,6 +4,8 @@
  */
 package com.mycompany.employee;
 
+import com.mycompany.resident.visitorPass;
+
 /**
  *
  * @author hoiyi
@@ -17,6 +19,8 @@ public class guardVisPassFrame extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
+        backPageBtn.setEnabled(false);
+        displayData();
     }
 
     /**
@@ -294,7 +298,7 @@ public class guardVisPassFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        GuardOption option = new GuardOption();
+        guardMenuFrame option = new guardMenuFrame(idGet);
         option.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
@@ -320,11 +324,68 @@ public class guardVisPassFrame extends javax.swing.JFrame {
         if(!searchTxt.isEmpty() && !searchTxt.isBlank())
         {
             pageLine=-1;
-            displaySearchedData();
+            backPageBtn.setEnabled(false);
+            nextPageBtn.setEnabled(true);
+            displayData();
         }
 
     }//GEN-LAST:event_searchBtnActionPerformed
 
+    
+    private int pageLine=-1;
+    private String searchTxt = "";
+    
+    private void setPagination(){
+        pageLine=pageLine+1;
+    }
+    
+    public void backButtonFunction(){
+        pageLine = pageLine - 4;
+        if (pageLine == -1){
+            backPageBtn.setEnabled(false);
+        }
+    }
+    
+    private void displayData(){
+        visitorPass main = new visitorPass();
+        main.setUserId(idGet);
+        
+        setPagination();
+        main.displayDataViewOwn(pageLine, searchTxt, "visitorPass", "VisitorPass");
+        boolean boo = main.getStatus();
+        if(boo==false){
+            nextPageBtn.setEnabled(false);
+        }
+        
+        if(main.getVisitorPassId()!= null){
+            idTxt1.setText(main.getVisitorPassId());
+            nameTxt1.setText(main.getVisitorName());
+            statusText1.setText(main.getVisitorPassStatus());
+        }else{
+            idTxt1.setText("no data");
+            nameTxt1.setText("no data");
+            statusText1.setText("no data");
+        }
+        
+        setPagination();
+        main.displayDataViewOwn(pageLine, searchTxt, "visitorPass", "VisitorPass");
+        boolean boo2 = main.getStatus();
+        if(boo2==false){
+            nextPageBtn.setEnabled(false);
+        }
+        
+        if(main.getVisitorPassId()!= null){
+            idTxt2.setText(main.getVisitorPassId());
+            nameTxt2.setText(main.getVisitorName());
+            statusText2.setText(main.getVisitorPassStatus());
+        }else{
+            idTxt2.setText("no data");
+            nameTxt2.setText("no data");
+            statusText2.setText("no data");
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -355,7 +416,7 @@ public class guardVisPassFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new guardVisPassFrame().setVisible(true);
+                new guardVisPassFrame(idGet).setVisible(true);
             }
         });
     }

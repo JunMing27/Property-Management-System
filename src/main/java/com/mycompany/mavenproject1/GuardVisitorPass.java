@@ -27,7 +27,7 @@ public class GuardVisitorPass extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         main = new GuardMain();
         id = main.getId();
-//        displayData();
+        displayData();
         backPageBtn.setEnabled(false);
     }
 
