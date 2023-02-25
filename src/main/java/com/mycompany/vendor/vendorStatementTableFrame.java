@@ -2,19 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.resident;
+package com.mycompany.vendor;
 
+import com.mycompany.resident.statement;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author hoiyi
  */
-public class residentStatementTableFrame extends javax.swing.JFrame {
+public class vendorStatementTableFrame extends javax.swing.JFrame {
 
-    static String idGet, monthGet, yearGet, labelGet;
+    static String idGet, monthGet, yearGet, labelGet ;
     
-    public residentStatementTableFrame(String id, String month, String year, String label) {
+    public vendorStatementTableFrame(String id, String month, String year, String label) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -27,6 +28,7 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
         createTable();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -137,7 +139,7 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        residentStatementMonthFrame statement = new residentStatementMonthFrame(idGet);
+        vendorStatementMonthFrame statement = new vendorStatementMonthFrame(idGet);
         statement.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
@@ -168,8 +170,6 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
             
     }
     
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -187,20 +187,20 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(residentStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(residentStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(residentStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(residentStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vendorStatementTableFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentStatementTableFrame(idGet, monthGet, yearGet, labelGet).setVisible(true);
+                new vendorStatementTableFrame(idGet, monthGet, yearGet, labelGet).setVisible(true);
             }
         });
     }

@@ -203,7 +203,6 @@ public class statement implements displayController1{
                         
                         if(monthFile.equals(this.getMonthYear()))
                         {
-                            System.out.println("equal");
                             totalRow = totalRow+1;
                             onlyUserInfo.add(allUserInfo.get(p));
                             q++;
