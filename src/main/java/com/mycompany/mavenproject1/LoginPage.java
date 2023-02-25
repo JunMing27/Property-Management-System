@@ -8,6 +8,8 @@
  * @author Jun Ming
  */
 package com.mycompany.mavenproject1;
+import com.mycompany.adminExecutive.adminExecutiveMenuFrame;
+import com.mycompany.buildingManager.buildingManagerMenuFrame;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -121,8 +123,8 @@ public class LoginPage extends javax.swing.JFrame  {
                             // If username and password are correct, system will search for the page based on their role
                             System.out.println("Correct username or password");
                             switch(fileUserRole.trim()) {
-                                case "admin" -> System.out.println("admin");
-                                case "manager" -> System.out.println("manager");
+                                case "Admin Executive" -> goAdminExecutivePage();
+                                case "Building Manager" -> goBuildingManagerPage();
                                 case "resident" -> setResidentData(fileUserID, fileUsername, filePassword);
                                 case "visitor" -> directToVisitorPass(fileUserID);
                                 case "guard" -> toGuardOption(fileUserID);
@@ -150,7 +152,27 @@ public class LoginPage extends javax.swing.JFrame  {
     
   }
 
+public void goAdminExecutivePage()
+{
+    logInFrame.dispose();
+    adminExecutiveMenuFrame adminMenu = new adminExecutiveMenuFrame();
+    adminMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    adminMenu.pack();
+    adminMenu.setResizable(false);
+    adminMenu.setLocationRelativeTo(null);
+    adminMenu.setVisible(true);
+}
 
+public void goBuildingManagerPage()
+{
+    logInFrame.dispose();
+    buildingManagerMenuFrame mainMenu = new buildingManagerMenuFrame();
+    mainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    mainMenu.pack();
+    mainMenu.setResizable(false);
+    mainMenu.setLocationRelativeTo(null);
+    mainMenu.setVisible(true);
+}
 
 public void setResidentData(String residentId, String residentName, String residentPwd)
 {
