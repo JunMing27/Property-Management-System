@@ -52,21 +52,23 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="complaintDetailLabel" alignment="0" pref="114" max="32767" attributes="0"/>
-                              <Component id="complaintIdLabel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="complaintDetailLabel1" alignment="0" pref="114" max="32767" attributes="0"/>
-                              <Component id="complaintDetailLabel2" alignment="1" pref="114" max="32767" attributes="0"/>
-                              <Component id="complaintDetailLabel3" alignment="1" pref="114" max="32767" attributes="0"/>
-                              <Component id="complaintDetailLabel4" alignment="1" pref="114" max="32767" attributes="0"/>
+                              <Component id="facilityIdLabel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="bookingIdLabel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="facilityNameLabel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="bookingDateLabel" alignment="1" max="32767" attributes="0"/>
+                              <Component id="bookingTimeLabel" alignment="1" max="32767" attributes="0"/>
+                              <Component id="bookingDurationLabel" alignment="1" max="32767" attributes="0"/>
+                              <Component id="residentIdLabel" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="userComboBox" alignment="0" max="32767" attributes="0"/>
-                              <Component id="complaintIdField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="complaintIdField1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jDateChooser1" alignment="0" pref="234" max="32767" attributes="0"/>
-                              <Component id="userComboBox1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="userComboBox2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="facilityIdComboBox" alignment="0" max="32767" attributes="0"/>
+                              <Component id="bookingIdField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="facilityNameField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="bookingDateDropDown" alignment="0" pref="234" max="32767" attributes="0"/>
+                              <Component id="bookingTimeDropDown" alignment="0" max="32767" attributes="0"/>
+                              <Component id="bookingDurationDropDown" alignment="0" max="32767" attributes="0"/>
+                              <Component id="residentIdComboBox" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -74,7 +76,7 @@
                           <Component id="addEditBtn" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="133" max="32767" attributes="0"/>
+                  <EmptySpace pref="102" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -85,38 +87,43 @@
                   <Component id="backBtn" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="complaintIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="complaintIdField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bookingIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bookingIdField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="userComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="complaintDetailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="facilityIdComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="facilityIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="complaintIdField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="complaintDetailLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="facilityNameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="facilityNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="residentIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="residentIdComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="bookingDateDropDown" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="complaintDetailLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="userComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bookingTimeDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bookingTimeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="userComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="complaintDetailLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bookingDurationDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bookingDurationLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="addEditBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="complaintDetailLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="bookingDateLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="66" max="32767" attributes="0"/>
-                  <Component id="addEditBtn" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -137,7 +144,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="complaintIdLabel">
+        <Component class="javax.swing.JLabel" name="bookingIdLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -148,7 +155,7 @@
             <Property name="text" type="java.lang.String" value="Facility Booking ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="complaintDetailLabel">
+        <Component class="javax.swing.JLabel" name="facilityIdLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -173,7 +180,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addEditBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="complaintIdField">
+        <Component class="javax.swing.JTextField" name="bookingIdField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -181,10 +188,10 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="complaintIdFieldActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookingIdFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="userComboBox">
+        <Component class="javax.swing.JComboBox" name="facilityIdComboBox">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -197,13 +204,13 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userComboBoxActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facilityIdComboBoxActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="complaintDetailLabel1">
+        <Component class="javax.swing.JLabel" name="facilityNameLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -214,7 +221,7 @@
             <Property name="text" type="java.lang.String" value="Facility Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="complaintIdField1">
+        <Component class="javax.swing.JTextField" name="facilityNameField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -222,17 +229,17 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="complaintIdField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facilityNameFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+        <Component class="com.toedter.calendar.JDateChooser" name="bookingDateDropDown">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="complaintDetailLabel2">
+        <Component class="javax.swing.JLabel" name="bookingDateLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -243,7 +250,7 @@
             <Property name="text" type="java.lang.String" value="Booking Date"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="complaintDetailLabel3">
+        <Component class="javax.swing.JLabel" name="bookingTimeLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -251,10 +258,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Start Time"/>
+            <Property name="text" type="java.lang.String" value="Start Time (24H format)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="userComboBox1">
+        <Component class="javax.swing.JComboBox" name="bookingTimeDropDown">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -267,13 +274,13 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userComboBox1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookingTimeDropDownActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="userComboBox2">
+        <Component class="javax.swing.JComboBox" name="bookingDurationDropDown">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -286,13 +293,13 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userComboBox2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookingDurationDropDownActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="complaintDetailLabel4">
+        <Component class="javax.swing.JLabel" name="bookingDurationLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -300,8 +307,38 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Duration"/>
+            <Property name="text" type="java.lang.String" value="Duration (Hours)"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="residentIdLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Resident ID"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="residentIdComboBox">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="residentIdComboBoxActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

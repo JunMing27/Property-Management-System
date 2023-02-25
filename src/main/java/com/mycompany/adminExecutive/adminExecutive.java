@@ -146,6 +146,8 @@ public class adminExecutive extends User implements dataManagementController, di
             file ="Unit.txt";
         }else if (Type=="Vendor"){
             file ="VendorProfile.txt";
+        }else if (Type=="FacilityBooking"){
+            file ="FacilityBooking.txt";
         }
     }
     @Override
@@ -271,6 +273,15 @@ public class adminExecutive extends User implements dataManagementController, di
                             mainInner.editUserCredential(dataList.get(0),dataList.get(7),dataList.get(8));
                             break;
                         }
+                        if(type=="FacilityBooking"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            user.set(6, dataList.get(6));
+                            break;
+                        }
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -312,6 +323,13 @@ public class adminExecutive extends User implements dataManagementController, di
                             bw.close();
                         }
                         if(type=="Resident"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
+                            bw.close();
+                        }
+                        if(type=="FacilityBooking"){
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
@@ -382,6 +400,16 @@ public class adminExecutive extends User implements dataManagementController, di
                     AddDataToFile.write(dataList.get(6));
                     adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
                     mainInner.addUserCredential(dataList.get(0),dataList.get(7),dataList.get(8),"Resident");
+                   
+                }
+                if(type=="FacilityBooking"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4)+",");
+                    AddDataToFile.write(dataList.get(5)+",");
+                    AddDataToFile.write(dataList.get(6));
                    
                 }
                 AddDataToFile.newLine();
@@ -471,6 +499,14 @@ public class adminExecutive extends User implements dataManagementController, di
                             bw.close();
                             adminExecutive.adminExecutiveMethod mainInner = this.new adminExecutiveMethod();
                             mainInner.deleteUserCredential(dataId);
+                        }
+                        if(file=="FacilityBooking.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+"\n");
+                            bw.close();
                         }
                         
                     }
@@ -752,6 +788,12 @@ public class adminExecutive extends User implements dataManagementController, di
             editOrAddData(dataList,type,file,functionType);
         }
         public void deleteUnit(String itemID){
+            deleteFunction(itemID);
+        }
+        public void addEditFacilityBooking(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
+        }
+        public void deleteFacilityBooking(String itemID){
             deleteFunction(itemID);
         }
         public void getResidentUnitDropDown(String file,String type)throws FileNotFoundException{

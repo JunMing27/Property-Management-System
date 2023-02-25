@@ -4,6 +4,16 @@
  */
 package com.mycompany.adminExecutive;
 
+import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jun Ming
@@ -28,19 +38,21 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
-        complaintIdLabel = new javax.swing.JLabel();
-        complaintDetailLabel = new javax.swing.JLabel();
+        bookingIdLabel = new javax.swing.JLabel();
+        facilityIdLabel = new javax.swing.JLabel();
         addEditBtn = new javax.swing.JButton();
-        complaintIdField = new javax.swing.JTextField();
-        userComboBox = new javax.swing.JComboBox<>();
-        complaintDetailLabel1 = new javax.swing.JLabel();
-        complaintIdField1 = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        complaintDetailLabel2 = new javax.swing.JLabel();
-        complaintDetailLabel3 = new javax.swing.JLabel();
-        userComboBox1 = new javax.swing.JComboBox<>();
-        userComboBox2 = new javax.swing.JComboBox<>();
-        complaintDetailLabel4 = new javax.swing.JLabel();
+        bookingIdField = new javax.swing.JTextField();
+        facilityIdComboBox = new javax.swing.JComboBox<>();
+        facilityNameLabel = new javax.swing.JLabel();
+        facilityNameField = new javax.swing.JTextField();
+        bookingDateDropDown = new com.toedter.calendar.JDateChooser();
+        bookingDateLabel = new javax.swing.JLabel();
+        bookingTimeLabel = new javax.swing.JLabel();
+        bookingTimeDropDown = new javax.swing.JComboBox<>();
+        bookingDurationDropDown = new javax.swing.JComboBox<>();
+        bookingDurationLabel = new javax.swing.JLabel();
+        residentIdLabel = new javax.swing.JLabel();
+        residentIdComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,13 +67,13 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
             }
         });
 
-        complaintIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        complaintIdLabel.setForeground(new java.awt.Color(0, 0, 0));
-        complaintIdLabel.setText("Facility Booking ID");
+        bookingIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bookingIdLabel.setForeground(new java.awt.Color(0, 0, 0));
+        bookingIdLabel.setText("Facility Booking ID");
 
-        complaintDetailLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        complaintDetailLabel.setForeground(new java.awt.Color(0, 0, 0));
-        complaintDetailLabel.setText("Facility ID");
+        facilityIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        facilityIdLabel.setForeground(new java.awt.Color(0, 0, 0));
+        facilityIdLabel.setText("Facility ID");
 
         addEditBtn.setBackground(new java.awt.Color(255, 255, 255));
         addEditBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -72,63 +84,75 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
             }
         });
 
-        complaintIdField.setBackground(new java.awt.Color(255, 255, 255));
-        complaintIdField.setEnabled(false);
-        complaintIdField.addActionListener(new java.awt.event.ActionListener() {
+        bookingIdField.setBackground(new java.awt.Color(255, 255, 255));
+        bookingIdField.setEnabled(false);
+        bookingIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                complaintIdFieldActionPerformed(evt);
+                bookingIdFieldActionPerformed(evt);
             }
         });
 
-        userComboBox.setBackground(new java.awt.Color(255, 255, 255));
-        userComboBox.setForeground(new java.awt.Color(0, 0, 0));
-        userComboBox.addActionListener(new java.awt.event.ActionListener() {
+        facilityIdComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        facilityIdComboBox.setForeground(new java.awt.Color(0, 0, 0));
+        facilityIdComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userComboBoxActionPerformed(evt);
+                facilityIdComboBoxActionPerformed(evt);
             }
         });
 
-        complaintDetailLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        complaintDetailLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        complaintDetailLabel1.setText("Facility Name");
+        facilityNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        facilityNameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        facilityNameLabel.setText("Facility Name");
 
-        complaintIdField1.setBackground(new java.awt.Color(255, 255, 255));
-        complaintIdField1.setEnabled(false);
-        complaintIdField1.addActionListener(new java.awt.event.ActionListener() {
+        facilityNameField.setBackground(new java.awt.Color(255, 255, 255));
+        facilityNameField.setEnabled(false);
+        facilityNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                complaintIdField1ActionPerformed(evt);
+                facilityNameFieldActionPerformed(evt);
             }
         });
 
-        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
+        bookingDateDropDown.setBackground(new java.awt.Color(255, 255, 255));
 
-        complaintDetailLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        complaintDetailLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        complaintDetailLabel2.setText("Booking Date");
+        bookingDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bookingDateLabel.setForeground(new java.awt.Color(0, 0, 0));
+        bookingDateLabel.setText("Booking Date");
 
-        complaintDetailLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        complaintDetailLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        complaintDetailLabel3.setText("Start Time");
+        bookingTimeLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bookingTimeLabel.setForeground(new java.awt.Color(0, 0, 0));
+        bookingTimeLabel.setText("Start Time (24H format)");
 
-        userComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        userComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        userComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        bookingTimeDropDown.setBackground(new java.awt.Color(255, 255, 255));
+        bookingTimeDropDown.setForeground(new java.awt.Color(0, 0, 0));
+        bookingTimeDropDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userComboBox1ActionPerformed(evt);
+                bookingTimeDropDownActionPerformed(evt);
             }
         });
 
-        userComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        userComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-        userComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        bookingDurationDropDown.setBackground(new java.awt.Color(255, 255, 255));
+        bookingDurationDropDown.setForeground(new java.awt.Color(0, 0, 0));
+        bookingDurationDropDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userComboBox2ActionPerformed(evt);
+                bookingDurationDropDownActionPerformed(evt);
             }
         });
 
-        complaintDetailLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        complaintDetailLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        complaintDetailLabel4.setText("Duration");
+        bookingDurationLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bookingDurationLabel.setForeground(new java.awt.Color(0, 0, 0));
+        bookingDurationLabel.setText("Duration (Hours)");
+
+        residentIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        residentIdLabel.setForeground(new java.awt.Color(0, 0, 0));
+        residentIdLabel.setText("Resident ID");
+
+        residentIdComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        residentIdComboBox.setForeground(new java.awt.Color(0, 0, 0));
+        residentIdComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                residentIdComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,24 +166,26 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(complaintDetailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(complaintIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(complaintDetailLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(complaintDetailLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(complaintDetailLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(complaintDetailLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                            .addComponent(facilityIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bookingIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(facilityNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bookingDateLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bookingTimeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bookingDurationLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(residentIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(complaintIdField)
-                            .addComponent(complaintIdField1)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                            .addComponent(userComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(userComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(facilityIdComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bookingIdField)
+                            .addComponent(facilityNameField)
+                            .addComponent(bookingDateDropDown, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(bookingTimeDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bookingDurationDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(residentIdComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(233, 233, 233)
                         .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,31 +194,35 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(complaintIdLabel)
-                    .addComponent(complaintIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bookingIdLabel)
+                    .addComponent(bookingIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(complaintDetailLabel))
+                    .addComponent(facilityIdComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(facilityIdLabel))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(complaintIdField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(complaintDetailLabel1))
-                .addGap(18, 18, 18)
+                    .addComponent(facilityNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(facilityNameLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(residentIdLabel)
+                    .addComponent(residentIdComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bookingDateDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(complaintDetailLabel3)
-                            .addComponent(userComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bookingTimeDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bookingTimeLabel))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(userComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(complaintDetailLabel4)))
-                    .addComponent(complaintDetailLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bookingDurationDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bookingDurationLabel))
+                        .addGap(40, 40, 40)
+                        .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bookingDateLabel))
                 .addGap(54, 54, 54))
         );
 
@@ -213,72 +243,199 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        adminExecComplaintManageFrame complaintPage = new adminExecComplaintManageFrame();
-        complaintPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        complaintPage.pack();
-        complaintPage.setResizable(false);
-        complaintPage.setLocationRelativeTo(null);
-        complaintPage.setVisible(true);
-        complaintPage.backButtonToggle();
-        complaintPage.setComplaintData();
+        adminExecFacBookingManageFrame facilityBookingPage = new adminExecFacBookingManageFrame();
+        facilityBookingPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        facilityBookingPage.pack();
+        facilityBookingPage.setResizable(false);
+        facilityBookingPage.setLocationRelativeTo(null);
+        facilityBookingPage.setVisible(true);
+        facilityBookingPage.backButtonToggle();
+        facilityBookingPage.setFacilityBookingData();
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            if((complaintDetailField.getText()).equals("")  ||((String)userComboBox.getSelectedItem()).equals("") ){
+            if((facilityNameField.getText()).equals("") ||bookingDateDropDown.getDate().equals("")||((String)bookingTimeDropDown.getSelectedItem()).equals("") ||((String)residentIdComboBox.getSelectedItem()).equals("")||((String)bookingDurationDropDown.getSelectedItem()).equals("")){
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 adminExecutive main = new adminExecutive();
                 adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
-                ArrayList<String> dataList = new ArrayList<String>();
-                dataList.add(complaintIdField.getText());
-                dataList.add(complaintDetailField.getText());
-                dataList.add(complaintReplyField.getText());
-                dataList.add((String)userComboBox.getSelectedItem());
-                mainInner.addEditComplaint(dataList, "Complaint","Complaint.txt","edit");
-            }
-        }else if(addEditDetector=="add"){
-            if((complaintDetailField.getText()).equals("") ||((String)userComboBox.getSelectedItem()).equals("") ){
-                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
-            }else{
-                adminExecutive main = new adminExecutive();
-                adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
-                complaint complaintClass = new complaint();
+                facilityBooking facilityBookingClass = new facilityBooking();
                 ArrayList<String> dataList = new ArrayList<String>();
 
-                complaintClass.getIncreasedID("Complaint.txt","Complaint");
-                dataList.add(complaintClass.getComplaintId());
-                dataList.add(complaintDetailField.getText());
-                dataList.add("-");
-                dataList.add((String)userComboBox.getSelectedItem());
-                mainInner.addEditComplaint(dataList, "Complaint","Complaint.txt","add");
-                complaintDetailField.setText("");
-                complaintReplyField.setText("");
+                dataList.add(bookingIdField.getText());
+                dataList.add(((String)facilityIdComboBox.getSelectedItem()));
+                dataList.add(facilityNameField.getText());
+                dataList.add(((String)residentIdComboBox.getSelectedItem()));
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String newBookingDate = sdf.format(bookingDateDropDown.getDate());
+                dataList.add(newBookingDate);
+                
+                dataList.add(((String)bookingTimeDropDown.getSelectedItem()));
+                dataList.add(((String)bookingDurationDropDown.getSelectedItem()));
+                mainInner.addEditFacilityBooking(dataList, "FacilityBooking","FacilityBooking.txt","edit");
+                System.out.println(dataList);
+            }
+        }
+        else if(addEditDetector=="add"){
+            if((facilityNameField.getText()).equals("") ||bookingDateDropDown.getDate().equals("")||((String)bookingTimeDropDown.getSelectedItem()).equals("") ||((String)residentIdComboBox.getSelectedItem()).equals("")||((String)bookingDurationDropDown.getSelectedItem()).equals("")){
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                adminExecutive main = new adminExecutive();
+                adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
+                facilityBooking facilityBookingClass = new facilityBooking();
+                ArrayList<String> dataList = new ArrayList<String>();
+
+                facilityBookingClass.getIncreasedID("FacilityBooking.txt","FacilityBooking");
+                dataList.add(facilityBookingClass.getFacilityBookingId());
+                dataList.add(((String)facilityIdComboBox.getSelectedItem()));
+                dataList.add(facilityNameField.getText());
+                dataList.add(((String)residentIdComboBox.getSelectedItem()));
+                
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String newBookingDate = sdf.format(bookingDateDropDown.getDate());
+                dataList.add(newBookingDate);
+                dataList.add(((String)bookingTimeDropDown.getSelectedItem()));
+                dataList.add(((String)bookingDurationDropDown.getSelectedItem()));
+                mainInner.addEditFacilityBooking(dataList, "FacilityBooking","FacilityBooking.txt","add");
+                System.out.println(dataList);
             }
         }
     }//GEN-LAST:event_addEditBtnActionPerformed
 
-    private void complaintIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintIdFieldActionPerformed
+    private void bookingIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingIdFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_complaintIdFieldActionPerformed
+    }//GEN-LAST:event_bookingIdFieldActionPerformed
 
-    private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
+    private void facilityIdComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityIdComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userComboBoxActionPerformed
+        if((String)facilityIdComboBox.getSelectedItem()!=""){
+            facilityBooking facilityBookingClass = new facilityBooking();
+            facilityBooking.facilityBookingMethod mainInner = facilityBookingClass.new facilityBookingMethod();
+            try {
+                mainInner.getDropDownData("Facility.txt","FacilityBookingGetFacilityName",(String)facilityIdComboBox.getSelectedItem());
+            } catch (FileNotFoundException ex) {
+            }
+            System.out.println((facilityBookingClass.getDropDownDataTemp()).get(0));
+            facilityNameField.setText((facilityBookingClass.getDropDownDataTemp()).get(0));
+        }
+    }//GEN-LAST:event_facilityIdComboBoxActionPerformed
 
-    private void complaintIdField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintIdField1ActionPerformed
+    private void facilityNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_complaintIdField1ActionPerformed
+    }//GEN-LAST:event_facilityNameFieldActionPerformed
 
-    private void userComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBox1ActionPerformed
+    private void bookingTimeDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingTimeDropDownActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userComboBox1ActionPerformed
+    }//GEN-LAST:event_bookingTimeDropDownActionPerformed
 
-    private void userComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBox2ActionPerformed
+    private void bookingDurationDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingDurationDropDownActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userComboBox2ActionPerformed
+    }//GEN-LAST:event_bookingDurationDropDownActionPerformed
 
+    private void residentIdComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_residentIdComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_residentIdComboBoxActionPerformed
+
+    private String addEditDetector;
+    private String fileType="FacilityBooking.txt";
+    private String userType="FacilityBooking";
+    
+    
+    public void addEditDetect(String functionType,String id) throws FileNotFoundException {
+        if(functionType=="edit"){
+            facilityBooking facilityBookingClass = new facilityBooking();
+            facilityBooking.facilityBookingMethod mainInner = facilityBookingClass.new facilityBookingMethod();
+            this.addEditDetector="edit";
+            facilityBookingClass.chooseTxtFile("FacilityBooking");
+            facilityBookingClass.getDataViewSingle(id, fileType,userType);
+            
+            addEditBtn.setText("Update");
+            bookingIdField.setText(facilityBookingClass.getFacilityBookingId());
+            mainInner.getDropDownData("Facility.txt","FacilityBooking","");
+            int i=0;
+            for (String x : facilityBookingClass.getDropDownData()) {
+                facilityIdComboBox.addItem((facilityBookingClass.getDropDownData()).get(i));
+                i++;
+            }
+            facilityIdComboBox.setSelectedItem(facilityBookingClass.getFacilityId());
+            
+            facilityNameField.setText(facilityBookingClass.getFacilityName());
+            
+            facilityBookingClass.setDropDownNull();
+            mainInner.getDropDownData("residentProfile.txt","FacilityBooking","");
+            i=0;
+            for (String x : facilityBookingClass.getDropDownData()) {
+                residentIdComboBox.addItem((facilityBookingClass.getDropDownData()).get(i));
+                i++;
+            }
+            residentIdComboBox.setSelectedItem(facilityBookingClass.getResidentId());
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date existingDate;
+            try {  
+                existingDate =sdf.parse(facilityBookingClass.getBookingDate());
+                bookingDateDropDown.setDate(existingDate);
+            } catch (ParseException ex) {
+            }
+            
+            bookingTimeDropDown.addItem("1200");
+            bookingTimeDropDown.addItem("1300");
+            bookingTimeDropDown.addItem("1400");
+            bookingTimeDropDown.addItem("1500");
+            bookingTimeDropDown.addItem("1600");
+            bookingTimeDropDown.addItem("1700");
+            bookingTimeDropDown.addItem("1800");
+            bookingTimeDropDown.addItem("1900");
+            bookingTimeDropDown.addItem("2000");
+            bookingTimeDropDown.setSelectedItem(facilityBookingClass.getBookingStartTime());
+            
+            bookingDurationDropDown.addItem("1");
+            bookingDurationDropDown.addItem("2");
+            bookingDurationDropDown.addItem("3");
+            bookingDurationDropDown.setSelectedItem(facilityBookingClass.getBookingDuration());
+            
+        }else if (functionType=="add"){
+            this.addEditDetector="add";
+            addEditBtn.setText("Add");
+            bookingIdField.setVisible(false);
+            bookingIdLabel.setVisible(false);
+            facilityNameField.setEnabled(false);
+            bookingTimeDropDown.addItem("1200");
+            bookingTimeDropDown.addItem("1300");
+            bookingTimeDropDown.addItem("1400");
+            bookingTimeDropDown.addItem("1500");
+            bookingTimeDropDown.addItem("1600");
+            bookingTimeDropDown.addItem("1700");
+            bookingTimeDropDown.addItem("1800");
+            bookingTimeDropDown.addItem("1900");
+            bookingTimeDropDown.addItem("2000");
+            
+            bookingDurationDropDown.addItem("1");
+            bookingDurationDropDown.addItem("2");
+            bookingDurationDropDown.addItem("3");
+            
+            facilityBooking facilityBookingClass = new facilityBooking();
+            facilityBooking.facilityBookingMethod mainInner = facilityBookingClass.new facilityBookingMethod();
+            mainInner.getDropDownData("Facility.txt","FacilityBooking","");
+            int i=0;
+            for (String x : facilityBookingClass.getDropDownData()) {
+                facilityIdComboBox.addItem((facilityBookingClass.getDropDownData()).get(i));
+                i++;
+            }
+            facilityBookingClass.setDropDownNull();
+            mainInner.getDropDownData("residentProfile.txt","FacilityBooking","");
+            i=0;
+            for (String x : facilityBookingClass.getDropDownData()) {
+                residentIdComboBox.addItem((facilityBookingClass.getDropDownData()).get(i));
+                i++;
+            }
+            
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -317,18 +474,20 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addEditBtn;
     private javax.swing.JButton backBtn;
-    private javax.swing.JLabel complaintDetailLabel;
-    private javax.swing.JLabel complaintDetailLabel1;
-    private javax.swing.JLabel complaintDetailLabel2;
-    private javax.swing.JLabel complaintDetailLabel3;
-    private javax.swing.JLabel complaintDetailLabel4;
-    private javax.swing.JTextField complaintIdField;
-    private javax.swing.JTextField complaintIdField1;
-    private javax.swing.JLabel complaintIdLabel;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser bookingDateDropDown;
+    private javax.swing.JLabel bookingDateLabel;
+    private javax.swing.JComboBox<String> bookingDurationDropDown;
+    private javax.swing.JLabel bookingDurationLabel;
+    private javax.swing.JTextField bookingIdField;
+    private javax.swing.JLabel bookingIdLabel;
+    private javax.swing.JComboBox<String> bookingTimeDropDown;
+    private javax.swing.JLabel bookingTimeLabel;
+    private javax.swing.JComboBox<String> facilityIdComboBox;
+    private javax.swing.JLabel facilityIdLabel;
+    private javax.swing.JTextField facilityNameField;
+    private javax.swing.JLabel facilityNameLabel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox<String> userComboBox;
-    private javax.swing.JComboBox<String> userComboBox1;
-    private javax.swing.JComboBox<String> userComboBox2;
+    private javax.swing.JComboBox<String> residentIdComboBox;
+    private javax.swing.JLabel residentIdLabel;
     // End of variables declaration//GEN-END:variables
 }

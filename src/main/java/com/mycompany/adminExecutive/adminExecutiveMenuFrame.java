@@ -264,6 +264,15 @@ public class adminExecutiveMenuFrame extends javax.swing.JFrame {
 
     private void facilityBookingManagePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilityBookingManagePageActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        adminExecFacBookingManageFrame facilityBookingPage = new adminExecFacBookingManageFrame();
+        facilityBookingPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        facilityBookingPage.pack();
+        facilityBookingPage.setResizable(false);
+        facilityBookingPage.setLocationRelativeTo(null);
+        facilityBookingPage.setVisible(true);
+        facilityBookingPage.backButtonToggle();
+        facilityBookingPage.setFacilityBookingData();
     }//GEN-LAST:event_facilityBookingManagePageActionPerformed
 
     private void vendorManagePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendorManagePageActionPerformed
