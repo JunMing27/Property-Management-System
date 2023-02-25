@@ -2,44 +2,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.mavenproject1;
+package com.mycompany.employee;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class GuardVisEntryAddEdit extends javax.swing.JFrame {
+/**
+ *
+ * @author hoiyi
+ */
+public class guardVisEntryAddEditFrame extends javax.swing.JFrame {
 
-    String id,name,date,enterTime,leaveTime; 
     static ArrayList<String> dataListGet;
-    static String addEditDetector;
+    static String idGet, addEditGet;
     
-    public GuardVisEntryAddEdit(String addEditString, ArrayList<String> dataList) {
+    public guardVisEntryAddEditFrame(String id, String addEdit, ArrayList<String> dataList) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        addEditDetector = addEditString;
+        idGet = id;
+        addEditGet = addEdit;
         dataListGet = dataList;
         
         String pattern = "dd-MM-YYYY";
         jDateChooser1.setDateFormatString(pattern);
         enterTimePicker.setTimeToNow();
         
-        if(addEditDetector.equals("edit"))
+        if(addEditGet.equals("edit"))
         {
             jDateChooser1.setVisible(false);
             enterTimePicker.setVisible(false);
@@ -84,10 +77,10 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(233, 233, 233));
         jPanel1.setPreferredSize(new java.awt.Dimension(566, 600));
 
-        backBtn.setBackground(new java.awt.Color(255, 255, 255));
-        backBtn.setForeground(new java.awt.Color(0, 0, 0));
         backBtn.setText("Back");
+        backBtn.setBackground(new java.awt.Color(255, 255, 255));
         backBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backBtn.setForeground(new java.awt.Color(0, 0, 0));
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
@@ -114,10 +107,10 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
         dateLabel1.setForeground(new java.awt.Color(0, 0, 0));
         dateLabel1.setText("Date :");
 
-        saveBtn.setBackground(new java.awt.Color(255, 255, 255));
-        saveBtn.setForeground(new java.awt.Color(0, 0, 0));
         saveBtn.setText("SAVE");
+        saveBtn.setBackground(new java.awt.Color(255, 255, 255));
         saveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        saveBtn.setForeground(new java.awt.Color(0, 0, 0));
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveBtnActionPerformed(evt);
@@ -128,10 +121,10 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
         statusLabel1.setForeground(new java.awt.Color(0, 0, 0));
         statusLabel1.setText("Enter Time :");
 
-        cancelBtn.setBackground(new java.awt.Color(255, 255, 255));
-        cancelBtn.setForeground(new java.awt.Color(0, 0, 0));
         cancelBtn.setText("CANCEL");
+        cancelBtn.setBackground(new java.awt.Color(255, 255, 255));
         cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cancelBtn.setForeground(new java.awt.Color(0, 0, 0));
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelBtnActionPerformed(evt);
@@ -258,15 +251,16 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        VisitorPassManage visitorPass = new VisitorPassManage();
-        visitorPass.setVisible(true);
+        guardVisEntryManageFrame visitorEntry = new guardVisEntryManageFrame(idGet);
+        visitorEntry.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
-        id = idTxt1.getText();
-        name = nameTxt.getText();
+        String id = idTxt1.getText();
+        String name = nameTxt.getText();
         String pattern = "dd-MM-YYYY";
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        String date = "";
         if(jDateChooser1.isVisible()) //for add
         {
             Date date1 = jDateChooser1.getDate();
@@ -279,13 +273,15 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
         }else{
             date = dateTxt.getText();
         }
-        if(enterTimePicker.isVisible())
+        
+        String enterTime = "";
+        if(enterTimePicker.isVisible()) //for edit
         {
             enterTime = enterTimePicker.getText();
             if(enterTime.contains("a"))
             {
                 enterTime = enterTime.substring(0,enterTime.lastIndexOf("a"));
-                
+
             }else if(enterTime.contains("p"))
             {
                 enterTime = enterTime.substring(0,enterTime.lastIndexOf("p"));
@@ -299,21 +295,21 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
         }else{
             enterTime = enterTimeTxt.getText();
         }
-        
-        leaveTime = leaveTimePicker.getText();
+
+        String leaveTime = leaveTimePicker.getText();
         if(enterTime.contains("a"))
-            {
-                leaveTime = leaveTime.substring(0,leaveTime.lastIndexOf("a"));
-            }else if(leaveTime.contains("p"))
-            {
-                leaveTime = leaveTime.substring(0,leaveTime.lastIndexOf("p"));
-                String hour = leaveTime.substring(0,leaveTime.indexOf(":"));
-                String minute = leaveTime.substring(leaveTime.indexOf(":")+1);
-                Integer hourInt = Integer.parseInt(hour);
-                hourInt = hourInt+12;
-                hour = hourInt.toString();
-                leaveTime = hour+":"+minute;
-            }
+        {
+            leaveTime = leaveTime.substring(0,leaveTime.lastIndexOf("a"));
+        }else if(leaveTime.contains("p"))
+        {
+            leaveTime = leaveTime.substring(0,leaveTime.lastIndexOf("p"));
+            String hour = leaveTime.substring(0,leaveTime.indexOf(":"));
+            String minute = leaveTime.substring(leaveTime.indexOf(":")+1);
+            Integer hourInt = Integer.parseInt(hour);
+            hourInt = hourInt+12;
+            hour = hourInt.toString();
+            leaveTime = hour+":"+minute;
+        }
         if(leaveTime.isEmpty() || leaveTime.isBlank())
         {
             leaveTime = "-";
@@ -325,30 +321,53 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
                 int dialog = JOptionPane.showConfirmDialog(null,
                     "DATE and TIME Cannot be Changed After Saved", "Confirmation", JOptionPane.YES_NO_OPTION);
                 if(dialog == JOptionPane.YES_OPTION){
-                    if(addEditDetector.equals("edit"))
+                    ArrayList<String> dataList = new ArrayList<>();
+                    dataList.add(id);
+                    dataList.add(name);
+                    dataList.add(date);
+                    dataList.add(enterTime);
+                    dataList.add(leaveTime);
+                    visitorEntry main = new visitorEntry();
+                    if(addEditGet.equals("edit"))
                     {
-                        removeFromFile("VisitorEntry");
+                        main.removeFromFile("VisitorEntry", dataList);
                     }
-                    editFile(id, name, date, enterTime, leaveTime);
+                    main.editFile("VisitorEntry", dataList);
                     this.dispose();
-                    GuardVisEntryManage visitorEntry = new GuardVisEntryManage();
+                    guardVisEntryManageFrame visitorEntry = new guardVisEntryManageFrame(idGet);
                     visitorEntry.setVisible(true);
                 }
-            }else{  
+            }else{
                 errorMessage.setText("Name/Date/Enter Time is Empty!");
             }
         }else{
             errorMessage.setText("Name/Date/Enter Time is Empty!");
         }
-
     }//GEN-LAST:event_saveBtnActionPerformed
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         this.dispose();
-        VisitorPassManage visitorPass = new VisitorPassManage();
-        visitorPass.setVisible(true);
+        guardVisEntryManageFrame visitorEntry = new guardVisEntryManageFrame(idGet);
+        visitorEntry.setVisible(true);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
+    private void displayData(ArrayList<String> dataListGet)
+    {
+        idTxt1.setText(dataListGet.get(0));
+        nameTxt.setText(dataListGet.get(1));
+        dateTxt.setText(dataListGet.get(2));
+        enterTimeTxt.setText(dataListGet.get(3));
+    }
+    
+    private void emptyData()
+    {
+        visitorEntry main = new visitorEntry();
+        int nextVEId = main.getNextId("VisitorEntry");
+        idTxt1.setText("VE"+nextVEId);
+        nameTxt.setText("");
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -366,21 +385,20 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GuardVisEntryAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(guardVisEntryAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GuardVisEntryAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(guardVisEntryAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GuardVisEntryAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(guardVisEntryAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GuardVisEntryAddEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(guardVisEntryAddEditFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GuardVisEntryAddEdit(addEditDetector,dataListGet).setVisible(true);
+                new guardVisEntryAddEditFrame(idGet, addEditGet, dataListGet).setVisible(true);
             }
         });
     }
@@ -405,128 +423,4 @@ public class GuardVisEntryAddEdit extends javax.swing.JFrame {
     private javax.swing.JLabel statusLabel2;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
-
-    private void displayData(ArrayList<String> dataListGet)
-    {
-        idTxt1.setText(dataListGet.get(0));
-        nameTxt.setText(dataListGet.get(1));
-        dateTxt.setText(dataListGet.get(2));
-        enterTimeTxt.setText(dataListGet.get(3));
-    }
-
-    private  ArrayList<ArrayList<String>> allUserDataInfo(String textFile) throws FileNotFoundException 
-    {
-        File file = new File(textFile);
-        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
-        if (file.exists()) {
-            Scanner sc = new Scanner(file);
-            String oneUserInfo; 
-            String[] itemArray;
-            ArrayList<String> itemArrayList;
-            allUserInfo = new ArrayList<>();
-            while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); 
-                itemArray = oneUserInfo.split(","); 
-                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
-                allUserInfo.add(itemArrayList);
-            }
-        } 
-        
-        return allUserInfo;
-    }
-
-    private void removeFromFile(String fileName)
-    {
-        try {
-            String filePath = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
-            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            for(int j=0;j<allUsers.size();j++)
-            {
-                if(allUsers.get(j).get(0).equals(idTxt1.getText()))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
-            }
-
-            File file= new File(filePath);
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<allUsers.size(); j++) 
-            {
-                ArrayList<String>item = allUsers.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                       bw.write(item.get(k));
-                    }else{
-                       bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-            
-        }catch (IOException ex) {
-            Logger.getLogger(GuardVisEntryAddEdit.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
-        
-    }
-
-    
-    private void editFile(String id, String name, String date, String enterTime, String leaveTime)
-    {
-        try {
-            String fileName = "VisitorEntry";
-            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
-            FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(id+","
-                    +name+","
-                    +date+","
-                    +enterTime+","
-                    +leaveTime+"\n");
-            
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(GuardVisEntryAddEdit.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    
-    private void emptyData()
-    {
-        try {
-            String fileName = "VisitorEntry";
-            File file = new File("src/main/java/com/mycompany/textFile/"+fileName+".txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            String line = br.readLine();
-            int totalRow = 0;
-            while(line != null )
-            {
-                String[] dataRow = line.split(",");
-                for(int i=0; i<dataRow.length; i++)
-                {
-                    totalRow = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VE")+2));
-                }
-                line = br.readLine();
-            }
-            
-            br.close();
-            
-            totalRow = totalRow+1;
-            idTxt1.setText("VE"+totalRow);
-            nameTxt.setText("");
-            
-            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(GuardVisEntryAddEdit.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(GuardVisEntryAddEdit.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-    }
 }

@@ -230,11 +230,11 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
                             .addComponent(dateTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(nameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(leaveTimeTxt2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                                        .addComponent(enterTimeTxt2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(enterTimeTxt2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(idTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,12 +251,12 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
                                     .addComponent(leaveTimeLabel1))
                                 .addGap(121, 121, 121)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(enterTimeTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(dateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(leaveTimeTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(nameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(nameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -369,7 +369,7 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
         dataList.add(dateTxt1.getText());
         dataList.add(enterTimeTxt1.getText());
         this.dispose();
-        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("edit", dataList);
+        guardVisEntryAddEditFrame edit = new guardVisEntryAddEditFrame(idGet, "edit", dataList);
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn1ActionPerformed
 
@@ -391,18 +391,18 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
         dataList.add(dateTxt2.getText());
         dataList.add(enterTimeTxt2.getText());
         this.dispose();
-        GuardVisEntryAddEdit edit = new GuardVisEntryAddEdit("edit", dataList);
+        guardVisEntryAddEditFrame edit = new guardVisEntryAddEditFrame(idGet, "edit", dataList);
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         ArrayList<String> dataList = new ArrayList<>();
         this.dispose();
-        GuardVisEntryAddEdit add = new GuardVisEntryAddEdit("add", dataList );
+        guardVisEntryAddEditFrame add = new guardVisEntryAddEditFrame(idGet, "add", dataList );
         add.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
-     private int pageLine=-1;
+    private int pageLine=-1;
     
     private void setPagination(){
         pageLine=pageLine+1;
@@ -432,6 +432,12 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
             dateTxt1.setText(main.getVisitDate());
             enterTimeTxt1.setText(main.getVisitEnterTime());
             leaveTimeTxt1.setText(main.getVisitLeaveTime());
+            if(!leaveTimeTxt1.getText().equals("-"))//has leave time
+            {
+                editBtn1.setEnabled(false);
+            }else{
+                editBtn1.setEnabled(true);
+            }
         }else{
             idTxt1.setText("no data");
             nameTxt1.setText("no data");
@@ -454,6 +460,12 @@ public class guardVisEntryManageFrame extends javax.swing.JFrame {
             dateTxt2.setText(main.getVisitDate());
             enterTimeTxt2.setText(main.getVisitEnterTime());
             leaveTimeTxt2.setText(main.getVisitLeaveTime());
+            if(!leaveTimeTxt2.getText().equals("-"))//has leave time
+            {
+                editBtn2.setEnabled(false);
+            }else{
+                editBtn2.setEnabled(true);
+            }
         }else{
             idTxt2.setText("no data");
             nameTxt2.setText("no data");

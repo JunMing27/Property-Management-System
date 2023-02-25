@@ -6,8 +6,13 @@ package com.mycompany.employee;
 
 import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController1;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -80,14 +85,15 @@ public class visitorEntry implements displayController1, dataManagementControlle
     public void displayDataViewAll(Integer dataLine, String searchTxt, String type, String fileName) {
         fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
         ArrayList<ArrayList<String>> allData = allUserDataInfo(fileName);
-        
+        System.out.println("???"+allData);
         int newSize = allData.size();
         try{
-            setVisitorEntryId(allData.get(dataLine).get(0));
-            setVisitorName(allData.get(dataLine).get(1));
-            setVisitDate(allData.get(dataLine).get(2));
-            setVisitEnterTime(allData.get(dataLine).get(3));
-            setVisitLeaveTime(allData.get(dataLine).get(4));
+            this.setVisitorEntryId(allData.get(dataLine).get(0));
+            this.setVisitorName(allData.get(dataLine).get(1));
+            this.setVisitDate(allData.get(dataLine).get(2));
+            this.setVisitEnterTime(allData.get(dataLine).get(3));
+            this.setVisitLeaveTime(allData.get(dataLine).get(4));
+            this.status = true;
         }catch(Exception e){
             setDataNull();
             this.status = false;
@@ -143,17 +149,90 @@ public class visitorEntry implements displayController1, dataManagementControlle
 
     @Override
     public void removeFromFile(String textFile, ArrayList<String> dataList) {
-        
+        try {
+            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            for(int j=0;j<allUsers.size();j++)
+            {
+                if(allUsers.get(j).get(0).equals(dataList.get(0)))
+                {
+                    allUsers.remove(j);
+                    break;
+                }
+            }
+            
+            
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(visitorEntry.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public void editFile(String textFile, ArrayList<String> dataList) {
-        
+        try {
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(dataList.get(1)+","
+                    +dataList.get(2)+","
+                    +dataList.get(3)+","
+                    +dataList.get(0)+","
+                    +dataList.get(4)+"\n");
+            
+            
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(visitorEntry.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
     public int getNextId(String textFile) {
-        
+        int id = 0;
+        try {
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            if(textFile.equals("VisitorPass"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VE")+2));
+                    }
+                    line = br.readLine();
+                }
+            }
+            
+            br.close();
+            id = id+1;
+            
+        } catch (IOException ex) {
+            Logger.getLogger(visitorEntry.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
     }
     
     

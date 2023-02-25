@@ -221,18 +221,16 @@ public class visitorPass implements displayController1, dataManagementController
         try {
             String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
             ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            if(textFile.equals("VisitorPass"))
+            for(int j=0;j<allUsers.size();j++)
             {
-                for(int j=0;j<allUsers.size();j++)
+                if(allUsers.get(j).get(3).equals(dataList.get(0))
+                        && allUsers.get(j).get(0).equals(dataList.get(1)))
                 {
-                    if(allUsers.get(j).get(3).equals(dataList.get(0))
-                            && allUsers.get(j).get(0).equals(dataList.get(1)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
+                    allUsers.remove(j);
+                    break;
                 }
             }
+            
             
             File file= new File(filePath);
             FileWriter fw = new FileWriter(file);
@@ -264,14 +262,12 @@ public class visitorPass implements displayController1, dataManagementController
             File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
-            if(textFile.equals("VisitorPass"))
-            {
-                bw.write(dataList.get(1)+","
-                        +dataList.get(2)+","
-                        +dataList.get(3)+","
-                        +dataList.get(0)+","
-                        +dataList.get(4)+"\n");
-            }
+            bw.write(dataList.get(1)+","
+                    +dataList.get(2)+","
+                    +dataList.get(3)+","
+                    +dataList.get(0)+","
+                    +dataList.get(4)+"\n");
+            
             
             bw.close();
         } catch (IOException ex) {
@@ -303,8 +299,6 @@ public class visitorPass implements displayController1, dataManagementController
             br.close();
             id = id+1;
             
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(visitorPass.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(visitorPass.class.getName()).log(Level.SEVERE, null, ex);
         }
