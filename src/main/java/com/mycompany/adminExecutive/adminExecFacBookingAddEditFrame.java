@@ -26,21 +26,258 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        backBtn = new javax.swing.JButton();
+        complaintIdLabel = new javax.swing.JLabel();
+        complaintDetailLabel = new javax.swing.JLabel();
+        addEditBtn = new javax.swing.JButton();
+        complaintIdField = new javax.swing.JTextField();
+        userComboBox = new javax.swing.JComboBox<>();
+        complaintDetailLabel1 = new javax.swing.JLabel();
+        complaintIdField1 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        complaintDetailLabel2 = new javax.swing.JLabel();
+        complaintDetailLabel3 = new javax.swing.JLabel();
+        userComboBox1 = new javax.swing.JComboBox<>();
+        userComboBox2 = new javax.swing.JComboBox<>();
+        complaintDetailLabel4 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        backBtn.setBackground(new java.awt.Color(255, 255, 255));
+        backBtn.setForeground(new java.awt.Color(0, 0, 0));
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
+        complaintIdLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        complaintIdLabel.setForeground(new java.awt.Color(0, 0, 0));
+        complaintIdLabel.setText("Facility Booking ID");
+
+        complaintDetailLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        complaintDetailLabel.setForeground(new java.awt.Color(0, 0, 0));
+        complaintDetailLabel.setText("Facility ID");
+
+        addEditBtn.setBackground(new java.awt.Color(255, 255, 255));
+        addEditBtn.setForeground(new java.awt.Color(0, 0, 0));
+        addEditBtn.setText("UPDATE/ADD");
+        addEditBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addEditBtnActionPerformed(evt);
+            }
+        });
+
+        complaintIdField.setBackground(new java.awt.Color(255, 255, 255));
+        complaintIdField.setEnabled(false);
+        complaintIdField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                complaintIdFieldActionPerformed(evt);
+            }
+        });
+
+        userComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        userComboBox.setForeground(new java.awt.Color(0, 0, 0));
+        userComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userComboBoxActionPerformed(evt);
+            }
+        });
+
+        complaintDetailLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        complaintDetailLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        complaintDetailLabel1.setText("Facility Name");
+
+        complaintIdField1.setBackground(new java.awt.Color(255, 255, 255));
+        complaintIdField1.setEnabled(false);
+        complaintIdField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                complaintIdField1ActionPerformed(evt);
+            }
+        });
+
+        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
+
+        complaintDetailLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        complaintDetailLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        complaintDetailLabel2.setText("Booking Date");
+
+        complaintDetailLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        complaintDetailLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        complaintDetailLabel3.setText("Start Time");
+
+        userComboBox1.setBackground(new java.awt.Color(255, 255, 255));
+        userComboBox1.setForeground(new java.awt.Color(0, 0, 0));
+        userComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userComboBox1ActionPerformed(evt);
+            }
+        });
+
+        userComboBox2.setBackground(new java.awt.Color(255, 255, 255));
+        userComboBox2.setForeground(new java.awt.Color(0, 0, 0));
+        userComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userComboBox2ActionPerformed(evt);
+            }
+        });
+
+        complaintDetailLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        complaintDetailLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        complaintDetailLabel4.setText("Duration");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(complaintDetailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(complaintIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(complaintDetailLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(complaintDetailLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(complaintDetailLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(complaintDetailLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(complaintIdField)
+                            .addComponent(complaintIdField1)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(userComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(userComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(133, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(complaintIdLabel)
+                    .addComponent(complaintIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(complaintDetailLabel))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(complaintIdField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(complaintDetailLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(complaintDetailLabel3)
+                            .addComponent(userComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(userComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(complaintDetailLabel4)))
+                    .addComponent(complaintDetailLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        adminExecComplaintManageFrame complaintPage = new adminExecComplaintManageFrame();
+        complaintPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        complaintPage.pack();
+        complaintPage.setResizable(false);
+        complaintPage.setLocationRelativeTo(null);
+        complaintPage.setVisible(true);
+        complaintPage.backButtonToggle();
+        complaintPage.setComplaintData();
+    }//GEN-LAST:event_backBtnActionPerformed
+
+    private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
+        // TODO add your handling code here:
+        if(addEditDetector=="edit"){
+            if((complaintDetailField.getText()).equals("")  ||((String)userComboBox.getSelectedItem()).equals("") ){
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                adminExecutive main = new adminExecutive();
+                adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
+                ArrayList<String> dataList = new ArrayList<String>();
+                dataList.add(complaintIdField.getText());
+                dataList.add(complaintDetailField.getText());
+                dataList.add(complaintReplyField.getText());
+                dataList.add((String)userComboBox.getSelectedItem());
+                mainInner.addEditComplaint(dataList, "Complaint","Complaint.txt","edit");
+            }
+        }else if(addEditDetector=="add"){
+            if((complaintDetailField.getText()).equals("") ||((String)userComboBox.getSelectedItem()).equals("") ){
+                JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+                adminExecutive main = new adminExecutive();
+                adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
+                complaint complaintClass = new complaint();
+                ArrayList<String> dataList = new ArrayList<String>();
+
+                complaintClass.getIncreasedID("Complaint.txt","Complaint");
+                dataList.add(complaintClass.getComplaintId());
+                dataList.add(complaintDetailField.getText());
+                dataList.add("-");
+                dataList.add((String)userComboBox.getSelectedItem());
+                mainInner.addEditComplaint(dataList, "Complaint","Complaint.txt","add");
+                complaintDetailField.setText("");
+                complaintReplyField.setText("");
+            }
+        }
+    }//GEN-LAST:event_addEditBtnActionPerformed
+
+    private void complaintIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintIdFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_complaintIdFieldActionPerformed
+
+    private void userComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userComboBoxActionPerformed
+
+    private void complaintIdField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintIdField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_complaintIdField1ActionPerformed
+
+    private void userComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userComboBox1ActionPerformed
+
+    private void userComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +315,20 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addEditBtn;
+    private javax.swing.JButton backBtn;
+    private javax.swing.JLabel complaintDetailLabel;
+    private javax.swing.JLabel complaintDetailLabel1;
+    private javax.swing.JLabel complaintDetailLabel2;
+    private javax.swing.JLabel complaintDetailLabel3;
+    private javax.swing.JLabel complaintDetailLabel4;
+    private javax.swing.JTextField complaintIdField;
+    private javax.swing.JTextField complaintIdField1;
+    private javax.swing.JLabel complaintIdLabel;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> userComboBox;
+    private javax.swing.JComboBox<String> userComboBox1;
+    private javax.swing.JComboBox<String> userComboBox2;
     // End of variables declaration//GEN-END:variables
 }
