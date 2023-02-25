@@ -222,7 +222,7 @@ public class residentComplaintAddEditFrame extends javax.swing.JFrame {
                 dataList.add(id);
                 dataList.add(detail);
                 dataList.add(reply);
-                resident main = new resident();
+                complaint main = new complaint();
                 main.setUserId(idGet);
                 if(addEditGet.equals("edit"))
                 {
@@ -256,8 +256,8 @@ public class residentComplaintAddEditFrame extends javax.swing.JFrame {
     {
         complaint main = new complaint();
         main.setUserId(idGet);
-        int nextCId = main.getNextId("Complaint");
-        idTxt1.setText("C"+nextCId);
+        main.getIncreasedID("Complaint.txt", "");
+        idTxt1.setText(main.getComplaintId());
         detailTxt.setText("");
         replyTxt.setText("-");
     }

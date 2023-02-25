@@ -4,6 +4,7 @@
  */
 package com.mycompany.resident;
 
+import com.mycompany.adminExecutive.complaint;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -350,7 +351,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
             ArrayList<String> dataList = new ArrayList<>();
             dataList.add(idGet);
             dataList.add(idTxt1.getText());
-            resident main = new resident();
+            complaint main = new complaint();
             main.setUserId(idGet);
             main.removeFromFile("Complaint", dataList);
             this.dispose();
@@ -377,7 +378,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
             ArrayList<String> dataList = new ArrayList<>();
             dataList.add(idGet);
             dataList.add(idTxt2.getText());
-            resident main = new resident();
+            complaint main = new complaint();
             main.setUserId(idGet);
             main.removeFromFile("Complaint", dataList);
             this.dispose();
@@ -409,17 +410,17 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
     
     private void displayData()
     {
-        resident main = new resident();
+        complaint main = new complaint();
         main.setUserId(idGet);
         setPagination();
-        main.displayDataViewOwn(pageLine, "", "complaint", "Complaint");
+        main.displayDataViewOwn(pageLine, "Complaint");
         boolean boo = main.getStatus();
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
         if(main.getComplaintId()!= null){
             idTxt1.setText(main.getComplaintId());
-            detailTxt1.setText(main.getComplaintDetail());
+            detailTxt1.setText(main.getComplaintDescription());
             replyTxt1.setText(main.getComplaintReply());
             if(!replyTxt1.getText().equals("-")) //if replied
             {
@@ -436,14 +437,14 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         }
         
         setPagination();
-        main.displayDataViewOwn(pageLine, "", "complaint", "Complaint");
+        main.displayDataViewOwn(pageLine, "Complaint");
         boolean boo2 = main.getStatus();
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
         if(main.getComplaintId()!= null){
             idTxt2.setText(main.getComplaintId());
-            detailTxt2.setText(main.getComplaintDetail());
+            detailTxt2.setText(main.getComplaintDescription());
             replyTxt2.setText(main.getComplaintReply());
             if(!replyTxt2.getText().equals("-")) //if replied
             {
