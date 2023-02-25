@@ -212,7 +212,7 @@ public class visitorPass implements displayController1, dataManagementController
                     }
                 }
             }
-        }else if(this.getVisitorName()!= null ) //if is visitor
+        }else if(this.getVisitorPassId()!= null ) //if is visitor
         {
             for (p=0,q=0; p<allUserInfo.size(); p++)
             {
@@ -247,7 +247,7 @@ public class visitorPass implements displayController1, dataManagementController
                         break;
                     }
                 }
-            }else if(getVisitorName() != null)
+            }else if(getVisitorPassId()!= null)
             {
                 for(int j=0;j<allUsers.size();j++)
                 {

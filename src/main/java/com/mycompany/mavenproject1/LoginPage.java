@@ -10,11 +10,18 @@
 package com.mycompany.mavenproject1;
 import com.mycompany.adminExecutive.adminExecutiveMenuFrame;
 import com.mycompany.buildingManager.buildingManagerMenuFrame;
+import com.mycompany.employee.guardMenuFrame;
+import com.mycompany.resident.residentMenuFrame;
+import com.mycompany.visitor.checkVisitorPassFrame;
+import com.mycompany.visitor.visitorViewVisitorPassFrame;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.*;
 import javax.swing.*;
@@ -70,7 +77,7 @@ public class LoginPage extends javax.swing.JFrame  {
     panel.getRootPane().setDefaultButton(loginBtn);
     panel.add(loginBtn);
     
-    // login button
+    // visitor pass button
     JButton visitorBtn = new JButton("Visitor Pass");
     visitorBtn.setBounds(280, 330, 250, 25);
     visitorBtn.setBackground(new java.awt.Color(255,255,255));
@@ -125,9 +132,8 @@ public class LoginPage extends javax.swing.JFrame  {
                             switch(fileUserRole.trim()) {
                                 case "Admin Executive" -> goAdminExecutivePage();
                                 case "Building Manager" -> goBuildingManagerPage();
-                                case "resident" -> setResidentData(fileUserID, fileUsername, filePassword);
-                                case "visitor" -> directToVisitorPass(fileUserID);
-                                case "guard" -> toGuardOption(fileUserID);
+                                case "resident" -> goResidentPage(fileUserID);
+                                case "employee" -> toEmployeePage(fileUserID); //will valid if it is guard
                                 default -> System.out.println("cant find page for this role");
                               }
 
@@ -150,6 +156,16 @@ public class LoginPage extends javax.swing.JFrame  {
       }
     });
     
+    
+    //visitor pass button's actionlistener
+    visitorBtn.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            logInFrame.dispose();
+            checkVisitorPassFrame checkPassFrame = new checkVisitorPassFrame();
+            checkPassFrame.setVisible(true);
+        }
+    });
   }
 
 public void goAdminExecutivePage()
@@ -174,31 +190,42 @@ public void goBuildingManagerPage()
     mainMenu.setVisible(true);
 }
 
-public void setResidentData(String residentId, String residentName, String residentPwd)
+public void goResidentPage(String residentId)
 {
-    //set id,name,username,password
-    ResidentMain residentMain = new ResidentMain();
-    residentMain.setId(residentId);
-    residentMain.setUserName(residentName);
-    residentMain.setPassword(residentPwd);
-    //direct to resident main page
     logInFrame.dispose();
-    ResidentOption residentOption = new ResidentOption();
-    residentOption.setVisible(true);
+    residentMenuFrame residentMenu = new residentMenuFrame(residentId);
+    residentMenu.setVisible(true);
 
 }
 
-public void directToVisitorPass(String visitorId)
+public void toEmployeePage(String guardId)
 {
-    //assume visitor pass valid
-    logInFrame.dispose();
-    VisitorVisitorPassView visitorPassView = new VisitorVisitorPassView(visitorId);
-    visitorPassView.setVisible(true);
-}
-
-public void toGuardOption(String userId)
-{
-    GuardMain main = new GuardMain();
+    String jobScope = "";
+    try{
+        File file = new File("src/main/java/com/mycompany/textFile/Employee.txt");
+        FileReader fr = new FileReader(file);
+        BufferedReader br = new BufferedReader(fr);
+        String line = br.readLine();
+        while(line != null )
+        {
+            String[] dataRow = line.split(",");
+            if(dataRow[0].equals(guardId))
+            {
+                jobScope = dataRow[5];
+            }
+            line = br.readLine();
+        }
+    } catch (IOException ex) {
+          Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    //if jobscope is security
+    if(jobScope.equals("Security"))
+    {
+        logInFrame.dispose();
+        guardMenuFrame guardMenu = new guardMenuFrame(guardId);
+        guardMenu.setVisible(true);
+    }
     
 }
 

@@ -15,13 +15,13 @@ import javax.swing.JOptionPane;
  */
 public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
 
-    static String nameGet;
+    static String idGet;
     
-    public visitorViewVisitorPassFrame(String name) {
+    public visitorViewVisitorPassFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        nameGet = name;
+        idGet = id;
         residentIdLabel.setVisible(false);
         displayData();
         setStatus();
@@ -70,7 +70,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
 
         idLabel1.setBackground(new java.awt.Color(233, 233, 233));
         idLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        idLabel1.setText("Visitor ID :");
+        idLabel1.setText("Visitor Pass ID :");
 
         idTxt1.setBackground(new java.awt.Color(233, 233, 233));
         idTxt1.setForeground(new java.awt.Color(0, 0, 0));
@@ -115,7 +115,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
                         .addGap(141, 141, 141)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(idLabel1)
+                            .addComponent(idLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(dateLabel1)
                             .addComponent(statusLabel1)
                             .addComponent(residentIdLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -129,7 +129,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addComponent(topLabel)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +156,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
                     .addComponent(statusTxt1))
                 .addGap(29, 29, 29)
                 .addComponent(residentIdLabel)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,7 +167,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, 591, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -187,7 +187,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
     private void displayData()
     {
         visitorPass main = new visitorPass();
-        main.setVisitorName(nameGet);
+        main.setVisitorPassId(idGet);
         main.displayDataViewOwn(0, "", "visitor", "VisitorPass");
         if(main.getVisitorPassId() != null)
         {
@@ -208,7 +208,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
     private void setStatus()
     {
         visitorPass main = new visitorPass();
-        main.setVisitorName(nameGet);
+        main.setVisitorPassId(idGet);
         ArrayList<String> dataList = new ArrayList<>();
         dataList.add(idTxt1.getText());
         main.removeFromFile(idTxt1.getText(), dataList);
@@ -216,10 +216,10 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
         ArrayList<String> dataList1 = new ArrayList<>();
         dataList1.add(residentIdLabel.getText());
         dataList1.add(idTxt1.getText());
-        dataList1.add(nameGet);
+        dataList1.add(nameTxt1.getText());
         dataList1.add(dateTxt1.getText());
         dataList1.add("Invalid");
-        main.editFile("VisitorPass", dataList);
+        main.editFile("VisitorPass", dataList1);
     }
     
     /**
@@ -252,7 +252,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new visitorViewVisitorPassFrame(nameGet).setVisible(true);
+                new visitorViewVisitorPassFrame(idGet).setVisible(true);
             }
         });
     }
