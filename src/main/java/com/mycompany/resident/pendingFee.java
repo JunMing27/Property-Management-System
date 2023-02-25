@@ -111,15 +111,13 @@ public class pendingFee implements displayController1{
         }
         int newSize = allData.size();
         try{
-            if(type.equals("pending"))
-            {
-                this.setPendingId(allData.get(dataLine).get(0));
-                this.setUserId(allData.get(dataLine).get(1));
-                this.setPaidDesc(allData.get(dataLine).get(2));
-                this.setPendingAmount(allData.get(dataLine).get(3));
-                this.setPaidDate(allData.get(dataLine).get(4));
-                this.status = true;
-            }
+            this.setPendingId(allData.get(dataLine).get(0));
+            this.setUserId(allData.get(dataLine).get(1));
+            this.setPaidDesc(allData.get(dataLine).get(2));
+            this.setPendingAmount(allData.get(dataLine).get(3));
+            this.setPaidDate(allData.get(dataLine).get(4));
+            this.status = true;
+            
         }catch(Exception e){
             setDataNull();
             this.status = false;
