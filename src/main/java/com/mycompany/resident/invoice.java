@@ -141,18 +141,15 @@ public class invoice implements displayController1{
         }
         int newSize = allData.size();
         try{
-            if(type.equals("invoice"))
-            {
-                this.setInvoiceId(allData.get(dataLine).get(0));
-                this.setUserId(allData.get(dataLine).get(1));
-                this.setUserName(allData.get(dataLine).get(2));
-                this.setIssuedDate(allData.get(dataLine).get(3));
-                this.setDueDate(allData.get(dataLine).get(4));
-                this.setDueAmount(allData.get(dataLine).get(5));
-                this.setTotalAmount(allData.get(dataLine).get(6));
-                this.setPaymentDesc(allData.get(dataLine).get(7));
-                this.status = true;
-            }
+            this.setInvoiceId(allData.get(dataLine).get(0));
+            this.setUserId(allData.get(dataLine).get(1));
+            this.setUserName(allData.get(dataLine).get(2));
+            this.setIssuedDate(allData.get(dataLine).get(3));
+            this.setDueDate(allData.get(dataLine).get(4));
+            this.setDueAmount(allData.get(dataLine).get(5));
+            this.setTotalAmount(allData.get(dataLine).get(6));
+            this.setPaymentDesc(allData.get(dataLine).get(7));
+            this.status = true;
         }catch(Exception e){
             setDataNull();
             this.status = false;
@@ -188,21 +185,19 @@ public class invoice implements displayController1{
         
         int p,q;
         
-        if(textFile.contains("InvoiceContent"))
+        for (p=0,q=0; p<allUserInfo.size(); p++)
         {
-            for (p=0,q=0; p<allUserInfo.size(); p++)
+            if(allUserInfo.get(p).contains(this.getUserId()))
             {
-                if(allUserInfo.get(p).contains(this.getUserId()))
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(1).equals(this.getUserId()))
                 {
-                    ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(1).equals(this.getUserId()))
-                    {
-                        onlyUserInfo.add(allUserInfo.get(p));
-                        q++;
-                    }
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
                 }
             }
         }
+        
         return onlyUserInfo;
     }
     
