@@ -325,7 +325,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         dataList.add(detailTxt1.getText());
         dataList.add(replyTxt1.getText());
         this.dispose();
-        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "resident");
+        residentComplaintAddEditFrame addEdit = new residentComplaintAddEditFrame(idGet, "edit", dataList);
         addEdit.setVisible(true);
     }//GEN-LAST:event_editBtn1ActionPerformed
 
@@ -365,7 +365,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         dataList.add(detailTxt2.getText());
         dataList.add(replyTxt2.getText());
         this.dispose();
-        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("edit",dataList, "resident");
+        residentComplaintAddEditFrame addEdit = new residentComplaintAddEditFrame(idGet, "edit", dataList);
         addEdit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
@@ -389,7 +389,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         ArrayList<String> dataList = new ArrayList<>();
         this.dispose();
-        ResVenComplaintAddEdit addEdit = new ResVenComplaintAddEdit("add",dataList, "resident");
+        residentComplaintAddEditFrame addEdit = new residentComplaintAddEditFrame(idGet, "add", dataList);
         addEdit.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 
