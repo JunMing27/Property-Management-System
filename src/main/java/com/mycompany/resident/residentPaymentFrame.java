@@ -9,13 +9,13 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author hoiyi
  */
-public class residentPayFrame extends javax.swing.JFrame {
+public class residentPaymentFrame extends javax.swing.JFrame {
 
     static String idGet;
     
-    public residentPayFrame(String id) {
+    public residentPaymentFrame(String id) {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
@@ -286,10 +286,10 @@ public class residentPayFrame extends javax.swing.JFrame {
             main.setUserId(idGet);
             main.removeFromFile("Payment", dataList);
             int dataNextId = main.getNextId("Pending");
-            dataList.add(Integer.toString(dataNextId));
+            dataList.add("PE"+Integer.toString(dataNextId));
             main.editFile("Pending", dataList);
             this.dispose();
-            residentPayFrame residentPay = new residentPayFrame(idGet);
+            residentPaymentFrame residentPay = new residentPaymentFrame(idGet);
             residentPay.setVisible(true);
         }
 
@@ -322,10 +322,10 @@ public class residentPayFrame extends javax.swing.JFrame {
             main.setUserId(idGet);
             main.removeFromFile("Payment", dataList);
             int dataNextId = main.getNextId("Pending");
-            dataList.add(Integer.toString(dataNextId));
+            dataList.add("PE"+Integer.toString(dataNextId));
             main.editFile("Pending", dataList);
             this.dispose();
-            residentPayFrame residentPay = new residentPayFrame(idGet);
+            residentPaymentFrame residentPay = new residentPaymentFrame(idGet);
             residentPay.setVisible(true);
         }
 
@@ -404,20 +404,21 @@ public class residentPayFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(residentPayFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentPaymentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(residentPayFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentPaymentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(residentPayFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentPaymentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(residentPayFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(residentPaymentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new residentPayFrame(idGet).setVisible(true);
+                new residentPaymentFrame(idGet).setVisible(true);
             }
         });
     }
