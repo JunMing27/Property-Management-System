@@ -300,6 +300,38 @@ public class resident extends User implements dataManagementController1, display
     }
      
     
+    
+    //add for complaint
+    private String complaintId;
+    private String complaintDetail;
+    private String complaintReply;
+
+    public String getComplaintId() {
+        return complaintId;
+    }
+
+    public void setComplaintId(String complaintId) {
+        this.complaintId = complaintId;
+    }
+    
+    public String getComplaintDetail() {
+        return complaintDetail;
+    }
+
+    public void setComplaintDetail(String complaintDetail) {
+        this.complaintDetail = complaintDetail;
+    }
+
+    public String getComplaintReply() {
+        return complaintReply;
+    }
+
+    public void setComplaintReply(String complaintReply) {
+        this.complaintReply = complaintReply;
+    }
+    
+    
+    
    
     
     @Override
@@ -422,8 +454,8 @@ public class resident extends User implements dataManagementController1, display
         }
         
         
-        //for visitorPass
-        else if(textFile.contains("VisitorPass"))
+        //for VisitorPass.txt and Complaint.txt
+        else if(textFile.contains("VisitorPass") || (textFile.contains("Complaint")))
         {
             for (p=0,q=0; p<allUserInfo.size(); p++)
             {
@@ -500,6 +532,9 @@ public class resident extends User implements dataManagementController1, display
         this.setVisitorName(null);
         this.setVisitDate(null);
         this.setVisitorPassStatus(null);
+        this.setComplaintId(null);
+        this.setComplaintDetail(null);
+        this.setComplaintReply(null);
     }
 
     @Override
@@ -574,6 +609,14 @@ public class resident extends User implements dataManagementController1, display
                 this.setVisitDate(allData.get(dataLine).get(2));
                 this.setUserId(allData.get(dataLine).get(3));
                 this.setVisitorPassStatus(allData.get(dataLine).get(4));
+                this.status = true;
+                
+            }else if(type.equals("complaint"))
+            {
+                this.setComplaintId(allData.get(dataLine).get(0));
+                this.setComplaintDetail(allData.get(dataLine).get(1));
+                this.setComplaintReply(allData.get(dataLine).get(2));
+                this.setUserId(allData.get(dataLine).get(3));
                 this.status = true;
             }
             
@@ -659,7 +702,7 @@ public class resident extends User implements dataManagementController1, display
                 } 
             }
             
-            else if(textFile.equals("VisitorPass"))
+            else if(textFile.equals("VisitorPass") || (textFile.equals("Complaint")))
             {
                 for(int j=0;j<allUsers.size();j++)
                 {
