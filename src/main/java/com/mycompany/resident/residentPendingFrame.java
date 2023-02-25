@@ -272,7 +272,7 @@ public class residentPendingFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null){
+        if(main.getPendingId()!= null){
             payToTxt1.setText(main.getPaidDesc());
             payAmountTxt1.setText(main.getPendingAmount());
             paidDateTxt1.setText(main.getPaidDate());
@@ -288,7 +288,7 @@ public class residentPendingFrame extends javax.swing.JFrame {
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null){
+        if(main.getPendingId()!= null){
             payToTxt2.setText(main.getPaidDesc());
             payAmountTxt2.setText(main.getPendingAmount());
             paidDateTxt2.setText(main.getPaidDate());

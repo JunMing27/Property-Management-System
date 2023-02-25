@@ -25,6 +25,7 @@ import java.util.logging.Logger;
  */
 public class pay implements displayController1, dataManagementController1{
 
+    private String paymentId;
     private String payDesc;
     private String payAmount;
     private String dueDate;
@@ -70,6 +71,14 @@ public class pay implements displayController1, dataManagementController1{
     public void setUserId(String userId) {
         this.userId = userId;
     }
+
+    public String getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
+    }
     
     
     
@@ -85,7 +94,7 @@ public class pay implements displayController1, dataManagementController1{
         this.setPayDesc(null);
         this.setPayAmount(null);
         this.setDueDate(null);
-        this.setUserId(null);
+        this.setPaymentId(null);
     }
 
     @Override

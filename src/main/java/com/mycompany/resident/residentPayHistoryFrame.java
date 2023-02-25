@@ -19,6 +19,7 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
+        noDataLabel.setVisible(false);
         createTable();
     }
 
@@ -36,6 +37,7 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
         topLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         payHistoryTable = new javax.swing.JTable();
+        noDataLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +70,11 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(payHistoryTable);
 
+        noDataLabel.setBackground(new java.awt.Color(233, 233, 233));
+        noDataLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        noDataLabel.setForeground(new java.awt.Color(0, 0, 0));
+        noDataLabel.setText("No Data");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -79,7 +86,10 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(168, 168, 168)
-                        .addComponent(topLabel)))
+                        .addComponent(topLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(noDataLabel)))
                 .addContainerGap(228, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -94,7 +104,9 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(483, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(noDataLabel)
+                .addContainerGap(446, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(167, Short.MAX_VALUE)
@@ -127,21 +139,23 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
         payHistory main = new payHistory();
         main.setUserId(idGet);
         main.displayDataViewOwn(0, "", "payHistory", "PayHistory");
-        int totalRow = main.getTotalLine();
-        
-        String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};
-        DefaultTableModel model = (DefaultTableModel) payHistoryTable.getModel();
-        model.setColumnIdentifiers(tableHeader);
-        for(int i=0; i<totalRow; i++)
+        if(main.getPayHistoryId() != null)
         {
-            main.displayDataViewOwn(i, "", "payHistory", "PayHistory");
-            String[] dataRow = {main.getPayDescription(), main.getPaidAmount(), main.getPaidDate()};
-            model.addRow(dataRow);
+            int totalRow = main.getTotalLine();
+
+            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date"};
+            DefaultTableModel model = (DefaultTableModel) payHistoryTable.getModel();
+            model.setColumnIdentifiers(tableHeader);
+            for(int i=0; i<totalRow; i++)
+            {
+                main.displayDataViewOwn(i, "", "payHistory", "PayHistory");
+                String[] dataRow = {main.getPayDescription(), main.getPaidAmount(), main.getPaidDate()};
+                model.addRow(dataRow);
+            }
+        }else{
+           noDataLabel.setVisible(true);
         }
 
-        
-            
-         
     }
     
     
@@ -184,6 +198,7 @@ public class residentPayHistoryFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel noDataLabel;
     private javax.swing.JTable payHistoryTable;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables

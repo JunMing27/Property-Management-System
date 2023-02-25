@@ -4,13 +4,6 @@
  */
 package com.mycompany.resident;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,6 +19,7 @@ public class residentReceiptFrame extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
+        noDataLabel.setVisible(false);
         createTable();
     }
 
@@ -43,6 +37,7 @@ public class residentReceiptFrame extends javax.swing.JFrame {
         topLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         receiptTable = new javax.swing.JTable();
+        noDataLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +70,12 @@ public class residentReceiptFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(receiptTable);
 
+        noDataLabel.setBackground(new java.awt.Color(233, 233, 233));
+        noDataLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        noDataLabel.setForeground(new java.awt.Color(0, 0, 0));
+        noDataLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        noDataLabel.setText("No Data");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -86,8 +87,11 @@ public class residentReceiptFrame extends javax.swing.JFrame {
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(209, 209, 209)
-                        .addComponent(topLabel)))
-                .addContainerGap(287, Short.MAX_VALUE))
+                        .addComponent(topLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(noDataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(262, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(85, Short.MAX_VALUE)
@@ -101,7 +105,9 @@ public class residentReceiptFrame extends javax.swing.JFrame {
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(471, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noDataLabel)
+                .addContainerGap(440, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(167, Short.MAX_VALUE)
@@ -134,17 +140,22 @@ public class residentReceiptFrame extends javax.swing.JFrame {
         receipt main = new receipt();
         main.setUserId(idGet);
         main.displayDataViewOwn(0, "", "receipt", "ReceiptContent");
-        int totalRow = main.getTotalLine(); 
-        
-        String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date", "Issued Date"};
-        DefaultTableModel model = (DefaultTableModel) receiptTable.getModel();
-        model.setColumnIdentifiers(tableHeader);
-                
-        for(int i=0; i<totalRow ; i++)
+        if(main.getReceiptId() != null)
         {
-            main.displayDataViewOwn(i, "", "receipt", "ReceiptContent");
-            String[] dataRow = {main.getPaymentDesc(), main.getPaidAmount(), main.getPaidDate(), main.getIssuedDate()};
-            model.addRow(dataRow);
+            int totalRow = main.getTotalLine(); 
+
+            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date", "Issued Date"};
+            DefaultTableModel model = (DefaultTableModel) receiptTable.getModel();
+            model.setColumnIdentifiers(tableHeader);
+
+            for(int i=0; i<totalRow ; i++)
+            {
+                main.displayDataViewOwn(i, "", "receipt", "ReceiptContent");
+                String[] dataRow = {main.getPaymentDesc(), main.getPaidAmount(), main.getPaidDate(), main.getIssuedDate()};
+                model.addRow(dataRow);
+            }
+        }else{
+            noDataLabel.setVisible(true);
         }
             
             
@@ -190,6 +201,7 @@ public class residentReceiptFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel noDataLabel;
     private javax.swing.JTable receiptTable;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables

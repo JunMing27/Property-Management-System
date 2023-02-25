@@ -484,7 +484,7 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null)
+        if(main.getFacBookingId() != null)
         {
             facilityIdTxt1.setText(main.getFacilityId());
             facilityNameTxt1.setText(main.getFacilityName());
@@ -508,7 +508,7 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         
-        if(main.getUserId() != null)
+        if(main.getFacBookingId() != null)
         {
             facilityIdTxt2.setText(main.getFacilityId());
             facilityNameTxt2.setText(main.getFacilityName());

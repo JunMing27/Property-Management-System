@@ -115,7 +115,6 @@ public class invoice implements displayController1{
         this.setIssuedDate(null);
         this.setPaymentDesc(null);
         this.setTotalAmount(null);
-        this.setUserId(null);
         this.setUserName(null);
     }
 

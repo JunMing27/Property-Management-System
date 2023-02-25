@@ -109,7 +109,6 @@ public class statement implements displayController1{
 
     @Override
     public void setDataNull() {
-        this.setUserId(null);
         this.setPaidAmount(null);
         this.setPaidDate(null);
         this.setPaymentDesc(null);

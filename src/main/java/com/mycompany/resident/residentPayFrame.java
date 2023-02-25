@@ -353,7 +353,7 @@ public class residentPayFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null){
+        if(main.getPaymentId()!= null){
             payToTxt1.setText(main.getPayDesc());
             payAmountTxt1.setText(main.getPayAmount());
             dueDateTxt1.setText(main.getDueDate());
@@ -370,7 +370,7 @@ public class residentPayFrame extends javax.swing.JFrame {
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null){
+        if(main.getPaymentId()!= null){
             payToTxt2.setText(main.getPayDesc());
             payAmountTxt2.setText(main.getPayAmount());
             dueDateTxt2.setText(main.getDueDate());

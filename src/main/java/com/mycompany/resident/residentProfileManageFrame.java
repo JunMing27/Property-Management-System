@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author user
+ * @author hoiyi
  */
 public class residentProfileManageFrame extends javax.swing.JFrame {
 

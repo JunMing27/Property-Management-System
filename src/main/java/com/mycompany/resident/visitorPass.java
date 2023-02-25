@@ -89,7 +89,6 @@ public class visitorPass implements displayController1, dataManagementController
     @Override
     public void setDataNull() {
         this.setVisitorPassId(null);
-        this.setUserId(null);
         this.setVisitDate(null);
         this.setVisitorName(null);
         this.setVisitorPassStatus(null);

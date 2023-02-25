@@ -23,6 +23,7 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
         yearGet = year;
         labelGet = label;
         topLabel.setText(label);
+        noDataLabel.setVisible(false);
         createTable();
     }
 
@@ -41,6 +42,7 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         statementTable = new javax.swing.JTable();
         nameLabel = new javax.swing.JLabel();
+        noDataLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,6 +80,11 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
         nameLabel.setForeground(new java.awt.Color(0, 0, 0));
         nameLabel.setText("NAME");
 
+        noDataLabel.setBackground(new java.awt.Color(233, 233, 233));
+        noDataLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        noDataLabel.setForeground(new java.awt.Color(0, 0, 0));
+        noDataLabel.setText("No Data");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,7 +99,10 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addComponent(noDataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -100,11 +110,13 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(noDataLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(nameLabel)
                 .addGap(18, 18, 18)
+                .addComponent(nameLabel)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -135,18 +147,23 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
         main.setUserId(idGet);
         main.setMonthYear(monthGet+"-"+yearGet);
         main.displayDataViewOwn(0, "", "statementContent", "StatementContent");
-        int totalRow = main.getTotalLine();
-        
-        String[] tableHeader = {"Pay Description", "Paid Amount", "Pay Date"};
-        DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
-        model.setColumnIdentifiers(tableHeader);
-            
-        for(int i=0; i<totalRow ; i++)
+        if(main.getStatementId() != null)
         {
-            main.displayDataViewOwn(i, "", "statementContent", "StatementContent");
-            nameLabel.setText(main.getUserName());
-            String[] dataRow = {main.getPaymentDesc(), main.getPaidAmount(), main.getPaidDate()};
-            model.addRow(dataRow);
+            int totalRow = main.getTotalLine();
+
+            String[] tableHeader = {"Pay Description", "Paid Amount", "Pay Date"};
+            DefaultTableModel model = (DefaultTableModel) statementTable.getModel();
+            model.setColumnIdentifiers(tableHeader);
+
+            for(int i=0; i<totalRow ; i++)
+            {
+                main.displayDataViewOwn(i, "", "statementContent", "StatementContent");
+                nameLabel.setText(main.getUserName());
+                String[] dataRow = {main.getPaymentDesc(), main.getPaidAmount(), main.getPaidDate()};
+                model.addRow(dataRow);
+            }
+        }else{
+            noDataLabel.setVisible(true);
         }
             
     }
@@ -193,6 +210,7 @@ public class residentStatementTableFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel noDataLabel;
     private javax.swing.JTable statementTable;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables

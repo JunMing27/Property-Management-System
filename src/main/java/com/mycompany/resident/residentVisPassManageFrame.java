@@ -446,7 +446,6 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
     
     private void displayData(){
         visitorPass main = new visitorPass();
-        idGet = "R1";
         main.setUserId(idGet);
         setPagination();
         main.displayDataViewOwn(pageLine, "", "visitorPass", "VisitorPass");
@@ -454,7 +453,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null){
+        if(main.getVisitorPassId()!= null){
             idTxt1.setText(main.getVisitorPassId());
             nameTxt1.setText(main.getVisitorName());
             statusText1.setText(main.getVisitorPassStatus());
@@ -471,7 +470,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null){
+        if(main.getVisitorPassId()!= null){
             idTxt2.setText(main.getVisitorPassId());
             nameTxt2.setText(main.getVisitorName());
             statusText2.setText(main.getVisitorPassStatus());

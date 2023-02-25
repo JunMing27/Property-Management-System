@@ -82,7 +82,6 @@ public class pendingFee implements displayController1{
 
     @Override
     public void setDataNull() {
-        this.setUserId(null);
         this.setPaidDate(null);
         this.setPaidDesc(null);
         this.setPendingAmount(null);

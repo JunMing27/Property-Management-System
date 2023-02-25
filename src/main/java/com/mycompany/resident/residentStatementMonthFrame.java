@@ -219,8 +219,6 @@ public class residentStatementMonthFrame extends javax.swing.JFrame {
             String yearPassed = labelPassed.substring(labelPassed.lastIndexOf(" ")+1);
             month = month.substring(month.lastIndexOf(" ") +1);
             String monthPassed = main.monthNumber(month);
-            System.out.println("month "+monthPassed);
-            System.out.println("year "+yearPassed);
             this.dispose();
             residentStatementTableFrame table = new residentStatementTableFrame(idGet, monthPassed, yearPassed, labelPassed);
             table.setVisible(true);
@@ -323,7 +321,7 @@ public class residentStatementMonthFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null)
+        if(main.getStatementId()!= null)
         {
             extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
@@ -341,7 +339,7 @@ public class residentStatementMonthFrame extends javax.swing.JFrame {
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null)
+        if(main.getStatementId()!= null)
         {
             extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
@@ -358,7 +356,7 @@ public class residentStatementMonthFrame extends javax.swing.JFrame {
         if(boo3==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null)
+        if(main.getStatementId() != null)
         {
             extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
@@ -375,7 +373,7 @@ public class residentStatementMonthFrame extends javax.swing.JFrame {
         if(boo4==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null)
+        if(main.getStatementId() != null)
         {
             extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);
@@ -392,7 +390,7 @@ public class residentStatementMonthFrame extends javax.swing.JFrame {
         if(boo5==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null)
+        if(main.getStatementId() != null)
         {
             extractMonth = main.getPaidDate();
             extractYear = extractMonth.substring(extractMonth.lastIndexOf("-")+1);

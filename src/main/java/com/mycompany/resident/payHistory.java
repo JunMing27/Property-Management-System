@@ -87,7 +87,6 @@ public class payHistory implements displayController1{
         this.setPaidAmount(null);
         this.setPaidDate(null);
         this.setPayDescription(null);
-        this.setUserId(null);
     }
 
     @Override
@@ -111,13 +110,17 @@ public class payHistory implements displayController1{
                 i=i+1;
             }
         }
-        if(type.equals("payHistory"))
-        {
-            this.setPayHistoryId(allData.get(dataLine).get(0));
-            this.setUserId(allData.get(dataLine).get(1));
-            this.setPayDescription(allData.get(dataLine).get(2));
-            this.setPaidAmount(allData.get(dataLine).get(3));
-            this.setPaidDate(allData.get(dataLine).get(4));
+        try{
+            if(type.equals("payHistory"))
+            {
+                this.setPayHistoryId(allData.get(dataLine).get(0));
+                this.setUserId(allData.get(dataLine).get(1));
+                this.setPayDescription(allData.get(dataLine).get(2));
+                this.setPaidAmount(allData.get(dataLine).get(3));
+                this.setPaidDate(allData.get(dataLine).get(4));
+            }
+        }catch(Exception e){
+            setDataNull();
         }
     }
     

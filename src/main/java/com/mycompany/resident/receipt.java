@@ -94,7 +94,6 @@ public class receipt implements displayController1{
         this.setIssuedDate(null);
         this.setPaymentDesc(null);
         this.setReceiptId(null);
-        this.setUserId(null);
         this.setPaidAmount(null);
         this.setPaidDate(null);
     }

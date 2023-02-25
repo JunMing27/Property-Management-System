@@ -417,7 +417,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null){
+        if(main.getComplaintId()!= null){
             idTxt1.setText(main.getComplaintId());
             detailTxt1.setText(main.getComplaintDetail());
             replyTxt1.setText(main.getComplaintReply());
@@ -441,7 +441,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         if(boo2==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null){
+        if(main.getComplaintId()!= null){
             idTxt2.setText(main.getComplaintId());
             detailTxt2.setText(main.getComplaintDetail());
             replyTxt2.setText(main.getComplaintReply());

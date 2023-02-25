@@ -4,6 +4,7 @@
  */
 package com.mycompany.resident;
 
+import com.mycompany.adminExecutive.complaint;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -253,7 +254,7 @@ public class residentComplaintAddEditFrame extends javax.swing.JFrame {
     
     private void emptyData()
     {
-        resident main = new resident();
+        complaint main = new complaint();
         main.setUserId(idGet);
         int nextCId = main.getNextId("Complaint");
         idTxt1.setText("C"+nextCId);

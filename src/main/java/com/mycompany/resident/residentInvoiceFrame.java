@@ -274,7 +274,7 @@ public class residentInvoiceFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPageBtn.setEnabled(false);
         }
-        if(main.getUserId() != null){
+        if(main.getInvoiceId()!= null){
             tenantNameTxt.setText(main.getUserName());
             dateIssuedTxt.setText(main.getIssuedDate());
             dueDateTxt.setText(main.getDueDate());
