@@ -182,44 +182,44 @@ public class vendorPaymentMenuFrame extends javax.swing.JFrame {
 
     private void payBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payBtnActionPerformed
         this.dispose();
-        residentPayFrame residentPay = new residentPayFrame(idGet);
-        residentPay.setVisible(true);
+        vendorPaymentFrame payment = new vendorPaymentFrame(idGet);
+        payment.setVisible(true);
     }//GEN-LAST:event_payBtnActionPerformed
 
     private void payHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payHistoryBtnActionPerformed
         this.dispose();
-        residentPayHistoryFrame residentPaymentHistory = new residentPayHistoryFrame(idGet);
-        residentPaymentHistory.setVisible(true);
+        vendorPayHistoryFrame paymentHistory = new vendorPayHistoryFrame(idGet);
+        paymentHistory.setVisible(true);
     }//GEN-LAST:event_payHistoryBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         this.dispose();
-        residentMenuFrame residentOption = new residentMenuFrame(idGet);
-        residentOption.setVisible(true);
+        vendorMenuFrame option = new vendorMenuFrame(idGet);
+        option.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void statementBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statementBtnActionPerformed
         this.dispose();
-        residentStatementMonthFrame residentStatement = new residentStatementMonthFrame(idGet);
-        residentStatement.setVisible(true);
+        vendorStatementMonthFrame statement = new vendorStatementMonthFrame(idGet);
+        statement.setVisible(true);
     }//GEN-LAST:event_statementBtnActionPerformed
 
     private void invoiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoiceBtnActionPerformed
         this.dispose();
-        residentInvoiceFrame residentInvoice = new residentInvoiceFrame(idGet);
-        residentInvoice.setVisible(true);
+        vendorInvoiceFrame invoice = new vendorInvoiceFrame(idGet);
+        invoice.setVisible(true);
     }//GEN-LAST:event_invoiceBtnActionPerformed
 
     private void receiptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receiptBtnActionPerformed
         this.dispose();
-        residentReceiptFrame residentReceipt = new residentReceiptFrame(idGet);
-        residentReceipt.setVisible(true);
+        vendorReceiptFrame receipt = new vendorReceiptFrame(idGet);
+        receipt.setVisible(true);
     }//GEN-LAST:event_receiptBtnActionPerformed
 
     private void pendingFeeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingFeeBtnActionPerformed
         this.dispose();
-        residentPendingFrame residentPending = new residentPendingFrame(idGet);
-        residentPending.setVisible(true);
+        vendorPendingFrame pending = new vendorPendingFrame(idGet);
+        pending.setVisible(true);
     }//GEN-LAST:event_pendingFeeBtnActionPerformed
 
     /**
@@ -252,7 +252,7 @@ public class vendorPaymentMenuFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vendorPaymentMenuFrame().setVisible(true);
+                new vendorPaymentMenuFrame(idGet).setVisible(true);
             }
         });
     }
