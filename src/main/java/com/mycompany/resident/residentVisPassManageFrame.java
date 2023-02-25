@@ -358,13 +358,13 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
-        ArrayList<String> dataList = new ArrayList<String>();
+        ArrayList<String> dataList = new ArrayList<>();
         dataList.add(idTxt1.getText());
         dataList.add(nameTxt1.getText());
         dataList.add(dateTxt1.getText());
         dataList.add(statusText1.getText());
         this.dispose();
-        VisitorPassAddEdit edit = new VisitorPassAddEdit("edit", dataList );
+        residentVisPassAddEditFrame edit = new residentVisPassAddEditFrame(idGet, "edit", dataList );
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn1ActionPerformed
 
@@ -380,13 +380,13 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_nextPageBtnActionPerformed
 
     private void editBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn2ActionPerformed
-        ArrayList<String> dataList = new ArrayList<String>();
+        ArrayList<String> dataList = new ArrayList<>();
         dataList.add(idTxt2.getText());
         dataList.add(nameTxt2.getText());
         dataList.add(dateTxt2.getText());
         dataList.add(statusText2.getText());
         this.dispose();
-        VisitorPassAddEdit edit = new VisitorPassAddEdit("edit", dataList );
+        residentVisPassAddEditFrame edit = new residentVisPassAddEditFrame(idGet, "edit", dataList );
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
@@ -395,7 +395,12 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
             "INFORMATION", JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
-            removeSelected("upper");
+            ArrayList<String> dataList = new ArrayList<>();
+            dataList.add(idGet);
+            dataList.add(idTxt1.getText());
+            resident main = new resident();
+            main.setUserId(idGet);
+            main.removeFromFile("VisitorPass", dataList);
             this.dispose();
             residentVisPassManageFrame visitorPassManage = new residentVisPassManageFrame(idGet);
             visitorPassManage.setVisible(true);
@@ -407,7 +412,12 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
             "INFORMATION", JOptionPane.YES_NO_OPTION);
         if(result == JOptionPane.YES_OPTION)
         {
-            removeSelected("bottom");
+            ArrayList<String> dataList = new ArrayList<>();
+            dataList.add(idGet);
+            dataList.add(idTxt2.getText());
+            resident main = new resident();
+            main.setUserId(idGet);
+            main.removeFromFile("VisitorPass", dataList);
             this.dispose();
             residentVisPassManageFrame visitorPassManage = new residentVisPassManageFrame(idGet);
             visitorPassManage.setVisible(true);
@@ -417,7 +427,7 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         ArrayList<String> dataList = new ArrayList<>();
         this.dispose();
-        VisitorPassAddEdit add = new VisitorPassAddEdit("add", dataList );
+        residentVisPassAddEditFrame add = new residentVisPassAddEditFrame(idGet, "add", dataList );
         add.setVisible(true);
     }//GEN-LAST:event_addBtnActionPerformed
 

@@ -18,7 +18,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.FileNameMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -27,7 +26,6 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.filechooser.FileFilter;
 
 /**
@@ -610,7 +608,7 @@ public class resident extends User implements dataManagementController1, display
         if(result == JFileChooser.APPROVE_OPTION)
         {
             File selectedImagePath = fileChooser.getSelectedFile();
-            String selectedImageString = selectedImagePath.toString();
+            String selectedImage = selectedImagePath.toString();
             
             BufferedImage bufferedImage = null;
             try {
@@ -623,7 +621,7 @@ public class resident extends User implements dataManagementController1, display
             ImageIcon profileIcon = new ImageIcon(profileImage);
             this.setSelectedImageIcon(profileIcon);
             
-            String image = selectedImageString.substring(selectedImageString.lastIndexOf("/") + 1);
+            String image = selectedImage.substring(selectedImage.lastIndexOf("/") + 1);
             this.setSelectedImageString(image);
         }
     }
@@ -633,7 +631,7 @@ public class resident extends User implements dataManagementController1, display
         try {
             String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
             ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            if(textFile.equals("ResidentProfile") || textFile.equals("vendorProfile") || textFile.equals("loginCredential"))
+            if(textFile.equals("ResidentProfile") || textFile.equals("loginCredential"))
             {
                 for(int j=0;j<allUsers.size();j++)
                 {
@@ -645,7 +643,7 @@ public class resident extends User implements dataManagementController1, display
                 }
             }
             
-            if(textFile.equals("Payment"))
+            else if(textFile.equals("Payment"))
             {
                 for(int j=0;j<allUsers.size();j++)
                 {
@@ -653,6 +651,19 @@ public class resident extends User implements dataManagementController1, display
                             && allUsers.get(j).get(2).equals(dataList.get(1))
                             && allUsers.get(j).get(3).equals(dataList.get(2))
                             && allUsers.get(j).get(4).equals(dataList.get(3)))
+                    {
+                        allUsers.remove(j);
+                        break;
+                    }
+                } 
+            }
+            
+            else if(textFile.equals("VisitorPass"))
+            {
+                for(int j=0;j<allUsers.size();j++)
+                {
+                    if(allUsers.get(j).get(3).equals(dataList.get(0))
+                            && allUsers.get(j).get(0).equals(dataList.get(1)))
                     {
                         allUsers.remove(j);
                         break;
@@ -700,20 +711,28 @@ public class resident extends User implements dataManagementController1, display
                         +dataList.get(5)+","
                         +dataList.get(6)+"\n");
             }
-            if(textFile.equals("loginCredential"))
+            else if(textFile.equals("loginCredential"))
             {
                 bw.write(dataList.get(0)+","
                         +dataList.get(1)+","
                         +dataList.get(2)+","
                         +dataList.get(3)+"\n");
             }
-            if(textFile.equals("Pending"))
+            else if(textFile.equals("Pending"))
             {
                 bw.write(dataList.get(4)+","
                         +dataList.get(0)+","
                         +dataList.get(1)+","
                         +dataList.get(2)+","
                         +dataList.get(3)+"\n");
+            }
+            else if(textFile.equals("VisitorPass"))
+            {
+                bw.write(dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(0)+","
+                        +dataList.get(4)+"\n");
             }
             
             bw.close();
@@ -751,6 +770,18 @@ public class resident extends User implements dataManagementController1, display
                     for(int i=0; i<dataRow.length; i++)
                     {
                         id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("PE")+2));
+                    }
+                    line = br.readLine();
+                }
+            }
+            else if(textFile.equals("VisitorPass"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VP")+2));
                     }
                     line = br.readLine();
                 }
