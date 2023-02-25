@@ -266,7 +266,7 @@ public class residentInvoiceFrame extends javax.swing.JFrame {
     
     private void displayData()
     {
-        resident main = new resident();
+        invoice main = new invoice();
         main.setUserId(idGet);
         setPagination();
         main.displayDataViewOwn(pageLine, "", "invoice", "InvoiceContent");
@@ -276,11 +276,11 @@ public class residentInvoiceFrame extends javax.swing.JFrame {
         }
         if(main.getUserId() != null){
             tenantNameTxt.setText(main.getUserName());
-            dateIssuedTxt.setText(main.getDateIssued());
+            dateIssuedTxt.setText(main.getIssuedDate());
             dueDateTxt.setText(main.getDueDate());
             dueAmountTxt.setText(main.getDueAmount());
-            totalAmountTxt.setText(main.getPayAmount());
-            descTxt.setText(main.getPayDesc());
+            totalAmountTxt.setText(main.getTotalAmount());
+            descTxt.setText(main.getPaymentDesc());
         }else{
             tenantNameTxt.setText("no data");
             dateIssuedTxt.setText("no data");

@@ -582,17 +582,16 @@ public class resident extends User implements dataManagementController1, display
 //                this.setUserId(allData.get(dataLine).get(1));
 //                this.setDate(allData.get(dataLine).get(3));
 //                this.status = true;
-                
             }else if(type.equals("invoice"))
             {
-                this.setUserId(allData.get(dataLine).get(1));
-                this.setUserName(allData.get(dataLine).get(2));
-                this.setDateIssued(allData.get(dataLine).get(3));
-                this.setDueDate(allData.get(dataLine).get(4));
-                this.setDueAmount(allData.get(dataLine).get(5));
-                this.setPayAmount(allData.get(dataLine).get(6));
-                this.setPayDesc(allData.get(dataLine).get(7));
-                this.status = true;
+//                this.setUserId(allData.get(dataLine).get(1));
+//                this.setUserName(allData.get(dataLine).get(2));
+//                this.setDateIssued(allData.get(dataLine).get(3));
+//                this.setDueDate(allData.get(dataLine).get(4));
+//                this.setDueAmount(allData.get(dataLine).get(5));
+//                this.setPayAmount(allData.get(dataLine).get(6));
+//                this.setPayDesc(allData.get(dataLine).get(7));
+//                this.status = true;
                 
             }else if(type.equals("pending"))
             {
