@@ -15,31 +15,40 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author user
+ * @author hoiyi
  */
-public class payHistory implements displayController1{
+public class receipt implements displayController1{
     
-    private String payHistoryId;
-    private String payDescription;
+    private String receiptId;
+    private String userId;
+    private String paymentDesc;
     private String paidAmount;
     private String paidDate;
-    private String UserId;
+    private String issuedDate;
     private int totalLine;
 
-    public String getPayHistoryId() {
-        return payHistoryId;
+    public String getReceiptId() {
+        return receiptId;
     }
 
-    public void setPayHistoryId(String payHistoryId) {
-        this.payHistoryId = payHistoryId;
+    public void setReceiptId(String receiptId) {
+        this.receiptId = receiptId;
     }
 
-    public String getPayDescription() {
-        return payDescription;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setPayDescription(String payDescription) {
-        this.payDescription = payDescription;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getPaymentDesc() {
+        return paymentDesc;
+    }
+
+    public void setPaymentDesc(String paymentDesc) {
+        this.paymentDesc = paymentDesc;
     }
 
     public String getPaidAmount() {
@@ -58,12 +67,12 @@ public class payHistory implements displayController1{
         this.paidDate = paidDate;
     }
 
-    public String getUserId() {
-        return UserId;
+    public String getIssuedDate() {
+        return issuedDate;
     }
 
-    public void setUserId(String UserId) {
-        this.UserId = UserId;
+    public void setIssuedDate(String issuedDate) {
+        this.issuedDate = issuedDate;
     }
 
     public int getTotalLine() {
@@ -73,7 +82,6 @@ public class payHistory implements displayController1{
     public void setTotalLine(int totalLine) {
         this.totalLine = totalLine;
     }
-
     
     
     @Override
@@ -83,11 +91,12 @@ public class payHistory implements displayController1{
 
     @Override
     public void setDataNull() {
-        this.setPayHistoryId(null);
+        this.setIssuedDate(null);
+        this.setPaymentDesc(null);
+        this.setReceiptId(null);
+        this.setUserId(null);
         this.setPaidAmount(null);
         this.setPaidDate(null);
-        this.setPayDescription(null);
-        this.setUserId(null);
     }
 
     @Override
@@ -111,17 +120,22 @@ public class payHistory implements displayController1{
                 i=i+1;
             }
         }
-        if(type.equals("payHistory"))
-        {
-            this.setPayHistoryId(allData.get(dataLine).get(0));
-            this.setUserId(allData.get(dataLine).get(1));
-            this.setPayDescription(allData.get(dataLine).get(2));
-            this.setPaidAmount(allData.get(dataLine).get(3));
-            this.setPaidDate(allData.get(dataLine).get(4));
+        try{
+            if(type.equals("receipt"))
+            {
+                this.setReceiptId(allData.get(dataLine).get(0));
+                this.setUserId(allData.get(dataLine).get(1));
+                this.setPaymentDesc(allData.get(dataLine).get(2));
+                this.setPaidAmount(allData.get(dataLine).get(3));
+                this.setPaidDate(allData.get(dataLine).get(4));
+                this.setIssuedDate(allData.get(dataLine).get(5));
+            }
+        }catch(Exception e){
+            setDataNull();
         }
     }
     
-    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
+    private ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
         File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
         if (file.exists()) {
@@ -129,7 +143,7 @@ public class payHistory implements displayController1{
             try {
                 sc = new Scanner(file);
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(receipt.class.getName()).log(Level.SEVERE, null, ex);
             }
             String oneUserInfo; 
             String[] itemArray;
@@ -141,14 +155,14 @@ public class payHistory implements displayController1{
                 itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
                 allUserInfo.add(itemArrayList);
             }
-        }
+        } 
         
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
         int totalRow = 0;
         
-        if(textFile.contains("Payment"))
+        if(textFile.contains("ReceiptContent"))
         {
             for (p=0,q=0; p<allUserInfo.size(); p++)
             {
@@ -163,14 +177,9 @@ public class payHistory implements displayController1{
                     }
                 }
             }
-        
-            setTotalLine(totalRow);
         }
-        
-       
+        setTotalLine(totalRow);
         
         return onlyUserInfo;
     }
-    
-    
 }

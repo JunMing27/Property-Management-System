@@ -188,7 +188,6 @@ public class invoice implements displayController1{
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
-        //for ResidentProfile.txt
         
         if(textFile.contains("InvoiceContent"))
         {

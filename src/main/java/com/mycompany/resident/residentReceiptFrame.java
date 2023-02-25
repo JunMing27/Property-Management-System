@@ -131,33 +131,23 @@ public class residentReceiptFrame extends javax.swing.JFrame {
 
     private void createTable()
     {
-        try {
-            String receiptFile = "src/main/java/com/mycompany/textFile/ReceiptContent.txt";
-            File file = new File(receiptFile);
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date", "Issued Date"};
-            DefaultTableModel model = (DefaultTableModel) receiptTable.getModel();
-            model.setColumnIdentifiers(tableHeader);
-            String line = br.readLine();
-            while(line != null )
-            {
-                String[] dataRow = line.split(",");
-                if(dataRow[1].equals(idGet))
-                {
-                    String[] onlyData = {dataRow[2],dataRow[3],dataRow[4], dataRow[5]};
-                    model.addRow(onlyData);
-                    
-                }
-                line = br.readLine();
-            }
-            br.close();
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(residentReceiptFrame.class.getName()).log(Level.SEVERE, null, ex);
+        receipt main = new receipt();
+        main.setUserId(idGet);
+        main.displayDataViewOwn(0, "", "receipt", "ReceiptContent");
+        int totalRow = main.getTotalLine(); 
         
-        } catch (IOException ex) {
-            Logger.getLogger(residentReceiptFrame.class.getName()).log(Level.SEVERE, null, ex);
+        String[] tableHeader = {"Pay Description", "Pay Amount", "Pay Date", "Issued Date"};
+        DefaultTableModel model = (DefaultTableModel) receiptTable.getModel();
+        model.setColumnIdentifiers(tableHeader);
+                
+        for(int i=0; i<totalRow ; i++)
+        {
+            main.displayDataViewOwn(i, "", "receipt", "ReceiptContent");
+            String[] dataRow = {main.getPaymentDesc(), main.getPaidAmount(), main.getPaidDate(), main.getIssuedDate()};
+            model.addRow(dataRow);
         }
+            
+            
         
     }
     
