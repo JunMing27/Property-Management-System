@@ -4,6 +4,7 @@
  */
 package com.mycompany.buildingManager;
 
+import com.mycompany.mavenproject1.LoginPage;
 import javax.swing.JFrame;
 
 /**
@@ -42,7 +43,7 @@ public class buildingManagerMenuFrame extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Welcome Business Manager !");
+        jLabel1.setText("Welcome Building Manager !");
 
         userManagementPage.setBackground(new java.awt.Color(255, 255, 255));
         userManagementPage.setForeground(new java.awt.Color(0, 0, 0));
@@ -151,6 +152,13 @@ public class buildingManagerMenuFrame extends javax.swing.JFrame {
 
     private void reportGeneratePageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportGeneratePageActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        buildingManagerReportMenuFrame reportMenu = new buildingManagerReportMenuFrame();
+        reportMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        reportMenu.pack();
+        reportMenu.setResizable(false);
+        reportMenu.setLocationRelativeTo(null);
+        reportMenu.setVisible(true);
     }//GEN-LAST:event_reportGeneratePageActionPerformed
 
     private void budgetPlanningPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_budgetPlanningPageActionPerformed
@@ -180,7 +188,7 @@ public class buildingManagerMenuFrame extends javax.swing.JFrame {
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
         // TODO add your handling code here:
         this.dispose();
-//        LoginPage.main(null);
+        LoginPage.main(null);
     }//GEN-LAST:event_LogoutActionPerformed
 
     /**
