@@ -9,7 +9,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -328,7 +327,7 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
     {
         resident main = new resident();
         main.setUserId(idGet);
-        main.displayDataViewOwn(0, "", "resident", "ResidentProfile");
+        main.displayDataViewOwn(0, "ResidentProfile");
         try {
             main.getCredentialData(main.getUserId());
         } catch (FileNotFoundException ex) {

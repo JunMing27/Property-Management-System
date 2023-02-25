@@ -163,8 +163,6 @@ public class resident extends User implements dataManagementController1, display
         this.selectedImageString = selectedImageString;
     }
     
-    
-    
     //add selectedImageIcon
     private ImageIcon selectedImageIcon;
     
@@ -176,163 +174,6 @@ public class resident extends User implements dataManagementController1, display
         this.selectedImageIcon = selectedImageIcon;
     }
     
-    
-    //add for pay
-    private String payDesc;
-    private String payAmount;
-    private String dueDate;
-
-    public String getPayDesc() {
-        return payDesc;
-    }
-
-    public void setPayDesc(String payDesc) {
-        this.payDesc = payDesc;
-    }
-
-
-    public String getPayAmount() {
-        return payAmount;
-    }
-
-    public void setPayAmount(String payAmount) {
-        this.payAmount = payAmount;
-    }
-
-    public String getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
-    }
-    
-    
-    //add for statement
-    private String monthYear;
-    private String date; 
-
-    public String getMonthYear() {
-        return monthYear;
-    }
-
-    public void setMonthYear(String monthYear) {
-        this.monthYear = monthYear;
-    }
-    
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    //add for invoice
-    private String dateIssued;
-    private String dueAmount;
-
-    public String getDateIssued() {
-        return dateIssued;
-    }
-
-    public void setDateIssued(String dateIssued) {
-        this.dateIssued = dateIssued;
-    }
-
-    public String getDueAmount() {
-        return dueAmount;
-    }
-
-    public void setDueAmount(String dueAmount) {
-        this.dueAmount = dueAmount;
-    }
-    
-    
-    //add paidDate
-    private String paidDate;
-
-    public String getPaidDate() {
-        return paidDate;
-    }
-
-    public void setPaidDate(String paidDate) {
-        this.paidDate = paidDate;
-    }
-    
-    
-    //add for visitor pass
-    private String visitorPassId;
-    private String visitorName;
-    private String visitDate;
-    private String visitorPassStatus;
-
-    public String getVisitorPassId() {
-        return visitorPassId;
-    }
-
-    public void setVisitorPassId(String visitorPassId) {
-        this.visitorPassId = visitorPassId;
-    }
-
-    public String getVisitorName() {
-        return visitorName;
-    }
-
-    public void setVisitorName(String visitorName) {
-        this.visitorName = visitorName;
-    }
-
-    public String getVisitDate() {
-        return visitDate;
-    }
-
-    public void setVisitDate(String visitDate) {
-        this.visitDate = visitDate;
-    }
-
-    public String getVisitorPassStatus() {
-        return visitorPassStatus;
-    }
-
-    public void setVisitorPassStatus(String visitorPassStatus) {
-        this.visitorPassStatus = visitorPassStatus;
-    }
-     
-    
-    
-    //add for complaint
-    private String complaintId;
-    private String complaintDetail;
-    private String complaintReply;
-
-    public String getComplaintId() {
-        return complaintId;
-    }
-
-    public void setComplaintId(String complaintId) {
-        this.complaintId = complaintId;
-    }
-    
-    public String getComplaintDetail() {
-        return complaintDetail;
-    }
-
-    public void setComplaintDetail(String complaintDetail) {
-        this.complaintDetail = complaintDetail;
-    }
-
-    public String getComplaintReply() {
-        return complaintReply;
-    }
-
-    public void setComplaintReply(String complaintReply) {
-        this.complaintReply = complaintReply;
-    }
-    
-    
-    
-   
     
     @Override
     public void deleteUserCredential(String userID) {
@@ -390,129 +231,34 @@ public class resident extends User implements dataManagementController1, display
     
     @Override
     public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
-        ArrayList<ArrayList<String>> allUserInfo = this.allUserDataInfo(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
-        //for ResidentProfile.txt
-        
-        if(textFile.contains("ResidentProfile"))
+        for (p=0,q=0; p<allUserInfo.size(); p++)
         {
-            for (p=0,q=0; p<allUserInfo.size(); p++)
+            if(allUserInfo.get(p).contains(this.getUserId()))
             {
-                if(allUserInfo.get(p).contains(this.getUserId()))
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(this.getUserId()))
                 {
-                    ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(0).equals(this.getUserId()))
-                    {
-                        onlyUserInfo.add(allUserInfo.get(p));
-                        q++;
-                    }
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
                 }
             }
         }
         
-        //for StatementContent.txt filter month
-        else if(textFile.contains("StatementContent"))
-        {
-//            this.setMonthYear(null);
-//            for (p=0,q=0; p<allUserInfo.size(); p++)
-//            {
-//                if(allUserInfo.get(p).contains(this.getUserId()))
-//                {
-//                    ArrayList<String> item = allUserInfo.get(p);
-//                    if(item.get(1).equals(this.getUserId()))
-//                    {
-//                        String monthYear = item.get(3);
-//                        monthYear = monthYear.substring(monthYear.indexOf("-")+1); //will be 02-2023
-//                        if(!monthYear.equals(this.getMonthYear()) )
-//                        {
-//                            this.setMonthYear(monthYear);
-//                            onlyUserInfo.add(allUserInfo.get(p));
-//                            q++;
-//                        }
-//                    }
-//                }
-//            }
-        }
-        
-        //for those [1] is userId
-        else if(textFile.contains("Payment") || textFile.contains("InvoiceContent") || textFile.contains("Pending"))
-        {
-           for (p=0,q=0; p<allUserInfo.size(); p++)
-            {
-                if(allUserInfo.get(p).contains(this.getUserId()))
-                {
-                    ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(1).equals(this.getUserId()))
-                    {
-                        onlyUserInfo.add(allUserInfo.get(p));
-                        q++;
-                    }
-                }
-            } 
-        }
-        
-        
-        //for VisitorPass.txt and Complaint.txt
-        else if(textFile.contains("VisitorPass") || (textFile.contains("Complaint")))
-        {
-            for (p=0,q=0; p<allUserInfo.size(); p++)
-            {
-                if(allUserInfo.get(p).contains(this.getUserId()))
-                {
-                    ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(3).equals(this.getUserId()))
-                    {
-                        onlyUserInfo.add(allUserInfo.get(p));
-                        q++;
-                    }
-                }
-            }
-        }
         
         return onlyUserInfo;
     }
 
     @Override
     public void displayDataViewAll(Integer dataLine, String searchTxt, String type, String fileName) {
-        fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
-        ArrayList<ArrayList<String>> allData = allUserDataInfo(fileName);
-        int i =0;
-        int fixedSize = allData.size();
-        int changedSize = allData.size();
-        if(!searchTxt.equals("")){
-            for (int x=0;x<fixedSize+1;x++) {
-                if(i ==changedSize){
-                    break;
-                }
-                
-                if(!(allData.get(i)).contains(searchTxt)){
-                    allData.remove(i);
-                    changedSize=changedSize-1;
-                    i=i-1;
-                }
-                i=i+1;
-            }
-        }
-        int newSize = allData.size();
-        try{
-            if(type.equals("resident")){
-             //no one use yet
-            }
-            
-        }catch(Exception e){
-            setDataNull();
-            this.status = false;
-        }
-        if(dataLine.equals(newSize-1)){
-            this.status = false;
-        }
+        
     }
 
     @Override
     public void setDataNull() {
-        //no matter what type, set all data null
         this.setUserId(null);
         this.setUserName(null);
         this.setUserGender(null);
@@ -520,105 +266,24 @@ public class resident extends User implements dataManagementController1, display
         this.setUserPhoneNumber(null);
         this.setUserImage(null);
         this.setUserUnit(null);
-//        this.setPayDesc(null);
-//        this.setPayAmount(null);
-//        this.setDueDate(null);
-//        this.setMonthYear(null);
-//        this.setDate(null);
-        this.setDueAmount(null);
-        this.setDateIssued(null);
-        this.setPaidDate(null);
-        this.setVisitorPassId(null);
-        this.setVisitorName(null);
-        this.setVisitDate(null);
-        this.setVisitorPassStatus(null);
-        this.setComplaintId(null);
-        this.setComplaintDetail(null);
-        this.setComplaintReply(null);
     }
 
     @Override
     public void displayDataViewOwn(Integer dataLine, String searchTxt, String type, String fileName) {
         fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
         ArrayList<ArrayList<String>> allData = onlyUserDataInfo(fileName);
-        int i =0;
-        int fixedSize = allData.size();
-        int changedSize = allData.size();
-        if(!searchTxt.equals("")){
-            for (int x=0;x<fixedSize+1;x++) {
-                if(i ==changedSize){
-                    break;
-                }
-                
-                if(!(allData.get(i)).contains(searchTxt)){
-                    allData.remove(i);
-                    changedSize=changedSize-1;
-                    i=i-1;
-                }
-                i=i+1;
-            }
-        }
+        
         int newSize = allData.size();
         try{
-            if(type.equals("resident")){
-                this.setUserId(allData.get(dataLine).get(0));
-                this.setUserName(allData.get(dataLine).get(1));
-                this.setUserGender(allData.get(dataLine).get(2));
-                this.setUserAge(allData.get(dataLine).get(3));
-                this.setUserPhoneNumber(allData.get(dataLine).get(4));
-                this.setUserUnit(allData.get(dataLine).get(5));
-                this.setUserImage(allData.get(dataLine).get(6));
             
-            }else if(type.equals("pay"))
-            {
-//                this.setUserId(allData.get(dataLine).get(1));
-//                this.setPayDesc(allData.get(dataLine).get(2));
-//                this.setPayAmount(allData.get(dataLine).get(3));
-//                this.setDueDate(allData.get(dataLine).get(4));
-//                this.status = true;
-                
-            }else if(type.equals("statement"))
-            {
-//                this.setUserId(allData.get(dataLine).get(1));
-//                this.setDate(allData.get(dataLine).get(3));
-//                this.status = true;
-            }else if(type.equals("invoice"))
-            {
-//                this.setUserId(allData.get(dataLine).get(1));
-//                this.setUserName(allData.get(dataLine).get(2));
-//                this.setDateIssued(allData.get(dataLine).get(3));
-//                this.setDueDate(allData.get(dataLine).get(4));
-//                this.setDueAmount(allData.get(dataLine).get(5));
-//                this.setPayAmount(allData.get(dataLine).get(6));
-//                this.setPayDesc(allData.get(dataLine).get(7));
-//                this.status = true;
-                
-            }else if(type.equals("pending"))
-            {
-//                this.setUserId(allData.get(dataLine).get(1));
-//                this.setPayDesc(allData.get(dataLine).get(2));
-//                this.setPayAmount(allData.get(dataLine).get(3));
-//                this.setPaidDate(allData.get(dataLine).get(4));
-//                this.status = true;
-                
-            }else if(type.equals("visitorPass"))
-            {
-                this.setVisitorPassId(allData.get(dataLine).get(0));
-                this.setVisitorName(allData.get(dataLine).get(1));
-                this.setVisitDate(allData.get(dataLine).get(2));
-                this.setUserId(allData.get(dataLine).get(3));
-                this.setVisitorPassStatus(allData.get(dataLine).get(4));
-                this.status = true;
-                
-            }else if(type.equals("complaint"))
-            {
-                this.setComplaintId(allData.get(dataLine).get(0));
-                this.setComplaintDetail(allData.get(dataLine).get(1));
-                this.setComplaintReply(allData.get(dataLine).get(2));
-                this.setUserId(allData.get(dataLine).get(3));
-                this.status = true;
-            }
-            
+            this.setUserId(allData.get(dataLine).get(0));
+            this.setUserName(allData.get(dataLine).get(1));
+            this.setUserGender(allData.get(dataLine).get(2));
+            this.setUserAge(allData.get(dataLine).get(3));
+            this.setUserPhoneNumber(allData.get(dataLine).get(4));
+            this.setUserUnit(allData.get(dataLine).get(5));
+            this.setUserImage(allData.get(dataLine).get(6));
+                        
         }catch(Exception e){
             setDataNull();
             this.status = false;
@@ -673,45 +338,17 @@ public class resident extends User implements dataManagementController1, display
         try {
             String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
             ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            if(textFile.equals("ResidentProfile") || textFile.equals("loginCredential"))
+            
+            for(int j=0;j<allUsers.size();j++)
             {
-                for(int j=0;j<allUsers.size();j++)
+                if(allUsers.get(j).get(0).equals(dataList.get(0)))
                 {
-                    if(allUsers.get(j).get(0).equals(dataList.get(0)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
+                    allUsers.remove(j);
+                    break;
                 }
             }
             
-            else if(textFile.equals("Payment"))
-            {
-//                for(int j=0;j<allUsers.size();j++)
-//                {
-//                    if(allUsers.get(j).get(1).equals(dataList.get(0))
-//                            && allUsers.get(j).get(2).equals(dataList.get(1))
-//                            && allUsers.get(j).get(3).equals(dataList.get(2))
-//                            && allUsers.get(j).get(4).equals(dataList.get(3)))
-//                    {
-//                        allUsers.remove(j);
-//                        break;
-//                    }
-//                } 
-            }
             
-            else if(textFile.equals("VisitorPass") || (textFile.equals("Complaint")))
-            {
-                for(int j=0;j<allUsers.size();j++)
-                {
-                    if(allUsers.get(j).get(3).equals(dataList.get(0))
-                            && allUsers.get(j).get(0).equals(dataList.get(1)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
-                } 
-            }
 
             File file= new File(filePath);
             FileWriter fw = new FileWriter(file);
@@ -743,46 +380,14 @@ public class resident extends User implements dataManagementController1, display
             File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
-            if(textFile.equals("ResidentProfile"))
-            {
-                bw.write(dataList.get(0)+","
-                        +dataList.get(1)+","
-                        +dataList.get(2)+","
-                        +dataList.get(3)+","
-                        +dataList.get(4)+","
-                        +dataList.get(5)+","
-                        +dataList.get(6)+"\n");
-            }
-            else if(textFile.equals("loginCredential"))
-            {
-                bw.write(dataList.get(0)+","
-                        +dataList.get(1)+","
-                        +dataList.get(2)+","
-                        +dataList.get(3)+"\n");
-            }
-            else if(textFile.equals("Pending"))
-            {
-                bw.write(dataList.get(4)+","
-                        +dataList.get(0)+","
-                        +dataList.get(1)+","
-                        +dataList.get(2)+","
-                        +dataList.get(3)+"\n");
-            }
-            else if(textFile.equals("VisitorPass"))
-            {
-                bw.write(dataList.get(1)+","
-                        +dataList.get(2)+","
-                        +dataList.get(3)+","
-                        +dataList.get(0)+","
-                        +dataList.get(4)+"\n");
-            }
-            else if(textFile.equals("Complaint"))
-            {
-                bw.write(dataList.get(1)+","
-                        +dataList.get(2)+","
-                        +dataList.get(3)+","
-                        +dataList.get(0)+"\n");
-            }
+            bw.write(dataList.get(0)+","
+                    +dataList.get(1)+","
+                    +dataList.get(2)+","
+                    +dataList.get(3)+","
+                    +dataList.get(4)+","
+                    +dataList.get(5)+","
+                    +dataList.get(6)+"\n");
+            
             
             bw.close();
         } catch (IOException ex) {
@@ -793,56 +398,7 @@ public class resident extends User implements dataManagementController1, display
 
     @Override
     public int getNextId(String textFile) {
-        int id = 0;
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            String line = br.readLine();
-            if(textFile.equals("Complaint"))
-            {
-                while(line != null )
-                {
-                    String[] dataRow = line.split(",");
-                    for(int i=0; i<dataRow.length; i++)
-                    {
-                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("C")+1));
-                    }
-                    line = br.readLine();
-                }
-            }
-            else if(textFile.equals("Pending"))
-            {
-                while(line != null )
-                {
-                    String[] dataRow = line.split(",");
-                    for(int i=0; i<dataRow.length; i++)
-                    {
-                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("PE")+2));
-                    }
-                    line = br.readLine();
-                }
-            }
-            else if(textFile.equals("VisitorPass"))
-            {
-//                while(line != null )
-//                {
-//                    String[] dataRow = line.split(",");
-//                    for(int i=0; i<dataRow.length; i++)
-//                    {
-//                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VP")+2));
-//                    }
-//                    line = br.readLine();
-//                }
-            }
-            
-            br.close();
-            
-            id = id+1;
-        } catch (IOException ex) {
-            Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
+        return 0;
     }
 
 
@@ -862,7 +418,7 @@ public class resident extends User implements dataManagementController1, display
     @Override
     public void displayDataView(Integer dataLine, String searchTxt, String type) {
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
-        ArrayList<ArrayList<String>> allData = DataInfo(fileName);
+        ArrayList<ArrayList<String>> allData = allUserDataInfo(fileName);
         int i =0;
         int fixedSize = allData.size();
         int changedSize = allData.size();
@@ -914,7 +470,7 @@ public class resident extends User implements dataManagementController1, display
     @Override
     public void getDataViewSingle(String id, String file, String type) {
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
-        ArrayList<ArrayList<String>> allData = DataInfo(fileName);
+        ArrayList<ArrayList<String>> allData = allUserDataInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
                     if(type=="Resident"){
@@ -970,28 +526,6 @@ BufferedReader input;
         }    
     }
 
-    public ArrayList<ArrayList<String>> DataInfo(String textFile) {
-        File file = new File(textFile);
-        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
-        if (file.exists()) {
-            Scanner sc = null;
-            try {
-                sc = new Scanner(file);
-            } catch (FileNotFoundException ex) {
-            }
-            String oneUserInfo; 
-            String[] itemArray;
-            ArrayList<String> itemArrayList;
-            allUserInfo = new ArrayList<>();
-            while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); 
-                itemArray = oneUserInfo.split(","); 
-                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
-                allUserInfo.add(itemArrayList);
-            }
-        } else {
-        }
-        return allUserInfo;    
-    }
+    
     
 }
