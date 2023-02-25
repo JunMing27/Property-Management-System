@@ -132,6 +132,7 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
 
     private void createTable(String blockNumber)
     {
+        
             String CheckpointRecordFile = "src/main/java/com/mycompany/textFile/CheckpointRecord.txt";
             File file = new File(CheckpointRecordFile);
             BufferedReader br = new BufferedReader(new FileReader(file));

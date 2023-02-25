@@ -158,9 +158,7 @@ public class visitorPass implements displayController1, dataManagementController
             this.setUserId(allData.get(dataLine).get(3));
             this.setVisitorPassStatus(allData.get(dataLine).get(4));
             this.status = true;  
-            System.out.println("set finish");
         }catch(Exception e){
-            System.out.println("i null");
             setDataNull();
             this.status = false;
         }
@@ -284,18 +282,16 @@ public class visitorPass implements displayController1, dataManagementController
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
-            if(textFile.equals("VisitorPass"))
+            while(line != null )
             {
-                while(line != null )
+                String[] dataRow = line.split(",");
+                for(int i=0; i<dataRow.length; i++)
                 {
-                    String[] dataRow = line.split(",");
-                    for(int i=0; i<dataRow.length; i++)
-                    {
-                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VP")+2));
-                    }
-                    line = br.readLine();
+                    id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VP")+2));
                 }
+                line = br.readLine();
             }
+            
             
             br.close();
             id = id+1;
