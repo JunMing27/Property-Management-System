@@ -221,7 +221,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
                 dataList.add(projectIdField.getText());
                 dataList.add(projectNameField.getText());
                 dataList.add(projectBudgetField.getText());
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                 String newStartDate = sdf.format(StartDateChooser.getDate());
                 String newEndDate = sdf.format(EndDateChooser.getDate());
                 dataList.add(newStartDate);
@@ -239,7 +239,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
                 dataList.add(budget.getBudgetId());
                 dataList.add(projectNameField.getText());
                 dataList.add(projectBudgetField.getText());
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                 String newStartDate = sdf.format(StartDateChooser.getDate());
                 String newEndDate = sdf.format(EndDateChooser.getDate());
                 dataList.add(newStartDate);
@@ -267,7 +267,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
             projectNameField.setText(budgetClass.getBudgetProjectName());
             projectBudgetField.setText(budgetClass.getBudgetProjectBudget());
             
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             Date existingStartDate;
             Date existingEndDate;
             try {  

@@ -22,13 +22,14 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        String pattern = "dd-MM-YYYY";
+        String pattern = "dd-MM-yyyy";
         jDateChooser1.setDateFormatString(pattern);
         
         idGet = id;
         addEditGet = addEdit;
         dataListGet = dataList;
-        
+        addEditGet = "add";
+        idGet = "R1";
         if(addEditGet.equals("edit"))
         {
             jDateChooser1.setVisible(false);
@@ -242,7 +243,7 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         String id = idTxt1.getText();
         String name = nameTxt.getText();
-        String pattern = "dd-MM-YYYY";
+        String pattern = "dd-MM-yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         String date = "";
         if(jDateChooser1.isVisible()) //for add

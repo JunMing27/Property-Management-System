@@ -269,7 +269,7 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
                 dataList.add(facilityNameField.getText());
                 dataList.add(((String)residentIdComboBox.getSelectedItem()));
                 
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                 String newBookingDate = sdf.format(bookingDateDropDown.getDate());
                 dataList.add(newBookingDate);
                 
@@ -294,7 +294,7 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
                 dataList.add(facilityNameField.getText());
                 dataList.add(((String)residentIdComboBox.getSelectedItem()));
                 
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
                 String newBookingDate = sdf.format(bookingDateDropDown.getDate());
                 dataList.add(newBookingDate);
                 dataList.add(((String)bookingTimeDropDown.getSelectedItem()));
@@ -373,7 +373,7 @@ public class adminExecFacBookingAddEditFrame extends javax.swing.JFrame {
             }
             residentIdComboBox.setSelectedItem(facilityBookingClass.getResidentId());
             
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             Date existingDate;
             try {  
                 existingDate =sdf.parse(facilityBookingClass.getBookingDate());

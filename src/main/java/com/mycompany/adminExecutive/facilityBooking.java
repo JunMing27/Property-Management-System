@@ -231,17 +231,17 @@ public class facilityBooking implements displayController, dataManagementControl
         }
         return allUserInfo;
     }
-    class facilityBookingMethod{
+    public class facilityBookingMethod{
         public void getDropDownData(String file,String type,String id) throws FileNotFoundException
         {
             String fileName = "src/main/java/com/mycompany/textFile/"+file;
             ArrayList<ArrayList<String>> allData = DataInfo(fileName);
 
             for (ArrayList<String> singleData : allData) {
-                if(type=="FacilityBooking"){
+                if(type.equals("FacilityBooking")){
                     dropDownDatas.add(singleData.get(0));
                 }
-                if(type=="FacilityBookingGetFacilityName" && singleData.get(0).equals(id) ){
+                if(type.equals("FacilityBookingGetFacilityName") && singleData.get(0).equals(id) ){
                     dropDownDataTemp.add(singleData.get(1));
                 }
 

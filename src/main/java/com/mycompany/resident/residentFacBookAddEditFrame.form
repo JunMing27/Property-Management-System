@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -66,14 +66,14 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="bookingIdField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="facilityNameField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="bookingDateDateChooser" alignment="0" pref="234" max="32767" attributes="0"/>
-                              <Component id="bookingTimeDropDown" alignment="0" max="32767" attributes="0"/>
-                              <Component id="bookingDurationDropDown" alignment="0" max="32767" attributes="0"/>
-                              <Component id="residentIdTxtField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="bookingDateTxtField1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="facilityIdComboBox" alignment="0" max="32767" attributes="0"/>
+                              <Component id="bookingDateDateChooser" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                              <Component id="bookingDateTxtField1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="bookingTimeDropDown" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="bookingDurationDropDown" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="facilityNameField" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="residentIdTxtField" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="bookingIdField" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="facilityIdComboBox" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -210,9 +210,6 @@
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookingIdFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="facilityNameLabel">
           <Properties>
@@ -233,9 +230,6 @@
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="facilityNameFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="bookingDateDateChooser">
           <Properties>
@@ -349,9 +343,6 @@
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="residentIdTxtFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="bookingDateLabel1">
           <Properties>
@@ -372,9 +363,6 @@
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bookingDateTxtField1ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="facilityIdComboBox">
           <Properties>
