@@ -189,6 +189,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         replyTxt1.setLineWrap(true);
         replyTxt1.setRows(5);
         replyTxt1.setWrapStyleWord(true);
+        replyTxt1.setBorder(null);
         jScrollPane1.setViewportView(replyTxt1);
 
         detailTxt1.setEditable(false);
@@ -198,6 +199,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         detailTxt1.setLineWrap(true);
         detailTxt1.setRows(5);
         detailTxt1.setWrapStyleWord(true);
+        detailTxt1.setBorder(null);
         jScrollPane2.setViewportView(detailTxt1);
 
         detailTxt2.setEditable(false);
@@ -207,6 +209,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         detailTxt2.setLineWrap(true);
         detailTxt2.setRows(5);
         detailTxt2.setWrapStyleWord(true);
+        detailTxt2.setBorder(null);
         jScrollPane3.setViewportView(detailTxt2);
 
         replyTxt2.setEditable(false);
@@ -216,6 +219,7 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         replyTxt2.setLineWrap(true);
         replyTxt2.setRows(5);
         replyTxt2.setWrapStyleWord(true);
+        replyTxt2.setBorder(null);
         jScrollPane4.setViewportView(replyTxt2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

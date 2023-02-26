@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" min="587" pref="587" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -69,10 +69,10 @@
                           </Group>
                           <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="payToTxt1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="payToTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="dueDateTxt1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="payAmountTxt1" alignment="0" pref="81" max="32767" attributes="0"/>
+                                  <Component id="dueDateTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                                  <Component id="payAmountTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -89,9 +89,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="payToTxt2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="dueDateTxt2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="payAmountTxt2" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Component id="payToTxt2" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="dueDateTxt2" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="payAmountTxt2" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">

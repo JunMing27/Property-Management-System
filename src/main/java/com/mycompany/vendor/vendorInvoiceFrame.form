@@ -72,13 +72,13 @@
                           </Group>
                           <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tenantNameTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="descTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="dueDateTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="dateIssuedTxt" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="tenantNameTxt" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="descTxt" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="dueDateTxt" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="dateIssuedTxt" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="totalAmountTxt" alignment="0" pref="109" max="32767" attributes="0"/>
-                                  <Component id="dueAmountTxt" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="totalAmountTxt" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="dueAmountTxt" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>

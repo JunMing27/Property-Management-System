@@ -49,8 +49,34 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="genderLabel" alignment="1" min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Component id="phoneLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ageLabel" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="usernameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pwdLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="nameLabel" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Component id="idLabel" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="ageTxt" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="genderTxt" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="phoneTxt" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="usernameTxt" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="pwdTxt" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="nameTxt" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="idTxt" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="backBtn" min="-2" pref="86" max="-2" attributes="0"/>
@@ -65,42 +91,8 @@
                           <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                           <Component id="editBtn" min="-2" pref="86" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="genderLabel" alignment="1" min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Component id="phoneLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="ageLabel" alignment="1" min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Component id="usernameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="pwdLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="66" pref="66" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ageTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="genderTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="phoneTxt" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="usernameTxt" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="pwdTxt" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="nameLabel" alignment="1" min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Component id="idLabel" alignment="1" min="-2" pref="21" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="nameTxt" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
-                                      <Component id="idTxt" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
                   </Group>
-                  <EmptySpace pref="154" max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -123,14 +115,14 @@
                   </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="idTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="idTxt" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameTxt" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="genderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="genderTxt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -155,7 +147,7 @@
                       <Component id="pwdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="pwdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="48" max="32767" attributes="0"/>
+                  <EmptySpace pref="54" max="32767" attributes="0"/>
                   <Component id="editBtn" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
