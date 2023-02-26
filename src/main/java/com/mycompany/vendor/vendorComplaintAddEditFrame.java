@@ -123,7 +123,9 @@ public class vendorComplaintAddEditFrame extends javax.swing.JFrame {
         detailTxt.setBackground(new java.awt.Color(233, 233, 233));
         detailTxt.setColumns(20);
         detailTxt.setForeground(new java.awt.Color(0, 0, 0));
+        detailTxt.setLineWrap(true);
         detailTxt.setRows(5);
+        detailTxt.setWrapStyleWord(true);
         jScrollPane1.setViewportView(detailTxt);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -148,7 +150,7 @@ public class vendorComplaintAddEditFrame extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(replyTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()

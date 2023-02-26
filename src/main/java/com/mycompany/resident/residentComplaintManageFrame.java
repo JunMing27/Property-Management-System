@@ -44,19 +44,23 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         idTxt1 = new javax.swing.JLabel();
         detailLabel1 = new javax.swing.JLabel();
         replyLabel1 = new javax.swing.JLabel();
-        detailTxt1 = new javax.swing.JLabel();
-        replyTxt1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         deleteBtn1 = new javax.swing.JButton();
         idLabel2 = new javax.swing.JLabel();
         detailLabel2 = new javax.swing.JLabel();
         replyLabel2 = new javax.swing.JLabel();
         idTxt2 = new javax.swing.JLabel();
-        detailTxt2 = new javax.swing.JLabel();
-        replyTxt2 = new javax.swing.JLabel();
         editBtn2 = new javax.swing.JButton();
         deleteBtn2 = new javax.swing.JButton();
         addBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        replyTxt1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        detailTxt1 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        detailTxt2 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        replyTxt2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,14 +125,6 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         replyLabel1.setForeground(new java.awt.Color(0, 0, 0));
         replyLabel1.setText("Complaint Reply :");
 
-        detailTxt1.setBackground(new java.awt.Color(233, 233, 233));
-        detailTxt1.setForeground(new java.awt.Color(0, 0, 0));
-        detailTxt1.setText("Issue");
-
-        replyTxt1.setBackground(new java.awt.Color(233, 233, 233));
-        replyTxt1.setForeground(new java.awt.Color(0, 0, 0));
-        replyTxt1.setText("Reply Data");
-
         deleteBtn1.setBackground(new java.awt.Color(255, 255, 255));
         deleteBtn1.setForeground(new java.awt.Color(0, 0, 0));
         deleteBtn1.setText("DELETE");
@@ -154,14 +150,6 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         idTxt2.setBackground(new java.awt.Color(233, 233, 233));
         idTxt2.setForeground(new java.awt.Color(0, 0, 0));
         idTxt2.setText("C1");
-
-        detailTxt2.setBackground(new java.awt.Color(233, 233, 233));
-        detailTxt2.setForeground(new java.awt.Color(0, 0, 0));
-        detailTxt2.setText("Issue");
-
-        replyTxt2.setBackground(new java.awt.Color(233, 233, 233));
-        replyTxt2.setForeground(new java.awt.Color(0, 0, 0));
-        replyTxt2.setText("Reply Data");
 
         editBtn2.setBackground(new java.awt.Color(255, 255, 255));
         editBtn2.setForeground(new java.awt.Color(0, 0, 0));
@@ -194,10 +182,68 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
             }
         });
 
+        replyTxt1.setEditable(false);
+        replyTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        replyTxt1.setColumns(20);
+        replyTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        replyTxt1.setLineWrap(true);
+        replyTxt1.setRows(5);
+        replyTxt1.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(replyTxt1);
+
+        detailTxt1.setEditable(false);
+        detailTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        detailTxt1.setColumns(20);
+        detailTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        detailTxt1.setLineWrap(true);
+        detailTxt1.setRows(5);
+        detailTxt1.setWrapStyleWord(true);
+        jScrollPane2.setViewportView(detailTxt1);
+
+        detailTxt2.setEditable(false);
+        detailTxt2.setBackground(new java.awt.Color(233, 233, 233));
+        detailTxt2.setColumns(20);
+        detailTxt2.setForeground(new java.awt.Color(0, 0, 0));
+        detailTxt2.setLineWrap(true);
+        detailTxt2.setRows(5);
+        detailTxt2.setWrapStyleWord(true);
+        jScrollPane3.setViewportView(detailTxt2);
+
+        replyTxt2.setEditable(false);
+        replyTxt2.setBackground(new java.awt.Color(233, 233, 233));
+        replyTxt2.setColumns(20);
+        replyTxt2.setForeground(new java.awt.Color(0, 0, 0));
+        replyTxt2.setLineWrap(true);
+        replyTxt2.setRows(5);
+        replyTxt2.setWrapStyleWord(true);
+        jScrollPane4.setViewportView(replyTxt2);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(detailLabel1)
+                                .addComponent(idLabel1)
+                                .addComponent(replyLabel1)))
+                        .addGap(73, 73, 73)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -211,15 +257,12 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(idLabel2)
                                 .addGap(99, 99, 99)
-                                .addComponent(idTxt2))
+                                .addComponent(idTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(detailLabel2)
@@ -227,27 +270,13 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
                                     .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(74, 74, 74)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(detailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(replyTxt2)
-                                    .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(36, 36, 36)
+                                        .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(detailLabel1)
-                                    .addComponent(idLabel1)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(replyLabel1)))
-                                .addGap(73, 73, 73)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(detailTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(replyTxt1)
-                                    .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
+                        .addGap(218, 218, 218)
                         .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -261,43 +290,48 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
                     .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backPageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nextPageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel1)
                     .addComponent(idTxt1))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(detailLabel1)
-                    .addComponent(detailTxt1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(detailLabel1)
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(replyLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idLabel2)
+                            .addComponent(idTxt2)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(replyTxt1)
-                    .addComponent(replyLabel1))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLabel2)
-                    .addComponent(idTxt2))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(detailLabel2)))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(replyLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(detailLabel2)
-                    .addComponent(detailTxt2))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(replyLabel2)
-                    .addComponent(replyTxt2))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                    .addComponent(deleteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -506,8 +540,8 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteBtn2;
     private javax.swing.JLabel detailLabel1;
     private javax.swing.JLabel detailLabel2;
-    private javax.swing.JLabel detailTxt1;
-    private javax.swing.JLabel detailTxt2;
+    private javax.swing.JTextArea detailTxt1;
+    private javax.swing.JTextArea detailTxt2;
     private javax.swing.JButton editBtn1;
     private javax.swing.JButton editBtn2;
     private javax.swing.JLabel idLabel1;
@@ -515,12 +549,16 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
     private javax.swing.JLabel idTxt1;
     private javax.swing.JLabel idTxt2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton nextPageBtn;
     private javax.swing.JLabel replyLabel1;
     private javax.swing.JLabel replyLabel2;
-    private javax.swing.JLabel replyTxt1;
-    private javax.swing.JLabel replyTxt2;
+    private javax.swing.JTextArea replyTxt1;
+    private javax.swing.JTextArea replyTxt2;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -69,9 +69,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="payAmountTxt1" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                              <Component id="payToTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="paidDateTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="payAmountTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="payToTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="paidDateTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -83,9 +83,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="payToTxt2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="paidDateTxt2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="payAmountTxt2" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Component id="payToTxt2" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="paidDateTxt2" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="payAmountTxt2" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
