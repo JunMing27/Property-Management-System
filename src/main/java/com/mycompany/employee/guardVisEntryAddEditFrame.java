@@ -76,81 +76,81 @@ public class guardVisEntryAddEditFrame extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(233, 233, 233));
         jPanel1.setPreferredSize(new java.awt.Dimension(566, 600));
 
-        backBtn.setText("Back");
         backBtn.setBackground(new java.awt.Color(255, 255, 255));
-        backBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backBtn.setForeground(new java.awt.Color(0, 0, 0));
+        backBtn.setText("Back");
+        backBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
             }
         });
 
+        topLabel.setText("VISITOR ENTRY");
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("VISITOR ENTRY");
 
+        idLabel1.setText("Visitor Entry ID :");
         idLabel1.setBackground(new java.awt.Color(233, 233, 233));
         idLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        idLabel1.setText("Visitor Entry ID :");
 
+        idTxt1.setText("V1");
         idTxt1.setBackground(new java.awt.Color(233, 233, 233));
         idTxt1.setForeground(new java.awt.Color(0, 0, 0));
-        idTxt1.setText("V1");
 
+        nameLabel1.setText("Visitor Name :");
         nameLabel1.setBackground(new java.awt.Color(233, 233, 233));
         nameLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        nameLabel1.setText("Visitor Name :");
 
+        dateLabel1.setText("Date :");
         dateLabel1.setBackground(new java.awt.Color(233, 233, 233));
         dateLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        dateLabel1.setText("Date :");
 
-        saveBtn.setText("SAVE");
         saveBtn.setBackground(new java.awt.Color(255, 255, 255));
-        saveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         saveBtn.setForeground(new java.awt.Color(0, 0, 0));
+        saveBtn.setText("SAVE");
+        saveBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveBtnActionPerformed(evt);
             }
         });
 
+        statusLabel1.setText("Enter Time :");
         statusLabel1.setBackground(new java.awt.Color(233, 233, 233));
         statusLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        statusLabel1.setText("Enter Time :");
 
-        cancelBtn.setText("CANCEL");
         cancelBtn.setBackground(new java.awt.Color(255, 255, 255));
-        cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelBtn.setForeground(new java.awt.Color(0, 0, 0));
+        cancelBtn.setText("CANCEL");
+        cancelBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelBtnActionPerformed(evt);
             }
         });
 
+        nameTxt.setText("jTextField1");
         nameTxt.setBackground(new java.awt.Color(233, 233, 233));
         nameTxt.setForeground(new java.awt.Color(0, 0, 0));
-        nameTxt.setText("jTextField1");
 
+        dateTxt.setText("date");
         dateTxt.setBackground(new java.awt.Color(233, 233, 233));
         dateTxt.setForeground(new java.awt.Color(0, 0, 0));
-        dateTxt.setText("date");
 
         errorMessage.setEditable(false);
-        errorMessage.setBackground(new java.awt.Color(233, 233, 233));
-        errorMessage.setForeground(new java.awt.Color(204, 0, 0));
         errorMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        errorMessage.setBackground(new java.awt.Color(233, 233, 233));
         errorMessage.setBorder(null);
+        errorMessage.setForeground(new java.awt.Color(204, 0, 0));
 
+        statusLabel2.setText("Leave Time :");
         statusLabel2.setBackground(new java.awt.Color(233, 233, 233));
         statusLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        statusLabel2.setText("Leave Time :");
 
+        enterTimeTxt.setText("02:00");
         enterTimeTxt.setBackground(new java.awt.Color(233, 233, 233));
         enterTimeTxt.setForeground(new java.awt.Color(0, 0, 0));
-        enterTimeTxt.setText("02:00");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -174,26 +174,23 @@ public class guardVisEntryAddEditFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(leaveTimePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(enterTimeTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(56, 56, 56)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(enterTimePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(enterTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(enterTimePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(idTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(dateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addComponent(topLabel)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
