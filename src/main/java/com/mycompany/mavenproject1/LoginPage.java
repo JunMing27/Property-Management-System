@@ -14,7 +14,6 @@ import com.mycompany.employee.guardMenuFrame;
 import com.mycompany.resident.residentMenuFrame;
 import com.mycompany.vendor.vendorMenuFrame;
 import com.mycompany.visitor.checkVisitorPassFrame;
-import com.mycompany.visitor.visitorViewVisitorPassFrame;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -135,7 +134,7 @@ public class LoginPage extends javax.swing.JFrame  {
                                 case "Building Manager" -> goBuildingManagerPage();
                                 case "resident" -> goResidentPage(fileUserID);
                                 case "vendor" -> goVendorPage(fileUserID);
-                                case "employee" -> goEmployeePage(fileUserID); //will valid if it is guard
+                                case "employee" -> goEmployeePage(fileUserID); //will identify if it is guard
                                 default -> System.out.println("cant find page for this role");
                               }
 

@@ -120,6 +120,7 @@ public class payment implements displayController1, dataManagementController1{
         }
         int newSize = allData.size();
         try{
+            this.setPaymentId(allData.get(dataLine).get(0));
             this.setUserId(allData.get(dataLine).get(1));
             this.setPayDesc(allData.get(dataLine).get(2));
             this.setPayAmount(allData.get(dataLine).get(3));
