@@ -55,6 +55,7 @@ public class AccExecMain {
     private String Username;
     private String PaidDate;
     private String PaidAmount;
+    private String DescriptionStatement;
 
 //    Receipt ID, User ID, Description, Paid Amount, Paid Date, Date Issued
     //Variables for AccExecutive Functionality: Receipt Manager
@@ -140,6 +141,9 @@ public class AccExecMain {
     }
     public String getPaidAmount(){
         return PaidAmount;
+    }
+    public String getDescriptionStatement(){
+        return DescriptionStatement;
     }
     
     //get for Acc Exec Functionality : Receipt Management

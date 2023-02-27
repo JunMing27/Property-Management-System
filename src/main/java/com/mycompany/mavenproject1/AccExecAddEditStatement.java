@@ -209,7 +209,7 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
             Statement.setVisible(true);
             Statement.backButtonToggle();
             //            Run Method set UserType and Data
-            Statement.setPaymentData();
+            Statement.setStatementData();
 
         }else{
             this.dispose();
@@ -259,13 +259,14 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
         if(functionType=="edit"){
             this.addEditDetector="edit";
             AccExecMain main = new AccExecMain();
-            main.getDataViewSingle(id, "Payment.txt","Payment");
+            main.getDataViewSingle(id, "StatementContent.txt","Payment");
             jButton2.setText("Update");
             StatementIDField.setText(main.getStatementID());
             UserIDField.setText(main.getUserID());
             UsernameField.setText(main.getUsername());
             PaidDateField.setText(main.getPaidDate());
             PaidAmountField.setText(main.getPaidAmount());
+            DescriptionField.setText(main.getDescriptionStatement());
         }else if (functionType=="add"){
             this.addEditDetector="add";
             jButton2.setText("Add");
