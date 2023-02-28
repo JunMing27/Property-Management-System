@@ -4,14 +4,11 @@
  */
 package com.mycompany.resident;
 
-import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController1;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author hoiyi
  */
-public class visitorPass implements displayController1, dataManagementController1{
+public class visitorPass implements displayController1{
     
     private String visitorPassId;
     private String visitorName;
@@ -167,7 +164,6 @@ public class visitorPass implements displayController1, dataManagementController
         }
     }
 
-    @Override
     public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
         File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
@@ -192,7 +188,6 @@ public class visitorPass implements displayController1, dataManagementController
         return allUserInfo;
     }
 
-    @Override
     public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
         ArrayList<ArrayList<String>> allUserInfo = this.allUserDataInfo(textFile);
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
@@ -229,106 +224,6 @@ public class visitorPass implements displayController1, dataManagementController
         }
         
         return onlyUserInfo;
-    }
-
-    @Override
-    public void removeFromFile(String textFile, ArrayList<String> dataList) {
-        try {
-            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
-            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            if(getUserId() != null) //indicate resident or visitor
-            {
-                for(int j=0;j<allUsers.size();j++)
-                {
-                    if(allUsers.get(j).get(3).equals(dataList.get(0))
-                            && allUsers.get(j).get(0).equals(dataList.get(1)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
-                }
-            }else if(getVisitorPassId()!= null)
-            {
-                for(int j=0;j<allUsers.size();j++)
-                {
-                    if(allUsers.get(j).get(0).equals(dataList.get(0)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
-                }
-            }
-            
-            
-            File file= new File(filePath);
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<allUsers.size(); j++) 
-            {
-                ArrayList<String>item = allUsers.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                       bw.write(item.get(k));
-                    }else{
-                       bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(visitorPass.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public void editFile(String textFile, ArrayList<String> dataList) {
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(dataList.get(1)+","
-                    +dataList.get(2)+","
-                    +dataList.get(3)+","
-                    +dataList.get(0)+","
-                    +dataList.get(4)+"\n");
-            
-            
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(visitorPass.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public int getNextId(String textFile) {
-        int id = 0;
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            String line = br.readLine();
-            while(line != null )
-            {
-                String[] dataRow = line.split(",");
-                for(int i=0; i<dataRow.length; i++)
-                {
-                    id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VP")+2));
-                }
-                line = br.readLine();
-            }
-            
-            
-            br.close();
-            id = id+1;
-            
-        } catch (IOException ex) {
-            Logger.getLogger(visitorPass.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
     }
     
     

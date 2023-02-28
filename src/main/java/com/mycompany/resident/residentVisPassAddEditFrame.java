@@ -29,7 +29,6 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
         addEditGet = addEdit;
         dataListGet = dataList;
         addEditGet = "add";
-        idGet = "R1";
         if(addEditGet.equals("edit"))
         {
             jDateChooser1.setVisible(false);
@@ -287,13 +286,17 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
                         dataList.add(name);
                         dataList.add(date);
                         dataList.add(status);
-                        visitorPass main = new visitorPass();
+                        resident main = new resident();
+                        resident.residentMethod innerMethod = main.new residentMethod();
                         main.setUserId(idGet);
+                        
                         if(addEditGet.equals("edit"))
                         {
-                            main.removeFromFile("VisitorPass", dataList);
+                            innerMethod.editvisitorPass("VisitorPass", dataList);
+                        }else if(addEditGet.equals("add"))
+                        {
+                            innerMethod.addvisitorPass("VisitorPass", dataList);
                         }
-                        main.editFile("VisitorPass", dataList);
 
                         this.dispose();
                         residentVisPassManageFrame visitorPass = new residentVisPassManageFrame(idGet);
@@ -333,8 +336,7 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
     
     private void emptyData()
     {
-        visitorPass main = new visitorPass();
-        main.setUserId(idGet);
+        resident main = new resident();
         int nextVPId = main.getNextId("VisitorPass");
         idTxt1.setText("VP"+nextVPId);
         nameTxt.setText("");

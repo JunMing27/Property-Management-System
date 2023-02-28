@@ -310,7 +310,17 @@ public class resident extends User implements dataManagementController1, display
                     }
                 }
             }
-            
+            else if(textFile.equals("VisitorPass"))
+            {
+                for(int j=0;j<allUsers.size();j++)
+                {
+                    if(allUsers.get(j).get(3).equals(dataList.get(0)))
+                    {
+                        allUsers.remove(j);
+                        break;
+                    }
+                }
+            }
             
             
             
@@ -381,6 +391,14 @@ public class resident extends User implements dataManagementController1, display
                         +dataList.get(5)+","
                         +dataList.get(6)+"\n");
             }
+            else if(textFile.equals("VisitorPass"))
+            {
+                bw.write(dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(0)+","
+                        +dataList.get(4)+"\n");
+            }
             
             
             bw.close();
@@ -410,6 +428,18 @@ public class resident extends User implements dataManagementController1, display
                     }
                     line = br.readLine(); 
                 } 
+            }
+            else if(textFile.equals("VisitorPass"))
+            {
+                while(line != null ) 
+                { 
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++) 
+                    { 
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VP")+2));
+                    }
+                    line = br.readLine(); 
+                }
             }
             br.close();
             id = id+1;
@@ -478,6 +508,21 @@ public class resident extends User implements dataManagementController1, display
             removeFromFile(textFile, dataList);
         }
         
+        public void addvisitorPass(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void editvisitorPass(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void deleteVisitorPass(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+        }
     }
     
     
