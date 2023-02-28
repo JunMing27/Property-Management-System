@@ -8,13 +8,18 @@ import com.mycompany.dataController.User;
 import com.mycompany.dataController.dataManagementController;
 import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController;
+import com.mycompany.resident.resident;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -151,7 +156,13 @@ public class vendor extends User implements dataManagementController, displayCon
     @Override
     public void displayDataView(Integer dataLine, String searchTxt, String type) {
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
-        ArrayList<ArrayList<String>> allData = DataInfo(fileName);
+        ArrayList<ArrayList<String>> allData = new ArrayList<>();
+        if(type.equals("vendorOwn"))
+        {
+            allData = onlyUserDataInfo(fileName);
+        }else{
+            allData = DataInfo(fileName);
+        }
         int i =0;
         int fixedSize = allData.size();
         int changedSize = allData.size();
@@ -323,37 +334,31 @@ public class vendor extends User implements dataManagementController, displayCon
 
     @Override
     public void transferImage(File source, File destination) {
-        
+        try {
+            InputStream is = new FileInputStream(source);
+            OutputStream os = new FileOutputStream(destination);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+            is.close();
+            os.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(vendor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(vendor.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 
     @Override
     public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
-        File file = new File(textFile);
-        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
-        if (file.exists()) {
-            Scanner sc = null;
-            try {
-                sc = new Scanner(file);
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(vendor.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            String oneUserInfo; 
-            String[] itemArray;
-            ArrayList<String> itemArrayList;
-            allUserInfo = new ArrayList<>();
-            while (sc.hasNextLine()) { 
-                oneUserInfo = sc.nextLine().trim(); 
-                itemArray = oneUserInfo.split(","); 
-                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
-                allUserInfo.add(itemArrayList);
-            }
-        } 
-        return allUserInfo;
+        return null;
     }
 
     @Override
     public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
-        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = DataInfo(textFile);
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
@@ -421,12 +426,30 @@ public class vendor extends User implements dataManagementController, displayCon
             File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(dataList.get(0)+","
-                    +dataList.get(1)+","
-                    +dataList.get(2)+","
-                    +dataList.get(3)+","
-                    +dataList.get(4)+","
-                    +dataList.get(5)+"\n");
+            if(textFile.equals("ResidentProfile"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(4)+","
+                        +dataList.get(5)+"\n");
+            }
+            else if(textFile.equals("loginCredential") || textFile.equals("Complaint"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+"\n");
+            }
+            else if(textFile.equals("Pending"))
+            {
+                bw.write(dataList.get(5)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(4)+"\n");
+            }
             
             
             bw.close();
@@ -438,9 +461,69 @@ public class vendor extends User implements dataManagementController, displayCon
 
     @Override
     public int getNextId(String textFile) {
-        return 0;
+        int id = 0;
+        try 
+        { 
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileReader fr = new FileReader(file); 
+            BufferedReader br = new BufferedReader(fr); 
+            String line = br.readLine(); 
+            if(textFile.equals("Pending"))
+            {
+                while(line != null ) 
+                { 
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++) 
+                    { 
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("PE")+2));
+                    }
+                    line = br.readLine(); 
+                } 
+            }
+            br.close();
+            id = id+1;
+        } catch (IOException ex) {
+            Logger.getLogger(vendor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
     }
     
+    
+    class vendorMethod{
+        public void editProfile(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void editCredential(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void makePayment(String removeFile, String addingFile, ArrayList<String> dataList)
+        {
+            removeFromFile(removeFile, dataList);
+            editFile(addingFile, dataList);
+        }
+        
+        public void addComplaint(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void editComplaint(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void deleteComplaint(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+        }
+    }
     
     
 }

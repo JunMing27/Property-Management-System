@@ -429,23 +429,26 @@ public class vendorProfileEditFrame extends javax.swing.JFrame {
                         "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
                     if(dialog == JOptionPane.YES_OPTION){
                         vendor main = new vendor();
+                        vendor.vendorMethod innerMethod = main.new vendorMethod();
                         main.setUserId(idGet);
                         ArrayList<String> dataList = new ArrayList<>();
                         dataList.add(idGet);
-                        main.removeFromFile("VendorProfile", dataList);
-                        main.removeFromFile("loginCredential", dataList);
                         dataList.add(name);
                         dataList.add(gender);
                         dataList.add(ageString);
                         dataList.add(phone);
                         dataList.add(imageName);
-                        main.editFile("VendorProfile", dataList);
-                        dataList = new ArrayList<>();
-                        dataList.add(idGet);
-                        dataList.add(userName);
-                        dataList.add(pwd);
-                        dataList.add("vendor");
-                        main.editFile("loginCredential", dataList);
+                        innerMethod.editProfile("VendorProfile", dataList);
+                        
+                        ArrayList<String> dataList1 = new ArrayList<>();
+                        dataList1.add(idGet);
+                        dataList1.add(userName);
+                        dataList1.add(pwd);
+                        dataList1.add("vendor");
+                        innerMethod.editCredential("loginCredential", dataList1);
+                        File dest = new File("src/main/java/com/mycompany/image/" + imageName);
+                        File source = sourceFile;
+                        main.transferImage(source,dest); 
                         this.dispose();
                         vendorProfileManageFrame profile = new vendorProfileManageFrame(idGet);
                         profile.setVisible(true);
@@ -455,7 +458,7 @@ public class vendorProfileEditFrame extends javax.swing.JFrame {
                 errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
             }
         }else{
-            errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
+            errorMessage.setText("Name/Gender/Age/Phone/Username/Password/Image  Cannot be Empty !");
         }
     }//GEN-LAST:event_saveBtnActionPerformed
 

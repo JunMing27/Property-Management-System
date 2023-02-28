@@ -371,11 +371,11 @@ public class vendorComplaintManageFrame extends javax.swing.JFrame {
         if(result == JOptionPane.YES_OPTION)
         {
             ArrayList<String> dataList = new ArrayList<>();
-            dataList.add(idGet);
             dataList.add(idTxt1.getText());
-            complaint main = new complaint();
+            vendor main = new vendor();
+            vendor.vendorMethod innerMethod = main.new vendorMethod();
             main.setUserId(idGet);
-            main.removeFromFile("Complaint", dataList);
+            innerMethod.deleteComplaint("Complaint", dataList);
             this.dispose();
             vendorComplaintManageFrame complaint = new vendorComplaintManageFrame(idGet);
             complaint.setVisible(true);
@@ -398,11 +398,11 @@ public class vendorComplaintManageFrame extends javax.swing.JFrame {
         if(result == JOptionPane.YES_OPTION)
         {
             ArrayList<String> dataList = new ArrayList<>();
-            dataList.add(idGet);
             dataList.add(idTxt2.getText());
-            complaint main = new complaint();
+            vendor main = new vendor();
+            vendor.vendorMethod innerMethod = main.new vendorMethod();
             main.setUserId(idGet);
-            main.removeFromFile("Complaint", dataList);
+            innerMethod.deleteComplaint("Complaint", dataList);
             this.dispose();
             vendorComplaintManageFrame complaint = new vendorComplaintManageFrame(idGet);
             complaint.setVisible(true);

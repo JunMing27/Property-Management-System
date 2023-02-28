@@ -224,13 +224,16 @@ public class vendorComplaintAddEditFrame extends javax.swing.JFrame {
                 dataList.add(id);
                 dataList.add(detail);
                 dataList.add(reply);
-                complaint main = new complaint();
+                vendor main = new vendor();
+                vendor.vendorMethod innerMethod = main.new vendorMethod();
                 main.setUserId(idGet);
                 if(addEditGet.equals("edit"))
                 {
-                    main.removeFromFile("Complaint", dataList);
+                    innerMethod.editComplaint("Complaint", dataList);
+                }else if(addEditGet.equals("add"))
+                {
+                    innerMethod.addComplaint("Complaint", dataList);
                 }
-                main.editFile("Complaint", dataList);
                 this.dispose();
                 vendorComplaintManageFrame complaint = new vendorComplaintManageFrame(idGet);
                 complaint.setVisible(true);

@@ -66,14 +66,14 @@
                               <Component id="payAmountLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="payToLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="dueDateLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="payIdLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="payToTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="dueDateTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
-                                  <Component id="payAmountTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="dueDateTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="payAmountTxt1" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="payIdTxt1" min="-2" pref="233" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -86,12 +86,14 @@
                               <Component id="payAmountLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="payToLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="dueDateLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="payIdLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="payToTxt2" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
                               <Component id="dueDateTxt2" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
                               <Component id="payAmountTxt2" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="payIdTxt2" min="-2" pref="233" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -118,26 +120,36 @@
                       <Component id="backPageBtn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="nextPageBtn" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="payIdLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="payIdTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="payToLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="payToTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="payAmountLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="payAmountTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="dueDateTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="dueDateLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="dueDateLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dueDateTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Component id="selectBtn1" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="payIdLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="payIdTxt2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="payToLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="payToTxt2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -152,7 +164,7 @@
                       <Component id="dueDateLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="dueDateTxt2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Component id="selectBtn2" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace pref="90" max="32767" attributes="0"/>
               </Group>
@@ -383,6 +395,50 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectBtn2ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="payIdLabel1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e9" green="e9" red="e9" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Payment ID :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="payIdTxt1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e9" green="e9" red="e9" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="ID"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="payIdLabel2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e9" green="e9" red="e9" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Payment ID :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="payIdTxt2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e9" green="e9" red="e9" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="ID"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
