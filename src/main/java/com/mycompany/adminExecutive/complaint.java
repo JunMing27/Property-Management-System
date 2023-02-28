@@ -212,43 +212,6 @@ public class complaint implements displayController{
     
     
     
-    //add by hoiyi
-    public void removeFromFile(String textFile, ArrayList<String> dataList) {
-        try {
-            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
-            ArrayList<ArrayList<String>> allUsers = DataInfo(filePath);
-            for(int j=0;j<allUsers.size();j++)
-                {
-                    if(allUsers.get(j).get(3).equals(dataList.get(0))
-                            && allUsers.get(j).get(0).equals(dataList.get(1)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
-                }
-            File file= new File(filePath);
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<allUsers.size(); j++) 
-            {
-                ArrayList<String>item = allUsers.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                       bw.write(item.get(k));
-                    }else{
-                       bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(complaint.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
     public void displayDataViewOwn(Integer dataLine, String fileName)
     {
         fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
@@ -285,19 +248,4 @@ public class complaint implements displayController{
         
     }
     
-    public void editFile(String textFile,  ArrayList<String> dataList) {
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(dataList.get(1)+","
-                        +dataList.get(2)+","
-                        +dataList.get(3)+","
-                        +dataList.get(0)+"\n");
-            
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(complaint.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 }

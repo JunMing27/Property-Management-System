@@ -387,11 +387,11 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         if(result == JOptionPane.YES_OPTION)
         {
             ArrayList<String> dataList = new ArrayList<>();
-            dataList.add(idGet);
             dataList.add(idTxt1.getText());
-            complaint main = new complaint();
+            resident main = new resident();
+            resident.residentMethod innerMethod = main.new residentMethod();
             main.setUserId(idGet);
-            main.removeFromFile("Complaint", dataList);
+            innerMethod.deleteComplaint("Complaint", dataList);
             this.dispose();
             residentComplaintManageFrame complaint = new residentComplaintManageFrame(idGet);
             complaint.setVisible(true);
@@ -414,11 +414,11 @@ public class residentComplaintManageFrame extends javax.swing.JFrame {
         if(result == JOptionPane.YES_OPTION)
         {
             ArrayList<String> dataList = new ArrayList<>();
-            dataList.add(idGet);
             dataList.add(idTxt2.getText());
-            complaint main = new complaint();
+            resident main = new resident();
+            resident.residentMethod innerMethod = main.new residentMethod();
             main.setUserId(idGet);
-            main.removeFromFile("Complaint", dataList);
+            innerMethod.deleteComplaint("Complaint", dataList);
             this.dispose();
             residentComplaintManageFrame complaint = new residentComplaintManageFrame(idGet);
             complaint.setVisible(true);

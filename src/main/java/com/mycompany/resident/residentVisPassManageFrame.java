@@ -418,7 +418,6 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         if(result == JOptionPane.YES_OPTION)
         {
             ArrayList<String> dataList = new ArrayList<>();
-            dataList.add(idGet);
             dataList.add(idTxt1.getText());
             resident main = new resident();
             resident.residentMethod innerMethod = main.new residentMethod();
@@ -436,7 +435,6 @@ public class residentVisPassManageFrame extends javax.swing.JFrame {
         if(result == JOptionPane.YES_OPTION)
         {
             ArrayList<String> dataList = new ArrayList<>();
-            dataList.add(idGet);
             dataList.add(idTxt2.getText());
             resident main = new resident();
             resident.residentMethod innerMethod = main.new residentMethod();

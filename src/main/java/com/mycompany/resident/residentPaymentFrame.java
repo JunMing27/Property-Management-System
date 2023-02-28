@@ -53,6 +53,10 @@ public class residentPaymentFrame extends javax.swing.JFrame {
         dueDateLabel2 = new javax.swing.JLabel();
         dueDateTxt2 = new javax.swing.JLabel();
         selectBtn2 = new javax.swing.JButton();
+        payIdTxt2 = new javax.swing.JLabel();
+        payIdLabel2 = new javax.swing.JLabel();
+        payIdLabel1 = new javax.swing.JLabel();
+        payIdTxt1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,6 +163,22 @@ public class residentPaymentFrame extends javax.swing.JFrame {
             }
         });
 
+        payIdTxt2.setBackground(new java.awt.Color(233, 233, 233));
+        payIdTxt2.setForeground(new java.awt.Color(0, 0, 0));
+        payIdTxt2.setText("ID");
+
+        payIdLabel2.setBackground(new java.awt.Color(233, 233, 233));
+        payIdLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        payIdLabel2.setText("Payment ID :");
+
+        payIdLabel1.setBackground(new java.awt.Color(233, 233, 233));
+        payIdLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        payIdLabel1.setText("Payment ID :");
+
+        payIdTxt1.setBackground(new java.awt.Color(233, 233, 233));
+        payIdTxt1.setForeground(new java.awt.Color(0, 0, 0));
+        payIdTxt1.setText("ID");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -180,12 +200,14 @@ public class residentPaymentFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(payAmountLabel1)
                             .addComponent(payToLabel1)
-                            .addComponent(dueDateLabel1))
+                            .addComponent(dueDateLabel1)
+                            .addComponent(payIdLabel1))
                         .addGap(73, 73, 73)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(payToTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(payAmountTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dueDateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(dueDateTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(payIdTxt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -194,12 +216,14 @@ public class residentPaymentFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(payAmountLabel2)
                             .addComponent(payToLabel2)
-                            .addComponent(dueDateLabel2))
+                            .addComponent(dueDateLabel2)
+                            .addComponent(payIdLabel2))
                         .addGap(69, 69, 69)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(payAmountTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dueDateTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(payToTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(payToTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(payIdTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(224, 224, 224)
                         .addComponent(selectBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -218,7 +242,11 @@ public class residentPaymentFrame extends javax.swing.JFrame {
                     .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backPageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nextPageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payIdLabel1)
+                    .addComponent(payIdTxt1))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(payToLabel1)
                     .addComponent(payToTxt1))
@@ -227,14 +255,18 @@ public class residentPaymentFrame extends javax.swing.JFrame {
                     .addComponent(payAmountLabel1)
                     .addComponent(payAmountTxt1))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dueDateTxt1)
-                    .addComponent(dueDateLabel1))
-                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dueDateLabel1)
+                    .addComponent(dueDateTxt1))
+                .addGap(10, 10, 10)
                 .addComponent(selectBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(payIdTxt2)
+                    .addComponent(payIdLabel2))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(payToLabel2)
                     .addComponent(payToTxt2))
@@ -246,9 +278,9 @@ public class residentPaymentFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dueDateLabel2)
                     .addComponent(dueDateTxt2))
-                .addGap(37, 37, 37)
+                .addGap(21, 21, 21)
                 .addComponent(selectBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,6 +309,7 @@ public class residentPaymentFrame extends javax.swing.JFrame {
         if(result == JOptionPane.YES_OPTION)
         {
             ArrayList<String> dataList = new ArrayList<>();
+            dataList.add(payIdTxt1.getText());
             dataList.add(idGet);
             dataList.add(payToTxt1.getText());
             dataList.add(payAmountTxt1.getText());
@@ -314,6 +347,7 @@ public class residentPaymentFrame extends javax.swing.JFrame {
         if(result == JOptionPane.YES_OPTION)
         {
             ArrayList<String> dataList = new ArrayList<>();
+            dataList.add(payIdTxt2.getText());
             dataList.add(idGet);
             dataList.add(payToTxt2.getText());
             dataList.add(payAmountTxt2.getText());
@@ -355,10 +389,12 @@ public class residentPaymentFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         if(main.getPaymentId()!= null){
+            payIdTxt1.setText(main.getPaymentId());
             payToTxt1.setText(main.getPayDesc());
             payAmountTxt1.setText(main.getPayAmount());
             dueDateTxt1.setText(main.getDueDate());
         }else{
+            payIdTxt1.setText("no data");
             payToTxt1.setText("no data");
             payAmountTxt1.setText("no data");
             dueDateTxt1.setText("no data");
@@ -372,10 +408,12 @@ public class residentPaymentFrame extends javax.swing.JFrame {
             nextPageBtn.setEnabled(false);
         }
         if(main.getPaymentId()!= null){
+            payIdTxt2.setText(main.getPaymentId());
             payToTxt2.setText(main.getPayDesc());
             payAmountTxt2.setText(main.getPayAmount());
             dueDateTxt2.setText(main.getDueDate());
         }else{
+            payIdTxt2.setText("no data");
             payToTxt2.setText("no data");
             payAmountTxt2.setText("no data");
             dueDateTxt2.setText("no data");
@@ -439,6 +477,10 @@ public class residentPaymentFrame extends javax.swing.JFrame {
     private javax.swing.JLabel payAmountLabel2;
     private javax.swing.JLabel payAmountTxt1;
     private javax.swing.JLabel payAmountTxt2;
+    private javax.swing.JLabel payIdLabel1;
+    private javax.swing.JLabel payIdLabel2;
+    private javax.swing.JLabel payIdTxt1;
+    private javax.swing.JLabel payIdTxt2;
     private javax.swing.JLabel payToLabel1;
     private javax.swing.JLabel payToLabel2;
     private javax.swing.JLabel payToTxt1;

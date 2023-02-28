@@ -220,17 +220,20 @@ public class residentComplaintAddEditFrame extends javax.swing.JFrame {
                 "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
             if(dialog == JOptionPane.YES_OPTION){
                 ArrayList<String> dataList = new ArrayList<>();
-                dataList.add(idGet);
                 dataList.add(id);
                 dataList.add(detail);
                 dataList.add(reply);
-                complaint main = new complaint();
+                dataList.add(idGet);
+                resident main = new resident();
+                resident.residentMethod innerMethod = main.new residentMethod();
                 main.setUserId(idGet);
                 if(addEditGet.equals("edit"))
                 {
-                    main.removeFromFile("Complaint", dataList);
+                    innerMethod.editComplaint("Complaint", dataList);
+                }else if(addEditGet.equals("add"))
+                {
+                    innerMethod.addComplaint("Complaint", dataList);
                 }
-                main.editFile("Complaint", dataList);
                 this.dispose();
                 residentComplaintManageFrame complaint = new residentComplaintManageFrame(idGet);
                 complaint.setVisible(true);

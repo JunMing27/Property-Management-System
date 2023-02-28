@@ -287,44 +287,15 @@ public class resident extends User implements dataManagementController1, display
             String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
             ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
             
-            if(textFile.equals("ResidentProfile") || textFile.equals("loginCredential")
-                    || textFile.equals("FacilityBooking"))
+            for(int j=0;j<allUsers.size();j++)
             {
-                for(int j=0;j<allUsers.size();j++)
+                if(allUsers.get(j).get(0).equals(dataList.get(0)))
                 {
-                    if(allUsers.get(j).get(0).equals(dataList.get(0)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
-                }
-            }
-            else if(textFile.equals("Payment"))
-            {
-                for(int j=0;j<allUsers.size();j++)
-                {
-                    if(allUsers.get(j).get(1).equals(dataList.get(0)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
-                }
-            }
-            else if(textFile.equals("VisitorPass"))
-            {
-                for(int j=0;j<allUsers.size();j++)
-                {
-                    if(allUsers.get(j).get(3).equals(dataList.get(0)))
-                    {
-                        allUsers.remove(j);
-                        break;
-                    }
+                    allUsers.remove(j);
+                    break;
                 }
             }
             
-            
-            
-
             File file= new File(filePath);
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -356,7 +327,7 @@ public class resident extends User implements dataManagementController1, display
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
             
-            if(textFile.equals("ResidentProfile"))
+            if(textFile.equals("ResidentProfile") || textFile.equals("FacilityBooking"))
             {
                 bw.write(dataList.get(0)+","
                         +dataList.get(1)+","
@@ -366,7 +337,7 @@ public class resident extends User implements dataManagementController1, display
                         +dataList.get(5)+","
                         +dataList.get(6)+"\n");
             }
-            else if(textFile.equals("loginCredential"))
+            else if(textFile.equals("loginCredential") || textFile.equals("Complaint"))
             {
                 bw.write(dataList.get(0)+","
                         +dataList.get(1)+","
@@ -375,28 +346,18 @@ public class resident extends User implements dataManagementController1, display
             }
             else if(textFile.equals("Pending"))
             {
-                bw.write(dataList.get(4)+","
-                        +dataList.get(0)+","
+                bw.write(dataList.get(5)+","
                         +dataList.get(1)+","
                         +dataList.get(2)+","
-                        +dataList.get(3)+"\n");
+                        +dataList.get(3)+","
+                        +dataList.get(4)+"\n");
             }
-            else if(textFile.equals("FacilityBooking"))
+            else if(textFile.equals("VisitorPass"))
             {
                 bw.write(dataList.get(0)+","
                         +dataList.get(1)+","
                         +dataList.get(2)+","
                         +dataList.get(3)+","
-                        +dataList.get(4)+","
-                        +dataList.get(5)+","
-                        +dataList.get(6)+"\n");
-            }
-            else if(textFile.equals("VisitorPass"))
-            {
-                bw.write(dataList.get(1)+","
-                        +dataList.get(2)+","
-                        +dataList.get(3)+","
-                        +dataList.get(0)+","
                         +dataList.get(4)+"\n");
             }
             
@@ -444,7 +405,7 @@ public class resident extends User implements dataManagementController1, display
             br.close();
             id = id+1;
         }catch (IOException ex) { 
-            Logger.getLogger(payment.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
         } 
         
         return id;
@@ -520,6 +481,22 @@ public class resident extends User implements dataManagementController1, display
         }
         
         public void deleteVisitorPass(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+        }
+        
+        public void addComplaint(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void editComplaint(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void deleteComplaint(String textFile, ArrayList<String> dataList)
         {
             removeFromFile(textFile, dataList);
         }

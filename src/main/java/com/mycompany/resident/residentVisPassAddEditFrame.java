@@ -281,10 +281,10 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
                     if(dialog == JOptionPane.YES_OPTION){
 
                         ArrayList<String> dataList = new ArrayList<>();
-                        dataList.add(idGet);
                         dataList.add(id);
                         dataList.add(name);
                         dataList.add(date);
+                        dataList.add(idGet);
                         dataList.add(status);
                         resident main = new resident();
                         resident.residentMethod innerMethod = main.new residentMethod();
