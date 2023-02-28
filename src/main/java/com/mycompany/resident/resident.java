@@ -11,10 +11,14 @@ import com.mycompany.dataController.displayController1;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -157,7 +161,6 @@ public class resident extends User implements dataManagementController1, display
     }
     
     
-    
     @Override
     public void deleteUserCredential(String userID) {
         
@@ -284,14 +287,30 @@ public class resident extends User implements dataManagementController1, display
             String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
             ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
             
-            for(int j=0;j<allUsers.size();j++)
+            if(textFile.equals("ResidentProfile") || textFile.equals("loginCredential"))
             {
-                if(allUsers.get(j).get(0).equals(dataList.get(0)))
+                for(int j=0;j<allUsers.size();j++)
                 {
-                    allUsers.remove(j);
-                    break;
+                    if(allUsers.get(j).get(0).equals(dataList.get(0)))
+                    {
+                        allUsers.remove(j);
+                        break;
+                    }
                 }
             }
+            else if(textFile.equals("Payment"))
+            {
+                for(int j=0;j<allUsers.size();j++)
+                {
+                    if(allUsers.get(j).get(1).equals(dataList.get(0)))
+                    {
+                        allUsers.remove(j);
+                        break;
+                    }
+                }
+            }
+            
+            
             
             
 
@@ -325,13 +344,32 @@ public class resident extends User implements dataManagementController1, display
             File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(dataList.get(0)+","
-                    +dataList.get(1)+","
-                    +dataList.get(2)+","
-                    +dataList.get(3)+","
-                    +dataList.get(4)+","
-                    +dataList.get(5)+","
-                    +dataList.get(6)+"\n");
+            
+            if(textFile.equals("ResidentProfile"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(4)+","
+                        +dataList.get(5)+","
+                        +dataList.get(6)+"\n");
+            }
+            else if(textFile.equals("loginCredential"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+"\n");
+            }
+            else if(textFile.equals("Pending"))
+            {
+                bw.write(dataList.get(4)+","
+                        +dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+"\n");
+            }
             
             
             bw.close();
@@ -346,7 +384,57 @@ public class resident extends User implements dataManagementController1, display
         return 0;
     }
 
+    @Override
+    public void transferImage(File source, File destination) {
+        
+        try {
+            InputStream is = new FileInputStream(source);
+            OutputStream os = new FileOutputStream(destination);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = is.read(buffer)) > 0) {
+                os.write(buffer, 0, length);
+            }
+            is.close();
+            os.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(resident.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
 
+
+    
+    
+    class residentMethod{
+        public void editProfile(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void editCredential(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void makePayment(String removeFile, String addingFile, ArrayList<String> dataList)
+        {
+            removeFromFile(removeFile, dataList);
+            editFile(addingFile, dataList);
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
   
     private String file="residentProfile.txt";
     public String getFileType(){

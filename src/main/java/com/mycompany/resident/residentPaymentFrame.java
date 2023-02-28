@@ -281,12 +281,13 @@ public class residentPaymentFrame extends javax.swing.JFrame {
             dataList.add(payToTxt1.getText());
             dataList.add(payAmountTxt1.getText());
             dataList.add(dueDateTxt1.getText());
-            payment main = new payment();
+            resident main = new resident();
+            resident.residentMethod innerMethod = main.new residentMethod();
             main.setUserId(idGet);
-            main.removeFromFile("Payment", dataList);
+            
             int dataNextId = main.getNextId("Pending");
             dataList.add("PE"+Integer.toString(dataNextId));
-            main.editFile("Pending", dataList);
+            innerMethod.makePayment("Payment","Pending", dataList);
             this.dispose();
             residentPaymentFrame residentPay = new residentPaymentFrame(idGet);
             residentPay.setVisible(true);

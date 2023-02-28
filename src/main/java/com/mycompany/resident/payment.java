@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  *
  * @author hoiyi
  */
-public class payment implements displayController1, dataManagementController1{
+public class payment implements displayController1{
 
     private String paymentId;
     private String payDesc;
@@ -136,31 +136,8 @@ public class payment implements displayController1, dataManagementController1{
     }
 
     
-    @Override
     public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
         
-        ArrayList<ArrayList<String>> allUserInfo = this.allUserDataInfo(textFile);
-        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
-        
-        int p,q;
-        for (p=0,q=0; p<allUserInfo.size(); p++)
-         {
-             if(allUserInfo.get(p).contains(this.getUserId()))
-             {
-                 ArrayList<String> item = allUserInfo.get(p);
-                 if(item.get(1).equals(this.getUserId()))
-                 {
-                     onlyUserInfo.add(allUserInfo.get(p));
-                     q++;
-                 }
-             }
-        }
-        
-        return onlyUserInfo;
-    }
-
-    @Override
-    public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
         File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
         if (file.exists()) {
@@ -181,90 +158,25 @@ public class payment implements displayController1, dataManagementController1{
                 allUserInfo.add(itemArrayList);
             }
         } 
-        return allUserInfo;
-    }
-
-    @Override
-    public void removeFromFile(String textFile, ArrayList<String> dataList) {
         
-        try {
-            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
-            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            for(int j=0;j<allUsers.size();j++)
-            {
-                if(allUsers.get(j).get(1).equals(dataList.get(0))
-                        && allUsers.get(j).get(2).equals(dataList.get(1))
-                        && allUsers.get(j).get(3).equals(dataList.get(2))
-                        && allUsers.get(j).get(4).equals(dataList.get(3)))
-                {
-                    allUsers.remove(j);
-                    break;
-                }
-            }   
-            
-            File file= new File(filePath);
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<allUsers.size(); j++) 
-            {
-                ArrayList<String>item = allUsers.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                        bw.write(item.get(k));
-                    }else{
-                        bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(payment.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public void editFile(String textFile, ArrayList<String> dataList) {
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(dataList.get(4)+","
-                    +dataList.get(0)+","
-                    +dataList.get(1)+","
-                    +dataList.get(2)+","
-                    +dataList.get(3)+"\n");
-        } catch (IOException ex) {
-            Logger.getLogger(payment.class.getName()).log(Level.SEVERE, null, ex);
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+         {
+             if(allUserInfo.get(p).contains(this.getUserId()))
+             {
+                 ArrayList<String> item = allUserInfo.get(p);
+                 if(item.get(1).equals(this.getUserId()))
+                 {
+                     onlyUserInfo.add(allUserInfo.get(p));
+                     q++;
+                 }
+             }
         }
+        
+        return onlyUserInfo;
     }
-
-    @Override
-    public int getNextId(String textFile) {
-        int id = 0;
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            String line = br.readLine();
-            while(line != null )
-                {
-                    String[] dataRow = line.split(",");
-                    for(int i=0; i<dataRow.length; i++)
-                    {
-                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("PE")+2));
-                    }
-                    line = br.readLine();
-                }
-        }catch (IOException ex) {
-            Logger.getLogger(payment.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
-    }
-
     
     
     

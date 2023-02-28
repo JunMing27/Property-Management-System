@@ -26,7 +26,8 @@ import javax.swing.filechooser.FileFilter;
  */
 public class vendorProfileEditFrame extends javax.swing.JFrame {
 
-    String image = "";
+    String imageName = null;
+    File sourceFile = null;
     static String idGet;
     
     public vendorProfileEditFrame(String id) {
@@ -350,19 +351,18 @@ public class vendorProfileEditFrame extends javax.swing.JFrame {
         int result = fileChooser.showOpenDialog(null);
         if(result == JFileChooser.APPROVE_OPTION)
         {
-            File selectedImagePath = fileChooser.getSelectedFile();
-            String selectedImageString = selectedImagePath.toString();
+            sourceFile = fileChooser.getSelectedFile();
+            imageName = sourceFile.getName();
+            
             BufferedImage bufferedImage = null;
             try {
-                bufferedImage = ImageIO.read(selectedImagePath);
+                bufferedImage = ImageIO.read(sourceFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon profileIcon = new ImageIcon(profileImage);
             imageLabel.setIcon(profileIcon);
-
-            image = selectedImageString.substring(selectedImageString.lastIndexOf("/") + 1);
 
         }
     }//GEN-LAST:event_imageLabelMouseClicked
@@ -388,7 +388,7 @@ public class vendorProfileEditFrame extends javax.swing.JFrame {
         String pwd = pwdTxt.getText();
         errorMessage.setText("");
         if(!name.isEmpty() && !ageString.isEmpty() && !gender.isEmpty()
-            && !phone.isEmpty() && !userName.isEmpty() && !pwd.isEmpty() && !image.equals(""))
+            && !phone.isEmpty() && !userName.isEmpty() && !pwd.isEmpty() && !imageName.equals(""))
         {
             if(!name.isBlank()&& !ageString.isBlank()&& !gender.isBlank()
                 && !phone.isBlank()&& !userName.isBlank()&& !pwd.isBlank())
@@ -432,19 +432,19 @@ public class vendorProfileEditFrame extends javax.swing.JFrame {
                         main.setUserId(idGet);
                         ArrayList<String> dataList = new ArrayList<>();
                         dataList.add(idGet);
-                        main.removeFromFile("ResidentProfile", dataList);
+                        main.removeFromFile("VendorProfile", dataList);
                         main.removeFromFile("loginCredential", dataList);
                         dataList.add(name);
                         dataList.add(gender);
                         dataList.add(ageString);
                         dataList.add(phone);
-                        dataList.add(image);
-                        main.editFile("ResidentProfile", dataList);
+                        dataList.add(imageName);
+                        main.editFile("VendorProfile", dataList);
                         dataList = new ArrayList<>();
                         dataList.add(idGet);
                         dataList.add(userName);
                         dataList.add(pwd);
-                        dataList.add("resident");
+                        dataList.add("vendor");
                         main.editFile("loginCredential", dataList);
                         this.dispose();
                         vendorProfileManageFrame profile = new vendorProfileManageFrame(idGet);
@@ -492,14 +492,14 @@ public class vendorProfileEditFrame extends javax.swing.JFrame {
             }
             ageTxt.setText(main.getUserAge());
             phoneTxt.setText(main.getUserPhone());
-            image = main.getUserImage();
+            imageName = main.getUserImage();
             usernameTxt.setText(main.getCredentialName());
             pwdTxt.setText(main.getPassword());
             
             try {
                 //image
                 BufferedImage bufferedImage = null;
-                File imageFile = new File("src/main/java/com/mycompany/Image/"+image);
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+imageName);
                 bufferedImage = ImageIO.read(imageFile);
                 Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon profileIcon = new ImageIcon(profileImage);

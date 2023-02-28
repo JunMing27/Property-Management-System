@@ -4,6 +4,7 @@
  */
 package com.mycompany.dataController;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -16,4 +17,5 @@ public interface dataManagementController1 {
     public void removeFromFile(String textFile, ArrayList<String> dataList);
     public void editFile(String textFile, ArrayList<String> dataList);
     public int getNextId(String textFile);
+    public void transferImage(File source, File destination);
 }

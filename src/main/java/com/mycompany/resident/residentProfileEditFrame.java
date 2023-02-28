@@ -26,7 +26,8 @@ import javax.swing.filechooser.FileFilter;
  */
 public class residentProfileEditFrame extends javax.swing.JFrame {
 
-    String image = null;
+    String imageName = null;
+    File sourceFile = null;
     static String idGet;
     
     public residentProfileEditFrame(String id) {
@@ -375,21 +376,19 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
         int result = fileChooser.showOpenDialog(null);
         if(result == JFileChooser.APPROVE_OPTION)
         {
-            File selectedImagePath = fileChooser.getSelectedFile();
-            String selectedImage = selectedImagePath.toString();
+            sourceFile = fileChooser.getSelectedFile();
+            imageName = sourceFile.getName();
             
             BufferedImage bufferedImage = null;
             try {
-                bufferedImage = ImageIO.read(selectedImagePath);
+                bufferedImage = ImageIO.read(sourceFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             //width and height according to jframe profile label size
-            Image profileImage = bufferedImage.getScaledInstance(imageLabel.WIDTH, imageLabel.HEIGHT, Image.SCALE_SMOOTH);
+            Image profileImage = bufferedImage.getScaledInstance(138, 126, Image.SCALE_SMOOTH);
             ImageIcon profileIcon = new ImageIcon(profileImage);
             imageLabel.setIcon(profileIcon);
-            
-            image = selectedImage.substring(selectedImage.lastIndexOf("/") + 1);
             
         }
         
@@ -420,7 +419,7 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
         if(!name.isEmpty() && !ageString.isEmpty()
             && !gender.isEmpty() && !phone.isEmpty()
             && !unit.isEmpty() && !userName.isEmpty()
-            && !pwd.isEmpty() && !image.equals(""))
+            && !pwd.isEmpty() && !imageName.equals(""))
         {
             if(!name.isBlank()&& !ageString.isBlank()
                 && !gender.isBlank()&& !phone.isBlank()
@@ -461,24 +460,27 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                             "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
                     if(dialog == JOptionPane.YES_OPTION){
                         resident main = new resident();
+                        resident.residentMethod innerMethod = main.new residentMethod();
                         main.setUserId(idGet);
                         ArrayList<String> dataList = new ArrayList<>();
                         dataList.add(idGet);
-                        main.removeFromFile("ResidentProfile", dataList);
-                        main.removeFromFile("loginCredential", dataList);
                         dataList.add(name);
                         dataList.add(gender);
                         dataList.add(ageString);
                         dataList.add(phone);
                         dataList.add(unit);
-                        dataList.add(image);
-                        main.editFile("ResidentProfile", dataList);
-                        dataList = new ArrayList<>();
-                        dataList.add(idGet);
-                        dataList.add(userName);
-                        dataList.add(pwd);
-                        dataList.add("resident");
-                        main.editFile("loginCredential", dataList);
+                        dataList.add(imageName);
+                        innerMethod.editProfile("ResidentProfile", dataList);
+                        
+                        ArrayList<String> dataList1 = new ArrayList<>();
+                        dataList1.add(idGet);
+                        dataList1.add(userName);
+                        dataList1.add(pwd);
+                        dataList1.add("resident");
+                        innerMethod.editCredential("loginCredential", dataList1);
+                        File dest = new File("src/main/java/com/mycompany/image/" + imageName);
+                        File source = sourceFile;
+                        main.transferImage(source,dest); 
                         this.dispose();
                         residentProfileManageFrame residentProfile = new residentProfileManageFrame(idGet);
                         residentProfile.setVisible(true); 
@@ -522,7 +524,7 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
             residentAgeTxt.setText(main.getUserAge());
             residentPhoneTxt.setText(main.getUserPhone());
             residentUnitTxt.setText(main.getUserUnit());
-            image = main.getUserImage();
+            imageName = main.getUserImage();
 
             residentUsernameTxt.setText(main.getCredentialName());
             residentPwdTxt.setText(main.getPassword());
@@ -530,7 +532,7 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
             try {
                 //image
                 BufferedImage bufferedImage = null;
-                File imageFile = new File("src/main/java/com/mycompany/Image/"+image);
+                File imageFile = new File("src/main/java/com/mycompany/Image/"+imageName);
                 bufferedImage = ImageIO.read(imageFile);
                 Image profileImage = bufferedImage.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon profileIcon = new ImageIcon(profileImage);
