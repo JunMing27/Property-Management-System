@@ -486,7 +486,7 @@ public class adminExecEmployeeManageFrame extends javax.swing.JFrame {
                 adminExecutive main = new adminExecutive();
                 main.chooseTxtFile("Employee");
                 adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
-                mainInner.deleteUserExecutive(getText);
+                mainInner.deleteEmployee(getText);
                 JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
                 
                 this.dispose();

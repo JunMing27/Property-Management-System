@@ -298,6 +298,7 @@ public class adminExecEmployeeAddEditFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 adminExecutive adminExecutiveMain = new adminExecutive();
+                adminExecutive.adminExecutiveMethod mainInner = adminExecutiveMain.new adminExecutiveMethod();
                 ArrayList<String> dataList = new ArrayList<String>();
                 dataList.add(employeeIdField.getText());
                 dataList.add(employeeNameField.getText());
@@ -314,7 +315,7 @@ public class adminExecEmployeeAddEditFrame extends javax.swing.JFrame {
                 char[] i = credentialPasswordField.getPassword();
                 String stringPassword = new String(i);
                 dataList.add(stringPassword);
-                adminExecutiveMain.editOrAddData(dataList, "Employee","Employee.txt","edit");
+                mainInner.addEditEmployee(dataList, "Employee","Employee.txt","edit");
                 //transfer uploaded image to our system image folder
                 if (sourceFile!=null) {
                     File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
@@ -346,7 +347,8 @@ public class adminExecEmployeeAddEditFrame extends javax.swing.JFrame {
                 dataList.add(stringPassword);
                 System.out.println(dataList);
                 adminExecutive adminExecutiveMain= new adminExecutive();
-                adminExecutiveMain.editOrAddData(dataList, "Employee","Employee.txt","add");
+                adminExecutive.adminExecutiveMethod mainInner = adminExecutiveMain.new adminExecutiveMethod();
+                mainInner.addEditEmployee(dataList, "Employee","Employee.txt","add");
                 //transfer uploaded image to our system image folder
                 File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
                 File source = sourceFile;

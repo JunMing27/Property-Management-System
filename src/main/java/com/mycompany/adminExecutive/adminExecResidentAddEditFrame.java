@@ -316,7 +316,7 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
                 char[] i = credentialPasswordField.getPassword();
                 String stringPassword = new String(i);
                 dataList.add(stringPassword);
-                adminExecutiveMain.editOrAddData(dataList, "Resident","residentProfile.txt","edit");
+                mainInner.addEditResident(dataList, "Resident","residentProfile.txt","edit");
                 //transfer uploaded image to our system image folder
                 if (sourceFile!=null) {
                     File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
@@ -360,7 +360,7 @@ public class adminExecResidentAddEditFrame extends javax.swing.JFrame {
                 dataList.add(stringPassword);
                 System.out.println(dataList);
                 
-                adminExecutiveMain.editOrAddData(dataList, "Resident","residentProfile.txt","add");
+                mainInner.addEditResident(dataList, "Resident","residentProfile.txt","add");
                 //transfer uploaded image to our system image folder
                 File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);
                 File source = sourceFile;

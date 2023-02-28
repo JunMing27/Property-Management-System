@@ -217,6 +217,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
             }else{
                 budgetPlan budget = new budgetPlan();
                 buildingManager main = new buildingManager();
+                buildingManager.buildingManagerMethod mainInner = main.new buildingManagerMethod();
                 ArrayList<String> dataList = new ArrayList<String>();
                 dataList.add(projectIdField.getText());
                 dataList.add(projectNameField.getText());
@@ -226,7 +227,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
                 String newEndDate = sdf.format(EndDateChooser.getDate());
                 dataList.add(newStartDate);
                 dataList.add(newEndDate);
-                main.editOrAddData(dataList, "budget","BudgetPlanning.txt","edit");
+                mainInner.addBudgetPlanning(dataList, "budget","BudgetPlanning.txt","edit");
              }
         }else if(addEditDetector=="add"){
             if((projectNameField.getText()).equals("") ||(projectBudgetField.getText()).equals("") ||(StartDateChooser.getDate().toString()).equals("") ||(EndDateChooser.getDate().toString()).equals("")) {
@@ -234,6 +235,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
             }else{
                 budgetPlan budget = new budgetPlan();
                 buildingManager main = new buildingManager();
+                buildingManager.buildingManagerMethod mainInner = main.new buildingManagerMethod();
                 ArrayList<String> dataList = new ArrayList<String>();
                 budget.getIncreasedID("BudgetPlanning.txt","budget");
                 dataList.add(budget.getBudgetId());
@@ -244,7 +246,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
                 String newEndDate = sdf.format(EndDateChooser.getDate());
                 dataList.add(newStartDate);
                 dataList.add(newEndDate);
-                main.editOrAddData(dataList, "budget","BudgetPlanning.txt","add");
+                mainInner.addBudgetPlanning(dataList, "budget","BudgetPlanning.txt","add");
              }
         }
     }//GEN-LAST:event_addEditBtnActionPerformed

@@ -295,6 +295,7 @@ public class buildingManagerEmployeeEditFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter all field", "Warning", JOptionPane.ERROR_MESSAGE);
             }else{
                 buildingManager buildingManagerMain = new buildingManager();
+                buildingManager.buildingManagerMethod mainInner = buildingManagerMain.new buildingManagerMethod();
                 ArrayList<String> dataList = new ArrayList<String>();
                 dataList.add(employeeIdField.getText());
                 dataList.add(employeeNameField.getText());
@@ -311,7 +312,7 @@ public class buildingManagerEmployeeEditFrame extends javax.swing.JFrame {
                 char[] i = credentialPasswordField.getPassword();
                 String stringPassword = new String(i);
                 dataList.add(stringPassword);
-                buildingManagerMain.editOrAddData(dataList, "Employee","Employee.txt","edit");
+                mainInner.editEmployee(dataList, "Employee","Employee.txt","edit");
                 //transfer uploaded image to our system image folder
                 if (sourceFile!=null) {
                     File dest = new File("src/main/java/com/mycompany/image/" + this.imageName);

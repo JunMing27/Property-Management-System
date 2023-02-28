@@ -493,7 +493,7 @@ public class adminExecResidentManageFrame extends javax.swing.JFrame {
                 main.chooseTxtFile("Resident");
                 adminExecutive.adminExecutiveMethod mainInner = main.new adminExecutiveMethod();
                 mainInner.editAvailability(temporaryUnitId3 ,"");
-                mainInner.deleteUserExecutive(getText);
+                mainInner.deleteResident(getText);
                 JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
                 
                 this.dispose();

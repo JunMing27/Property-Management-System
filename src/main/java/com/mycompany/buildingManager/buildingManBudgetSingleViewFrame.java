@@ -234,8 +234,9 @@ public class buildingManBudgetSingleViewFrame extends javax.swing.JFrame {
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
         buildingManager main = new buildingManager();
+        buildingManager.buildingManagerMethod mainInner = main.new buildingManagerMethod();
         main.chooseTxtFile("budgetPlanning");
-        main.deleteFunction(projectIdLabel.getText());
+        mainInner.deleteBudgetPlanning(projectIdLabel.getText());
         JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
         this.dispose();
