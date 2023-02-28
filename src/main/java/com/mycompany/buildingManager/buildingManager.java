@@ -621,5 +621,8 @@ public class buildingManager extends User implements dataManagementController, d
         public void deleteBudgetPlanning(String itemID){
             deleteFunction(itemID);
         }
+        public void editEmployee(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
+        }
     }
 }

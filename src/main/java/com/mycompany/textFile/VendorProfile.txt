@@ -1,2 +1,0 @@
-V1,User1,female,38,012-345 6789,profile.png
-V2,User2,male,38,012-345 6789,ngan.jpg

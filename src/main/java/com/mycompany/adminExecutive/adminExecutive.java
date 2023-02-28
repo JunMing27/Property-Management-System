@@ -756,10 +756,10 @@ public class adminExecutive extends User implements dataManagementController, di
 }
     
     class adminExecutiveMethod{
-        public void addEditUserExecutive(ArrayList<String> dataList, String type, String file, String functionType){
+        public void addEditEmployee(ArrayList<String> dataList, String type, String file, String functionType){
             editOrAddData(dataList,type,file,functionType);
         }
-        public void deleteUserExecutive(String itemID){
+        public void deleteEmployee(String itemID){
             deleteFunction(itemID);
         }
         public void addEditVendor(ArrayList<String> dataList, String type, String file, String functionType){

@@ -1,8 +1,1 @@
-AE1,Aname,LGender,15Age,0192123292,blue.png
-AE3,Cname,LGender,17Age,0192123492,ngan.jpg
-AE5,sa,male,2,02,amber.jpg
-AE5,sa,male,2,02,amber.jpg
-AE5,sa,male,2,02,amber.jpg
-AE5,sa,male,2,02,amber.jpg
-AE7,DFAAF,male,23,019237723,gardenia.jpg
-AE8,cool image,female,2,01238123,402xdrsbr2o51.jpg
+AE1,cokes,male,2,21321312,coke.png

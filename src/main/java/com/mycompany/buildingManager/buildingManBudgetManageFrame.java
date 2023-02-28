@@ -558,9 +558,15 @@ public class buildingManBudgetManageFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPage.setEnabled(false);
         }
-        ProjectIdLabel1.setText(budgetClass.getBudgetId());
-        ProjectTitleLabel1.setText(budgetClass.getBudgetProjectName());
-        ProjectBudgetLabel1.setText(budgetClass.getBudgetProjectBudget());
+        if(budgetClass.getBudgetId() !=null){
+            ProjectIdLabel1.setText(budgetClass.getBudgetId());
+            ProjectTitleLabel1.setText(budgetClass.getBudgetProjectName());
+            ProjectBudgetLabel1.setText(budgetClass.getBudgetProjectBudget());
+        }else{
+            ProjectIdLabel1.setText("no data");
+            ProjectTitleLabel1.setText("no data");
+            ProjectBudgetLabel1.setText("no data");
+        }
         setPagination();
         budgetClass.displayDataView(PageLine,searchTxt,"budget");
         boo = budgetClass.getStatus();

@@ -533,9 +533,15 @@ public class buildingManagerEmployeeManageFrame extends javax.swing.JFrame {
         if(boo==false){
             nextPage.setEnabled(false);
         }
-        EmployeeIdLabel1.setText(employeeMain.getUserId());
-        EmployeeNameLabel1.setText(employeeMain.getUserName());
-        EmployeeJobLabel1.setText(employeeMain.getEmployeeJobScope());
+        if(employeeMain.getUserId() !=null){
+            EmployeeIdLabel1.setText(employeeMain.getUserId());
+            EmployeeNameLabel1.setText(employeeMain.getUserName());
+            EmployeeJobLabel1.setText(employeeMain.getEmployeeJobScope());
+        }else{
+            EmployeeIdLabel1.setText("no data");
+            EmployeeNameLabel1.setText("no data");
+            EmployeeJobLabel1.setText("no data");
+        }
         setPagination();
         employeeMain.displayDataView(PageLine,employeeTeam,"Employee");
         boo = employeeMain.getStatus();

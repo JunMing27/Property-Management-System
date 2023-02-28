@@ -1,3 +1,1 @@
-AC2,Bname,female,19,0192123392,dominos.png
-AC3,Cnames,female,21,0192123492,ngan.jpg
-AC4,berrrr,male,23,2312,amber.jpg
+AC1,fff,male,32,213312,copenhagen-fashion-week.jpg
