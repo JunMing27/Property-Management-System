@@ -252,9 +252,10 @@ public class guardCheckPointAddFrame extends javax.swing.JFrame {
                 dataList.add(block);
                 dataList.add(date);
                 dataList.add(time);
-                checkpoint main = new checkpoint();
+                employee main = new employee();
+                employee.employeeMethod innerMethod = main.new employeeMethod();
                 main.setUserId(guardId);
-                main.editFile("CheckpointRecord", dataList);
+                innerMethod.checkInCheckpoint("CheckpointRecord", dataList);
                 this.dispose();
                 guardCheckPointViewFrame view = new guardCheckPointViewFrame(idGet);
                 view.setVisible(true);
@@ -275,7 +276,9 @@ public class guardCheckPointAddFrame extends javax.swing.JFrame {
         checkpoint main = new checkpoint();
         main.setUserId(idGet);
         main.displayDataViewOwn(0, "", "", "CheckpointRecord");
-        int totalRow = main.getTotalLine();
+        
+        employee employeeClass = new employee();
+        int totalRow = employeeClass.getNextId("CheckpointRecord");
         cpIdTxt1.setText("CPR"+totalRow);
         guardIdTxt1.setText(idGet);
         

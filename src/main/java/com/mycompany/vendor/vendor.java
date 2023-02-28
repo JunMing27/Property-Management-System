@@ -8,7 +8,6 @@ import com.mycompany.dataController.User;
 import com.mycompany.dataController.dataManagementController;
 import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController;
-import com.mycompany.resident.resident;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

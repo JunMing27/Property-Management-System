@@ -25,7 +25,7 @@ import java.util.logging.Logger;
  *
  * @author hoiyi
  */
-public class checkpoint implements displayController1, dataManagementController1{
+public class checkpoint implements displayController1{
     
     //for checkpoint record
     private String checkPointRecordID;
@@ -116,8 +116,7 @@ public class checkpoint implements displayController1, dataManagementController1
         
     }
 
-    @Override
-    public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
+    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
         File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
         if (file.exists()) {
@@ -138,12 +137,7 @@ public class checkpoint implements displayController1, dataManagementController1
                 allUserInfo.add(itemArrayList);
             }
         } 
-        return allUserInfo;
-    }
-
-    @Override
-    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
-        ArrayList<ArrayList<String>> allUserInfo = this.allUserDataInfo(textFile);
+        
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
@@ -166,59 +160,6 @@ public class checkpoint implements displayController1, dataManagementController1
         return onlyUserInfo;
     }
 
-    @Override
-    public void removeFromFile(String textFile, ArrayList<String> dataList) {
-        
-    }
-
-    @Override
-    public void editFile(String textFile, ArrayList<String> dataList) {
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(dataList.get(0)+","
-                    +dataList.get(1)+","
-                    +dataList.get(2)+","
-                    +dataList.get(3)+","
-                    +dataList.get(4)+"\n");
-            
-            
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(checkpoint.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public int getNextId(String textFile) {
-        int id = 0;
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            String line = br.readLine();
-            while(line != null )
-            {
-                String[] dataRow = line.split(",");
-                for(int i=0; i<dataRow.length; i++)
-                {
-                    id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("CPR")+3));
-                }
-                line = br.readLine();
-            }
-        
-            
-            br.close();
-            id = id+1;
-            
-        } catch (IOException ex) {
-            Logger.getLogger(checkpoint.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
-    }
-    
-    
     
     
 }

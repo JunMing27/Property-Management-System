@@ -207,19 +207,16 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
     
     private void setStatus()
     {
-        visitorPass main = new visitorPass();
-        main.setVisitorPassId(idGet);
-        ArrayList<String> dataList = new ArrayList<>();
-        dataList.add(idTxt1.getText());
-        main.removeFromFile(idTxt1.getText(), dataList);
+        visitor main = new visitor();
+        visitor.visitorMethod innerMethod = main.new visitorMethod();
         
         ArrayList<String> dataList1 = new ArrayList<>();
-        dataList1.add(residentIdLabel.getText());
         dataList1.add(idTxt1.getText());
         dataList1.add(nameTxt1.getText());
         dataList1.add(dateTxt1.getText());
+        dataList1.add(residentIdLabel.getText());
         dataList1.add("Invalid");
-        main.editFile("VisitorPass", dataList1);
+        innerMethod.changeStatus("VisitorPass", dataList1);
     }
     
     /**

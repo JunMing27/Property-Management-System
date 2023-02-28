@@ -24,10 +24,9 @@ public class guardVisEntryAddEditFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         idGet = id;
         addEditGet = addEdit;
-        addEditGet = "add";
         dataListGet = dataList;
         
-        String pattern = "dd-MM-YYYY";
+        String pattern = "dd-MM-yyyy";
         jDateChooser1.setDateFormatString(pattern);
         enterTimePicker.setTimeToNow();
         
@@ -254,7 +253,7 @@ public class guardVisEntryAddEditFrame extends javax.swing.JFrame {
     private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
         String id = idTxt1.getText();
         String name = nameTxt.getText();
-        String pattern = "dd-MM-YYYY";
+        String pattern = "dd-MM-yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         String date = "";
         if(jDateChooser1.isVisible()) //for add
@@ -323,12 +322,15 @@ public class guardVisEntryAddEditFrame extends javax.swing.JFrame {
                     dataList.add(date);
                     dataList.add(enterTime);
                     dataList.add(leaveTime);
-                    visitorEntry main = new visitorEntry();
+                    employee main = new employee();
+                    employee.employeeMethod innerMethod = main.new employeeMethod();
                     if(addEditGet.equals("edit"))
                     {
-                        main.removeFromFile("VisitorEntry", dataList);
+                        innerMethod.editVisitorEntry("VisitorEntry", dataList);
+                    }else if (addEditGet.equals("add"))
+                    {
+                        innerMethod.addVisitorEntry("VisitorEntry", dataList);
                     }
-                    main.editFile("VisitorEntry", dataList);
                     this.dispose();
                     guardVisEntryManageFrame visitorEntry = new guardVisEntryManageFrame(idGet);
                     visitorEntry.setVisible(true);
@@ -357,7 +359,7 @@ public class guardVisEntryAddEditFrame extends javax.swing.JFrame {
     
     private void emptyData()
     {
-        visitorEntry main = new visitorEntry();
+        employee main = new employee();
         int nextVEId = main.getNextId("VisitorEntry");
         idTxt1.setText("VE"+nextVEId);
         nameTxt.setText("");

@@ -7,22 +7,27 @@ package com.mycompany.employee;
 
 import com.mycompany.dataController.User;
 import com.mycompany.dataController.dataManagementController;
+import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jun Ming
  */
-public class employee extends User implements dataManagementController, displayController{
+public class employee extends User implements dataManagementController, displayController, dataManagementController1{
 
     private String employeeJobScope;
     
@@ -229,7 +234,175 @@ public class employee extends User implements dataManagementController, displayC
         
     }
 
+    @Override
+    public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
+        return null;
+    }
+
+    @Override
+    public void removeFromFile(String textFile, ArrayList<String> dataList) {
+        try {
+            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            for(int j=0;j<allUsers.size();j++)
+            {
+                if(allUsers.get(j).get(0).equals(dataList.get(0)))
+                {
+                    allUsers.remove(j);
+                    break;
+                }
+            }
+            
+            
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(employee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void editFile(String textFile, ArrayList<String> dataList) {
+        try {
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            if(textFile.equals("VisitorEntry"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(4)+"\n");
+            }
+            else if(textFile.equals("Incident"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+"\n");
+            }
+            
+            
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(employee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public int getNextId(String textFile) {
+        int id = 0;
+        try {
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            if(textFile.equals("VisitorEntry"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VE")+2));
+                    }
+                    line = br.readLine();
+                }
+            }
+            else if(textFile.equals("Incident"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("IC")+2));
+                    }
+                    line = br.readLine();
+                }
+            }
+            else if(textFile.equals("CheckpointRecord"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("CPR")+3));
+                    }
+                    line = br.readLine();
+                }
+            }
+            
+            br.close();
+            id = id+1;
+            
+        } catch (IOException ex) {
+            Logger.getLogger(employee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+
     
+    
+    
+    
+    
+    
+    
+    
+    
+    class employeeMethod{
+        
+        public void addVisitorEntry(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void editVisitorEntry(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void checkInCheckpoint(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void addIncident(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void editIncident(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+    }
     
     
 }

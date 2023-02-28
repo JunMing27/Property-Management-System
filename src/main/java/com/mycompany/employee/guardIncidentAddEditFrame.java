@@ -208,12 +208,15 @@ public class guardIncidentAddEditFrame extends javax.swing.JFrame {
                 dataList.add(incidentId);
                 dataList.add(idGet);
                 dataList.add(detail);
-                incident main = new incident();
+                employee main = new employee();
+                employee.employeeMethod innerMethod = main.new employeeMethod();
                 if(addEditGet.equals("edit"))
                 {
-                    main.removeFromFile("Incident", dataList);
+                    innerMethod.editIncident("Incident", dataList);
+                }else if(addEditGet.equals("add"))
+                {
+                    innerMethod.addIncident("Incident", dataList);
                 }
-                main.editFile("Incident", dataList);
                 this.dispose();
                 guardIncidentManageFrame incidentManage = new guardIncidentManageFrame(idGet);
                 incidentManage.setVisible(true);
@@ -238,7 +241,7 @@ public class guardIncidentAddEditFrame extends javax.swing.JFrame {
     
     private void emptyData()
     {
-        incident main = new incident();
+        employee main = new employee();
         main.setUserId(idGet);
         int nextIncidentId = main.getNextId("Incident");
         idTxt1.setText("IC"+nextIncidentId);
