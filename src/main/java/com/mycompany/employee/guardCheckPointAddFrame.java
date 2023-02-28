@@ -276,7 +276,9 @@ public class guardCheckPointAddFrame extends javax.swing.JFrame {
         checkpoint main = new checkpoint();
         main.setUserId(idGet);
         main.displayDataViewOwn(0, "", "", "CheckpointRecord");
-        int totalRow = main.getTotalLine();
+        
+        employee employeeClass = new employee();
+        int totalRow = employeeClass.getNextId("CheckpointRecord");
         cpIdTxt1.setText("CPR"+totalRow);
         guardIdTxt1.setText(idGet);
         

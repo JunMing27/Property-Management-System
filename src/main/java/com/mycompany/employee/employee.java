@@ -343,6 +343,18 @@ public class employee extends User implements dataManagementController, displayC
                     line = br.readLine();
                 }
             }
+            else if(textFile.equals("CheckpointRecord"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("CPR")+3));
+                    }
+                    line = br.readLine();
+                }
+            }
             
             br.close();
             id = id+1;
