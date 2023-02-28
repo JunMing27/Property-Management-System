@@ -148,19 +148,6 @@ public class resident extends User implements dataManagementController1, display
         this.status = status;
     }
     
-    
-    //add selectedImageString
-    private String selectedImageString;
-
-    public String getSelectedImageString() {
-        return selectedImageString;
-    }
-
-    public void setSelectedImageString(String selectedImageString) {
-        this.selectedImageString = selectedImageString;
-    }
-    
-    
     @Override
     public void deleteUserCredential(String userID) {
         
