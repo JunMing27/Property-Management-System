@@ -342,13 +342,16 @@ public class residentFacBookAddEditFrame extends javax.swing.JFrame {
                         dataList.add(bookingDate);
                         dataList.add(bookingTime);
                         dataList.add(bookingDuration);
-                        facilityBooking main = new facilityBooking();
-                        main.setResidentId(idGet);
+                        resident main = new resident();
+                        resident.residentMethod innerMethod = main.new residentMethod();
+                        main.setUserId(idGet);
                         if(addEditGet.equals("edit"))
                         {
-                            main.removeFromFile("FacilityBooking", dataList);
+                            innerMethod.editFacilityReservation("FacilityBooking", dataList);
+                        }else if(addEditGet.equals("add"))
+                        {
+                            innerMethod.addFacilityReservation("FacilityBooking", dataList);
                         }
-                        main.editFile("FacilityBooking", dataList);
 
                         this.dispose();
                         residentFacBookManageFrame manage = new residentFacBookManageFrame(idGet);

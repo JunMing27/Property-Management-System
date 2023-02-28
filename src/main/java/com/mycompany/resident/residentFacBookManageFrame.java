@@ -474,9 +474,10 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
             dataList.add(bookDateTxt1.getText());
             dataList.add(bookTimeTxt1.getText());
             dataList.add(bookDurationTxt1.getText());
-            facilityBooking main = new facilityBooking();
-            main.setResidentId(idGet);
-            main.removeFromFile("FacilityBooking", dataList);
+            resident main = new resident();
+            resident.residentMethod innerMethod = main.new residentMethod();
+            main.setUserId(idGet);
+            innerMethod.deleteFacilityReservation("FacilityBooking", dataList);
             this.dispose();
             residentFacBookManageFrame manage = new residentFacBookManageFrame(idGet);
             manage.setVisible(true);
@@ -509,9 +510,10 @@ public class residentFacBookManageFrame extends javax.swing.JFrame {
             dataList.add(bookDateTxt2.getText());
             dataList.add(bookTimeTxt2.getText());
             dataList.add(bookDurationTxt2.getText());
-            facilityBooking main = new facilityBooking();
-            main.setResidentId(idGet);
-            main.removeFromFile("FacilityBooking", dataList);
+            resident main = new resident();
+            resident.residentMethod innerMethod = main.new residentMethod();
+            main.setUserId(idGet);
+            innerMethod.deleteFacilityReservation("FacilityBooking", dataList);
             this.dispose();
             residentFacBookManageFrame manage = new residentFacBookManageFrame(idGet);
             manage.setVisible(true);

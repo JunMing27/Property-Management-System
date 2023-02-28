@@ -4,27 +4,22 @@
  */
 package com.mycompany.adminExecutive;
 
-import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jun Ming
  */
-public class facilityBooking implements displayController, dataManagementController1{
+public class facilityBooking implements displayController{
 
     private String facilityBookingId;
     private String facilityId;
@@ -249,101 +244,5 @@ public class facilityBooking implements displayController, dataManagementControl
         }
     }
     
-    
-    
-    
-    //add by hoiyi
-
-    @Override
-    public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
-        ArrayList<ArrayList<String>> allUserInfo = DataInfo(textFile);
-        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
-        
-        int p,q;
-        
-        for (p=0,q=0; p<allUserInfo.size(); p++)
-        {
-            if(allUserInfo.get(p).contains(this.getResidentId()))
-            {
-                ArrayList<String> item = allUserInfo.get(p);
-                if(item.get(3).equals(this.getResidentId()))
-                {
-                    onlyUserInfo.add(allUserInfo.get(p));
-                    q++;
-                }
-            }
-        }
-        return onlyUserInfo;
-    }
-
-    @Override
-    public void removeFromFile(String textFile, ArrayList<String> dataList) {
-        try {
-            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
-            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            for(int j=0;j<allUsers.size();j++)
-            {
-                if(allUsers.get(j).get(0).equals(dataList.get(0)))
-                {
-                    allUsers.remove(j);
-                    break;
-                }
-            }
-            
-            
-            File file= new File(filePath);
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<allUsers.size(); j++) 
-            {
-                ArrayList<String>item = allUsers.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                       bw.write(item.get(k));
-                    }else{
-                       bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(facilityBooking.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public void editFile(String textFile, ArrayList<String> dataList) {
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(dataList.get(0)+","
-                    +dataList.get(1)+","
-                    +dataList.get(2)+","
-                    +dataList.get(3)+","
-                    +dataList.get(4)+","
-                    +dataList.get(5)+","
-                    +dataList.get(6)+"\n");
-            
-            
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(facilityBooking.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public int getNextId(String textFile) {
-        return 0;
-    }
-    
+   
 }

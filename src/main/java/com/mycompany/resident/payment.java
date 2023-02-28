@@ -178,7 +178,4 @@ public class payment implements displayController1{
         return onlyUserInfo;
     }
     
-    
-    
-    
 }

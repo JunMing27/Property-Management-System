@@ -287,7 +287,8 @@ public class resident extends User implements dataManagementController1, display
             String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
             ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
             
-            if(textFile.equals("ResidentProfile") || textFile.equals("loginCredential"))
+            if(textFile.equals("ResidentProfile") || textFile.equals("loginCredential")
+                    || textFile.equals("FacilityBooking"))
             {
                 for(int j=0;j<allUsers.size();j++)
                 {
@@ -370,6 +371,16 @@ public class resident extends User implements dataManagementController1, display
                         +dataList.get(2)+","
                         +dataList.get(3)+"\n");
             }
+            else if(textFile.equals("FacilityBooking"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(4)+","
+                        +dataList.get(5)+","
+                        +dataList.get(6)+"\n");
+            }
             
             
             bw.close();
@@ -381,7 +392,32 @@ public class resident extends User implements dataManagementController1, display
 
     @Override
     public int getNextId(String textFile) {
-        return 0;
+        int id = 0;
+        try 
+        { 
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileReader fr = new FileReader(file); 
+            BufferedReader br = new BufferedReader(fr); 
+            String line = br.readLine(); 
+            if(textFile.equals("Pending"))
+            {
+                while(line != null ) 
+                { 
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++) 
+                    { 
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("PE")+2));
+                    }
+                    line = br.readLine(); 
+                } 
+            }
+            br.close();
+            id = id+1;
+        }catch (IOException ex) { 
+            Logger.getLogger(payment.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+        return id;
     }
 
     @Override
@@ -426,6 +462,21 @@ public class resident extends User implements dataManagementController1, display
             editFile(addingFile, dataList);
         }
         
+        public void addFacilityReservation(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void editFacilityReservation(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void deleteFacilityReservation(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+        }
         
     }
     
