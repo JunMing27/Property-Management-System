@@ -292,10 +292,10 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
                         
                         if(addEditGet.equals("edit"))
                         {
-                            innerMethod.editvisitorPass("VisitorPass", dataList);
+                            innerMethod.editVisitorPass("VisitorPass", dataList);
                         }else if(addEditGet.equals("add"))
                         {
-                            innerMethod.addvisitorPass("VisitorPass", dataList);
+                            innerMethod.addVisitorPass("VisitorPass", dataList);
                         }
 
                         this.dispose();

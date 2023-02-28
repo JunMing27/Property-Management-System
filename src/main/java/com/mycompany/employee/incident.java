@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  *
  * @author hoiyi
  */
-public class incident implements displayController1, dataManagementController1{
+public class incident implements displayController1{
     
     private String incidentId;
     private String userId;
@@ -94,8 +94,7 @@ public class incident implements displayController1, dataManagementController1{
         }
     }
 
-    @Override
-    public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
+    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
         File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
         if (file.exists()) {
@@ -116,12 +115,7 @@ public class incident implements displayController1, dataManagementController1{
                 allUserInfo.add(itemArrayList);
             }
         } 
-        return allUserInfo;
-    }
-
-    @Override
-    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
-        ArrayList<ArrayList<String>> allUserInfo = this.allUserDataInfo(textFile);
+        
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
@@ -142,90 +136,9 @@ public class incident implements displayController1, dataManagementController1{
         return onlyUserInfo;
     }
 
-    @Override
-    public void removeFromFile(String textFile, ArrayList<String> dataList) {
-        try {
-            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
-            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
-            for(int j=0;j<allUsers.size();j++)
-            {
-                if(allUsers.get(j).get(0).equals(dataList.get(0))
-                        && allUsers.get(j).get(1).equals(dataList.get(1)))
-                {
-                    allUsers.remove(j);
-                    break;
-                }
-            }
-            
-            
-            File file= new File(filePath);
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for (int j=0; j<allUsers.size(); j++) 
-            {
-                ArrayList<String>item = allUsers.get(j);
-                for(int k=0; k<item.size(); k++)
-                {
-                    if(k == item.size()-1)
-                    {
-                       bw.write(item.get(k));
-                    }else{
-                       bw.write(item.get(k)+",");
-                    }
-                }
-                bw.write("\n");
-            }
-            bw.close();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(incident.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 
-    @Override
-    public void editFile(String textFile, ArrayList<String> dataList) {
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileWriter fw = new FileWriter(file,true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(dataList.get(0)+","
-                    +dataList.get(1)+","
-                    +dataList.get(2)+"\n");
-            
-            
-            bw.close();
-        } catch (IOException ex) {
-            Logger.getLogger(incident.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @Override
-    public int getNextId(String textFile) {
-        int id = 0;
-        try {
-            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            String line = br.readLine();
-            while(line != null )
-            {
-                String[] dataRow = line.split(",");
-                for(int i=0; i<dataRow.length; i++)
-                {
-                    id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("IC")+2));
-                }
-                line = br.readLine();
-            }
-            
-            
-            br.close();
-            id = id+1;
-            
-        } catch (IOException ex) {
-            Logger.getLogger(incident.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
-    }
+    
     
     
 }

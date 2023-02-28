@@ -469,12 +469,12 @@ public class resident extends User implements dataManagementController1, display
             removeFromFile(textFile, dataList);
         }
         
-        public void addvisitorPass(String textFile, ArrayList<String> dataList)
+        public void addVisitorPass(String textFile, ArrayList<String> dataList)
         {
             editFile(textFile, dataList);
         }
         
-        public void editvisitorPass(String textFile, ArrayList<String> dataList)
+        public void editVisitorPass(String textFile, ArrayList<String> dataList)
         {
             removeFromFile(textFile, dataList);
             editFile(textFile, dataList);
