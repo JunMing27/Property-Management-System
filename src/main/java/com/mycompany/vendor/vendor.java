@@ -45,7 +45,7 @@ public class vendor extends User implements dataManagementController, displayCon
     public void setStatus(Boolean status) {
         this.Status=status; 
     }
-    private String dataId;
+    
     private String file="VendorProfile.txt";
     public String getFileType(){
         return file;

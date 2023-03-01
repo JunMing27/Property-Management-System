@@ -1,15 +1,8 @@
 package com.mycompany.employee;
 
-
-import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController1;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
