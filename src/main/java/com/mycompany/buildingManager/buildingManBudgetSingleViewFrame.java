@@ -236,7 +236,7 @@ public class buildingManBudgetSingleViewFrame extends javax.swing.JFrame {
         buildingManager main = new buildingManager();
         buildingManager.buildingManagerMethod mainInner = main.new buildingManagerMethod();
         main.chooseTxtFile("budgetPlanning");
-        mainInner.deleteBudgetPlanning(projectIdLabel.getText());
+        mainInner.deleteBudgetPlan(projectIdLabel.getText());
         JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
         this.dispose();

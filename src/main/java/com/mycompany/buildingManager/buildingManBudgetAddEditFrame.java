@@ -227,7 +227,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
                 String newEndDate = sdf.format(EndDateChooser.getDate());
                 dataList.add(newStartDate);
                 dataList.add(newEndDate);
-                mainInner.addBudgetPlanning(dataList, "budget","BudgetPlanning.txt","edit");
+                mainInner.addEditBudgetPlan(dataList, "budget","BudgetPlanning.txt","edit");
              }
         }else if(addEditDetector=="add"){
             if((projectNameField.getText()).equals("") ||(projectBudgetField.getText()).equals("") ||(StartDateChooser.getDate().toString()).equals("") ||(EndDateChooser.getDate().toString()).equals("")) {
@@ -246,7 +246,7 @@ public class buildingManBudgetAddEditFrame extends javax.swing.JFrame {
                 String newEndDate = sdf.format(EndDateChooser.getDate());
                 dataList.add(newStartDate);
                 dataList.add(newEndDate);
-                mainInner.addBudgetPlanning(dataList, "budget","BudgetPlanning.txt","add");
+                mainInner.addEditBudgetPlan(dataList, "budget","BudgetPlanning.txt","add");
              }
         }
     }//GEN-LAST:event_addEditBtnActionPerformed

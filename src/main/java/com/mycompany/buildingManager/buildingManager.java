@@ -615,10 +615,10 @@ public class buildingManager extends User implements dataManagementController, d
         public void deleteUserCredential(String userID){
             deleteCredential(userID);
         }
-        public void addBudgetPlanning(ArrayList<String> dataList, String type, String file, String functionType){
+        public void addEditBudgetPlan(ArrayList<String> dataList, String type, String file, String functionType){
             editOrAddData(dataList,type,file,functionType);
         }
-        public void deleteBudgetPlanning(String itemID){
+        public void deleteBudgetPlan(String itemID){
             deleteFunction(itemID);
         }
         public void editEmployee(ArrayList<String> dataList, String type, String file, String functionType){
