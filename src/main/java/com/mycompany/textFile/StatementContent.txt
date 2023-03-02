@@ -5,3 +5,6 @@ ST4,R1,User1,20-01-2023,200.00,Electric
 ST5,V1,User1,20-01-2023,200.00,Electric
 ST6,R1,User1,20-02-2023,200.00,Electric
 ST7,R1,User1,20-03-2023,200.00,Electric
+ST8,R3,Uses3,20-03-2023,3444,Bomb
+ST9,R3,232,adfa,fdsa,asdfas
+ST10,R3,232,adfa,fdsa,asdfas

@@ -11,12 +11,13 @@ import javax.swing.JFrame;
  * @author user
  */
 public class AccExecMenuFrame extends javax.swing.JFrame {
-
+        
     /**
      * Creates new form AccExecMenuFrame
      */
     public AccExecMenuFrame() {
         initComponents();
+        
     }
 
     /**
@@ -31,11 +32,11 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         PaymentManage = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        viewBuildingExecutive = new javax.swing.JButton();
+        InvoiceManage = new javax.swing.JButton();
         BackBtn = new javax.swing.JButton();
-        viewAdminExecutive = new javax.swing.JButton();
-        viewBuildingExecutive1 = new javax.swing.JButton();
-        viewBuildingExecutive2 = new javax.swing.JButton();
+        ReceiptManage = new javax.swing.JButton();
+        PendingPayment = new javax.swing.JButton();
+        StatementManage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,12 +55,12 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Welcome Account Executive");
 
-        viewBuildingExecutive.setBackground(new java.awt.Color(255, 255, 255));
-        viewBuildingExecutive.setForeground(new java.awt.Color(0, 0, 0));
-        viewBuildingExecutive.setText("Invoice Manage");
-        viewBuildingExecutive.addActionListener(new java.awt.event.ActionListener() {
+        InvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
+        InvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
+        InvoiceManage.setText("Invoice Manage");
+        InvoiceManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewBuildingExecutiveActionPerformed(evt);
+                InvoiceManageActionPerformed(evt);
             }
         });
 
@@ -72,30 +73,30 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
             }
         });
 
-        viewAdminExecutive.setBackground(new java.awt.Color(255, 255, 255));
-        viewAdminExecutive.setForeground(new java.awt.Color(0, 0, 0));
-        viewAdminExecutive.setText("Receipt Manage");
-        viewAdminExecutive.addActionListener(new java.awt.event.ActionListener() {
+        ReceiptManage.setBackground(new java.awt.Color(255, 255, 255));
+        ReceiptManage.setForeground(new java.awt.Color(0, 0, 0));
+        ReceiptManage.setText("Receipt Manage");
+        ReceiptManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewAdminExecutiveActionPerformed(evt);
+                ReceiptManageActionPerformed(evt);
             }
         });
 
-        viewBuildingExecutive1.setBackground(new java.awt.Color(255, 255, 255));
-        viewBuildingExecutive1.setForeground(new java.awt.Color(0, 0, 0));
-        viewBuildingExecutive1.setText("Pending Payment");
-        viewBuildingExecutive1.addActionListener(new java.awt.event.ActionListener() {
+        PendingPayment.setBackground(new java.awt.Color(255, 255, 255));
+        PendingPayment.setForeground(new java.awt.Color(0, 0, 0));
+        PendingPayment.setText("Pending Payment");
+        PendingPayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewBuildingExecutive1ActionPerformed(evt);
+                PendingPaymentActionPerformed(evt);
             }
         });
 
-        viewBuildingExecutive2.setBackground(new java.awt.Color(255, 255, 255));
-        viewBuildingExecutive2.setForeground(new java.awt.Color(0, 0, 0));
-        viewBuildingExecutive2.setText("Statement Manage");
-        viewBuildingExecutive2.addActionListener(new java.awt.event.ActionListener() {
+        StatementManage.setBackground(new java.awt.Color(255, 255, 255));
+        StatementManage.setForeground(new java.awt.Color(0, 0, 0));
+        StatementManage.setText("Statement Manage");
+        StatementManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewBuildingExecutive2ActionPerformed(evt);
+                StatementManageActionPerformed(evt);
             }
         });
 
@@ -110,11 +111,11 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(149, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(viewBuildingExecutive2, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewBuildingExecutive1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewAdminExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StatementManage, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PendingPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ReceiptManage, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewBuildingExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PaymentManage, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(118, 118, 118))
         );
@@ -128,13 +129,13 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(PaymentManage, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(viewBuildingExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(viewAdminExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ReceiptManage, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(viewBuildingExecutive2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(StatementManage, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(viewBuildingExecutive1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PendingPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(106, Short.MAX_VALUE))
         );
 
@@ -172,25 +173,48 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_PaymentManageActionPerformed
 
-    private void viewBuildingExecutiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBuildingExecutiveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewBuildingExecutiveActionPerformed
+    private void InvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvoiceManageActionPerformed
+        this.dispose();
+        AccExecInvoiceManage AccExecInvoice = new AccExecInvoiceManage();
+        AccExecInvoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AccExecInvoice.pack();
+        AccExecInvoice.setResizable(false);
+        AccExecInvoice.setLocationRelativeTo(null);
+        AccExecInvoice.setVisible(true); 
+        AccExecInvoice.backButtonToggle();
+        AccExecInvoice.setInvoiceData();
+    }//GEN-LAST:event_InvoiceManageActionPerformed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BackBtnActionPerformed
 
-    private void viewAdminExecutiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAdminExecutiveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewAdminExecutiveActionPerformed
+    private void ReceiptManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReceiptManageActionPerformed
+        AccExecManageReceiptFrame AccExecReceipt = new AccExecManageReceiptFrame();
+        AccExecReceipt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AccExecReceipt.pack();
+        AccExecReceipt.setResizable(false);
+        AccExecReceipt.setLocationRelativeTo(null);
+        AccExecReceipt.setVisible(true); 
+        AccExecReceipt.backButtonToggle();
+        AccExecReceipt.setReceiptData();
+    }//GEN-LAST:event_ReceiptManageActionPerformed
 
-    private void viewBuildingExecutive1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBuildingExecutive1ActionPerformed
+    private void PendingPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PendingPaymentActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_viewBuildingExecutive1ActionPerformed
+    }//GEN-LAST:event_PendingPaymentActionPerformed
 
-    private void viewBuildingExecutive2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBuildingExecutive2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewBuildingExecutive2ActionPerformed
+    private void StatementManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatementManageActionPerformed
+        this.dispose();
+        AccExecStatementManage AccExecStatement = new AccExecStatementManage();
+        AccExecStatement.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AccExecStatement.pack();
+        AccExecStatement.setResizable(false);
+        AccExecStatement.setLocationRelativeTo(null);
+        AccExecStatement.setVisible(true); 
+        AccExecStatement.backButtonToggle();
+        AccExecStatement.setStatementData();
+    }//GEN-LAST:event_StatementManageActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,12 +253,12 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBtn;
+    private javax.swing.JButton InvoiceManage;
     private javax.swing.JButton PaymentManage;
+    private javax.swing.JButton PendingPayment;
+    private javax.swing.JButton ReceiptManage;
+    private javax.swing.JButton StatementManage;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton viewAdminExecutive;
-    private javax.swing.JButton viewBuildingExecutive;
-    private javax.swing.JButton viewBuildingExecutive1;
-    private javax.swing.JButton viewBuildingExecutive2;
     // End of variables declaration//GEN-END:variables
 }

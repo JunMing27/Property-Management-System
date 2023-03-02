@@ -35,13 +35,22 @@ public class statement implements displayController{
     private boolean status;
 
     
-     public String getstatementId() {
+    public String getstatementId() {
         return statementId;
     }
     public void setstatementId(String statementId) {
         this.statementId = statementId;
     }
 
+    public String getuserId() {
+        return userId;
+    }
+    
+    public void setuserId(String userId) {
+        this.userId = userId;
+    }
+    
+    
     public String getuserName() {
         return userName;
     }
@@ -65,6 +74,14 @@ public class statement implements displayController{
     public void setpaidAmount(String paidAmount) {
         this.paidAmount = paidAmount;
     }
+    
+    public void setpaymentDesc(String paymentDesc){
+        this.paymentDesc = paymentDesc;
+    }
+    
+    public String getpaymentDesc() {
+        return paymentDesc;
+    }
 
     public boolean getStatus() {
         return status;
@@ -81,26 +98,17 @@ public class statement implements displayController{
     public void setUserId(String userId) {
         this.userId = userId;
     }
-
-    public String getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
-    }
     
     private Boolean Status;
-    private String file="Payment.txt";
+    private String file="StatementContent.txt";
     @Override
     public void chooseTxtFile(String Type) {
-        file="PaymentContent.txt";
+        file="StatementContent.txt";
     }
 
     @Override
     public void displayDataView(Integer dataLine, String searchTxt, String type) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    String fileName = "src/main/java/com/mycompany/textFile/"+file;
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
         int i =0;
         int fixedSize = allData.size();
@@ -121,28 +129,34 @@ public class statement implements displayController{
         }
         int newSize = allData.size();
         try{
-            setpaymentId(allData.get(dataLine).get(0));
-            setPayDesc(allData.get(dataLine).get(1));
-            setPayAmount(allData.get(dataLine).get(2));
-            setDueDate(allData.get(dataLine).get(3));
-            Status=true;
+            setstatementId(allData.get(dataLine).get(0));
+            setuserId(allData.get(dataLine).get(1));
+            setuserName(allData.get(dataLine).get(2));
+            setpaidDate(allData.get(dataLine).get(3));
+            setpaidAmount(allData.get(dataLine).get(4));
+            setpaymentDesc(allData.get(dataLine).get(5));
+           
+            status=true;
             
         }catch(Exception e){
             setDataNull(type);
-            Status = false;
+            status = false;
         }
         if(dataLine.equals(newSize-1)){
-            Status = false;
+            status = false;
         }
     }
-
+    
     @Override
     public void setDataNull(String type) {
 //        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        setpaymentId(null);
-        setPayDesc(null);
-        setPayAmount(null);
-        setDueDate(null);
+       
+        setstatementId(null);
+        setuserId(null);
+        setuserName(null);
+        setpaidDate(null);
+        setpaidAmount(null);
+        setpaymentDesc(null);
 
     }
 
@@ -153,10 +167,12 @@ public class statement implements displayController{
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
-                    setpaymentId(singleData.get(0));
-                    setPayDesc(singleData.get(1));
-                    setPayAmount(singleData.get(2));
-                    setDueDate(singleData.get(3));
+                    setstatementId(singleData.get(0));
+                    setuserId(singleData.get(1));
+                    setuserName(singleData.get(2));
+                    setpaidDate(singleData.get(3));
+                    setpaidAmount(singleData.get(4));
+                    setpaymentDesc(singleData.get(5));
                     break;
                 }
             }
@@ -176,8 +192,8 @@ public class statement implements displayController{
                     last = line;
                 }
                 if(last==""){
-                    ID = "P1";
-                    setpaymentId(ID);
+                    ID = "ST1";
+                    setstatementId(ID);
                 }else{
                     Scanner ScanEachString = new Scanner(last);
                     ScanEachString.useDelimiter("[,\n]");
@@ -190,7 +206,7 @@ public class statement implements displayController{
                         ID = ID.substring(2);
                         Integer IDnumber = Integer.parseInt(ID)+1;
                         ID = IDchar+ (IDnumber).toString();
-                        setpaymentId(ID);
+                        setstatementId(ID);
                 }
             }
             catch (IOException ex) {

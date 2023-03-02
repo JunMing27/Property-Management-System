@@ -249,14 +249,13 @@ public class AccExecAddEditPayment extends javax.swing.JFrame {
             paymentClass.getDataViewSingle(id, fileType,userType);
 //            payment.paymentMethod mainInner = employeeJobClass.new employeeJobMethod();
             
-            
-            
             addEditBtn.setText("Update");
             PaymentIDField.setText(paymentClass.getpaymentID());
             UserIDField.setText(paymentClass.getUserId());
             PayDescriptionField.setText(paymentClass.getPayDesc());
             PayAmountField.setText(paymentClass.getPayAmount());
             DueDateField.setText(paymentClass.getDueDate());
+            
         }else if (functionType=="add"){
             this.addEditDetector="add";
             addEditBtn.setText("Add");

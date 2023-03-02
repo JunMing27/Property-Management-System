@@ -185,13 +185,7 @@ public class accountExecutive extends User implements dataManagementController, 
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
-                    if(type=="Payment"){
-//                        this.setUserId(singleData.get(0));
-//                        this.setUserName(singleData.get(1));
-//                        this.setUserGender(singleData.get(2));
-//                        this.setUserAge(singleData.get(3));
-//                        this.setUserPhoneNumber(singleData.get(4));
-//                        this.setUserImage(singleData.get(5));
+                    if(type=="Payment"){                    
                         try {
                             getCredentialData(this.getUserId());
                         } catch (FileNotFoundException ex) {
@@ -216,13 +210,24 @@ public class accountExecutive extends User implements dataManagementController, 
                             user.set(4, dataList.get(4));
                             break;
                         }
+                        if(type=="Statement"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            break;
+                        }
                         if(type=="Invoice"){
                             user.set(1, dataList.get(1));
                             user.set(2, dataList.get(2));
                             user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            user.set(5, dataList.get(6));
+                            user.set(5, dataList.get(7));
                             break;
                         }
-                        
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -235,11 +240,18 @@ public class accountExecutive extends User implements dataManagementController, 
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
                             bw.close();
                         }
+                        if(type=="Statement"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
+                            bw.close();
+                        }
                         if(type=="Invoice"){
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
-                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+",").append(user.get(7)+"\n");
                             bw.close();
                         }
                         
@@ -267,11 +279,23 @@ public class accountExecutive extends User implements dataManagementController, 
 
                    
                 }
-                if(type=="Complaint"){
+                if(type=="Statement"){
                     AddDataToFile.write(dataList.get(0)+",");
                     AddDataToFile.write(dataList.get(1)+",");
                     AddDataToFile.write(dataList.get(2)+",");
-                    AddDataToFile.write(dataList.get(3));
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4)+",");
+                    AddDataToFile.write(dataList.get(5));
+                }
+                if(type=="Invoice"){
+                   AddDataToFile.write(dataList.get(0)+",");
+                   AddDataToFile.write(dataList.get(1)+",");
+                   AddDataToFile.write(dataList.get(2)+",");
+                   AddDataToFile.write(dataList.get(3)+",");
+                   AddDataToFile.write(dataList.get(4)+",");
+                   AddDataToFile.write(dataList.get(5)+",");
+                   AddDataToFile.write(dataList.get(6)+",");
+                   AddDataToFile.write(dataList.get(7)); 
                 }
                 
                 AddDataToFile.newLine();
@@ -313,7 +337,7 @@ public class accountExecutive extends User implements dataManagementController, 
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
                             bw.close();
                         }
-                        if(file=="Complaint.txt"){
+                        if(file=="StatementContent.txt"){
                             System.out.println(file);
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
@@ -322,7 +346,15 @@ public class accountExecutive extends User implements dataManagementController, 
                             bw.close();
                             
                         }
+                        if(file=="InvoiceContent.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+",").append(user.get(6)+",").append(user.get(7)+"\n");
+                            bw.close();
                         
+                        }
                         
                     }
                     catch (IOException e) {
@@ -349,12 +381,13 @@ public class accountExecutive extends User implements dataManagementController, 
                 if(last=="" && type.equals("Payment")){
                     ID = "P1";
                     setUserId(ID);
-                }else if(last=="" && type.equals("Account Executive")){
-                    ID = "AC1";
+                }else if(last=="" && type.equals("Statement")){
+                    ID = "ST1";
                     setUserId(ID);
                 }else if(last=="" && type.equals("Building Executive")){
                     ID = "BE1";
                     setUserId(ID);
+                    //you do not have to touch anything about increase id or display data only touch crud
                 }else{
                     Scanner ScanEachString = new Scanner(last);
                     ScanEachString.useDelimiter("[,\n]");
@@ -504,6 +537,18 @@ public class accountExecutive extends User implements dataManagementController, 
             editOrAddData(dataList,type,file,functionType);
         }
         public void deletePayment(String itemId){
+            deleteFunction(itemId);
+        }
+        public void addEditStatement(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
+        }
+         public void deleteStatement(String itemId){
+            deleteFunction(itemId);
+        }
+         public void addEditInvoice(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
+        }
+         public void deleteInvoice(String itemId){
             deleteFunction(itemId);
         }
     }

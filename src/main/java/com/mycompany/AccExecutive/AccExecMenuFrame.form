@@ -59,11 +59,11 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="149" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="viewBuildingExecutive2" min="-2" pref="258" max="-2" attributes="0"/>
-                      <Component id="viewBuildingExecutive1" min="-2" pref="258" max="-2" attributes="0"/>
-                      <Component id="viewAdminExecutive" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="StatementManage" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="PendingPayment" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="ReceiptManage" min="-2" pref="258" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
-                      <Component id="viewBuildingExecutive" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="InvoiceManage" min="-2" pref="258" max="-2" attributes="0"/>
                       <Component id="PaymentManage" min="-2" pref="258" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
@@ -80,13 +80,13 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="PaymentManage" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="viewBuildingExecutive" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="InvoiceManage" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="viewAdminExecutive" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="ReceiptManage" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="viewBuildingExecutive2" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="StatementManage" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="viewBuildingExecutive1" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="PendingPayment" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace pref="106" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -118,7 +118,7 @@
             <Property name="text" type="java.lang.String" value="Welcome Account Executive"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="viewBuildingExecutive">
+        <Component class="javax.swing.JButton" name="InvoiceManage">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -129,7 +129,7 @@
             <Property name="text" type="java.lang.String" value="Invoice Manage"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewBuildingExecutiveActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InvoiceManageActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BackBtn">
@@ -146,7 +146,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="viewAdminExecutive">
+        <Component class="javax.swing.JButton" name="ReceiptManage">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -157,10 +157,10 @@
             <Property name="text" type="java.lang.String" value="Receipt Manage"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewAdminExecutiveActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReceiptManageActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="viewBuildingExecutive1">
+        <Component class="javax.swing.JButton" name="PendingPayment">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -171,10 +171,10 @@
             <Property name="text" type="java.lang.String" value="Pending Payment"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewBuildingExecutive1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PendingPaymentActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="viewBuildingExecutive2">
+        <Component class="javax.swing.JButton" name="StatementManage">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -185,7 +185,7 @@
             <Property name="text" type="java.lang.String" value="Statement Manage"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewBuildingExecutive2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StatementManageActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

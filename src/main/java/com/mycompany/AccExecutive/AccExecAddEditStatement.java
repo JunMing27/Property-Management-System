@@ -4,7 +4,7 @@
  */
 package com.mycompany.AccExecutive;
 
-import com.mycompany.AccExecutive.AccExecMain;
+//import com.mycompany.AccExecutive.AccExecMain;
 import com.mycompany.mavenproject1.BusManBudgetPlanningManage;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -35,8 +35,8 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BackBtn = new javax.swing.JButton();
+        addEditBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -54,21 +54,21 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BackBtn.setBackground(new java.awt.Color(204, 204, 204));
+        BackBtn.setForeground(new java.awt.Color(0, 0, 0));
+        BackBtn.setText("Back");
+        BackBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BackBtnActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Update/ Add Payment");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        addEditBtn.setBackground(new java.awt.Color(204, 204, 204));
+        addEditBtn.setForeground(new java.awt.Color(0, 0, 0));
+        addEditBtn.setText("Update/ Add Payment");
+        addEditBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                addEditBtnActionPerformed(evt);
             }
         });
 
@@ -94,6 +94,7 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
 
         StatementIDField.setBackground(new java.awt.Color(255, 255, 255));
         StatementIDField.setForeground(new java.awt.Color(0, 0, 0));
+        StatementIDField.setEnabled(false);
 
         UserIDField.setBackground(new java.awt.Color(255, 255, 255));
         UserIDField.setForeground(new java.awt.Color(0, 0, 0));
@@ -122,7 +123,7 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -143,14 +144,14 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
                 .addContainerGap(85, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(addEditBtn)
                 .addGap(201, 201, 201))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,7 +179,7 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
                     .addComponent(DescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -198,80 +199,76 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 //    StatementID, UserID, Username, Paid Date, Paid Amount, Description
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if(!StatementIDField.isVisible()){
-            this.dispose();
+    private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
+        this.dispose();
+        AccExecStatementManage AccExecStatement = new AccExecStatementManage();
+        AccExecStatement.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AccExecStatement.pack();
+        AccExecStatement.setResizable(false);
+        AccExecStatement.setLocationRelativeTo(null);
+        AccExecStatement.setVisible(true);
+        AccExecStatement.backButtonToggle();
+        //Run Method in BusManUserManage to set UserType and Data
+        AccExecStatement.setStatementData();
+    }//GEN-LAST:event_BackBtnActionPerformed
 
-            AccExecStatementManage Statement = new AccExecStatementManage();
-            Statement.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            Statement.pack();
-            Statement.setResizable(false);
-            Statement.setLocationRelativeTo(null);
-            Statement.setVisible(true);
-            Statement.backButtonToggle();
-            //            Run Method set UserType and Data
-            Statement.setStatementData();
-
-        }else{
-            this.dispose();
-            AccExecStatementView StatementView = new AccExecStatementView();
-            StatementView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            StatementView.pack();
-            StatementView.setResizable(false);
-            StatementView.setLocationRelativeTo(null);
-            StatementView.setVisible(true);
-            try {
-                StatementView.setDataViewSingle(StatementIDField.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            AccExecMain main = new AccExecMain();
+            
+            accountExecutive main = new accountExecutive();
             ArrayList<String> dataList = new ArrayList<String>();
             dataList.add(StatementIDField.getText());
             dataList.add(UserIDField.getText());
             dataList.add(UsernameField.getText());
-            dataList.add(PaidAmountField.getText());
             dataList.add(PaidDateField.getText());
+            dataList.add(PaidAmountField.getText());
             dataList.add(DescriptionField.getText());
             main.editOrAddData(dataList, "Statement","StatementContent.txt","edit");
+//            
         }else if(addEditDetector=="add"){
-            AccExecMain main = new AccExecMain();
+            
+            accountExecutive main = new accountExecutive();
+            accountExecutive.accountExecutiveMethod mainInner = main.new accountExecutiveMethod();
+            statement statementClass = new statement();
             ArrayList<String> dataList = new ArrayList<String>();
-            main.getIncreasedID("Payment.txt","Payment");
-            dataList.add(main.getStatementID());
+            statementClass.getIncreasedID("StatementContent.txt","Statement");
+            dataList.add(statementClass.getstatementId());
             dataList.add(UserIDField.getText());
             dataList.add(UsernameField.getText());
-            dataList.add(PaidAmountField.getText());
             dataList.add(PaidDateField.getText());
+            dataList.add(PaidAmountField.getText());
             dataList.add(DescriptionField.getText());
-            main.editOrAddData(dataList, "Statement","StatementContent.txt","add");
+            System.out.println(dataList);
+            mainInner.addEditPayment(dataList,"Statement","StatementContent.txt","add");
+
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_addEditBtnActionPerformed
 
     private String addEditDetector;   
+    private String fileType="StatementContent.txt";
+    private String userType="Statement";
+    
     
     public void addEditDetect(String functionType,String id) throws FileNotFoundException{
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            AccExecMain main = new AccExecMain();
-            main.getDataViewSingle(id, "StatementContent.txt","Payment");
-            jButton2.setText("Update");
-            StatementIDField.setText(main.getStatementID());
-            UserIDField.setText(main.getUserID());
-            UsernameField.setText(main.getUsername());
-            PaidDateField.setText(main.getPaidDate());
-            PaidAmountField.setText(main.getPaidAmount());
-            DescriptionField.setText(main.getDescriptionStatement());
+            statement statementClass = new statement();
+            statementClass.chooseTxtFile("Statement");
+            statementClass.getDataViewSingle(id, fileType,userType);
+//            payment.paymentMethod mainInner = employeeJobClass.new employeeJobMethod();
+
+            addEditBtn.setText("Update");
+            StatementIDField.setText(statementClass.getstatementId());
+            UserIDField.setText(statementClass.getuserId());
+            UsernameField.setText(statementClass.getuserName());
+            PaidDateField.setText(statementClass.getpaidDate());
+            PaidAmountField.setText(statementClass.getpaidAmount());
+            DescriptionField.setText(statementClass.getpaymentDesc());
+            
         }else if (functionType=="add"){
             this.addEditDetector="add";
-            jButton2.setText("Add");
+            addEditBtn.setText("Add");
             StatementIDField.setVisible(false);
             jLabel1.setVisible(false);
         }
@@ -320,14 +317,14 @@ public class AccExecAddEditStatement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BackBtn;
     private javax.swing.JTextField DescriptionField;
     private javax.swing.JTextField PaidAmountField;
     private javax.swing.JTextField PaidDateField;
     private javax.swing.JTextField StatementIDField;
     private javax.swing.JTextField UserIDField;
     private javax.swing.JTextField UsernameField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton addEditBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel5;
