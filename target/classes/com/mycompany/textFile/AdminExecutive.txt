@@ -1,1 +1,2 @@
-AE1,cokes,male,2,21321312,coke.png
+AE1,Admin Coke,male,2,21321312,coke.png
+AE2,Admin hehe,male,21,01288123,art 2-min.png
