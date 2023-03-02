@@ -4,9 +4,10 @@
  */
 package com.mycompany.BuildingExecutive;
 
-import com.mycompany.AccExecutive.AccExecOption1;
-import com.mycompany.AccExecutive.AccExecutiveInvoiceView;
-import com.mycompany.mavenproject1.BusManBudgetPlanningManage;
+import com.mycompany.mavenproject1.AdminExecComAddEdit;
+import com.mycompany.mavenproject1.AdminExecOption;
+import com.mycompany.mavenproject1.AdminExecutiveMain;
+import com.mycompany.mavenproject1.BusManBudgetPlanningView;
 import com.mycompany.mavenproject1.BusManUserManageOption;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,17 +16,43 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.BorderFactory;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import javax.swing.BorderFactory;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import java.io.*; 
+import com.mycompany.BuildingExecutive.ModelJob;
+
 /**
  *
- * @author Edi
+ * @author user
  */
 public class BuildingExecJobManage extends javax.swing.JFrame {
+
+    String userId;
 
     /**
      * Creates new form BuildingExecJobManage
      */
     public BuildingExecJobManage() {
         initComponents();
+    }
+    public BuildingExecJobManage(String userId) {
+        this();
+        this.userId = userId;
     }
 
     /**
@@ -36,568 +63,179 @@ public class BuildingExecJobManage extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        DataPanel = new JPanel();
+        HeaderPanel = new JPanel();
+        // NavigationPanel = new JPanel();
 
-        jPanel1 = new javax.swing.JPanel();
-        AddNewAccExecInvoiceManage = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        ViewDetailsJob = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        JobID1 = new javax.swing.JLabel();
-        EmpJob1 = new javax.swing.JLabel();
-        EmpName1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        BackAccExecInvoiceManage2 = new javax.swing.JButton();
-        NextAccExecInvoiceManage = new javax.swing.JButton();
-        BackAccExecInvoiceManage = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        ViewDetailsJob2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        JobID2 = new javax.swing.JLabel();
-        EmpJob2 = new javax.swing.JLabel();
-        EmpName2 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
-        jPanel5 = new javax.swing.JPanel();
-        ViewDetailsJob3 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        JobID3 = new javax.swing.JLabel();
-        EmpJob3 = new javax.swing.JLabel();
-        EmpName3 = new javax.swing.JLabel();
-        jSeparator7 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
-        jSeparator9 = new javax.swing.JSeparator();
+        OptionBuildingExecJobManage = new javax.swing.JButton();
+        AddNewBuildingExecJobManage = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
-        AddNewAccExecInvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
-        AddNewAccExecInvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
-        AddNewAccExecInvoiceManage.setText("Add New Job");
-        AddNewAccExecInvoiceManage.addActionListener(new java.awt.event.ActionListener() {
+        OptionBuildingExecJobManage.setBackground(new java.awt.Color(204, 204, 204));
+        OptionBuildingExecJobManage.setForeground(new java.awt.Color(0, 0, 0));
+        OptionBuildingExecJobManage.setText("Back");
+        OptionBuildingExecJobManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddNewAccExecInvoiceManageActionPerformed(evt);
+                dispose();
+                BuildingExecMain nextFrame = new BuildingExecMain();
+                nextFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                nextFrame.pack();
+                nextFrame.setResizable(false);
+                nextFrame.setLocationRelativeTo(null);
+                nextFrame.setVisible(true);
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ViewDetailsJob.setBackground(new java.awt.Color(255, 255, 255));
-        ViewDetailsJob.setForeground(new java.awt.Color(0, 0, 0));
-        ViewDetailsJob.setText("View Details");
-        ViewDetailsJob.addActionListener(new java.awt.event.ActionListener() {
+        AddNewBuildingExecJobManage.setBackground(new java.awt.Color(204, 204, 204));
+        AddNewBuildingExecJobManage.setForeground(new java.awt.Color(0, 0, 0));
+        AddNewBuildingExecJobManage.setText("Add New");
+        AddNewBuildingExecJobManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewDetailsJobActionPerformed(evt);
+                // AddNewBuildingExecJobManageActionPerformed(evt);
+                changeFrame(new ModelJob());
             }
         });
 
-        jLabel2.setText("Employee Job");
+        HeaderPanel.setBackground(new java.awt.Color(254, 204, 204));
+        // NavigationPanel.setBackground(new java.awt.Color(254, 204, 254));
 
-        jLabel3.setText("Employee Name");
 
-        jLabel1.setText("JobId");
-
-        JobID1.setText("JobID1");
-
-        EmpJob1.setText("EmpJob1");
-
-        EmpName1.setText("EmpName1");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JobID1, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(74, 74, 74)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(EmpJob1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EmpName1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(85, 85, 85)
-                .addComponent(ViewDetailsJob, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ViewDetailsJob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jLabel3))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel2)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(EmpJob1)
-                        .addComponent(JobID1))
-                    .addComponent(EmpName1))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        BackAccExecInvoiceManage2.setBackground(new java.awt.Color(255, 255, 255));
-        BackAccExecInvoiceManage2.setForeground(new java.awt.Color(0, 0, 0));
-        BackAccExecInvoiceManage2.setText("Back");
-        BackAccExecInvoiceManage2.addActionListener(new java.awt.event.ActionListener() {
+        JTextField searchTf = new JTextField("Enter Job Id", 20);
+        JButton searchBtn = new JButton("Search");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackAccExecInvoiceManage2ActionPerformed(evt);
+
+
+                String fileName = "./com/mycompany/textFile/EmployeeJob.txt";
+                String idToSearch = searchTf.getText();
+
+                try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        if (line.startsWith(idToSearch.split(",")[0])) {
+                            changeFrame(new ModelJob(line));
+                        }
+                    }
+                } catch (IOException e) {
+                    System.err.println("Error reading file: " + e.getMessage());
+                }
+
             }
         });
 
-        NextAccExecInvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
-        NextAccExecInvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
-        NextAccExecInvoiceManage.setText("Next");
-        NextAccExecInvoiceManage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextAccExecInvoiceManageActionPerformed(evt);
+        add(HeaderPanel, BorderLayout.PAGE_START);
+        HeaderPanel.add(OptionBuildingExecJobManage, BorderLayout.LINE_START);
+        HeaderPanel.add(searchTf, BorderLayout.LINE_END);
+        HeaderPanel.add(searchBtn, BorderLayout.LINE_END);
+        HeaderPanel.add(AddNewBuildingExecJobManage, BorderLayout.LINE_END);
+
+        add(new JScrollPane(DataPanel));
+        DataPanel.setSize(500, 450);
+        DataPanel.setLayout(new BoxLayout(DataPanel, BoxLayout.Y_AXIS));
+
+        String fileName = "./com/mycompany/textFile/EmployeeJob.txt";
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                newJob(line);
             }
-        });
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
 
-        BackAccExecInvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
-        BackAccExecInvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
-        BackAccExecInvoiceManage.setText("Back");
-        BackAccExecInvoiceManage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackAccExecInvoiceManageActionPerformed(evt);
-            }
-        });
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ViewDetailsJob2.setBackground(new java.awt.Color(255, 255, 255));
-        ViewDetailsJob2.setForeground(new java.awt.Color(0, 0, 0));
-        ViewDetailsJob2.setText("View Details");
-        ViewDetailsJob2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewDetailsJob2ActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Employee Job");
-
-        jLabel5.setText("Employee Name");
-
-        jLabel6.setText("JobId");
-
-        JobID2.setText("JobID2");
-
-        EmpJob2.setText("EmpJob2");
-
-        EmpName2.setText("EmpName2");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JobID2, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(74, 74, 74)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(EmpJob2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EmpName2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 14, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(70, 70, 70)
-                .addComponent(ViewDetailsJob2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ViewDetailsJob2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jLabel5))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel4)))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(EmpJob2)
-                        .addComponent(JobID2))
-                    .addComponent(EmpName2))
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ViewDetailsJob3.setBackground(new java.awt.Color(255, 255, 255));
-        ViewDetailsJob3.setForeground(new java.awt.Color(0, 0, 0));
-        ViewDetailsJob3.setText("View Details");
-        ViewDetailsJob3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewDetailsJob3ActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("Employee Job");
-
-        jLabel8.setText("Employee Name");
-
-        jLabel9.setText("JobId");
-
-        JobID3.setText("JobID3");
-
-        EmpJob3.setText("EmpJob3");
-
-        EmpName3.setText("EmpName3");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JobID3, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(74, 74, 74)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(EmpJob3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EmpName3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(85, 85, 85)
-                .addComponent(ViewDetailsJob3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ViewDetailsJob3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jLabel8))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel7)))
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JobID3)
-                    .addComponent(EmpName3)
-                    .addComponent(EmpJob3))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addComponent(BackAccExecInvoiceManage2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(NextAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(19, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BackAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AddNewAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BackAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddNewAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NextAccExecInvoiceManage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackAccExecInvoiceManage2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        pack();
+        DataPanel.setBackground(Color.BLUE);
+        setSize(500, 450);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddNewAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewAccExecInvoiceManageActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        BuildingExecAddEditJobManagement JobAddEdit = new BuildingExecAddEditJobManagement();
-        JobAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JobAddEdit.pack();
-        JobAddEdit.setResizable(false);
-        JobAddEdit.setLocationRelativeTo(null);
-        JobAddEdit.setVisible(true);
-        try {
-            JobAddEdit.addEditDetect("add","");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AccExecutiveInvoiceView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_AddNewAccExecInvoiceManageActionPerformed
-
-    private void ViewDetailsJobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsJobActionPerformed
-        // TODO add your handling code here:
-        if(!JobID1.getText().equals("no data")){
-            this.dispose();
-            BuildingExecJobManagementView JobView = new BuildingExecJobManagementView();
-            JobView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            JobView.pack();
-            JobView.setResizable(false);
-            JobView.setLocationRelativeTo(null);
-            JobView.setVisible(true);
-            try {
-                JobView.setDataViewSingle(JobID1.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_ViewDetailsJobActionPerformed
-
-    private void BackAccExecInvoiceManage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecInvoiceManage2ActionPerformed
-        // TODO add your handling code here:
-        backButtonFunction();
-        setJobData();
-        BackAccExecInvoiceManage2.setEnabled(true);
-    }//GEN-LAST:event_BackAccExecInvoiceManage2ActionPerformed
-
-    private void NextAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextAccExecInvoiceManageActionPerformed
-        // TODO add your handling code here:
-        BackAccExecInvoiceManage2.setEnabled(true);
-        setJobData();
-    }//GEN-LAST:event_NextAccExecInvoiceManageActionPerformed
-
-    private void BackAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecInvoiceManageActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        AccExecOption1 AccExecOption = new AccExecOption1();
-        AccExecOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        AccExecOption.pack();
-        AccExecOption.setResizable(false);
-        AccExecOption.setLocationRelativeTo(null);
-        AccExecOption.setVisible(true);
-    }//GEN-LAST:event_BackAccExecInvoiceManageActionPerformed
-
-    private void ViewDetailsJob2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsJob2ActionPerformed
-        // TODO add your handling code here:
-        if(!JobID2.getText().equals("no data")){
-            this.dispose();
-            BuildingExecJobManagementView JobView = new BuildingExecJobManagementView();
-            JobView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            JobView.pack();
-            JobView.setResizable(false);
-            JobView.setLocationRelativeTo(null);
-            JobView.setVisible(true);
-            try {
-                JobView.setDataViewSingle(JobID1.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_ViewDetailsJob2ActionPerformed
-
-    private void ViewDetailsJob3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsJob3ActionPerformed
-        // TODO add your handling code here:
-        if(!JobID3.getText().equals("no data")){
-            this.dispose();
-            BuildingExecJobManagementView JobView = new BuildingExecJobManagementView();
-            JobView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            JobView.pack();
-            JobView.setResizable(false);
-            JobView.setLocationRelativeTo(null);
-            JobView.setVisible(true);
-            try {
-                JobView.setDataViewSingle(JobID1.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_ViewDetailsJob3ActionPerformed
-    public void backButtonToggle(){
-        BackAccExecInvoiceManage2.setEnabled(false);
+    private void changeFrame(ModelJob job) {
+        dispose();
+        BuildingExecJobView nextFrame = new BuildingExecJobView(job);
+        nextFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // nextFrame.pack();
+        // nextFrame.setResizable(false);
+        nextFrame.setLocationRelativeTo(null);
+        nextFrame.setVisible(true);
     }
-    public void backButtonFunction(){
-        PageLine = PageLine -6;
-        if (PageLine==-1){
-            BackAccExecInvoiceManage2.setEnabled(false);
-        }
-    }
-    
-    private Integer PageLine=-1;
-    
-    private String searchTxt ="";
-    
-    public void setPagination(){
-        PageLine=PageLine+1;
-    }
-    
-    public void setJobData(){
-        BuildingExecMain main = new BuildingExecMain();
-        main.chooseTxtFile("InvoiceContent");
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"Invoice");
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    NextAccExecInvoiceManage.setEnabled(false);
+
+    private void newJob(String line) {
+        ModelJob job = new ModelJob(line);
+        JPanel jobPanel = new JPanel();
+
+        jobPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.black), new EmptyBorder(0,40,0,0)));
+        // jobPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        // jobPanel.setBorder();
+        jobPanel.setPreferredSize(new Dimension(300, 180));
+        jobPanel.setLayout(new GridBagLayout());
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+
+
+        jobPanel.add(new JLabel("Job ID: "), gbc);
+        gbc.gridy++;
+        jobPanel.add(new JLabel("Employee Name: "), gbc);
+        gbc.gridy++;
+        jobPanel.add(new JLabel("Employee Job: "), gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        jobPanel.add(new JLabel(job.getJobId()), gbc);
+        gbc.gridy++;
+        jobPanel.add(new JLabel(job.getEmployeeName()), gbc);
+        gbc.gridy++;
+        jobPanel.add(new JLabel(job.getEmployeeJob()), gbc);
+
+        JButton viewBtn = new JButton("View Details");
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeFrame(job);
+            }
+        });
+
+        JButton removeBtn = new JButton("Remove Details");
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+
+                String fileName = "./com/mycompany/textFile/EmployeeJob.txt";
+                String lineToRemove = job.toString();
+
+                try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        if (!line.trim().equals(lineToRemove)) {
+                            sb.append(line).append("\n");
+                        }
+                    }
+                    try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
+                        bw.write(sb.toString());
+                    } catch (IOException e) {
+                        System.err.println("Error writing to file: " + e.getMessage());
+                    }
+                } catch (IOException e) {
+                    System.err.println("Error reading file: " + e.getMessage());
                 }
 
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("REMOVED! "+job);
+                DataPanel.remove(jobPanel);
+                invalidate();
+                validate();
+                repaint();
             }
-            JobID1.setText(main.getJobID());
-            EmpJob1.setText(main.getEmployeeJob());
-            EmpName1.setText(main.getEmployeeName());
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"Invoice");
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    NextAccExecInvoiceManage.setEnabled(false);
-                }
+        });
 
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(main.getJobID() !=null){
-                JobID2.setText(main.getJobID());
-                EmpJob2.setText(main.getEmployeeJob());
-                EmpName2.setText(main.getEmployeeName());
-                
-            }else{
-                JobID2.setText("no data");
-                EmpJob2.setText("no data");
-                EmpName2.setText("no data");
-            }
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"Invoice");
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    NextAccExecInvoiceManage.setEnabled(false);
-                }
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        jobPanel.add(viewBtn, gbc);
+        gbc.gridy = 2;
+        jobPanel.add(removeBtn, gbc);
 
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(main.getJobID() !=null){
-                JobID3.setText(main.getJobID());
-                EmpJob3.setText(main.getEmployeeJob());
-                EmpName3.setText(main.getEmployeeName());
-               
-            }else{
-                JobID3.setText("no data");
-                EmpJob3.setText("no data");
-                EmpName3.setText("no data");
-                
-            }
+        DataPanel.add(jobPanel, BorderLayout.CENTER);
     }
-    
     
     /**
      * @param args the command line arguments
@@ -635,43 +273,14 @@ public class BuildingExecJobManage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddNewAccExecInvoiceManage;
-    private javax.swing.JButton BackAccExecInvoiceManage;
-    private javax.swing.JButton BackAccExecInvoiceManage2;
-    private javax.swing.JLabel EmpJob1;
-    private javax.swing.JLabel EmpJob2;
-    private javax.swing.JLabel EmpJob3;
-    private javax.swing.JLabel EmpName1;
-    private javax.swing.JLabel EmpName2;
-    private javax.swing.JLabel EmpName3;
-    private javax.swing.JLabel JobID1;
-    private javax.swing.JLabel JobID2;
-    private javax.swing.JLabel JobID3;
-    private javax.swing.JButton NextAccExecInvoiceManage;
-    private javax.swing.JButton ViewDetailsJob;
-    private javax.swing.JButton ViewDetailsJob2;
-    private javax.swing.JButton ViewDetailsJob3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JPanel DataPanel;
+    private javax.swing.JPanel HeaderPanel;
+    // private javax.swing.JPanel NavigationPanel;
+
+    private javax.swing.JButton AddNewBuildingExecJobManage;
+    private javax.swing.JButton OptionBuildingExecJobManage;
+    // private javax.swing.JButton BackBuildingExecJobManage;
+    // private javax.swing.JButton NextBuildingExecJobManage;
+
     // End of variables declaration//GEN-END:variables
 }

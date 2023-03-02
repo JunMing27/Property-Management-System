@@ -1,0 +1,5 @@
+E1,Jun Ming1,male,20,01923228832,Security,ngan.jpg
+E3,Jun Ming3,male,20,01923228832,Technician,girlyelling.png
+E4,Jun Ming4,male,20,01923228832,Cleaner,ngan.jpg
+E5,Jun Ming5,female,20,01923228832,Cleaner,dominos.png
+E6,Jun Ming6,female,20,01923228832,Technician,dominos.png

@@ -1,0 +1,5 @@
+FB1,F3,badminton court 33,R2,2023-02-09,1200,1
+FB2,F4,tennis court 1,R4,2023-02-09,1300,1
+FB3,F5,Ping Pong court,R1,01-01-2023,1200,1
+FB4,F1,badminton court 1,R1,01-01-2023,1200,1
+FB5,F5,Ping Pong court,R1,10-02-2023,1800,2

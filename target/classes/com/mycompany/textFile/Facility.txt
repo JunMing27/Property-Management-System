@@ -1,0 +1,5 @@
+F1,badminton court 1,block A
+F3,badminton court 33,block A
+F4,tennis court 1,block B
+F5,Ping Pong court,Block D
+F7,ddd2,Block A

@@ -12,7 +12,21 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.BorderFactory;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import javax.swing.BorderFactory;
+import javax.swing.border.EmptyBorder;
+import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+import java.io.*; 
 
 /**
  *
@@ -20,11 +34,28 @@ import javax.swing.JOptionPane;
  */
 public class AccExecInvoiceManage extends javax.swing.JFrame {
 
+    String userId;
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel DataPanel;
+    private javax.swing.JPanel HeaderPanel;
+    // private javax.swing.JPanel NavigationPanel;
+
+    private javax.swing.JButton AddNewAccExecinvoiceManage;
+    private javax.swing.JButton OptionAccExecinvoiceManage;
+    // private javax.swing.JButton BackAccExecPaymentManage;
+    // private javax.swing.JButton NextAccExecPaymentManage;
+
+    // End of variables declaration//GEN-END:variables
     /**
-     * Creates new form AccExecInvoiceManage
+     * Creates new form AccExecinvoiceManage
      */
     public AccExecInvoiceManage() {
         initComponents();
+    }
+    public AccExecInvoiceManage(String userId) {
+        this();
+        this.userId = userId;
     }
 
     /**
@@ -35,717 +66,194 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        DataPanel = new JPanel();
+        HeaderPanel = new JPanel();
+        // NavigationPanel = new JPanel();
 
-        jPanel1 = new javax.swing.JPanel();
-        AddNewAccExecInvoiceManage = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        ViewDetailsInvoice = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        InvoiceNum1 = new javax.swing.JLabel();
-        TenantName1 = new javax.swing.JLabel();
-        DateSent1 = new javax.swing.JLabel();
-        DueDate1 = new javax.swing.JLabel();
-        AmountDue1 = new javax.swing.JLabel();
-        Amount1 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
-        BackAccExecInvoiceManage2 = new javax.swing.JButton();
-        NextAccExecInvoiceManage = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        ViewDetailsInvoice2 = new javax.swing.JButton();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        InvoiceNum2 = new javax.swing.JLabel();
-        TenantName2 = new javax.swing.JLabel();
-        DateSent2 = new javax.swing.JLabel();
-        DueDate2 = new javax.swing.JLabel();
-        AmountDue2 = new javax.swing.JLabel();
-        Amount2 = new javax.swing.JLabel();
-        jSeparator7 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
-        jSeparator9 = new javax.swing.JSeparator();
-        jSeparator10 = new javax.swing.JSeparator();
-        jSeparator11 = new javax.swing.JSeparator();
-        jSeparator12 = new javax.swing.JSeparator();
-        jPanel6 = new javax.swing.JPanel();
-        ViewDetailsInvoice3 = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        InvoiceNum3 = new javax.swing.JLabel();
-        TenantName3 = new javax.swing.JLabel();
-        DateSent3 = new javax.swing.JLabel();
-        DueDate3 = new javax.swing.JLabel();
-        AmountDue3 = new javax.swing.JLabel();
-        Amount3 = new javax.swing.JLabel();
-        jSeparator13 = new javax.swing.JSeparator();
-        jSeparator14 = new javax.swing.JSeparator();
-        jSeparator15 = new javax.swing.JSeparator();
-        jSeparator16 = new javax.swing.JSeparator();
-        jSeparator17 = new javax.swing.JSeparator();
-        jSeparator18 = new javax.swing.JSeparator();
-        BackAccExecInvoiceManage = new javax.swing.JButton();
+        OptionAccExecinvoiceManage = new javax.swing.JButton();
+        AddNewAccExecinvoiceManage = new javax.swing.JButton();
+        // BackAccExecinvoiceManage = new javax.swing.JButton();
+        // NextAccExecinvoiceManage = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
-        AddNewAccExecInvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
-        AddNewAccExecInvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
-        AddNewAccExecInvoiceManage.setText("Add New Invoice");
-        AddNewAccExecInvoiceManage.addActionListener(new java.awt.event.ActionListener() {
+        OptionAccExecinvoiceManage.setBackground(new java.awt.Color(204, 204, 204));
+        OptionAccExecinvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
+        OptionAccExecinvoiceManage.setText("Back");
+        OptionAccExecinvoiceManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddNewAccExecInvoiceManageActionPerformed(evt);
+                dispose();
+                AccExecMain nextFrame = new AccExecMain();
+                nextFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                nextFrame.pack();
+                nextFrame.setResizable(false);
+                nextFrame.setLocationRelativeTo(null);
+                nextFrame.setVisible(true);
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ViewDetailsInvoice.setBackground(new java.awt.Color(255, 255, 255));
-        ViewDetailsInvoice.setForeground(new java.awt.Color(0, 0, 0));
-        ViewDetailsInvoice.setText("View Details");
-        ViewDetailsInvoice.addActionListener(new java.awt.event.ActionListener() {
+        AddNewAccExecinvoiceManage.setBackground(new java.awt.Color(204, 204, 204));
+        AddNewAccExecinvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
+        AddNewAccExecinvoiceManage.setText("Update");
+        AddNewAccExecinvoiceManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewDetailsInvoiceActionPerformed(evt);
+                // AddNewAccExecinvoiceManageActionPerformed(evt);
+                changeFrame(new ModelInvoice());
             }
         });
 
-        jLabel2.setText("Tenant's Name");
+        // BackAccExecinvoiceManage.setBackground(new java.awt.Color(204, 204, 204));
+        // BackAccExecinvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
+        // BackAccExecinvoiceManage.setText("Back");
+        // BackAccExecinvoiceManage.addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //         // BackAccExecinvoiceManage2ActionPerformed(evt);
+        //     }
+        // });
 
-        jLabel3.setText("Date Invoice Sent");
+        // NextAccExecinvoiceManage.setBackground(new java.awt.Color(204, 204, 204));
+        // NextAccExecinvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
+        // NextAccExecinvoiceManage.setText("Next");
+        // NextAccExecinvoiceManage.addActionListener(new java.awt.event.ActionListener() {
+        //     public void actionPerformed(java.awt.event.ActionEvent evt) {
+        //         // NextAccExecinvoiceManageActionPerformed(evt);
+        //     }
+        // });
 
-        jLabel4.setText("Due Date");
+        HeaderPanel.setBackground(new java.awt.Color(254, 204, 204));
+        // NavigationPanel.setBackground(new java.awt.Color(254, 204, 254));
 
-        jLabel5.setText("Amount Due");
+        add(HeaderPanel, BorderLayout.PAGE_START);
+        HeaderPanel.add(OptionAccExecinvoiceManage, BorderLayout.LINE_START);
+        HeaderPanel.add(AddNewAccExecinvoiceManage, BorderLayout.LINE_END);
 
-        jLabel6.setText("Amount");
+        add(new JScrollPane(DataPanel));
+        DataPanel.setSize(500, 450);
+        DataPanel.setLayout(new BoxLayout(DataPanel, BoxLayout.Y_AXIS));
 
-        jLabel1.setText("Invoice Number");
+        // add(NavigationPanel, BorderLayout.PAGE_END);
+        // NavigationPanel.add(BackAccExecinvoiceManage, BorderLayout.LINE_START);
+        // NavigationPanel.add(NextAccExecinvoiceManage, BorderLayout.LINE_END);
 
-        InvoiceNum1.setText("InvoiceNum1");
-
-        TenantName1.setText("TenantName1");
-
-        DateSent1.setText("DateSent1");
-
-        DueDate1.setText("DueDate1");
-
-        AmountDue1.setText("AmountDue1");
-
-        Amount1.setText("Amount1");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(InvoiceNum1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator1))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(TenantName1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(DateSent1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator3))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DueDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                        .addComponent(AmountDue1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Amount1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(ViewDetailsInvoice, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ViewDetailsInvoice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel1))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InvoiceNum1)
-                    .addComponent(TenantName1)
-                    .addComponent(DateSent1)
-                    .addComponent(DueDate1)
-                    .addComponent(AmountDue1)
-                    .addComponent(Amount1))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-
-        BackAccExecInvoiceManage2.setBackground(new java.awt.Color(255, 255, 255));
-        BackAccExecInvoiceManage2.setForeground(new java.awt.Color(0, 0, 0));
-        BackAccExecInvoiceManage2.setText("Back");
-        BackAccExecInvoiceManage2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackAccExecInvoiceManage2ActionPerformed(evt);
+        String fileName = "./com/mycompany/textFile/invoiceContent.txt";
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                newInvoice(line);
             }
-        });
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
 
-        NextAccExecInvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
-        NextAccExecInvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
-        NextAccExecInvoiceManage.setText("Next");
-        NextAccExecInvoiceManage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextAccExecInvoiceManageActionPerformed(evt);
-            }
-        });
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ViewDetailsInvoice2.setBackground(new java.awt.Color(255, 255, 255));
-        ViewDetailsInvoice2.setForeground(new java.awt.Color(0, 0, 0));
-        ViewDetailsInvoice2.setText("View Details");
-        ViewDetailsInvoice2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewDetailsInvoice2ActionPerformed(evt);
-            }
-        });
-
-        jLabel13.setText("Tenant's Name");
-
-        jLabel14.setText("Date Invoice Sent");
-
-        jLabel15.setText("Due Date");
-
-        jLabel16.setText("Amount Due");
-
-        jLabel17.setText("Amount");
-
-        jLabel18.setText("Invoice Number");
-
-        InvoiceNum2.setText("InvoiceNum2");
-
-        TenantName2.setText("TenantName2");
-
-        DateSent2.setText("DateSent2");
-
-        DueDate2.setText("DueDate2");
-
-        AmountDue2.setText("AmountDue2");
-
-        Amount2.setText("Amount2");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(InvoiceNum2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator7))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(TenantName2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator8)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(DateSent2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator9))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DueDate2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                        .addComponent(AmountDue2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Amount2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(ViewDetailsInvoice2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ViewDetailsInvoice2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InvoiceNum2)
-                    .addComponent(TenantName2)
-                    .addComponent(DateSent2)
-                    .addComponent(DueDate2)
-                    .addComponent(AmountDue2)
-                    .addComponent(Amount2))
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ViewDetailsInvoice3.setBackground(new java.awt.Color(255, 255, 255));
-        ViewDetailsInvoice3.setForeground(new java.awt.Color(0, 0, 0));
-        ViewDetailsInvoice3.setText("View Details");
-        ViewDetailsInvoice3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewDetailsInvoice3ActionPerformed(evt);
-            }
-        });
-
-        jLabel25.setText("Tenant's Name");
-
-        jLabel26.setText("Date Invoice Sent");
-
-        jLabel27.setText("Due Date");
-
-        jLabel28.setText("Amount Due");
-
-        jLabel29.setText("Amount");
-
-        jLabel30.setText("Invoice Number");
-
-        InvoiceNum3.setText("InvoiceNum3");
-
-        TenantName3.setText("TenantName3");
-
-        DateSent3.setText("DateSent3");
-
-        DueDate3.setText("DueDate3");
-
-        AmountDue3.setText("AmountDue3");
-
-        Amount3.setText("Amount3");
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(InvoiceNum3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator13))
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(TenantName3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator14)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(DateSent3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator15))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DueDate3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                        .addComponent(AmountDue3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Amount3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(ViewDetailsInvoice3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ViewDetailsInvoice3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel30))
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator16, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InvoiceNum3)
-                    .addComponent(TenantName3)
-                    .addComponent(DateSent3)
-                    .addComponent(DueDate3)
-                    .addComponent(AmountDue3)
-                    .addComponent(Amount3))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-
-        BackAccExecInvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
-        BackAccExecInvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
-        BackAccExecInvoiceManage.setText("Back");
-        BackAccExecInvoiceManage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackAccExecInvoiceManageActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(70, 70, 70))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(BackAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AddNewAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(269, 269, 269)
-                .addComponent(BackAccExecInvoiceManage2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(225, 225, 225)
-                .addComponent(NextAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BackAccExecInvoiceManage2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NextAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BackAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddNewAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 120, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pack();
+        DataPanel.setBackground(Color.BLUE);
+        setSize(500, 450);
+        // pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddNewAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewAccExecInvoiceManageActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        AccExecAddEditInvoice InvoiceAddEdit = new AccExecAddEditInvoice();
-        InvoiceAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        InvoiceAddEdit.pack();
-        InvoiceAddEdit.setResizable(false);
-        InvoiceAddEdit.setLocationRelativeTo(null);
-        InvoiceAddEdit.setVisible(true);
-        try {
-            InvoiceAddEdit.addEditDetect("add","");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AccExecutiveInvoiceView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_AddNewAccExecInvoiceManageActionPerformed
-
-    private void BackAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecInvoiceManageActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        AccExecOption1 AccExecOption = new AccExecOption1();
-        AccExecOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        AccExecOption.pack();
-        AccExecOption.setResizable(false);
-        AccExecOption.setLocationRelativeTo(null);
-        AccExecOption.setVisible(true);
-    }//GEN-LAST:event_BackAccExecInvoiceManageActionPerformed
-
-    private void ViewDetailsInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsInvoiceActionPerformed
-        // TODO add your handling code here:
-        if(!InvoiceNum1.getText().equals("no data")){
-            this.dispose();
-            AccExecutiveInvoiceView InvoiceView = new AccExecutiveInvoiceView();
-            InvoiceView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            InvoiceView.pack();
-            InvoiceView.setResizable(false);
-            InvoiceView.setLocationRelativeTo(null);
-            InvoiceView.setVisible(true);
-            try {
-                InvoiceView.setDataViewSingle(InvoiceNum1.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_ViewDetailsInvoiceActionPerformed
-
-    
-    
-    private void BackAccExecInvoiceManage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecInvoiceManage2ActionPerformed
-        // TODO add your handling code here:
-        backButtonFunction();
-        setInvoiceData();
-        BackAccExecInvoiceManage2.setEnabled(true);
-    }//GEN-LAST:event_BackAccExecInvoiceManage2ActionPerformed
-
-    private void ViewDetailsInvoice2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsInvoice2ActionPerformed
-        // TODO add your handling code here:
-        if(!InvoiceNum2.getText().equals("no data")){
-            this.dispose();
-            AccExecutiveInvoiceView InvoiceView = new AccExecutiveInvoiceView();
-            InvoiceView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            InvoiceView.pack();
-            InvoiceView.setResizable(false);
-            InvoiceView.setLocationRelativeTo(null);
-            InvoiceView.setVisible(true);
-            try {
-                InvoiceView.setDataViewSingle(InvoiceNum2.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_ViewDetailsInvoice2ActionPerformed
-
-    private void ViewDetailsInvoice3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsInvoice3ActionPerformed
-        // TODO add your handling code here:
-        if(!InvoiceNum3.getText().equals("no data")){
-            this.dispose();
-            AccExecutiveInvoiceView InvoiceView = new AccExecutiveInvoiceView();
-            InvoiceView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            InvoiceView.pack();
-            InvoiceView.setResizable(false);
-            InvoiceView.setLocationRelativeTo(null);
-            InvoiceView.setVisible(true);
-            try {
-                InvoiceView.setDataViewSingle(InvoiceNum3.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BusManBudgetPlanningManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_ViewDetailsInvoice3ActionPerformed
-
-    private void NextAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextAccExecInvoiceManageActionPerformed
-        // TODO add your handling code here:
-        BackAccExecInvoiceManage2.setEnabled(true);
-        setInvoiceData();
-    }//GEN-LAST:event_NextAccExecInvoiceManageActionPerformed
-
-    public void backButtonToggle(){
-        BackAccExecInvoiceManage2.setEnabled(false);
-}
-    public void backButtonFunction(){
-        PageLine = PageLine -6;
-        if (PageLine==-1){
-            BackAccExecInvoiceManage2.setEnabled(false);
-        }
+    private void changeFrame(ModelInvoice invoice) {
+        dispose();
+        AccExecInvoiceView nextFrame = new AccExecInvoiceView(invoice);
+        nextFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // nextFrame.pack();
+        // nextFrame.setResizable(false);
+        nextFrame.setLocationRelativeTo(null);
+        nextFrame.setVisible(true);
     }
-    
-    private Integer PageLine=-1;
-    
-    private String searchTxt ="";
-    
-    public void setPagination(){
-        PageLine=PageLine+1;
-    }
-    
-    public void setInvoiceData(){
-        AccExecMain main = new AccExecMain();
-        main.chooseTxtFile("InvoiceContent");
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"Invoice");
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    NextAccExecInvoiceManage.setEnabled(false);
+
+    private void newInvoice(String line) {
+        ModelInvoice invoice = new ModelInvoice(line);
+        JPanel invoicePanel = new JPanel();
+
+        invoicePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.black), new EmptyBorder(0,40,0,0)));
+        // invoicePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        // invoicePanel.setBorder();
+        invoicePanel.setPreferredSize(new Dimension(300, 180));
+        invoicePanel.setLayout(new GridBagLayout());
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+
+
+        invoicePanel.add(new JLabel("Invoice ID: "), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel("User ID: "), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel("Username: "), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel("Date Issued: "), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel("Invoice Due Date: "), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel("Invoice Due Amount: "), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel("Invoice Description: "), gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        invoicePanel.add(new JLabel(invoice.getInvoiceId()), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel(invoice.getUserId()), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel(invoice.getUsername()), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel(invoice.getIssuedDate()), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel(invoice.getDueDate()), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel(invoice.getDueAmount()), gbc);
+        gbc.gridy++;
+        invoicePanel.add(new JLabel(invoice.getDescription()), gbc);
+
+        JButton viewBtn = new JButton("View Details");
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeFrame(invoice);
+            }
+        });
+
+        JButton removeBtn = new JButton("Remove Details");
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+
+                String fileName = "./com/mycompany/textFile/invoiceContent.txt";
+                String lineToRemove = invoice.toString();
+
+                try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        if (!line.trim().equals(lineToRemove)) {
+                            sb.append(line).append("\n");
+                        }
+                    }
+                    try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
+                        bw.write(sb.toString());
+                    } catch (IOException e) {
+                        System.err.println("Error writing to file: " + e.getMessage());
+                    }
+                } catch (IOException e) {
+                    System.err.println("Error reading file: " + e.getMessage());
                 }
 
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("REMOVED! "+invoice);
+                DataPanel.remove(invoicePanel);
+                invalidate();
+                validate();
+                repaint();
             }
-            InvoiceNum1.setText(main.getInvoiceNumber());
-            TenantName1.setText(main.getTenantName());
-            DateSent1.setText(main.getDateInvoiceIssued());
-            DueDate1.setText(main.getDateDue());
-            AmountDue1.setText(main.getAmountDue());
-            Amount1.setText(main.getAmountInvoice());
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"Invoice");
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    NextAccExecInvoiceManage.setEnabled(false);
-                }
+        });
 
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(main.getInvoiceNumber() !=null){
-                InvoiceNum2.setText(main.getInvoiceNumber());
-                TenantName2.setText(main.getTenantName());
-                DateSent2.setText(main.getDateInvoiceIssued());
-                DueDate2.setText(main.getDateDue());
-                AmountDue2.setText(main.getAmountDue());
-                Amount2.setText(main.getAmountInvoice());
-            }else{
-                InvoiceNum2.setText("no data");
-                TenantName2.setText("no data");
-                DateSent2.setText("no data");
-                DueDate2.setText("no data");
-                AmountDue2.setText("no data");
-                Amount2.setText("no data");
-            }
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"Invoice");
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    NextAccExecInvoiceManage.setEnabled(false);
-                }
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        invoicePanel.add(viewBtn, gbc);
+        gbc.gridy = 2;
+        invoicePanel.add(removeBtn, gbc);
 
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(main.getInvoiceNumber() !=null){
-                InvoiceNum3.setText(main.getInvoiceNumber());
-                TenantName3.setText(main.getTenantName());
-                DateSent3.setText(main.getDateInvoiceIssued());
-                DueDate3.setText(main.getDateDue());
-                AmountDue3.setText(main.getAmountDue());
-                Amount3.setText(main.getAmountInvoice());
-            }else{
-                InvoiceNum3.setText("no data");
-                TenantName3.setText("no data");
-                DateSent3.setText("no data");
-                DueDate3.setText("no data");
-                AmountDue3.setText("no data");
-                Amount3.setText("no data");
-            }
+        DataPanel.add(invoicePanel, BorderLayout.CENTER);
     }
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -780,72 +288,4 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddNewAccExecInvoiceManage;
-    private javax.swing.JLabel Amount1;
-    private javax.swing.JLabel Amount2;
-    private javax.swing.JLabel Amount3;
-    private javax.swing.JLabel AmountDue1;
-    private javax.swing.JLabel AmountDue2;
-    private javax.swing.JLabel AmountDue3;
-    private javax.swing.JButton BackAccExecInvoiceManage;
-    private javax.swing.JButton BackAccExecInvoiceManage2;
-    private javax.swing.JLabel DateSent1;
-    private javax.swing.JLabel DateSent2;
-    private javax.swing.JLabel DateSent3;
-    private javax.swing.JLabel DueDate1;
-    private javax.swing.JLabel DueDate2;
-    private javax.swing.JLabel DueDate3;
-    private javax.swing.JLabel InvoiceNum1;
-    private javax.swing.JLabel InvoiceNum2;
-    private javax.swing.JLabel InvoiceNum3;
-    private javax.swing.JButton NextAccExecInvoiceManage;
-    private javax.swing.JLabel TenantName1;
-    private javax.swing.JLabel TenantName2;
-    private javax.swing.JLabel TenantName3;
-    private javax.swing.JButton ViewDetailsInvoice;
-    private javax.swing.JButton ViewDetailsInvoice2;
-    private javax.swing.JButton ViewDetailsInvoice3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator12;
-    private javax.swing.JSeparator jSeparator13;
-    private javax.swing.JSeparator jSeparator14;
-    private javax.swing.JSeparator jSeparator15;
-    private javax.swing.JSeparator jSeparator16;
-    private javax.swing.JSeparator jSeparator17;
-    private javax.swing.JSeparator jSeparator18;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
-    // End of variables declaration//GEN-END:variables
 }

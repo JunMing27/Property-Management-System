@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.BuildingExecutive;
-import com.mycompany.AccExecutive.AccExecutiveInvoiceView;
+
+import com.mycompany.mavenproject1.AdminExecComAddEdit;
+import com.mycompany.mavenproject1.AdminExecOption;
+import com.mycompany.mavenproject1.AdminExecutiveMain;
+import com.mycompany.mavenproject1.BusManBudgetPlanningView;
 import com.mycompany.mavenproject1.BusManUserManageOption;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,7 +16,24 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.BorderFactory;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import javax.swing.BorderFactory;
+import javax.swing.border.EmptyBorder;
 
+import java.io.*; 
+import com.mycompany.BuildingExecutive.ModelPatrol;
 
 /**
  *
@@ -20,11 +41,17 @@ import javax.swing.JOptionPane;
  */
 public class BuildingExecPatrolManage extends javax.swing.JFrame {
 
+    String userId;
+
     /**
      * Creates new form BuildingExecPatrolManage
      */
     public BuildingExecPatrolManage() {
         initComponents();
+    }
+    public BuildingExecPatrolManage(String userId) {
+        this();
+        this.userId = userId;
     }
 
     /**
@@ -35,708 +62,159 @@ public class BuildingExecPatrolManage extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        DataPanel = new JPanel();
+        HeaderPanel = new JPanel();
 
-        jPanel1 = new javax.swing.JPanel();
-        AddNewPatrolManage = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        ViewDetailsPatrol = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        CheckpointRecID = new javax.swing.JLabel();
-        UserID = new javax.swing.JLabel();
-        BlockNumber = new javax.swing.JLabel();
-        CheckpointDate = new javax.swing.JLabel();
-        CheckpointTime = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        BackAccExecPatrolManage2 = new javax.swing.JButton();
-        NextAccExecPatrolManage = new javax.swing.JButton();
-        BackAccExecInvoiceManage = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        ViewDetailsPatrol1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        CheckpointRecID1 = new javax.swing.JLabel();
-        UserID1 = new javax.swing.JLabel();
-        BlockNumber1 = new javax.swing.JLabel();
-        CheckpointDate1 = new javax.swing.JLabel();
-        CheckpointTime1 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jSeparator19 = new javax.swing.JSeparator();
-        jSeparator20 = new javax.swing.JSeparator();
-        jSeparator21 = new javax.swing.JSeparator();
-        jSeparator22 = new javax.swing.JSeparator();
-        jPanel7 = new javax.swing.JPanel();
-        ViewDetailsPatrol2 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        CheckpointRecID2 = new javax.swing.JLabel();
-        UserID2 = new javax.swing.JLabel();
-        BlockNumber2 = new javax.swing.JLabel();
-        CheckpointDate2 = new javax.swing.JLabel();
-        CheckpointTime2 = new javax.swing.JLabel();
-        jSeparator23 = new javax.swing.JSeparator();
-        jSeparator24 = new javax.swing.JSeparator();
-        jSeparator25 = new javax.swing.JSeparator();
-        jSeparator26 = new javax.swing.JSeparator();
-        jSeparator27 = new javax.swing.JSeparator();
+        OptionBuildingExecPatrolManage = new javax.swing.JButton();
+        AddNewBuildingExecPatrolManage = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
-        AddNewPatrolManage.setBackground(new java.awt.Color(255, 255, 255));
-        AddNewPatrolManage.setForeground(new java.awt.Color(0, 0, 0));
-        AddNewPatrolManage.setText("Add New Record");
-        AddNewPatrolManage.addActionListener(new java.awt.event.ActionListener() {
+        OptionBuildingExecPatrolManage.setBackground(new java.awt.Color(204, 204, 204));
+        OptionBuildingExecPatrolManage.setForeground(new java.awt.Color(0, 0, 0));
+        OptionBuildingExecPatrolManage.setText("Back");
+        OptionBuildingExecPatrolManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddNewPatrolManageActionPerformed(evt);
+                dispose();
+                BuildingExecMain nextFrame = new BuildingExecMain();
+                nextFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                nextFrame.pack();
+                nextFrame.setResizable(false);
+                nextFrame.setLocationRelativeTo(null);
+                nextFrame.setVisible(true);
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ViewDetailsPatrol.setBackground(new java.awt.Color(255, 255, 255));
-        ViewDetailsPatrol.setForeground(new java.awt.Color(0, 0, 0));
-        ViewDetailsPatrol.setText("View Details");
-        ViewDetailsPatrol.addActionListener(new java.awt.event.ActionListener() {
+        AddNewBuildingExecPatrolManage.setBackground(new java.awt.Color(204, 204, 204));
+        AddNewBuildingExecPatrolManage.setForeground(new java.awt.Color(0, 0, 0));
+        AddNewBuildingExecPatrolManage.setText("Add New");
+        AddNewBuildingExecPatrolManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewDetailsPatrolActionPerformed(evt);
+                // AddNewBuildingExecPatrolManageActionPerformed(evt);
+                changeFrame(new ModelPatrol());
             }
         });
 
-        jLabel2.setText("User Id");
+        HeaderPanel.setBackground(new java.awt.Color(254, 204, 204));
+        // NavigationPanel.setBackground(new java.awt.Color(254, 204, 254));
 
-        jLabel3.setText("Block Number");
+        add(HeaderPanel, BorderLayout.PAGE_START);
+        HeaderPanel.add(OptionBuildingExecPatrolManage, BorderLayout.LINE_START);
+        HeaderPanel.add(AddNewBuildingExecPatrolManage, BorderLayout.LINE_END);
 
-        jLabel4.setText("Checkpoint Date");
+        add(new JScrollPane(DataPanel));
+        DataPanel.setSize(500, 450);
+        DataPanel.setLayout(new BoxLayout(DataPanel, BoxLayout.Y_AXIS));
 
-        jLabel5.setText("Checkpoint Time");
-
-        jLabel1.setText("Checkpoint Record ID");
-
-        CheckpointRecID.setText("CheckpointRecID");
-
-        UserID.setText("UserID");
-
-        BlockNumber.setText("BlockNumber");
-
-        CheckpointDate.setText("CheckpointDate");
-
-        CheckpointTime.setText("CheckpointTime");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CheckpointRecID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator1))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator2))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 5, Short.MAX_VALUE)))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BlockNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(CheckpointDate)))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CheckpointTime, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)))
-                .addGap(38, 38, 38)
-                .addComponent(ViewDetailsPatrol, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ViewDetailsPatrol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel1)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CheckpointRecID)
-                        .addComponent(UserID))
-                    .addComponent(CheckpointTime)
-                    .addComponent(CheckpointDate)
-                    .addComponent(BlockNumber))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-
-        BackAccExecPatrolManage2.setBackground(new java.awt.Color(255, 255, 255));
-        BackAccExecPatrolManage2.setForeground(new java.awt.Color(0, 0, 0));
-        BackAccExecPatrolManage2.setText("Back");
-        BackAccExecPatrolManage2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackAccExecPatrolManage2ActionPerformed(evt);
+        String fileName = "./com/mycompany/textFile/CheckpointRecord.txt";
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                newPatrol(line);
             }
-        });
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
 
-        NextAccExecPatrolManage.setBackground(new java.awt.Color(255, 255, 255));
-        NextAccExecPatrolManage.setForeground(new java.awt.Color(0, 0, 0));
-        NextAccExecPatrolManage.setText("Next");
-        NextAccExecPatrolManage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextAccExecPatrolManageActionPerformed(evt);
-            }
-        });
-
-        BackAccExecInvoiceManage.setBackground(new java.awt.Color(255, 255, 255));
-        BackAccExecInvoiceManage.setForeground(new java.awt.Color(0, 0, 0));
-        BackAccExecInvoiceManage.setText("Back");
-        BackAccExecInvoiceManage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackAccExecInvoiceManageActionPerformed(evt);
-            }
-        });
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ViewDetailsPatrol1.setBackground(new java.awt.Color(255, 255, 255));
-        ViewDetailsPatrol1.setForeground(new java.awt.Color(0, 0, 0));
-        ViewDetailsPatrol1.setText("View Details");
-        ViewDetailsPatrol1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewDetailsPatrol1ActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("User Id");
-
-        jLabel7.setText("Block Number");
-
-        jLabel8.setText("Checkpoint Date");
-
-        jLabel9.setText("Checkpoint Time");
-
-        jLabel10.setText("Checkpoint Record ID");
-
-        CheckpointRecID1.setText("CheckpointRecID1");
-
-        UserID1.setText("UserID1");
-
-        BlockNumber1.setText("BlockNumber1");
-
-        CheckpointDate1.setText("CheckpointDate1");
-
-        CheckpointTime1.setText("CheckpointTime1");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CheckpointRecID1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator6))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator19))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(UserID1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 5, Short.MAX_VALUE)))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BlockNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(CheckpointDate1)))
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(CheckpointTime1))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9)))
-                .addGap(38, 38, 38)
-                .addComponent(ViewDetailsPatrol1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ViewDetailsPatrol1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CheckpointRecID1)
-                        .addComponent(UserID1))
-                    .addComponent(CheckpointDate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BlockNumber1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CheckpointTime1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        ViewDetailsPatrol2.setBackground(new java.awt.Color(255, 255, 255));
-        ViewDetailsPatrol2.setForeground(new java.awt.Color(0, 0, 0));
-        ViewDetailsPatrol2.setText("View Details");
-        ViewDetailsPatrol2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewDetailsPatrol2ActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setText("User Id");
-
-        jLabel12.setText("Block Number");
-
-        jLabel19.setText("Checkpoint Date");
-
-        jLabel20.setText("Checkpoint Time");
-
-        jLabel21.setText("Checkpoint Record ID");
-
-        CheckpointRecID2.setText("CheckpointRecID2");
-
-        UserID2.setText("UserID2");
-
-        BlockNumber2.setText("BlockNumber2");
-
-        CheckpointDate2.setText("CheckpointDate2");
-
-        CheckpointTime2.setText("CheckpointTime2");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CheckpointRecID2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator23))
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator24))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(UserID2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 5, Short.MAX_VALUE)))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BlockNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator26, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(CheckpointDate2)))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CheckpointTime2))
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel20)
-                        .addGap(38, 38, 38)))
-                .addComponent(ViewDetailsPatrol2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ViewDetailsPatrol2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel20)
-                                    .addComponent(jLabel21)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel12))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator26, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator23, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator24, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator25, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator27, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CheckpointRecID2)
-                        .addComponent(UserID2))
-                    .addComponent(CheckpointTime2)
-                    .addComponent(CheckpointDate2)
-                    .addComponent(BlockNumber2))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(BackAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AddNewPatrolManage, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(269, 269, 269)
-                .addComponent(BackAccExecPatrolManage2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(225, 225, 225)
-                .addComponent(NextAccExecPatrolManage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(69, 69, 69))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BackAccExecInvoiceManage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddNewPatrolManage, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BackAccExecPatrolManage2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NextAccExecPatrolManage, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pack();
+        DataPanel.setBackground(Color.BLUE);
+        setSize(500, 450);
+        // pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddNewPatrolManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewPatrolManageActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        BuildingExecPatrolAddEdit PatrolAddEdit = new BuildingExecPatrolAddEdit();
-        PatrolAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        PatrolAddEdit.pack();
-        PatrolAddEdit.setResizable(false);
-        PatrolAddEdit.setLocationRelativeTo(null);
-        PatrolAddEdit.setVisible(true);
-        try {
-            PatrolAddEdit.addEditDetect("add","");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(AccExecutiveInvoiceView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_AddNewPatrolManageActionPerformed
-
-    private void ViewDetailsPatrolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsPatrolActionPerformed
-        // TODO add your handling code here:
-        if(!CheckpointRecID.getText().equals("no data")){
-            this.dispose();
-            BuildingExecPatrolView PatrolView = new BuildingExecPatrolView();
-            PatrolView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            PatrolView.pack();
-            PatrolView.setResizable(false);
-            PatrolView.setLocationRelativeTo(null);
-            PatrolView.setVisible(true);
-            try {
-                PatrolView.setDataViewSingle(CheckpointRecID.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BuildingExecPatrolManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_ViewDetailsPatrolActionPerformed
-
-    private void BackAccExecPatrolManage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecPatrolManage2ActionPerformed
-        // TODO add your handling code here:
-        backButtonFunction();
-        setPatrolData();
-        BackAccExecPatrolManage2.setEnabled(true);
-    }//GEN-LAST:event_BackAccExecPatrolManage2ActionPerformed
-
-    private void NextAccExecPatrolManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextAccExecPatrolManageActionPerformed
-        // TODO add your handling code here:
-        BackAccExecPatrolManage2.setEnabled(true);
-        setPatrolData();
-    }//GEN-LAST:event_NextAccExecPatrolManageActionPerformed
-
-    private void BackAccExecInvoiceManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackAccExecInvoiceManageActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        BuildingExecutiveOption BuildExecOption = new BuildingExecutiveOption();
-        BuildExecOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        BuildExecOption.pack();
-        BuildExecOption.setResizable(false);
-        BuildExecOption.setLocationRelativeTo(null);
-        BuildExecOption.setVisible(true);
-    }//GEN-LAST:event_BackAccExecInvoiceManageActionPerformed
-
-    private void ViewDetailsPatrol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsPatrol1ActionPerformed
-        // TODO add your handling code here:
-        if(!CheckpointRecID1.getText().equals("no data")){
-            this.dispose();
-            BuildingExecPatrolView PatrolView = new BuildingExecPatrolView();
-            PatrolView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            PatrolView.pack();
-            PatrolView.setResizable(false);
-            PatrolView.setLocationRelativeTo(null);
-            PatrolView.setVisible(true);
-            try {
-                PatrolView.setDataViewSingle(CheckpointRecID.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BuildingExecPatrolManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_ViewDetailsPatrol1ActionPerformed
-
-    private void ViewDetailsPatrol2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetailsPatrol2ActionPerformed
-        // TODO add your handling code here:
-        if(!CheckpointRecID2.getText().equals("no data")){
-            this.dispose();
-            BuildingExecPatrolView PatrolView = new BuildingExecPatrolView();
-            PatrolView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            PatrolView.pack();
-            PatrolView.setResizable(false);
-            PatrolView.setLocationRelativeTo(null);
-            PatrolView.setVisible(true);
-            try {
-                PatrolView.setDataViewSingle(CheckpointRecID.getText());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(BuildingExecPatrolManage.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "This is an empty record", "Warning", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_ViewDetailsPatrol2ActionPerformed
-
-    public void backButtonToggle(){
-        BackAccExecPatrolManage2.setEnabled(false);
-}
-    public void backButtonFunction(){
-        PageLine = PageLine -6;
-        if (PageLine==-1){
-            BackAccExecPatrolManage2.setEnabled(false);
-        }
+    private void changeFrame(ModelPatrol patrol) {
+        dispose();
+        BuildingExecPatrolView nextFrame = new BuildingExecPatrolView(patrol);
+        nextFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // nextFrame.pack();
+        // nextFrame.setResizable(false);
+        nextFrame.setLocationRelativeTo(null);
+        nextFrame.setVisible(true);
     }
-    
-    private Integer PageLine=-1;
-    
-    private String searchTxt ="";
-    
-    public void setPagination(){
-        PageLine=PageLine+1;
-    }
-    
-    public void setPatrolData(){
-        BuildingExecMain main = new BuildingExecMain();
-        main.chooseTxtFile("InvoiceContent");
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"Invoice");
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    NextAccExecPatrolManage.setEnabled(false);
+
+    private void newPatrol(String line) {
+        ModelPatrol patrol = new ModelPatrol(line);
+        JPanel patrolPanel = new JPanel();
+
+        patrolPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.black), new EmptyBorder(0,40,0,0)));
+        patrolPanel.setPreferredSize(new Dimension(300, 180));
+        patrolPanel.setLayout(new GridBagLayout());
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+
+
+        patrolPanel.add(new JLabel("Checkpoint Record ID: "), gbc);
+        gbc.gridy++;
+        patrolPanel.add(new JLabel("User Id: "), gbc);
+        gbc.gridy++;
+        patrolPanel.add(new JLabel("Block Number: "), gbc);
+        gbc.gridy++;
+        patrolPanel.add(new JLabel("Checkpoint Date: "), gbc);
+        gbc.gridy++;
+        patrolPanel.add(new JLabel("Checkpoint Time: "), gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        patrolPanel.add(new JLabel(patrol.getCheckpointRecordId()), gbc);
+        gbc.gridy++;
+        patrolPanel.add(new JLabel(patrol.getUserId()), gbc);
+        gbc.gridy++;
+        patrolPanel.add(new JLabel(patrol.getBlockNumber()), gbc);
+        gbc.gridy++;
+        patrolPanel.add(new JLabel(patrol.getCheckpointDate()), gbc);
+        gbc.gridy++;
+        patrolPanel.add(new JLabel(patrol.getCheckpointTime()), gbc);
+
+        JButton viewBtn = new JButton("View Details");
+        viewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeFrame(patrol);
+            }
+        });
+
+        JButton removeBtn = new JButton("Remove Details");
+        removeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+
+                String fileName = "./com/mycompany/textFile/CheckpointRecord.txt";
+                String lineToRemove = patrol.toString();
+
+                try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        if (!line.trim().equals(lineToRemove)) {
+                            sb.append(line).append("\n");
+                        }
+                    }
+                    try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
+                        bw.write(sb.toString());
+                    } catch (IOException e) {
+                        System.err.println("Error writing to file: " + e.getMessage());
+                    }
+                } catch (IOException e) {
+                    System.err.println("Error reading file: " + e.getMessage());
                 }
 
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("REMOVED! "+patrol);
+                DataPanel.remove(patrolPanel);
+                invalidate();
+                validate();
+                repaint();
             }
-            CheckpointRecID.setText(main.getCheckpointRecordID());
-            UserID.setText(main.getUserID());//need to add at mainclass
-            BlockNumber.setText(main.getBlockNumber());//need to add at mainclass
-            CheckpointDate.setText(main.getCheckpointDate());//need to add at mainclass
-            CheckpointTime.setText(main.getCheckpointTime());
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"Payment");
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    NextAccExecPatrolManage.setEnabled(false);
-                }
+        });
 
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(main.getCheckpointRecordID() !=null){
-                UserID1.setText(main.getUserID());
-                BlockNumber1.setText(main.getBlockNumber());//need to add at mainclass
-                CheckpointDate1.setText(main.getCheckpointDate());//need to add at mainclass
-                CheckpointTime1.setText(main.getCheckpointTime());//need to add at mainclass
-            }else{
-                UserID1.setText("no data");
-                BlockNumber1.setText("no data");
-                CheckpointDate1.setText("no data");
-                CheckpointTime1.setText("no data");
-                
-            }
-            try {
-                setPagination();
-                main.displayDataView(PageLine,searchTxt,"Invoice");
-                boolean boo = main.getStatus();
-                if(boo==false){
-                    NextAccExecPatrolManage.setEnabled(false);
-                }
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        patrolPanel.add(viewBtn, gbc);
+        gbc.gridy = 2;
+        patrolPanel.add(removeBtn, gbc);
 
-            } catch (IOException ex) {
-                Logger.getLogger(BusManUserManageOption.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            if(main.getCheckpointRecordID() !=null){
-                UserID2.setText(main.getUserID());
-                BlockNumber2.setText(main.getBlockNumber());//need to add at mainclass
-                CheckpointDate2.setText(main.getCheckpointDate());//need to add at mainclass
-                CheckpointTime2.setText(main.getCheckpointTime());//need to add at mainclass
-                
-            }else{
-                UserID2.setText("no data");
-                BlockNumber2.setText("no data");
-                CheckpointDate2.setText("no data");
-                CheckpointTime2.setText("no data");
-                
-            }
+        DataPanel.add(patrolPanel, BorderLayout.CENTER);
     }
+    
     /**
      * @param args the command line arguments
      */
@@ -773,61 +251,14 @@ public class BuildingExecPatrolManage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddNewPatrolManage;
-    private javax.swing.JButton BackAccExecInvoiceManage;
-    private javax.swing.JButton BackAccExecPatrolManage2;
-    private javax.swing.JLabel BlockNumber;
-    private javax.swing.JLabel BlockNumber1;
-    private javax.swing.JLabel BlockNumber2;
-    private javax.swing.JLabel CheckpointDate;
-    private javax.swing.JLabel CheckpointDate1;
-    private javax.swing.JLabel CheckpointDate2;
-    private javax.swing.JLabel CheckpointRecID;
-    private javax.swing.JLabel CheckpointRecID1;
-    private javax.swing.JLabel CheckpointRecID2;
-    private javax.swing.JLabel CheckpointTime;
-    private javax.swing.JLabel CheckpointTime1;
-    private javax.swing.JLabel CheckpointTime2;
-    private javax.swing.JButton NextAccExecPatrolManage;
-    private javax.swing.JLabel UserID;
-    private javax.swing.JLabel UserID1;
-    private javax.swing.JLabel UserID2;
-    private javax.swing.JButton ViewDetailsPatrol;
-    private javax.swing.JButton ViewDetailsPatrol1;
-    private javax.swing.JButton ViewDetailsPatrol2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator19;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator20;
-    private javax.swing.JSeparator jSeparator21;
-    private javax.swing.JSeparator jSeparator22;
-    private javax.swing.JSeparator jSeparator23;
-    private javax.swing.JSeparator jSeparator24;
-    private javax.swing.JSeparator jSeparator25;
-    private javax.swing.JSeparator jSeparator26;
-    private javax.swing.JSeparator jSeparator27;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JPanel DataPanel;
+    private javax.swing.JPanel HeaderPanel;
+    // private javax.swing.JPanel NavigationPanel;
+
+    private javax.swing.JButton AddNewBuildingExecPatrolManage;
+    private javax.swing.JButton OptionBuildingExecPatrolManage;
+    // private javax.swing.JButton BackBuildingExecPatrolManage;
+    // private javax.swing.JButton NextBuildingExecPatrolManage;
+
     // End of variables declaration//GEN-END:variables
 }
