@@ -167,7 +167,7 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
         AccExecPayment.setResizable(false);
         AccExecPayment.setLocationRelativeTo(null);
         AccExecPayment.setVisible(true); 
-        
+        AccExecPayment.backButtonToggle();
         AccExecPayment.setPaymentData();
         
     }//GEN-LAST:event_PaymentManageActionPerformed

@@ -213,7 +213,7 @@ public class accountExecutive extends User implements dataManagementController, 
                             user.set(1, dataList.get(1));
                             user.set(2, dataList.get(2));
                             user.set(3, dataList.get(3));
-                            user.set(3, dataList.get(4));
+                            user.set(4, dataList.get(4));
                             break;
                         }
                         if(type=="Invoice"){

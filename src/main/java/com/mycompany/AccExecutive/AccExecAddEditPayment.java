@@ -212,8 +212,8 @@ public class AccExecAddEditPayment extends javax.swing.JFrame {
             dataList.add(PaymentIDField.getText());
             dataList.add(UserIDField.getText());
             dataList.add(PayDescriptionField.getText());
-            dataList.add(DueDateField.getText());
             dataList.add(PayAmountField.getText());
+            dataList.add(DueDateField.getText());
             main.editOrAddData(dataList, "Payment","Payment.txt","edit");
         }else if(addEditDetector=="add"){
             
@@ -225,8 +225,8 @@ public class AccExecAddEditPayment extends javax.swing.JFrame {
             dataList.add(paymentClass.getPaymentId());
             dataList.add(UserIDField.getText());
             dataList.add(PayDescriptionField.getText());
-            dataList.add(DueDateField.getText());
             dataList.add(PayAmountField.getText());
+            dataList.add(DueDateField.getText());
             System.out.println(dataList);
             mainInner.addEditPayment(dataList,"Payment","Payment.txt","add");
 

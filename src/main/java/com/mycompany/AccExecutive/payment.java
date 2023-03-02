@@ -99,8 +99,7 @@ public class payment implements displayController{
 
     @Override
     public void displayDataView(Integer dataLine, String searchTxt, String type) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    String fileName = "src/main/java/com/mycompany/textFile/"+file;
+        String fileName = "src/main/java/com/mycompany/textFile/"+file;
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
         int i =0;
         int fixedSize = allData.size();
@@ -122,38 +121,41 @@ public class payment implements displayController{
         int newSize = allData.size();
         try{
             setpaymentId(allData.get(dataLine).get(0));
-            setPayDesc(allData.get(dataLine).get(1));
-            setPayAmount(allData.get(dataLine).get(2));
-            setDueDate(allData.get(dataLine).get(3));
-            Status=true;
+            setUserId(allData.get(dataLine).get(1));
+            setPayDesc(allData.get(dataLine).get(2));
+            setPayAmount(allData.get(dataLine).get(3));
+            setDueDate(allData.get(dataLine).get(4));
+           
+            status=true;
             
         }catch(Exception e){
             setDataNull(type);
-            Status = false;
+            status = false;
         }
         if(dataLine.equals(newSize-1)){
-            Status = false;
+            status = false;
         }
     }
 
     @Override
     public void setDataNull(String type) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        setpaymentId(null);
+       setpaymentId(null);
+       setUserId(null);
         setPayDesc(null);
         setPayAmount(null);
         setDueDate(null);
+        
 
     }
 
     @Override
     public void getDataViewSingle(String id, String file, String type) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         String fileName = "src/main/java/com/mycompany/textFile/"+file;
         ArrayList<ArrayList<String>> allData = DataInfo(fileName);
         for (ArrayList<String> singleData : allData) {
                 if (singleData.get(0).equals(id)) {
                     setpaymentId(singleData.get(0));
+                    setUserId(singleData.get(3));
                     setPayDesc(singleData.get(1));
                     setPayAmount(singleData.get(2));
                     setDueDate(singleData.get(3));
@@ -164,7 +166,6 @@ public class payment implements displayController{
 
     @Override
     public void getIncreasedID(String file, String type) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     BufferedReader input;
         try {
             input = new BufferedReader(new FileReader("src/main/java/com/mycompany/textFile/"+file));
