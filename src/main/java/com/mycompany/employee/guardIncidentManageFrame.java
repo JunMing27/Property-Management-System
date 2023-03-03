@@ -18,6 +18,7 @@ public class guardIncidentManageFrame extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        idGet = id;
         backPageBtn.setEnabled(false);
         displayData();
     }
