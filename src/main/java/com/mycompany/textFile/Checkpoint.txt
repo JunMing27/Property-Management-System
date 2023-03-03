@@ -1,0 +1,8 @@
+CP1,G1,Block A,08:00
+CP2,G2,Block B,08:00
+CP3,G3,Block C,08:00
+CP4,G4,Block D,08:00
+CP5,G5,Block A,18:00
+CP6,G6,Block B,18:00
+CP7,G7,Block C,18:00
+CP8,G8,Block D,18:00
