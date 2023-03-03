@@ -19,6 +19,7 @@ public class guardIncidentManageFrame extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
+        idGet = "E1";
         backPageBtn.setEnabled(false);
         displayData();
     }
@@ -247,11 +248,11 @@ public class guardIncidentManageFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameLabel2)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,31 +269,12 @@ public class guardIncidentManageFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        this.dispose();
-        guardMenuFrame option = new guardMenuFrame(idGet);
-        option.setVisible(true);
-    }//GEN-LAST:event_backBtnActionPerformed
-
-    private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         ArrayList<String> dataList = new ArrayList<>();
-        dataList.add(idTxt1.getText());
-        dataList.add(detailTxt1.getText());
         this.dispose();
-        guardIncidentAddEditFrame edit = new guardIncidentAddEditFrame(idGet,"edit", dataList);
-        edit.setVisible(true);
-    }//GEN-LAST:event_editBtn1ActionPerformed
-
-    private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
-        backButtonFunction();
-        nextPageBtn.setEnabled(true);
-        displayData();
-    }//GEN-LAST:event_backPageBtnActionPerformed
-
-    private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
-        backPageBtn.setEnabled(true);
-        displayData();
-    }//GEN-LAST:event_nextPageBtnActionPerformed
+        guardIncidentAddEditFrame add = new guardIncidentAddEditFrame(idGet,"add", dataList);
+        add.setVisible(true);
+    }//GEN-LAST:event_addBtnActionPerformed
 
     private void editBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn2ActionPerformed
         ArrayList<String> dataList = new ArrayList<>();
@@ -303,12 +285,31 @@ public class guardIncidentManageFrame extends javax.swing.JFrame {
         edit.setVisible(true);
     }//GEN-LAST:event_editBtn2ActionPerformed
 
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+    private void nextPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPageBtnActionPerformed
+        backPageBtn.setEnabled(true);
+        displayData();
+    }//GEN-LAST:event_nextPageBtnActionPerformed
+
+    private void backPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backPageBtnActionPerformed
+        backButtonFunction();
+        nextPageBtn.setEnabled(true);
+        displayData();
+    }//GEN-LAST:event_backPageBtnActionPerformed
+
+    private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
         ArrayList<String> dataList = new ArrayList<>();
+        dataList.add(idTxt1.getText());
+        dataList.add(detailTxt1.getText());
         this.dispose();
-        guardIncidentAddEditFrame add = new guardIncidentAddEditFrame(idGet,"add", dataList);
-        add.setVisible(true);
-    }//GEN-LAST:event_addBtnActionPerformed
+        guardIncidentAddEditFrame edit = new guardIncidentAddEditFrame(idGet,"edit", dataList);
+        edit.setVisible(true);
+    }//GEN-LAST:event_editBtn1ActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        this.dispose();
+        guardMenuFrame option = new guardMenuFrame(idGet);
+        option.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
 
     private int pageLine=-1;
     
