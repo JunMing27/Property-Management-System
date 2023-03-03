@@ -248,7 +248,7 @@ public class employee extends User implements dataManagementController, displayC
     public void removeFromFile(String textFile, ArrayList<String> dataList) {
         try {
             String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
-            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            ArrayList<ArrayList<String>> allUsers = DataInfo(filePath);
             for(int j=0;j<allUsers.size();j++)
             {
                 if(allUsers.get(j).get(0).equals(dataList.get(0)))
