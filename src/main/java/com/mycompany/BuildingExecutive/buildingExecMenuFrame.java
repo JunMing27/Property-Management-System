@@ -35,7 +35,8 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         generateReportBtn = new javax.swing.JButton();
         BackBtn = new javax.swing.JButton();
-        viewAdminExecutive = new javax.swing.JButton();
+        complaintManage = new javax.swing.JButton();
+        patrolManagement = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,12 +73,21 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
             }
         });
 
-        viewAdminExecutive.setBackground(new java.awt.Color(255, 255, 255));
-        viewAdminExecutive.setForeground(new java.awt.Color(0, 0, 0));
-        viewAdminExecutive.setText("Admin Executive");
-        viewAdminExecutive.addActionListener(new java.awt.event.ActionListener() {
+        complaintManage.setBackground(new java.awt.Color(255, 255, 255));
+        complaintManage.setForeground(new java.awt.Color(0, 0, 0));
+        complaintManage.setText("Complaint Management");
+        complaintManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewAdminExecutiveActionPerformed(evt);
+                complaintManageActionPerformed(evt);
+            }
+        });
+
+        patrolManagement.setBackground(new java.awt.Color(255, 255, 255));
+        patrolManagement.setForeground(new java.awt.Color(0, 0, 0));
+        patrolManagement.setText("Patrol Management");
+        patrolManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patrolManagementActionPerformed(evt);
             }
         });
 
@@ -96,7 +106,8 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(generateReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(viewEmployeeJob, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(viewAdminExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(complaintManage, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(patrolManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(120, 120, 120))
         );
         jPanel1Layout.setVerticalGroup(
@@ -111,8 +122,10 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(generateReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(viewAdminExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addComponent(complaintManage, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(patrolManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,7 +136,9 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -159,10 +174,29 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_BackBtnActionPerformed
 
-    private void viewAdminExecutiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAdminExecutiveActionPerformed
+    private void complaintManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintManageActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        buildingExecComplaintManageFrame complaintMenu = new buildingExecComplaintManageFrame();
+        complaintMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        complaintMenu.pack();
+        complaintMenu.setResizable(false);
+        complaintMenu.setLocationRelativeTo(null);
+        complaintMenu.setVisible(true);
+        complaintMenu.setComplaintData();
 
-    }//GEN-LAST:event_viewAdminExecutiveActionPerformed
+    }//GEN-LAST:event_complaintManageActionPerformed
+
+    private void patrolManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patrolManagementActionPerformed
+        this.dispose();
+        buildingExecPatrolManage patrolMenu = new buildingExecPatrolManage();
+        patrolMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        patrolMenu.pack();
+        patrolMenu.setResizable(false);
+        patrolMenu.setLocationRelativeTo(null);
+        patrolMenu.setVisible(true);
+        patrolMenu.setPatrolData();
+    }//GEN-LAST:event_patrolManagementActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,10 +235,11 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBtn;
+    private javax.swing.JButton complaintManage;
     private javax.swing.JButton generateReportBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton viewAdminExecutive;
+    private javax.swing.JButton patrolManagement;
     private javax.swing.JButton viewEmployeeJob;
     // End of variables declaration//GEN-END:variables
 }

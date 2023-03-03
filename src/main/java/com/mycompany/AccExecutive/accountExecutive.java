@@ -225,15 +225,6 @@ public class accountExecutive extends User implements dataManagementController, 
                             user.set(4, dataList.get(4));
                             user.set(5, dataList.get(5));
                             user.set(6, dataList.get(6));
-                            user.set(7, dataList.get(7));
-                            break;
-                        }
-                        if(type=="Receipt"){
-                            user.set(1, dataList.get(1));
-                            user.set(2, dataList.get(2));
-                            user.set(3, dataList.get(3));
-                            user.set(4, dataList.get(4));
-                            user.set(5, dataList.get(5));
                             
                             break;
                         }
@@ -246,6 +237,7 @@ public class accountExecutive extends User implements dataManagementController, 
                             
                             break;
                         }
+                        
                         if(type=="Pending"){
                             user.set(1, dataList.get(1));
                             user.set(2, dataList.get(2));
