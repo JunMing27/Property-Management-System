@@ -20,6 +20,7 @@ public class guardIncidentAddEditFrame extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        idGet = id;
         addEditGet = addEditString;
         dataListGet = dataList;
         if(addEditGet.equals("edit"))
