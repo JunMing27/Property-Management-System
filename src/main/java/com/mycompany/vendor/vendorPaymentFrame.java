@@ -5,7 +5,9 @@
 package com.mycompany.vendor;
 
 import com.mycompany.resident.payment;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -314,7 +316,9 @@ public class vendorPaymentFrame extends javax.swing.JFrame {
             dataList.add(idGet);
             dataList.add(payToTxt1.getText());
             dataList.add(payAmountTxt1.getText());
-            dataList.add(dueDateTxt1.getText());
+            Date todayDate = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            dataList.add(sdf.format(todayDate));
             vendor main = new vendor();
             vendor.vendorMethod innerMethod = main.new vendorMethod();
             main.setUserId(idGet);
