@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author edi
  */
-public class checkpoint implements displayController {
+public class checkpointRecord implements displayController {
     private String checkPointRecordID;
     private String userId;
     private String blockNumber;
@@ -74,6 +74,18 @@ public class checkpoint implements displayController {
         this.status = status;
     }
 
+    private int totalLine;
+
+    public int getTotalLine() {
+        return totalLine;
+    }
+
+    public void setTotalLine(int totalLine) {
+        this.totalLine = totalLine;
+    }
+    
+    
+    
    private String file="CheckpointRecord.txt";
 
     @Override
@@ -208,4 +220,45 @@ public class checkpoint implements displayController {
         return allUserInfo;
     }
     
+    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
+        ArrayList<ArrayList<String>> allUserInfo = DataInfo(textFile);
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        
+        int p,q;
+        int totalRow = 0;
+        
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(this.getUserId()))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(1).equals(this.getUserId()))
+                {
+                    totalRow = totalRow +1;
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+        setTotalLine(totalRow);
+        return onlyUserInfo;
+    }
+    
+    
+    public void displayDataViewOwn(Integer dataLine, String searchTxt, String type, String fileName) {
+        fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
+        ArrayList<ArrayList<String>> allData = onlyUserDataInfo(fileName);
+        try{
+            setCheckPointRecordID(allData.get(dataLine).get(0));
+            setUserId(allData.get(dataLine).get(1));
+            setBlockNumber(allData.get(dataLine).get(2));
+            setCheckPointRecordDate(allData.get(dataLine).get(3));
+            setCheckPointRecordTime(allData.get(dataLine).get(4));
+             
+        }catch(Exception e){
+            setDataNull("");
+            
+        }
+        
+    }
 }

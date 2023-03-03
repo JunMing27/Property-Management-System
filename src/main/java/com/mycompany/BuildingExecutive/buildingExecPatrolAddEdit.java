@@ -4,17 +4,9 @@
  */
 package com.mycompany.BuildingExecutive;
 
-import com.mycompany.AccExecutive.AccExecManagePendingFrame;
-import com.mycompany.employee.employee;
-import com.mycompany.employee.guardCheckPointViewFrame;
 import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerListModel;
 
 /**
  *
@@ -242,7 +234,7 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
 
             buildingExecutive main = new buildingExecutive();
 //            buildingExecutive.buildingExecutiveMethod mainInner = main.new buildingExecutiveMethod();
-            checkpoint checkpointClass = new checkpoint();
+            checkpointRecord checkpointClass = new checkpointRecord();
             ArrayList<String> dataList = new ArrayList<String>();
             checkpointClass.getIncreasedID("Checkpoint.txt","Patrol");
             dataList.add(checkpointClass.getCheckPointRecordID());
@@ -264,7 +256,7 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
     public void addEditDetect(String functionType,String id) throws FileNotFoundException{
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            checkpoint checkpointClass = new checkpoint();
+            checkpointRecord checkpointClass = new checkpointRecord();
             checkpointClass.chooseTxtFile("Patrol");
             checkpointClass.getDataViewSingle(id, fileType,userType);
 //            payment.paymentMethod mainInner = employeeJobClass.new employeeJobMethod();

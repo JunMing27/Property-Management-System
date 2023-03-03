@@ -4,6 +4,7 @@
  */
 package com.mycompany.employee;
 
+import com.mycompany.BuildingExecutive.checkpointRecord;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -248,7 +249,9 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
         {
             blockTxt.setText(checkpointClass.getBlockNumber());
             timeTxt.setText(checkpointClass.getCheckpointTime());
-            
+        }else{
+            blockTxt.setText("no assigned");
+            timeTxt.setText("no assigned");
         }
     }
     

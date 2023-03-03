@@ -215,7 +215,7 @@ public class buildingExecComplaintEdit extends javax.swing.JFrame {
             
             buildingExecutive main = new buildingExecutive();
             buildingExecutive.buildingExecutiveMethod mainInner = main.new buildingExecutiveMethod();
-            checkpoint checkpointClass = new checkpoint();
+            checkpointRecord checkpointClass = new checkpointRecord();
             ArrayList<String> dataList = new ArrayList<String>();
             checkpointClass.getIncreasedID("Complaint.txt","Complaint");
             dataList.add(checkpointClass.getCheckPointRecordID());

@@ -615,7 +615,7 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
     
     
     public void setPatrolData(){
-        checkpoint checkpointClass = new checkpoint();
+        checkpointRecord checkpointClass = new checkpointRecord();
         setPagination();
         checkpointClass.displayDataView(PageLine,searchTxt,"Payment");
         boolean boo = checkpointClass.getStatus();
