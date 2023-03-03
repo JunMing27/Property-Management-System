@@ -135,6 +135,9 @@ public class buildingExecutive extends User implements dataManagementController,
         if(Type=="EmployeeJob"){
             file ="EmployeeJob.txt";
         }
+        else if(Type=="CheckpointRecord"){
+            file="CheckpointRecord.txt";
+        }
     }
     @Override
     public void displayDataView(Integer dataLine, String searchTxt, String type) {
@@ -222,7 +225,7 @@ public class buildingExecutive extends User implements dataManagementController,
                             user.set(3, dataList.get(3));
                             break;
                         }
-                        if(type=="Patrol"){
+                        if(type=="CheckpointRecord"){
                             user.set(1, dataList.get(1));
                             user.set(2, dataList.get(2));
                             user.set(3, dataList.get(3));
@@ -249,7 +252,7 @@ public class buildingExecutive extends User implements dataManagementController,
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
                             bw.close();
                         }
-                            if(type=="Patrol"){
+                            if(type=="CheckpointRecord"){
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
@@ -286,7 +289,7 @@ public class buildingExecutive extends User implements dataManagementController,
                     AddDataToFile.write(dataList.get(3));
                 }
                 
-                if(type=="Patrol"){
+                if(type=="CheckpointRecord"){
                     AddDataToFile.write(dataList.get(0)+",");
                     AddDataToFile.write(dataList.get(1)+",");
                     AddDataToFile.write(dataList.get(2)+",");
@@ -343,7 +346,7 @@ public class buildingExecutive extends User implements dataManagementController,
                             bw.close();
                             
                         }
-                        if(file=="Checkpoint.txt"){
+                        if(file=="CheckpointRecord.txt"){
                             System.out.println(file);
                             File userData = new File("src/main/java/com/mycompany/textFile/"+file);
                             FileWriter fw = new FileWriter(userData,true);
