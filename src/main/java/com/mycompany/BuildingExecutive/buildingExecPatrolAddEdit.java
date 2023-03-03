@@ -220,7 +220,7 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
         }else if(addEditDetector=="add"){
 
             buildingExecutive main = new buildingExecutive();
-//            buildingExecutive.buildingExecutiveMethod mainInner = main.new buildingExecutiveMethod();
+            buildingExecutive.buildingExecutiveMethod mainInner = main.new buildingExecutiveMethod();
             checkpointRecord checkpointClass = new checkpointRecord();
             ArrayList<String> dataList = new ArrayList<String>();
             checkpointClass.getIncreasedID("Checkpoint.txt","Checkpoint");
@@ -230,7 +230,7 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
             dataList.add(CheckInTimeTxt.getText());
             
             System.out.println(dataList);
-//            mainInner.addEditPatrol(dataList,"Patrol","Checkpoint.txt","add");
+            mainInner.addEditPatrol(dataList,"Patrol","Checkpoint.txt","add");
 
         }
     }//GEN-LAST:event_addEditBtnActionPerformed
