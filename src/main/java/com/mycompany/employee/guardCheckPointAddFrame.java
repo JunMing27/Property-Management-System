@@ -25,7 +25,6 @@ public class guardCheckPointAddFrame extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
-        idGet = "E1";
         displayData();
     }
 

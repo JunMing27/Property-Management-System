@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  *
  * @author hoiyi
  */
-public class checkpoint implements displayController{
+public class checkpoint implements displayController, displayController1{
     
     private String checkpointId;
     private String userId;
@@ -173,6 +173,7 @@ public class checkpoint implements displayController{
             JOptionPane.showMessageDialog(null, "There is a problem with User ID. Try Again Later", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
     public ArrayList<ArrayList<String>> DataInfo(String textFile) {
         File file = new File(textFile);
         ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
@@ -196,4 +197,54 @@ public class checkpoint implements displayController{
         }
         return allUserInfo;
     }
+
+    @Override
+    public void displayDataViewAll(Integer dataLine, String searchTxt, String type, String fileName) {
+    
+    }
+
+    @Override
+    public void setDataNull() {
+    
+    }
+
+    @Override
+    public void displayDataViewOwn(Integer dataLine, String searchTxt, String type, String fileName) {
+        fileName = "src/main/java/com/mycompany/textFile/"+fileName+".txt";
+        ArrayList<ArrayList<String>> allData = onlyUserDataInfo(fileName);
+        
+        try{
+            
+            setCheckpointId(allData.get(dataLine).get(0));
+            setUserId(allData.get(dataLine).get(1));
+            setBlockNumber(allData.get(dataLine).get(2));
+            setCheckpointTime(allData.get(dataLine).get(3));
+                        
+        }catch(Exception e){
+            setDataNull("");
+        }
+    }
+    
+    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
+        ArrayList<ArrayList<String>> allUserInfo = DataInfo(textFile);
+        ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
+        
+        int p,q;
+        for (p=0,q=0; p<allUserInfo.size(); p++)
+        {
+            if(allUserInfo.get(p).contains(this.getUserId()))
+            {
+                ArrayList<String> item = allUserInfo.get(p);
+                if(item.get(0).equals(this.getUserId()))
+                {
+                    onlyUserInfo.add(allUserInfo.get(p));
+                    q++;
+                }
+            }
+        }
+        
+        
+        return onlyUserInfo;
+    }
+    
 }
