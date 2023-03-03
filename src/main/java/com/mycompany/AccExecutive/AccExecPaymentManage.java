@@ -38,7 +38,7 @@ public class AccExecPaymentManage extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         BackAccExecPaymentManage = new javax.swing.JButton();
-        AddNewAccExecPaymentManage = new javax.swing.JButton();
+        addNew = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         ViewDetails1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -85,12 +85,12 @@ public class AccExecPaymentManage extends javax.swing.JFrame {
             }
         });
 
-        AddNewAccExecPaymentManage.setBackground(new java.awt.Color(204, 204, 204));
-        AddNewAccExecPaymentManage.setForeground(new java.awt.Color(0, 0, 0));
-        AddNewAccExecPaymentManage.setText("Add New");
-        AddNewAccExecPaymentManage.addActionListener(new java.awt.event.ActionListener() {
+        addNew.setBackground(new java.awt.Color(204, 204, 204));
+        addNew.setForeground(new java.awt.Color(0, 0, 0));
+        addNew.setText("Add New");
+        addNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddNewAccExecPaymentManageActionPerformed(evt);
+                addNewActionPerformed(evt);
             }
         });
 
@@ -346,7 +346,7 @@ public class AccExecPaymentManage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(BackAccExecPaymentManage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AddNewAccExecPaymentManage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addNew, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(124, 124, 124)
@@ -368,7 +368,7 @@ public class AccExecPaymentManage extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackAccExecPaymentManage, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddNewAccExecPaymentManage, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addNew, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -440,7 +440,7 @@ public class AccExecPaymentManage extends javax.swing.JFrame {
     }     
     }//GEN-LAST:event_ViewDetails1ActionPerformed
 
-    private void AddNewAccExecPaymentManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewAccExecPaymentManageActionPerformed
+    private void addNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewActionPerformed
         // TODO add your handling code here:
         this.dispose();
         AccExecAddEditPayment accExecAddEdit = new AccExecAddEditPayment();
@@ -454,7 +454,7 @@ public class AccExecPaymentManage extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
         }
         
-    }//GEN-LAST:event_AddNewAccExecPaymentManageActionPerformed
+    }//GEN-LAST:event_addNewActionPerformed
 
     private void ViewDetails2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetails2ActionPerformed
         // TODO add your handling code here:
@@ -617,7 +617,6 @@ public class AccExecPaymentManage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddNewAccExecPaymentManage;
     private javax.swing.JLabel Amount1;
     private javax.swing.JLabel Amount2;
     private javax.swing.JLabel Amount3;
@@ -634,6 +633,7 @@ public class AccExecPaymentManage extends javax.swing.JFrame {
     private javax.swing.JButton ViewDetails1;
     private javax.swing.JButton ViewDetails2;
     private javax.swing.JButton ViewDetails3;
+    private javax.swing.JButton addNew;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -180,13 +180,14 @@ public class receipt implements displayController{
 
     @Override
     public void getIncreasedID(String file, String type) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       
     BufferedReader input;
         try {
             input = new BufferedReader(new FileReader("src/main/java/com/mycompany/textFile/"+file));
             String last="";
             String line="";
             String ID="";
+            System.out.println("ID");
             try {
                 while ((line = input.readLine()) != null) {
                     last = line;

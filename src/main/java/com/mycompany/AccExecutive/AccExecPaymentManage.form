@@ -57,7 +57,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="BackAccExecPaymentManage" min="-2" pref="110" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="AddNewAccExecPaymentManage" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="addNew" min="-2" pref="110" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -86,7 +86,7 @@
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="BackAccExecPaymentManage" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                      <Component id="AddNewAccExecPaymentManage" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="addNew" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -119,7 +119,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackAccExecPaymentManageActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="AddNewAccExecPaymentManage">
+        <Component class="javax.swing.JButton" name="addNew">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -130,7 +130,7 @@
             <Property name="text" type="java.lang.String" value="Add New"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddNewAccExecPaymentManageActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addNewActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">

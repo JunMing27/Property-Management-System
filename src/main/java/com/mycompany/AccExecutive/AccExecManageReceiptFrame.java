@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author edi
  */
 public class AccExecManageReceiptFrame extends javax.swing.JFrame {
 
@@ -585,61 +585,74 @@ public class AccExecManageReceiptFrame extends javax.swing.JFrame {
         PageLine=PageLine+1;
     }
     
-    public void setPaymentData(){
-        payment paymentClass = new payment();
+    public void setReceiptData(){
+        receipt receiptClass = new receipt();
         setPagination();
-        paymentClass.displayDataView(PageLine,searchTxt,"Payment");
-        boolean boo = paymentClass.getStatus();
+        receiptClass.displayDataView(PageLine,searchTxt,"Receipt");
+        boolean boo = receiptClass.getStatus();
         if(boo==false){
             nextPage.setEnabled(false);
         }
-        System.out.println(paymentClass.getpaymentID());
-        if(paymentClass.getpaymentID() !=null){
-            PaymentID1.setText(paymentClass.getpaymentID());
-            PaymentDesc1.setText(paymentClass.getPayDesc());
-            Amount1.setText(paymentClass.getPayAmount());
-            DueDate1.setText(paymentClass.getDueDate());
+        System.out.println(receiptClass.getreceiptId());
+        if(receiptClass.getreceiptId() !=null){
+            receiptId1.setText(receiptClass.getreceiptId());
+            userId1.setText(receiptClass.getuserId());
+            paymentDesc1.setText(receiptClass.getpaymentDesc());
+            paidAmount1.setText(receiptClass.getpaidAmount());
+            paidDate1.setText(receiptClass.getpaidDate());
+            issuedDate1.setText(receiptClass.getissuedDate());
 
         }else{
-            PaymentID1.setText("no data");
-            PaymentDesc1.setText("no data");
-            Amount1.setText("no data");
-            DueDate1.setText("no data");
+            receiptId1.setText("no data");
+            userId1.setText("no data");
+            paymentDesc1.setText("no data");
+            paidAmount1.setText("no data");
+            paidDate1.setText("no data");
+            issuedDate1.setText("no data");
+
 
         }
         setPagination();
-        paymentClass.displayDataView(PageLine,searchTxt,"Payment");
-        boo = paymentClass.getStatus();
+        receiptClass.displayDataView(PageLine,searchTxt,"Receipt");
+        boo = receiptClass.getStatus();
         if(boo==false){
             nextPage.setEnabled(false);
         }
-        if(paymentClass.getpaymentID() !=null){
-            PaymentID2.setText(paymentClass.getpaymentID());
-            PaymentDesc2.setText(paymentClass.getPayDesc());
-            Amount2.setText(paymentClass.getPayAmount());
-            DueDate2.setText(paymentClass.getDueDate());
+        if(receiptClass.getreceiptId() !=null){
+            receiptId2.setText(receiptClass.getreceiptId());
+            userId2.setText(receiptClass.getuserId());
+            paymentDesc2.setText(receiptClass.getpaymentDesc());
+            paidAmount2.setText(receiptClass.getpaidAmount());
+            paidDate2.setText(receiptClass.getpaidDate());
+            issuedDate2.setText(receiptClass.getissuedDate());
         }else{
-            PaymentID2.setText("no data");
-            PaymentDesc2.setText("no data");
-            Amount2.setText("no data");
-            DueDate2.setText("no data");
+            receiptId2.setText("no data");
+            userId2.setText("no data");
+            paymentDesc2.setText("no data");
+            paidAmount2.setText("no data");
+            paidDate2.setText("no data");
+            issuedDate2.setText("no data");
         }
         setPagination();
-        paymentClass.displayDataView(PageLine,searchTxt,"Payment");
-        boo = paymentClass.getStatus();
+        receiptClass.displayDataView(PageLine,searchTxt,"Receipt");
+        boo = receiptClass.getStatus();
         if(boo==false){
             nextPage.setEnabled(false);
         }
-        if(paymentClass.getpaymentID() !=null){
-            PaymentID3.setText(paymentClass.getpaymentID());
-            PaymentDesc3.setText(paymentClass.getPayDesc());
-            Amount3.setText(paymentClass.getPayAmount());
-            DueDate3.setText(paymentClass.getDueDate());
+        if(receiptClass.getreceiptId() !=null){
+            receiptId3.setText(receiptClass.getreceiptId());
+            userId3.setText(receiptClass.getuserId());
+            paymentDesc3.setText(receiptClass.getpaymentDesc());
+            paidAmount3.setText(receiptClass.getpaidAmount());
+            paidDate3.setText(receiptClass.getpaidDate());
+            issuedDate3.setText(receiptClass.getissuedDate());
         }else{
-            PaymentID3.setText("no data");
-            PaymentDesc3.setText("no data");
-            Amount3.setText("no data");
-            DueDate3.setText("no data");
+            receiptId3.setText("no data");
+            userId3.setText("no data");
+            paymentDesc3.setText("no data");
+            paidAmount3.setText("no data");
+            paidDate3.setText("no data");
+            issuedDate3.setText("no data");
         }
     }
     /**

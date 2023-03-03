@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author user
+ * @author edi
  */
 public class AccExecAddEditStatement extends javax.swing.JFrame {
 
