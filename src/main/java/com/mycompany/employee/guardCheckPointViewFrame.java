@@ -252,6 +252,7 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
         }else{
             blockTxt.setText("no assigned");
             timeTxt.setText("no assigned");
+            checkInBtn.setEnabled(false);
         }
     }
     
