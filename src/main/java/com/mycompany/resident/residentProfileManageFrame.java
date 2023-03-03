@@ -325,7 +325,7 @@ public class residentProfileManageFrame extends javax.swing.JFrame {
     {
         resident main = new resident();
         main.setUserId(idGet);
-        main.displayDataViewOwn(0, "", "resident", "ResidentProfile");
+        main.displayDataViewOwn(0, "", "resident", "residentProfile");
         try {
             main.getCredentialData(main.getUserId());
         } catch (FileNotFoundException ex) {

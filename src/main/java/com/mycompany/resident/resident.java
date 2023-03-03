@@ -314,7 +314,7 @@ public class resident extends User implements dataManagementController1, display
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
             
-            if(textFile.equals("ResidentProfile") || textFile.equals("FacilityBooking"))
+            if(textFile.equals("residentProfile") || textFile.equals("FacilityBooking"))
             {
                 bw.write(dataList.get(0)+","
                         +dataList.get(1)+","

@@ -470,7 +470,7 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                         dataList.add(phone);
                         dataList.add(unit);
                         dataList.add(imageName);
-                        innerMethod.editProfile("ResidentProfile", dataList);
+                        innerMethod.editProfile("residentProfile", dataList);
                         
                         ArrayList<String> dataList1 = new ArrayList<>();
                         dataList1.add(idGet);
@@ -503,7 +503,7 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
     {
         resident main = new resident();
         main.setUserId(idGet);
-        main.displayDataViewOwn(0, "", "resident", "ResidentProfile");
+        main.displayDataViewOwn(0, "", "resident", "residentProfile");
         try {
             main.getCredentialData(main.getUserId());
         } catch (FileNotFoundException ex) {

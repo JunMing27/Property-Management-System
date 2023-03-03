@@ -425,7 +425,7 @@ public class vendor extends User implements dataManagementController, displayCon
             File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
             FileWriter fw = new FileWriter(file,true);
             BufferedWriter bw = new BufferedWriter(fw);
-            if(textFile.equals("ResidentProfile"))
+            if(textFile.equals("vendorProfile"))
             {
                 bw.write(dataList.get(0)+","
                         +dataList.get(1)+","

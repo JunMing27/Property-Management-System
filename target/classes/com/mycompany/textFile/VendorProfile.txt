@@ -1,2 +1,0 @@
-V1,Vendor adi,male,23,021832111,art 1-min.png
-V2,Vendor Edi,female,23,012812323,2494715 (1).png
