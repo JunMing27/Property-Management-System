@@ -136,9 +136,9 @@ public class LoginPage extends javax.swing.JFrame  {
                                 case "Building Manager" -> goBuildingManagerPage();
                                 case "Account Executive" -> goAccountExecutivePage();
                                 case "Building Executive"-> goBuildingExecutivePage();
-                                case "resident" -> goResidentPage(fileUserID);
-                                case "vendor" -> goVendorPage(fileUserID);
-                                case "employee" -> goEmployeePage(fileUserID); //will identify if it is guard
+                                case "Resident" -> goResidentPage(fileUserID);
+                                case "Vendor" -> goVendorPage(fileUserID);
+                                case "Employee" -> goEmployeePage(fileUserID); //will identify if it is guard
                                 default -> System.out.println("cant find page for this role");
                               }
 
