@@ -73,9 +73,9 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="invalidLabel" pref="218" max="32767" attributes="0"/>
-                      <Component id="accessBtn" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="invalidLabel" max="32767" attributes="0"/>
+                      <Component id="accessBtn" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
               </Group>

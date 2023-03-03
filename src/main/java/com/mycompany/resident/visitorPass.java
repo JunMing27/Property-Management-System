@@ -186,7 +186,7 @@ public class visitorPass implements displayController1{
     }
 
     public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
-        ArrayList<ArrayList<String>> allUserInfo = this.allUserDataInfo(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = allUserDataInfo(textFile);
         ArrayList<ArrayList<String>> onlyUserInfo = new ArrayList<>();
         
         int p,q;
@@ -200,6 +200,7 @@ public class visitorPass implements displayController1{
                     if(item.get(3).equals(this.getUserId()))
                     {
                         onlyUserInfo.add(allUserInfo.get(p));
+                        System.out.println("enter first part");
                         q++;
                     }
                 }
@@ -211,11 +212,12 @@ public class visitorPass implements displayController1{
                 if(allUserInfo.get(p).contains(this.getUserId()))
                 {
                     ArrayList<String> item = allUserInfo.get(p);
-                    if(item.get(1).equals(this.getVisitorName()))
+                    if(item.get(0).equals(this.getVisitorPassId()))
                     {
                         onlyUserInfo.add(allUserInfo.get(p));
                         q++;
                     }
+                    System.out.println("second part "+onlyUserInfo);
                 }
             }
         }

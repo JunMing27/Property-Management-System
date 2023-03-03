@@ -5,11 +5,15 @@
 package com.mycompany.visitor;
 
 import com.mycompany.dataController.dataManagementController1;
+import com.mycompany.resident.resident;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,7 +44,27 @@ public class visitor implements dataManagementController1{
 
     @Override
     public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
-        return null;
+        File file = new File(textFile);
+        ArrayList<ArrayList<String>> allUserInfo = new ArrayList<>();
+        if (file.exists()) {
+            Scanner sc = null;
+            try {
+                sc = new Scanner(file);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(visitor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String oneUserInfo; 
+            String[] itemArray;
+            ArrayList<String> itemArrayList;
+            allUserInfo = new ArrayList<>();
+            while (sc.hasNextLine()) { 
+                oneUserInfo = sc.nextLine().trim(); 
+                itemArray = oneUserInfo.split(","); 
+                itemArrayList = new ArrayList<>(Arrays.asList(itemArray));
+                allUserInfo.add(itemArrayList);
+            }
+        } 
+        return allUserInfo;
     }
 
     @Override

@@ -188,16 +188,15 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
     {
         visitorPass main = new visitorPass();
         main.setVisitorPassId(idGet);
+        idTxt1.setText(idGet);
         main.displayDataViewOwn(0, "", "visitor", "VisitorPass");
         if(main.getVisitorPassId() != null)
         {
-           idTxt1.setText(main.getVisitorPassId());
            nameTxt1.setText(main.getVisitorName());
            dateTxt1.setText(main.getVisitDate());
            statusTxt1.setText(main.getVisitorPassStatus());
            residentIdLabel.setText(main.getUserId());
         }else{
-            idTxt1.setText("no data");
             nameTxt1.setText("no data");
             dateTxt1.setText("no data");
             statusTxt1.setText("no data");
