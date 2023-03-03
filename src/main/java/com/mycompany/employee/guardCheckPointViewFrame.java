@@ -240,9 +240,16 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
     
     private void displayData()
     {
-        checkpointRecord main = new checkpointRecord();
-        main.setUserId(idGet);
-        main.displayDataViewOwn(0, "", "checkpoint", "Checkpoint");
+        idTxt.setText(idGet);
+        checkpoint checkpointClass = new checkpoint();
+        checkpointClass.setUserId(idGet);
+        checkpointClass.displayDataViewOwn(0, "", "checkpoint", "Checkpoint");
+        if(checkpointClass.getCheckpointId() != null)
+        {
+            blockTxt.setText(checkpointClass.getBlockNumber());
+            timeTxt.setText(checkpointClass.getCheckpointTime());
+            
+        }
     }
     
     
