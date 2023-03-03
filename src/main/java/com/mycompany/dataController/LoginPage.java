@@ -143,6 +143,7 @@ public class LoginPage extends javax.swing.JFrame  {
                               }
                             usernameField.setText("");
                             passwordField.setText("");
+                            warningLabel.setVisible(false);
                         }
                         else{
                             ;

@@ -430,11 +430,18 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                 {
                     errorMessage.setText("Please Select Only One CheckBox");
                 }
+                
+                
                 try {
-                    Integer.parseInt(ageString);
+                    int ageInt = Integer.parseInt(ageString);
+                    if(ageInt <0)
+                    {
+                        errorMessage.setText("Please Enter Your Age !");
+                    }
                 } catch (NumberFormatException e) {
                     errorMessage.setText("Age Must be Integer !");
                 }
+                
 
                 Matcher phoneMatcher = Pattern.compile("^(01)[0-9]*[0-9]{7,8}$").
                         matcher(phone);
@@ -486,7 +493,9 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                         residentProfile.setVisible(true); 
                     }
                 }
-            }errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
+            }else{
+                errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
+            }
         }else{
             errorMessage.setText("Name/Gender/Age/Phone/Username/Password  Cannot be Empty !");
         }

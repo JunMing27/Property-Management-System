@@ -4,7 +4,9 @@
  */
 package com.mycompany.resident;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -313,7 +315,9 @@ public class residentPaymentFrame extends javax.swing.JFrame {
             dataList.add(idGet);
             dataList.add(payToTxt1.getText());
             dataList.add(payAmountTxt1.getText());
-            dataList.add(dueDateTxt1.getText());
+            Date todayDate = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            dataList.add(sdf.format(todayDate));
             resident main = new resident();
             resident.residentMethod innerMethod = main.new residentMethod();
             main.setUserId(idGet);

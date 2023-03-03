@@ -401,7 +401,11 @@ public class vendorProfileEditFrame extends javax.swing.JFrame {
                 }
                 
                 try {
-                    Integer.parseInt(ageString);
+                    int ageInt = Integer.parseInt(ageString);
+                    if(ageInt <0)
+                    {
+                        errorMessage.setText("Please Enter Your Age !");
+                    }
                 } catch (NumberFormatException e) {
                     errorMessage.setText("Age Must be Integer !");
                 }
