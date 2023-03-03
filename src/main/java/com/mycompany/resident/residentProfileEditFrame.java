@@ -35,7 +35,6 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
-        idGet = "R1";
         displayData();
     }
 
@@ -427,11 +426,9 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                 && !unit.isBlank()&& !userName.isBlank()
                 && !pwd.isBlank())
             {
-                System.out.println("gender "+gender);
                 if(gender.equals("two selected"))
                 {
                     errorMessage.setText("Please Select Only One CheckBox");
-                    System.out.println("set");
                 }
                 try {
                     Integer.parseInt(ageString);
