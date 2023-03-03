@@ -25,8 +25,6 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
     public AccExecInvoiceManage() {
         initComponents();
        
-        backPageBtn.setEnabled(false);
-        setInvoiceData();
     }
 
     /**
@@ -392,7 +390,7 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
 }
     
     public void backButtonFunction(){
-        PageLine = PageLine -6;
+        PageLine = PageLine -2;
         if (PageLine==-1){
             backPageBtn.setEnabled(false);
         }
@@ -410,6 +408,7 @@ public class AccExecInvoiceManage extends javax.swing.JFrame {
    public void setInvoiceData(){
         invoice invoiceClass = new invoice();
         setPagination();
+        System.out.println(PageLine);
         invoiceClass.displayDataView(PageLine,searchTxt,"Invoice");
         boolean boo = invoiceClass.getStatus();
         if(boo==false){

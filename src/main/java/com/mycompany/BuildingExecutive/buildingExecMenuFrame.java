@@ -4,6 +4,7 @@
  */
 package com.mycompany.BuildingExecutive;
 
+import com.mycompany.buildingManager.buildingManagerReportMenuFrame;
 import java.io.IOException;
 import javax.swing.JFrame;
 
@@ -32,7 +33,7 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         viewEmployeeJob = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        viewBuildingExecutive = new javax.swing.JButton();
+        generateReportBtn = new javax.swing.JButton();
         BackBtn = new javax.swing.JButton();
         viewAdminExecutive = new javax.swing.JButton();
 
@@ -53,12 +54,12 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Welcome Building Executive");
 
-        viewBuildingExecutive.setBackground(new java.awt.Color(255, 255, 255));
-        viewBuildingExecutive.setForeground(new java.awt.Color(0, 0, 0));
-        viewBuildingExecutive.setText("Building Executive");
-        viewBuildingExecutive.addActionListener(new java.awt.event.ActionListener() {
+        generateReportBtn.setBackground(new java.awt.Color(255, 255, 255));
+        generateReportBtn.setForeground(new java.awt.Color(0, 0, 0));
+        generateReportBtn.setText("Generate Report");
+        generateReportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewBuildingExecutiveActionPerformed(evt);
+                generateReportBtnActionPerformed(evt);
             }
         });
 
@@ -93,7 +94,7 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(viewBuildingExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(generateReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(viewEmployeeJob, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(viewAdminExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(120, 120, 120))
@@ -108,7 +109,7 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(viewEmployeeJob, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(viewBuildingExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(generateReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(viewAdminExecutive, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(72, Short.MAX_VALUE))
@@ -142,10 +143,16 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
         buildingEmployeeJob.setEmployeeJobData();
     }//GEN-LAST:event_viewEmployeeJobActionPerformed
 
-    private void viewBuildingExecutiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBuildingExecutiveActionPerformed
+    private void generateReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateReportBtnActionPerformed
         // TODO add your handling code here:
-
-    }//GEN-LAST:event_viewBuildingExecutiveActionPerformed
+        this.dispose();
+        buildingExecReportMenuFrame reportMenu = new buildingExecReportMenuFrame();
+        reportMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        reportMenu.pack();
+        reportMenu.setResizable(false);
+        reportMenu.setLocationRelativeTo(null);
+        reportMenu.setVisible(true);
+    }//GEN-LAST:event_generateReportBtnActionPerformed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
         // TODO add your handling code here:
@@ -194,10 +201,10 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBtn;
+    private javax.swing.JButton generateReportBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton viewAdminExecutive;
-    private javax.swing.JButton viewBuildingExecutive;
     private javax.swing.JButton viewEmployeeJob;
     // End of variables declaration//GEN-END:variables
 }
