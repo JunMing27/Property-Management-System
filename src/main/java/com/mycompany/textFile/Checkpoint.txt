@@ -6,3 +6,6 @@ CP5,G5,Block A,18:00
 CP6,G6,Block B,18:00
 CP7,G7,Block C,18:00
 CP8,G8,Block D,18:00
+CP9,G5,Block A,00:00
+CP9,G5,Block A,00:00
+CP10,G5,Block D,00:00

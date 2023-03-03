@@ -52,7 +52,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                   <Component id="Back" min="-2" pref="110" max="-2" attributes="0"/>
-                  <EmptySpace pref="610" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="AddNew" min="-2" pref="110" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
               </Group>
@@ -70,7 +70,7 @@
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="64" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -164,7 +164,7 @@
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel8" min="-2" pref="119" max="-2" attributes="0"/>
-                          <Component id="checkPointRecordID1" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkPointID1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -176,17 +176,12 @@
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="blockNumber1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="checkPointRecordDate1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel14" min="-2" pref="130" max="-2" attributes="0"/>
                           <Component id="checkPointRecordTime1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace pref="58" max="32767" attributes="0"/>
                       <Component id="ViewDetails1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Delete1" min="-2" pref="96" max="-2" attributes="0"/>
@@ -199,7 +194,6 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -207,11 +201,10 @@
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="checkPointRecordDate1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="checkPointRecordTime1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="blockNumber1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="userId1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="checkPointRecordID1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkPointID1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="30" max="32767" attributes="0"/>
                   </Group>
@@ -251,11 +244,6 @@
                 <Property name="text" type="java.lang.String" value="block Number"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="CheckPoint Record Date"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="userId1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="userId1"/>
@@ -266,19 +254,14 @@
                 <Property name="text" type="java.lang.String" value="blockNumber1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="checkPointRecordDate1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="checkPointRecordDate1"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Checkpoint Record ID"/>
+                <Property name="text" type="java.lang.String" value="Checkpoint  ID"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="checkPointRecordID1">
+            <Component class="javax.swing.JLabel" name="checkPointID1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="checkPointRecordID1"/>
+                <Property name="text" type="java.lang.String" value="checkPointID1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
@@ -313,27 +296,28 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel16" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
-                          <Component id="checkPointRecordID3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="checkPointID3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel19" min="-2" pref="119" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="userId3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="blockNumber3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <Component id="blockNumber3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="checkPointRecordDate3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel17" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
                           <Component id="checkPointRecordTime3" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -353,19 +337,17 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel5" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                                   <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="checkPointRecordDate3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="checkPointRecordTime3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="blockNumber3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="userId3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkPointRecordID3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkPointID3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
                           </Group>
@@ -407,11 +389,6 @@
                 <Property name="text" type="java.lang.String" value="block Number"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel13">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="CheckPoint Record Date"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="userId3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="userId3"/>
@@ -422,19 +399,9 @@
                 <Property name="text" type="java.lang.String" value="blockNumber3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="checkPointRecordDate3">
+            <Component class="javax.swing.JLabel" name="checkPointID3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="checkPointRecordDate3"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Checkpoint Record ID"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="checkPointRecordID3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="checkPointRecordID3"/>
+                <Property name="text" type="java.lang.String" value="checkPointID3"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
@@ -461,6 +428,11 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Delete3ActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel19">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Checkpoint  ID"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel4">
@@ -469,12 +441,18 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel11" min="-2" pref="119" max="-2" attributes="0"/>
-                          <Component id="checkPointRecordID2" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              <Component id="checkPointID2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel18" min="-2" pref="119" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="userId2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
@@ -484,12 +462,7 @@
                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="blockNumber2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="checkPointRecordDate2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel15" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
                           <Component id="checkPointRecordTime2" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -509,19 +482,17 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="checkPointRecordDate2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="checkPointRecordTime2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="blockNumber2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="userId2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkPointRecordID2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkPointID2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
                           </Group>
@@ -563,11 +534,6 @@
                 <Property name="text" type="java.lang.String" value="block Number"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="CheckPoint Record Date"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="userId2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="userId2"/>
@@ -578,19 +544,9 @@
                 <Property name="text" type="java.lang.String" value="blockNumber2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="checkPointRecordDate2">
+            <Component class="javax.swing.JLabel" name="checkPointID2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="checkPointRecordDate2"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Checkpoint Record ID"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="checkPointRecordID2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="checkPointRecordID2"/>
+                <Property name="text" type="java.lang.String" value="checkPointID2"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
@@ -616,6 +572,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Delete2ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel18">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Checkpoint  ID"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

@@ -230,29 +230,28 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
             dataList.add(CheckInTimeTxt.getText());
             
             System.out.println(dataList);
-            mainInner.addEditPatrol(dataList,"Patrol","Checkpoint.txt","add");
+            mainInner.addEditPatrol(dataList,"Checkpoint","Checkpoint.txt","add");
 
         }
     }//GEN-LAST:event_addEditBtnActionPerformed
 
     private String addEditDetector;
     private String fileType="Checkpoint.txt";
-    private String userType="Patrol";
+    private String userType="Checkpoint";
     
     public void addEditDetect(String functionType,String id) throws FileNotFoundException{
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            checkpointRecord checkpointClass = new checkpointRecord();
+            checkpoint checkpointClass = new checkpoint();
             checkpointClass.chooseTxtFile("Patrol");
             checkpointClass.getDataViewSingle(id, fileType,userType);
 //            payment.paymentMethod mainInner = employeeJobClass.new employeeJobMethod();
             
             addEditBtn.setText("Update");
-            CheckpointIdTxt.setText(checkpointClass.getCheckPointRecordID());
+            CheckpointIdTxt.setText(checkpointClass.getCheckpointId());
             GuardIdTxt.setText(checkpointClass.getUserId());
             BlockNumTxt.setText(checkpointClass.getBlockNumber());
-            
-            CheckInTimeTxt.setText(checkpointClass.getCheckPointRecordTime());
+            CheckInTimeTxt.setText(checkpointClass.getCheckpointTime());
             
         }else if (functionType=="add"){
             this.addEditDetector="add";

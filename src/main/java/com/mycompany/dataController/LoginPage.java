@@ -8,6 +8,8 @@
  * @author Jun Ming
  */
 package com.mycompany.dataController;
+import com.mycompany.AccExecutive.AccExecMenuFrame;
+import com.mycompany.BuildingExecutive.buildingExecMenuFrame;
 import com.mycompany.adminExecutive.adminExecutiveMenuFrame;
 import com.mycompany.buildingManager.buildingManagerMenuFrame;
 import com.mycompany.employee.guardMenuFrame;
@@ -132,6 +134,8 @@ public class LoginPage extends javax.swing.JFrame  {
                             switch(fileUserRole.trim()) {
                                 case "Admin Executive" -> goAdminExecutivePage();
                                 case "Building Manager" -> goBuildingManagerPage();
+                                case "Account Executive" -> goAccountExecutivePage();
+                                case "Building Executive"-> goBuildingExecutivePage();
                                 case "resident" -> goResidentPage(fileUserID);
                                 case "vendor" -> goVendorPage(fileUserID);
                                 case "employee" -> goEmployeePage(fileUserID); //will identify if it is guard
@@ -179,6 +183,28 @@ public void goAdminExecutivePage()
     adminMenu.setLocationRelativeTo(null);
     adminMenu.setVisible(true);
 }
+public void goAccountExecutivePage()
+{
+    logInFrame.dispose();
+    AccExecMenuFrame AccExecMenu = new AccExecMenuFrame();
+    AccExecMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    AccExecMenu.pack();
+    AccExecMenu.setResizable(false);
+    AccExecMenu.setLocationRelativeTo(null);
+    AccExecMenu.setVisible(true);
+}
+
+public void goBuildingExecutivePage()
+{
+    logInFrame.dispose();
+    buildingExecMenuFrame BuildExecMenu = new buildingExecMenuFrame();
+    BuildExecMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    BuildExecMenu.pack();
+    BuildExecMenu.setResizable(false);
+    BuildExecMenu.setLocationRelativeTo(null);
+    BuildExecMenu.setVisible(true);
+}
+
 
 public void goBuildingManagerPage()
 {

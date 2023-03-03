@@ -43,12 +43,10 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
         ViewDetails1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         userId1 = new javax.swing.JLabel();
         blockNumber1 = new javax.swing.JLabel();
-        checkPointRecordDate1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        checkPointRecordID1 = new javax.swing.JLabel();
+        checkPointID1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         checkPointRecordTime1 = new javax.swing.JLabel();
         Delete1 = new javax.swing.JButton();
@@ -56,28 +54,24 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
         ViewDetails3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         userId3 = new javax.swing.JLabel();
         blockNumber3 = new javax.swing.JLabel();
-        checkPointRecordDate3 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        checkPointRecordID3 = new javax.swing.JLabel();
+        checkPointID3 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         checkPointRecordTime3 = new javax.swing.JLabel();
         Delete3 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         ViewDetails2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         userId2 = new javax.swing.JLabel();
         blockNumber2 = new javax.swing.JLabel();
-        checkPointRecordDate2 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        checkPointRecordID2 = new javax.swing.JLabel();
+        checkPointID2 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         checkPointRecordTime2 = new javax.swing.JLabel();
         Delete2 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,17 +126,13 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
 
         jLabel6.setText("block Number");
 
-        jLabel7.setText("CheckPoint Record Date");
-
         userId1.setText("userId1");
 
         blockNumber1.setText("blockNumber1");
 
-        checkPointRecordDate1.setText("checkPointRecordDate1");
+        jLabel8.setText("Checkpoint  ID");
 
-        jLabel8.setText("Checkpoint Record ID");
-
-        checkPointRecordID1.setText("checkPointRecordID1");
+        checkPointID1.setText("checkPointID1");
 
         jLabel14.setText("CheckPoint RecordTime");
 
@@ -165,7 +155,7 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkPointRecordID1))
+                    .addComponent(checkPointID1))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(userId1)
@@ -174,15 +164,11 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(blockNumber1))
-                .addGap(28, 28, 28)
+                .addGap(73, 73, 73)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkPointRecordDate1)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkPointRecordTime1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                    .addComponent(checkPointRecordTime1)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(ViewDetails1)
                 .addGap(18, 18, 18)
                 .addComponent(Delete1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,18 +179,16 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel14))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkPointRecordDate1)
                     .addComponent(checkPointRecordTime1)
                     .addComponent(blockNumber1)
                     .addComponent(userId1)
-                    .addComponent(checkPointRecordID1))
+                    .addComponent(checkPointID1))
                 .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
@@ -227,17 +211,11 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
 
         jLabel12.setText("block Number");
 
-        jLabel13.setText("CheckPoint Record Date");
-
         userId3.setText("userId3");
 
         blockNumber3.setText("blockNumber3");
 
-        checkPointRecordDate3.setText("checkPointRecordDate3");
-
-        jLabel16.setText("Checkpoint Record ID");
-
-        checkPointRecordID3.setText("checkPointRecordID3");
+        checkPointID3.setText("checkPointID3");
 
         jLabel17.setText("CheckPoint RecordTime");
 
@@ -252,28 +230,30 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
             }
         });
 
+        jLabel19.setText("Checkpoint  ID");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkPointRecordID3))
-                .addGap(20, 20, 20)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(checkPointID3)
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(userId3)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(43, 43, 43)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(blockNumber3))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkPointRecordDate3)
-                    .addComponent(jLabel13))
-                .addGap(18, 18, 18)
+                .addGap(71, 71, 71)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkPointRecordTime3))
@@ -290,18 +270,16 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel16)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel17))
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel19))
                         .addGap(26, 26, 26)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(checkPointRecordDate3)
                             .addComponent(checkPointRecordTime3)
                             .addComponent(blockNumber3)
                             .addComponent(userId3)
-                            .addComponent(checkPointRecordID3))
+                            .addComponent(checkPointID3))
                         .addGap(0, 37, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
@@ -324,17 +302,11 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
 
         jLabel9.setText("block Number");
 
-        jLabel10.setText("CheckPoint Record Date");
-
         userId2.setText("userId2");
 
         blockNumber2.setText("blockNumber2");
 
-        checkPointRecordDate2.setText("checkPointRecordDate2");
-
-        jLabel11.setText("Checkpoint Record ID");
-
-        checkPointRecordID2.setText("checkPointRecordID2");
+        checkPointID2.setText("checkPointID2");
 
         jLabel15.setText("CheckPoint RecordTime");
 
@@ -349,16 +321,22 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
             }
         });
 
+        jLabel18.setText("Checkpoint  ID");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkPointRecordID2))
-                .addGap(20, 20, 20)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(checkPointID2)
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(userId2)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -366,11 +344,7 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(blockNumber2))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkPointRecordDate2)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
+                .addGap(86, 86, 86)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(checkPointRecordTime2))
@@ -387,18 +361,16 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel15))
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel18))
                         .addGap(26, 26, 26)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(checkPointRecordDate2)
                             .addComponent(checkPointRecordTime2)
                             .addComponent(blockNumber2)
                             .addComponent(userId2)
-                            .addComponent(checkPointRecordID2))
+                            .addComponent(checkPointID2))
                         .addGap(0, 37, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
@@ -415,7 +387,7 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(92, 92, 92)
                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 610, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(AddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -430,7 +402,7 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,8 +483,8 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
 
     private void ViewDetails1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetails1ActionPerformed
         // TODO add your handling code here:
-        System.out.println(checkPointRecordID1);
-        if(!(checkPointRecordID1.getText()).equals("no data")){
+        System.out.println(checkPointID1);
+        if(!(checkPointID1.getText()).equals("no data")){
             this.dispose();
             buildingExecPatrolAddEdit buildingExecAddEdit = new buildingExecPatrolAddEdit();
             buildingExecAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -521,7 +493,7 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
             buildingExecAddEdit.setLocationRelativeTo(null);
             buildingExecAddEdit.setVisible(true);
             try {
-                buildingExecAddEdit.addEditDetect("edit",checkPointRecordID1.getText());
+                buildingExecAddEdit.addEditDetect("edit",checkPointID1.getText());
             } catch (FileNotFoundException ex) {
             }
         }else{
@@ -531,15 +503,15 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
 
     private void Delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete1ActionPerformed
         // TODO add your handling code here:
-        if(!(checkPointRecordID1.getText()).equals("no data")){
-            deleteBtn(checkPointRecordID1.getText());
+        if(!(checkPointID1.getText()).equals("no data")){
+            deleteBtn(checkPointID1.getText());
         }else{
             JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_Delete1ActionPerformed
 
     private void ViewDetails2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetails2ActionPerformed
-      if(!(checkPointRecordID2.getText()).equals("no data")){
+      if(!(checkPointID2.getText()).equals("no data")){
             this.dispose();
             buildingExecPatrolAddEdit buildingExecAddEdit = new buildingExecPatrolAddEdit();
             buildingExecAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -548,7 +520,7 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
             buildingExecAddEdit.setLocationRelativeTo(null);
             buildingExecAddEdit.setVisible(true);
             try {
-                buildingExecAddEdit.addEditDetect("edit",checkPointRecordID2.getText());
+                buildingExecAddEdit.addEditDetect("edit",checkPointID2.getText());
             } catch (FileNotFoundException ex) {
             }
         }else{
@@ -559,15 +531,15 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
 
     private void Delete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete2ActionPerformed
         // TODO add your handling code here:
-        if(!(checkPointRecordID2.getText()).equals("no data")){
-            deleteBtn(checkPointRecordID2.getText());
+        if(!(checkPointID2.getText()).equals("no data")){
+            deleteBtn(checkPointID2.getText());
         }else{
             JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
         } 
     }//GEN-LAST:event_Delete2ActionPerformed
 
     private void ViewDetails3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewDetails3ActionPerformed
-        if(!(checkPointRecordID3.getText()).equals("no data")){
+        if(!(checkPointID3.getText()).equals("no data")){
             this.dispose();
             buildingExecPatrolAddEdit buildingExecAddEdit = new buildingExecPatrolAddEdit();
             buildingExecAddEdit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -576,7 +548,7 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
             buildingExecAddEdit.setLocationRelativeTo(null);
             buildingExecAddEdit.setVisible(true);
             try {
-                buildingExecAddEdit.addEditDetect("edit",checkPointRecordID3.getText());
+                buildingExecAddEdit.addEditDetect("edit",checkPointID3.getText());
             } catch (FileNotFoundException ex) {
             }
         }else{
@@ -586,8 +558,8 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
 
     private void Delete3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete3ActionPerformed
         // TODO add your handling code here:
-        if(!(checkPointRecordID3.getText()).equals("no data")){
-            deleteBtn(checkPointRecordID3.getText());
+        if(!(checkPointID3.getText()).equals("no data")){
+            deleteBtn(checkPointID3.getText());
         }else{
             JOptionPane.showMessageDialog(null, "This is an empty data", "Warning", JOptionPane.ERROR_MESSAGE);
         }
@@ -615,26 +587,24 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
     
     
     public void setPatrolData(){
-        checkpointRecord checkpointClass = new checkpointRecord();
+        checkpoint checkpointClass = new checkpoint();
         setPagination();
         checkpointClass.displayDataView(PageLine,searchTxt,"Payment");
         boolean boo = checkpointClass.getStatus();
         if(boo==false){
             nextPage.setEnabled(false);
         }
-        System.out.println(checkpointClass.getCheckPointRecordID());
-        if(checkpointClass.getCheckPointRecordID() !=null){
-            checkPointRecordID1.setText(checkpointClass.getCheckPointRecordID());
+        System.out.println(checkpointClass.getCheckpointId());
+        if(checkpointClass.getCheckpointId() !=null){
+            checkPointID1.setText(checkpointClass.getCheckpointId());
             userId1.setText(checkpointClass.getUserId());
             blockNumber1.setText(checkpointClass.getBlockNumber());
-            checkPointRecordDate1.setText(checkpointClass.getCheckPointRecordDate());
-            checkPointRecordTime1.setText(checkpointClass.getCheckPointRecordTime());
+            checkPointRecordTime1.setText(checkpointClass.getCheckpointTime());
 
         }else{
-            checkPointRecordID1.setText("no data");
+            checkPointID1.setText("no data");
             userId1.setText("no data");
             blockNumber1.setText("no data");
-            checkPointRecordDate1.setText("no data");
             checkPointRecordTime1.setText("no data");
 
         }
@@ -644,17 +614,15 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
         if(boo==false){
             nextPage.setEnabled(false);
         }
-        if(checkpointClass.getCheckPointRecordID() !=null){
-            checkPointRecordID2.setText(checkpointClass.getCheckPointRecordID());
+        if(checkpointClass.getCheckpointId() !=null){
+            checkPointID2.setText(checkpointClass.getCheckpointId());
             userId2.setText(checkpointClass.getUserId());
             blockNumber2.setText(checkpointClass.getBlockNumber());
-            checkPointRecordDate2.setText(checkpointClass.getCheckPointRecordDate());
-            checkPointRecordTime2.setText(checkpointClass.getCheckPointRecordTime());
+            checkPointRecordTime2.setText(checkpointClass.getCheckpointTime());
         }else{
-            checkPointRecordID2.setText("no data");
+            checkPointID2.setText("no data");
             userId2.setText("no data");
             blockNumber2.setText("no data");
-            checkPointRecordDate2.setText("no data");
             checkPointRecordTime2.setText("no data");
         }
         setPagination();
@@ -663,17 +631,15 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
         if(boo==false){
             nextPage.setEnabled(false);
         }
-        if(checkpointClass.getCheckPointRecordID() !=null){
-            checkPointRecordID3.setText(checkpointClass.getCheckPointRecordID());
+        if(checkpointClass.getCheckpointId() !=null){
+            checkPointID3.setText(checkpointClass.getCheckpointId());
             userId3.setText(checkpointClass.getUserId());
             blockNumber3.setText(checkpointClass.getBlockNumber());
-            checkPointRecordDate3.setText(checkpointClass.getCheckPointRecordDate());
-            checkPointRecordTime3.setText(checkpointClass.getCheckPointRecordTime());
+            checkPointRecordTime3.setText(checkpointClass.getCheckpointTime());
         }else{
-            checkPointRecordID3.setText("no data");
+            checkPointID3.setText("no data");
             userId3.setText("no data");
             blockNumber3.setText("no data");
-            checkPointRecordDate3.setText("no data");
             checkPointRecordTime3.setText("no data");
         }
     }
@@ -683,7 +649,7 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
             int ques = JOptionPane.showConfirmDialog(null,"confirm to delete this data", "Quit", JOptionPane.YES_NO_OPTION);
             if (ques == JOptionPane.YES_OPTION){
                 buildingExecutive main = new buildingExecutive();
-                main.chooseTxtFile("CheckpointRecord");
+                main.chooseTxtFile("Checkpoint");
                 buildingExecutive.buildingExecutiveMethod mainInner = main.new buildingExecutiveMethod();
                 mainInner.deleteCheckpointRecord(getText);
                 JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
@@ -750,28 +716,22 @@ public class buildingExecPatrolManage extends javax.swing.JFrame {
     private javax.swing.JLabel blockNumber1;
     private javax.swing.JLabel blockNumber2;
     private javax.swing.JLabel blockNumber3;
-    private javax.swing.JLabel checkPointRecordDate1;
-    private javax.swing.JLabel checkPointRecordDate2;
-    private javax.swing.JLabel checkPointRecordDate3;
-    private javax.swing.JLabel checkPointRecordID1;
-    private javax.swing.JLabel checkPointRecordID2;
-    private javax.swing.JLabel checkPointRecordID3;
+    private javax.swing.JLabel checkPointID1;
+    private javax.swing.JLabel checkPointID2;
+    private javax.swing.JLabel checkPointID3;
     private javax.swing.JLabel checkPointRecordTime1;
     private javax.swing.JLabel checkPointRecordTime2;
     private javax.swing.JLabel checkPointRecordTime3;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
