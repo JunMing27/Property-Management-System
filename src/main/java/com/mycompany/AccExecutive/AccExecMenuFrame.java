@@ -201,7 +201,15 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ReceiptManageActionPerformed
 
     private void PendingPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PendingPaymentActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        AccExecManagePendingFrame AccExecPending = new AccExecManagePendingFrame();
+        AccExecPending.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AccExecPending.pack();
+        AccExecPending.setResizable(false);
+        AccExecPending.setLocationRelativeTo(null);
+        AccExecPending.setVisible(true); 
+        AccExecPending.backButtonToggle();
+        AccExecPending.setPendingData();
     }//GEN-LAST:event_PendingPaymentActionPerformed
 
     private void StatementManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatementManageActionPerformed

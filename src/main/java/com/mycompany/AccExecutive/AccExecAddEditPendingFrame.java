@@ -7,17 +7,17 @@ package com.mycompany.AccExecutive;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-
 /**
  *
  * @author edi
  */
-public class AccExecAddEditReceiptFrame extends javax.swing.JFrame {
+public class AccExecAddEditPendingFrame extends javax.swing.JFrame {
 
+    
     /**
-     * Creates new form AccExecAddEditReceiptFrame
+     * Creates new form AccExecAddEditPendingFrame
      */
-    public AccExecAddEditReceiptFrame() {
+    public AccExecAddEditPendingFrame() {
         initComponents();
     }
 
@@ -38,13 +38,11 @@ public class AccExecAddEditReceiptFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        ReceiptIDField = new javax.swing.JTextField();
-        UserIDField = new javax.swing.JTextField();
-        PayDescriptionField = new javax.swing.JTextField();
-        PaidDateField = new javax.swing.JTextField();
-        PayAmountField = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        IssuedDateField = new javax.swing.JTextField();
+        PendingIdField = new javax.swing.JTextField();
+        UserIdField = new javax.swing.JTextField();
+        DescriptionField = new javax.swing.JTextField();
+        PendingDueField = new javax.swing.JTextField();
+        PendingAmountField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,7 +59,7 @@ public class AccExecAddEditReceiptFrame extends javax.swing.JFrame {
 
         addEditBtn.setBackground(new java.awt.Color(204, 204, 204));
         addEditBtn.setForeground(new java.awt.Color(0, 0, 0));
-        addEditBtn.setText("Update/ Add Payment");
+        addEditBtn.setText("Update/ Add");
         addEditBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addEditBtnActionPerformed(evt);
@@ -70,15 +68,15 @@ public class AccExecAddEditReceiptFrame extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Receipt ID");
+        jLabel1.setText("Pending ID");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Pay Description");
+        jLabel5.setText("Description");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Pay Amount");
+        jLabel6.setText("Pending Amount");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -86,35 +84,23 @@ public class AccExecAddEditReceiptFrame extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Paid Date");
+        jLabel9.setText("Pending Due");
 
-        ReceiptIDField.setBackground(new java.awt.Color(255, 255, 255));
-        ReceiptIDField.setForeground(new java.awt.Color(0, 0, 0));
-        ReceiptIDField.setEnabled(false);
-        ReceiptIDField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReceiptIDFieldActionPerformed(evt);
-            }
-        });
+        PendingIdField.setBackground(new java.awt.Color(255, 255, 255));
+        PendingIdField.setForeground(new java.awt.Color(0, 0, 0));
+        PendingIdField.setEnabled(false);
 
-        UserIDField.setBackground(new java.awt.Color(255, 255, 255));
-        UserIDField.setForeground(new java.awt.Color(0, 0, 0));
+        UserIdField.setBackground(new java.awt.Color(255, 255, 255));
+        UserIdField.setForeground(new java.awt.Color(0, 0, 0));
 
-        PayDescriptionField.setBackground(new java.awt.Color(255, 255, 255));
-        PayDescriptionField.setForeground(new java.awt.Color(0, 0, 0));
+        DescriptionField.setBackground(new java.awt.Color(255, 255, 255));
+        DescriptionField.setForeground(new java.awt.Color(0, 0, 0));
 
-        PaidDateField.setBackground(new java.awt.Color(255, 255, 255));
-        PaidDateField.setForeground(new java.awt.Color(0, 0, 0));
+        PendingDueField.setBackground(new java.awt.Color(255, 255, 255));
+        PendingDueField.setForeground(new java.awt.Color(0, 0, 0));
 
-        PayAmountField.setBackground(new java.awt.Color(255, 255, 255));
-        PayAmountField.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Issued Date");
-
-        IssuedDateField.setBackground(new java.awt.Color(255, 255, 255));
-        IssuedDateField.setForeground(new java.awt.Color(0, 0, 0));
+        PendingAmountField.setBackground(new java.awt.Color(255, 255, 255));
+        PendingAmountField.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,25 +114,22 @@ public class AccExecAddEditReceiptFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(72, 72, 72)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ReceiptIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UserIDField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PayDescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PaidDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PayAmountField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IssuedDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(85, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addEditBtn)
-                .addGap(202, 202, 202))
+                            .addComponent(PendingIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UserIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PendingDueField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PendingAmountField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(addEditBtn)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,31 +139,28 @@ public class AccExecAddEditReceiptFrame extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ReceiptIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PendingIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(UserIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PayDescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DescriptionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(PayAmountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PendingAmountField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PaidDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IssuedDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(PendingDueField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(66, 66, 66)
                 .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,98 +168,90 @@ public class AccExecAddEditReceiptFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
-        // TODO add your handling code here:
         this.dispose();
-        AccExecManageReceiptFrame AccExecReceipt = new AccExecManageReceiptFrame();
-        AccExecReceipt.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        AccExecReceipt.pack();
-        AccExecReceipt.setResizable(false);
-        AccExecReceipt.setLocationRelativeTo(null);
-        AccExecReceipt.setVisible(true);
-        AccExecReceipt.backButtonToggle();
+        AccExecManagePendingFrame AccExecPending = new AccExecManagePendingFrame();
+        AccExecPending.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        AccExecPending.pack();
+        AccExecPending.setResizable(false);
+        AccExecPending.setLocationRelativeTo(null);
+        AccExecPending.setVisible(true);
+        AccExecPending.backButtonToggle();
         //Run Method in BusManUserManage to set UserType and Data
-        AccExecReceipt.setReceiptData();
+        AccExecPending.setPendingData();
     }//GEN-LAST:event_BackBtnActionPerformed
 
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
         if(addEditDetector=="edit"){
-            
+
             accountExecutive main = new accountExecutive();
             ArrayList<String> dataList = new ArrayList<String>();
-            dataList.add(ReceiptIDField.getText());
-            dataList.add(UserIDField.getText());
-            dataList.add(PayDescriptionField.getText());
-            dataList.add(PayAmountField.getText());
-            dataList.add(PaidDateField.getText());
-            dataList.add(IssuedDateField.getText());
-            main.editOrAddData(dataList, "Receipt","ReceiptContent.txt","edit");
+            dataList.add(PendingIdField.getText());
+            dataList.add(UserIdField.getText());
+            dataList.add(DescriptionField.getText());
+            dataList.add(PendingAmountField.getText());
+            dataList.add(PendingDueField.getText());
+          
+            main.editOrAddData(dataList, "Pending","Pending.txt","edit");
+            //
         }else if(addEditDetector=="add"){
 
             accountExecutive main = new accountExecutive();
             accountExecutive.accountExecutiveMethod mainInner = main.new accountExecutiveMethod();
-            receipt receiptClass = new receipt();
+            pendingFee pendingClass = new pendingFee();
             ArrayList<String> dataList = new ArrayList<String>();
-            receiptClass.getIncreasedID("ReceiptContent.txt","Receipt");
-            dataList.add(receiptClass.getreceiptId());
-            dataList.add(UserIDField.getText());
-            dataList.add(PayDescriptionField.getText());
-            dataList.add(PayAmountField.getText());
-            dataList.add(PaidDateField.getText());
-            dataList.add(IssuedDateField.getText());
+            pendingClass.getIncreasedID("Pending.txt","Pending");
+            dataList.add(pendingClass.getpendingId());
+            dataList.add(UserIdField.getText());
+            dataList.add(DescriptionField.getText());
+            dataList.add(PendingAmountField.getText());
+            dataList.add(PendingDueField.getText());
+            
             System.out.println(dataList);
-            mainInner.addEditPayment(dataList,"Receipt","ReceiptContent.txt","add");
+            mainInner.addEditPayment(dataList,"Pending","Pending.txt","add");
 
         }
     }//GEN-LAST:event_addEditBtnActionPerformed
 
     private String addEditDetector;
-    private String fileType="ReceiptContent.txt";
-    private String userType="Receipt";
+    private String fileType="Pending.txt";
+    private String userType="Pending";
     
     public void addEditDetect(String functionType,String id) throws FileNotFoundException{
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            receipt receiptClass = new receipt();
-            receiptClass.chooseTxtFile("Receipt");
-            receiptClass.getDataViewSingle(id, fileType,userType);
+            pendingFee pendingClass = new pendingFee();
+            pendingClass.chooseTxtFile("Pending");
+            pendingClass.getDataViewSingle(id, fileType,userType);
 //            payment.paymentMethod mainInner = employeeJobClass.new employeeJobMethod();
             
             addEditBtn.setText("Update");
-            ReceiptIDField.setText(receiptClass.getreceiptId());
-            UserIDField.setText(receiptClass.getuserId());
-            PayDescriptionField.setText(receiptClass.getpaymentDesc());
-            PayAmountField.setText(receiptClass.getpaidAmount());
-            PaidDateField.setText(receiptClass.getpaidDate());
-            IssuedDateField.setText(receiptClass.getissuedDate());
-
+            PendingIdField.setText(pendingClass.getpendingId());
+            UserIdField.setText(pendingClass.getuserId());
+            DescriptionField.setText(pendingClass.getpendingDesc());
+            PendingAmountField.setText(pendingClass.getpendingAmount());
+            PendingDueField.setText(pendingClass.getpendingdue());
             
         }else if (functionType=="add"){
             this.addEditDetector="add";
             addEditBtn.setText("Add");
-            ReceiptIDField.setVisible(false);
+            PendingIdField.setVisible(false);
             jLabel1.setVisible(false);
         }
     }
-    
-    private void ReceiptIDFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReceiptIDFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReceiptIDFieldActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -297,35 +269,33 @@ public class AccExecAddEditReceiptFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AccExecAddEditReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AccExecAddEditPendingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AccExecAddEditReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AccExecAddEditPendingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AccExecAddEditReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AccExecAddEditPendingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AccExecAddEditReceiptFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AccExecAddEditPendingFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AccExecAddEditReceiptFrame().setVisible(true);
+                new AccExecAddEditPendingFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackBtn;
-    private javax.swing.JTextField IssuedDateField;
-    private javax.swing.JTextField PaidDateField;
-    private javax.swing.JTextField PayAmountField;
-    private javax.swing.JTextField PayDescriptionField;
-    private javax.swing.JTextField ReceiptIDField;
-    private javax.swing.JTextField UserIDField;
+    private javax.swing.JTextField DescriptionField;
+    private javax.swing.JTextField PendingAmountField;
+    private javax.swing.JTextField PendingDueField;
+    private javax.swing.JTextField PendingIdField;
+    private javax.swing.JTextField UserIdField;
     private javax.swing.JButton addEditBtn;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

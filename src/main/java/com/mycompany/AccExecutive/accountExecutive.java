@@ -237,6 +237,23 @@ public class accountExecutive extends User implements dataManagementController, 
                             
                             break;
                         }
+                        if(type=="Receipt"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            user.set(5, dataList.get(5));
+                            
+                            break;
+                        }
+                        if(type=="Pending"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            
+                            break;
+                        }
                     }
                 }
                 new FileWriter(fileName, false).close();
@@ -270,6 +287,13 @@ public class accountExecutive extends User implements dataManagementController, 
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
                             bw.close();
                         }
+                        if(type=="Pending"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
+                            bw.close();
+                        }
                         
                     }
                     catch (IOException e) {
@@ -293,7 +317,6 @@ public class accountExecutive extends User implements dataManagementController, 
                     AddDataToFile.write(dataList.get(3)+",");
                     AddDataToFile.write(dataList.get(4));
 
-                   
                 }
                 if(type=="Statement"){
                     AddDataToFile.write(dataList.get(0)+",");
@@ -321,7 +344,13 @@ public class accountExecutive extends User implements dataManagementController, 
                    AddDataToFile.write(dataList.get(4)+",");
                    AddDataToFile.write(dataList.get(5)); 
                 }
-                
+                if(type=="Pending"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4));
+                }
                 AddDataToFile.newLine();
                 AddDataToFile.close();
                 AddNewItem.close();
@@ -385,6 +414,16 @@ public class accountExecutive extends User implements dataManagementController, 
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+",").append(user.get(5)+"\n");
+
+                            bw.close();
+
+                        }
+                        if(file=="Pending.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
 
                             bw.close();
 
