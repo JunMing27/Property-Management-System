@@ -107,7 +107,7 @@ public class buildingExecComplaintEdit extends javax.swing.JFrame {
 
         complaintUserTypeLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         complaintUserTypeLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        complaintUserTypeLabel1.setText("Type");
+        complaintUserTypeLabel1.setText("User Type");
 
         complaintITypeField.setBackground(new java.awt.Color(255, 255, 255));
         complaintITypeField.setEnabled(false);

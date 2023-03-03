@@ -4,7 +4,7 @@
  */
 package com.mycompany.visitor;
 
-import com.mycompany.mavenproject1.LoginPage;
+import com.mycompany.dataController.LoginPage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

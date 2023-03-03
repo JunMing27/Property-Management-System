@@ -500,16 +500,16 @@ public class buildingManUserManageFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Deleted Successfully", "Message", JOptionPane.INFORMATION_MESSAGE);
                 
                 this.dispose();
-                com.mycompany.mavenproject1.BuildingManUserManageFrame manager = new com.mycompany.mavenproject1.BuildingManUserManageFrame();
-                manager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                manager.pack();
-                manager.setResizable(false);
-                manager.setLocationRelativeTo(null);
-                manager.setVisible(true);
-                manager.backButtonToggle();
+                buildingManUserManageFrame BusManUserManage = new buildingManUserManageFrame();
+                BusManUserManage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                BusManUserManage.pack();
+                BusManUserManage.setResizable(false);
+                BusManUserManage.setLocationRelativeTo(null);
+                BusManUserManage.setVisible(true);
+                BusManUserManage.backButtonToggle();
                 try {
-                    manager.setUserType(userType);
-                    manager.setUserData();
+                    BusManUserManage.setUserType(userType);
+                    BusManUserManage.setUserData();
                 } catch (IOException ex) {
 
                 }

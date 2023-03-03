@@ -4,7 +4,7 @@
  */
 package com.mycompany.vendor;
 
-import com.mycompany.mavenproject1.LoginPage;
+import com.mycompany.dataController.LoginPage;
 import javax.swing.JOptionPane;
 
 /**

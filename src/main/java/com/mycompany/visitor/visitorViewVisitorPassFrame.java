@@ -4,7 +4,7 @@
  */
 package com.mycompany.visitor;
 
-import com.mycompany.mavenproject1.LoginPage;
+import com.mycompany.dataController.LoginPage;
 import com.mycompany.resident.visitorPass;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
