@@ -20,6 +20,7 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         idGet = id;
         noDataLabel.setVisible(false);
+        displayData();
         createTable();
     }
 
@@ -39,6 +40,12 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
         checkPointRecordTable = new javax.swing.JTable();
         noDataLabel = new javax.swing.JLabel();
         checkInBtn = new javax.swing.JButton();
+        idLabel = new javax.swing.JLabel();
+        idTxt = new javax.swing.JLabel();
+        blockLabel = new javax.swing.JLabel();
+        blockTxt = new javax.swing.JLabel();
+        timeLabel = new javax.swing.JLabel();
+        timeTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +64,7 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
 
         topLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         topLabel.setForeground(new java.awt.Color(0, 0, 0));
-        topLabel.setText("CHECK POINT RECORD");
+        topLabel.setText("CHECKPOINT");
 
         checkPointRecordTable.setBackground(new java.awt.Color(233, 233, 233));
         checkPointRecordTable.setForeground(new java.awt.Color(0, 0, 0));
@@ -74,7 +81,7 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
         noDataLabel.setBackground(new java.awt.Color(233, 233, 233));
         noDataLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         noDataLabel.setForeground(new java.awt.Color(0, 0, 0));
-        noDataLabel.setText("No Data");
+        noDataLabel.setText("No Record");
 
         checkInBtn.setBackground(new java.awt.Color(255, 255, 255));
         checkInBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -87,25 +94,61 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
             }
         });
 
+        idLabel.setBackground(new java.awt.Color(233, 233, 233));
+        idLabel.setForeground(new java.awt.Color(0, 0, 0));
+        idLabel.setText("Guard ID :");
+
+        idTxt.setBackground(new java.awt.Color(233, 233, 233));
+        idTxt.setForeground(new java.awt.Color(0, 0, 0));
+        idTxt.setText("E1");
+
+        blockLabel.setBackground(new java.awt.Color(233, 233, 233));
+        blockLabel.setForeground(new java.awt.Color(0, 0, 0));
+        blockLabel.setText("Block Number :");
+
+        blockTxt.setBackground(new java.awt.Color(233, 233, 233));
+        blockTxt.setForeground(new java.awt.Color(0, 0, 0));
+        blockTxt.setText("Block A");
+
+        timeLabel.setBackground(new java.awt.Color(233, 233, 233));
+        timeLabel.setForeground(new java.awt.Color(0, 0, 0));
+        timeLabel.setText("Checkpoint Time :");
+
+        timeTxt.setBackground(new java.awt.Color(233, 233, 233));
+        timeTxt.setForeground(new java.awt.Color(0, 0, 0));
+        timeTxt.setText("0800");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(noDataLabel)
+                .addGap(17, 17, 17))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(topLabel))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(noDataLabel))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(197, 197, 197)
-                        .addComponent(checkInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(200, Short.MAX_VALUE))
+                        .addComponent(checkInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(timeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(blockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(blockTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(timeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(topLabel)))
+                .addGap(0, 160, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(85, Short.MAX_VALUE)
@@ -117,17 +160,29 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(23, 23, 23)
                 .addComponent(topLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLabel)
+                    .addComponent(idTxt))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(blockLabel)
+                    .addComponent(blockTxt))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timeLabel)
+                    .addComponent(timeTxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                 .addComponent(noDataLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 398, Short.MAX_VALUE)
+                .addGap(110, 110, 110)
                 .addComponent(checkInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(167, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(236, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(60, Short.MAX_VALUE)))
         );
 
@@ -159,7 +214,7 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
 
     private void createTable()
     {
-        checkpoint main = new checkpoint();
+        checkpointRecord main = new checkpointRecord();
         main.setUserId(idGet);
         main.displayDataViewOwn(0, "", "checkpointRecord", "CheckpointRecord");
         if(main.getCheckPointRecordID() != null)
@@ -182,6 +237,14 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
         }
         
     }
+    
+    private void displayData()
+    {
+        checkpointRecord main = new checkpointRecord();
+        main.setUserId(idGet);
+        main.displayDataViewOwn(0, "", "checkpoint", "Checkpoint");
+    }
+    
     
     /**
      * @param args the command line arguments
@@ -220,11 +283,17 @@ public class guardCheckPointViewFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.JLabel blockLabel;
+    private javax.swing.JLabel blockTxt;
     private javax.swing.JButton checkInBtn;
     private javax.swing.JTable checkPointRecordTable;
+    private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel idTxt;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel noDataLabel;
+    private javax.swing.JLabel timeLabel;
+    private javax.swing.JLabel timeTxt;
     private javax.swing.JLabel topLabel;
     // End of variables declaration//GEN-END:variables
 }
