@@ -179,8 +179,7 @@ public class residentMenuFrame extends javax.swing.JFrame {
             "Are You Sure to Log Out?", "Confirmation", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
             this.dispose();
-            LoginPage loginPage = new LoginPage();
-            loginPage.setVisible(true);
+            LoginPage.main(null);
         }
     }//GEN-LAST:event_exitBtnActionPerformed
 

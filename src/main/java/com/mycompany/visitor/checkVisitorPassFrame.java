@@ -168,9 +168,8 @@ public class checkVisitorPassFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        
-        LoginPage loginPage = new LoginPage();
-        loginPage.setVisible(true);
+        this.dispose();
+        LoginPage.main(null);
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void accessBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accessBtnActionPerformed

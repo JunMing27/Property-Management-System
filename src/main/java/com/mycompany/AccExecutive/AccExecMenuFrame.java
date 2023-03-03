@@ -4,6 +4,7 @@
  */
 package com.mycompany.AccExecutive;
 
+import com.mycompany.dataController.LoginPage;
 import javax.swing.JFrame;
 
 /**
@@ -186,7 +187,8 @@ public class AccExecMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_InvoiceManageActionPerformed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        LoginPage.main(null);
     }//GEN-LAST:event_BackBtnActionPerformed
 
     private void ReceiptManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReceiptManageActionPerformed

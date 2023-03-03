@@ -5,6 +5,7 @@
 package com.mycompany.BuildingExecutive;
 
 import com.mycompany.buildingManager.buildingManagerReportMenuFrame;
+import com.mycompany.dataController.LoginPage;
 import java.io.IOException;
 import javax.swing.JFrame;
 
@@ -170,8 +171,8 @@ public class buildingExecMenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_generateReportBtnActionPerformed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
-        // TODO add your handling code here:
-
+        this.dispose();
+        LoginPage.main(null);
     }//GEN-LAST:event_BackBtnActionPerformed
 
     private void complaintManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complaintManageActionPerformed

@@ -176,11 +176,11 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // Direct to Login Page
         int dialog = JOptionPane.showConfirmDialog(null,
-            "Log Out will Not Able to LogIn Again?", "Warning", JOptionPane.YES_NO_OPTION);
+            "You will Not Able to Log In Again!", "Warning", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
             this.dispose();
-            LoginPage loginPage = new LoginPage();
-            loginPage.setVisible(true);
+            checkVisitorPassFrame visitorPassFrame = new checkVisitorPassFrame();
+            visitorPassFrame.setVisible(true);
         }
     }//GEN-LAST:event_backBtnActionPerformed
 
