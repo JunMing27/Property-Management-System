@@ -28,7 +28,6 @@ public class residentVisPassAddEditFrame extends javax.swing.JFrame {
         idGet = id;
         addEditGet = addEdit;
         dataListGet = dataList;
-        addEditGet = "add";
         if(addEditGet.equals("edit"))
         {
             jDateChooser1.setVisible(false);
