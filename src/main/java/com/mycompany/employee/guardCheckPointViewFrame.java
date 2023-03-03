@@ -4,6 +4,7 @@
  */
 package com.mycompany.employee;
 
+import com.mycompany.BuildingExecutive.checkpoint;
 import com.mycompany.BuildingExecutive.checkpointRecord;
 import javax.swing.table.DefaultTableModel;
 

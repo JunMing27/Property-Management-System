@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.employee;
+package com.mycompany.BuildingExecutive;
 
 import com.mycompany.dataController.displayController1;
 import java.io.File;
