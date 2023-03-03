@@ -220,10 +220,10 @@ public class vendorComplaintAddEditFrame extends javax.swing.JFrame {
                 "Are You Sure to Save?", "Confirmation", JOptionPane.YES_NO_OPTION);
             if(dialog == JOptionPane.YES_OPTION){
                 ArrayList<String> dataList = new ArrayList<>();
-                dataList.add(idGet);
                 dataList.add(id);
                 dataList.add(detail);
                 dataList.add(reply);
+                dataList.add(idGet);
                 vendor main = new vendor();
                 vendor.vendorMethod innerMethod = main.new vendorMethod();
                 main.setUserId(idGet);
