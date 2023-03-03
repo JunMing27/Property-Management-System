@@ -4,7 +4,6 @@
  */
 package com.mycompany.visitor;
 
-import com.mycompany.dataController.LoginPage;
 import com.mycompany.resident.visitorPass;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -24,7 +23,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
         idGet = id;
         residentIdLabel.setVisible(false);
         displayData();
-//        setStatus();
+        setStatus();
     }
 
     /**
