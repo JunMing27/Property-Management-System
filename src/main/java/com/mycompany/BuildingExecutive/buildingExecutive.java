@@ -138,6 +138,9 @@ public class buildingExecutive extends User implements dataManagementController,
         else if(Type=="CheckpointRecord"){
             file="CheckpointRecord.txt";
         }
+        else if(Type=="Checkpoint"){
+            file="Checkpoint.txt";
+        }
     }
     @Override
     public void displayDataView(Integer dataLine, String searchTxt, String type) {
@@ -259,6 +262,13 @@ public class buildingExecutive extends User implements dataManagementController,
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
                             bw.close();
                             }
+                            if(type=="Checkpoint"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
+                            bw.close();
+                            }
                     }
                     catch (IOException e) {
                         JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -295,6 +305,12 @@ public class buildingExecutive extends User implements dataManagementController,
                     AddDataToFile.write(dataList.get(2)+",");
                     AddDataToFile.write(dataList.get(3)+",");
                     AddDataToFile.write(dataList.get(4));
+                }
+                if(type=="Checkpoint"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3));
                 }
                 
                 
@@ -355,6 +371,14 @@ public class buildingExecutive extends User implements dataManagementController,
                             bw.close();
                             
                         }
+                         if(file=="Checkpoint.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
+                            bw.close();
+                         }
                         
                         
                     }
@@ -592,17 +616,20 @@ public class buildingExecutive extends User implements dataManagementController,
                         +dataList.get(2)+","
                         +dataList.get(3)+"\n");
             }
-            else if(textFile.equals("Patrol"))
+            else if(textFile.equals("CheckpointRecord"))
             {
                 bw.write(dataList.get(0)+","
                         +dataList.get(1)+","
-                        +dataList.get(2)+"\n");
+                        +dataList.get(2)+","
+                        +dataList.get(3)+","
+                        +dataList.get(4)+"\n");
             }
             else if(textFile.equals("Checkpoint"))
             {
                 bw.write(dataList.get(0)+","
                         +dataList.get(1)+","
-                        +dataList.get(2)+"\n");
+                        +dataList.get(2)+","
+                        +dataList.get(3)+"\n");
             }
             
             

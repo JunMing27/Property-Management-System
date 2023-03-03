@@ -67,7 +67,6 @@
                               <Component id="guardIdLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="cpIdLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="blockLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="dateLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="timeLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
@@ -75,7 +74,6 @@
                               <Component id="CheckpointIdTxt" min="-2" pref="228" max="-2" attributes="0"/>
                               <Component id="GuardIdTxt" min="-2" pref="228" max="-2" attributes="0"/>
                               <Component id="BlockNumTxt" min="-2" pref="228" max="-2" attributes="0"/>
-                              <Component id="DateTxt" min="-2" pref="228" max="-2" attributes="0"/>
                               <Component id="CheckInTimeTxt" min="-2" pref="228" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -98,28 +96,27 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="backBtn" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="topLabel1" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cpIdLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CheckpointIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="topLabel1" min="-2" pref="35" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="cpIdLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="CheckpointIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="guardIdLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="GuardIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="BlockNumTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="blockLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="guardIdLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="GuardIdTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="blockLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="BlockNumTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="dateLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="DateTxt" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="timeLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="CheckInTimeTxt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -184,17 +181,6 @@
             <Property name="text" type="java.lang.String" value="Guard ID :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="dateLabel1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e9" green="e9" red="e9" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Date :"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="timeLabel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -245,11 +231,6 @@
         <Component class="javax.swing.JTextField" name="BlockNumTxt">
           <Properties>
             <Property name="text" type="java.lang.String" value="Block A / Block B/ Block C/ Block D"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="DateTxt">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="DD-MM-YYYY"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="CheckInTimeTxt">

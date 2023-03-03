@@ -35,14 +35,12 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
         topLabel1 = new javax.swing.JLabel();
         cpIdLabel1 = new javax.swing.JLabel();
         guardIdLabel1 = new javax.swing.JLabel();
-        dateLabel1 = new javax.swing.JLabel();
         timeLabel1 = new javax.swing.JLabel();
         errorMessage1 = new javax.swing.JTextField();
         blockLabel1 = new javax.swing.JLabel();
         CheckpointIdTxt = new javax.swing.JTextField();
         GuardIdTxt = new javax.swing.JTextField();
         BlockNumTxt = new javax.swing.JTextField();
-        DateTxt = new javax.swing.JTextField();
         CheckInTimeTxt = new javax.swing.JTextField();
         addEditBtn = new javax.swing.JButton();
 
@@ -73,10 +71,6 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
         guardIdLabel1.setForeground(new java.awt.Color(0, 0, 0));
         guardIdLabel1.setText("Guard ID :");
 
-        dateLabel1.setBackground(new java.awt.Color(233, 233, 233));
-        dateLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        dateLabel1.setText("Date :");
-
         timeLabel1.setBackground(new java.awt.Color(233, 233, 233));
         timeLabel1.setForeground(new java.awt.Color(0, 0, 0));
         timeLabel1.setText("Check-In Time :");
@@ -99,8 +93,6 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
         });
 
         BlockNumTxt.setText("Block A / Block B/ Block C/ Block D");
-
-        DateTxt.setText("DD-MM-YYYY");
 
         CheckInTimeTxt.setText("00:00");
 
@@ -135,14 +127,12 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
                             .addComponent(guardIdLabel1)
                             .addComponent(cpIdLabel1)
                             .addComponent(blockLabel1)
-                            .addComponent(dateLabel1)
                             .addComponent(timeLabel1))
                         .addGap(90, 90, 90)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CheckpointIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(GuardIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BlockNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CheckInTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
@@ -158,24 +148,22 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(topLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cpIdLabel1)
-                    .addComponent(CheckpointIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardIdLabel1)
-                    .addComponent(GuardIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(blockLabel1)
-                    .addComponent(BlockNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dateLabel1)
-                    .addComponent(DateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(topLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cpIdLabel1)
+                            .addComponent(CheckpointIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(guardIdLabel1)
+                            .addComponent(GuardIdTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(72, 72, 72))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BlockNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(blockLabel1)))
+                .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(timeLabel1)
                     .addComponent(CheckInTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -225,10 +213,9 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
             dataList.add(CheckpointIdTxt.getText());
             dataList.add(GuardIdTxt.getText());
             dataList.add(BlockNumTxt.getText());
-            dataList.add(DateTxt.getText());
             dataList.add(CheckInTimeTxt.getText());
           
-            main.editOrAddData(dataList, "Pending","Pending.txt","edit");
+            main.editOrAddData(dataList, "Checkpoint","Checkpoint.txt","edit");
             //
         }else if(addEditDetector=="add"){
 
@@ -236,11 +223,10 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
 //            buildingExecutive.buildingExecutiveMethod mainInner = main.new buildingExecutiveMethod();
             checkpointRecord checkpointClass = new checkpointRecord();
             ArrayList<String> dataList = new ArrayList<String>();
-            checkpointClass.getIncreasedID("Checkpoint.txt","Patrol");
+            checkpointClass.getIncreasedID("Checkpoint.txt","Checkpoint");
             dataList.add(checkpointClass.getCheckPointRecordID());
             dataList.add(GuardIdTxt.getText());
             dataList.add(BlockNumTxt.getText());
-            dataList.add(DateTxt.getText());
             dataList.add(CheckInTimeTxt.getText());
             
             System.out.println(dataList);
@@ -265,7 +251,7 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
             CheckpointIdTxt.setText(checkpointClass.getCheckPointRecordID());
             GuardIdTxt.setText(checkpointClass.getUserId());
             BlockNumTxt.setText(checkpointClass.getBlockNumber());
-            DateTxt.setText(checkpointClass.getCheckPointRecordDate());
+            
             CheckInTimeTxt.setText(checkpointClass.getCheckPointRecordTime());
             
         }else if (functionType=="add"){
@@ -315,13 +301,11 @@ public class buildingExecPatrolAddEdit extends javax.swing.JFrame {
     private javax.swing.JTextField BlockNumTxt;
     private javax.swing.JTextField CheckInTimeTxt;
     private javax.swing.JTextField CheckpointIdTxt;
-    private javax.swing.JTextField DateTxt;
     private javax.swing.JTextField GuardIdTxt;
     private javax.swing.JButton addEditBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JLabel blockLabel1;
     private javax.swing.JLabel cpIdLabel1;
-    private javax.swing.JLabel dateLabel1;
     private javax.swing.JTextField errorMessage1;
     private javax.swing.JLabel guardIdLabel1;
     private javax.swing.JPanel jPanel1;
