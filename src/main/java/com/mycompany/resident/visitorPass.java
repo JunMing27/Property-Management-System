@@ -200,16 +200,17 @@ public class visitorPass implements displayController1{
                     if(item.get(3).equals(this.getUserId()))
                     {
                         onlyUserInfo.add(allUserInfo.get(p));
-                        System.out.println("enter first part");
                         q++;
                     }
                 }
             }
-        }else if(this.getVisitorPassId()!= null ) //if is visitor
+        }
+        
+        else if(this.getVisitorPassId()!= null ) //if is visitor
         {
             for (p=0,q=0; p<allUserInfo.size(); p++)
             {
-                if(allUserInfo.get(p).contains(this.getUserId()))
+                if(allUserInfo.get(p).contains(this.getVisitorPassId()))
                 {
                     ArrayList<String> item = allUserInfo.get(p);
                     if(item.get(0).equals(this.getVisitorPassId()))
@@ -217,11 +218,9 @@ public class visitorPass implements displayController1{
                         onlyUserInfo.add(allUserInfo.get(p));
                         q++;
                     }
-                    System.out.println("second part "+onlyUserInfo);
                 }
             }
         }
-        
         return onlyUserInfo;
     }
     

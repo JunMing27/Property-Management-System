@@ -24,7 +24,7 @@ public class visitorViewVisitorPassFrame extends javax.swing.JFrame {
         idGet = id;
         residentIdLabel.setVisible(false);
         displayData();
-        setStatus();
+//        setStatus();
     }
 
     /**
