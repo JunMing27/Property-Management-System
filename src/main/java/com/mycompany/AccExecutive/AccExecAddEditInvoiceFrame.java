@@ -6,7 +6,10 @@ package com.mycompany.AccExecutive;
 
 //import com.mycompany.resident.invoice;
 import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JFrame;
 
 /**
@@ -46,11 +49,11 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
         invoiceIdTxtField = new javax.swing.JTextField();
         userIdTxtField = new javax.swing.JTextField();
         TenantNameTxtField = new javax.swing.JTextField();
-        DueDateTxtField = new javax.swing.JTextField();
-        DateIssuedTxtField = new javax.swing.JTextField();
         DueAmountTxtField = new javax.swing.JTextField();
         TotalAmountTxtField = new javax.swing.JTextField();
         DescriptionTxtField = new javax.swing.JTextField();
+        dueDateDropDown = new com.toedter.calendar.JDateChooser();
+        dateIssuedDropDown1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,6 +130,10 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
             }
         });
 
+        dueDateDropDown.setBackground(new java.awt.Color(255, 255, 255));
+
+        dateIssuedDropDown1.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -154,10 +161,6 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(TotalAmountTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(dueAmountLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(DueAmountTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(tenantNameLabel2)
                                 .addGap(161, 161, 161)
                                 .addComponent(userIdTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -171,12 +174,16 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
                                 .addComponent(invoiceIdTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(dateIssuedLabel)
+                                .addGap(120, 120, 120)
+                                .addComponent(dateIssuedDropDown1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dueAmountLabel)
+                                    .addComponent(dueDateLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(DateIssuedTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(dueDateLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(DueDateTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(dueDateDropDown, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DueAmountTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))))))
                 .addGap(0, 21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -189,7 +196,7 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tenantNameLabel1)
                     .addComponent(invoiceIdTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -203,26 +210,27 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
                     .addComponent(TenantNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dateIssuedLabel)
-                    .addComponent(DateIssuedTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dueDateLabel)
-                    .addComponent(DueDateTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DueAmountTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dueAmountLabel))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalAmountLabel)
-                    .addComponent(TotalAmountTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(descLabel)
-                    .addComponent(DescriptionTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(dateIssuedLabel)
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dueDateLabel)
+                            .addComponent(dueDateDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DueAmountTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dueAmountLabel))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(totalAmountLabel)
+                            .addComponent(TotalAmountTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(descLabel)
+                            .addComponent(DescriptionTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addComponent(addEditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateIssuedDropDown1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
@@ -263,8 +271,14 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
             dataList.add(invoiceIdTxtField.getText());
             dataList.add(userIdTxtField.getText());
             dataList.add(TenantNameTxtField.getText());
-            dataList.add(DateIssuedTxtField.getText());
-            dataList.add(DueDateTxtField.getText());
+//            dataList.add(DateIssuedTxtField.getText());
+//            dataList.add(DueDateTxtField.getText());
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+           String DateIssued = sdf.format(dateIssuedDropDown1.getDate());
+            String DueDate = sdf.format(dueDateDropDown.getDate());
+            dataList.add(DateIssued);
+            dataList.add(DueDate);
+
             dataList.add(DueAmountTxtField.getText());
             dataList.add(TotalAmountTxtField.getText());
             dataList.add(DescriptionTxtField.getText());
@@ -281,8 +295,15 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
             dataList.add(invoiceClass.getInvoiceId());
             dataList.add(userIdTxtField.getText());
             dataList.add(TenantNameTxtField.getText());
-            dataList.add(DateIssuedTxtField.getText());
-            dataList.add(DueDateTxtField.getText());
+//            dataList.add(DateIssuedTxtField.getText());
+//            dataList.add(DueDateTxtField.getText());
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            String DateIssued = sdf.format(dateIssuedDropDown1.getDate());
+            String DueDate = sdf.format(dueDateDropDown.getDate());
+            dataList.add(DateIssued);
+            dataList.add(DueDate);
+
+
             dataList.add(DueAmountTxtField.getText());
             dataList.add(TotalAmountTxtField.getText());
             dataList.add(DescriptionTxtField.getText());
@@ -299,20 +320,29 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
     public void addEditDetect(String functionType,String id) throws FileNotFoundException{
         if(functionType=="edit"){
             this.addEditDetector="edit";
-            invoice statementClass = new invoice();
-            statementClass.chooseTxtFile("Invoice");
-            statementClass.getDataViewSingle(id, fileType,userType);
+            invoice invoiceClass = new invoice();
+            invoiceClass.chooseTxtFile("Invoice");
+            invoiceClass.getDataViewSingle(id, fileType,userType);
 //            payment.paymentMethod mainInner = employeeJobClass.new employeeJobMethod();
 
             addEditBtn.setText("Update");
-            invoiceIdTxtField.setText(statementClass.getInvoiceId());
-            userIdTxtField.setText(statementClass.getUserId());
-            TenantNameTxtField.setText(statementClass.getUserName());
-            DateIssuedTxtField.setText(statementClass.getIssuedDate());
-            DueDateTxtField.setText(statementClass.getDueDate());
-            DueAmountTxtField.setText(statementClass.getDueAmount());
-            TotalAmountTxtField.setText(statementClass.getTotalAmount());
-            DescriptionTxtField.setText(statementClass.getPaymentDesc());
+            invoiceIdTxtField.setText(invoiceClass.getInvoiceId());
+            userIdTxtField.setText(invoiceClass.getUserId());
+            TenantNameTxtField.setText(invoiceClass.getUserName());
+//            DateIssuedTxtField.setText(invoiceClass.getIssuedDate());
+//            DueDateTxtField.setText(statementClass.getDueDate());
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            Date existingDate;
+            try {  
+                existingDate =sdf.parse(invoiceClass.getDueDate());
+                dueDateDropDown.setDate(existingDate);
+            } catch (ParseException ex) {
+            }
+
+            DueAmountTxtField.setText(invoiceClass.getDueAmount());
+            TotalAmountTxtField.setText(invoiceClass.getTotalAmount());
+            DescriptionTxtField.setText(invoiceClass.getPaymentDesc());
             
         }else if (functionType=="add"){
             this.addEditDetector="add";
@@ -362,17 +392,17 @@ public class AccExecAddEditInvoiceFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField DateIssuedTxtField;
     private javax.swing.JTextField DescriptionTxtField;
     private javax.swing.JTextField DueAmountTxtField;
-    private javax.swing.JTextField DueDateTxtField;
     private javax.swing.JTextField TenantNameTxtField;
     private javax.swing.JTextField TotalAmountTxtField;
     private javax.swing.JButton addEditBtn;
     private javax.swing.JButton backBtn;
+    private com.toedter.calendar.JDateChooser dateIssuedDropDown1;
     private javax.swing.JLabel dateIssuedLabel;
     private javax.swing.JLabel descLabel;
     private javax.swing.JLabel dueAmountLabel;
+    private com.toedter.calendar.JDateChooser dueDateDropDown;
     private javax.swing.JLabel dueDateLabel;
     private javax.swing.JTextField invoiceIdTxtField;
     private javax.swing.JPanel jPanel1;

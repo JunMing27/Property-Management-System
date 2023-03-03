@@ -7,6 +7,7 @@ package com.mycompany.BuildingExecutive;
 import com.mycompany.adminExecutive.adminExecutive;
 import com.mycompany.dataController.User;
 import com.mycompany.dataController.dataManagementController;
+import com.mycompany.dataController.dataManagementController1;
 import com.mycompany.dataController.displayController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -29,9 +30,9 @@ import javax.swing.filechooser.FileFilter;
 
 /**
  *
- * @author Jun Ming
+ * @author Jun Ming & Edi
  */
-public class buildingExecutive extends User implements dataManagementController, displayController{
+public class buildingExecutive extends User implements dataManagementController, displayController, dataManagementController1{
     @Override
     public String getUserId(){
         return super.getUserId();
@@ -221,6 +222,13 @@ public class buildingExecutive extends User implements dataManagementController,
                             user.set(3, dataList.get(3));
                             break;
                         }
+                        if(type=="Patrol"){
+                            user.set(1, dataList.get(1));
+                            user.set(2, dataList.get(2));
+                            user.set(3, dataList.get(3));
+                            user.set(4, dataList.get(4));
+                            break;
+                        }
                         
                     }
                 }
@@ -241,7 +249,13 @@ public class buildingExecutive extends User implements dataManagementController,
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
                             bw.close();
                         }
-                        
+                            if(type=="Patrol"){
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
+                            bw.close();
+                            }
                     }
                     catch (IOException e) {
                         JOptionPane.showMessageDialog(null, "failed to update file", "Warning", JOptionPane.ERROR_MESSAGE);
@@ -271,6 +285,15 @@ public class buildingExecutive extends User implements dataManagementController,
                     AddDataToFile.write(dataList.get(2)+",");
                     AddDataToFile.write(dataList.get(3));
                 }
+                
+                if(type=="Patrol"){
+                    AddDataToFile.write(dataList.get(0)+",");
+                    AddDataToFile.write(dataList.get(1)+",");
+                    AddDataToFile.write(dataList.get(2)+",");
+                    AddDataToFile.write(dataList.get(3)+",");
+                    AddDataToFile.write(dataList.get(4));
+                }
+                
                 
                 AddDataToFile.newLine();
                 AddDataToFile.close();
@@ -317,6 +340,15 @@ public class buildingExecutive extends User implements dataManagementController,
                             FileWriter fw = new FileWriter(userData,true);
                             BufferedWriter bw = new BufferedWriter(fw);
                             bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+"\n");
+                            bw.close();
+                            
+                        }
+                        if(file=="Checkpoint.txt"){
+                            System.out.println(file);
+                            File userData = new File("src/main/java/com/mycompany/textFile/"+file);
+                            FileWriter fw = new FileWriter(userData,true);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.append(user.get(0)+",").append(user.get(1)+",").append(user.get(2)+",").append(user.get(3)+",").append(user.get(4)+"\n");
                             bw.close();
                             
                         }
@@ -495,6 +527,142 @@ public class buildingExecutive extends User implements dataManagementController,
     @Override
     public void transferImage(File source, File destination) {
     }
+
+    @Override
+    public ArrayList<ArrayList<String>> allUserDataInfo(String textFile) {
+                return null;
+            }
+
+    @Override
+    public ArrayList<ArrayList<String>> onlyUserDataInfo(String textFile) {
+                return null;
+    }
+
+    @Override
+    public void removeFromFile(String textFile, ArrayList<String> dataList) {
+        try {
+            String filePath = "src/main/java/com/mycompany/textFile/"+textFile+".txt";
+            ArrayList<ArrayList<String>> allUsers = allUserDataInfo(filePath);
+            for(int j=0;j<allUsers.size();j++)
+            {
+                if(allUsers.get(j).get(0).equals(dataList.get(0)))
+                {
+                    allUsers.remove(j);
+                    break;
+                }
+            }
+            
+            
+            File file= new File(filePath);
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int j=0; j<allUsers.size(); j++) 
+            {
+                ArrayList<String>item = allUsers.get(j);
+                for(int k=0; k<item.size(); k++)
+                {
+                    if(k == item.size()-1)
+                    {
+                       bw.write(item.get(k));
+                    }else{
+                       bw.write(item.get(k)+",");
+                    }
+                }
+                bw.write("\n");
+            }
+            bw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(buildingExecutive.class.getName()).log(Level.SEVERE, null, ex);
+        }    }
+
+    @Override
+    public void editFile(String textFile, ArrayList<String> dataList) {
+        try {
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileWriter fw = new FileWriter(file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            if(textFile.equals("Complaint"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+","
+                        +dataList.get(3)+"\n");
+            }
+            else if(textFile.equals("Patrol"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+"\n");
+            }
+            else if(textFile.equals("Checkpoint"))
+            {
+                bw.write(dataList.get(0)+","
+                        +dataList.get(1)+","
+                        +dataList.get(2)+"\n");
+            }
+            
+            
+            bw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(buildingExecutive.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @Override
+    public int getNextId(String textFile) {
+        int id = 0;
+        try {
+            File file = new File("src/main/java/com/mycompany/textFile/"+textFile+".txt");
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            if(textFile.equals("VisitorEntry"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("VE")+2));
+                    }
+                    line = br.readLine();
+                }
+            }
+            else if(textFile.equals("Incident"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("IC")+2));
+                    }
+                    line = br.readLine();
+                }
+            }
+            else if(textFile.equals("CheckpointRecord"))
+            {
+                while(line != null )
+                {
+                    String[] dataRow = line.split(",");
+                    for(int i=0; i<dataRow.length; i++)
+                    {
+                        id = Integer.parseInt(dataRow[0].substring(dataRow[0].indexOf("CPR")+3));
+                    }
+                    line = br.readLine();
+                }
+            }
+            
+            br.close();
+            id = id+1;
+            
+        } catch (IOException ex) {
+            Logger.getLogger(buildingExecutive.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
     
     
     class buildingExecutiveMethod{
@@ -504,5 +672,42 @@ public class buildingExecutive extends User implements dataManagementController,
         public void deleteEmployeeJob(String itemId){
             deleteFunction(itemId);
         }
-    }
-}
+        public void addEditPatrol(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
+        }
+        public void deleteCheckpointRecord(String itemId){
+            deleteFunction(itemId);
+        }
+        public void addEditComplaint(ArrayList<String> dataList, String type, String file, String functionType){
+            editOrAddData(dataList,type,file,functionType);
+        }
+        public void deleteComplaint(String itemId){
+            deleteFunction(itemId);
+        }
+       public void addVisitorEntry(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void editVisitorEntry(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+        
+        public void checkInCheckpoint(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void addIncident(String textFile, ArrayList<String> dataList)
+        {
+            editFile(textFile, dataList);
+        }
+        
+        public void editIncident(String textFile, ArrayList<String> dataList)
+        {
+            removeFromFile(textFile, dataList);
+            editFile(textFile, dataList);
+        }
+}}

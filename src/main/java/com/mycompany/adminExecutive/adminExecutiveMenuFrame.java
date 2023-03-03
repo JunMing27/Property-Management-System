@@ -4,7 +4,7 @@
  */
 package com.mycompany.adminExecutive;
 
-import com.mycompany.mavenproject1.LoginPage;
+import com.mycompany.dataController.LoginPage;
 import java.io.IOException;
 import javax.swing.JFrame;
 

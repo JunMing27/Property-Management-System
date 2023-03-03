@@ -94,7 +94,7 @@ public class buildingExecReportViewFrame extends javax.swing.JFrame {
         RoleLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         RoleLabel.setForeground(new java.awt.Color(0, 0, 0));
         RoleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        RoleLabel.setText("??? Report");
+        RoleLabel.setText("Report");
 
         BackBtn.setBackground(new java.awt.Color(255, 255, 255));
         BackBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -342,14 +342,10 @@ public class buildingExecReportViewFrame extends javax.swing.JFrame {
     private javax.swing.JButton BackBtn;
     private javax.swing.JLabel RoleLabel;
     private javax.swing.JTable dataReportTable;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JPanel reportOutputPanel;
     private javax.swing.JPanel reportOutputPanel1;
-    private javax.swing.JTextArea reportOutputTextArea;
     private javax.swing.JTextArea reportOutputTextArea1;
     private javax.swing.JButton reportSelectedDataGenerator;
     // End of variables declaration//GEN-END:variables
