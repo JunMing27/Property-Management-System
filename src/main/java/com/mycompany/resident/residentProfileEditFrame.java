@@ -35,6 +35,7 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         idGet = id;
+        idGet = "R1";
         displayData();
     }
 
@@ -426,9 +427,11 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                 && !unit.isBlank()&& !userName.isBlank()
                 && !pwd.isBlank())
             {
+                System.out.println("gender "+gender);
                 if(gender.equals("two selected"))
                 {
                     errorMessage.setText("Please Select Only One CheckBox");
+                    System.out.println("set");
                 }
                 try {
                     Integer.parseInt(ageString);
@@ -476,7 +479,7 @@ public class residentProfileEditFrame extends javax.swing.JFrame {
                         dataList1.add(idGet);
                         dataList1.add(userName);
                         dataList1.add(pwd);
-                        dataList1.add("resident");
+                        dataList1.add("Resident");
                         innerMethod.editCredential("loginCredential", dataList1);
                         File dest = new File("src/main/java/com/mycompany/image/" + imageName);
                         File source = sourceFile;

@@ -446,7 +446,7 @@ public class vendorProfileEditFrame extends javax.swing.JFrame {
                         dataList1.add(idGet);
                         dataList1.add(userName);
                         dataList1.add(pwd);
-                        dataList1.add("vendor");
+                        dataList1.add("Vendor");
                         innerMethod.editCredential("loginCredential", dataList1);
                         File dest = new File("src/main/java/com/mycompany/image/" + imageName);
                         File source = sourceFile;
