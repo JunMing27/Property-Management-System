@@ -141,7 +141,8 @@ public class LoginPage extends javax.swing.JFrame  {
                                 case "Employee" -> goEmployeePage(fileUserID); //will identify if it is guard
                                 default -> System.out.println("cant find page for this role");
                               }
-
+                            usernameField.setText("");
+                            passwordField.setText("");
                         }
                         else{
                             ;
